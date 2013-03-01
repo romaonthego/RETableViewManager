@@ -31,7 +31,7 @@ RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"
     NSLog(@"Test: %@", item);
 } accessoryType:UITableViewCellAccessoryDisclosureIndicator]];
 
-// Add editable table cell (UITextField)
+// Add editable table cell (using UITextField)
 //
 [section addItem:[RETextItem itemWithTitle:@"Enter text" value:@""]];
 
