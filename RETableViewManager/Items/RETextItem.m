@@ -32,7 +32,17 @@
     return [[RETextItem alloc] initWithTitle:title value:value];
 }
 
++ (id)itemWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder
+{
+    return [[RETextItem alloc] initWithTitle:title value:value placeholder:placeholder];
+}
+
 - (id)initWithTitle:(NSString *)title value:(NSString *)value
+{
+    return [self initWithTitle:title value:value placeholder:nil];
+}
+
+- (id)initWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder
 {
     self = [super init];
     if (!self)
@@ -40,6 +50,7 @@
     
     self.title = title;
     self.value = value;
+    self.placeholder = placeholder;
     
     return self;
 }

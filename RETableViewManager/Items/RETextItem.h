@@ -31,6 +31,8 @@
 @property (copy, nonatomic) NSString *placeholder;
 
 + (id)itemWithTitle:(NSString *)title value:(NSString *)value;
++ (id)itemWithTitle:(NSString *)title value:(NSString *)value  placeholder:(NSString *)placeholder;
 - (id)initWithTitle:(NSString *)title value:(NSString *)value;
+- (id)initWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder;
 
 @end

@@ -1,0 +1,384 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		30EF93B316E039B800B84981 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EF93B216E039B800B84981 /* UIKit.framework */; };
+		30EF93B516E039B800B84981 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EF93B416E039B800B84981 /* Foundation.framework */; };
+		30EF93B716E039B800B84981 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EF93B616E039B800B84981 /* CoreGraphics.framework */; };
+		30EF93BD16E039B800B84981 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30EF93BB16E039B800B84981 /* InfoPlist.strings */; };
+		30EF93BF16E039B800B84981 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93BE16E039B800B84981 /* main.m */; };
+		30EF93C316E039B800B84981 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93C216E039B800B84981 /* AppDelegate.m */; };
+		30EF93C516E039B800B84981 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EF93C416E039B800B84981 /* Default.png */; };
+		30EF93C716E039B800B84981 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EF93C616E039B800B84981 /* Default@2x.png */; };
+		30EF93C916E039B800B84981 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EF93C816E039B800B84981 /* Default-568h@2x.png */; };
+		30EF93E616E039C600B84981 /* RETableViewBoolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93D216E039C600B84981 /* RETableViewBoolCell.m */; };
+		30EF93E716E039C600B84981 /* RETableViewStringCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93D416E039C600B84981 /* RETableViewStringCell.m */; };
+		30EF93E816E039C600B84981 /* RETableViewTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93D616E039C600B84981 /* RETableViewTextCell.m */; };
+		30EF93E916E039C600B84981 /* REBoolItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93D916E039C600B84981 /* REBoolItem.m */; };
+		30EF93EA16E039C600B84981 /* REStringItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93DB16E039C600B84981 /* REStringItem.m */; };
+		30EF93EB16E039C600B84981 /* RETextItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93DD16E039C600B84981 /* RETextItem.m */; };
+		30EF93EC16E039C600B84981 /* RETableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93DF16E039C600B84981 /* RETableViewCell.m */; };
+		30EF93ED16E039C600B84981 /* RETableViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93E116E039C600B84981 /* RETableViewItem.m */; };
+		30EF93EE16E039C600B84981 /* RETableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93E316E039C600B84981 /* RETableViewManager.m */; };
+		30EF93EF16E039C600B84981 /* RETableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93E516E039C600B84981 /* RETableViewSection.m */; };
+		30EF93F216E039D500B84981 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93F116E039D500B84981 /* RootViewController.m */; };
+		30EF93F816E03D1F00B84981 /* ControlsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93F716E03D1F00B84981 /* ControlsViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		30EF93AF16E039B800B84981 /* RETableViewManagerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RETableViewManagerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30EF93B216E039B800B84981 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		30EF93B416E039B800B84981 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		30EF93B616E039B800B84981 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		30EF93BA16E039B800B84981 /* RETableViewManagerExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RETableViewManagerExample-Info.plist"; sourceTree = "<group>"; };
+		30EF93BC16E039B800B84981 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		30EF93BE16E039B800B84981 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		30EF93C016E039B800B84981 /* RETableViewManagerExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RETableViewManagerExample-Prefix.pch"; sourceTree = "<group>"; };
+		30EF93C116E039B800B84981 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		30EF93C216E039B800B84981 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		30EF93C416E039B800B84981 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		30EF93C616E039B800B84981 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		30EF93C816E039B800B84981 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		30EF93D116E039C600B84981 /* RETableViewBoolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewBoolCell.h; sourceTree = "<group>"; };
+		30EF93D216E039C600B84981 /* RETableViewBoolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewBoolCell.m; sourceTree = "<group>"; };
+		30EF93D316E039C600B84981 /* RETableViewStringCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewStringCell.h; sourceTree = "<group>"; };
+		30EF93D416E039C600B84981 /* RETableViewStringCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewStringCell.m; sourceTree = "<group>"; };
+		30EF93D516E039C600B84981 /* RETableViewTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewTextCell.h; sourceTree = "<group>"; };
+		30EF93D616E039C600B84981 /* RETableViewTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewTextCell.m; sourceTree = "<group>"; };
+		30EF93D816E039C600B84981 /* REBoolItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REBoolItem.h; sourceTree = "<group>"; };
+		30EF93D916E039C600B84981 /* REBoolItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REBoolItem.m; sourceTree = "<group>"; };
+		30EF93DA16E039C600B84981 /* REStringItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REStringItem.h; sourceTree = "<group>"; };
+		30EF93DB16E039C600B84981 /* REStringItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REStringItem.m; sourceTree = "<group>"; };
+		30EF93DC16E039C600B84981 /* RETextItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETextItem.h; sourceTree = "<group>"; };
+		30EF93DD16E039C600B84981 /* RETextItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETextItem.m; sourceTree = "<group>"; };
+		30EF93DE16E039C600B84981 /* RETableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewCell.h; sourceTree = "<group>"; };
+		30EF93DF16E039C600B84981 /* RETableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewCell.m; sourceTree = "<group>"; };
+		30EF93E016E039C600B84981 /* RETableViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewItem.h; sourceTree = "<group>"; };
+		30EF93E116E039C600B84981 /* RETableViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewItem.m; sourceTree = "<group>"; };
+		30EF93E216E039C600B84981 /* RETableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewManager.h; sourceTree = "<group>"; };
+		30EF93E316E039C600B84981 /* RETableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewManager.m; sourceTree = "<group>"; };
+		30EF93E416E039C600B84981 /* RETableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewSection.h; sourceTree = "<group>"; };
+		30EF93E516E039C600B84981 /* RETableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewSection.m; sourceTree = "<group>"; };
+		30EF93F016E039D500B84981 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		30EF93F116E039D500B84981 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		30EF93F616E03D1F00B84981 /* ControlsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlsViewController.h; sourceTree = "<group>"; };
+		30EF93F716E03D1F00B84981 /* ControlsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlsViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		30EF93AC16E039B800B84981 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30EF93B316E039B800B84981 /* UIKit.framework in Frameworks */,
+				30EF93B516E039B800B84981 /* Foundation.framework in Frameworks */,
+				30EF93B716E039B800B84981 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		30EF93A616E039B800B84981 = {
+			isa = PBXGroup;
+			children = (
+				30EF93CF16E039C600B84981 /* RETableViewManager */,
+				30EF93B816E039B800B84981 /* RETableViewManagerExample */,
+				30EF93B116E039B800B84981 /* Frameworks */,
+				30EF93B016E039B800B84981 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		30EF93B016E039B800B84981 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				30EF93AF16E039B800B84981 /* RETableViewManagerExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		30EF93B116E039B800B84981 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				30EF93B216E039B800B84981 /* UIKit.framework */,
+				30EF93B416E039B800B84981 /* Foundation.framework */,
+				30EF93B616E039B800B84981 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		30EF93B816E039B800B84981 /* RETableViewManagerExample */ = {
+			isa = PBXGroup;
+			children = (
+				30EF93B916E039B800B84981 /* Supporting Files */,
+				30EF93C116E039B800B84981 /* AppDelegate.h */,
+				30EF93C216E039B800B84981 /* AppDelegate.m */,
+				30EF93F016E039D500B84981 /* RootViewController.h */,
+				30EF93F116E039D500B84981 /* RootViewController.m */,
+				30EF93F616E03D1F00B84981 /* ControlsViewController.h */,
+				30EF93F716E03D1F00B84981 /* ControlsViewController.m */,
+			);
+			path = RETableViewManagerExample;
+			sourceTree = "<group>";
+		};
+		30EF93B916E039B800B84981 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				30EF93BA16E039B800B84981 /* RETableViewManagerExample-Info.plist */,
+				30EF93BB16E039B800B84981 /* InfoPlist.strings */,
+				30EF93BE16E039B800B84981 /* main.m */,
+				30EF93C016E039B800B84981 /* RETableViewManagerExample-Prefix.pch */,
+				30EF93C416E039B800B84981 /* Default.png */,
+				30EF93C616E039B800B84981 /* Default@2x.png */,
+				30EF93C816E039B800B84981 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		30EF93CF16E039C600B84981 /* RETableViewManager */ = {
+			isa = PBXGroup;
+			children = (
+				30EF93D016E039C600B84981 /* Cells */,
+				30EF93D716E039C600B84981 /* Items */,
+				30EF93DE16E039C600B84981 /* RETableViewCell.h */,
+				30EF93DF16E039C600B84981 /* RETableViewCell.m */,
+				30EF93E016E039C600B84981 /* RETableViewItem.h */,
+				30EF93E116E039C600B84981 /* RETableViewItem.m */,
+				30EF93E216E039C600B84981 /* RETableViewManager.h */,
+				30EF93E316E039C600B84981 /* RETableViewManager.m */,
+				30EF93E416E039C600B84981 /* RETableViewSection.h */,
+				30EF93E516E039C600B84981 /* RETableViewSection.m */,
+			);
+			name = RETableViewManager;
+			path = ../RETableViewManager;
+			sourceTree = "<group>";
+		};
+		30EF93D016E039C600B84981 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				30EF93D116E039C600B84981 /* RETableViewBoolCell.h */,
+				30EF93D216E039C600B84981 /* RETableViewBoolCell.m */,
+				30EF93D316E039C600B84981 /* RETableViewStringCell.h */,
+				30EF93D416E039C600B84981 /* RETableViewStringCell.m */,
+				30EF93D516E039C600B84981 /* RETableViewTextCell.h */,
+				30EF93D616E039C600B84981 /* RETableViewTextCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		30EF93D716E039C600B84981 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				30EF93D816E039C600B84981 /* REBoolItem.h */,
+				30EF93D916E039C600B84981 /* REBoolItem.m */,
+				30EF93DA16E039C600B84981 /* REStringItem.h */,
+				30EF93DB16E039C600B84981 /* REStringItem.m */,
+				30EF93DC16E039C600B84981 /* RETextItem.h */,
+				30EF93DD16E039C600B84981 /* RETextItem.m */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		30EF93AE16E039B800B84981 /* RETableViewManagerExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30EF93CC16E039B800B84981 /* Build configuration list for PBXNativeTarget "RETableViewManagerExample" */;
+			buildPhases = (
+				30EF93AB16E039B800B84981 /* Sources */,
+				30EF93AC16E039B800B84981 /* Frameworks */,
+				30EF93AD16E039B800B84981 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RETableViewManagerExample;
+			productName = RETableViewManagerExample;
+			productReference = 30EF93AF16E039B800B84981 /* RETableViewManagerExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		30EF93A716E039B800B84981 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Roman Efimov";
+			};
+			buildConfigurationList = 30EF93AA16E039B800B84981 /* Build configuration list for PBXProject "RETableViewManagerExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 30EF93A616E039B800B84981;
+			productRefGroup = 30EF93B016E039B800B84981 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				30EF93AE16E039B800B84981 /* RETableViewManagerExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		30EF93AD16E039B800B84981 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30EF93BD16E039B800B84981 /* InfoPlist.strings in Resources */,
+				30EF93C516E039B800B84981 /* Default.png in Resources */,
+				30EF93C716E039B800B84981 /* Default@2x.png in Resources */,
+				30EF93C916E039B800B84981 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		30EF93AB16E039B800B84981 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30EF93BF16E039B800B84981 /* main.m in Sources */,
+				30EF93C316E039B800B84981 /* AppDelegate.m in Sources */,
+				30EF93E616E039C600B84981 /* RETableViewBoolCell.m in Sources */,
+				30EF93E716E039C600B84981 /* RETableViewStringCell.m in Sources */,
+				30EF93E816E039C600B84981 /* RETableViewTextCell.m in Sources */,
+				30EF93E916E039C600B84981 /* REBoolItem.m in Sources */,
+				30EF93EA16E039C600B84981 /* REStringItem.m in Sources */,
+				30EF93EB16E039C600B84981 /* RETextItem.m in Sources */,
+				30EF93EC16E039C600B84981 /* RETableViewCell.m in Sources */,
+				30EF93ED16E039C600B84981 /* RETableViewItem.m in Sources */,
+				30EF93EE16E039C600B84981 /* RETableViewManager.m in Sources */,
+				30EF93EF16E039C600B84981 /* RETableViewSection.m in Sources */,
+				30EF93F216E039D500B84981 /* RootViewController.m in Sources */,
+				30EF93F816E03D1F00B84981 /* ControlsViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		30EF93BB16E039B800B84981 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30EF93BC16E039B800B84981 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		30EF93CA16E039B800B84981 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		30EF93CB16E039B800B84981 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		30EF93CD16E039B800B84981 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RETableViewManagerExample/RETableViewManagerExample-Prefix.pch";
+				INFOPLIST_FILE = "RETableViewManagerExample/RETableViewManagerExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		30EF93CE16E039B800B84981 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RETableViewManagerExample/RETableViewManagerExample-Prefix.pch";
+				INFOPLIST_FILE = "RETableViewManagerExample/RETableViewManagerExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		30EF93AA16E039B800B84981 /* Build configuration list for PBXProject "RETableViewManagerExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30EF93CA16E039B800B84981 /* Debug */,
+				30EF93CB16E039B800B84981 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30EF93CC16E039B800B84981 /* Build configuration list for PBXNativeTarget "RETableViewManagerExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30EF93CD16E039B800B84981 /* Debug */,
+				30EF93CE16E039B800B84981 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 30EF93A716E039B800B84981 /* Project object */;
+}
