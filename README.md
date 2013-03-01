@@ -47,8 +47,8 @@ RETableViewSection *section2 = [[RETableViewSection alloc] initWithHeaderTitle:@
 section2.footerTitle = @"Hey, I'm a footer";
 [_tableViewManager addSection:section2];
 
-
-// You can create custom mappings
+// It's super easy to create custom mappings, for example
+// this how all matched NSString objects are matched with RETableViewStringCell
 //
 [_tableViewManager mapObjectClass:@"NSString" toTableViewCellClass:@"RETableViewStringCell"];
 ```
