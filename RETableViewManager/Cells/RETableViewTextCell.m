@@ -32,6 +32,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.textLabel.backgroundColor = [UIColor clearColor];
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
             _textField = [[UITextField alloc] initWithFrame:CGRectMake(140, 0, self.frame.size.width - 160, self.frame.size.height)];
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
