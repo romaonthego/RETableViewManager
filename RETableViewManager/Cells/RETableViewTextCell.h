@@ -27,10 +27,10 @@
 #import "RETextItem.h"
 
 @interface RETableViewTextCell : RETableViewCell <UITextFieldDelegate> {
-    UITextField *_textField;
     UISegmentedControl *_prevNext;
 }
 
 @property (strong, nonatomic) RETextItem *item;
+@property (strong, nonatomic) UITextField *textField;
 
 @end
