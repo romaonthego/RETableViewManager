@@ -115,6 +115,22 @@
     return nil;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    if (self.item.title) {
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+            _textField.frame = CGRectMake(140, 0, self.frame.size.width - 160, self.frame.size.height);
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+            _textField.frame = CGRectMake(160, 0, self.frame.size.width - 200, self.frame.size.height);
+    } else {
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+            _textField.frame = CGRectMake(20, 0, self.frame.size.width - 40, self.frame.size.height);
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+            _textField.frame = CGRectMake(40, 0, self.frame.size.width - 80, self.frame.size.height);
+    }
+}
+
 #pragma mark -
 #pragma mark UISwitch events
 
