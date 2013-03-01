@@ -35,6 +35,7 @@
     
     _sections = [[NSMutableArray alloc] init];
     _mapping = [[NSMutableDictionary alloc] init];
+    _style = [[RETableViewCellStyle alloc] init];
     
     [self setDefaultMapping];
     
@@ -97,7 +98,7 @@
     
     RETableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        cell = [[cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier tableViewManager:self];
     }
     
     cell.row = indexPath.row;

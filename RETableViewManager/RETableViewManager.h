@@ -25,6 +25,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RETableViewSection.h"
+#import "RETableViewCellStyle.h"
 #import "RETableViewCell.h"
 #import "RETableViewStringCell.h"
 
@@ -37,6 +38,7 @@
 
 @property (strong, nonatomic) NSMutableArray *sections;
 @property (strong, nonatomic) NSMutableDictionary *mapping;
+@property (strong, nonatomic) RETableViewCellStyle *style;
 @property (assign, nonatomic) id<RETableViewManagerDelegate>delegate;
 
 - (void)addSection:(RETableViewSection *)section;

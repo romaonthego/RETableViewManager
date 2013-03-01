@@ -1,5 +1,5 @@
 //
-// RETableViewCell.h
+// RETableViewCellStyle.h
 // RETableViewManager
 //
 // Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego)
@@ -23,23 +23,26 @@
 // THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
-#import "RETableViewSection.h"
+#import <Foundation/Foundation.h>
 
-@class RETableViewManager;
+typedef enum _RETableViewCellType {
+    RETableViewCellFirst,
+    RETableViewCellMiddle,
+    RETableViewCellLast,
+    RETableViewCellSingle
+} RETableViewCellType;
 
-@interface RETableViewCell : UITableViewCell
+@interface RETableViewCellStyle : NSObject {
+    NSMutableDictionary *_backgroundImages;
+}
 
-@property (strong, nonatomic) UIImageView *backgroundImageView;
-@property (assign, nonatomic) NSInteger row;
-@property (assign, nonatomic) NSInteger sectionIndex;
-@property (weak, nonatomic) UITableView *parentTableView;
-@property (weak, nonatomic) RETableViewManager *tableViewManager;
-@property (weak, nonatomic) RETableViewSection *section;
-@property (strong, nonatomic) NSObject *item;
+@property (strong, nonatomic) UIFont *font;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier tableViewManager:(RETableViewManager *)tableViewManager;
-- (void)prepare;
-+ (CGFloat)height;
+- (UIImage *)backgroundImageForCellType:(RETableViewCellType)cellType;
+- (void)setBackgroundImage:(UIImage *)image forCellType:(RETableViewCellType)cellType;
+/*@property (strong, nonatomic) UIImage *backgroundImageFirst;
+@property (strong, nonatomic) UIImage *backgroundImageMiddle;
+@property (strong, nonatomic) UIImage *backgroundImageLast;
+@property (strong, nonatomic) UIImage *backgroundImageSingle;*/
 
 @end

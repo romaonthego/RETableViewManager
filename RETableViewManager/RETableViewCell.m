@@ -24,8 +24,29 @@
 //
 
 #import "RETableViewCell.h"
+#import "RETableViewManager.h"
 
 @implementation RETableViewCell
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier tableViewManager:(RETableViewManager *)tableViewManager
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.tableViewManager = tableViewManager;
+        if ([self hasCustomBackgroundImage]) {
+            self.backgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
+            self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+            _backgroundImageView = [[UIImageView alloc] init];
+            [self.backgroundView addSubview:_backgroundImageView];
+        }
+    }
+    return self;
+}
+
+- (BOOL)hasCustomBackgroundImage
+{
+    return [self.tableViewManager.style backgroundImageForCellType:RETableViewCellFirst] || [self.tableViewManager.style backgroundImageForCellType:RETableViewCellMiddle] || [self.tableViewManager.style backgroundImageForCellType:RETableViewCellLast] || [self.tableViewManager.style backgroundImageForCellType:RETableViewCellSingle];
+}
 
 + (CGFloat)height
 {
@@ -35,6 +56,31 @@
 - (void)prepare
 {
     
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    if ([self hasCustomBackgroundImage]) {
+        if (self.row == 0 && self.section.items.count == 1) {
+            _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellSingle];
+        }
+        
+        if (self.row == 0 && self.section.items.count > 1) {
+            _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellFirst];
+        }
+        
+        if (self.row > 0 && self.row < self.section.items.count - 1 && self.section.items.count > 2) {
+            _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellMiddle];
+        }
+        
+        if (self.row == self.section.items.count - 1 && self.section.items.count > 1) {
+            _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellLast];
+            
+        }
+        _backgroundImageView.frame = CGRectMake(0, 0, _backgroundImageView.image.size.width, _backgroundImageView.image.size.height);
+    }
 }
 
 @end
