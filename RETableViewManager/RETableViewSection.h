@@ -34,7 +34,18 @@
 @property (strong, nonatomic) UIView *headerView;
 @property (strong, nonatomic) UIView *footerView;
 
+// Initializing a Section Object
+//
 - (id)initWithHeaderTitle:(NSString *)headerTitle;
+- (id)initWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle;
+- (id)initWithHeaderView:(UIView *)headerView;
+- (id)initWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView;
+
+// Managing items
+//
 - (void)addItem:(id)item;
+- (void)addItemsFromArray:(NSArray *)array;
+- (void)removeItem:(id)item;
+- (void)removeAllItems;
 
 @end

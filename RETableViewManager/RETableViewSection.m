@@ -27,6 +27,9 @@
 
 @implementation RETableViewSection
 
+#pragma mark -
+#pragma mark Initializing a Section Object
+
 - (id)init
 {
     self = [super init];
@@ -38,19 +41,61 @@
     return self;
 }
 
+- (id)initWithHeaderView:(UIView *)headerView
+{
+    return [self initWithHeaderView:headerView footerView:nil];
+}
+
+- (id)initWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView
+{
+    self = [self init];
+    if (!self)
+        return nil;
+    
+    self.headerView = headerView;
+    self.footerView = footerView;
+    
+    return self;
+}
+
 - (id)initWithHeaderTitle:(NSString *)headerTitle
+{
+    return [self initWithHeaderTitle:headerTitle footerTitle:nil];
+}
+
+- (id)initWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle
 {
     self = [self init];
     if (!self)
         return nil;
     
     self.headerTitle = headerTitle;
+    self.footerTitle = footerTitle;
+    
     return self;
 }
+
+#pragma mark -
+#pragma mark Managing items
 
 - (void)addItem:(id)item
 {
     [_items addObject:item];
+}
+
+- (void)addItemsFromArray:(NSArray *)array
+{
+    [_items addObjectsFromArray:array];
+}
+
+- (void)removeItem:(id)item
+{
+    [_items removeObject:item];
+}
+
+- (void)removeAllItems
+{
+    [_items removeAllObjects];
 }
 
 @end
