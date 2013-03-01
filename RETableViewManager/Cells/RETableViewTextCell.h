@@ -32,5 +32,8 @@
 
 @property (strong, nonatomic) RETextItem *item;
 @property (strong, nonatomic) UITextField *textField;
+@property (assign, nonatomic) CGSize textFieldPositionOffset;
+
+- (UIToolbar *)actionBar;
 
 @end
