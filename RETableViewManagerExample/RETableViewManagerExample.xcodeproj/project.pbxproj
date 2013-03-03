@@ -16,18 +16,19 @@
 		30EF93C516E039B800B84981 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EF93C416E039B800B84981 /* Default.png */; };
 		30EF93C716E039B800B84981 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EF93C616E039B800B84981 /* Default@2x.png */; };
 		30EF93C916E039B800B84981 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EF93C816E039B800B84981 /* Default-568h@2x.png */; };
-		30EF93E616E039C600B84981 /* RETableViewBoolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93D216E039C600B84981 /* RETableViewBoolCell.m */; };
-		30EF93E716E039C600B84981 /* RETableViewStringCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93D416E039C600B84981 /* RETableViewStringCell.m */; };
-		30EF93E816E039C600B84981 /* RETableViewTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93D616E039C600B84981 /* RETableViewTextCell.m */; };
-		30EF93E916E039C600B84981 /* REBoolItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93D916E039C600B84981 /* REBoolItem.m */; };
-		30EF93EA16E039C600B84981 /* REStringItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93DB16E039C600B84981 /* REStringItem.m */; };
-		30EF93EB16E039C600B84981 /* RETextItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93DD16E039C600B84981 /* RETextItem.m */; };
-		30EF93EC16E039C600B84981 /* RETableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93DF16E039C600B84981 /* RETableViewCell.m */; };
-		30EF93ED16E039C600B84981 /* RETableViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93E116E039C600B84981 /* RETableViewItem.m */; };
-		30EF93EE16E039C600B84981 /* RETableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93E316E039C600B84981 /* RETableViewManager.m */; };
-		30EF93EF16E039C600B84981 /* RETableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93E516E039C600B84981 /* RETableViewSection.m */; };
 		30EF93F216E039D500B84981 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93F116E039D500B84981 /* RootViewController.m */; };
 		30EF93F816E03D1F00B84981 /* ControlsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93F716E03D1F00B84981 /* ControlsViewController.m */; };
+		30EF941316E3C34300B84981 /* RETableViewBoolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93FD16E3C34300B84981 /* RETableViewBoolCell.m */; };
+		30EF941416E3C34300B84981 /* RETableViewStringCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93FF16E3C34300B84981 /* RETableViewStringCell.m */; };
+		30EF941516E3C34300B84981 /* RETableViewTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF940116E3C34300B84981 /* RETableViewTextCell.m */; };
+		30EF941616E3C34300B84981 /* REBoolItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF940416E3C34300B84981 /* REBoolItem.m */; };
+		30EF941716E3C34300B84981 /* REStringItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF940616E3C34300B84981 /* REStringItem.m */; };
+		30EF941816E3C34300B84981 /* RETextItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF940816E3C34300B84981 /* RETextItem.m */; };
+		30EF941916E3C34300B84981 /* RETableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF940A16E3C34300B84981 /* RETableViewCell.m */; };
+		30EF941A16E3C34300B84981 /* RETableViewCellStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF940C16E3C34300B84981 /* RETableViewCellStyle.m */; };
+		30EF941B16E3C34300B84981 /* RETableViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF940E16E3C34300B84981 /* RETableViewItem.m */; };
+		30EF941C16E3C34300B84981 /* RETableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF941016E3C34300B84981 /* RETableViewManager.m */; };
+		30EF941D16E3C34300B84981 /* RETableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF941216E3C34300B84981 /* RETableViewSection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,30 +45,32 @@
 		30EF93C416E039B800B84981 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		30EF93C616E039B800B84981 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		30EF93C816E039B800B84981 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		30EF93D116E039C600B84981 /* RETableViewBoolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewBoolCell.h; sourceTree = "<group>"; };
-		30EF93D216E039C600B84981 /* RETableViewBoolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewBoolCell.m; sourceTree = "<group>"; };
-		30EF93D316E039C600B84981 /* RETableViewStringCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewStringCell.h; sourceTree = "<group>"; };
-		30EF93D416E039C600B84981 /* RETableViewStringCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewStringCell.m; sourceTree = "<group>"; };
-		30EF93D516E039C600B84981 /* RETableViewTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewTextCell.h; sourceTree = "<group>"; };
-		30EF93D616E039C600B84981 /* RETableViewTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewTextCell.m; sourceTree = "<group>"; };
-		30EF93D816E039C600B84981 /* REBoolItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REBoolItem.h; sourceTree = "<group>"; };
-		30EF93D916E039C600B84981 /* REBoolItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REBoolItem.m; sourceTree = "<group>"; };
-		30EF93DA16E039C600B84981 /* REStringItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REStringItem.h; sourceTree = "<group>"; };
-		30EF93DB16E039C600B84981 /* REStringItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REStringItem.m; sourceTree = "<group>"; };
-		30EF93DC16E039C600B84981 /* RETextItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETextItem.h; sourceTree = "<group>"; };
-		30EF93DD16E039C600B84981 /* RETextItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETextItem.m; sourceTree = "<group>"; };
-		30EF93DE16E039C600B84981 /* RETableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewCell.h; sourceTree = "<group>"; };
-		30EF93DF16E039C600B84981 /* RETableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewCell.m; sourceTree = "<group>"; };
-		30EF93E016E039C600B84981 /* RETableViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewItem.h; sourceTree = "<group>"; };
-		30EF93E116E039C600B84981 /* RETableViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewItem.m; sourceTree = "<group>"; };
-		30EF93E216E039C600B84981 /* RETableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewManager.h; sourceTree = "<group>"; };
-		30EF93E316E039C600B84981 /* RETableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewManager.m; sourceTree = "<group>"; };
-		30EF93E416E039C600B84981 /* RETableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewSection.h; sourceTree = "<group>"; };
-		30EF93E516E039C600B84981 /* RETableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewSection.m; sourceTree = "<group>"; };
 		30EF93F016E039D500B84981 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		30EF93F116E039D500B84981 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		30EF93F616E03D1F00B84981 /* ControlsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlsViewController.h; sourceTree = "<group>"; };
 		30EF93F716E03D1F00B84981 /* ControlsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlsViewController.m; sourceTree = "<group>"; };
+		30EF93FC16E3C34300B84981 /* RETableViewBoolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewBoolCell.h; sourceTree = "<group>"; };
+		30EF93FD16E3C34300B84981 /* RETableViewBoolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewBoolCell.m; sourceTree = "<group>"; };
+		30EF93FE16E3C34300B84981 /* RETableViewStringCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewStringCell.h; sourceTree = "<group>"; };
+		30EF93FF16E3C34300B84981 /* RETableViewStringCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewStringCell.m; sourceTree = "<group>"; };
+		30EF940016E3C34300B84981 /* RETableViewTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewTextCell.h; sourceTree = "<group>"; };
+		30EF940116E3C34300B84981 /* RETableViewTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewTextCell.m; sourceTree = "<group>"; };
+		30EF940316E3C34300B84981 /* REBoolItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REBoolItem.h; sourceTree = "<group>"; };
+		30EF940416E3C34300B84981 /* REBoolItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REBoolItem.m; sourceTree = "<group>"; };
+		30EF940516E3C34300B84981 /* REStringItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REStringItem.h; sourceTree = "<group>"; };
+		30EF940616E3C34300B84981 /* REStringItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REStringItem.m; sourceTree = "<group>"; };
+		30EF940716E3C34300B84981 /* RETextItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETextItem.h; sourceTree = "<group>"; };
+		30EF940816E3C34300B84981 /* RETextItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETextItem.m; sourceTree = "<group>"; };
+		30EF940916E3C34300B84981 /* RETableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewCell.h; sourceTree = "<group>"; };
+		30EF940A16E3C34300B84981 /* RETableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewCell.m; sourceTree = "<group>"; };
+		30EF940B16E3C34300B84981 /* RETableViewCellStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewCellStyle.h; sourceTree = "<group>"; };
+		30EF940C16E3C34300B84981 /* RETableViewCellStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewCellStyle.m; sourceTree = "<group>"; };
+		30EF940D16E3C34300B84981 /* RETableViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewItem.h; sourceTree = "<group>"; };
+		30EF940E16E3C34300B84981 /* RETableViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewItem.m; sourceTree = "<group>"; };
+		30EF940F16E3C34300B84981 /* RETableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewManager.h; sourceTree = "<group>"; };
+		30EF941016E3C34300B84981 /* RETableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewManager.m; sourceTree = "<group>"; };
+		30EF941116E3C34300B84981 /* RETableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewSection.h; sourceTree = "<group>"; };
+		30EF941216E3C34300B84981 /* RETableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewSection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +90,7 @@
 		30EF93A616E039B800B84981 = {
 			isa = PBXGroup;
 			children = (
-				30EF93CF16E039C600B84981 /* RETableViewManager */,
+				30EF93FA16E3C34300B84981 /* RETableViewManager */,
 				30EF93B816E039B800B84981 /* RETableViewManagerExample */,
 				30EF93B116E039B800B84981 /* Frameworks */,
 				30EF93B016E039B800B84981 /* Products */,
@@ -140,46 +143,48 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		30EF93CF16E039C600B84981 /* RETableViewManager */ = {
+		30EF93FA16E3C34300B84981 /* RETableViewManager */ = {
 			isa = PBXGroup;
 			children = (
-				30EF93D016E039C600B84981 /* Cells */,
-				30EF93D716E039C600B84981 /* Items */,
-				30EF93DE16E039C600B84981 /* RETableViewCell.h */,
-				30EF93DF16E039C600B84981 /* RETableViewCell.m */,
-				30EF93E016E039C600B84981 /* RETableViewItem.h */,
-				30EF93E116E039C600B84981 /* RETableViewItem.m */,
-				30EF93E216E039C600B84981 /* RETableViewManager.h */,
-				30EF93E316E039C600B84981 /* RETableViewManager.m */,
-				30EF93E416E039C600B84981 /* RETableViewSection.h */,
-				30EF93E516E039C600B84981 /* RETableViewSection.m */,
+				30EF93FB16E3C34300B84981 /* Cells */,
+				30EF940216E3C34300B84981 /* Items */,
+				30EF940916E3C34300B84981 /* RETableViewCell.h */,
+				30EF940A16E3C34300B84981 /* RETableViewCell.m */,
+				30EF940B16E3C34300B84981 /* RETableViewCellStyle.h */,
+				30EF940C16E3C34300B84981 /* RETableViewCellStyle.m */,
+				30EF940D16E3C34300B84981 /* RETableViewItem.h */,
+				30EF940E16E3C34300B84981 /* RETableViewItem.m */,
+				30EF940F16E3C34300B84981 /* RETableViewManager.h */,
+				30EF941016E3C34300B84981 /* RETableViewManager.m */,
+				30EF941116E3C34300B84981 /* RETableViewSection.h */,
+				30EF941216E3C34300B84981 /* RETableViewSection.m */,
 			);
 			name = RETableViewManager;
 			path = ../RETableViewManager;
 			sourceTree = "<group>";
 		};
-		30EF93D016E039C600B84981 /* Cells */ = {
+		30EF93FB16E3C34300B84981 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				30EF93D116E039C600B84981 /* RETableViewBoolCell.h */,
-				30EF93D216E039C600B84981 /* RETableViewBoolCell.m */,
-				30EF93D316E039C600B84981 /* RETableViewStringCell.h */,
-				30EF93D416E039C600B84981 /* RETableViewStringCell.m */,
-				30EF93D516E039C600B84981 /* RETableViewTextCell.h */,
-				30EF93D616E039C600B84981 /* RETableViewTextCell.m */,
+				30EF93FC16E3C34300B84981 /* RETableViewBoolCell.h */,
+				30EF93FD16E3C34300B84981 /* RETableViewBoolCell.m */,
+				30EF93FE16E3C34300B84981 /* RETableViewStringCell.h */,
+				30EF93FF16E3C34300B84981 /* RETableViewStringCell.m */,
+				30EF940016E3C34300B84981 /* RETableViewTextCell.h */,
+				30EF940116E3C34300B84981 /* RETableViewTextCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		30EF93D716E039C600B84981 /* Items */ = {
+		30EF940216E3C34300B84981 /* Items */ = {
 			isa = PBXGroup;
 			children = (
-				30EF93D816E039C600B84981 /* REBoolItem.h */,
-				30EF93D916E039C600B84981 /* REBoolItem.m */,
-				30EF93DA16E039C600B84981 /* REStringItem.h */,
-				30EF93DB16E039C600B84981 /* REStringItem.m */,
-				30EF93DC16E039C600B84981 /* RETextItem.h */,
-				30EF93DD16E039C600B84981 /* RETextItem.m */,
+				30EF940316E3C34300B84981 /* REBoolItem.h */,
+				30EF940416E3C34300B84981 /* REBoolItem.m */,
+				30EF940516E3C34300B84981 /* REStringItem.h */,
+				30EF940616E3C34300B84981 /* REStringItem.m */,
+				30EF940716E3C34300B84981 /* RETextItem.h */,
+				30EF940816E3C34300B84981 /* RETextItem.m */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -251,18 +256,19 @@
 			files = (
 				30EF93BF16E039B800B84981 /* main.m in Sources */,
 				30EF93C316E039B800B84981 /* AppDelegate.m in Sources */,
-				30EF93E616E039C600B84981 /* RETableViewBoolCell.m in Sources */,
-				30EF93E716E039C600B84981 /* RETableViewStringCell.m in Sources */,
-				30EF93E816E039C600B84981 /* RETableViewTextCell.m in Sources */,
-				30EF93E916E039C600B84981 /* REBoolItem.m in Sources */,
-				30EF93EA16E039C600B84981 /* REStringItem.m in Sources */,
-				30EF93EB16E039C600B84981 /* RETextItem.m in Sources */,
-				30EF93EC16E039C600B84981 /* RETableViewCell.m in Sources */,
-				30EF93ED16E039C600B84981 /* RETableViewItem.m in Sources */,
-				30EF93EE16E039C600B84981 /* RETableViewManager.m in Sources */,
-				30EF93EF16E039C600B84981 /* RETableViewSection.m in Sources */,
 				30EF93F216E039D500B84981 /* RootViewController.m in Sources */,
 				30EF93F816E03D1F00B84981 /* ControlsViewController.m in Sources */,
+				30EF941316E3C34300B84981 /* RETableViewBoolCell.m in Sources */,
+				30EF941416E3C34300B84981 /* RETableViewStringCell.m in Sources */,
+				30EF941516E3C34300B84981 /* RETableViewTextCell.m in Sources */,
+				30EF941616E3C34300B84981 /* REBoolItem.m in Sources */,
+				30EF941716E3C34300B84981 /* REStringItem.m in Sources */,
+				30EF941816E3C34300B84981 /* RETextItem.m in Sources */,
+				30EF941916E3C34300B84981 /* RETableViewCell.m in Sources */,
+				30EF941A16E3C34300B84981 /* RETableViewCellStyle.m in Sources */,
+				30EF941B16E3C34300B84981 /* RETableViewItem.m in Sources */,
+				30EF941C16E3C34300B84981 /* RETableViewManager.m in Sources */,
+				30EF941D16E3C34300B84981 /* RETableViewSection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +383,7 @@
 				30EF93CE16E039B800B84981 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
