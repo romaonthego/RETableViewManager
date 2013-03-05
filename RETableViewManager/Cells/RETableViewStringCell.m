@@ -24,6 +24,7 @@
 //
 
 #import "RETableViewStringCell.h"
+#import "RETableViewManager.h"
 
 @implementation RETableViewStringCell
 

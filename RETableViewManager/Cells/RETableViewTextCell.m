@@ -24,6 +24,7 @@
 //
 
 #import "RETableViewTextCell.h"
+#import "RETableViewManager.h"
 
 @implementation RETableViewTextCell
 
@@ -84,6 +85,8 @@
     self.textLabel.text = self.item.title;
     _textField.text = self.item.value;
     _textField.placeholder = self.item.placeholder;
+    _textField.font = self.tableViewManager.style.textFieldFont;
+    _textFieldPositionOffset = self.tableViewManager.style.textFieldPositionOffset;
     
     [_prevNext setEnabled:[self indexPathForPreviousTextField] != nil forSegmentAtIndex:0];
     [_prevNext setEnabled:[self indexPathForNextTextField] != nil forSegmentAtIndex:1];

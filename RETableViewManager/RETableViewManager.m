@@ -117,7 +117,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [[self classForCellAtIndexPath:indexPath] height];
+    RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
+    id item = [section.items objectAtIndex:indexPath.row];
+    return [[self classForCellAtIndexPath:indexPath] heightWithItem:item tableViewManager:self];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)sectionIndex

@@ -48,9 +48,9 @@
     return [self.tableViewManager.style backgroundImageForCellType:RETableViewCellFirst] || [self.tableViewManager.style backgroundImageForCellType:RETableViewCellMiddle] || [self.tableViewManager.style backgroundImageForCellType:RETableViewCellLast] || [self.tableViewManager.style backgroundImageForCellType:RETableViewCellSingle];
 }
 
-+ (CGFloat)height
++ (CGFloat)heightWithItem:(NSObject *)item tableViewManager:(RETableViewManager *)tableViewManager
 {
-    return 44;
+    return tableViewManager.style.cellHeight;
 }
 
 - (void)prepare

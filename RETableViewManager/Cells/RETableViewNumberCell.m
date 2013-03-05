@@ -7,6 +7,7 @@
 //
 
 #import "RETableViewNumberCell.h"
+#import "RETableViewManager.h"
 
 @implementation RETableViewNumberCell
 
@@ -68,6 +69,8 @@
     _textField.text = self.item.value;
     _textField.placeholder = self.item.placeholder;
     _textField.format = self.item.format;
+    _textField.font = self.tableViewManager.style.textFieldFont;
+    _textFieldPositionOffset = self.tableViewManager.style.textFieldPositionOffset;
     
     [_prevNext setEnabled:[self indexPathForPreviousTextField] != nil forSegmentAtIndex:0];
     [_prevNext setEnabled:[self indexPathForNextTextField] != nil forSegmentAtIndex:1];
