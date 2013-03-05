@@ -86,7 +86,16 @@
     _textField.text = self.item.value;
     _textField.placeholder = self.item.placeholder;
     _textField.font = self.tableViewManager.style.textFieldFont;
-    _textFieldPositionOffset = self.tableViewManager.style.textFieldPositionOffset;
+    _textField.autocapitalizationType = self.item.autocapitalizationType;
+    _textField.autocorrectionType = self.item.autocorrectionType;
+    _textField.spellCheckingType = self.item.spellCheckingType;
+    _textField.keyboardType = self.item.keyboardType;
+    _textField.keyboardAppearance = self.item.keyboardAppearance;
+    _textField.returnKeyType = self.item.returnKeyType;
+    _textField.enablesReturnKeyAutomatically = self.item.enablesReturnKeyAutomatically;
+    _textField.secureTextEntry = self.item.secureTextEntry;
+    
+    _textFieldPositionOffset = self.tableViewManager.style.textFieldPositionOffset;   
     
     [_prevNext setEnabled:[self indexPathForPreviousTextField] != nil forSegmentAtIndex:0];
     [_prevNext setEnabled:[self indexPathForNextTextField] != nil forSegmentAtIndex:1];

@@ -27,9 +27,15 @@
 
 @interface RENumberItem : RETableViewItem
 
+// Data and values
+//
 @property (copy, nonatomic) NSString *format;
 @property (copy, nonatomic) NSString *value;
 @property (copy, nonatomic) NSString *placeholder;
+
+// Keyboard
+//
+@property (nonatomic) UIKeyboardAppearance keyboardAppearance;             // default is UIKeyboardAppearanceDefault
 
 + (id)itemWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder format:(NSString *)format;
 - (id)initWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder format:(NSString *)format;

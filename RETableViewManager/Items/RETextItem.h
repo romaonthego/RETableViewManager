@@ -27,8 +27,22 @@
 
 @interface RETextItem : RETableViewItem
 
+// Data and values
+//
 @property (copy, nonatomic) NSString *value;
 @property (copy, nonatomic) NSString *placeholder;
+
+
+// Keyboard
+//
+@property (assign, nonatomic) UITextAutocapitalizationType autocapitalizationType; // default is UITextAutocapitalizationTypeSentences
+@property (assign, nonatomic) UITextAutocorrectionType autocorrectionType;         // default is UITextAutocorrectionTypeDefault
+@property (assign, nonatomic) UITextSpellCheckingType spellCheckingType NS_AVAILABLE_IOS(5_0); // default is UITextSpellCheckingTypeDefault;
+@property (assign, nonatomic) UIKeyboardType keyboardType;                         // default is UIKeyboardTypeDefault
+@property (assign, nonatomic) UIKeyboardAppearance keyboardAppearance;             // default is UIKeyboardAppearanceDefault
+@property (assign, assign, nonatomic) UIReturnKeyType returnKeyType;                       // default is UIReturnKeyDefault (See note under UIReturnKeyType enum)
+@property (assign, nonatomic) BOOL enablesReturnKeyAutomatically;                  // default is NO (when YES, will automatically disable return key when text widget has zero-length contents, and will automatically enable when text widget has non-zero-length contents)
+@property (assign, nonatomic) BOOL secureTextEntry;                                // default is NO
 
 + (id)itemWithTitle:(NSString *)title value:(NSString *)value;
 + (id)itemWithTitle:(NSString *)title value:(NSString *)value  placeholder:(NSString *)placeholder;

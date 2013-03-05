@@ -71,6 +71,7 @@
     _textField.format = self.item.format;
     _textField.font = self.tableViewManager.style.textFieldFont;
     _textFieldPositionOffset = self.tableViewManager.style.textFieldPositionOffset;
+    _textField.keyboardAppearance = self.item.keyboardAppearance;
     
     [_prevNext setEnabled:[self indexPathForPreviousTextField] != nil forSegmentAtIndex:0];
     [_prevNext setEnabled:[self indexPathForNextTextField] != nil forSegmentAtIndex:1];
