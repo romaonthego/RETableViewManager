@@ -30,5 +30,6 @@
 @property (copy, nonatomic) NSString *title;
 @property (copy, nonatomic) void (^actionBlock)(id item);
 @property (assign, nonatomic) BOOL performActionOnSelection;
+@property (assign, readonly, nonatomic) BOOL canFocus;
 
 @end

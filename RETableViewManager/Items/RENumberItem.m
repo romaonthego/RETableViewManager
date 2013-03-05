@@ -46,4 +46,9 @@
     return self;
 }
 
+- (BOOL)canFocus
+{
+    return YES;
+}
+
 @end

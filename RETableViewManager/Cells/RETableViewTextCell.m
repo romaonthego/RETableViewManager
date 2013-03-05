@@ -96,8 +96,8 @@
 {
     NSUInteger indexInSection = [self.section.items indexOfObject:self.item];
     for (NSInteger i = indexInSection - 1; i >= 0; i--) {
-        id item = [self.section.items objectAtIndex:i];
-        if ([item isKindOfClass:[RETextItem class]]) {
+        RETableViewItem *item = [self.section.items objectAtIndex:i];
+        if (item.canFocus) {
             return [NSIndexPath indexPathForRow:i inSection:self.sectionIndex];
             break;
         }
@@ -109,8 +109,8 @@
 {
     NSUInteger indexInSection = [self.section.items indexOfObject:self.item];
     for (NSInteger i = indexInSection + 1; i < self.section.items.count; i++) {
-        id item = [self.section.items objectAtIndex:i];
-        if ([item isKindOfClass:[RETextItem class]]) {
+        RETableViewItem *item = [self.section.items objectAtIndex:i];
+        if (item.canFocus) {
             return [NSIndexPath indexPathForRow:i inSection:self.sectionIndex];
             break;
         }
