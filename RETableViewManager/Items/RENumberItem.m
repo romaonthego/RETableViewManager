@@ -1,5 +1,5 @@
 //
-// RETableViewManager.h
+// RENumberItem.m
 // RETableViewManager
 //
 // Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego)
@@ -23,37 +23,27 @@
 // THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
-#import "RETableViewSection.h"
-#import "RETableViewCellStyle.h"
-#import "RETableViewCell.h"
-#import "RETableViewStringCell.h"
-#import "RETableViewNumberCell.h"
-
-#import "REBoolItem.h"
-#import "RETextItem.h"
 #import "RENumberItem.h"
 
-@protocol RETableViewManagerDelegate;
+@implementation RENumberItem
 
-@interface RETableViewManager : NSObject <UITableViewDelegate, UITableViewDataSource>
++ (id)itemWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder format:(NSString *)format
+{
+    return [RENumberItem itemWithTitle:title value:value placeholder:placeholder format:format];
+}
 
-@property (strong, nonatomic) NSMutableArray *sections;
-@property (strong, nonatomic) NSMutableDictionary *mapping;
-@property (strong, nonatomic) RETableViewCellStyle *style;
-@property (assign, nonatomic) id<RETableViewManagerDelegate>delegate;
-
-- (void)addSection:(RETableViewSection *)section;
-- (void)mapObjectClass:(NSString *)objectClass toTableViewCellClass:(NSString *)cellViewClass;
-
-@end
-
-@protocol RETableViewManagerDelegate <NSObject>
-
-@optional
-
-- (void)tableView:(UITableView *)tableView styleCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath item:(id)item;
+- (id)initWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder format:(NSString *)format
+{
+    self = [super init];
+    if (!self)
+        return nil;
+    
+    self.title = title;
+    self.value = value;
+    self.placeholder = placeholder;
+    self.format = format;
+    
+    return self;
+}
 
 @end

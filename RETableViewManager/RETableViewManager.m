@@ -48,6 +48,7 @@
     [self mapObjectClass:@"REStringItem" toTableViewCellClass:@"RETableViewStringCell"];
     [self mapObjectClass:@"REBoolItem" toTableViewCellClass:@"RETableViewBoolCell"];
     [self mapObjectClass:@"RETextItem" toTableViewCellClass:@"RETableViewTextCell"];
+    [self mapObjectClass:@"RENumberItem" toTableViewCellClass:@"RETableViewNumberCell"];
 }
 
 - (void)addSection:(RETableViewSection *)section
