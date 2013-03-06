@@ -29,7 +29,7 @@
 
 + (id)itemWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder format:(NSString *)format
 {
-    return [RENumberItem itemWithTitle:title value:value placeholder:placeholder format:format];
+    return [[self alloc] initWithTitle:title value:value placeholder:placeholder format:format];
 }
 
 - (id)initWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder format:(NSString *)format
