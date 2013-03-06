@@ -144,7 +144,7 @@
 }
 
 #pragma mark -
-#pragma mark UISwitch events
+#pragma mark Text field events
 
 - (void)textFieldDidChange:(UITextField *)textField
 {
