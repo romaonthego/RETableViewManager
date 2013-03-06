@@ -28,7 +28,7 @@
 @implementation RETableViewSection
 
 #pragma mark -
-#pragma mark Creating and Initializing sections
+#pragma mark Creating and Initializing Sections
 
 - (id)init
 {

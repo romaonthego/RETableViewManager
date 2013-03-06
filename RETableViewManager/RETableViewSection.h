@@ -27,15 +27,20 @@
 
 @interface RETableViewSection : NSObject
 
+/**
+ An array of section items (rows).
+ */
+@property (strong, nonatomic) NSMutableArray *items;
+
 @property (copy, nonatomic) NSString *headerTitle;
 @property (copy, nonatomic) NSString *footerTitle;
-@property (strong, nonatomic) NSMutableArray *items;
 
 @property (strong, nonatomic) UIView *headerView;
 @property (strong, nonatomic) UIView *footerView;
 
-// Initializing a Section Object
-//
+///--------------------------------------------
+/// @name Creating and Initializing Sections
+///--------------------------------------------
 - (id)initWithHeaderTitle:(NSString *)headerTitle;
 - (id)initWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle;
 - (id)initWithHeaderView:(UIView *)headerView;
@@ -44,12 +49,17 @@
 + (id)sectionWithHeaderTitle:(NSString *)headerTitle;
 + (id)sectionWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle;
 + (id)sectionWithHeaderView:(UIView *)headerView;
-+ (id)sectionWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView
++ (id)sectionWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView;
 
-// Managing items
-//
+///--------------------------------------------
+/// @name Adding Items
+///--------------------------------------------
 - (id)addItem:(id)item;
 - (void)addItemsFromArray:(NSArray *)array;
+
+///--------------------------------------------
+/// @name Removing Items
+///--------------------------------------------
 - (void)removeItem:(id)item;
 - (void)removeAllItems;
 
