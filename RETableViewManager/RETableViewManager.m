@@ -51,9 +51,10 @@
     [self mapObjectClass:@"RENumberItem" toTableViewCellClass:@"RETableViewNumberCell"];
 }
 
-- (void)addSection:(RETableViewSection *)section
+- (RETableViewSection *)addSection:(RETableViewSection *)section
 {
     [_sections addObject:section];
+    return section;
 }
 
 - (void)mapObjectClass:(NSString *)objectClass toTableViewCellClass:(NSString *)cellViewClass

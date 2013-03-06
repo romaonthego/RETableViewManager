@@ -41,9 +41,14 @@
 - (id)initWithHeaderView:(UIView *)headerView;
 - (id)initWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView;
 
++ (id)sectionWithHeaderTitle:(NSString *)headerTitle;
++ (id)sectionWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle;
++ (id)sectionWithHeaderView:(UIView *)headerView;
++ (id)sectionWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView
+
 // Managing items
 //
-- (void)addItem:(id)item;
+- (id)addItem:(id)item;
 - (void)addItemsFromArray:(NSArray *)array;
 - (void)removeItem:(id)item;
 - (void)removeAllItems;

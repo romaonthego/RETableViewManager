@@ -43,7 +43,7 @@
 @property (strong, nonatomic) RETableViewCellStyle *style;
 @property (assign, nonatomic) id<RETableViewManagerDelegate>delegate;
 
-- (void)addSection:(RETableViewSection *)section;
+- (RETableViewSection *)addSection:(RETableViewSection *)section;
 - (void)mapObjectClass:(NSString *)objectClass toTableViewCellClass:(NSString *)cellViewClass;
 
 @end

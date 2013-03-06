@@ -28,7 +28,7 @@
 @implementation RETableViewSection
 
 #pragma mark -
-#pragma mark Initializing a Section Object
+#pragma mark Creating and Initializing sections
 
 - (id)init
 {
@@ -37,23 +37,6 @@
         return nil;
     
     _items = [[NSMutableArray alloc] init];
-    
-    return self;
-}
-
-- (id)initWithHeaderView:(UIView *)headerView
-{
-    return [self initWithHeaderView:headerView footerView:nil];
-}
-
-- (id)initWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView
-{
-    self = [self init];
-    if (!self)
-        return nil;
-    
-    self.headerView = headerView;
-    self.footerView = footerView;
     
     return self;
 }
@@ -75,12 +58,55 @@
     return self;
 }
 
+- (id)initWithHeaderView:(UIView *)headerView
+{
+    return [self initWithHeaderView:headerView footerView:nil];
+}
+
+- (id)initWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView
+{
+    self = [self init];
+    if (!self)
+        return nil;
+    
+    self.headerView = headerView;
+    self.footerView = footerView;
+    
+    return self;
+}
+
+/*
+ * Static initialization methods
+ *
+ */
+
++ (id)sectionWithHeaderTitle:(NSString *)headerTitle
+{
+    return [[self alloc ] initWithHeaderTitle:headerTitle];
+}
+
++ (id)sectionWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle
+{
+    return [[self alloc] initWithHeaderTitle:headerTitle footerTitle:footerTitle];
+}
+
++ (id)sectionWithHeaderView:(UIView *)headerView
+{
+    return [[self alloc] initWithHeaderView:headerView footerView:nil];
+}
+
++ (id)sectionWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView
+{
+    return [[self alloc] initWithHeaderView:headerView footerView:footerView];
+}
+
 #pragma mark -
 #pragma mark Managing items
 
-- (void)addItem:(id)item
+- (id)addItem:(id)item
 {
     [_items addObject:item];
+    return item;
 }
 
 - (void)addItemsFromArray:(NSArray *)array
