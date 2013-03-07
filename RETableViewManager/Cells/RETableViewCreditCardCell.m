@@ -18,10 +18,8 @@ static inline NSString *RECreditCardType(NSString *creditCardNumber)
     
     NSDictionary *types = @{@"Visa": @"^4[0-9]{12}(?:[0-9]{2})?",
                             @"MasterCard": @"^5[1-5][0-9]{13}",
-                            @"American Express": @"^3[47][0-9]{12}",
-                            @"Diners Club": @"^3(?:0[0-5]|[68][0-9])[0-9]{10}",
-                            @"Discover": @"^6(?:011|5[0-9]{2})[0-9]{11}",
-                            @"JCB": @"^(?:2131|1800|35\\d{3})\\d{10}"};
+                            @"AmericanExpress": @"^3[47][0-9]{12}",
+                            @"Discover": @"^6(?:011|5[0-9]{2})[0-9]{11}"};
     
     for (NSString *type in types) {
         NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:[types objectForKey:type] options:NSRegularExpressionCaseInsensitive error:NULL];
@@ -42,10 +40,18 @@ static inline NSString *RECreditCardType(NSString *creditCardNumber)
         
         _creditCardStackImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
         _creditCardStackImageView.image = [UIImage imageNamed:@"RETableViewManager.bundle/Card_Stack"];
+        _creditCardStackImageView.tag = 0;
+        _currentImageView = _creditCardStackImageView;
         [_creditCardImageViewContainer addSubview:_creditCardStackImageView];
+        
+        _creditCardImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
+        _creditCardImageView.image = [UIImage imageNamed:@"RETableViewManager.bundle/Card_Stack"];
+        _creditCardImageView.tag = 1;
+        [_creditCardImageViewContainer addSubview:_creditCardImageView];
         
         _creditCardBackImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
         _creditCardBackImageView.image = [UIImage imageNamed:@"RETableViewManager.bundle/Card_Back"];
+        _creditCardBackImageView.tag = 2;
         
         _wrapperView = [[UIView alloc] initWithFrame:CGRectMake(60 + _textFieldPositionOffset.width, _textFieldPositionOffset.height + 1, self.frame.size.width - 70, self.frame.size.height)];
         _wrapperView.clipsToBounds = YES;
@@ -130,7 +136,19 @@ static inline NSString *RECreditCardType(NSString *creditCardNumber)
     if (textField.tag == 1) self.item.expirationDate = textField.text;
     if (textField.tag == 2) self.item.cvv = textField.text;
     
-    BOOL isAmex = [RECreditCardType(self.item.number) isEqualToString:@"American Express"];
+    NSString *issuer = RECreditCardType(self.item.number);
+    if (issuer) {
+        _creditCardImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"RETableViewManager.bundle/Card_%@", issuer]];
+        [UIView transitionFromView:_creditCardStackImageView toView:_creditCardImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:nil];
+        _currentImageView = _creditCardImageView;
+    } else {
+        if (_currentImageView != _creditCardStackImageView) {
+            [UIView transitionFromView:_creditCardImageView toView:_creditCardStackImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
+            _currentImageView = _creditCardStackImageView;
+        }
+    }
+    
+    BOOL isAmex = [issuer isEqualToString:@"Amex"];
     
     if (textField.tag == 0 && textField.text.length == (isAmex ? 18 : 19) ) {
         [_expirationDateField becomeFirstResponder];
@@ -162,10 +180,10 @@ static inline NSString *RECreditCardType(NSString *creditCardNumber)
 {
     [self refreshActionBar];
     if (textField.tag == 0) {
-        [UIView transitionFromView:_creditCardBackImageView toView:_creditCardStackImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
+        [UIView transitionFromView:_creditCardBackImageView toView:_currentImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
     }
     if (textField.tag == 2) {
-        [UIView transitionFromView:_creditCardStackImageView toView:_creditCardBackImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:nil];
+        [UIView transitionFromView:_currentImageView toView:_creditCardBackImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:nil];
     }
     return YES;
 }
@@ -174,7 +192,7 @@ static inline NSString *RECreditCardType(NSString *creditCardNumber)
 {
     [self performBlock:^{
         if ((textField.tag == 1 || textField.tag == 2) && !_cvvField.isFirstResponder) {
-            [UIView transitionFromView:_creditCardBackImageView toView:_creditCardStackImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
+            [UIView transitionFromView:_creditCardBackImageView toView:_currentImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
         }
     } afterDelay:0.1];
     return YES;

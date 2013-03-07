@@ -13,6 +13,7 @@
 @interface RETableViewCreditCardCell : RETableViewCell <UITextFieldDelegate> {
     UIView *_wrapperView;
     UIView *_creditCardImageViewContainer;
+    UIImageView *_currentImageView;
 }
 
 @property (strong, nonatomic) RECreditCardItem *item;
