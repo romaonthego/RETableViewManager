@@ -32,6 +32,5 @@
 @property (copy, nonatomic) void (^actionBlock)(id item);
 @property (assign, nonatomic) BOOL performActionOnSelection;
 @property (assign, readonly, nonatomic) BOOL canFocus;
-@property (strong, nonatomic) RETableViewCellStyle *style;
 
 @end

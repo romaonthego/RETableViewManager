@@ -61,7 +61,7 @@
     self.textLabel.text = self.item.title;
     _textField.text = self.item.value;
     _textField.placeholder = self.item.placeholder;
-    _textField.font = self.item.style ? self.item.style.textFieldFont : self.tableViewManager.style.textFieldFont;
+    _textField.font = self.tableViewManager.style.textFieldFont;
     _textField.autocapitalizationType = self.item.autocapitalizationType;
     _textField.autocorrectionType = self.item.autocorrectionType;
     _textField.spellCheckingType = self.item.spellCheckingType;
@@ -71,7 +71,7 @@
     _textField.enablesReturnKeyAutomatically = self.item.enablesReturnKeyAutomatically;
     _textField.secureTextEntry = self.item.secureTextEntry;
     
-    _textFieldPositionOffset = self.item.style ? self.item.style.textFieldPositionOffset : self.tableViewManager.style.textFieldPositionOffset;
+    _textFieldPositionOffset = self.tableViewManager.style.textFieldPositionOffset;
 }
 
 - (UIResponder *)responder
