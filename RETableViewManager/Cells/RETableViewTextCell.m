@@ -34,10 +34,7 @@
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.textLabel.backgroundColor = [UIColor clearColor];
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-            _textField = [[UITextField alloc] initWithFrame:CGRectMake(140, 0, self.frame.size.width - 160, self.frame.size.height)];
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            _textField = [[UITextField alloc] initWithFrame:CGRectMake(180, 0, self.frame.size.width - 200, self.frame.size.height)];
+        _textField = [[UITextField alloc] initWithFrame:CGRectNull];
         
         _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         _textField.inputAccessoryView = self.actionBar;
@@ -64,7 +61,7 @@
     self.textLabel.text = self.item.title;
     _textField.text = self.item.value;
     _textField.placeholder = self.item.placeholder;
-    _textField.font = self.tableViewManager.style.textFieldFont;
+    _textField.font = self.item.style ? self.item.style.textFieldFont : self.tableViewManager.style.textFieldFont;
     _textField.autocapitalizationType = self.item.autocapitalizationType;
     _textField.autocorrectionType = self.item.autocorrectionType;
     _textField.spellCheckingType = self.item.spellCheckingType;
@@ -74,7 +71,7 @@
     _textField.enablesReturnKeyAutomatically = self.item.enablesReturnKeyAutomatically;
     _textField.secureTextEntry = self.item.secureTextEntry;
     
-    _textFieldPositionOffset = self.tableViewManager.style.textFieldPositionOffset;   
+    _textFieldPositionOffset = self.item.style ? self.item.style.textFieldPositionOffset : self.tableViewManager.style.textFieldPositionOffset;
 }
 
 - (UIResponder *)responder
@@ -85,17 +82,25 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    if (self.item.title) {
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-            _textField.frame = CGRectMake(140 + _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 160 - _textFieldPositionOffset.width, self.frame.size.height - _textFieldPositionOffset.height);
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            _textField.frame = CGRectMake(160+ _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 200 - _textFieldPositionOffset.width, self.frame.size.height - _textFieldPositionOffset.height);
+    
+    
+    CGFloat cellOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 20 : 60;
+    CGFloat fieldOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 40;
+    CGFloat width = 0;
+    CGRect frame = CGRectMake(0, _textFieldPositionOffset.height, 0, self.frame.size.height - _textFieldPositionOffset.height);
+    if (self.item.title && ![self.item.title isEqualToString:@""]) {
+        for (RETableViewItem *item in self.section.items) {
+            if ([item isKindOfClass:[RETextItem class]] || [item isKindOfClass:[RENumberItem class]]) {
+                CGSize size = [item.title sizeWithFont:self.textLabel.font];
+                width = MAX(width, size.width);
+            }
+        }
+        frame.origin.x = width + cellOffset + fieldOffset + _textFieldPositionOffset.width;
     } else {
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-            _textField.frame = CGRectMake(20 + _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 40 - _textFieldPositionOffset.width, self.frame.size.height - _textFieldPositionOffset.height);
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            _textField.frame = CGRectMake(40 + _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 80 - _textFieldPositionOffset.width, self.frame.size.height - _textFieldPositionOffset.height);
+        frame.origin.x = cellOffset + _textFieldPositionOffset.width;
     }
+    frame.size.width = self.frame.size.width - frame.origin.x - cellOffset;
+    _textField.frame = frame;
 }
 
 #pragma mark -

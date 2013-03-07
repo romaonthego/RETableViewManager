@@ -22,15 +22,16 @@
     // Create manager
     //
     _manager = [[RETableViewManager alloc] init];
-    _manager.style.textFieldPositionOffset = CGSizeMake(40, 0);
+    _manager.style.textFieldPositionOffset = CGSizeMake(0, 0);
     
     RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Basic controls"];
     [_manager addSection:section];
     
-    [section addItem:[RETextItem itemWithTitle:nil value:nil placeholder:@"Full length text field"]];
+    RETextItem *fullLengthField = [RETextItem itemWithTitle:nil value:nil placeholder:@"Full length text field"];
+    [section addItem:fullLengthField];
     [section addItem:[RETextItem itemWithTitle:@"Text item 1" value:nil placeholder:@"Text"]];
     [section addItem:[RETextItem itemWithTitle:@"Text item 2" value:nil placeholder:@"Text"]];
-    [section addItem:[RETextItem itemWithTitle:@"Text item 3" value:nil placeholder:@"Text"]];
+    [section addItem:[RETextItem itemWithTitle:@"Text item 3 werw ererer" value:nil placeholder:@"Text"]];
     [section addItem:[RETextItem itemWithTitle:@"Text item 4" value:nil placeholder:@"Text"]];
     [section addItem:[REBoolItem itemWithTitle:@"Bool item" value:YES]];
     
