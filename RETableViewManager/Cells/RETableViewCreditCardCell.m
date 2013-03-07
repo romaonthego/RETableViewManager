@@ -11,6 +11,26 @@
 
 @implementation RETableViewCreditCardCell
 
+static inline NSString *RECreditCardType(NSString *creditCardNumber)
+{
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\D" options:NSRegularExpressionCaseInsensitive error:NULL];
+    NSString *strippedNumber = [regex stringByReplacingMatchesInString:creditCardNumber options:0 range:NSMakeRange(0, creditCardNumber.length) withTemplate:@""];
+    
+    NSDictionary *types = @{@"Visa": @"^4[0-9]{12}(?:[0-9]{2})?",
+                            @"MasterCard": @"^5[1-5][0-9]{13}",
+                            @"American Express": @"^3[47][0-9]{12}",
+                            @"Diners Club": @"^3(?:0[0-5]|[68][0-9])[0-9]{10}",
+                            @"Discover": @"^6(?:011|5[0-9]{2})[0-9]{11}",
+                            @"JCB": @"^(?:2131|1800|35\\d{3})\\d{10}"};
+    
+    for (NSString *type in types) {
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:[types objectForKey:type] options:NSRegularExpressionCaseInsensitive error:NULL];
+        if ([regex numberOfMatchesInString:strippedNumber options:0 range:NSMakeRange(0, strippedNumber.length)] == 1)
+            return type;
+    }
+    return nil;
+}
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier tableViewManager:(RETableViewManager *)tableViewManager
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier tableViewManager:(RETableViewManager *)tableViewManager];
@@ -109,7 +129,10 @@
     if (textField.tag == 0) self.item.number = textField.text;
     if (textField.tag == 1) self.item.expirationDate = textField.text;
     if (textField.tag == 2) self.item.cvv = textField.text;
-    if (textField.tag == 0 && textField.text.length == 19) {
+    
+    BOOL isAmex = [RECreditCardType(self.item.number) isEqualToString:@"American Express"];
+    
+    if (textField.tag == 0 && textField.text.length == (isAmex ? 18 : 19) ) {
         [_expirationDateField becomeFirstResponder];
         __typeof(&*self) __weak weakSelf = self;
         [UIView animateWithDuration:0.1 animations:^{
@@ -119,7 +142,7 @@
         }];
     }
     
-    if (textField.tag == 0 && textField.text.length == 18) {
+    if (textField.tag == 0 && textField.text.length == (isAmex ? 17 : 18)) {
         if (textField.tag == 0) {
             __typeof(&*self) __weak weakSelf = self;
             [UIView animateWithDuration:0.1 animations:^{
