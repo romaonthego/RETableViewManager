@@ -32,6 +32,8 @@
     [section addItem:[RETextItem itemWithTitle:@"Text item 4" value:nil placeholder:@"Text"]];
     [section addItem:[REBoolItem itemWithTitle:@"Bool item" value:YES]];
     
+    [section addItem:[RECreditCardItem item]];
+    
     // Set delegate and datasource
     //
     self.tableView.dataSource = _manager;

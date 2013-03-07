@@ -1,6 +1,6 @@
 //
-// RETableViewCellStyle.m
-// RETableViewManager
+// REFormattedNumberField.h
+// REFormattedNumberField
 //
 // Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego)
 //
@@ -23,32 +23,10 @@
 // THE SOFTWARE.
 //
 
-#import "RETableViewCellStyle.h"
+#import <UIKit/UIKit.h>
 
-@implementation RETableViewCellStyle
+@interface REFormattedNumberField : UITextField
 
-- (id)init
-{
-    self = [super init];
-    if (!self)
-        return nil;
-    
-    _backgroundImages = [[NSMutableDictionary alloc] init];
-    _textFieldFont = [UIFont systemFontOfSize:15];
-    _cellHeight = 44;
-    
-    return self;
-}
-
-- (UIImage *)backgroundImageForCellType:(RETableViewCellType)cellType
-{
-    return [_backgroundImages objectForKey:@(cellType)];
-}
-
-- (void)setBackgroundImage:(UIImage *)image forCellType:(RETableViewCellType)cellType
-{
-    if (image)
-        [_backgroundImages setObject:image forKey:@(cellType)];
-}
+@property (copy, nonatomic) NSString *format;
 
 @end

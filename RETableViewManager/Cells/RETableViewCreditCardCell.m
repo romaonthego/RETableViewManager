@@ -127,6 +127,13 @@ static inline NSString *RECreditCardType(NSString *creditCardNumber)
     return _creditCardField;
 }
 
+- (void)flipCreditCardImageViewBack:(UITextField *)textField
+{
+    if ((textField.tag == 1 || textField.tag == 2) && !_cvvField.isFirstResponder) {
+        [UIView transitionFromView:_creditCardBackImageView toView:_currentImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
+    }
+}
+
 #pragma mark -
 #pragma mark UISwitch events
 
@@ -154,9 +161,9 @@ static inline NSString *RECreditCardType(NSString *creditCardNumber)
         [_expirationDateField becomeFirstResponder];
         __typeof(&*self) __weak weakSelf = self;
         [UIView animateWithDuration:0.1 animations:^{
-            weakSelf.creditCardField.x = -120;
-            weakSelf.expirationDateField.x = CGRectGetMaxX(_creditCardField.frame);
-            weakSelf.cvvField.x = CGRectGetMaxX(_expirationDateField.frame);
+            weakSelf.creditCardField.frame = CGRectMake(-120, weakSelf.creditCardField.frame.origin.y, weakSelf.creditCardField.frame.size.width, weakSelf.creditCardField.frame.size.height);
+            weakSelf.expirationDateField.frame = CGRectMake(CGRectGetMaxX(_creditCardField.frame), weakSelf.expirationDateField.frame.origin.y, weakSelf.expirationDateField.frame.size.width, weakSelf.expirationDateField.frame.size.height);
+            weakSelf.cvvField.frame = CGRectMake(CGRectGetMaxX(_expirationDateField.frame), weakSelf.cvvField.frame.origin.y, weakSelf.cvvField.frame.size.width, weakSelf.cvvField.frame.size.height);
         }];
     }
     
@@ -164,9 +171,9 @@ static inline NSString *RECreditCardType(NSString *creditCardNumber)
         if (textField.tag == 0) {
             __typeof(&*self) __weak weakSelf = self;
             [UIView animateWithDuration:0.1 animations:^{
-                weakSelf.creditCardField.x = 0;
-                weakSelf.expirationDateField.x = 320;
-                weakSelf.cvvField.x = 320;
+                weakSelf.creditCardField.frame = CGRectMake(0, weakSelf.creditCardField.frame.origin.y, weakSelf.creditCardField.frame.size.width, weakSelf.creditCardField.frame.size.height);
+                weakSelf.expirationDateField.frame = CGRectMake(320, weakSelf.expirationDateField.frame.origin.y, weakSelf.expirationDateField.frame.size.width, weakSelf.expirationDateField.frame.size.height);
+                weakSelf.cvvField.frame = CGRectMake(320, weakSelf.cvvField.frame.origin.y, weakSelf.cvvField.frame.size.width, weakSelf.cvvField.frame.size.height);
             }];
         }
     }
@@ -190,11 +197,7 @@ static inline NSString *RECreditCardType(NSString *creditCardNumber)
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
-    [self performBlock:^{
-        if ((textField.tag == 1 || textField.tag == 2) && !_cvvField.isFirstResponder) {
-            [UIView transitionFromView:_creditCardBackImageView toView:_currentImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
-        }
-    } afterDelay:0.1];
+    [self performSelector:@selector(flipCreditCardImageViewBack:) withObject:textField afterDelay:0.1];
     return YES;
 }
 
