@@ -56,6 +56,11 @@
 
 - (void)prepare
 {
+    [self refreshActionBar];
+}
+
+- (void)refreshActionBar
+{
     [self.actionBar.navigationControl setEnabled:[self indexPathForPreviousResponder] != nil forSegmentAtIndex:0];
     [self.actionBar.navigationControl setEnabled:[self indexPathForNextResponder] != nil forSegmentAtIndex:1];
 }

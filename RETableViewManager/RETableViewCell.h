@@ -44,6 +44,7 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier tableViewManager:(RETableViewManager *)tableViewManager;
 - (void)prepare;
+- (void)refreshActionBar;
 
 - (UIResponder *)responder;
 - (NSIndexPath *)indexPathForPreviousResponder;

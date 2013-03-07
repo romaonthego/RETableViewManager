@@ -114,7 +114,7 @@
     } else {
         textField.returnKeyType = UIReturnKeyDefault;
     }
-    
+    [self refreshActionBar];
     [self.parentTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.row inSection:self.sectionIndex] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     return YES;
 }
