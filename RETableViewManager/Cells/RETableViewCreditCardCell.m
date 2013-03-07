@@ -45,9 +45,8 @@ static inline NSString *RECreditCardType(NSString *creditCardNumber)
         [_creditCardImageViewContainer addSubview:_creditCardStackImageView];
         
         _creditCardImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
-        _creditCardImageView.image = [UIImage imageNamed:@"RETableViewManager.bundle/Card_Stack"];
+        _creditCardImageView.image = [UIImage imageNamed:@"RETableViewManager.bundle/Card_Visa"];
         _creditCardImageView.tag = 1;
-        [_creditCardImageViewContainer addSubview:_creditCardImageView];
         
         _creditCardBackImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
         _creditCardBackImageView.image = [UIImage imageNamed:@"RETableViewManager.bundle/Card_Back"];
@@ -125,17 +124,17 @@ static inline NSString *RECreditCardType(NSString *creditCardNumber)
     [_cvvField sizeToFit];
     
     CGRect frame = _creditCardField.frame;
-    frame.size.width += 40;
+    frame.size.width += UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 40 : 60;
     frame.size.height = self.frame.size.height;
     _creditCardField.frame = frame;
     
     frame = _expirationDateField.frame;
-    frame.size.width += 40;
+    frame.size.width += UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 40 : 60;
     frame.size.height = self.frame.size.height;
     _expirationDateField.frame = frame;
     
     frame = _cvvField.frame;
-    frame.size.width += 40;
+    frame.size.width += UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 40 : 60;
     frame.size.height = self.frame.size.height;
     _cvvField.frame = frame;
 }
@@ -160,6 +159,7 @@ static inline NSString *RECreditCardType(NSString *creditCardNumber)
     if (textField.tag == 0) self.item.number = textField.text;
     if (textField.tag == 1) self.item.expirationDate = textField.text;
     if (textField.tag == 2) self.item.cvv = textField.text;
+    
     
     NSString *issuer = RECreditCardType(self.item.number);
     if (issuer) {
@@ -211,7 +211,7 @@ static inline NSString *RECreditCardType(NSString *creditCardNumber)
         [UIView transitionFromView:_creditCardBackImageView toView:_currentImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
     }
     if (textField.tag == 2) {
-        [UIView transitionFromView:_currentImageView toView:_creditCardBackImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:nil];
+        [UIView transitionFromView:_creditCardStackImageView toView:_creditCardBackImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:nil];
     }
     return YES;
 }
