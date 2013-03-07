@@ -17,9 +17,15 @@
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.textLabel.backgroundColor = [UIColor clearColor];
-        _ccImageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 5, 32, 32)];
-        _ccImageView.image = [UIImage imageNamed:@"RETableViewManager.bundle/Card_Stack"];
-        [self addSubview:_ccImageView];
+        _creditCardImageViewContainer = [[UIView alloc] initWithFrame:CGRectMake(20, 5, 32, 32)];
+        [self addSubview:_creditCardImageViewContainer];
+        
+        _creditCardStackImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
+        _creditCardStackImageView.image = [UIImage imageNamed:@"RETableViewManager.bundle/Card_Stack"];
+        [_creditCardImageViewContainer addSubview:_creditCardStackImageView];
+        
+        _creditCardBackImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
+        _creditCardBackImageView.image = [UIImage imageNamed:@"RETableViewManager.bundle/Card_Back"];
         
         _wrapperView = [[UIView alloc] initWithFrame:CGRectMake(60 + _textFieldPositionOffset.width, _textFieldPositionOffset.height + 1, self.frame.size.width - 70, self.frame.size.height)];
         _wrapperView.clipsToBounds = YES;
@@ -42,6 +48,7 @@
         _expirationDateField.inputAccessoryView = self.actionBar;
         _expirationDateField.format = @"XX/XX";
         _expirationDateField.placeholder = @"MM/YY";
+        _expirationDateField.delegate = self;
         [_expirationDateField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
         [_wrapperView addSubview:_expirationDateField];
         
@@ -51,6 +58,7 @@
         _cvvField.inputAccessoryView = self.actionBar;
         _cvvField.format = @"XXX";
         _cvvField.placeholder = @"CVV";
+        _cvvField.delegate = self;
         [_cvvField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
         [_wrapperView addSubview:_cvvField];
     }
@@ -130,6 +138,22 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     [self refreshActionBar];
+    if (textField.tag == 0) {
+        [UIView transitionFromView:_creditCardBackImageView toView:_creditCardStackImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
+    }
+    if (textField.tag == 2) {
+        [UIView transitionFromView:_creditCardStackImageView toView:_creditCardBackImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:nil];
+    }
+    return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    [self performBlock:^{
+        if ((textField.tag == 1 || textField.tag == 2) && !_cvvField.isFirstResponder) {
+            [UIView transitionFromView:_creditCardBackImageView toView:_creditCardStackImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
+        }
+    } afterDelay:0.1];
     return YES;
 }
 

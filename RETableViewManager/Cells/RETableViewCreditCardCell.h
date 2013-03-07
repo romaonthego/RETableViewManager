@@ -12,6 +12,7 @@
 
 @interface RETableViewCreditCardCell : RETableViewCell <UITextFieldDelegate> {
     UIView *_wrapperView;
+    UIView *_creditCardImageViewContainer;
 }
 
 @property (strong, nonatomic) RECreditCardItem *item;
@@ -19,7 +20,9 @@
 @property (strong, nonatomic) REFormattedNumberField *expirationDateField;
 @property (strong, nonatomic) REFormattedNumberField *cvvField;
 @property (assign, nonatomic) CGSize textFieldPositionOffset;
-@property (strong, nonatomic) UIImageView *ccImageView;
+@property (strong, nonatomic) UIImageView *creditCardBackImageView;
+@property (strong, nonatomic) UIImageView *creditCardImageView;
+@property (strong, nonatomic) UIImageView *creditCardStackImageView;
 
 
 @end
