@@ -1,5 +1,5 @@
 //
-// RETableViewCell.h
+// REActionBar.h
 // RETableViewManager
 //
 // Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego)
@@ -24,29 +24,21 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RETableViewSection.h"
-#import "REActionBar.h"
 
-@class RETableViewManager;
+@protocol REActionBarDelegate;
 
-@interface RETableViewCell : UITableViewCell <REActionBarDelegate>
+@interface REActionBar : UIToolbar
 
-@property (strong, nonatomic) UIImageView *backgroundImageView;
-@property (assign, nonatomic) NSInteger row;
-@property (assign, nonatomic) NSInteger sectionIndex;
-@property (weak, nonatomic) UITableView *parentTableView;
-@property (weak, nonatomic) RETableViewManager *tableViewManager;
-@property (weak, nonatomic) RETableViewSection *section;
-@property (strong, nonatomic) NSObject *item;
-@property (strong, nonatomic) REActionBar *actionBar;
+@property (strong, nonatomic) UISegmentedControl *navigationControl;
+@property (weak, nonatomic) id<REActionBarDelegate> actionBarDelegate;
 
-+ (CGFloat)heightWithItem:(NSObject *)item tableViewManager:(RETableViewManager *)tableViewManager;
+- (id)initWithDelegate:(id)delegate;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier tableViewManager:(RETableViewManager *)tableViewManager;
-- (void)prepare;
+@end
 
-- (UIResponder *)responder;
-- (NSIndexPath *)indexPathForPreviousResponder;
-- (NSIndexPath *)indexPathForNextResponder;
+@protocol REActionBarDelegate <NSObject>
+
+- (void)actionBar:(REActionBar *)actionBar navigationControlValueChanged:(UISegmentedControl *)navigationControl;
+- (void)actionBar:(REActionBar *)actionBar doneButtonPressed:(UIBarButtonItem *)doneButtonItem;
 
 @end

@@ -10,14 +10,10 @@
 #import "REFormattedNumberField.h"
 #import "RENumberItem.h"
 
-@interface RETableViewNumberCell : RETableViewCell <UITextFieldDelegate> {
-    UISegmentedControl *_prevNext;
-}
+@interface RETableViewNumberCell : RETableViewCell <UITextFieldDelegate>
 
 @property (strong, nonatomic) RENumberItem *item;
 @property (strong, nonatomic) REFormattedNumberField *textField;
 @property (assign, nonatomic) CGSize textFieldPositionOffset;
-
-- (UIToolbar *)actionBar;
 
 @end

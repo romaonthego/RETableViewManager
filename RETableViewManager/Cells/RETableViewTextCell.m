@@ -40,36 +40,13 @@
             _textField = [[UITextField alloc] initWithFrame:CGRectMake(160, 0, self.frame.size.width - 200, self.frame.size.height)];
         
         _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _textField.inputAccessoryView = [self actionBar];
+        _textField.inputAccessoryView = self.actionBar;
         _textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         _textField.delegate = self;
         [_textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
         [self addSubview:_textField];
     }
     return self;
-}
-
-- (UIToolbar *)actionBar
-{
-    UIToolbar *actionBar = [[UIToolbar alloc] init];
-    actionBar.translucent = YES;
-    [actionBar sizeToFit];
-    actionBar.barStyle = UIBarStyleBlackTranslucent;
-    
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", @"")
-                                                                   style:UIBarButtonItemStyleDone target:self
-                                                                  action:@selector(handleActionBarDone:)];
-    
-    _prevNext = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:NSLocalizedString(@"Previous", @""), NSLocalizedString(@"Next", @""), nil]];
-    _prevNext.momentary = YES;
-    _prevNext.segmentedControlStyle = UISegmentedControlStyleBar;
-    _prevNext.tintColor = actionBar.tintColor;
-    [_prevNext addTarget:self action:@selector(handleActionBarPreviousNext:) forControlEvents:UIControlEventValueChanged];
-    UIBarButtonItem *prevNextWrapper = [[UIBarButtonItem alloc] initWithCustomView:_prevNext];
-    UIBarButtonItem *flexible = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    [actionBar setItems:[NSArray arrayWithObjects:prevNextWrapper, flexible, doneButton, nil]];
-    
-	return actionBar;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -82,6 +59,8 @@
 
 - (void)prepare
 {
+    [super prepare];
+    
     self.textLabel.text = self.item.title;
     _textField.text = self.item.value;
     _textField.placeholder = self.item.placeholder;
@@ -96,35 +75,11 @@
     _textField.secureTextEntry = self.item.secureTextEntry;
     
     _textFieldPositionOffset = self.tableViewManager.style.textFieldPositionOffset;   
-    
-    [_prevNext setEnabled:[self indexPathForPreviousTextField] != nil forSegmentAtIndex:0];
-    [_prevNext setEnabled:[self indexPathForNextTextField] != nil forSegmentAtIndex:1];
 }
 
-- (NSIndexPath *)indexPathForPreviousTextField
+- (UIResponder *)responder
 {
-    NSUInteger indexInSection = [self.section.items indexOfObject:self.item];
-    for (NSInteger i = indexInSection - 1; i >= 0; i--) {
-        RETableViewItem *item = [self.section.items objectAtIndex:i];
-        if (item.canFocus) {
-            return [NSIndexPath indexPathForRow:i inSection:self.sectionIndex];
-            break;
-        }
-    }
-    return nil;
-}
-
-- (NSIndexPath *)indexPathForNextTextField
-{
-    NSUInteger indexInSection = [self.section.items indexOfObject:self.item];
-    for (NSInteger i = indexInSection + 1; i < self.section.items.count; i++) {
-        RETableViewItem *item = [self.section.items objectAtIndex:i];
-        if (item.canFocus) {
-            return [NSIndexPath indexPathForRow:i inSection:self.sectionIndex];
-            break;
-        }
-    }
-    return nil;
+    return _textField;
 }
 
 - (void)layoutSubviews
@@ -153,7 +108,7 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    NSIndexPath *indexPath = [self indexPathForNextTextField];
+    NSIndexPath *indexPath = [self indexPathForNextResponder];
     if (indexPath) {
         textField.returnKeyType = UIReturnKeyNext;
     } else {
@@ -167,60 +122,14 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSIndexPath *indexPath = [self indexPathForNextTextField];
+    NSIndexPath *indexPath = [self indexPathForNextResponder];
     if (!indexPath) {
-        [_textField resignFirstResponder];
+        [self endEditing:YES];
         return YES;
     }
-    UITableViewCell *cell = [self.parentTableView cellForRowAtIndexPath:indexPath];
-    for (id object in cell.subviews) {
-        if ([object isKindOfClass:[UITextField class]]) {
-            UITextField *textField = object;
-            [textField becomeFirstResponder];
-        }
-    }
+    RETableViewCell *cell = (RETableViewCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
+    [cell.responder becomeFirstResponder];
     return YES;
-}
-
-#pragma mark -
-#pragma mark Action bar
-
-- (void)handleActionBarPreviousNext:(UISegmentedControl *)segmentedControl
-{
-    if (segmentedControl.selectedSegmentIndex == 0) {
-        NSIndexPath *indexPath = [self indexPathForPreviousTextField];
-        if (indexPath) {
-            UITableViewCell *cell = [self.parentTableView cellForRowAtIndexPath:indexPath];
-            if (!cell)
-                [self.parentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
-            cell = [self.parentTableView cellForRowAtIndexPath:indexPath];
-            for (id object in cell.subviews) {
-                if ([object isKindOfClass:[UITextField class]]) {
-                    UITextField *textField = object;
-                    [textField becomeFirstResponder];
-                }
-            }
-        }
-    } else {
-        NSIndexPath *indexPath = [self indexPathForNextTextField];
-        if (indexPath) {
-            UITableViewCell *cell = [self.parentTableView cellForRowAtIndexPath:indexPath];
-            if (!cell)
-                [self.parentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
-            cell = [self.parentTableView cellForRowAtIndexPath:indexPath];
-            for (id object in cell.subviews) {
-                if ([object isKindOfClass:[UITextField class]]) {
-                    UITextField *textField = object;
-                    [textField becomeFirstResponder];
-                }
-            }
-        }
-    }
-}
-
-- (void)handleActionBarDone:(UIBarButtonItem *)doneButtonItem
-{
-    [_textField resignFirstResponder];
 }
 
 @end

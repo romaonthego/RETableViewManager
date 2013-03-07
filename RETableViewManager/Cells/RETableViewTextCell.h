@@ -26,14 +26,10 @@
 #import "RETableViewCell.h"
 #import "RETextItem.h"
 
-@interface RETableViewTextCell : RETableViewCell <UITextFieldDelegate> {
-    UISegmentedControl *_prevNext;
-}
+@interface RETableViewTextCell : RETableViewCell <UITextFieldDelegate>
 
 @property (strong, nonatomic) RETextItem *item;
 @property (strong, nonatomic) UITextField *textField;
 @property (assign, nonatomic) CGSize textFieldPositionOffset;
-
-- (UIToolbar *)actionBar;
 
 @end

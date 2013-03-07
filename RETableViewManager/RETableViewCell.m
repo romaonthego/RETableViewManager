@@ -33,6 +33,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.tableViewManager = tableViewManager;
+        self.actionBar = [[REActionBar alloc] initWithDelegate:self];
         if ([self hasCustomBackgroundImage]) {
             self.backgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
             self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -55,7 +56,8 @@
 
 - (void)prepare
 {
-    
+    [self.actionBar.navigationControl setEnabled:[self indexPathForPreviousResponder] != nil forSegmentAtIndex:0];
+    [self.actionBar.navigationControl setEnabled:[self indexPathForNextResponder] != nil forSegmentAtIndex:1];
 }
 
 - (void)layoutSubviews
@@ -81,6 +83,68 @@
         }
         _backgroundImageView.frame = CGRectMake(0, 0, _backgroundImageView.image.size.width, _backgroundImageView.image.size.height);
     }
+}
+
+- (UIResponder *)responder
+{
+    return nil;
+}
+
+- (NSIndexPath *)indexPathForPreviousResponder
+{
+    NSUInteger indexInSection = [self.section.items indexOfObject:self.item];
+    for (NSInteger i = indexInSection - 1; i >= 0; i--) {
+        RETableViewItem *item = [self.section.items objectAtIndex:i];
+        if (item.canFocus) {
+            return [NSIndexPath indexPathForRow:i inSection:self.sectionIndex];
+            break;
+        }
+    }
+    return nil;
+}
+
+- (NSIndexPath *)indexPathForNextResponder
+{
+    NSUInteger indexInSection = [self.section.items indexOfObject:self.item];
+    for (NSInteger i = indexInSection + 1; i < self.section.items.count; i++) {
+        RETableViewItem *item = [self.section.items objectAtIndex:i];
+        if (item.canFocus) {
+            return [NSIndexPath indexPathForRow:i inSection:self.sectionIndex];
+            break;
+        }
+    }
+    return nil;
+}
+
+#pragma mark - 
+#pragma mark REActionBar delegate
+
+- (void)actionBar:(REActionBar *)actionBar navigationControlValueChanged:(UISegmentedControl *)navigationControl
+{
+    if (navigationControl.selectedSegmentIndex == 0) {
+        NSIndexPath *indexPath = [self indexPathForPreviousResponder];
+        if (indexPath) {
+            RETableViewCell *cell = (RETableViewCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
+            if (!cell)
+                [self.parentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+            cell = (RETableViewCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
+            [cell.responder becomeFirstResponder];
+        }
+    } else {
+        NSIndexPath *indexPath = [self indexPathForNextResponder];
+        if (indexPath) {
+            RETableViewCell *cell = (RETableViewCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
+            if (!cell)
+                [self.parentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+            cell = (RETableViewCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
+            [cell.responder becomeFirstResponder];
+        }
+    }
+}
+
+- (void)actionBar:(REActionBar *)actionBar doneButtonPressed:(UIBarButtonItem *)doneButtonItem
+{
+    [self endEditing:YES];
 }
 
 @end
