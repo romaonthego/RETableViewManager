@@ -29,10 +29,12 @@
 #import "RETableViewCell.h"
 #import "RETableViewStringCell.h"
 #import "RETableViewNumberCell.h"
+#import "RETableViewCreditCardCell.h"
 
 #import "REBoolItem.h"
 #import "RETextItem.h"
 #import "RENumberItem.h"
+#import "RECreditCardItem.h"
 
 @protocol RETableViewManagerDelegate;
 

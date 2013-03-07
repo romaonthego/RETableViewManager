@@ -49,6 +49,7 @@
     [self mapObjectClass:@"REBoolItem" toTableViewCellClass:@"RETableViewBoolCell"];
     [self mapObjectClass:@"RETextItem" toTableViewCellClass:@"RETableViewTextCell"];
     [self mapObjectClass:@"RENumberItem" toTableViewCellClass:@"RETableViewNumberCell"];
+    [self mapObjectClass:@"RECreditCardItem" toTableViewCellClass:@"RETableViewCreditCardCell"];
 }
 
 - (RETableViewSection *)addSection:(RETableViewSection *)section
