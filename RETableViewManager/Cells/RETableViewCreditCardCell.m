@@ -18,7 +18,7 @@ static inline NSString *RECreditCardType(NSString *creditCardNumber)
     
     NSDictionary *types = @{@"Visa": @"^4[0-9]{12}(?:[0-9]{2})?",
                             @"MasterCard": @"^5[1-5][0-9]{13}",
-                            @"AmericanExpress": @"^3[47][0-9]{12}",
+                            @"Amex": @"^3[47][0-9]{12}",
                             @"Discover": @"^6(?:011|5[0-9]{2})[0-9]{11}"};
     
     for (NSString *type in types) {
@@ -35,7 +35,7 @@ static inline NSString *RECreditCardType(NSString *creditCardNumber)
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.textLabel.backgroundColor = [UIColor clearColor];
-        _creditCardImageViewContainer = [[UIView alloc] initWithFrame:CGRectMake(20, 5, 32, 32)];
+        _creditCardImageViewContainer = [[UIView alloc] initWithFrame:CGRectMake(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 20 : 56, 5, 32, 32)];
         [self addSubview:_creditCardImageViewContainer];
         
         _creditCardStackImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
@@ -53,7 +53,7 @@ static inline NSString *RECreditCardType(NSString *creditCardNumber)
         _creditCardBackImageView.image = [UIImage imageNamed:@"RETableViewManager.bundle/Card_Back"];
         _creditCardBackImageView.tag = 2;
         
-        _wrapperView = [[UIView alloc] initWithFrame:CGRectMake(60 + _textFieldPositionOffset.width, _textFieldPositionOffset.height + 1, self.frame.size.width - 70, self.frame.size.height)];
+        _wrapperView = [[UIView alloc] initWithFrame:CGRectMake(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 60 : 96 + _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 70, self.frame.size.height)];
         _wrapperView.clipsToBounds = YES;
         [self addSubview:_wrapperView];
         
@@ -120,6 +120,24 @@ static inline NSString *RECreditCardType(NSString *creditCardNumber)
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    [_creditCardField sizeToFit];
+    [_expirationDateField sizeToFit];
+    [_cvvField sizeToFit];
+    
+    CGRect frame = _creditCardField.frame;
+    frame.size.width += 40;
+    frame.size.height = self.frame.size.height;
+    _creditCardField.frame = frame;
+    
+    frame = _expirationDateField.frame;
+    frame.size.width += 40;
+    frame.size.height = self.frame.size.height;
+    _expirationDateField.frame = frame;
+    
+    frame = _cvvField.frame;
+    frame.size.width += 40;
+    frame.size.height = self.frame.size.height;
+    _cvvField.frame = frame;
 }
 
 - (UIResponder *)responder
@@ -161,7 +179,10 @@ static inline NSString *RECreditCardType(NSString *creditCardNumber)
         [_expirationDateField becomeFirstResponder];
         __typeof(&*self) __weak weakSelf = self;
         [UIView animateWithDuration:0.1 animations:^{
-            weakSelf.creditCardField.frame = CGRectMake(-120, weakSelf.creditCardField.frame.origin.y, weakSelf.creditCardField.frame.size.width, weakSelf.creditCardField.frame.size.height);
+            
+            NSString *substring = [textField.text substringToIndex:textField.text.length - (isAmex ? 3 : 4)];
+            CGSize size = [substring sizeWithFont:textField.font];
+            weakSelf.creditCardField.frame = CGRectMake(-size.width, weakSelf.creditCardField.frame.origin.y, weakSelf.creditCardField.frame.size.width, weakSelf.creditCardField.frame.size.height);
             weakSelf.expirationDateField.frame = CGRectMake(CGRectGetMaxX(_creditCardField.frame), weakSelf.expirationDateField.frame.origin.y, weakSelf.expirationDateField.frame.size.width, weakSelf.expirationDateField.frame.size.height);
             weakSelf.cvvField.frame = CGRectMake(CGRectGetMaxX(_expirationDateField.frame), weakSelf.cvvField.frame.origin.y, weakSelf.cvvField.frame.size.width, weakSelf.cvvField.frame.size.height);
         }];

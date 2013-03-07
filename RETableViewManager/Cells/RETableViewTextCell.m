@@ -37,7 +37,7 @@
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
             _textField = [[UITextField alloc] initWithFrame:CGRectMake(140, 0, self.frame.size.width - 160, self.frame.size.height)];
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            _textField = [[UITextField alloc] initWithFrame:CGRectMake(160, 0, self.frame.size.width - 200, self.frame.size.height)];
+            _textField = [[UITextField alloc] initWithFrame:CGRectMake(180, 0, self.frame.size.width - 200, self.frame.size.height)];
         
         _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         _textField.inputAccessoryView = self.actionBar;
@@ -87,14 +87,14 @@
     [super layoutSubviews];
     if (self.item.title) {
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-            _textField.frame = CGRectMake(140 + _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 160, self.frame.size.height - _textFieldPositionOffset.height);
+            _textField.frame = CGRectMake(140 + _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 160 - _textFieldPositionOffset.width, self.frame.size.height - _textFieldPositionOffset.height);
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            _textField.frame = CGRectMake(160+ _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 200, self.frame.size.height - _textFieldPositionOffset.height);
+            _textField.frame = CGRectMake(160+ _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 200 - _textFieldPositionOffset.width, self.frame.size.height - _textFieldPositionOffset.height);
     } else {
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-            _textField.frame = CGRectMake(20+ _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 40, self.frame.size.height - _textFieldPositionOffset.height);
+            _textField.frame = CGRectMake(20 + _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 40 - _textFieldPositionOffset.width, self.frame.size.height - _textFieldPositionOffset.height);
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            _textField.frame = CGRectMake(40+ _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 80, self.frame.size.height - _textFieldPositionOffset.height);
+            _textField.frame = CGRectMake(40 + _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 80 - _textFieldPositionOffset.width, self.frame.size.height - _textFieldPositionOffset.height);
     }
 }
 
