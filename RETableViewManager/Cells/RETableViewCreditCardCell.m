@@ -211,7 +211,7 @@ static inline NSString *RECreditCardType(NSString *creditCardNumber)
         [UIView transitionFromView:_creditCardBackImageView toView:_currentImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
     }
     if (textField.tag == 2) {
-        [UIView transitionFromView:_creditCardStackImageView toView:_creditCardBackImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:nil];
+        [UIView transitionFromView:_currentImageView toView:_creditCardBackImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:nil];
     }
     return YES;
 }
