@@ -27,5 +27,9 @@
 
 @implementation RETableViewItem
 
++ (id)item
+{
+    return [[self alloc] init];
+}
 
 @end

@@ -33,4 +33,6 @@
 @property (assign, nonatomic) BOOL performActionOnSelection;
 @property (assign, readonly, nonatomic) BOOL canFocus;
 
++ (id)item;
+
 @end

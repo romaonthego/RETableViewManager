@@ -27,11 +27,6 @@
 
 @implementation RECreditCardItem
 
-+ (id)item
-{
-    return [[self alloc] init];
-}
-
 + (id)itemWithNumber:(NSString *)number expirationDate:(NSString *)expirationDate cvv:(NSString *)cvv
 {
     return [[self alloc] initWithNumber:number expirationDate:expirationDate cvv:cvv];
