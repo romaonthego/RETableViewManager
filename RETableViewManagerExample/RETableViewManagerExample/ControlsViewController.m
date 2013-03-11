@@ -35,6 +35,10 @@
     [section addItem:[RETextItem itemWithTitle:@"Text item 4" value:nil placeholder:@"Text"]];
     [section addItem:[REBoolItem itemWithTitle:@"Bool item" value:YES]];
     
+    section = [[RETableViewSection alloc] initWithHeaderTitle:@"Basic controls"];
+    [_manager addSection:section];
+    [section addItem:[RETextItem itemWithTitle:@"Text item 1" value:nil placeholder:@"Text"]];
+    
     section = [[RETableViewSection alloc] initWithHeaderTitle:@"Credit card"];
     [_manager addSection:section];
     [section addItem:[RECreditCardItem item]];
