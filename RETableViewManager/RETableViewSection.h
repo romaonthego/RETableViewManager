@@ -30,11 +30,11 @@
 /**
  An array of section items (rows).
  */
-@property (strong, nonatomic) NSMutableArray *items;
-@property (copy, nonatomic) NSString *headerTitle;
-@property (copy, nonatomic) NSString *footerTitle;
-@property (strong, nonatomic) UIView *headerView;
-@property (strong, nonatomic) UIView *footerView;
+@property (strong, readwrite, nonatomic) NSMutableArray *items;
+@property (copy, readwrite, nonatomic) NSString *headerTitle;
+@property (copy, readwrite, nonatomic) NSString *footerTitle;
+@property (strong, readwrite, nonatomic) UIView *headerView;
+@property (strong, readwrite, nonatomic) UIView *footerView;
 
 @end
 
