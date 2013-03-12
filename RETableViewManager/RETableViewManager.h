@@ -64,9 +64,12 @@
 @property (assign, readwrite, nonatomic) id<RETableViewManagerDelegate>delegate;
 
 ///-----------------------------
-/// @name Mapping
+/// @name Managing Object Mappings
 ///-----------------------------
 
+/**
+ The aggregate collection of item and class mappings within this table view manager.
+ */
 @property (strong, readwrite, nonatomic) NSMutableDictionary *mapping;
 
 - (void)mapObjectClass:(NSString *)objectClass toTableViewCellClass:(NSString *)cellViewClass;
