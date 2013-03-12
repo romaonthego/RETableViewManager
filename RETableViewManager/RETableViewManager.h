@@ -45,8 +45,16 @@
 @property (strong, nonatomic) RETableViewCellStyle *style;
 @property (assign, nonatomic) id<RETableViewManagerDelegate>delegate;
 
+///-----------------------------
+/// @name Creating and Initializing a RETableViewManager
+///-----------------------------
+
 - (id)initWithDelegate:(id<RETableViewManagerDelegate>)delegate;
-- (RETableViewSection *)addSection:(RETableViewSection *)section;
+
+///-----------------------------
+/// @name Mapping
+///-----------------------------
+
 - (void)mapObjectClass:(NSString *)objectClass toTableViewCellClass:(NSString *)cellViewClass;
 
 @end
@@ -57,6 +65,51 @@
 
 - (void)tableView:(UITableView *)tableView styleCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath item:(id)item;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath item:(id)items;
+
+@end
+
+@interface RETableViewManager (REExtendedTableViewManager)
+
+///-----------------------------
+/// @name Adding sections
+///-----------------------------
+
+- (RETableViewSection *)addSection:(RETableViewSection *)section;
+- (void)addSectionsFromArray:(NSArray *)array;
+- (RETableViewSection *)insertSection:(id)section atIndex:(NSUInteger)index;
+- (void)insertSections:(NSArray *)sections atIndexes:(NSIndexSet *)indexes;
+
+///-----------------------------
+/// @name Removing Sections
+///-----------------------------
+
+- (void)removeSection:(id)section;
+- (void)removeAllSections;
+- (void)removeSectionIdenticalTo:(id)section inRange:(NSRange)range;
+- (void)removeSectionIdenticalTo:(id)section;
+- (void)removeSectionsInArray:(NSArray *)otherArray;
+- (void)removeSectionsInRange:(NSRange)range;
+- (void)removeSection:(id)section inRange:(NSRange)range;
+- (void)removeLastSection;
+- (void)removeSectionAtIndex:(NSUInteger)index;
+- (void)removeSectionsAtIndexes:(NSIndexSet *)indexes;
+
+///-----------------------------
+/// @name Replacing Sections
+///-----------------------------
+
+- (void)replaceSectionAtIndex:(NSUInteger)index withSection:(id)section;
+- (void)replaceSectionsAtIndexes:(NSIndexSet *)indexes withSections:(NSArray *)sections;
+- (void)replaceSectionsInRange:(NSRange)range withSectionsFromArray:(NSArray *)otherArray range:(NSRange)otherRange;
+- (void)replaceSectionsInRange:(NSRange)range withObjectsFromArray:(NSArray *)otherArray;
+
+///-----------------------------
+/// @name Rearranging Content
+///-----------------------------
+
+- (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2;
+- (void)sortSectionsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context;
+- (void)sortSectionsUsingSelector:(SEL)comparator;
 
 @end

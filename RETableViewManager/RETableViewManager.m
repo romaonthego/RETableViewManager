@@ -63,12 +63,6 @@
     [self mapObjectClass:@"RECreditCardItem" toTableViewCellClass:@"RETableViewCreditCardCell"];
 }
 
-- (RETableViewSection *)addSection:(RETableViewSection *)section
-{
-    [_sections addObject:section];
-    return section;
-}
-
 - (void)mapObjectClass:(NSString *)objectClass toTableViewCellClass:(NSString *)cellViewClass
 {
     [_mapping setObject:cellViewClass forKey:objectClass];
@@ -193,5 +187,120 @@
     if ([_delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:item:)])
         [_delegate tableView:tableView didSelectRowAtIndexPath:indexPath item:item];
 }
+
+@end
+
+#pragma mark -
+#pragma mark Managing sections
+
+@implementation RETableViewManager (REExtendedTableViewManager)
+
+- (RETableViewSection *)addSection:(RETableViewSection *)section
+{
+    [_sections addObject:section];
+    return section;
+}
+
+- (void)addSectionsFromArray:(NSArray *)array
+{
+    [_sections addObjectsFromArray:array];
+}
+
+- (RETableViewSection *)insertSection:(id)section atIndex:(NSUInteger)index
+{
+    [_sections insertObject:section atIndex:index];
+    return section;
+}
+
+- (void)insertSections:(NSArray *)sections atIndexes:(NSIndexSet *)indexes
+{
+    [_sections insertObjects:sections atIndexes:indexes];
+}
+
+- (void)removeSection:(id)section
+{
+    [_sections removeObject:section];
+}
+
+- (void)removeAllSections
+{
+    [_sections removeAllObjects];
+}
+
+- (void)removeSectionIdenticalTo:(id)section inRange:(NSRange)range
+{
+    [_sections removeObjectIdenticalTo:section inRange:range];
+}
+
+- (void)removeSectionIdenticalTo:(id)section
+{
+    [_sections removeObjectIdenticalTo:section];
+}
+
+- (void)removeSectionsInArray:(NSArray *)otherArray
+{
+    [_sections removeObjectsInArray:otherArray];
+}
+
+- (void)removeSectionsInRange:(NSRange)range
+{
+    [_sections removeObjectsInRange:range];
+}
+
+- (void)removeSection:(id)section inRange:(NSRange)range
+{
+    [_sections removeObject:section inRange:range];
+}
+
+- (void)removeLastSection
+{
+    [_sections removeLastObject];
+}
+
+- (void)removeSectionAtIndex:(NSUInteger)index
+{
+    [_sections removeObjectAtIndex:index];
+}
+
+- (void)removeSectionsAtIndexes:(NSIndexSet *)indexes
+{
+    [_sections removeObjectsAtIndexes:indexes];
+}
+
+- (void)replaceSectionAtIndex:(NSUInteger)index withSection:(id)section
+{
+    [_sections replaceObjectAtIndex:index withObject:section];
+}
+
+- (void)replaceSectionsAtIndexes:(NSIndexSet *)indexes withSections:(NSArray *)sections
+{
+    [_sections replaceObjectsAtIndexes:indexes withObjects:sections];
+}
+
+- (void)replaceSectionsInRange:(NSRange)range withSectionsFromArray:(NSArray *)otherArray range:(NSRange)otherRange
+{
+    [_sections replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
+}
+
+- (void)replaceSectionsInRange:(NSRange)range withObjectsFromArray:(NSArray *)otherArray
+{
+    [_sections replaceObjectsInRange:range withObjectsFromArray:otherArray];
+}
+
+- (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2
+{
+    [_sections exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
+}
+
+- (void)sortSectionsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context
+{
+    [_sections sortUsingFunction:compare context:context];
+}
+
+- (void)sortSectionsUsingSelector:(SEL)comparator
+{
+    [_sections sortUsingSelector:comparator];
+}
+
 
 @end
