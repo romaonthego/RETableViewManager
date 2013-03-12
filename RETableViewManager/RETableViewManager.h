@@ -41,21 +41,41 @@
 @interface RETableViewManager : NSObject <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, readwrite, nonatomic) NSMutableArray *sections;
-@property (strong, readwrite, nonatomic) NSMutableDictionary *mapping;
-@property (strong, readwrite, nonatomic) RETableViewCellStyle *style;
-@property (assign, readwrite, nonatomic) id<RETableViewManagerDelegate>delegate;
 
 ///-----------------------------
 /// @name Creating and Initializing a RETableViewManager
 ///-----------------------------
 
+/**
+ Initialize a table view manager object and specify the delegate object.
+ 
+ @param The delegate (RETableViewManagerDelegate) object for the table view manager.
+ @return The pointer to the instance, or nil if initialization failed.
+ */
 - (id)initWithDelegate:(id<RETableViewManagerDelegate>)delegate;
+
+///-------------------------------------------
+/// @name Managing the Delegate
+///-------------------------------------------
+
+/**
+ The object that acts as the delegate of the receiving table view.
+ */
+@property (assign, readwrite, nonatomic) id<RETableViewManagerDelegate>delegate;
 
 ///-----------------------------
 /// @name Mapping
 ///-----------------------------
 
+@property (strong, readwrite, nonatomic) NSMutableDictionary *mapping;
+
 - (void)mapObjectClass:(NSString *)objectClass toTableViewCellClass:(NSString *)cellViewClass;
+
+///-----------------------------
+/// @name Setting default style
+///-----------------------------
+
+@property (strong, readwrite, nonatomic) RETableViewCellStyle *style;
 
 @end
 
