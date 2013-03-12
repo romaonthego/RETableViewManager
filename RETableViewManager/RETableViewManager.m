@@ -42,6 +42,17 @@
     return self;
 }
 
+- (id)initWithDelegate:(id)delegate
+{
+    self = [self init];
+    if (!self)
+        return nil;
+    
+    self.delegate = delegate;
+    
+    return self;
+}
+
 - (void)setDefaultMapping
 {
     [self mapObjectClass:@"NSString" toTableViewCellClass:@"RETableViewStringCell"];
