@@ -31,26 +31,25 @@
  An array of section items (rows).
  */
 @property (strong, nonatomic) NSMutableArray *items;
-
 @property (copy, nonatomic) NSString *headerTitle;
 @property (copy, nonatomic) NSString *footerTitle;
-
 @property (strong, nonatomic) UIView *headerView;
 @property (strong, nonatomic) UIView *footerView;
 
-///--------------------------------------------
-/// @name Creating and Initializing Sections
-///--------------------------------------------
-- (id)initWithHeaderTitle:(NSString *)headerTitle;
-- (id)initWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle;
-- (id)initWithHeaderView:(UIView *)headerView;
-- (id)initWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView;
+@end
+
+@interface RETableViewSection (RETableViewSectionCreation)
 
 + (id)section;
 + (id)sectionWithHeaderTitle:(NSString *)headerTitle;
 + (id)sectionWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle;
 + (id)sectionWithHeaderView:(UIView *)headerView;
 + (id)sectionWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView;
+
+- (id)initWithHeaderTitle:(NSString *)headerTitle;
+- (id)initWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle;
+- (id)initWithHeaderView:(UIView *)headerView;
+- (id)initWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView;
 
 @end
 
