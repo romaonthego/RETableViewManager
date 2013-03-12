@@ -138,7 +138,6 @@
     [_items insertObjects:items atIndexes:indexes];
 }
 
-
 - (void)removeItem:(id)item inRange:(NSRange)range
 {
     [_items removeObject:item inRange:range];

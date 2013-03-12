@@ -40,10 +40,10 @@
 
 @interface RETableViewManager : NSObject <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) NSMutableArray *sections;
-@property (strong, nonatomic) NSMutableDictionary *mapping;
-@property (strong, nonatomic) RETableViewCellStyle *style;
-@property (assign, nonatomic) id<RETableViewManagerDelegate>delegate;
+@property (strong, readwrite, nonatomic) NSMutableArray *sections;
+@property (strong, readwrite, nonatomic) NSMutableDictionary *mapping;
+@property (strong, readwrite, nonatomic) RETableViewCellStyle *style;
+@property (assign, readwrite, nonatomic) id<RETableViewManagerDelegate>delegate;
 
 ///-----------------------------
 /// @name Creating and Initializing a RETableViewManager

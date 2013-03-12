@@ -304,5 +304,4 @@
     [_sections sortUsingSelector:comparator];
 }
 
-
 @end
