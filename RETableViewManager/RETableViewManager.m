@@ -42,7 +42,7 @@
     return self;
 }
 
-- (id)initWithDelegate:(id)delegate
+- (id)initWithDelegate:(id<RETableViewManagerDelegate>)delegate
 {
     self = [self init];
     if (!self)
