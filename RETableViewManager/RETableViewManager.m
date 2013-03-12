@@ -83,7 +83,8 @@
     return cellClass;
 }
 
-#pragma mark - Table view data source
+#pragma mark -
+#pragma mark Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -169,7 +170,8 @@
     return UITableViewAutomaticDimension;
 }
 
-#pragma mark - Table view delegate
+#pragma mark -
+#pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
