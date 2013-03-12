@@ -105,8 +105,13 @@
     return [[self alloc] initWithHeaderView:headerView footerView:footerView];
 }
 
+
+@end
+
 #pragma mark -
 #pragma mark Managing items
+
+@implementation RETableViewSection (REExtendedTableViewSection)
 
 - (id)addItem:(id)item
 {
@@ -114,9 +119,40 @@
     return item;
 }
 
+- (id)insertItem:(id)item atIndex:(NSUInteger)index
+{
+    [_items insertObject:item atIndex:index];
+    return item;
+}
+
 - (void)addItemsFromArray:(NSArray *)array
 {
     [_items addObjectsFromArray:array];
+}
+
+- (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2
+{
+    [_items exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
+}
+
+- (void)removeItem:(id)item inRange:(NSRange)range
+{
+    [_items removeObject:item inRange:range];
+}
+
+- (void)removeLastItem
+{
+    [_items removeLastObject];
+}
+
+- (void)removeItemAtIndex:(NSUInteger)index
+{
+    [_items removeObjectAtIndex:index];
+}
+
+- (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item
+{
+    [_items replaceObjectAtIndex:index withObject:item];
 }
 
 - (void)removeItem:(id)item
@@ -127,6 +163,61 @@
 - (void)removeAllItems
 {
     [_items removeAllObjects];
+}
+
+- (void)removeItemIdenticalTo:(id)item inRange:(NSRange)range
+{
+    [_items removeObjectIdenticalTo:item inRange:range];
+}
+
+- (void)removeItemIdenticalTo:(id)item
+{
+    [_items removeObjectIdenticalTo:item];
+}
+
+- (void)removeItemsInArray:(NSArray *)otherArray
+{
+    [_items removeObjectsInArray:otherArray];
+}
+
+- (void)removeItemsInRange:(NSRange)range
+{
+    [_items removeObjectsInRange:range];
+}
+
+- (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray range:(NSRange)otherRange
+{
+    [_items replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
+}
+
+- (void)replaceItemsInRange:(NSRange)range withObjectsFromArray:(NSArray *)otherArray
+{
+    [_items replaceObjectsInRange:range withObjectsFromArray:otherArray];
+}
+
+- (void)sortItemsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context
+{
+    [_items sortUsingFunction:compare context:context];
+}
+
+- (void)sortItemsUsingSelector:(SEL)comparator
+{
+    [_items sortUsingSelector:comparator];
+}
+
+- (void)insertItems:(NSArray *)items atIndexes:(NSIndexSet *)indexes
+{
+    [_items insertObjects:items atIndexes:indexes];
+}
+
+- (void)removeItemsAtIndexes:(NSIndexSet *)indexes
+{
+    [_items removeObjectsAtIndexes:indexes];
+}
+
+- (void)replaceItemsAtIndexes:(NSIndexSet *)indexes withItems:(NSArray *)items
+{
+    [_items replaceObjectsAtIndexes:indexes withObjects:items];
 }
 
 @end

@@ -52,16 +52,30 @@
 + (id)sectionWithHeaderView:(UIView *)headerView;
 + (id)sectionWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView;
 
-///--------------------------------------------
-/// @name Adding Items
-///--------------------------------------------
-- (id)addItem:(id)item;
-- (void)addItemsFromArray:(NSArray *)array;
+@end
 
-///--------------------------------------------
-/// @name Removing Items
-///--------------------------------------------
+@interface RETableViewSection (REExtendedTableViewSection)
+
+- (id)addItem:(id)item;
+- (id)insertItem:(id)item atIndex:(NSUInteger)index;
+- (void)addItemsFromArray:(NSArray *)array;
+- (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2;
+- (void)removeItem:(id)item inRange:(NSRange)range;
+- (void)removeLastItem;
+- (void)removeItemAtIndex:(NSUInteger)index;
+- (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item;
 - (void)removeItem:(id)item;
 - (void)removeAllItems;
+- (void)removeItemIdenticalTo:(id)item inRange:(NSRange)range;
+- (void)removeItemIdenticalTo:(id)item;
+- (void)removeItemsInArray:(NSArray *)otherArray;
+- (void)removeItemsInRange:(NSRange)range;
+- (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray range:(NSRange)otherRange;
+- (void)replaceItemsInRange:(NSRange)range withObjectsFromArray:(NSArray *)otherArray;
+- (void)sortItemsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context;
+- (void)sortItemsUsingSelector:(SEL)comparator;
+- (void)insertItems:(NSArray *)items atIndexes:(NSIndexSet *)indexes;
+- (void)removeItemsAtIndexes:(NSIndexSet *)indexes;
+- (void)replaceItemsAtIndexes:(NSIndexSet *)indexes withItems:(NSArray *)items;
 
 @end
