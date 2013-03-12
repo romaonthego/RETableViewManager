@@ -31,14 +31,34 @@
  An array of section items (rows).
  */
 @property (strong, readwrite, nonatomic) NSMutableArray *items;
+
+/**
+ The title of the header of the specified section of the table view
+ */
 @property (copy, readwrite, nonatomic) NSString *headerTitle;
+
+/**
+ The title of the footer of the specified section of the table view
+ */
 @property (copy, readwrite, nonatomic) NSString *footerTitle;
+
+/**
+ A view object to display in the header of the specified section of the table view.
+ */
 @property (strong, readwrite, nonatomic) UIView *headerView;
+
+/**
+ A view object to display in the footer of the specified section of the table view.
+ */
 @property (strong, readwrite, nonatomic) UIView *footerView;
 
 @end
 
 @interface RETableViewSection (RETableViewSectionCreation)
+
+///-----------------------------
+/// @name Creating and Initializing a RETableViewSection
+///-----------------------------
 
 + (id)section;
 + (id)sectionWithHeaderTitle:(NSString *)headerTitle;
@@ -55,26 +75,45 @@
 
 @interface RETableViewSection (REExtendedTableViewSection)
 
+///-----------------------------
+/// @name Adding Items
+///-----------------------------
+
 - (id)addItem:(id)item;
-- (id)insertItem:(id)item atIndex:(NSUInteger)index;
 - (void)addItemsFromArray:(NSArray *)array;
-- (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2;
-- (void)removeItem:(id)item inRange:(NSRange)range;
-- (void)removeLastItem;
-- (void)removeItemAtIndex:(NSUInteger)index;
-- (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item;
+- (id)insertItem:(id)item atIndex:(NSUInteger)index;
+- (void)insertItems:(NSArray *)items atIndexes:(NSIndexSet *)indexes;
+
+///-----------------------------
+/// @name Removing Items
+///-----------------------------
+
 - (void)removeItem:(id)item;
 - (void)removeAllItems;
 - (void)removeItemIdenticalTo:(id)item inRange:(NSRange)range;
 - (void)removeItemIdenticalTo:(id)item;
 - (void)removeItemsInArray:(NSArray *)otherArray;
 - (void)removeItemsInRange:(NSRange)range;
+- (void)removeItem:(id)item inRange:(NSRange)range;
+- (void)removeLastItem;
+- (void)removeItemAtIndex:(NSUInteger)index;
+- (void)removeItemsAtIndexes:(NSIndexSet *)indexes;
+
+///-----------------------------
+/// @name Replacing Items
+///-----------------------------
+
+- (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item;
+- (void)replaceItemsAtIndexes:(NSIndexSet *)indexes withItems:(NSArray *)items;
 - (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray range:(NSRange)otherRange;
 - (void)replaceItemsInRange:(NSRange)range withObjectsFromArray:(NSArray *)otherArray;
+
+///-----------------------------
+/// @name Rearranging Content
+///-----------------------------
+
+- (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2;
 - (void)sortItemsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context;
 - (void)sortItemsUsingSelector:(SEL)comparator;
-- (void)insertItems:(NSArray *)items atIndexes:(NSIndexSet *)indexes;
-- (void)removeItemsAtIndexes:(NSIndexSet *)indexes;
-- (void)replaceItemsAtIndexes:(NSIndexSet *)indexes withItems:(NSArray *)items;
 
 @end

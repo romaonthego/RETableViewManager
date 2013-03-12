@@ -122,21 +122,22 @@
     return item;
 }
 
+- (void)addItemsFromArray:(NSArray *)array
+{
+    [_items addObjectsFromArray:array];
+}
+
 - (id)insertItem:(id)item atIndex:(NSUInteger)index
 {
     [_items insertObject:item atIndex:index];
     return item;
 }
 
-- (void)addItemsFromArray:(NSArray *)array
+- (void)insertItems:(NSArray *)items atIndexes:(NSIndexSet *)indexes
 {
-    [_items addObjectsFromArray:array];
+    [_items insertObjects:items atIndexes:indexes];
 }
 
-- (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2
-{
-    [_items exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
-}
 
 - (void)removeItem:(id)item inRange:(NSRange)range
 {
@@ -151,11 +152,6 @@
 - (void)removeItemAtIndex:(NSUInteger)index
 {
     [_items removeObjectAtIndex:index];
-}
-
-- (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item
-{
-    [_items replaceObjectAtIndex:index withObject:item];
 }
 
 - (void)removeItem:(id)item
@@ -188,6 +184,16 @@
     [_items removeObjectsInRange:range];
 }
 
+- (void)removeItemsAtIndexes:(NSIndexSet *)indexes
+{
+    [_items removeObjectsAtIndexes:indexes];
+}
+
+- (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item
+{
+    [_items replaceObjectAtIndex:index withObject:item];
+}
+
 - (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray range:(NSRange)otherRange
 {
     [_items replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
@@ -198,6 +204,16 @@
     [_items replaceObjectsInRange:range withObjectsFromArray:otherArray];
 }
 
+- (void)replaceItemsAtIndexes:(NSIndexSet *)indexes withItems:(NSArray *)items
+{
+    [_items replaceObjectsAtIndexes:indexes withObjects:items];
+}
+
+- (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2
+{
+    [_items exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
+}
+
 - (void)sortItemsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context
 {
     [_items sortUsingFunction:compare context:context];
@@ -206,21 +222,6 @@
 - (void)sortItemsUsingSelector:(SEL)comparator
 {
     [_items sortUsingSelector:comparator];
-}
-
-- (void)insertItems:(NSArray *)items atIndexes:(NSIndexSet *)indexes
-{
-    [_items insertObjects:items atIndexes:indexes];
-}
-
-- (void)removeItemsAtIndexes:(NSIndexSet *)indexes
-{
-    [_items removeObjectsAtIndexes:indexes];
-}
-
-- (void)replaceItemsAtIndexes:(NSIndexSet *)indexes withItems:(NSArray *)items
-{
-    [_items replaceObjectsAtIndexes:indexes withObjects:items];
 }
 
 @end
