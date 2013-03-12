@@ -46,6 +46,7 @@
 - (id)initWithHeaderView:(UIView *)headerView;
 - (id)initWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView;
 
++ (id)section;
 + (id)sectionWithHeaderTitle:(NSString *)headerTitle;
 + (id)sectionWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle;
 + (id)sectionWithHeaderView:(UIView *)headerView;

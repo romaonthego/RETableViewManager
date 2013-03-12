@@ -80,6 +80,11 @@
  *
  */
 
++ (id)section
+{
+    return [[self alloc] init];
+}
+
 + (id)sectionWithHeaderTitle:(NSString *)headerTitle
 {
     return [[self alloc ] initWithHeaderTitle:headerTitle];
