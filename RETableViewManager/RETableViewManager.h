@@ -38,6 +38,11 @@
 
 @protocol RETableViewManagerDelegate;
 
+/**
+ Data driven content manager for `UITableView`. It allows to manage content of `UITableView` with ease, both forms and lists. 
+ In its core RETableViewManager supports reusable cells based on corresponding data object class.
+ 
+ */
 @interface RETableViewManager : NSObject <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, readwrite, nonatomic) NSMutableArray *sections;
@@ -49,7 +54,7 @@
 /**
  Initialize a table view manager object and specify the delegate object.
  
- @param The delegate (RETableViewManagerDelegate) object for the table view manager.
+ @param delegate The delegate (RETableViewManagerDelegate) object for the table view manager.
  @return The pointer to the instance, or nil if initialization failed.
  */
 - (id)initWithDelegate:(id<RETableViewManagerDelegate>)delegate;

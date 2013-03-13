@@ -25,6 +25,10 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ Table view section.
+ 
+ */
 @interface RETableViewSection : NSObject
 
 /**
@@ -52,33 +56,65 @@
  */
 @property (strong, readwrite, nonatomic) UIView *footerView;
 
-@end
-
-@interface RETableViewSection (RETableViewSectionCreation)
-
 ///-----------------------------
 /// @name Creating and Initializing a RETableViewSection
 ///-----------------------------
 
+/**
+ Creates and returns a new section.
+ @return A new section.
+ */
 + (id)section;
+
+/**
+ Creates and returns a new section with predefined header title.
+ @param headerTitle A header title.
+ @return A new section with defined header title.
+ */
 + (id)sectionWithHeaderTitle:(NSString *)headerTitle;
+
+/**
+ Creates and returns a new section with predefined header and footer titles.
+ @param headerTitle A header title.
+ @param footerTitle A footer title.
+ @return A new section with header and footer titles.
+ */
 + (id)sectionWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle;
+
+/**
+ Creates and returns a new section containing a header view.
+ @param headerView A header view.
+ @return A new section containing a header view.
+ */
 + (id)sectionWithHeaderView:(UIView *)headerView;
+
+/**
+ Creates and returns a new section containing header and footer views.
+ @param headerView A header view.
+ @param footerView A footer view.
+ @return A new section containing header and footer views.
+ */
 + (id)sectionWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView;
 
+/**
+ Initializes a newly allocated section and sets header title.
+ @param headerTitle A header title.
+ @return An new section initialized with a header title. 
+ */
 - (id)initWithHeaderTitle:(NSString *)headerTitle;
 - (id)initWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle;
 - (id)initWithHeaderView:(UIView *)headerView;
 - (id)initWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView;
 
-@end
-
-@interface RETableViewSection (REExtendedTableViewSection)
-
 ///-----------------------------
 /// @name Adding Items
 ///-----------------------------
 
+/**
+ Inserts a given item at the end of the <items> array.
+ @param item The item to add to the end of the <items> array's content. This value must not be `nil`.
+ @return The item.
+ */
 - (id)addItem:(id)item;
 - (void)addItemsFromArray:(NSArray *)array;
 - (id)insertItem:(id)item atIndex:(NSUInteger)index;

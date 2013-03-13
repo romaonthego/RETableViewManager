@@ -27,10 +27,6 @@
 
 @implementation RETableViewSection
 
-@end
-
-@implementation RETableViewSection (RETableViewSectionCreation)
-
 #pragma mark -
 #pragma mark Creating and Initializing Sections
 
@@ -109,12 +105,8 @@
     return self;
 }
 
-@end
-
 #pragma mark -
 #pragma mark Managing items
-
-@implementation RETableViewSection (REExtendedTableViewSection)
 
 - (id)addItem:(id)item
 {

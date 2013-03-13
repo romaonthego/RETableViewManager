@@ -1,0 +1,1 @@
+appledoc --project-name RETableViewManager --project-company 'Roman Efimov' --company-id com.romanefimov --output Documentation --keep-undocumented-objects --explicit-crossref --no-create-docset RETableViewManager
