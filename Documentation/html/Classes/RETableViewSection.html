@@ -74,6 +74,12 @@
 	
 	<option value="//api/name/initWithHeaderTitle:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithHeaderTitle:</option>
 	
+	<option value="//api/name/initWithHeaderTitle:footerTitle:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithHeaderTitle:footerTitle:</option>
+	
+	<option value="//api/name/initWithHeaderView:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithHeaderView:</option>
+	
+	<option value="//api/name/initWithHeaderView:footerView:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithHeaderView:footerView:</option>
+	
 	
 	
 </select>
@@ -137,6 +143,12 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addItem:">addItem:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithHeaderTitle:">initWithHeaderTitle:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithHeaderTitle:footerTitle:">initWithHeaderTitle:footerTitle:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithHeaderView:">initWithHeaderView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithHeaderView:footerView:">initWithHeaderView:footerView:</a></span></li>
 	
 </ul></li>
 
@@ -273,6 +285,27 @@
 	<span class="tooltip">
 		<code><a href="#//api/name/initWithHeaderTitle:">&ndash;&nbsp;initWithHeaderTitle:</a></code>
 		<span class="tooltip"><p>Initializes a newly allocated section and sets header title.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithHeaderTitle:footerTitle:">&ndash;&nbsp;initWithHeaderTitle:footerTitle:</a></code>
+		<span class="tooltip"><p>Initializes a newly allocated section with header and footer titles.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithHeaderView:">&ndash;&nbsp;initWithHeaderView:</a></code>
+		<span class="tooltip"><p>Initializes a newly allocated section containing a header view.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithHeaderView:footerView:">&ndash;&nbsp;initWithHeaderView:footerView:</a></code>
+		<span class="tooltip"><p>Initializes a newly allocated section containing header and footer views.</p></span>
 	</span>
 	
 	
@@ -891,7 +924,7 @@
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>An new section initialized with a header title.</p>
+		<p>A new section initialized with a header title.</p>
 	</div>
 	
 	
@@ -901,6 +934,184 @@
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Initializes a newly allocated section and sets header title.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">RETableViewSection.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithHeaderTitle:footerTitle:" title="initWithHeaderTitle:footerTitle:"></a>
+	<h3 class="subsubtitle method-title">initWithHeaderTitle:footerTitle:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes a newly allocated section with header and footer titles.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithHeaderTitle:(NSString *)<em>headerTitle</em> footerTitle:(NSString *)<em>footerTitle</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>headerTitle</em></dt>
+			<dd><p>A header title.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>footerTitle</em></dt>
+			<dd><p>A footer title.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A new section initialized with header and footer titles.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Initializes a newly allocated section with header and footer titles.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">RETableViewSection.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithHeaderView:" title="initWithHeaderView:"></a>
+	<h3 class="subsubtitle method-title">initWithHeaderView:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes a newly allocated section containing a header view.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithHeaderView:(UIView *)<em>headerView</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>headerView</em></dt>
+			<dd><p>A header view.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A new section initialized containing a header view.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Initializes a newly allocated section containing a header view.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">RETableViewSection.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithHeaderView:footerView:" title="initWithHeaderView:footerView:"></a>
+	<h3 class="subsubtitle method-title">initWithHeaderView:footerView:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes a newly allocated section containing header and footer views.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithHeaderView:(UIView *)<em>headerView</em> footerView:(UIView *)<em>footerView</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>headerView</em></dt>
+			<dd><p>A header view.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>footerView</em></dt>
+			<dd><p>A footer view.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A new section initialized with header and footer views.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Initializes a newly allocated section containing header and footer views.</p>
 	</div>
 	
 	

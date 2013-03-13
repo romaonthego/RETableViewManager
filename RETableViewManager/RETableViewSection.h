@@ -27,7 +27,6 @@
 
 /**
  Table view section.
- 
  */
 @interface RETableViewSection : NSObject
 
@@ -99,11 +98,31 @@
 /**
  Initializes a newly allocated section and sets header title.
  @param headerTitle A header title.
- @return An new section initialized with a header title. 
+ @return A new section initialized with a header title. 
  */
 - (id)initWithHeaderTitle:(NSString *)headerTitle;
+
+/**
+ Initializes a newly allocated section with header and footer titles.
+ @param headerTitle A header title.
+ @param footerTitle A footer title.
+ @return A new section initialized with header and footer titles.
+ */
 - (id)initWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle;
+
+/**
+ Initializes a newly allocated section containing a header view.
+ @param headerView A header view.
+ @return A new section initialized containing a header view.
+ */
 - (id)initWithHeaderView:(UIView *)headerView;
+
+/**
+ Initializes a newly allocated section containing header and footer views.
+ @param headerView A header view.
+ @param footerView A footer view.
+ @return A new section initialized with header and footer views.
+ */
 - (id)initWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView;
 
 ///-----------------------------
