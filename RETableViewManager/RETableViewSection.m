@@ -24,6 +24,7 @@
 //
 
 #import "RETableViewSection.h"
+#import "RETableViewManager.h"
 
 @implementation RETableViewSection
 
@@ -103,6 +104,16 @@
     self.footerView = footerView;
     
     return self;
+}
+
+#pragma mark -
+#pragma mark Reading information
+
+- (NSUInteger)index
+{
+    
+    RETableViewManager *tableViewManager = self.tableViewManager;
+    return [tableViewManager.sections indexOfObject:self];
 }
 
 #pragma mark -

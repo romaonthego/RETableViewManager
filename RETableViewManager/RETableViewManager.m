@@ -201,27 +201,33 @@
 
 - (RETableViewSection *)addSection:(RETableViewSection *)section
 {
+    section.tableViewManager = self;
     [_sections addObject:section];
     return section;
 }
 
 - (void)addSectionsFromArray:(NSArray *)array
 {
+    for (RETableViewSection *section in array)
+        section.tableViewManager = self;
     [_sections addObjectsFromArray:array];
 }
 
-- (RETableViewSection *)insertSection:(id)section atIndex:(NSUInteger)index
+- (RETableViewSection *)insertSection:(RETableViewSection *)section atIndex:(NSUInteger)index
 {
+    section.tableViewManager = self;
     [_sections insertObject:section atIndex:index];
     return section;
 }
 
 - (void)insertSections:(NSArray *)sections atIndexes:(NSIndexSet *)indexes
 {
+    for (RETableViewSection *section in sections)
+        section.tableViewManager = self;
     [_sections insertObjects:sections atIndexes:indexes];
 }
 
-- (void)removeSection:(id)section
+- (void)removeSection:(RETableViewSection *)section
 {
     [_sections removeObject:section];
 }
@@ -231,12 +237,12 @@
     [_sections removeAllObjects];
 }
 
-- (void)removeSectionIdenticalTo:(id)section inRange:(NSRange)range
+- (void)removeSectionIdenticalTo:(RETableViewSection *)section inRange:(NSRange)range
 {
     [_sections removeObjectIdenticalTo:section inRange:range];
 }
 
-- (void)removeSectionIdenticalTo:(id)section
+- (void)removeSectionIdenticalTo:(RETableViewSection *)section
 {
     [_sections removeObjectIdenticalTo:section];
 }
@@ -251,7 +257,7 @@
     [_sections removeObjectsInRange:range];
 }
 
-- (void)removeSection:(id)section inRange:(NSRange)range
+- (void)removeSection:(RETableViewSection *)section inRange:(NSRange)range
 {
     [_sections removeObject:section inRange:range];
 }
@@ -271,18 +277,23 @@
     [_sections removeObjectsAtIndexes:indexes];
 }
 
-- (void)replaceSectionAtIndex:(NSUInteger)index withSection:(id)section
+- (void)replaceSectionAtIndex:(NSUInteger)index withSection:(RETableViewSection *)section
 {
+    section.tableViewManager = self;
     [_sections replaceObjectAtIndex:index withObject:section];
 }
 
 - (void)replaceSectionsAtIndexes:(NSIndexSet *)indexes withSections:(NSArray *)sections
 {
+    for (RETableViewSection *section in sections)
+        section.tableViewManager = self;
     [_sections replaceObjectsAtIndexes:indexes withObjects:sections];
 }
 
 - (void)replaceSectionsInRange:(NSRange)range withSectionsFromArray:(NSArray *)otherArray range:(NSRange)otherRange
 {
+    for (RETableViewSection *section in otherArray)
+        section.tableViewManager = self;
     [_sections replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
 }
 

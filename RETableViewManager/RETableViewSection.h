@@ -25,6 +25,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class RETableViewManager;
+
 /**
  Table view section.
  */
@@ -54,6 +56,13 @@
  A view object to display in the footer of the specified section of the table view.
  */
 @property (strong, readwrite, nonatomic) UIView *footerView;
+
+@property (weak, readwrite, nonatomic) RETableViewManager *tableViewManager;
+
+/**
+ Section index in UITableView.
+ */
+@property (assign, readonly, nonatomic) NSUInteger index;
 
 ///-----------------------------
 /// @name Creating and Initializing a RETableViewSection

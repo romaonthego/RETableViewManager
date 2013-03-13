@@ -105,20 +105,20 @@
 
 - (RETableViewSection *)addSection:(RETableViewSection *)section;
 - (void)addSectionsFromArray:(NSArray *)array;
-- (RETableViewSection *)insertSection:(id)section atIndex:(NSUInteger)index;
+- (RETableViewSection *)insertSection:(RETableViewSection *)section atIndex:(NSUInteger)index;
 - (void)insertSections:(NSArray *)sections atIndexes:(NSIndexSet *)indexes;
 
 ///-----------------------------
 /// @name Removing Sections
 ///-----------------------------
 
-- (void)removeSection:(id)section;
+- (void)removeSection:(RETableViewSection *)section;
 - (void)removeAllSections;
-- (void)removeSectionIdenticalTo:(id)section inRange:(NSRange)range;
-- (void)removeSectionIdenticalTo:(id)section;
+- (void)removeSectionIdenticalTo:(RETableViewSection *)section inRange:(NSRange)range;
+- (void)removeSectionIdenticalTo:(RETableViewSection *)section;
 - (void)removeSectionsInArray:(NSArray *)otherArray;
 - (void)removeSectionsInRange:(NSRange)range;
-- (void)removeSection:(id)section inRange:(NSRange)range;
+- (void)removeSection:(RETableViewSection *)section inRange:(NSRange)range;
 - (void)removeLastSection;
 - (void)removeSectionAtIndex:(NSUInteger)index;
 - (void)removeSectionsAtIndexes:(NSIndexSet *)indexes;
@@ -127,7 +127,7 @@
 /// @name Replacing Sections
 ///-----------------------------
 
-- (void)replaceSectionAtIndex:(NSUInteger)index withSection:(id)section;
+- (void)replaceSectionAtIndex:(NSUInteger)index withSection:(RETableViewSection *)section;
 - (void)replaceSectionsAtIndexes:(NSIndexSet *)indexes withSections:(NSArray *)sections;
 - (void)replaceSectionsInRange:(NSRange)range withSectionsFromArray:(NSArray *)otherArray range:(NSRange)otherRange;
 - (void)replaceSectionsInRange:(NSRange)range withObjectsFromArray:(NSArray *)otherArray;
