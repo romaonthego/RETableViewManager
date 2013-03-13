@@ -27,6 +27,7 @@
     RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Basic controls"];
     [_manager addSection:section];
     
+    [section addItem:@"Simple NSString"];
     RETextItem *fullLengthField = [RETextItem itemWithTitle:nil value:nil placeholder:@"Full length text field"];
     [section addItem:fullLengthField];
     [section addItem:[RETextItem itemWithTitle:@"Text item 1" value:nil placeholder:@"Text"]];

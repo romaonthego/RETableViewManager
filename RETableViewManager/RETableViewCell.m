@@ -101,7 +101,7 @@
     NSUInteger indexInSection =  [section isEqual:self.section] ? [section.items indexOfObject:self.item] : section.items.count;
     for (NSInteger i = indexInSection - 1; i >= 0; i--) {
         RETableViewItem *item = [section.items objectAtIndex:i];
-        if (item.canFocus)
+        if ([item isKindOfClass:[RETableViewItem class]] && item.canFocus)
             return [NSIndexPath indexPathForRow:i inSection:sectionIndex];
     }
     return nil;

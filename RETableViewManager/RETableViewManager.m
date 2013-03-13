@@ -55,6 +55,8 @@
 
 - (void)setDefaultMapping
 {
+    [self mapObjectClass:@"__NSCFConstantString" toTableViewCellClass:@"RETableViewStringCell"];
+    [self mapObjectClass:@"__NSCFString" toTableViewCellClass:@"RETableViewStringCell"];
     [self mapObjectClass:@"NSString" toTableViewCellClass:@"RETableViewStringCell"];
     [self mapObjectClass:@"REStringItem" toTableViewCellClass:@"RETableViewStringCell"];
     [self mapObjectClass:@"REBoolItem" toTableViewCellClass:@"RETableViewBoolCell"];
@@ -74,8 +76,8 @@
     NSObject *item = [section.items objectAtIndex:indexPath.row];
     Class cellClass;
     for (NSString *className in _mapping) {
-        Class objectClass = NSClassFromString(className);
-        if ([item isKindOfClass:objectClass]) {
+        NSString *itemClass = NSStringFromClass([item class]);
+        if ([itemClass isEqualToString:className]) {
             cellClass = NSClassFromString([_mapping objectForKey:className]);
             break;
         }
