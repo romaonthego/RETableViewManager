@@ -119,10 +119,9 @@
 #pragma mark -
 #pragma mark Managing items
 
-- (id)addItem:(id)item
+- (void)addItem:(id)item
 {
     [_items addObject:item];
-    return item;
 }
 
 - (void)addItemsFromArray:(NSArray *)array
@@ -130,10 +129,9 @@
     [_items addObjectsFromArray:array];
 }
 
-- (id)insertItem:(id)item atIndex:(NSUInteger)index
+- (void)insertItem:(id)item atIndex:(NSUInteger)index
 {
     [_items insertObject:item atIndex:index];
-    return item;
 }
 
 - (void)insertItems:(NSArray *)items atIndexes:(NSIndexSet *)indexes

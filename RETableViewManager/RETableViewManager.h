@@ -103,9 +103,9 @@
 /// @name Adding sections
 ///-----------------------------
 
-- (RETableViewSection *)addSection:(RETableViewSection *)section;
+- (void)addSection:(RETableViewSection *)section;
 - (void)addSectionsFromArray:(NSArray *)array;
-- (RETableViewSection *)insertSection:(RETableViewSection *)section atIndex:(NSUInteger)index;
+- (void)insertSection:(RETableViewSection *)section atIndex:(NSUInteger)index;
 - (void)insertSections:(NSArray *)sections atIndexes:(NSIndexSet *)indexes;
 
 ///-----------------------------

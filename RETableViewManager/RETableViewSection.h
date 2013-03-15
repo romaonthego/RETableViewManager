@@ -143,9 +143,9 @@
  @param item The item to add to the end of the <items> array's content. This value must not be `nil`.
  @return The item.
  */
-- (id)addItem:(id)item;
+- (void)addItem:(id)item;
 - (void)addItemsFromArray:(NSArray *)array;
-- (id)insertItem:(id)item atIndex:(NSUInteger)index;
+- (void)insertItem:(id)item atIndex:(NSUInteger)index;
 - (void)insertItems:(NSArray *)items atIndexes:(NSIndexSet *)indexes;
 
 ///-----------------------------

@@ -199,11 +199,10 @@
 
 @implementation RETableViewManager (REExtendedTableViewManager)
 
-- (RETableViewSection *)addSection:(RETableViewSection *)section
+- (void)addSection:(RETableViewSection *)section
 {
     section.tableViewManager = self;
     [_sections addObject:section];
-    return section;
 }
 
 - (void)addSectionsFromArray:(NSArray *)array
@@ -213,11 +212,10 @@
     [_sections addObjectsFromArray:array];
 }
 
-- (RETableViewSection *)insertSection:(RETableViewSection *)section atIndex:(NSUInteger)index
+- (void)insertSection:(RETableViewSection *)section atIndex:(NSUInteger)index
 {
     section.tableViewManager = self;
     [_sections insertObject:section atIndex:index];
-    return section;
 }
 
 - (void)insertSections:(NSArray *)sections atIndexes:(NSIndexSet *)indexes
