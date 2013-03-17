@@ -95,29 +95,49 @@
     return nil;
 }
 
+- (NSIndexPath *)indexPathForPreviousResponderInSectionIndex:(NSUInteger)sectionIndex
+{
+    RETableViewSection *section = [self.tableViewManager.sections objectAtIndex:sectionIndex];
+    NSUInteger indexInSection =  [section isEqual:self.section] ? [section.items indexOfObject:self.item] : section.items.count;
+    for (NSInteger i = indexInSection - 1; i >= 0; i--) {
+        RETableViewItem *item = [section.items objectAtIndex:i];
+        if ([item isKindOfClass:[RETableViewItem class]] && item.canFocus)
+            return [NSIndexPath indexPathForRow:i inSection:sectionIndex];
+    }
+    return nil;
+}
+
 - (NSIndexPath *)indexPathForPreviousResponder
 {
-    NSUInteger indexInSection = [self.section.items indexOfObject:self.item];
-    for (NSInteger i = indexInSection - 1; i >= 0; i--) {
-        RETableViewItem *item = [self.section.items objectAtIndex:i];
-        if (item.canFocus) {
-            return [NSIndexPath indexPathForRow:i inSection:self.sectionIndex];
-            break;
-        }
+    for (NSInteger i = self.sectionIndex; i >= 0; i--) {
+        NSIndexPath *indexPath = [self indexPathForPreviousResponderInSectionIndex:i];
+        if (indexPath)
+            return indexPath;
+    }
+    
+    return nil;
+}
+
+- (NSIndexPath *)indexPathForNextResponderInSectionIndex:(NSUInteger)sectionIndex
+{
+    RETableViewSection *section = [self.tableViewManager.sections objectAtIndex:sectionIndex];
+    NSUInteger indexInSection =  [section isEqual:self.section] ? [section.items indexOfObject:self.item] : -1;
+    for (NSInteger i = indexInSection + 1; i < section.items.count; i++) {
+        RETableViewItem *item = [section.items objectAtIndex:i];
+        if (item.canFocus)
+            return [NSIndexPath indexPathForRow:i inSection:sectionIndex];
     }
     return nil;
 }
 
 - (NSIndexPath *)indexPathForNextResponder
 {
-    NSUInteger indexInSection = [self.section.items indexOfObject:self.item];
-    for (NSInteger i = indexInSection + 1; i < self.section.items.count; i++) {
-        RETableViewItem *item = [self.section.items objectAtIndex:i];
-        if (item.canFocus) {
-            return [NSIndexPath indexPathForRow:i inSection:self.sectionIndex];
-            break;
-        }
+    for (NSInteger i = self.sectionIndex; i < self.tableViewManager.sections.count; i++) {
+        NSIndexPath *indexPath = [self indexPathForNextResponderInSectionIndex:i];
+        if (indexPath)
+            return indexPath;
     }
+    
     return nil;
 }
 

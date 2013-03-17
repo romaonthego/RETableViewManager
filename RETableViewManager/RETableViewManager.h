@@ -38,15 +38,52 @@
 
 @protocol RETableViewManagerDelegate;
 
+/**
+ Data driven content manager for `UITableView`. It allows to manage content of `UITableView` with ease, both forms and lists. 
+ In its core RETableViewManager supports reusable cells based on corresponding data object class.
+ 
+ */
 @interface RETableViewManager : NSObject <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) NSMutableArray *sections;
-@property (strong, nonatomic) NSMutableDictionary *mapping;
-@property (strong, nonatomic) RETableViewCellStyle *style;
-@property (assign, nonatomic) id<RETableViewManagerDelegate>delegate;
+@property (strong, readwrite, nonatomic) NSMutableArray *sections;
 
-- (RETableViewSection *)addSection:(RETableViewSection *)section;
+///-----------------------------
+/// @name Creating and Initializing a RETableViewManager
+///-----------------------------
+
+/**
+ Initialize a table view manager object and specify the delegate object.
+ 
+ @param delegate The delegate (RETableViewManagerDelegate) object for the table view manager.
+ @return The pointer to the instance, or nil if initialization failed.
+ */
+- (id)initWithDelegate:(id<RETableViewManagerDelegate>)delegate;
+
+///-------------------------------------------
+/// @name Managing the Delegate
+///-------------------------------------------
+
+/**
+ The object that acts as the delegate of the receiving table view.
+ */
+@property (assign, readwrite, nonatomic) id<RETableViewManagerDelegate>delegate;
+
+///-----------------------------
+/// @name Managing Object Mappings
+///-----------------------------
+
+/**
+ The aggregate collection of item and class mappings within this table view manager.
+ */
+@property (strong, readwrite, nonatomic) NSMutableDictionary *mapping;
+
 - (void)mapObjectClass:(NSString *)objectClass toTableViewCellClass:(NSString *)cellViewClass;
+
+///-----------------------------
+/// @name Setting default style
+///-----------------------------
+
+@property (strong, readwrite, nonatomic) RETableViewCellStyle *style;
 
 @end
 
@@ -56,6 +93,51 @@
 
 - (void)tableView:(UITableView *)tableView styleCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath item:(id)item;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath item:(id)items;
+
+@end
+
+@interface RETableViewManager (REExtendedTableViewManager)
+
+///-----------------------------
+/// @name Adding sections
+///-----------------------------
+
+- (void)addSection:(RETableViewSection *)section;
+- (void)addSectionsFromArray:(NSArray *)array;
+- (void)insertSection:(RETableViewSection *)section atIndex:(NSUInteger)index;
+- (void)insertSections:(NSArray *)sections atIndexes:(NSIndexSet *)indexes;
+
+///-----------------------------
+/// @name Removing Sections
+///-----------------------------
+
+- (void)removeSection:(RETableViewSection *)section;
+- (void)removeAllSections;
+- (void)removeSectionIdenticalTo:(RETableViewSection *)section inRange:(NSRange)range;
+- (void)removeSectionIdenticalTo:(RETableViewSection *)section;
+- (void)removeSectionsInArray:(NSArray *)otherArray;
+- (void)removeSectionsInRange:(NSRange)range;
+- (void)removeSection:(RETableViewSection *)section inRange:(NSRange)range;
+- (void)removeLastSection;
+- (void)removeSectionAtIndex:(NSUInteger)index;
+- (void)removeSectionsAtIndexes:(NSIndexSet *)indexes;
+
+///-----------------------------
+/// @name Replacing Sections
+///-----------------------------
+
+- (void)replaceSectionAtIndex:(NSUInteger)index withSection:(RETableViewSection *)section;
+- (void)replaceSectionsAtIndexes:(NSIndexSet *)indexes withSections:(NSArray *)sections;
+- (void)replaceSectionsInRange:(NSRange)range withSectionsFromArray:(NSArray *)otherArray range:(NSRange)otherRange;
+- (void)replaceSectionsInRange:(NSRange)range withObjectsFromArray:(NSArray *)otherArray;
+
+///-----------------------------
+/// @name Rearranging Content
+///-----------------------------
+
+- (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2;
+- (void)sortSectionsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context;
+- (void)sortSectionsUsingSelector:(SEL)comparator;
 
 @end

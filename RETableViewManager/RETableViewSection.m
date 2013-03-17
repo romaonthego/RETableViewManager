@@ -24,11 +24,42 @@
 //
 
 #import "RETableViewSection.h"
+#import "RETableViewManager.h"
 
 @implementation RETableViewSection
 
 #pragma mark -
 #pragma mark Creating and Initializing Sections
+
+/*
+ * Static initialization methods
+ *
+ */
+
++ (id)section
+{
+    return [[self alloc] init];
+}
+
++ (id)sectionWithHeaderTitle:(NSString *)headerTitle
+{
+    return [[self alloc ] initWithHeaderTitle:headerTitle];
+}
+
++ (id)sectionWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle
+{
+    return [[self alloc] initWithHeaderTitle:headerTitle footerTitle:footerTitle];
+}
+
++ (id)sectionWithHeaderView:(UIView *)headerView
+{
+    return [[self alloc] initWithHeaderView:headerView footerView:nil];
+}
+
++ (id)sectionWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView
+{
+    return [[self alloc] initWithHeaderView:headerView footerView:footerView];
+}
 
 - (id)init
 {
@@ -75,43 +106,52 @@
     return self;
 }
 
-/*
- * Static initialization methods
- *
- */
+#pragma mark -
+#pragma mark Reading information
 
-+ (id)sectionWithHeaderTitle:(NSString *)headerTitle
+- (NSUInteger)index
 {
-    return [[self alloc ] initWithHeaderTitle:headerTitle];
-}
-
-+ (id)sectionWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle
-{
-    return [[self alloc] initWithHeaderTitle:headerTitle footerTitle:footerTitle];
-}
-
-+ (id)sectionWithHeaderView:(UIView *)headerView
-{
-    return [[self alloc] initWithHeaderView:headerView footerView:nil];
-}
-
-+ (id)sectionWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView
-{
-    return [[self alloc] initWithHeaderView:headerView footerView:footerView];
+    
+    RETableViewManager *tableViewManager = self.tableViewManager;
+    return [tableViewManager.sections indexOfObject:self];
 }
 
 #pragma mark -
 #pragma mark Managing items
 
-- (id)addItem:(id)item
+- (void)addItem:(id)item
 {
     [_items addObject:item];
-    return item;
 }
 
 - (void)addItemsFromArray:(NSArray *)array
 {
     [_items addObjectsFromArray:array];
+}
+
+- (void)insertItem:(id)item atIndex:(NSUInteger)index
+{
+    [_items insertObject:item atIndex:index];
+}
+
+- (void)insertItems:(NSArray *)items atIndexes:(NSIndexSet *)indexes
+{
+    [_items insertObjects:items atIndexes:indexes];
+}
+
+- (void)removeItem:(id)item inRange:(NSRange)range
+{
+    [_items removeObject:item inRange:range];
+}
+
+- (void)removeLastItem
+{
+    [_items removeLastObject];
+}
+
+- (void)removeItemAtIndex:(NSUInteger)index
+{
+    [_items removeObjectAtIndex:index];
 }
 
 - (void)removeItem:(id)item
@@ -122,6 +162,66 @@
 - (void)removeAllItems
 {
     [_items removeAllObjects];
+}
+
+- (void)removeItemIdenticalTo:(id)item inRange:(NSRange)range
+{
+    [_items removeObjectIdenticalTo:item inRange:range];
+}
+
+- (void)removeItemIdenticalTo:(id)item
+{
+    [_items removeObjectIdenticalTo:item];
+}
+
+- (void)removeItemsInArray:(NSArray *)otherArray
+{
+    [_items removeObjectsInArray:otherArray];
+}
+
+- (void)removeItemsInRange:(NSRange)range
+{
+    [_items removeObjectsInRange:range];
+}
+
+- (void)removeItemsAtIndexes:(NSIndexSet *)indexes
+{
+    [_items removeObjectsAtIndexes:indexes];
+}
+
+- (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item
+{
+    [_items replaceObjectAtIndex:index withObject:item];
+}
+
+- (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray range:(NSRange)otherRange
+{
+    [_items replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
+}
+
+- (void)replaceItemsInRange:(NSRange)range withObjectsFromArray:(NSArray *)otherArray
+{
+    [_items replaceObjectsInRange:range withObjectsFromArray:otherArray];
+}
+
+- (void)replaceItemsAtIndexes:(NSIndexSet *)indexes withItems:(NSArray *)items
+{
+    [_items replaceObjectsAtIndexes:indexes withObjects:items];
+}
+
+- (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2
+{
+    [_items exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
+}
+
+- (void)sortItemsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context
+{
+    [_items sortUsingFunction:compare context:context];
+}
+
+- (void)sortItemsUsingSelector:(SEL)comparator
+{
+    [_items sortUsingSelector:comparator];
 }
 
 @end

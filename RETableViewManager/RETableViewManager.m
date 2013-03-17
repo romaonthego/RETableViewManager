@@ -42,20 +42,27 @@
     return self;
 }
 
+- (id)initWithDelegate:(id<RETableViewManagerDelegate>)delegate
+{
+    self = [self init];
+    if (!self)
+        return nil;
+    
+    self.delegate = delegate;
+    
+    return self;
+}
+
 - (void)setDefaultMapping
 {
+    [self mapObjectClass:@"__NSCFConstantString" toTableViewCellClass:@"RETableViewStringCell"];
+    [self mapObjectClass:@"__NSCFString" toTableViewCellClass:@"RETableViewStringCell"];
     [self mapObjectClass:@"NSString" toTableViewCellClass:@"RETableViewStringCell"];
     [self mapObjectClass:@"REStringItem" toTableViewCellClass:@"RETableViewStringCell"];
     [self mapObjectClass:@"REBoolItem" toTableViewCellClass:@"RETableViewBoolCell"];
     [self mapObjectClass:@"RETextItem" toTableViewCellClass:@"RETableViewTextCell"];
     [self mapObjectClass:@"RENumberItem" toTableViewCellClass:@"RETableViewNumberCell"];
     [self mapObjectClass:@"RECreditCardItem" toTableViewCellClass:@"RETableViewCreditCardCell"];
-}
-
-- (RETableViewSection *)addSection:(RETableViewSection *)section
-{
-    [_sections addObject:section];
-    return section;
 }
 
 - (void)mapObjectClass:(NSString *)objectClass toTableViewCellClass:(NSString *)cellViewClass
@@ -69,8 +76,8 @@
     NSObject *item = [section.items objectAtIndex:indexPath.row];
     Class cellClass;
     for (NSString *className in _mapping) {
-        Class objectClass = NSClassFromString(className);
-        if ([item isKindOfClass:objectClass]) {
+        NSString *itemClass = NSStringFromClass([item class]);
+        if ([itemClass isEqualToString:className]) {
             cellClass = NSClassFromString([_mapping objectForKey:className]);
             break;
         }
@@ -78,7 +85,8 @@
     return cellClass;
 }
 
-#pragma mark - Table view data source
+#pragma mark -
+#pragma mark Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -164,7 +172,8 @@
     return UITableViewAutomaticDimension;
 }
 
-#pragma mark - Table view delegate
+#pragma mark -
+#pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -181,6 +190,129 @@
     
     if ([_delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:item:)])
         [_delegate tableView:tableView didSelectRowAtIndexPath:indexPath item:item];
+}
+
+@end
+
+#pragma mark -
+#pragma mark Managing sections
+
+@implementation RETableViewManager (REExtendedTableViewManager)
+
+- (void)addSection:(RETableViewSection *)section
+{
+    section.tableViewManager = self;
+    [_sections addObject:section];
+}
+
+- (void)addSectionsFromArray:(NSArray *)array
+{
+    for (RETableViewSection *section in array)
+        section.tableViewManager = self;
+    [_sections addObjectsFromArray:array];
+}
+
+- (void)insertSection:(RETableViewSection *)section atIndex:(NSUInteger)index
+{
+    section.tableViewManager = self;
+    [_sections insertObject:section atIndex:index];
+}
+
+- (void)insertSections:(NSArray *)sections atIndexes:(NSIndexSet *)indexes
+{
+    for (RETableViewSection *section in sections)
+        section.tableViewManager = self;
+    [_sections insertObjects:sections atIndexes:indexes];
+}
+
+- (void)removeSection:(RETableViewSection *)section
+{
+    [_sections removeObject:section];
+}
+
+- (void)removeAllSections
+{
+    [_sections removeAllObjects];
+}
+
+- (void)removeSectionIdenticalTo:(RETableViewSection *)section inRange:(NSRange)range
+{
+    [_sections removeObjectIdenticalTo:section inRange:range];
+}
+
+- (void)removeSectionIdenticalTo:(RETableViewSection *)section
+{
+    [_sections removeObjectIdenticalTo:section];
+}
+
+- (void)removeSectionsInArray:(NSArray *)otherArray
+{
+    [_sections removeObjectsInArray:otherArray];
+}
+
+- (void)removeSectionsInRange:(NSRange)range
+{
+    [_sections removeObjectsInRange:range];
+}
+
+- (void)removeSection:(RETableViewSection *)section inRange:(NSRange)range
+{
+    [_sections removeObject:section inRange:range];
+}
+
+- (void)removeLastSection
+{
+    [_sections removeLastObject];
+}
+
+- (void)removeSectionAtIndex:(NSUInteger)index
+{
+    [_sections removeObjectAtIndex:index];
+}
+
+- (void)removeSectionsAtIndexes:(NSIndexSet *)indexes
+{
+    [_sections removeObjectsAtIndexes:indexes];
+}
+
+- (void)replaceSectionAtIndex:(NSUInteger)index withSection:(RETableViewSection *)section
+{
+    section.tableViewManager = self;
+    [_sections replaceObjectAtIndex:index withObject:section];
+}
+
+- (void)replaceSectionsAtIndexes:(NSIndexSet *)indexes withSections:(NSArray *)sections
+{
+    for (RETableViewSection *section in sections)
+        section.tableViewManager = self;
+    [_sections replaceObjectsAtIndexes:indexes withObjects:sections];
+}
+
+- (void)replaceSectionsInRange:(NSRange)range withSectionsFromArray:(NSArray *)otherArray range:(NSRange)otherRange
+{
+    for (RETableViewSection *section in otherArray)
+        section.tableViewManager = self;
+    [_sections replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
+}
+
+- (void)replaceSectionsInRange:(NSRange)range withObjectsFromArray:(NSArray *)otherArray
+{
+    [_sections replaceObjectsInRange:range withObjectsFromArray:otherArray];
+}
+
+- (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2
+{
+    [_sections exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
+}
+
+- (void)sortSectionsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context
+{
+    [_sections sortUsingFunction:compare context:context];
+}
+
+- (void)sortSectionsUsingSelector:(SEL)comparator
+{
+    [_sections sortUsingSelector:comparator];
 }
 
 @end
