@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3006800116F637460061B648 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3006800016F637460061B648 /* ListViewController.m */; };
 		30DB066A16E934AD006C9530 /* RETableViewBoolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB064916E934AD006C9530 /* RETableViewBoolCell.m */; };
 		30DB066B16E934AD006C9530 /* RETableViewCreditCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB064B16E934AD006C9530 /* RETableViewCreditCardCell.m */; };
 		30DB066C16E934AD006C9530 /* RETableViewNumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB064D16E934AD006C9530 /* RETableViewNumberCell.m */; };
@@ -39,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30067FFF16F637460061B648 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		3006800016F637460061B648 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		30DB064816E934AD006C9530 /* RETableViewBoolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewBoolCell.h; sourceTree = "<group>"; };
 		30DB064916E934AD006C9530 /* RETableViewBoolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewBoolCell.m; sourceTree = "<group>"; };
 		30DB064A16E934AD006C9530 /* RETableViewCreditCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewCreditCardCell.h; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 				30EF93F116E039D500B84981 /* RootViewController.m */,
 				30EF93F616E03D1F00B84981 /* ControlsViewController.h */,
 				30EF93F716E03D1F00B84981 /* ControlsViewController.m */,
+				30067FFF16F637460061B648 /* ListViewController.h */,
+				3006800016F637460061B648 /* ListViewController.m */,
 			);
 			path = RETableViewManagerExample;
 			sourceTree = "<group>";
@@ -318,6 +323,7 @@
 				30DB067916E934AD006C9530 /* RETableViewManager.m in Sources */,
 				30DB067A16E934AD006C9530 /* RETableViewSection.m in Sources */,
 				30DB067E16E934C5006C9530 /* REFormattedNumberField.m in Sources */,
+				3006800116F637460061B648 /* ListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

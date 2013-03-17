@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "ControlsViewController.h"
+#import "ListViewController.h"
 
 @interface RootViewController ()
 
@@ -34,6 +35,7 @@
     } accessoryType:UITableViewCellAccessoryDisclosureIndicator]];
     
     [section addItem:[REStringItem itemWithTitle:@"List" actionBlock:^(RETableViewItem *item) {
+        [weakSelf.navigationController pushViewController:[[ListViewController alloc] initWithStyle:UITableViewStylePlain] animated:YES];
     } accessoryType:UITableViewCellAccessoryDisclosureIndicator]];
     
     // Set delegate and datasource
