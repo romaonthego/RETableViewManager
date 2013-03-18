@@ -25,6 +25,10 @@ self.tableView.dataSource = _tableViewManager;
 RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Test"];
 [_tableViewManager addSection:section];
 
+// Add simple string item
+//
+[section addItem:@"Test"];
+
 // Add string cell with disclosure indicator
 //
 [section addItem:[REStringItem itemWithTitle:@"String cell" actionBlock:^(RETableViewItem *item) {
