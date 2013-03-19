@@ -30,9 +30,13 @@
     [section addItem:@"Simple NSString"];
     RETextItem *fullLengthField = [RETextItem itemWithTitle:nil value:nil placeholder:@"Full length text field"];
     [section addItem:fullLengthField];
+    
+    RETextItem *passwordItem = [RETextItem itemWithTitle:@"Password" value:nil placeholder:@"Password field"];
+    passwordItem.secureTextEntry = YES;
+    [section addItem:passwordItem];
     [section addItem:[RETextItem itemWithTitle:@"Text item 1" value:nil placeholder:@"Text"]];
     [section addItem:[RETextItem itemWithTitle:@"Text item 2" value:nil placeholder:@"Text"]];
-    [section addItem:[RETextItem itemWithTitle:@"Text item 3 werw ererer" value:nil placeholder:@"Text"]];
+    [section addItem:[RETextItem itemWithTitle:@"Text item 3" value:nil placeholder:@"Text"]];
     [section addItem:[RETextItem itemWithTitle:@"Text item 4" value:nil placeholder:@"Text"]];
     [section addItem:[REBoolItem itemWithTitle:@"Bool item" value:YES]];
     
@@ -43,6 +47,22 @@
     section = [[RETableViewSection alloc] initWithHeaderTitle:@"Credit card"];
     [_manager addSection:section];
     [section addItem:[RECreditCardItem item]];
+    
+    // ------
+    
+    __typeof (&*self) __weak weakSelf = self;
+    
+    section = [[RETableViewSection alloc] initWithHeaderTitle:@"Accessories"];
+    [_manager addSection:section];
+    [section addItem:[REStringItem itemWithTitle:@"Accessory 1" actionBlock:^(RETableViewItem *item) {
+        
+    } accessoryType:UITableViewCellAccessoryDisclosureIndicator]];
+    
+    [section addItem:[REStringItem itemWithTitle:@"Accessory 2" actionBlock:^(RETableViewItem *item) {
+    } accessoryType:UITableViewCellAccessoryDetailDisclosureButton]];
+    
+    [section addItem:[REStringItem itemWithTitle:@"Accessory 2" actionBlock:^(RETableViewItem *item) {
+    } accessoryType:UITableViewCellAccessoryCheckmark]];
     
     // Set delegate and datasource
     //
