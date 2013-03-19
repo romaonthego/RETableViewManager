@@ -55,7 +55,7 @@
     section = [[RETableViewSection alloc] initWithHeaderTitle:@"Accessories"];
     [_manager addSection:section];
     [section addItem:[REStringItem itemWithTitle:@"Accessory 1" actionBlock:^(RETableViewItem *item) {
-        
+        [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
     } accessoryType:UITableViewCellAccessoryDisclosureIndicator]];
     
     [section addItem:[REStringItem itemWithTitle:@"Accessory 2" actionBlock:^(RETableViewItem *item) {

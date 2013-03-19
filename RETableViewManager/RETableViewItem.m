@@ -32,4 +32,9 @@
     return [[self alloc] init];
 }
 
+- (NSIndexPath *)indexPath
+{
+    return nil;
+}
+
 @end
