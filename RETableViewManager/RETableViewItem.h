@@ -38,6 +38,7 @@
 
 + (id)item;
 
+- (NSUInteger)indexInSection;
 - (NSIndexPath *)indexPath;
 
 @end

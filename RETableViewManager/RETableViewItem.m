@@ -24,6 +24,7 @@
 //
 
 #import "RETableViewItem.h"
+#import "RETableViewSection.h"
 
 @implementation RETableViewItem
 
@@ -32,9 +33,14 @@
     return [[self alloc] init];
 }
 
+- (NSUInteger)indexInSection
+{
+    return [self.section.items indexOfObject:self];
+}
+
 - (NSIndexPath *)indexPath
 {
-    return nil;
+    return [NSIndexPath indexPathForRow:self.indexInSection inSection:self.section.index];
 }
 
 @end

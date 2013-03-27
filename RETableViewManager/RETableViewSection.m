@@ -111,7 +111,6 @@
 
 - (NSUInteger)index
 {
-    
     RETableViewManager *tableViewManager = self.tableViewManager;
     return [tableViewManager.sections indexOfObject:self];
 }
@@ -121,21 +120,35 @@
 
 - (void)addItem:(id)item
 {
+    if ([item isKindOfClass:[RETableViewItem class]])
+        ((RETableViewItem *)item).section = self;
+    
     [_items addObject:item];
 }
 
 - (void)addItemsFromArray:(NSArray *)array
 {
+    for (RETableViewItem *item in array)
+        if ([item isKindOfClass:[RETableViewItem class]])
+            ((RETableViewItem *)item).section = self;
+    
     [_items addObjectsFromArray:array];
 }
 
 - (void)insertItem:(id)item atIndex:(NSUInteger)index
 {
+    if ([item isKindOfClass:[RETableViewItem class]])
+        ((RETableViewItem *)item).section = self;
+    
     [_items insertObject:item atIndex:index];
 }
 
 - (void)insertItems:(NSArray *)items atIndexes:(NSIndexSet *)indexes
 {
+    for (RETableViewItem *item in items)
+        if ([item isKindOfClass:[RETableViewItem class]])
+            ((RETableViewItem *)item).section = self;
+    
     [_items insertObjects:items atIndexes:indexes];
 }
 
@@ -191,21 +204,36 @@
 
 - (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item
 {
+    if ([item isKindOfClass:[RETableViewItem class]])
+        ((RETableViewItem *)item).section = self;
+    
     [_items replaceObjectAtIndex:index withObject:item];
 }
 
 - (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray range:(NSRange)otherRange
 {
+    for (RETableViewItem *item in otherArray)
+        if ([item isKindOfClass:[RETableViewItem class]])
+            ((RETableViewItem *)item).section = self;
+    
     [_items replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
 }
 
 - (void)replaceItemsInRange:(NSRange)range withObjectsFromArray:(NSArray *)otherArray
 {
+    for (RETableViewItem *item in otherArray)
+        if ([item isKindOfClass:[RETableViewItem class]])
+            ((RETableViewItem *)item).section = self;
+    
     [_items replaceObjectsInRange:range withObjectsFromArray:otherArray];
 }
 
 - (void)replaceItemsAtIndexes:(NSIndexSet *)indexes withItems:(NSArray *)items
 {
+    for (RETableViewItem *item in items)
+        if ([item isKindOfClass:[RETableViewItem class]])
+            ((RETableViewItem *)item).section = self;
+    
     [_items replaceObjectsAtIndexes:indexes withObjects:items];
 }
 

@@ -59,9 +59,11 @@
     } accessoryType:UITableViewCellAccessoryDisclosureIndicator]];
     
     [section addItem:[REStringItem itemWithTitle:@"Accessory 2" actionBlock:^(RETableViewItem *item) {
+        [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
     } accessoryType:UITableViewCellAccessoryDetailDisclosureButton]];
     
     [section addItem:[REStringItem itemWithTitle:@"Accessory 2" actionBlock:^(RETableViewItem *item) {
+        [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
     } accessoryType:UITableViewCellAccessoryCheckmark]];
     
     // Set delegate and datasource
