@@ -58,13 +58,11 @@
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
     }]];
     
-    REStringItem *accessoryItem2 = [REStringItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryDetailDisclosureButton actionBlock:^(RETableViewItem *item) {
+    [section addItem:[REStringItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryDetailDisclosureButton actionBlock:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
-    }];
-    accessoryItem2.accessoryButtonActionBlock = ^(RETableViewItem *item) {
+    } accessoryButtonActionBlock:^(RETableViewItem *item) {
         NSLog(@"Accessory button in accessoryItem2 was tapped");
-    };
-    [section addItem:accessoryItem2];
+    }]];
     
     [section addItem:[REStringItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryCheckmark actionBlock:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
