@@ -29,11 +29,13 @@
     self.tableView.dataSource = _manager;
     self.tableView.delegate = _manager;
     
-    // Add sections and items
+    // Create section
     //
     RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Basic controls"];
     [_manager addSection:section];
     
+    // Add items
+    //
     [section addItem:@"Simple NSString"];
     RETextItem *fullLengthField = [RETextItem itemWithTitle:nil value:nil placeholder:@"Full length text field"];
     [section addItem:fullLengthField];
@@ -59,19 +61,24 @@
     
     __typeof (&*self) __weak weakSelf = self;
     
-    section = [[RETableViewSection alloc] initWithHeaderTitle:@"Accessories"];
-    [_manager addSection:section];
-    [section addItem:[REStringItem itemWithTitle:@"Accessory 1" accessoryType:UITableViewCellAccessoryDisclosureIndicator actionBlock:^(RETableViewItem *item) {
+    // Create another section
+    //
+    RETableViewSection *section2 = [[RETableViewSection alloc] initWithHeaderTitle:@"Accessories"];
+    [_manager addSection:section2];
+    
+    // Add items to this section
+    //
+    [section2 addItem:[REStringItem itemWithTitle:@"Accessory 1" accessoryType:UITableViewCellAccessoryDisclosureIndicator actionBlock:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
     }]];
     
-    [section addItem:[REStringItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryDetailDisclosureButton actionBlock:^(RETableViewItem *item) {
+    [section2 addItem:[REStringItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryDetailDisclosureButton actionBlock:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
     } accessoryButtonActionBlock:^(RETableViewItem *item) {
         NSLog(@"Accessory button in accessoryItem2 was tapped");
     }]];
     
-    [section addItem:[REStringItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryCheckmark actionBlock:^(RETableViewItem *item) {
+    [section2 addItem:[REStringItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryCheckmark actionBlock:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
     }]];
 }
