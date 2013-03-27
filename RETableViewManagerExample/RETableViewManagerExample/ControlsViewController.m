@@ -34,7 +34,7 @@
     RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Basic controls"];
     [_manager addSection:section];
     
-    // Add items
+    // Add items to this section
     //
     [section addItem:@"Simple NSString"];
     RETextItem *fullLengthField = [RETextItem itemWithTitle:nil value:nil placeholder:@"Full length text field"];
