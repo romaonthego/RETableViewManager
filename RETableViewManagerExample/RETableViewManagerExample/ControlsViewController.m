@@ -24,6 +24,13 @@
     _manager = [[RETableViewManager alloc] init];
     _manager.style.textFieldPositionOffset = CGSizeMake(0, 0);
     
+    // Set delegate and datasource
+    //
+    self.tableView.dataSource = _manager;
+    self.tableView.delegate = _manager;
+    
+    // Add sections and items
+    //
     RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Basic controls"];
     [_manager addSection:section];
     
@@ -67,11 +74,6 @@
     [section addItem:[REStringItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryCheckmark actionBlock:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
     }]];
-    
-    // Set delegate and datasource
-    //
-    self.tableView.dataSource = _manager;
-    self.tableView.delegate =  _manager;
 }
 
 @end

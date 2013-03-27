@@ -20,13 +20,20 @@
 {
     [super viewDidLoad];
     self.title = @"RETableViewManager";
-    RootViewController __weak *weakSelf = self;
+    __typeof (&*self) __weak weakSelf = self;
 	
     // Create manager
     //
     _manager = [[RETableViewManager alloc] init];
     _manager.delegate = self;
     
+    // Set delegate and datasource
+    //
+    self.tableView.dataSource = _manager;
+    self.tableView.delegate =  _manager;
+    
+    // Add sections and items
+    //
     RETableViewSection *section = [[RETableViewSection alloc] init];
     [_manager addSection:section];
     
@@ -37,11 +44,6 @@
     [section addItem:[REStringItem itemWithTitle:@"List" accessoryType:UITableViewCellAccessoryDisclosureIndicator actionBlock:^(RETableViewItem *item) {
         [weakSelf.navigationController pushViewController:[[ListViewController alloc] initWithStyle:UITableViewStylePlain] animated:YES];
     }]];
-    
-    // Set delegate and datasource
-    //
-    self.tableView.dataSource = _manager;
-    self.tableView.delegate =  _manager;
 }
 
 #pragma mark -
