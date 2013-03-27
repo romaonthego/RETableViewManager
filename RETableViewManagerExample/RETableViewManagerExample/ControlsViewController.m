@@ -54,17 +54,21 @@
     
     section = [[RETableViewSection alloc] initWithHeaderTitle:@"Accessories"];
     [_manager addSection:section];
-    [section addItem:[REStringItem itemWithTitle:@"Accessory 1" actionBlock:^(RETableViewItem *item) {
+    [section addItem:[REStringItem itemWithTitle:@"Accessory 1" accessoryType:UITableViewCellAccessoryDisclosureIndicator actionBlock:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
-    } accessoryType:UITableViewCellAccessoryDisclosureIndicator]];
+    }]];
     
-    [section addItem:[REStringItem itemWithTitle:@"Accessory 2" actionBlock:^(RETableViewItem *item) {
+    REStringItem *accessoryItem2 = [REStringItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryDetailDisclosureButton actionBlock:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
-    } accessoryType:UITableViewCellAccessoryDetailDisclosureButton]];
+    }];
+    accessoryItem2.accessoryButtonActionBlock = ^(RETableViewItem *item) {
+        NSLog(@"Accessory button in accessoryItem2 was tapped");
+    };
+    [section addItem:accessoryItem2];
     
-    [section addItem:[REStringItem itemWithTitle:@"Accessory 2" actionBlock:^(RETableViewItem *item) {
+    [section addItem:[REStringItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryCheckmark actionBlock:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
-    } accessoryType:UITableViewCellAccessoryCheckmark]];
+    }]];
     
     // Set delegate and datasource
     //

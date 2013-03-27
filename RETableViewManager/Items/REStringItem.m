@@ -27,22 +27,28 @@
 
 @implementation REStringItem
 
-+ (id)itemWithTitle:(NSString *)title actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryType:(UITableViewCellAccessoryType)accessoryType
++ (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock
 {
-    return [[REStringItem alloc] initWithTitle:title actionBlock:actionBlock accessoryType:accessoryType accessoryView:nil];
+    return [[REStringItem alloc] initWithTitle:title accessoryType:accessoryType accessoryView:nil actionBlock:actionBlock accessoryButtonActionBlock:nil];
 }
 
-+ (id)itemWithTitle:(NSString *)title actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryType:(UITableViewCellAccessoryType)accessoryType accessoryView:(UIView *)accessoryView
+
++ (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType accessoryView:(UIView *)accessoryView actionBlock:(void(^)(RETableViewItem *item))actionBlock
 {
-    return [[REStringItem alloc] initWithTitle:title actionBlock:actionBlock accessoryType:accessoryType accessoryView:accessoryView];
+    return [[REStringItem alloc] initWithTitle:title accessoryType:accessoryType accessoryView:accessoryView actionBlock:actionBlock accessoryButtonActionBlock:nil];
 }
 
-- (id)initWithTitle:(NSString *)title actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryType:(UITableViewCellAccessoryType)accessoryType;
++ (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryButtonActionBlock:(void(^)(RETableViewItem *item))accessoryButtonActionBlock
 {
-    return [self initWithTitle:title actionBlock:actionBlock accessoryType:accessoryType accessoryView:nil];
+    return [[REStringItem alloc] initWithTitle:title accessoryType:accessoryType actionBlock:actionBlock accessoryButtonActionBlock:accessoryButtonActionBlock];
 }
 
-- (id)initWithTitle:(NSString *)title actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryType:(UITableViewCellAccessoryType)accessoryType accessoryView:(UIView *)accessoryView
+- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryButtonActionBlock:(void(^)(RETableViewItem *item))accessoryButtonActionBlock
+{
+    return [self initWithTitle:title accessoryType:accessoryType accessoryView:nil actionBlock:actionBlock accessoryButtonActionBlock:accessoryButtonActionBlock];
+}
+
+- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType accessoryView:(UIView *)accessoryView actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryButtonActionBlock:(void(^)(RETableViewItem *item))accessoryButtonActionBlock
 {
     self = [super init];
     if (!self)
@@ -53,6 +59,7 @@
     self.accessoryView = accessoryView;
     self.actionBlock = actionBlock;
     self.performActionOnSelection = YES;
+    self.accessoryButtonActionBlock = accessoryButtonActionBlock;
     
     return self;
 }

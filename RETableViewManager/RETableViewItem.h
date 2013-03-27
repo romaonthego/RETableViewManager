@@ -32,6 +32,7 @@
 
 @property (copy, readwrite, nonatomic) NSString *title;
 @property (copy, readwrite, nonatomic) void (^actionBlock)(id item);
+@property (copy, readwrite, nonatomic) void (^accessoryButtonActionBlock)(id item);
 @property (assign, readwrite, nonatomic) BOOL performActionOnSelection;
 @property (assign, readonly, nonatomic) BOOL canFocus;
 @property (weak, readwrite, nonatomic) RETableViewSection *section;

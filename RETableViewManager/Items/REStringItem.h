@@ -30,9 +30,10 @@
 @property (assign, nonatomic) UITableViewCellAccessoryType accessoryType;
 @property (strong, nonatomic) UIView *accessoryView;
 
-+ (id)itemWithTitle:(NSString *)title actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryType:(UITableViewCellAccessoryType)accessoryType;
-+ (id)itemWithTitle:(NSString *)title actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryType:(UITableViewCellAccessoryType)accessoryType accessoryView:(UIView *)accessoryView;
-- (id)initWithTitle:(NSString *)title actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryType:(UITableViewCellAccessoryType)accessoryType;
-- (id)initWithTitle:(NSString *)title actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryType:(UITableViewCellAccessoryType)accessoryType accessoryView:(UIView *)accessoryView;
++ (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock;
++ (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType accessoryView:(UIView *)accessoryView actionBlock:(void(^)(RETableViewItem *item))actionBlock;
++ (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryButtonActionBlock:(void(^)(RETableViewItem *item))accessoryButtonActionBlock;
+- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryButtonActionBlock:(void(^)(RETableViewItem *item))accessoryButtonActionBlock;
+- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType accessoryView:(UIView *)accessoryView actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryButtonActionBlock:(void(^)(RETableViewItem *item))accessoryButtonActionBlock;
 
 @end

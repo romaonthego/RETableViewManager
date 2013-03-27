@@ -192,6 +192,23 @@
         [_delegate tableView:tableView didSelectRowAtIndexPath:indexPath item:item];
 }
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
+    id item = [section.items objectAtIndex:indexPath.row];
+    if ([item respondsToSelector:@selector(setActionBlock:)]) {
+        RETableViewItem *actionItem = (RETableViewItem *)item;
+        if (actionItem.accessoryButtonActionBlock)
+            actionItem.accessoryButtonActionBlock(item);
+    }
+    
+    if ([_delegate respondsToSelector:@selector(tableView:accessoryButtonTappedForRowWithIndexPath:)])
+        [_delegate tableView:tableView accessoryButtonTappedForRowWithIndexPath:indexPath];
+    
+    if ([_delegate respondsToSelector:@selector(tableView:accessoryButtonTappedForRowWithIndexPath:item:)])
+        [_delegate tableView:tableView accessoryButtonTappedForRowWithIndexPath:indexPath item:item];
+}
+
 @end
 
 #pragma mark -

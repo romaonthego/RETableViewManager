@@ -30,13 +30,13 @@
     RETableViewSection *section = [[RETableViewSection alloc] init];
     [_manager addSection:section];
     
-    [section addItem:[REStringItem itemWithTitle:@"Forms" actionBlock:^(RETableViewItem *item) {
+    [section addItem:[REStringItem itemWithTitle:@"Forms" accessoryType:UITableViewCellAccessoryDisclosureIndicator actionBlock:^(RETableViewItem *item) {
         [weakSelf.navigationController pushViewController:[[ControlsViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
-    } accessoryType:UITableViewCellAccessoryDisclosureIndicator]];
+    }]];
     
-    [section addItem:[REStringItem itemWithTitle:@"List" actionBlock:^(RETableViewItem *item) {
+    [section addItem:[REStringItem itemWithTitle:@"List" accessoryType:UITableViewCellAccessoryDisclosureIndicator actionBlock:^(RETableViewItem *item) {
         [weakSelf.navigationController pushViewController:[[ListViewController alloc] initWithStyle:UITableViewStylePlain] animated:YES];
-    } accessoryType:UITableViewCellAccessoryDisclosureIndicator]];
+    }]];
     
     // Set delegate and datasource
     //
