@@ -209,12 +209,8 @@
         [_delegate tableView:tableView accessoryButtonTappedForRowWithIndexPath:indexPath item:item];
 }
 
-@end
-
 #pragma mark -
 #pragma mark Managing sections
-
-@implementation RETableViewManager (REExtendedTableViewManager)
 
 - (void)addSection:(RETableViewSection *)section
 {

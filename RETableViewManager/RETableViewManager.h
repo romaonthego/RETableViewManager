@@ -85,22 +85,6 @@
 
 @property (strong, readwrite, nonatomic) RETableViewCellStyle *style;
 
-@end
-
-@protocol RETableViewManagerDelegate <NSObject>
-
-@optional
-
-- (void)tableView:(UITableView *)tableView styleCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath item:(id)items;
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath;
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath item:(id)items;
-
-@end
-
-@interface RETableViewManager (REExtendedTableViewManager)
-
 ///-----------------------------
 /// @name Adding sections
 ///-----------------------------
@@ -141,5 +125,17 @@
 - (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2;
 - (void)sortSectionsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context;
 - (void)sortSectionsUsingSelector:(SEL)comparator;
+
+@end
+
+@protocol RETableViewManagerDelegate <NSObject>
+
+@optional
+
+- (void)tableView:(UITableView *)tableView styleCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath item:(id)items;
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath item:(id)items;
 
 @end
