@@ -34,7 +34,7 @@
         return nil;
     
     _backgroundImages = [[NSMutableDictionary alloc] init];
-    _textFieldFont = [UIFont systemFontOfSize:17];
+    _textFieldFont = [UIFont systemFontOfSize:16];
     _cellHeight = 44;
     
     return self;
