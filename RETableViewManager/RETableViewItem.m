@@ -33,14 +33,9 @@
     return [[self alloc] init];
 }
 
-- (NSUInteger)indexInSection
-{
-    return [self.section.items indexOfObject:self];
-}
-
 - (NSIndexPath *)indexPath
 {
-    return [NSIndexPath indexPathForRow:self.indexInSection inSection:self.section.index];
+    return [NSIndexPath indexPathForRow:[self.section.items indexOfObject:self] inSection:self.section.index];
 }
 
 @end

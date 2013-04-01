@@ -38,8 +38,6 @@
 @property (weak, readwrite, nonatomic) RETableViewSection *section;
 
 + (id)item;
-
-- (NSUInteger)indexInSection;
 - (NSIndexPath *)indexPath;
 
 @end
