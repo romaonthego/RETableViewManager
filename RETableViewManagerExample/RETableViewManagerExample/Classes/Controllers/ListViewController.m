@@ -70,10 +70,16 @@
                        
                        @{@"username": @"gretchen",
                          @"userpic_url": @"http://uifaces.com/faces/_twitter/JuliaYunLiu_120.jpg",
-                         @"image_url": @"http://distilleryimage10.s3.amazonaws.com/b9e61198b69411e180d51231380fcd7e_7.jpg"}
+                         @"image_url": @"http://distilleryimage10.s3.amazonaws.com/b9e61198b69411e180d51231380fcd7e_7.jpg"},
+                       
+                       @{@"username": @"roman",
+                         @"userpic_url": @"http://uifaces.com/faces/_twitter/calebogden_120.jpg",
+                         @"image_url": @"http://distilleryimage0.s3.amazonaws.com/7496fb80b34611e188131231381b5c25_7.jpg"},
+                       
+                       @{@"username": @"andrew",
+                         @"userpic_url": @"http://uifaces.com/faces/_twitter/benefritz_120.jpg",
+                         @"image_url": @"http://distilleryimage7.s3.amazonaws.com/1a8f3db4b87811e1ab011231381052c0_7.jpg"}
                        ];
-    
-    RETableViewSection *section;
     
     for (NSDictionary *dictionary in items) {
         NSString *username = [dictionary objectForKey:@"username"];
@@ -82,7 +88,7 @@
         
         // Create section with a header view
         //
-        section = [[RETableViewSection alloc] initWithHeaderView:[ListHeaderView headerViewWithImageURL:userpicURL username:username]];
+        RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderView:[ListHeaderView headerViewWithImageURL:userpicURL username:username]];
         [_manager addSection:section];
         
         // Add item (image)
