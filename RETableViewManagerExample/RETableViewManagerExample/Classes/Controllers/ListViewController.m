@@ -63,11 +63,13 @@
         NSURL *userpicURL = [NSURL URLWithString:[dictionary objectForKey:@"userpic_url"]];
         NSURL *imageURL = [NSURL URLWithString:[dictionary objectForKey:@"image_url"]];
         
-        // Create section
+        // Create section with a header view
         //
         section = [[RETableViewSection alloc] initWithHeaderView:[ListHeaderView headerViewWithImageURL:userpicURL username:username]];
         [_manager addSection:section];
         
+        // Add item (image)
+        //
         [section addItem:[ListImageItem itemWithImageURL:imageURL]];
     }
 }
