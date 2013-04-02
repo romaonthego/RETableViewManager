@@ -30,7 +30,6 @@
 		30DB067816E934AD006C9530 /* RETableViewManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 30DB066516E934AD006C9530 /* RETableViewManager.bundle */; };
 		30DB067916E934AD006C9530 /* RETableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB066716E934AD006C9530 /* RETableViewManager.m */; };
 		30DB067A16E934AD006C9530 /* RETableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB066916E934AD006C9530 /* RETableViewSection.m */; };
-		30DB067E16E934C5006C9530 /* REFormattedNumberField.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB067D16E934C5006C9530 /* REFormattedNumberField.m */; };
 		30EF93B316E039B800B84981 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EF93B216E039B800B84981 /* UIKit.framework */; };
 		30EF93B516E039B800B84981 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EF93B416E039B800B84981 /* Foundation.framework */; };
 		30EF93B716E039B800B84981 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EF93B616E039B800B84981 /* CoreGraphics.framework */; };
@@ -89,8 +88,6 @@
 		30DB066716E934AD006C9530 /* RETableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewManager.m; sourceTree = "<group>"; };
 		30DB066816E934AD006C9530 /* RETableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewSection.h; sourceTree = "<group>"; };
 		30DB066916E934AD006C9530 /* RETableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewSection.m; sourceTree = "<group>"; };
-		30DB067C16E934C5006C9530 /* REFormattedNumberField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFormattedNumberField.h; sourceTree = "<group>"; };
-		30DB067D16E934C5006C9530 /* REFormattedNumberField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFormattedNumberField.m; sourceTree = "<group>"; };
 		30EF93AF16E039B800B84981 /* RETableViewManagerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RETableViewManagerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30EF93B216E039B800B84981 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		30EF93B416E039B800B84981 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -223,20 +220,9 @@
 			path = Items;
 			sourceTree = "<group>";
 		};
-		30DB067B16E934C5006C9530 /* REFormattedNumberField */ = {
-			isa = PBXGroup;
-			children = (
-				30DB067C16E934C5006C9530 /* REFormattedNumberField.h */,
-				30DB067D16E934C5006C9530 /* REFormattedNumberField.m */,
-			);
-			name = REFormattedNumberField;
-			path = ../REFormattedNumberField;
-			sourceTree = "<group>";
-		};
 		30EF93A616E039B800B84981 = {
 			isa = PBXGroup;
 			children = (
-				30DB067B16E934C5006C9530 /* REFormattedNumberField */,
 				30DB064616E934AD006C9530 /* RETableViewManager */,
 				30EF93B816E039B800B84981 /* RETableViewManagerExample */,
 				30EF93B116E039B800B84981 /* Frameworks */,
@@ -391,7 +377,6 @@
 				30DB067716E934AD006C9530 /* RETableViewItem.m in Sources */,
 				30DB067916E934AD006C9530 /* RETableViewManager.m in Sources */,
 				30DB067A16E934AD006C9530 /* RETableViewSection.m in Sources */,
-				30DB067E16E934C5006C9530 /* REFormattedNumberField.m in Sources */,
 				302D2150170B25B10085654F /* ControlsViewController.m in Sources */,
 				302D2151170B25B10085654F /* ListViewController.m in Sources */,
 				302D2152170B25B10085654F /* RootViewController.m in Sources */,

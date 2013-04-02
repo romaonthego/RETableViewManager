@@ -1,13 +1,16 @@
 
 PODS:
+- REFormattedNumberField (1.0.2)
 - SDWebImage (3.2):
   - SDWebImage/MapKit (= 3.2)
 - SDWebImage/MapKit (3.2)
 
 DEPENDENCIES:
+- REFormattedNumberField
 - SDWebImage
 
 SPEC CHECKSUMS:
+  REFormattedNumberField: a8031ed845b21935a8bd8f5a5bdcb735a4947d94
   SDWebImage: 8082fe8d658ccafaaecd9e5ecda12ed01f09ba9c
   SDWebImage/MapKit: 8082fe8d658ccafaaecd9e5ecda12ed01f09ba9c
 

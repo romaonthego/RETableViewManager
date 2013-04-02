@@ -101,7 +101,16 @@
 
 - (void)formatInput:(UITextField *)textField
 {
-    self.text = [self string:textField.text withNumberFormat:_format];
+    __typeof (&*self) __weak weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        textField.text = [weakSelf string:textField.text withNumberFormat:_format];
+    });
+}
+
+- (NSString *)unformattedText
+{
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\D" options:NSRegularExpressionCaseInsensitive error:NULL];
+    return [regex stringByReplacingMatchesInString:self.text options:0 range:NSMakeRange(0, self.text.length) withTemplate:@""];
 }
 
 @end
