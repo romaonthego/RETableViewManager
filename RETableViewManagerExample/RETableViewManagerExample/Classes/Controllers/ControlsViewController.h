@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "RETableViewManager.h"
 
-@interface ControlsViewController : UITableViewController <RETableViewManagerDelegate> {
-    RETableViewManager *_manager;
-}
+@interface ControlsViewController : UITableViewController <RETableViewManagerDelegate>
+
+@property (strong, readonly, nonatomic) RETableViewManager *manager;
 
 @end

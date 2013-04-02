@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RETableViewManager.h"
 
 @interface ListViewController : UITableViewController
+
+@property (strong, readonly, nonatomic) RETableViewManager *manager;
 
 @end

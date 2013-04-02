@@ -1,0 +1,692 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>SDWebImageManager Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">SDWebImage 3.2 </a></h1>
+				<a id="developerHome" href="../index.html">Olivier Poitrey</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">SDWebImageManager Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/cacheKeyFilter">&nbsp;&nbsp;&nbsp;&nbsp;cacheKeyFilter</option>
+	
+	<option value="//api/name/delegate">&nbsp;&nbsp;&nbsp;&nbsp;delegate</option>
+	
+	<option value="//api/name/imageCache">&nbsp;&nbsp;&nbsp;&nbsp;imageCache</option>
+	
+	<option value="//api/name/imageDownloader">&nbsp;&nbsp;&nbsp;&nbsp;imageDownloader</option>
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/sharedManager">&nbsp;&nbsp;&nbsp;&nbsp;+ sharedManager</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/cancelAll">&nbsp;&nbsp;&nbsp;&nbsp;- cancelAll</option>
+	
+	<option value="//api/name/downloadWithURL:options:progress:completed:">&nbsp;&nbsp;&nbsp;&nbsp;- downloadWithURL:options:progress:completed:</option>
+	
+	<option value="//api/name/isRunning">&nbsp;&nbsp;&nbsp;&nbsp;- isRunning</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cacheKeyFilter">cacheKeyFilter</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/delegate">delegate</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/imageCache">imageCache</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/imageDownloader">imageDownloader</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sharedManager">sharedManager</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cancelAll">cancelAll</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/downloadWithURL:options:progress:completed:">downloadWithURL:options:progress:completed:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isRunning">isRunning</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="SDWebImageManager Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">SDWebImageManager Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">SDWebImageManager.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>The SDWebImageManager is the class behind the UIImageView+WebCache category and likes.
+It ties the asynchronous downloader (<a href="../Classes/SDWebImageDownloader.html">SDWebImageDownloader</a>) with the image cache store (<a href="../Classes/SDImageCache.html">SDImageCache</a>).
+You can use this class directly to benefit from web image downloading with caching in another context than
+a UIView.</p>
+
+<p>Here is a simple example of how to use SDWebImageManager:</p>
+
+<p>SDWebImageManager <em>manager = <a href="#//api/name/sharedManager">[SDWebImageManager sharedManager]</a>;
+[manager downloadWithURL:imageURL
+delegate:self
+options:0
+progress:nil
+completed:^(UIImage </em>image, NSError *error, BOOL fromCache)
+{
+if (image)
+{
+// do something with image
+}
+}];</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/imageCache">&nbsp;&nbsp;imageCache</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/imageDownloader">&nbsp;&nbsp;imageDownloader</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/cacheKeyFilter">&nbsp;&nbsp;cacheKeyFilter</a></code>
+		<span class="tooltip"><p>The cache filter is a block used each time SDWebImageManager need to convert an URL into a cache key. This can
+be used to remove dynamic part of an image URL.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sharedManager">+&nbsp;sharedManager</a></code>
+		<span class="tooltip"><p>Returns global SDWebImageManager instance.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/downloadWithURL:options:progress:completed:">&ndash;&nbsp;downloadWithURL:options:progress:completed:</a></code>
+		<span class="tooltip"><p>Downloads the image at the given URL if not present in cache or return the cached version otherwise.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/cancelAll">&ndash;&nbsp;cancelAll</a></code>
+		<span class="tooltip"><p>Cancel all current opreations</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/isRunning">&ndash;&nbsp;isRunning</a></code>
+		<span class="tooltip"><p>Check one or more operations running</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/cacheKeyFilter" title="cacheKeyFilter"></a>
+	<h3 class="subsubtitle method-title">cacheKeyFilter</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The cache filter is a block used each time SDWebImageManager need to convert an URL into a cache key. This can
+be used to remove dynamic part of an image URL.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (strong) NSString *^ ) ( NSURL *url ) cacheKeyFilter</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The cache filter is a block used each time SDWebImageManager need to convert an URL into a cache key. This can
+be used to remove dynamic part of an image URL.</p>
+
+<p>The following example sets a filter in the application delegate that will remove any query-string from the
+URL before to use it as a cache key:</p>
+
+<pre><code>[[SDWebImageManager sharedManager] setCacheKeyFilter:^(NSURL *url)
+{
+    url = [[NSURL alloc] initWithScheme:url.scheme host:url.host path:url.path];
+    return [url absoluteString];
+}];
+</code></pre>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDWebImageManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/delegate" title="delegate"></a>
+	<h3 class="subsubtitle method-title">delegate</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (weak, nonatomic) id&lt;SDWebImageManagerDelegate&gt; delegate</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/imageCache" title="imageCache"></a>
+	<h3 class="subsubtitle method-title">imageCache</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (strong, nonatomic, readonly) SDImageCache *imageCache</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/imageDownloader" title="imageDownloader"></a>
+	<h3 class="subsubtitle method-title">imageDownloader</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (strong, nonatomic, readonly) SDWebImageDownloader *imageDownloader</code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/sharedManager" title="sharedManager"></a>
+	<h3 class="subsubtitle method-title">sharedManager</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns global SDWebImageManager instance.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (SDWebImageManager *)sharedManager</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>SDWebImageManager shared instance</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns global SDWebImageManager instance.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDWebImageManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/cancelAll" title="cancelAll"></a>
+	<h3 class="subsubtitle method-title">cancelAll</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Cancel all current opreations</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)cancelAll</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Cancel all current opreations</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDWebImageManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/downloadWithURL:options:progress:completed:" title="downloadWithURL:options:progress:completed:"></a>
+	<h3 class="subsubtitle method-title">downloadWithURL:options:progress:completed:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Downloads the image at the given URL if not present in cache or return the cached version otherwise.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id&lt;SDWebImageOperation&gt;)downloadWithURL:(NSURL *)<em>url</em> options:(SDWebImageOptions)<em>options</em> progress:(SDWebImageDownloaderProgressBlock)<em>progressBlock</em> completed:(SDWebImageCompletedWithFinishedBlock)<em>completedBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>url</em></dt>
+			<dd><p>The URL to the image</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>options</em></dt>
+			<dd><p>A mask to specify options to use for this request</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>progressBlock</em></dt>
+			<dd><p>A block called while image is downloading</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completedBlock</em></dt>
+			<dd><p>A block called when operation has been completed.</p>
+
+<p>This block as no return value and takes the requested UIImage as first parameter.
+In case of error the image parameter is nil and the second parameter may contain an NSError.</p>
+
+<p>The third parameter is a Boolean indicating if the image was retrived from the local cache
+of from the network.</p>
+
+<p>The last parameter is set to NO when the SDWebImageProgressiveDownload option is used and
+the image is downloading. This block is thus called repetidly with a partial image. When
+image is fully downloaded, the block is called a last time with the full image and the last
+parameter set to YES.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>delegate</em></dt>
+			<dd><p>The <a href="#//api/name/delegate">delegate</a> object used to send result back</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Returns a cancellable NSOperation</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Downloads the image at the given URL if not present in cache or return the cached version otherwise.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDWebImageManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/isRunning" title="isRunning"></a>
+	<h3 class="subsubtitle method-title">isRunning</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Check one or more operations running</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)isRunning</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Check one or more operations running</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDWebImageManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Olivier Poitrey. All rights reserved. (Last updated: 2013-04-02)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

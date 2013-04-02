@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3006800116F637460061B648 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3006800016F637460061B648 /* ListViewController.m */; };
+		302D2150170B25B10085654F /* ControlsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D214A170B25B10085654F /* ControlsViewController.m */; };
+		302D2151170B25B10085654F /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D214C170B25B10085654F /* ListViewController.m */; };
+		302D2152170B25B10085654F /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D214E170B25B10085654F /* RootViewController.m */; };
+		302D2155170B25D90085654F /* ListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D2154170B25D90085654F /* ListHeaderView.m */; };
+		302D2160170B27BD0085654F /* ListImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D215F170B27BD0085654F /* ListImageItem.m */; };
+		302D2163170B27ED0085654F /* ListImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D2162170B27ED0085654F /* ListImageCell.m */; };
 		30DB066A16E934AD006C9530 /* RETableViewBoolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB064916E934AD006C9530 /* RETableViewBoolCell.m */; };
 		30DB066B16E934AD006C9530 /* RETableViewCreditCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB064B16E934AD006C9530 /* RETableViewCreditCardCell.m */; };
 		30DB066C16E934AD006C9530 /* RETableViewNumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB064D16E934AD006C9530 /* RETableViewNumberCell.m */; };
@@ -35,13 +40,22 @@
 		30EF93C516E039B800B84981 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EF93C416E039B800B84981 /* Default.png */; };
 		30EF93C716E039B800B84981 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EF93C616E039B800B84981 /* Default@2x.png */; };
 		30EF93C916E039B800B84981 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EF93C816E039B800B84981 /* Default-568h@2x.png */; };
-		30EF93F216E039D500B84981 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93F116E039D500B84981 /* RootViewController.m */; };
-		30EF93F816E03D1F00B84981 /* ControlsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF93F716E03D1F00B84981 /* ControlsViewController.m */; };
+		E336F792A48A4E779EEA5AC0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABAE09A51FA5498F94EE3798 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		30067FFF16F637460061B648 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
-		3006800016F637460061B648 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		302D2149170B25B10085654F /* ControlsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlsViewController.h; sourceTree = "<group>"; };
+		302D214A170B25B10085654F /* ControlsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlsViewController.m; sourceTree = "<group>"; };
+		302D214B170B25B10085654F /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		302D214C170B25B10085654F /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		302D214D170B25B10085654F /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		302D214E170B25B10085654F /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		302D2153170B25D90085654F /* ListHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListHeaderView.h; sourceTree = "<group>"; };
+		302D2154170B25D90085654F /* ListHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListHeaderView.m; sourceTree = "<group>"; };
+		302D215E170B27BD0085654F /* ListImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListImageItem.h; sourceTree = "<group>"; };
+		302D215F170B27BD0085654F /* ListImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListImageItem.m; sourceTree = "<group>"; };
+		302D2161170B27ED0085654F /* ListImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListImageCell.h; sourceTree = "<group>"; };
+		302D2162170B27ED0085654F /* ListImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListImageCell.m; sourceTree = "<group>"; };
 		30DB064816E934AD006C9530 /* RETableViewBoolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewBoolCell.h; sourceTree = "<group>"; };
 		30DB064916E934AD006C9530 /* RETableViewBoolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewBoolCell.m; sourceTree = "<group>"; };
 		30DB064A16E934AD006C9530 /* RETableViewCreditCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewCreditCardCell.h; sourceTree = "<group>"; };
@@ -90,10 +104,8 @@
 		30EF93C416E039B800B84981 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		30EF93C616E039B800B84981 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		30EF93C816E039B800B84981 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		30EF93F016E039D500B84981 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		30EF93F116E039D500B84981 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		30EF93F616E03D1F00B84981 /* ControlsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlsViewController.h; sourceTree = "<group>"; };
-		30EF93F716E03D1F00B84981 /* ControlsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlsViewController.m; sourceTree = "<group>"; };
+		A20B0252928045F5B81B21AF /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		ABAE09A51FA5498F94EE3798 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,12 +116,56 @@
 				30EF93B316E039B800B84981 /* UIKit.framework in Frameworks */,
 				30EF93B516E039B800B84981 /* Foundation.framework in Frameworks */,
 				30EF93B716E039B800B84981 /* CoreGraphics.framework in Frameworks */,
+				E336F792A48A4E779EEA5AC0 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		302D2147170B25B10085654F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				302D2148170B25B10085654F /* Controllers */,
+				302D215D170B27BD0085654F /* Models */,
+				302D214F170B25B10085654F /* Views */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		302D2148170B25B10085654F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				302D2149170B25B10085654F /* ControlsViewController.h */,
+				302D214A170B25B10085654F /* ControlsViewController.m */,
+				302D214B170B25B10085654F /* ListViewController.h */,
+				302D214C170B25B10085654F /* ListViewController.m */,
+				302D214D170B25B10085654F /* RootViewController.h */,
+				302D214E170B25B10085654F /* RootViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		302D214F170B25B10085654F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				302D2153170B25D90085654F /* ListHeaderView.h */,
+				302D2154170B25D90085654F /* ListHeaderView.m */,
+				302D2161170B27ED0085654F /* ListImageCell.h */,
+				302D2162170B27ED0085654F /* ListImageCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		302D215D170B27BD0085654F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				302D215E170B27BD0085654F /* ListImageItem.h */,
+				302D215F170B27BD0085654F /* ListImageItem.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		30DB064616E934AD006C9530 /* RETableViewManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +241,7 @@
 				30EF93B816E039B800B84981 /* RETableViewManagerExample */,
 				30EF93B116E039B800B84981 /* Frameworks */,
 				30EF93B016E039B800B84981 /* Products */,
+				A20B0252928045F5B81B21AF /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,6 +259,7 @@
 				30EF93B216E039B800B84981 /* UIKit.framework */,
 				30EF93B416E039B800B84981 /* Foundation.framework */,
 				30EF93B616E039B800B84981 /* CoreGraphics.framework */,
+				ABAE09A51FA5498F94EE3798 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -209,15 +267,10 @@
 		30EF93B816E039B800B84981 /* RETableViewManagerExample */ = {
 			isa = PBXGroup;
 			children = (
-				30EF93B916E039B800B84981 /* Supporting Files */,
 				30EF93C116E039B800B84981 /* AppDelegate.h */,
 				30EF93C216E039B800B84981 /* AppDelegate.m */,
-				30EF93F016E039D500B84981 /* RootViewController.h */,
-				30EF93F116E039D500B84981 /* RootViewController.m */,
-				30EF93F616E03D1F00B84981 /* ControlsViewController.h */,
-				30EF93F716E03D1F00B84981 /* ControlsViewController.m */,
-				30067FFF16F637460061B648 /* ListViewController.h */,
-				3006800016F637460061B648 /* ListViewController.m */,
+				302D2147170B25B10085654F /* Classes */,
+				30EF93B916E039B800B84981 /* Supporting Files */,
 			);
 			path = RETableViewManagerExample;
 			sourceTree = "<group>";
@@ -246,6 +299,7 @@
 				30EF93AB16E039B800B84981 /* Sources */,
 				30EF93AC16E039B800B84981 /* Frameworks */,
 				30EF93AD16E039B800B84981 /* Resources */,
+				A3C73B158834401688EF8E25 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -297,6 +351,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A3C73B158834401688EF8E25 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		30EF93AB16E039B800B84981 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -304,8 +375,6 @@
 			files = (
 				30EF93BF16E039B800B84981 /* main.m in Sources */,
 				30EF93C316E039B800B84981 /* AppDelegate.m in Sources */,
-				30EF93F216E039D500B84981 /* RootViewController.m in Sources */,
-				30EF93F816E03D1F00B84981 /* ControlsViewController.m in Sources */,
 				30DB066A16E934AD006C9530 /* RETableViewBoolCell.m in Sources */,
 				30DB066B16E934AD006C9530 /* RETableViewCreditCardCell.m in Sources */,
 				30DB066C16E934AD006C9530 /* RETableViewNumberCell.m in Sources */,
@@ -323,7 +392,12 @@
 				30DB067916E934AD006C9530 /* RETableViewManager.m in Sources */,
 				30DB067A16E934AD006C9530 /* RETableViewSection.m in Sources */,
 				30DB067E16E934C5006C9530 /* REFormattedNumberField.m in Sources */,
-				3006800116F637460061B648 /* ListViewController.m in Sources */,
+				302D2150170B25B10085654F /* ControlsViewController.m in Sources */,
+				302D2151170B25B10085654F /* ListViewController.m in Sources */,
+				302D2152170B25B10085654F /* RootViewController.m in Sources */,
+				302D2155170B25D90085654F /* ListHeaderView.m in Sources */,
+				302D2160170B27BD0085654F /* ListImageItem.m in Sources */,
+				302D2163170B27ED0085654F /* ListImageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +473,7 @@
 		};
 		30EF93CD16E039B800B84981 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A20B0252928045F5B81B21AF /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RETableViewManagerExample/RETableViewManagerExample-Prefix.pch";
@@ -412,6 +487,7 @@
 		};
 		30EF93CE16E039B800B84981 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A20B0252928045F5B81B21AF /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RETableViewManagerExample/RETableViewManagerExample-Prefix.pch";

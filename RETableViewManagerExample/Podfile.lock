@@ -1,0 +1,14 @@
+
+PODS:
+- SDWebImage (3.2):
+  - SDWebImage/MapKit (= 3.2)
+- SDWebImage/MapKit (3.2)
+
+DEPENDENCIES:
+- SDWebImage
+
+SPEC CHECKSUMS:
+  SDWebImage: 8082fe8d658ccafaaecd9e5ecda12ed01f09ba9c
+  SDWebImage/MapKit: 8082fe8d658ccafaaecd9e5ecda12ed01f09ba9c
+
+COCOAPODS: 0.16.4

@@ -1,0 +1,633 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>SDWebImagePrefetcher Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">SDWebImage 3.2 </a></h1>
+				<a id="developerHome" href="../index.html">Olivier Poitrey</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">SDWebImagePrefetcher Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/maxConcurrentDownloads">&nbsp;&nbsp;&nbsp;&nbsp;maxConcurrentDownloads</option>
+	
+	<option value="//api/name/options">&nbsp;&nbsp;&nbsp;&nbsp;options</option>
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/sharedImagePrefetcher">&nbsp;&nbsp;&nbsp;&nbsp;+ sharedImagePrefetcher</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/cancelPrefetching">&nbsp;&nbsp;&nbsp;&nbsp;- cancelPrefetching</option>
+	
+	<option value="//api/name/prefetchURLs:">&nbsp;&nbsp;&nbsp;&nbsp;- prefetchURLs:</option>
+	
+	<option value="//api/name/prefetchURLs:completed:">&nbsp;&nbsp;&nbsp;&nbsp;- prefetchURLs:completed:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/maxConcurrentDownloads">maxConcurrentDownloads</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/options">options</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sharedImagePrefetcher">sharedImagePrefetcher</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cancelPrefetching">cancelPrefetching</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/prefetchURLs:">prefetchURLs:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/prefetchURLs:completed:">prefetchURLs:completed:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="SDWebImagePrefetcher Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">SDWebImagePrefetcher Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">SDWebImagePrefetcher.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Prefetch some URLs in the cache for future use. Images are downloaded in low priority.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/maxConcurrentDownloads">&nbsp;&nbsp;maxConcurrentDownloads</a></code>
+		<span class="tooltip"><p>Maximum number of URLs to prefetch at the same time. Defaults to 3.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/options">&nbsp;&nbsp;options</a></code>
+		<span class="tooltip"><p>SDWebImageOptions for prefetcher. Defaults to SDWebImageLowPriority.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sharedImagePrefetcher">+&nbsp;sharedImagePrefetcher</a></code>
+		<span class="tooltip"><p>Return the global image prefetcher instance.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/prefetchURLs:">&ndash;&nbsp;prefetchURLs:</a></code>
+		<span class="tooltip"><p>Assign list of URLs to let SDWebImagePrefetcher to queue the prefetching,
+currently one image is downloaded at a time,
+and skips images for failed downloads and proceed to the next image in the list</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/prefetchURLs:completed:">&ndash;&nbsp;prefetchURLs:completed:</a></code>
+		<span class="tooltip"><p>Assign list of URLs to let SDWebImagePrefetcher to queue the prefetching,
+currently one image is downloaded at a time,
+and skips images for failed downloads and proceed to the next image in the list</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/cancelPrefetching">&ndash;&nbsp;cancelPrefetching</a></code>
+		<span class="tooltip"><p>Remove and cancel queued list</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/maxConcurrentDownloads" title="maxConcurrentDownloads"></a>
+	<h3 class="subsubtitle method-title">maxConcurrentDownloads</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Maximum number of URLs to prefetch at the same time. Defaults to 3.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) NSUInteger maxConcurrentDownloads</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Maximum number of URLs to prefetch at the same time. Defaults to 3.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDWebImagePrefetcher.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/options" title="options"></a>
+	<h3 class="subsubtitle method-title">options</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>SDWebImageOptions for prefetcher. Defaults to SDWebImageLowPriority.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) SDWebImageOptions options</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>SDWebImageOptions for prefetcher. Defaults to SDWebImageLowPriority.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDWebImagePrefetcher.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/sharedImagePrefetcher" title="sharedImagePrefetcher"></a>
+	<h3 class="subsubtitle method-title">sharedImagePrefetcher</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Return the global image prefetcher instance.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (SDWebImagePrefetcher *)sharedImagePrefetcher</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Return the global image prefetcher instance.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDWebImagePrefetcher.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/cancelPrefetching" title="cancelPrefetching"></a>
+	<h3 class="subsubtitle method-title">cancelPrefetching</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Remove and cancel queued list</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)cancelPrefetching</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Remove and cancel queued list</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDWebImagePrefetcher.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/prefetchURLs:" title="prefetchURLs:"></a>
+	<h3 class="subsubtitle method-title">prefetchURLs:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Assign list of URLs to let SDWebImagePrefetcher to queue the prefetching,
+currently one image is downloaded at a time,
+and skips images for failed downloads and proceed to the next image in the list</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)prefetchURLs:(NSArray *)<em>urls</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>urls</em></dt>
+			<dd><p>list of URLs to prefetch</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Assign list of URLs to let SDWebImagePrefetcher to queue the prefetching,
+currently one image is downloaded at a time,
+and skips images for failed downloads and proceed to the next image in the list</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDWebImagePrefetcher.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/prefetchURLs:completed:" title="prefetchURLs:completed:"></a>
+	<h3 class="subsubtitle method-title">prefetchURLs:completed:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Assign list of URLs to let SDWebImagePrefetcher to queue the prefetching,
+currently one image is downloaded at a time,
+and skips images for failed downloads and proceed to the next image in the list</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)prefetchURLs:(NSArray *)<em>urls</em> completed:(void ( ^ ) ( NSUInteger finishedCount , NSUInteger skippedCount ))<em>completionBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>urls</em></dt>
+			<dd><p>list of URLs to prefetch</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionBlock</em></dt>
+			<dd><p>block to be called when prefetching is completed</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Assign list of URLs to let SDWebImagePrefetcher to queue the prefetching,
+currently one image is downloaded at a time,
+and skips images for failed downloads and proceed to the next image in the list</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDWebImagePrefetcher.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Olivier Poitrey. All rights reserved. (Last updated: 2013-04-02)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

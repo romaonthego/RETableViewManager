@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/SDWebImagePrefetcher.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/SDWebImagePrefetcher</TokenIdentifier>
+			<Abstract type="html">Prefetch some URLs in the cache for future use. Images are downloaded in low priority.</Abstract>
+			<DeclaredIn>SDWebImagePrefetcher.h</DeclaredIn>
+			
+			<NodeRef refid="5"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDWebImagePrefetcher/setMaxConcurrentDownloads:</TokenIdentifier>
+			<Abstract type="html">Maximum number of URLs to prefetch at the same time. Defaults to 3.</Abstract>
+			<DeclaredIn>SDWebImagePrefetcher.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) NSUInteger maxConcurrentDownloads</Declaration>
+			
+			
+			<Anchor>//api/name/maxConcurrentDownloads</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/SDWebImagePrefetcher/maxConcurrentDownloads</TokenIdentifier>
+			<Abstract type="html">Maximum number of URLs to prefetch at the same time. Defaults to 3.</Abstract>
+			<DeclaredIn>SDWebImagePrefetcher.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) NSUInteger maxConcurrentDownloads</Declaration>
+			
+			
+			<Anchor>//api/name/maxConcurrentDownloads</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDWebImagePrefetcher/setOptions:</TokenIdentifier>
+			<Abstract type="html">SDWebImageOptions for prefetcher. Defaults to SDWebImageLowPriority.</Abstract>
+			<DeclaredIn>SDWebImagePrefetcher.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) SDWebImageOptions options</Declaration>
+			
+			
+			<Anchor>//api/name/options</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/SDWebImagePrefetcher/options</TokenIdentifier>
+			<Abstract type="html">SDWebImageOptions for prefetcher. Defaults to SDWebImageLowPriority.</Abstract>
+			<DeclaredIn>SDWebImagePrefetcher.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) SDWebImageOptions options</Declaration>
+			
+			
+			<Anchor>//api/name/options</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SDWebImagePrefetcher/sharedImagePrefetcher</TokenIdentifier>
+			<Abstract type="html">Return the global image prefetcher instance.</Abstract>
+			<DeclaredIn>SDWebImagePrefetcher.h</DeclaredIn>			
+			
+			<Declaration>+ (SDWebImagePrefetcher *)sharedImagePrefetcher</Declaration>
+			
+			
+			<Anchor>//api/name/sharedImagePrefetcher</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDWebImagePrefetcher/prefetchURLs:</TokenIdentifier>
+			<Abstract type="html">Assign list of URLs to let SDWebImagePrefetcher to queue the prefetching,
+currently one image is downloaded at a time,
+and skips images for failed downloads and proceed to the next image in the list</Abstract>
+			<DeclaredIn>SDWebImagePrefetcher.h</DeclaredIn>			
+			
+			<Declaration>- (void)prefetchURLs:(NSArray *)urls</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>urls</Name>
+					<Abstract type="html">list of URLs to prefetch</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/prefetchURLs:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDWebImagePrefetcher/prefetchURLs:completed:</TokenIdentifier>
+			<Abstract type="html">Assign list of URLs to let SDWebImagePrefetcher to queue the prefetching,
+currently one image is downloaded at a time,
+and skips images for failed downloads and proceed to the next image in the list</Abstract>
+			<DeclaredIn>SDWebImagePrefetcher.h</DeclaredIn>			
+			
+			<Declaration>- (void)prefetchURLs:(NSArray *)urls completed:(void ( ^ ) ( NSUInteger finishedCount , NSUInteger skippedCount ))completionBlock</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>urls</Name>
+					<Abstract type="html">list of URLs to prefetch</Abstract>
+				</Parameter><Parameter>
+					<Name>completionBlock</Name>
+					<Abstract type="html">block to be called when prefetching is completed</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/prefetchURLs:completed:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDWebImagePrefetcher/cancelPrefetching</TokenIdentifier>
+			<Abstract type="html">Remove and cancel queued list</Abstract>
+			<DeclaredIn>SDWebImagePrefetcher.h</DeclaredIn>			
+			
+			<Declaration>- (void)cancelPrefetching</Declaration>
+			
+			
+			<Anchor>//api/name/cancelPrefetching</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

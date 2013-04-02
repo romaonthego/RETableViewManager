@@ -1,0 +1,1249 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>SDImageCache Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">SDWebImage 3.2 </a></h1>
+				<a id="developerHome" href="../index.html">Olivier Poitrey</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">SDImageCache Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/maxCacheAge">&nbsp;&nbsp;&nbsp;&nbsp;maxCacheAge</option>
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/sharedImageCache">&nbsp;&nbsp;&nbsp;&nbsp;+ sharedImageCache</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/cleanDisk">&nbsp;&nbsp;&nbsp;&nbsp;- cleanDisk</option>
+	
+	<option value="//api/name/clearDisk">&nbsp;&nbsp;&nbsp;&nbsp;- clearDisk</option>
+	
+	<option value="//api/name/clearMemory">&nbsp;&nbsp;&nbsp;&nbsp;- clearMemory</option>
+	
+	<option value="//api/name/getDiskCount">&nbsp;&nbsp;&nbsp;&nbsp;- getDiskCount</option>
+	
+	<option value="//api/name/getSize">&nbsp;&nbsp;&nbsp;&nbsp;- getSize</option>
+	
+	<option value="//api/name/imageFromDiskCacheForKey:">&nbsp;&nbsp;&nbsp;&nbsp;- imageFromDiskCacheForKey:</option>
+	
+	<option value="//api/name/imageFromMemoryCacheForKey:">&nbsp;&nbsp;&nbsp;&nbsp;- imageFromMemoryCacheForKey:</option>
+	
+	<option value="//api/name/initWithNamespace:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithNamespace:</option>
+	
+	<option value="//api/name/queryDiskCacheForKey:done:">&nbsp;&nbsp;&nbsp;&nbsp;- queryDiskCacheForKey:done:</option>
+	
+	<option value="//api/name/removeImageForKey:">&nbsp;&nbsp;&nbsp;&nbsp;- removeImageForKey:</option>
+	
+	<option value="//api/name/removeImageForKey:fromDisk:">&nbsp;&nbsp;&nbsp;&nbsp;- removeImageForKey:fromDisk:</option>
+	
+	<option value="//api/name/storeImage:forKey:">&nbsp;&nbsp;&nbsp;&nbsp;- storeImage:forKey:</option>
+	
+	<option value="//api/name/storeImage:forKey:toDisk:">&nbsp;&nbsp;&nbsp;&nbsp;- storeImage:forKey:toDisk:</option>
+	
+	<option value="//api/name/storeImage:imageData:forKey:toDisk:">&nbsp;&nbsp;&nbsp;&nbsp;- storeImage:imageData:forKey:toDisk:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/maxCacheAge">maxCacheAge</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sharedImageCache">sharedImageCache</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cleanDisk">cleanDisk</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/clearDisk">clearDisk</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/clearMemory">clearMemory</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getDiskCount">getDiskCount</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getSize">getSize</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/imageFromDiskCacheForKey:">imageFromDiskCacheForKey:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/imageFromMemoryCacheForKey:">imageFromMemoryCacheForKey:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithNamespace:">initWithNamespace:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/queryDiskCacheForKey:done:">queryDiskCacheForKey:done:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeImageForKey:">removeImageForKey:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeImageForKey:fromDisk:">removeImageForKey:fromDisk:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/storeImage:forKey:">storeImage:forKey:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/storeImage:forKey:toDisk:">storeImage:forKey:toDisk:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/storeImage:imageData:forKey:toDisk:">storeImage:imageData:forKey:toDisk:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="SDImageCache Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">SDImageCache Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">SDImageCache.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>SDImageCache maintains a memory cache and an optional disk cache. Disk cache write operations are performed
+asynchronous so it doesn’t add unnecessary latency to the UI.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/maxCacheAge">&nbsp;&nbsp;maxCacheAge</a></code>
+		<span class="tooltip"><p>The maximum length of time to keep an image in the cache, in seconds</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sharedImageCache">+&nbsp;sharedImageCache</a></code>
+		<span class="tooltip"><p>Returns global shared cache instance</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithNamespace:">&ndash;&nbsp;initWithNamespace:</a></code>
+		<span class="tooltip"><p>Init a new cache store with a specific namespace</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/storeImage:forKey:">&ndash;&nbsp;storeImage:forKey:</a></code>
+		<span class="tooltip"><p>Store an image into memory and disk cache at the given key.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/storeImage:forKey:toDisk:">&ndash;&nbsp;storeImage:forKey:toDisk:</a></code>
+		<span class="tooltip"><p>Store an image into memory and optionally disk cache at the given key.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/storeImage:imageData:forKey:toDisk:">&ndash;&nbsp;storeImage:imageData:forKey:toDisk:</a></code>
+		<span class="tooltip"><p>Store an image into memory and optionally disk cache at the given key.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/queryDiskCacheForKey:done:">&ndash;&nbsp;queryDiskCacheForKey:done:</a></code>
+		<span class="tooltip"><p>Query the disk cache asynchronousely.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/imageFromMemoryCacheForKey:">&ndash;&nbsp;imageFromMemoryCacheForKey:</a></code>
+		<span class="tooltip"><p>Query the memory cache.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/imageFromDiskCacheForKey:">&ndash;&nbsp;imageFromDiskCacheForKey:</a></code>
+		<span class="tooltip"><p>Query the disk cache synchronousely.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeImageForKey:">&ndash;&nbsp;removeImageForKey:</a></code>
+		<span class="tooltip"><p>Remove the image from memory and disk cache synchronousely</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeImageForKey:fromDisk:">&ndash;&nbsp;removeImageForKey:fromDisk:</a></code>
+		<span class="tooltip"><p>Remove the image from memory and optionaly disk cache synchronousely</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/clearMemory">&ndash;&nbsp;clearMemory</a></code>
+		<span class="tooltip"><p>Clear all memory cached images</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/clearDisk">&ndash;&nbsp;clearDisk</a></code>
+		<span class="tooltip"><p>Clear all disk cached images</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/cleanDisk">&ndash;&nbsp;cleanDisk</a></code>
+		<span class="tooltip"><p>Remove all expired cached image from disk</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getSize">&ndash;&nbsp;getSize</a></code>
+		<span class="tooltip"><p>Get the size used by the disk cache</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getDiskCount">&ndash;&nbsp;getDiskCount</a></code>
+		<span class="tooltip"><p>Get the number of images in the disk cache</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/maxCacheAge" title="maxCacheAge"></a>
+	<h3 class="subsubtitle method-title">maxCacheAge</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The maximum length of time to keep an image in the cache, in seconds</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (assign, nonatomic) NSInteger maxCacheAge</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The maximum length of time to keep an image in the cache, in seconds</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDImageCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/sharedImageCache" title="sharedImageCache"></a>
+	<h3 class="subsubtitle method-title">sharedImageCache</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns global shared cache instance</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (SDImageCache *)sharedImageCache</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>SDImageCache global instance</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns global shared cache instance</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDImageCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/cleanDisk" title="cleanDisk"></a>
+	<h3 class="subsubtitle method-title">cleanDisk</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Remove all expired cached image from disk</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)cleanDisk</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Remove all expired cached image from disk</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDImageCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/clearDisk" title="clearDisk"></a>
+	<h3 class="subsubtitle method-title">clearDisk</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Clear all disk cached images</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)clearDisk</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Clear all disk cached images</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDImageCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/clearMemory" title="clearMemory"></a>
+	<h3 class="subsubtitle method-title">clearMemory</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Clear all memory cached images</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)clearMemory</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Clear all memory cached images</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDImageCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getDiskCount" title="getDiskCount"></a>
+	<h3 class="subsubtitle method-title">getDiskCount</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Get the number of images in the disk cache</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (int)getDiskCount</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Get the number of images in the disk cache</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDImageCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getSize" title="getSize"></a>
+	<h3 class="subsubtitle method-title">getSize</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Get the size used by the disk cache</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (int)getSize</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Get the size used by the disk cache</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDImageCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/imageFromDiskCacheForKey:" title="imageFromDiskCacheForKey:"></a>
+	<h3 class="subsubtitle method-title">imageFromDiskCacheForKey:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Query the disk cache synchronousely.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (UIImage *)imageFromDiskCacheForKey:(NSString *)<em>key</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>The unique key used to store the wanted image</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Query the disk cache synchronousely.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDImageCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/imageFromMemoryCacheForKey:" title="imageFromMemoryCacheForKey:"></a>
+	<h3 class="subsubtitle method-title">imageFromMemoryCacheForKey:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Query the memory cache.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (UIImage *)imageFromMemoryCacheForKey:(NSString *)<em>key</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>The unique key used to store the wanted image</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Query the memory cache.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDImageCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithNamespace:" title="initWithNamespace:"></a>
+	<h3 class="subsubtitle method-title">initWithNamespace:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Init a new cache store with a specific namespace</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithNamespace:(NSString *)<em>ns</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>ns</em></dt>
+			<dd><p>The namespace to use for this cache store</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Init a new cache store with a specific namespace</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDImageCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/queryDiskCacheForKey:done:" title="queryDiskCacheForKey:done:"></a>
+	<h3 class="subsubtitle method-title">queryDiskCacheForKey:done:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Query the disk cache asynchronousely.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)queryDiskCacheForKey:(NSString *)<em>key</em> done:(void ( ^ ) ( UIImage *image , SDImageCacheType cacheType ))<em>doneBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>The unique key used to store the wanted image</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Query the disk cache asynchronousely.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDImageCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeImageForKey:" title="removeImageForKey:"></a>
+	<h3 class="subsubtitle method-title">removeImageForKey:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Remove the image from memory and disk cache synchronousely</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeImageForKey:(NSString *)<em>key</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>The unique image cache key</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Remove the image from memory and disk cache synchronousely</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDImageCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeImageForKey:fromDisk:" title="removeImageForKey:fromDisk:"></a>
+	<h3 class="subsubtitle method-title">removeImageForKey:fromDisk:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Remove the image from memory and optionaly disk cache synchronousely</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeImageForKey:(NSString *)<em>key</em> fromDisk:(BOOL)<em>fromDisk</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>The unique image cache key</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fromDisk</em></dt>
+			<dd><p>Also remove cache entry from disk if YES</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Remove the image from memory and optionaly disk cache synchronousely</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDImageCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/storeImage:forKey:" title="storeImage:forKey:"></a>
+	<h3 class="subsubtitle method-title">storeImage:forKey:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Store an image into memory and disk cache at the given key.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)storeImage:(UIImage *)<em>image</em> forKey:(NSString *)<em>key</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>image</em></dt>
+			<dd><p>The image to store</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>The unique image cache key, usually it&rsquo;s image absolute URL</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Store an image into memory and disk cache at the given key.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDImageCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/storeImage:forKey:toDisk:" title="storeImage:forKey:toDisk:"></a>
+	<h3 class="subsubtitle method-title">storeImage:forKey:toDisk:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Store an image into memory and optionally disk cache at the given key.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)storeImage:(UIImage *)<em>image</em> forKey:(NSString *)<em>key</em> toDisk:(BOOL)<em>toDisk</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>image</em></dt>
+			<dd><p>The image to store</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>The unique image cache key, usually it&rsquo;s image absolute URL</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>toDisk</em></dt>
+			<dd><p>Store the image to disk cache if YES</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Store an image into memory and optionally disk cache at the given key.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDImageCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/storeImage:imageData:forKey:toDisk:" title="storeImage:imageData:forKey:toDisk:"></a>
+	<h3 class="subsubtitle method-title">storeImage:imageData:forKey:toDisk:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Store an image into memory and optionally disk cache at the given key.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)storeImage:(UIImage *)<em>image</em> imageData:(NSData *)<em>data</em> forKey:(NSString *)<em>key</em> toDisk:(BOOL)<em>toDisk</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>image</em></dt>
+			<dd><p>The image to store</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>data</em></dt>
+			<dd><p>The image data as returned by the server, this representation will be used for disk storage
+instead of converting the given image object into a storable/compressed image format in order
+to save quality and CPU</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>The unique image cache key, usually it&rsquo;s image absolute URL</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>toDisk</em></dt>
+			<dd><p>Store the image to disk cache if YES</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Store an image into memory and optionally disk cache at the given key.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SDImageCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Olivier Poitrey. All rights reserved. (Last updated: 2013-04-02)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>
