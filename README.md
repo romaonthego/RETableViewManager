@@ -5,6 +5,8 @@ In its core `RETableViewManager` supports reusable cells based on corresponding 
 
 _This is still in early stages of development and it's highly not recommended to use it in production apps._
 
+![Screenshot of RETableViewManager](https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot.png "RETableViewManager Screenshot")
+
 ## Requirements
 * Xcode 4.5 or higher
 * Apple LLVM compiler
