@@ -34,8 +34,6 @@
     self.tableView.dataSource = _manager;
     self.tableView.delegate = _manager;
     
-    // Setup mappgin
-    
     // Set some UITableView properties
     //
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
