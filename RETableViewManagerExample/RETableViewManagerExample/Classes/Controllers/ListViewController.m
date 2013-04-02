@@ -39,6 +39,7 @@
     // Set some UITableView properties
     //
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 7)];
     
     NSArray *items = @[@{@"username": @"john",
                          @"userpic_url": @"http://uifaces.com/faces/_twitter/utroda_120.jpg",
