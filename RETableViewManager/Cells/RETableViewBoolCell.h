@@ -26,10 +26,9 @@
 #import "RETableViewCell.h"
 #import "REBoolItem.h"
 
-@interface RETableViewBoolCell : RETableViewCell {
-    UISwitch *_switch;
-}
+@interface RETableViewBoolCell : RETableViewCell
 
+@property (strong, readonly, nonatomic) UISwitch *switchView;
 @property (strong, readwrite, nonatomic) REBoolItem *item;
 
 @end

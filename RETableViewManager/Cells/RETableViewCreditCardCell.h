@@ -27,14 +27,14 @@
 #import "REFormattedNumberField.h"
 #import "RECreditCardItem.h"
 
-@interface RETableViewCreditCardCell : RETableViewCell <UITextFieldDelegate> {
-    UIView *_wrapperView;
-    UIView *_creditCardImageViewContainer;
-    UIImageView *_currentImageView;
-}
+@interface RETableViewCreditCardCell : RETableViewCell <UITextFieldDelegate>
 
 @property (strong, readwrite, nonatomic) RECreditCardItem *item;
 @property (assign, readwrite, nonatomic) CGSize textFieldPositionOffset;
+
+@property (strong, readonly, nonatomic) UIView *wrapperView;
+@property (strong, readonly, nonatomic) UIView *creditCardImageViewContainer;
+@property (strong, readonly, nonatomic) UIImageView *currentImageView;
 @property (strong, readonly, nonatomic) UIImageView *creditCardBackImageView;
 @property (strong, readonly, nonatomic) UIImageView *creditCardImageView;
 @property (strong, readonly, nonatomic) UIImageView *creditCardStackImageView;

@@ -32,9 +32,9 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier tableViewManager:(RETableViewManager *)tableViewManager];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        _switch = [[UISwitch alloc] init];
-        [_switch addTarget:self action:@selector(switchValueDidChanged:) forControlEvents:UIControlEventValueChanged];
-        self.accessoryView = _switch;
+        _switchView = [[UISwitch alloc] init];
+        [_switchView addTarget:self action:@selector(switchValueDidChanged:) forControlEvents:UIControlEventValueChanged];
+        self.accessoryView = _switchView;
     }
     return self;
 }
@@ -42,7 +42,7 @@
 - (void)prepare
 {
     self.textLabel.text = self.item.title;
-    _switch.on = self.item.value;
+    _switchView.on = self.item.value;
 }
 
 #pragma mark -

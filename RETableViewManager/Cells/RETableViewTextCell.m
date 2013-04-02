@@ -83,7 +83,6 @@
 {
     [super layoutSubviews];
     
-    
     CGFloat cellOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 20 : 60;
     CGFloat fieldOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 40;
     CGFloat width = 0;
