@@ -46,15 +46,15 @@
                        
                        @{@"username": @"mark",
                          @"userpic_url": @"http://uifaces.com/faces/_twitter/eldelentes_120.jpg",
-                         @"image_url": @"http://distilleryimage10.instagram.com/09b742a2962611e2a84922000a1f8c0f_7.jpg"},
+                         @"image_url": @"http://distilleryimage2.s3.amazonaws.com/34e4fb8e91a011e2a47b22000a1f99e6_7.jpg"},
                        
                        @{@"username": @"william",
                          @"userpic_url": @"http://uifaces.com/faces/_twitter/daniel_love_120.jpg",
-                         @"image_url": @"http://distilleryimage10.instagram.com/09b742a2962611e2a84922000a1f8c0f_7.jpg"},
+                         @"image_url": @"http://distilleryimage2.ak.instagram.com/9ab3ff16b59911e1b00112313800c5e4_7.jpg"},
                        
                        @{@"username": @"gretchen",
                          @"userpic_url": @"http://uifaces.com/faces/_twitter/JuliaYunLiu_120.jpg",
-                         @"image_url": @"http://distilleryimage10.instagram.com/09b742a2962611e2a84922000a1f8c0f_7.jpg"}
+                         @"image_url": @"http://distilleryimage10.s3.amazonaws.com/b9e61198b69411e180d51231380fcd7e_7.jpg"}
                        ];
     
     RETableViewSection *section;
