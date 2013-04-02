@@ -28,6 +28,6 @@
 
 @interface RETableViewStringCell : RETableViewCell
 
-@property (strong, nonatomic) NSString *item;
+@property (strong, readwrite, nonatomic) NSString *item;
 
 @end

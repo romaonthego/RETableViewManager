@@ -31,14 +31,14 @@
 
 @interface RETableViewCell : UITableViewCell <REActionBarDelegate>
 
-@property (strong, nonatomic) UIImageView *backgroundImageView;
-@property (assign, nonatomic) NSInteger row;
-@property (assign, nonatomic) NSInteger sectionIndex;
-@property (weak, nonatomic) UITableView *parentTableView;
-@property (weak, nonatomic) RETableViewManager *tableViewManager;
-@property (weak, nonatomic) RETableViewSection *section;
-@property (strong, nonatomic) NSObject *item;
-@property (strong, nonatomic) REActionBar *actionBar;
+@property (strong, readonly, nonatomic) UIImageView *backgroundImageView;
+@property (assign, readwrite, nonatomic) NSInteger row;
+@property (assign, readwrite, nonatomic) NSInteger sectionIndex;
+@property (weak, readwrite, nonatomic) UITableView *parentTableView;
+@property (weak, readwrite, nonatomic) RETableViewManager *tableViewManager;
+@property (weak, readwrite, nonatomic) RETableViewSection *section;
+@property (strong, readwrite, nonatomic) NSObject *item;
+@property (strong, readwrite, nonatomic) REActionBar *actionBar;
 
 + (CGFloat)heightWithItem:(NSObject *)item tableViewManager:(RETableViewManager *)tableViewManager;
 

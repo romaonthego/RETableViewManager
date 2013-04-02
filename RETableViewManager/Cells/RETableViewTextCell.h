@@ -28,8 +28,8 @@
 
 @interface RETableViewTextCell : RETableViewCell <UITextFieldDelegate>
 
-@property (strong, nonatomic) RETextItem *item;
-@property (strong, nonatomic) UITextField *textField;
-@property (assign, nonatomic) CGSize textFieldPositionOffset;
+@property (strong, readwrite, nonatomic) RETextItem *item;
+@property (strong, readonly, nonatomic) UITextField *textField;
+@property (assign, readwrite, nonatomic) CGSize textFieldPositionOffset;
 
 @end

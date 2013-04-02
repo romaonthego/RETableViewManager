@@ -29,8 +29,8 @@
 
 @interface RETableViewNumberCell : RETableViewCell <UITextFieldDelegate>
 
-@property (strong, nonatomic) RENumberItem *item;
-@property (strong, nonatomic) REFormattedNumberField *textField;
-@property (assign, nonatomic) CGSize textFieldPositionOffset;
+@property (strong, readwrite, nonatomic) RENumberItem *item;
+@property (strong, readwrite, nonatomic) REFormattedNumberField *textField;
+@property (assign, readwrite, nonatomic) CGSize textFieldPositionOffset;
 
 @end

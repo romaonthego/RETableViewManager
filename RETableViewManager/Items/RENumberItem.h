@@ -29,13 +29,13 @@
 
 // Data and values
 //
-@property (copy, nonatomic) NSString *format;
-@property (copy, nonatomic) NSString *value;
-@property (copy, nonatomic) NSString *placeholder;
+@property (copy, readwrite, nonatomic) NSString *format;
+@property (copy, readwrite, nonatomic) NSString *value;
+@property (copy, readwrite, nonatomic) NSString *placeholder;
 
 // Keyboard
 //
-@property (nonatomic) UIKeyboardAppearance keyboardAppearance;             // default is UIKeyboardAppearanceDefault
+@property (assign, readwrite, nonatomic) UIKeyboardAppearance keyboardAppearance;             // default is UIKeyboardAppearanceDefault
 
 + (id)itemWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder format:(NSString *)format;
 - (id)initWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder format:(NSString *)format;

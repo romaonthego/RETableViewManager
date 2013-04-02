@@ -36,9 +36,9 @@ typedef enum _RETableViewCellType {
     NSMutableDictionary *_backgroundImages;
 }
 
-@property (strong, nonatomic) UIFont *textFieldFont;
-@property (assign, nonatomic) CGSize textFieldPositionOffset;
-@property (assign, nonatomic) CGFloat cellHeight;
+@property (strong, readwrite, nonatomic) UIFont *textFieldFont;
+@property (assign, readwrite, nonatomic) CGSize textFieldPositionOffset;
+@property (assign, readwrite, nonatomic) CGFloat cellHeight;
 
 - (UIImage *)backgroundImageForCellType:(RETableViewCellType)cellType;
 - (void)setBackgroundImage:(UIImage *)image forCellType:(RETableViewCellType)cellType;

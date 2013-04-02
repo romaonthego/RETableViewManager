@@ -29,8 +29,8 @@
 
 @interface REActionBar : UIToolbar
 
-@property (strong, nonatomic) UISegmentedControl *navigationControl;
-@property (weak, nonatomic) id<REActionBarDelegate> actionBarDelegate;
+@property (strong, readonly, nonatomic) UISegmentedControl *navigationControl;
+@property (weak, readwrite, nonatomic) id<REActionBarDelegate> actionBarDelegate;
 
 - (id)initWithDelegate:(id)delegate;
 

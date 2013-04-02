@@ -29,13 +29,13 @@
 
 // Data and values
 //
-@property (copy, nonatomic) NSString *number;
-@property (copy, nonatomic) NSString *expirationDate;
-@property (copy, nonatomic) NSString *cvv;
+@property (copy, readwrite, nonatomic) NSString *number;
+@property (copy, readwrite, nonatomic) NSString *expirationDate;
+@property (copy, readwrite, nonatomic) NSString *cvv;
 
 // Keyboard
 //
-@property (nonatomic) UIKeyboardAppearance keyboardAppearance;             // default is UIKeyboardAppearanceDefault
+@property (assign, readwrite, nonatomic) UIKeyboardAppearance keyboardAppearance;             // default is UIKeyboardAppearanceDefault
 
 + (id)itemWithNumber:(NSString *)number expirationDate:(NSString *)expirationDate cvv:(NSString *)cvv;
 - (id)initWithNumber:(NSString *)number expirationDate:(NSString *)expirationDate cvv:(NSString *)cvv;

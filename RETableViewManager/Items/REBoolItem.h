@@ -27,7 +27,7 @@
 
 @interface REBoolItem : RETableViewItem
 
-@property (assign, nonatomic) BOOL value;
+@property (assign, readwrite, nonatomic) BOOL value;
 
 + (id)itemWithTitle:(NSString *)title value:(BOOL)value actionBlock:(void(^)(REBoolItem *item))actionBlock;
 + (id)itemWithTitle:(NSString *)title value:(BOOL)value;

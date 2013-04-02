@@ -27,8 +27,8 @@
 
 @interface REStringItem : RETableViewItem
 
-@property (assign, nonatomic) UITableViewCellAccessoryType accessoryType;
-@property (strong, nonatomic) UIView *accessoryView;
+@property (assign, readwrite, nonatomic) UITableViewCellAccessoryType accessoryType;
+@property (strong, readwrite, nonatomic) UIView *accessoryView;
 
 + (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock;
 + (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType accessoryView:(UIView *)accessoryView actionBlock:(void(^)(RETableViewItem *item))actionBlock;

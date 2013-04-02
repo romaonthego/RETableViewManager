@@ -33,14 +33,14 @@
     UIImageView *_currentImageView;
 }
 
-@property (strong, nonatomic) RECreditCardItem *item;
-@property (strong, nonatomic) REFormattedNumberField *creditCardField;
-@property (strong, nonatomic) REFormattedNumberField *expirationDateField;
-@property (strong, nonatomic) REFormattedNumberField *cvvField;
-@property (assign, nonatomic) CGSize textFieldPositionOffset;
-@property (strong, nonatomic) UIImageView *creditCardBackImageView;
-@property (strong, nonatomic) UIImageView *creditCardImageView;
-@property (strong, nonatomic) UIImageView *creditCardStackImageView;
+@property (strong, readwrite, nonatomic) RECreditCardItem *item;
+@property (assign, readwrite, nonatomic) CGSize textFieldPositionOffset;
+@property (strong, readonly, nonatomic) UIImageView *creditCardBackImageView;
+@property (strong, readonly, nonatomic) UIImageView *creditCardImageView;
+@property (strong, readonly, nonatomic) UIImageView *creditCardStackImageView;
+@property (strong, readonly, nonatomic) REFormattedNumberField *creditCardField;
+@property (strong, readonly, nonatomic) REFormattedNumberField *expirationDateField;
+@property (strong, readonly, nonatomic) REFormattedNumberField *cvvField;
 
 
 @end

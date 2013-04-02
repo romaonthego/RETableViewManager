@@ -30,6 +30,6 @@
     UISwitch *_switch;
 }
 
-@property (strong, nonatomic) REBoolItem *item;
+@property (strong, readwrite, nonatomic) REBoolItem *item;
 
 @end
