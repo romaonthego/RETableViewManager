@@ -37,8 +37,25 @@
     // Set some UITableView properties
     //
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 7)];
     
+    // Add table footer view
+    //
+    UIButton *loadMoreButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [loadMoreButton setFrame:CGRectMake(40, 7, 240, 44)];
+    [loadMoreButton setTitle:@"Load more" forState:UIControlStateNormal];
+    [loadMoreButton addTarget:self action:@selector(loadMoreButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 58)];
+    [footerView addSubview:loadMoreButton];
+    self.tableView.tableFooterView = footerView;
+    
+    // Add items
+    //
+    [self addItems];
+}
+
+- (void)addItems
+{
     NSArray *items = @[@{@"username": @"john",
                          @"userpic_url": @"http://uifaces.com/faces/_twitter/utroda_120.jpg",
                          @"image_url": @"http://distilleryimage10.instagram.com/09b742a2962611e2a84922000a1f8c0f_7.jpg"},
@@ -72,6 +89,15 @@
         //
         [section addItem:[ListImageItem itemWithImageURL:imageURL]];
     }
+}
+
+#pragma mark -
+#pragma mark Button actions
+
+- (void)loadMoreButtonPressed
+{
+    [self addItems];
+    [self.tableView reloadData];
 }
 
 @end
