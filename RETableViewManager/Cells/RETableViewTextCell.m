@@ -76,8 +76,6 @@
     _textField.returnKeyType = self.item.returnKeyType;
     _textField.enablesReturnKeyAutomatically = self.item.enablesReturnKeyAutomatically;
     _textField.secureTextEntry = self.item.secureTextEntry;
-    
-    _textFieldPositionOffset = self.tableViewManager.style.textFieldPositionOffset;
 }
 
 - (UIResponder *)responder
@@ -92,7 +90,7 @@
     CGFloat cellOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 20 : 60;
     CGFloat fieldOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 40;
     CGFloat width = 0;
-    CGRect frame = CGRectMake(0, _textFieldPositionOffset.height, 0, self.frame.size.height - _textFieldPositionOffset.height);
+    CGRect frame = CGRectMake(0, self.tableViewManager.style.textFieldPositionOffset.height, 0, self.frame.size.height - self.tableViewManager.style.textFieldPositionOffset.height);
     if (self.item.title && ![self.item.title isEqualToString:@""]) {
         for (RETableViewItem *item in self.section.items) {
             if ([item isKindOfClass:[RETextItem class]] || [item isKindOfClass:[RENumberItem class]]) {
@@ -100,9 +98,9 @@
                 width = MAX(width, size.width);
             }
         }
-        frame.origin.x = width + cellOffset + fieldOffset + _textFieldPositionOffset.width;
+        frame.origin.x = width + cellOffset + fieldOffset + self.tableViewManager.style.textFieldPositionOffset.width;
     } else {
-        frame.origin.x = cellOffset + _textFieldPositionOffset.width;
+        frame.origin.x = cellOffset + self.tableViewManager.style.textFieldPositionOffset.width;
     }
     frame.size.width = self.frame.size.width - frame.origin.x - cellOffset;
     _textField.frame = frame;

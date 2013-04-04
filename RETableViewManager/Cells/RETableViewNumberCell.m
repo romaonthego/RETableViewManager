@@ -24,8 +24,8 @@
 - (void)cellDidLoad
 {
     [super cellDidLoad];
-    self.textField = [[REFormattedNumberField alloc] initWithFrame:CGRectNull];
     
+    self.textField = [[REFormattedNumberField alloc] initWithFrame:CGRectNull];
     self.textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     self.textField.inputAccessoryView = self.actionBar;
     self.textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -43,7 +43,6 @@
     self.textField.placeholder = self.item.placeholder;
     self.textField.format = self.item.format;
     self.textField.font = self.tableViewManager.style.textFieldFont;
-    self.textFieldPositionOffset = self.tableViewManager.style.textFieldPositionOffset;
     self.textField.keyboardAppearance = self.item.keyboardAppearance;
     self.textField.keyboardType = UIKeyboardTypeNumberPad;
 }

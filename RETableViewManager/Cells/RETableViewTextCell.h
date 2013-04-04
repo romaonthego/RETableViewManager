@@ -30,6 +30,5 @@
 
 @property (strong, readwrite, nonatomic) RETextItem *item;
 @property (strong, readwrite, nonatomic) UITextField *textField;
-@property (assign, readwrite, nonatomic) CGSize textFieldPositionOffset;
 
 @end
