@@ -26,9 +26,9 @@
     return self;
 }
 
-- (void)prepare
+- (void)cellWillAppear
 {
-    [super prepare];
+    [super cellWillAppear];
     [_pictureView setImageWithURL:self.item.imageURL];
 }
 

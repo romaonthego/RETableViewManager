@@ -129,7 +129,7 @@
     
     if ([item isKindOfClass:[RETableViewItem class]])
         cell.detailTextLabel.text = ((RETableViewItem *)item).detailLabelText;
-    [cell prepare];
+    [cell cellWillAppear];
     
     if ([_delegate respondsToSelector:@selector(tableView:styleCell:atIndexPath:)])
         [_delegate tableView:tableView styleCell:cell atIndexPath:indexPath];

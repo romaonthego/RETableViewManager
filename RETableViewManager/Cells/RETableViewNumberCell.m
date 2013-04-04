@@ -34,9 +34,9 @@
     [self addSubview:self.textField];
 }
 
-- (void)prepare
+- (void)cellWillAppear
 {
-    [super prepare];
+    [super cellWillAppear];
     
     self.textLabel.text = self.item.title;
     self.textField.text = self.item.value;

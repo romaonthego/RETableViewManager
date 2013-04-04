@@ -45,7 +45,7 @@
     self.accessoryView = _switchView;
 }
 
-- (void)prepare
+- (void)cellWillAppear
 {
     self.textLabel.text = self.item.title;
     _switchView.on = self.item.value;

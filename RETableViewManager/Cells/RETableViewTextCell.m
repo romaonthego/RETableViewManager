@@ -60,9 +60,9 @@
     }
 }
 
-- (void)prepare
+- (void)cellWillAppear
 {
-    [super prepare];
+    [super cellWillAppear];
     
     self.textLabel.text = self.item.title;
     _textField.text = self.item.value;

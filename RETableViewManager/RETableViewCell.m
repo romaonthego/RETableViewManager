@@ -28,6 +28,11 @@
 
 @implementation RETableViewCell
 
++ (CGFloat)heightWithItem:(NSObject *)item tableViewManager:(RETableViewManager *)tableViewManager
+{
+    return tableViewManager.style.cellHeight;
+}
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -36,6 +41,9 @@
     }
     return self;
 }
+
+#pragma mark -
+#pragma mark Cell life cycle
 
 - (void)cellDidLoad
 {
@@ -49,17 +57,7 @@
     }
 }
 
-- (BOOL)hasCustomBackgroundImage
-{
-    return [self.tableViewManager.style backgroundImageForCellType:RETableViewCellFirst] || [self.tableViewManager.style backgroundImageForCellType:RETableViewCellMiddle] || [self.tableViewManager.style backgroundImageForCellType:RETableViewCellLast] || [self.tableViewManager.style backgroundImageForCellType:RETableViewCellSingle];
-}
-
-+ (CGFloat)heightWithItem:(NSObject *)item tableViewManager:(RETableViewManager *)tableViewManager
-{
-    return tableViewManager.style.cellHeight;
-}
-
-- (void)prepare
+- (void)cellWillAppear
 {
     [self refreshActionBar];
     
@@ -71,6 +69,11 @@
         self.accessoryType = item.accessoryType;
         self.accessoryView = item.accessoryView;
     }
+}
+
+- (BOOL)hasCustomBackgroundImage
+{
+    return [self.tableViewManager.style backgroundImageForCellType:RETableViewCellFirst] || [self.tableViewManager.style backgroundImageForCellType:RETableViewCellMiddle] || [self.tableViewManager.style backgroundImageForCellType:RETableViewCellLast] || [self.tableViewManager.style backgroundImageForCellType:RETableViewCellSingle];
 }
 
 - (void)refreshActionBar

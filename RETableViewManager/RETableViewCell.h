@@ -44,7 +44,7 @@
 + (CGFloat)heightWithItem:(NSObject *)item tableViewManager:(RETableViewManager *)tableViewManager;
 
 - (void)cellDidLoad;
-- (void)prepare;
+- (void)cellWillAppear;
 - (void)refreshActionBar;
 
 - (UIResponder *)responder;
