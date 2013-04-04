@@ -30,7 +30,6 @@
 
 #import "RETableViewCellStyle.h"
 #import "RETableViewCell.h"
-#import "RETableViewStringCell.h"
 #import "RETableViewNumberCell.h"
 #import "RETableViewCreditCardCell.h"
 

@@ -55,11 +55,11 @@
 
 - (void)setDefaultMapping
 {
-    [self mapObjectClass:@"__NSCFConstantString" toTableViewCellClass:@"RETableViewStringCell"];
-    [self mapObjectClass:@"__NSCFString" toTableViewCellClass:@"RETableViewStringCell"];
-    [self mapObjectClass:@"NSString" toTableViewCellClass:@"RETableViewStringCell"];
-    [self mapObjectClass:@"RETableViewItem" toTableViewCellClass:@"RETableViewStringCell"];
-    [self mapObjectClass:@"RERadioItem" toTableViewCellClass:@"RETableViewStringCell"];
+    [self mapObjectClass:@"__NSCFConstantString" toTableViewCellClass:@"RETableViewCell"];
+    [self mapObjectClass:@"__NSCFString" toTableViewCellClass:@"RETableViewCell"];
+    [self mapObjectClass:@"NSString" toTableViewCellClass:@"RETableViewCell"];
+    [self mapObjectClass:@"RETableViewItem" toTableViewCellClass:@"RETableViewCell"];
+    [self mapObjectClass:@"RERadioItem" toTableViewCellClass:@"RETableViewCell"];
     [self mapObjectClass:@"REBoolItem" toTableViewCellClass:@"RETableViewBoolCell"];
     [self mapObjectClass:@"RETextItem" toTableViewCellClass:@"RETableViewTextCell"];
     [self mapObjectClass:@"RENumberItem" toTableViewCellClass:@"RETableViewNumberCell"];

@@ -57,6 +57,15 @@
 - (void)prepare
 {
     [self refreshActionBar];
+    
+    if ([self.item isKindOfClass:[NSString class]]) {
+        self.textLabel.text = (NSString *)self.item;
+    } else {
+        RETableViewItem *item = (RETableViewItem *)self.item;
+        self.textLabel.text = item.title;
+        self.accessoryType = item.accessoryType;
+        self.accessoryView = item.accessoryView;
+    }
 }
 
 - (void)refreshActionBar

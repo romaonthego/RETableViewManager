@@ -16,7 +16,6 @@
 		30DB066A16E934AD006C9530 /* RETableViewBoolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB064916E934AD006C9530 /* RETableViewBoolCell.m */; };
 		30DB066B16E934AD006C9530 /* RETableViewCreditCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB064B16E934AD006C9530 /* RETableViewCreditCardCell.m */; };
 		30DB066C16E934AD006C9530 /* RETableViewNumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB064D16E934AD006C9530 /* RETableViewNumberCell.m */; };
-		30DB066D16E934AD006C9530 /* RETableViewStringCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB064F16E934AD006C9530 /* RETableViewStringCell.m */; };
 		30DB066E16E934AD006C9530 /* RETableViewTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB065116E934AD006C9530 /* RETableViewTextCell.m */; };
 		30DB066F16E934AD006C9530 /* REBoolItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB065416E934AD006C9530 /* REBoolItem.m */; };
 		30DB067016E934AD006C9530 /* RECreditCardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB065616E934AD006C9530 /* RECreditCardItem.m */; };
@@ -62,8 +61,6 @@
 		30DB064B16E934AD006C9530 /* RETableViewCreditCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewCreditCardCell.m; sourceTree = "<group>"; };
 		30DB064C16E934AD006C9530 /* RETableViewNumberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewNumberCell.h; sourceTree = "<group>"; };
 		30DB064D16E934AD006C9530 /* RETableViewNumberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewNumberCell.m; sourceTree = "<group>"; };
-		30DB064E16E934AD006C9530 /* RETableViewStringCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewStringCell.h; sourceTree = "<group>"; };
-		30DB064F16E934AD006C9530 /* RETableViewStringCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewStringCell.m; sourceTree = "<group>"; };
 		30DB065016E934AD006C9530 /* RETableViewTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewTextCell.h; sourceTree = "<group>"; };
 		30DB065116E934AD006C9530 /* RETableViewTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewTextCell.m; sourceTree = "<group>"; };
 		30DB065316E934AD006C9530 /* REBoolItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REBoolItem.h; sourceTree = "<group>"; };
@@ -200,8 +197,6 @@
 				30DB064B16E934AD006C9530 /* RETableViewCreditCardCell.m */,
 				30DB064C16E934AD006C9530 /* RETableViewNumberCell.h */,
 				30DB064D16E934AD006C9530 /* RETableViewNumberCell.m */,
-				30DB064E16E934AD006C9530 /* RETableViewStringCell.h */,
-				30DB064F16E934AD006C9530 /* RETableViewStringCell.m */,
 				30DB065016E934AD006C9530 /* RETableViewTextCell.h */,
 				30DB065116E934AD006C9530 /* RETableViewTextCell.m */,
 			);
@@ -369,7 +364,6 @@
 				30DB066A16E934AD006C9530 /* RETableViewBoolCell.m in Sources */,
 				30DB066B16E934AD006C9530 /* RETableViewCreditCardCell.m in Sources */,
 				30DB066C16E934AD006C9530 /* RETableViewNumberCell.m in Sources */,
-				30DB066D16E934AD006C9530 /* RETableViewStringCell.m in Sources */,
 				30DB066E16E934AD006C9530 /* RETableViewTextCell.m in Sources */,
 				30DB066F16E934AD006C9530 /* REBoolItem.m in Sources */,
 				30DB067016E934AD006C9530 /* RECreditCardItem.m in Sources */,
