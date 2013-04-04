@@ -49,11 +49,23 @@
     
     [section addItem:[REBoolItem itemWithTitle:@"Bool item" value:YES]];
     
-    REStringItem *optionItem = [REStringItem itemWithTitle:@"Radio" accessoryType:UITableViewCellAccessoryDisclosureIndicator actionBlock:^(RETableViewItem *item) {
+    RERadioItem *optionItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" actionBlock:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+        
+        // Generate sample options
+        //
+        NSMutableArray *options = [[NSMutableArray alloc] init];
+        for (NSInteger i = 1; i < 40; i++)
+            [options addObject:[NSString stringWithFormat:@"Option %i", i]];
+        
+        // Present options controller
+        //
+        RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options completionHandler:^(RETableViewItem *selectedItem) {
+            item.detailLabelText = selectedItem.title;
+            [weakSelf.tableView reloadRowsAtIndexPaths:@[item.indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }];
+        [weakSelf.navigationController pushViewController:optionsController animated:YES];
     }];
-    optionItem.detailLabelText = @"Option 17";
-    optionItem.cellStyle = UITableViewCellStyleValue1;
     [section addItem:optionItem];
     
     section = [[RETableViewSection alloc] initWithHeaderTitle:@"Basic controls"];

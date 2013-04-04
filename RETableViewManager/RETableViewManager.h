@@ -24,7 +24,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RETableViewOptionsController.h"
+
 #import "RETableViewSection.h"
+
 #import "RETableViewCellStyle.h"
 #import "RETableViewCell.h"
 #import "RETableViewStringCell.h"
@@ -32,6 +35,8 @@
 #import "RETableViewCreditCardCell.h"
 
 #import "REBoolItem.h"
+#import "REStringItem.h"
+#import "RERadioItem.h"
 #import "RETextItem.h"
 #import "RENumberItem.h"
 #import "RECreditCardItem.h"
