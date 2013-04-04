@@ -27,16 +27,22 @@
 
 @implementation RETableViewBoolCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier tableViewManager:(RETableViewManager *)tableViewManager
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier tableViewManager:(RETableViewManager *)tableViewManager];
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        _switchView = [[UISwitch alloc] init];
-        [_switchView addTarget:self action:@selector(switchValueDidChanged:) forControlEvents:UIControlEventValueChanged];
-        self.accessoryView = _switchView;
     }
     return self;
+}
+
+- (void)cellDidLoad
+{
+    [super cellDidLoad];
+    
+    _switchView = [[UISwitch alloc] init];
+    [_switchView addTarget:self action:@selector(switchValueDidChanged:) forControlEvents:UIControlEventValueChanged];
+    self.accessoryView = _switchView;
 }
 
 - (void)prepare

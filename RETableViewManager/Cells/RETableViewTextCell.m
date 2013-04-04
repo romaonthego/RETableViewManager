@@ -28,22 +28,28 @@
 
 @implementation RETableViewTextCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier tableViewManager:(RETableViewManager *)tableViewManager
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier tableViewManager:(RETableViewManager *)tableViewManager];
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.textLabel.backgroundColor = [UIColor clearColor];
-        _textField = [[UITextField alloc] initWithFrame:CGRectNull];
-        
-        _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _textField.inputAccessoryView = self.actionBar;
-        _textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        _textField.delegate = self;
-        [_textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-        [self addSubview:_textField];
     }
     return self;
+}
+
+- (void)cellDidLoad
+{
+    [super cellDidLoad];
+    
+    _textField = [[UITextField alloc] initWithFrame:CGRectNull];
+    
+    _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    _textField.inputAccessoryView = self.actionBar;
+    _textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    _textField.delegate = self;
+    [_textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self addSubview:_textField];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

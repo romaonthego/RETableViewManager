@@ -43,7 +43,7 @@
 
 + (CGFloat)heightWithItem:(NSObject *)item tableViewManager:(RETableViewManager *)tableViewManager;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier tableViewManager:(RETableViewManager *)tableViewManager;
+- (void)cellDidLoad;
 - (void)prepare;
 - (void)refreshActionBar;
 

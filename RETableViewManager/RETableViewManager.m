@@ -115,7 +115,9 @@
     
     RETableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        cell = [[cellClass alloc] initWithStyle:cellStyle reuseIdentifier:cellIdentifier tableViewManager:self];
+        cell = [[cellClass alloc] initWithStyle:cellStyle reuseIdentifier:cellIdentifier];
+        cell.tableViewManager = self;
+        [cell cellDidLoad];
     }
     
     cell.row = indexPath.row;

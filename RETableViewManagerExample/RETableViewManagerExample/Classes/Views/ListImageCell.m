@@ -16,9 +16,9 @@
     return 306;
 }
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier tableViewManager:(RETableViewManager *)tableViewManager
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier tableViewManager:tableViewManager];
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         _pictureView = [[UIImageView alloc] initWithFrame:CGRectMake(7, 0, 306, 306)];
         [self addSubview:_pictureView];

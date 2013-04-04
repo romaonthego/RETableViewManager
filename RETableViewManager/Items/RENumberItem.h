@@ -25,17 +25,9 @@
 
 #import "RETextItem.h"
 
-@interface RENumberItem : RETableViewItem
+@interface RENumberItem : RETextItem
 
-// Data and values
-//
 @property (copy, readwrite, nonatomic) NSString *format;
-@property (copy, readwrite, nonatomic) NSString *value;
-@property (copy, readwrite, nonatomic) NSString *placeholder;
-
-// Keyboard
-//
-@property (assign, readwrite, nonatomic) UIKeyboardAppearance keyboardAppearance;             // default is UIKeyboardAppearanceDefault
 
 + (id)itemWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder format:(NSString *)format;
 - (id)initWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder format:(NSString *)format;

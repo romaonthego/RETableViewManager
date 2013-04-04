@@ -1,26 +1,9 @@
 //
-// RETableViewNumberCell.m
-// RETableViewManager
+//  RETableViewNumberCell.m
+//  RETableViewManagerExample
 //
-// Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego)
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
+//  Created by Roman Efimov on 4/4/13.
+//  Copyright (c) 2013 Roman Efimov. All rights reserved.
 //
 
 #import "RETableViewNumberCell.h"
@@ -28,33 +11,27 @@
 
 @implementation RETableViewNumberCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier tableViewManager:(RETableViewManager *)tableViewManager
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier tableViewManager:(RETableViewManager *)tableViewManager];
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.textLabel.backgroundColor = [UIColor clearColor];
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-            _textField = [[REFormattedNumberField alloc] initWithFrame:CGRectMake(140, 0, self.frame.size.width - 160, self.frame.size.height)];
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            _textField = [[REFormattedNumberField alloc] initWithFrame:CGRectMake(160, 0, self.frame.size.width - 200, self.frame.size.height)];
-        
-        _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _textField.inputAccessoryView = self.actionBar;
-        _textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        _textField.delegate = self;
-        [_textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-        [self addSubview:_textField];
     }
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+- (void)cellDidLoad
 {
-    [super setSelected:selected animated:animated];
-    if (selected) {
-        [_textField becomeFirstResponder];
-    }
+    [super cellDidLoad];
+    self.textField = [[REFormattedNumberField alloc] initWithFrame:CGRectNull];
+    
+    self.textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    self.textField.inputAccessoryView = self.actionBar;
+    self.textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.textField.delegate = self;
+    [self.textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self addSubview:self.textField];
 }
 
 - (void)prepare
@@ -62,61 +39,13 @@
     [super prepare];
     
     self.textLabel.text = self.item.title;
-    _textField.text = self.item.value;
-    _textField.placeholder = self.item.placeholder;
-    _textField.format = self.item.format;
-    _textField.font = self.tableViewManager.style.textFieldFont;
-    _textFieldPositionOffset = self.tableViewManager.style.textFieldPositionOffset;
-    _textField.keyboardAppearance = self.item.keyboardAppearance;
-}
-
-
-- (UIResponder *)responder
-{
-    return _textField;
-}
-
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    if (self.item.title) {
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-            _textField.frame = CGRectMake(140 + _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 160, self.frame.size.height - _textFieldPositionOffset.height);
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            _textField.frame = CGRectMake(160+ _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 200, self.frame.size.height - _textFieldPositionOffset.height);
-    } else {
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-            _textField.frame = CGRectMake(20+ _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 40, self.frame.size.height - _textFieldPositionOffset.height);
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            _textField.frame = CGRectMake(40+ _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 80, self.frame.size.height - _textFieldPositionOffset.height);
-    }
-}
-
-#pragma mark -
-#pragma mark UISwitch events
-
-- (void)textFieldDidChange:(UITextField *)textField
-{
-    self.item.value = textField.text;
-}
-
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-    [self refreshActionBar];
-    [self.parentTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.row inSection:self.sectionIndex] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    return YES;
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    NSIndexPath *indexPath = [self indexPathForNextResponder];
-    if (!indexPath) {
-        [self endEditing:YES];
-        return YES;
-    }
-    RETableViewCell *cell = (RETableViewCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
-    [cell.responder becomeFirstResponder];
-    return YES;
+    self.textField.text = self.item.value;
+    self.textField.placeholder = self.item.placeholder;
+    self.textField.format = self.item.format;
+    self.textField.font = self.tableViewManager.style.textFieldFont;
+    self.textFieldPositionOffset = self.tableViewManager.style.textFieldPositionOffset;
+    self.textField.keyboardAppearance = self.item.keyboardAppearance;
+    self.textField.keyboardType = UIKeyboardTypeNumberPad;
 }
 
 @end

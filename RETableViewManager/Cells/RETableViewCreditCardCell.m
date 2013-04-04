@@ -28,7 +28,7 @@
 
 @implementation RETableViewCreditCardCell
 
-static inline NSString *RECreditCardType(NSString *creditCardNumber)
+static inline NSString * RECreditCardType(NSString *creditCardNumber)
 {
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\D" options:NSRegularExpressionCaseInsensitive error:NULL];
     NSString *strippedNumber = [regex stringByReplacingMatchesInString:creditCardNumber options:0 range:NSMakeRange(0, creditCardNumber.length) withTemplate:@""];
@@ -46,65 +46,71 @@ static inline NSString *RECreditCardType(NSString *creditCardNumber)
     return nil;
 }
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier tableViewManager:(RETableViewManager *)tableViewManager
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier tableViewManager:(RETableViewManager *)tableViewManager];
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.textLabel.backgroundColor = [UIColor clearColor];
-        _creditCardImageViewContainer = [[UIView alloc] initWithFrame:CGRectMake(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 20 : 56, 5, 32, 32)];
-        [self addSubview:_creditCardImageViewContainer];
-        
-        _creditCardStackImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
-        _creditCardStackImageView.image = [UIImage imageNamed:@"RETableViewManager.bundle/Card_Stack"];
-        _creditCardStackImageView.tag = 0;
-        _currentImageView = _creditCardStackImageView;
-        [_creditCardImageViewContainer addSubview:_creditCardStackImageView];
-        
-        _creditCardImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
-        _creditCardImageView.image = [UIImage imageNamed:@"RETableViewManager.bundle/Card_Visa"];
-        _creditCardImageView.tag = 1;
-        
-        _creditCardBackImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
-        _creditCardBackImageView.image = [UIImage imageNamed:@"RETableViewManager.bundle/Card_Back"];
-        _creditCardBackImageView.tag = 2;
-        
-        _wrapperView = [[UIView alloc] initWithFrame:CGRectMake(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 60 : 96 + _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 70, self.frame.size.height)];
-        _wrapperView.clipsToBounds = YES;
-        [self addSubview:_wrapperView];
-        
-        _creditCardField = [[REFormattedNumberField alloc] initWithFrame:CGRectMake(0, 0, 216, self.frame.size.height - _textFieldPositionOffset.height)];
-        _creditCardField.tag = 0;
-        _creditCardField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _creditCardField.inputAccessoryView = self.actionBar;
-        _creditCardField.delegate = self;
-        _creditCardField.placeholder = @"1234 1234 1234 1234";
-        _creditCardField.format = @"XXXX XXXX XXXX XXXX";
-        [_creditCardField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-        [_wrapperView addSubview:_creditCardField];
-        
-        
-        _expirationDateField = [[REFormattedNumberField alloc] initWithFrame:CGRectMake(320, 0, 80, self.frame.size.height)];
-        _expirationDateField.tag = 1;
-        _expirationDateField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _expirationDateField.inputAccessoryView = self.actionBar;
-        _expirationDateField.format = @"XX/XX";
-        _expirationDateField.placeholder = @"MM/YY";
-        _expirationDateField.delegate = self;
-        [_expirationDateField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-        [_wrapperView addSubview:_expirationDateField];
-        
-        _cvvField = [[REFormattedNumberField alloc] initWithFrame:CGRectMake(320, 0, 60, self.frame.size.height)];
-        _cvvField.tag = 2;
-        _cvvField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _cvvField.inputAccessoryView = self.actionBar;
-        _cvvField.format = @"XXX";
-        _cvvField.placeholder = @"CVV";
-        _cvvField.delegate = self;
-        [_cvvField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-        [_wrapperView addSubview:_cvvField];
     }
     return self;
+}
+
+- (void)cellDidLoad
+{
+    [super cellDidLoad];
+    
+    _creditCardImageViewContainer = [[UIView alloc] initWithFrame:CGRectMake(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 20 : 56, 5, 32, 32)];
+    [self addSubview:_creditCardImageViewContainer];
+    
+    _creditCardStackImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
+    _creditCardStackImageView.image = [UIImage imageNamed:@"RETableViewManager.bundle/Card_Stack"];
+    _creditCardStackImageView.tag = 0;
+    _currentImageView = _creditCardStackImageView;
+    [_creditCardImageViewContainer addSubview:_creditCardStackImageView];
+    
+    _creditCardImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
+    _creditCardImageView.image = [UIImage imageNamed:@"RETableViewManager.bundle/Card_Visa"];
+    _creditCardImageView.tag = 1;
+    
+    _creditCardBackImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
+    _creditCardBackImageView.image = [UIImage imageNamed:@"RETableViewManager.bundle/Card_Back"];
+    _creditCardBackImageView.tag = 2;
+    
+    _wrapperView = [[UIView alloc] initWithFrame:CGRectMake(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 60 : 96 + _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 70, self.frame.size.height)];
+    _wrapperView.clipsToBounds = YES;
+    [self addSubview:_wrapperView];
+    
+    _creditCardField = [[REFormattedNumberField alloc] initWithFrame:CGRectMake(0, 0, 216, self.frame.size.height - _textFieldPositionOffset.height)];
+    _creditCardField.tag = 0;
+    _creditCardField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    _creditCardField.inputAccessoryView = self.actionBar;
+    _creditCardField.delegate = self;
+    _creditCardField.placeholder = @"1234 1234 1234 1234";
+    _creditCardField.format = @"XXXX XXXX XXXX XXXX";
+    [_creditCardField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [_wrapperView addSubview:_creditCardField];
+    
+    
+    _expirationDateField = [[REFormattedNumberField alloc] initWithFrame:CGRectMake(320, 0, 80, self.frame.size.height)];
+    _expirationDateField.tag = 1;
+    _expirationDateField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    _expirationDateField.inputAccessoryView = self.actionBar;
+    _expirationDateField.format = @"XX/XX";
+    _expirationDateField.placeholder = @"MM/YY";
+    _expirationDateField.delegate = self;
+    [_expirationDateField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [_wrapperView addSubview:_expirationDateField];
+    
+    _cvvField = [[REFormattedNumberField alloc] initWithFrame:CGRectMake(320, 0, 60, self.frame.size.height)];
+    _cvvField.tag = 2;
+    _cvvField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    _cvvField.inputAccessoryView = self.actionBar;
+    _cvvField.format = @"XXX";
+    _cvvField.placeholder = @"CVV";
+    _cvvField.delegate = self;
+    [_cvvField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [_wrapperView addSubview:_cvvField];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

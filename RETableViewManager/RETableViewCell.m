@@ -28,20 +28,25 @@
 
 @implementation RETableViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier tableViewManager:(RETableViewManager *)tableViewManager
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.tableViewManager = tableViewManager;
-        self.actionBar = [[REActionBar alloc] initWithDelegate:self];
-        if ([self hasCustomBackgroundImage]) {
-            self.backgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
-            self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-            _backgroundImageView = [[UIImageView alloc] init];
-            [self.backgroundView addSubview:_backgroundImageView];
-        }
+        
     }
     return self;
+}
+
+- (void)cellDidLoad
+{
+    self.actionBar = [[REActionBar alloc] initWithDelegate:self];
+    
+    if ([self hasCustomBackgroundImage]) {
+        self.backgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
+        self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        _backgroundImageView = [[UIImageView alloc] init];
+        [self.backgroundView addSubview:_backgroundImageView];
+    }
 }
 
 - (BOOL)hasCustomBackgroundImage
