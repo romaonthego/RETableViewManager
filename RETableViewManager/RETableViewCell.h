@@ -45,7 +45,7 @@
 
 - (void)cellDidLoad;
 - (void)cellWillAppear;
-- (void)refreshActionBar;
+- (void)updateActionBarNavigationControl;
 
 - (UIResponder *)responder;
 - (NSIndexPath *)indexPathForPreviousResponder;

@@ -59,7 +59,7 @@
 
 - (void)cellWillAppear
 {
-    [self refreshActionBar];
+    [self updateActionBarNavigationControl];
     
     if ([self.item isKindOfClass:[NSString class]]) {
         self.textLabel.text = (NSString *)self.item;
@@ -76,27 +76,23 @@
     [super layoutSubviews];
     
     if ([self.tableViewManager.style hasCustomBackgroundImage]) {
-        if (self.row == 0 && self.section.items.count == 1) {
+        if (self.row == 0 && self.section.items.count == 1)
             _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellSingle];
-        }
         
-        if (self.row == 0 && self.section.items.count > 1) {
+        if (self.row == 0 && self.section.items.count > 1)
             _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellFirst];
-        }
         
-        if (self.row > 0 && self.row < self.section.items.count - 1 && self.section.items.count > 2) {
+        if (self.row > 0 && self.row < self.section.items.count - 1 && self.section.items.count > 2)
             _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellMiddle];
-        }
         
-        if (self.row == self.section.items.count - 1 && self.section.items.count > 1) {
+        if (self.row == self.section.items.count - 1 && self.section.items.count > 1)
             _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellLast];
-            
-        }
+        
         _backgroundImageView.frame = CGRectMake(0, 0, _backgroundImageView.image.size.width, _backgroundImageView.image.size.height);
     }
 }
 
-- (void)refreshActionBar
+- (void)updateActionBarNavigationControl
 {
     [self.actionBar.navigationControl setEnabled:[self indexPathForPreviousResponder] != nil forSegmentAtIndex:0];
     [self.actionBar.navigationControl setEnabled:[self indexPathForNextResponder] != nil forSegmentAtIndex:1];
@@ -126,7 +122,6 @@
         if (indexPath)
             return indexPath;
     }
-    
     return nil;
 }
 

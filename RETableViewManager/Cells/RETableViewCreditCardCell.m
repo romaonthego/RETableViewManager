@@ -229,7 +229,7 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    [self refreshActionBar];
+    [self updateActionBarNavigationControl];
     if (textField.tag == 0) {
         [UIView transitionFromView:_creditCardBackImageView toView:_currentImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
     }
