@@ -49,7 +49,7 @@
 {
     self.actionBar = [[REActionBar alloc] initWithDelegate:self];
     
-    if ([self hasCustomBackgroundImage]) {
+    if ([self.tableViewManager.style hasCustomBackgroundImage]) {
         self.backgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
         self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _backgroundImageView = [[UIImageView alloc] init];
@@ -71,22 +71,11 @@
     }
 }
 
-- (BOOL)hasCustomBackgroundImage
-{
-    return [self.tableViewManager.style backgroundImageForCellType:RETableViewCellFirst] || [self.tableViewManager.style backgroundImageForCellType:RETableViewCellMiddle] || [self.tableViewManager.style backgroundImageForCellType:RETableViewCellLast] || [self.tableViewManager.style backgroundImageForCellType:RETableViewCellSingle];
-}
-
-- (void)refreshActionBar
-{
-    [self.actionBar.navigationControl setEnabled:[self indexPathForPreviousResponder] != nil forSegmentAtIndex:0];
-    [self.actionBar.navigationControl setEnabled:[self indexPathForNextResponder] != nil forSegmentAtIndex:1];
-}
-
 - (void)layoutSubviews
 {
     [super layoutSubviews];
     
-    if ([self hasCustomBackgroundImage]) {
+    if ([self.tableViewManager.style hasCustomBackgroundImage]) {
         if (self.row == 0 && self.section.items.count == 1) {
             _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellSingle];
         }
@@ -105,6 +94,12 @@
         }
         _backgroundImageView.frame = CGRectMake(0, 0, _backgroundImageView.image.size.width, _backgroundImageView.image.size.height);
     }
+}
+
+- (void)refreshActionBar
+{
+    [self.actionBar.navigationControl setEnabled:[self indexPathForPreviousResponder] != nil forSegmentAtIndex:0];
+    [self.actionBar.navigationControl setEnabled:[self indexPathForNextResponder] != nil forSegmentAtIndex:1];
 }
 
 - (UIResponder *)responder

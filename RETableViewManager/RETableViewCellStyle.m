@@ -40,6 +40,11 @@
     return self;
 }
 
+- (BOOL)hasCustomBackgroundImage
+{
+    return [self backgroundImageForCellType:RETableViewCellFirst] || [self backgroundImageForCellType:RETableViewCellMiddle] || [self backgroundImageForCellType:RETableViewCellLast] || [self backgroundImageForCellType:RETableViewCellSingle];
+}
+
 - (UIImage *)backgroundImageForCellType:(RETableViewCellType)cellType
 {
     return [_backgroundImages objectForKey:@(cellType)];

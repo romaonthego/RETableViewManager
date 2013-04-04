@@ -40,6 +40,7 @@ typedef enum _RETableViewCellType {
 @property (assign, readwrite, nonatomic) CGSize textFieldPositionOffset;
 @property (assign, readwrite, nonatomic) CGFloat cellHeight;
 
+- (BOOL)hasCustomBackgroundImage;
 - (UIImage *)backgroundImageForCellType:(RETableViewCellType)cellType;
 - (void)setBackgroundImage:(UIImage *)image forCellType:(RETableViewCellType)cellType;
 
