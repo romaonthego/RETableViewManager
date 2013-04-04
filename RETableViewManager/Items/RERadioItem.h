@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Roman Efimov. All rights reserved.
 //
 
-#import "REStringItem.h"
+#import "RETableViewItem.h"
 
-@interface RERadioItem : REStringItem
+@interface RERadioItem : RETableViewItem
 
 @property (copy, readwrite, nonatomic, getter = detailLabelText, setter = setDetailLabelText:) NSString *value;
 

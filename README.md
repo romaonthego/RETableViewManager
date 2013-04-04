@@ -33,9 +33,9 @@ RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"
 
 // Add string cell with disclosure indicator
 //
-[section addItem:[REStringItem itemWithTitle:@"String cell" actionBlock:^(RETableViewItem *item) {
+[section addItem:[RETableViewItem itemWithTitle:"String cell" accessoryType:UITableViewCellAccessoryDisclosureIndicator actionBlock:^(RETableViewItem *item) {
     NSLog(@"Test: %@", item);
-} accessoryType:UITableViewCellAccessoryDisclosureIndicator]];
+}]];
 
 // Add editable table cell (using UITextField)
 //
@@ -46,6 +46,29 @@ RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"
 [section addItem:[REBoolItem itemWithTitle:@"Switch test" value:YES actionBlock:^(REBoolItem *item) {
     NSLog(@"Value: %i", item.value);
 }]];
+
+// Add radio cell (options)
+//
+__typeof (&*self) __weak weakSelf = self;
+RERadioItem *optionItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" actionBlock:^(RETableViewItem *item) {
+  [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+
+  // Generate sample options
+  //
+  NSMutableArray *options = [[NSMutableArray alloc] init];
+  for (NSInteger i = 1; i < 40; i++)
+      [options addObject:[NSString stringWithFormat:@"Option %i", i]];
+
+  // Present options controller
+  //
+  RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options completionHandler:^(RETableViewItem *selectedItem) {
+      item.detailLabelText = selectedItem.title;
+      [weakSelf.tableView reloadRowsAtIndexPaths:@[item.indexPath] withRowAnimation:UITableViewRowAnimationNone];
+  }];
+  [weakSelf.navigationController pushViewController:optionsController animated:YES];
+}];
+[section addItem:optionItem];
+
 
 // Add another section
 //

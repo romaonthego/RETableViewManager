@@ -43,7 +43,7 @@
     if ([self.item isKindOfClass:[NSString class]]) {
         self.textLabel.text = self.item;
     } else {
-        REStringItem *item = (REStringItem *)self.item;
+        RETableViewItem *item = (RETableViewItem *)self.item;
         self.textLabel.text = item.title;
         self.accessoryType = item.accessoryType;
         self.accessoryView = item.accessoryView;

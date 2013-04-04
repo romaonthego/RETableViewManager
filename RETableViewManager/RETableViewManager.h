@@ -35,7 +35,6 @@
 #import "RETableViewCreditCardCell.h"
 
 #import "REBoolItem.h"
-#import "REStringItem.h"
 #import "RERadioItem.h"
 #import "RETextItem.h"
 #import "RENumberItem.h"

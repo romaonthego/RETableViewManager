@@ -85,17 +85,17 @@
     
     // Add items to this section
     //
-    [section2 addItem:[REStringItem itemWithTitle:@"Accessory 1" accessoryType:UITableViewCellAccessoryDisclosureIndicator actionBlock:^(RETableViewItem *item) {
+    [section2 addItem:[RETableViewItem itemWithTitle:@"Accessory 1" accessoryType:UITableViewCellAccessoryDisclosureIndicator actionBlock:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
     }]];
     
-    [section2 addItem:[REStringItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryDetailDisclosureButton actionBlock:^(RETableViewItem *item) {
+    [section2 addItem:[RETableViewItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryDetailDisclosureButton actionBlock:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
     } accessoryButtonActionBlock:^(RETableViewItem *item) {
         NSLog(@"Accessory button in accessoryItem2 was tapped");
     }]];
     
-    [section2 addItem:[REStringItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryCheckmark actionBlock:^(RETableViewItem *item) {
+    [section2 addItem:[RETableViewItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryCheckmark actionBlock:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
     }]];
 }

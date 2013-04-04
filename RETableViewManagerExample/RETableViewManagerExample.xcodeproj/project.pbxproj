@@ -21,7 +21,6 @@
 		30DB066F16E934AD006C9530 /* REBoolItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB065416E934AD006C9530 /* REBoolItem.m */; };
 		30DB067016E934AD006C9530 /* RECreditCardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB065616E934AD006C9530 /* RECreditCardItem.m */; };
 		30DB067116E934AD006C9530 /* RENumberItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB065816E934AD006C9530 /* RENumberItem.m */; };
-		30DB067216E934AD006C9530 /* REStringItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB065A16E934AD006C9530 /* REStringItem.m */; };
 		30DB067316E934AD006C9530 /* RETextItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB065C16E934AD006C9530 /* RETextItem.m */; };
 		30DB067416E934AD006C9530 /* REActionBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB065E16E934AD006C9530 /* REActionBar.m */; };
 		30DB067516E934AD006C9530 /* RETableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB066016E934AD006C9530 /* RETableViewCell.m */; };
@@ -73,8 +72,6 @@
 		30DB065616E934AD006C9530 /* RECreditCardItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECreditCardItem.m; sourceTree = "<group>"; };
 		30DB065716E934AD006C9530 /* RENumberItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RENumberItem.h; sourceTree = "<group>"; };
 		30DB065816E934AD006C9530 /* RENumberItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RENumberItem.m; sourceTree = "<group>"; };
-		30DB065916E934AD006C9530 /* REStringItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REStringItem.h; sourceTree = "<group>"; };
-		30DB065A16E934AD006C9530 /* REStringItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REStringItem.m; sourceTree = "<group>"; };
 		30DB065B16E934AD006C9530 /* RETextItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETextItem.h; sourceTree = "<group>"; };
 		30DB065C16E934AD006C9530 /* RETextItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETextItem.m; sourceTree = "<group>"; };
 		30DB065D16E934AD006C9530 /* REActionBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REActionBar.h; sourceTree = "<group>"; };
@@ -220,8 +217,6 @@
 				30DB065616E934AD006C9530 /* RECreditCardItem.m */,
 				30DB065716E934AD006C9530 /* RENumberItem.h */,
 				30DB065816E934AD006C9530 /* RENumberItem.m */,
-				30DB065916E934AD006C9530 /* REStringItem.h */,
-				30DB065A16E934AD006C9530 /* REStringItem.m */,
 				30DB065B16E934AD006C9530 /* RETextItem.h */,
 				30DB065C16E934AD006C9530 /* RETextItem.m */,
 				30F41319170E0F620004EBAE /* RERadioItem.h */,
@@ -379,7 +374,6 @@
 				30DB066F16E934AD006C9530 /* REBoolItem.m in Sources */,
 				30DB067016E934AD006C9530 /* RECreditCardItem.m in Sources */,
 				30DB067116E934AD006C9530 /* RENumberItem.m in Sources */,
-				30DB067216E934AD006C9530 /* REStringItem.m in Sources */,
 				30DB067316E934AD006C9530 /* RETextItem.m in Sources */,
 				30DB067416E934AD006C9530 /* REActionBar.m in Sources */,
 				30DB067516E934AD006C9530 /* RETableViewCell.m in Sources */,

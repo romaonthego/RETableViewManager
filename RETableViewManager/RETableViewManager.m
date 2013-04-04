@@ -58,7 +58,7 @@
     [self mapObjectClass:@"__NSCFConstantString" toTableViewCellClass:@"RETableViewStringCell"];
     [self mapObjectClass:@"__NSCFString" toTableViewCellClass:@"RETableViewStringCell"];
     [self mapObjectClass:@"NSString" toTableViewCellClass:@"RETableViewStringCell"];
-    [self mapObjectClass:@"REStringItem" toTableViewCellClass:@"RETableViewStringCell"];
+    [self mapObjectClass:@"RETableViewItem" toTableViewCellClass:@"RETableViewStringCell"];
     [self mapObjectClass:@"RERadioItem" toTableViewCellClass:@"RETableViewStringCell"];
     [self mapObjectClass:@"REBoolItem" toTableViewCellClass:@"RETableViewBoolCell"];
     [self mapObjectClass:@"RETextItem" toTableViewCellClass:@"RETableViewTextCell"];

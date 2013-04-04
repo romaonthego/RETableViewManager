@@ -24,7 +24,6 @@
 //
 
 #import "RETableViewCell.h"
-#import "REStringItem.h"
 
 @interface RETableViewStringCell : RETableViewCell
 

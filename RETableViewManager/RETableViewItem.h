@@ -38,8 +38,16 @@
 @property (weak, readwrite, nonatomic) RETableViewSection *section;
 @property (copy, readwrite, nonatomic) NSString *detailLabelText;
 @property (assign, readwrite, nonatomic) UITableViewCellStyle cellStyle;
+@property (assign, readwrite, nonatomic) UITableViewCellAccessoryType accessoryType;
+@property (strong, readwrite, nonatomic) UIView *accessoryView;
 
 + (id)item;
++ (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock;
++ (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryButtonActionBlock:(void(^)(RETableViewItem *item))accessoryButtonActionBlock;
+
+- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock;
+- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryButtonActionBlock:(void(^)(RETableViewItem *item))accessoryButtonActionBlock;
+
 - (NSIndexPath *)indexPath;
 
 @end

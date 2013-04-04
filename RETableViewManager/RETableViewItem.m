@@ -33,6 +33,36 @@
     return [[self alloc] init];
 }
 
++ (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock
+{
+    return [[self alloc] initWithTitle:title accessoryType:accessoryType actionBlock:actionBlock accessoryButtonActionBlock:nil];
+}
+
++ (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryButtonActionBlock:(void(^)(RETableViewItem *item))accessoryButtonActionBlock
+{
+    return [[self alloc] initWithTitle:title accessoryType:accessoryType actionBlock:actionBlock accessoryButtonActionBlock:accessoryButtonActionBlock];
+}
+
+- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock
+{
+    return [self initWithTitle:title accessoryType:accessoryType actionBlock:actionBlock accessoryButtonActionBlock:nil];
+}
+
+- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryButtonActionBlock:(void(^)(RETableViewItem *item))accessoryButtonActionBlock
+{
+    self = [super init];
+    if (!self)
+        return nil;
+    
+    self.title = title;
+    self.accessoryType = accessoryType;
+    self.actionBlock = actionBlock;
+    self.performActionOnSelection = YES;
+    self.accessoryButtonActionBlock = accessoryButtonActionBlock;
+    
+    return self;
+}
+
 - (NSIndexPath *)indexPath
 {
     return [NSIndexPath indexPathForRow:[self.section.items indexOfObject:self] inSection:self.section.index];
