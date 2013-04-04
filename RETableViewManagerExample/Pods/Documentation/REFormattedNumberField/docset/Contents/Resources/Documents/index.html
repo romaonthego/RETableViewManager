@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>REFormattedNumberField 1.0.3 Reference</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="index.html">REFormattedNumberField 1.0.3 </a></h1>
+				<a id="developerHome" href="index.html">Roman Efimov</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">REFormattedNumberField 1.0.3 Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar"></ul>
+		</header>
+		<article>
+			<div id="overview_contents" role="main">
+				<div class="main-navigation navigation-top">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">REFormattedNumberField 1.0.3 Reference</h1>
+					</div>		
+				</div>
+				<div id="container">
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1><a href="Classes/REFormattedNumberField.html">REFormattedNumberField</a></h1>
+
+<p>UITextField subclass that allows numeric input in a predefined format.</p>
+
+<p>!<a href="https://github.com/romaonthego/REFormattedNumberField/raw/master/Screenshot.png" title="REFormattedNumberField Screenshot">Screenshot of REFormattedNumberField</a></p>
+
+<h2>Requirements</h2>
+
+<ul>
+<li>Xcode 4.5 or higher</li>
+<li>Apple LLVM compiler</li>
+<li>iOS 5.0 or higher</li>
+<li>ARC</li>
+</ul>
+
+
+<h2>Demo</h2>
+
+<p>Build and run the <code>REFormattedNumberFieldExample</code> project in Xcode to see <a href="Classes/REFormattedNumberField.html"><code>REFormattedNumberField</code></a> in action.</p>
+
+<h2>Installation</h2>
+
+<h3>CocoaPods</h3>
+
+<p>The recommended approach for installating <a href="Classes/REFormattedNumberField.html"><code>REFormattedNumberField</code></a> is via the <a href="http://cocoapods.org/">CocoaPods</a> package manager, as it provides flexible dependency management and dead simple installation.
+For best results, it is recommended that you install via CocoaPods >= <strong>0.15.2</strong> using Git >= <strong>1.8.0</strong> installed via Homebrew.</p>
+
+<p>Install CocoaPods if not already available:</p>
+
+<p><code>bash
+$ [sudo] gem install cocoapods
+$ pod setup
+</code></p>
+
+<p>Change to the directory of your Xcode project:</p>
+
+<p><code>bash
+$ cd /path/to/MyProject
+$ touch Podfile
+$ edit Podfile
+</code></p>
+
+<p>Edit your Podfile and add <a href="Classes/REFormattedNumberField.html">REFormattedNumberField</a>:</p>
+
+<p><code>bash
+platform :ios, '5.0'
+pod 'REFormattedNumberField', '~&gt; 1.0.3'
+</code></p>
+
+<p>Install into your Xcode project:</p>
+
+<p><code>bash
+$ pod install
+</code></p>
+
+<p>Open your project in Xcode from the .xcworkspace file (not the usual project file)</p>
+
+<p><code>bash
+$ open MyProject.xcworkspace
+</code></p>
+
+<p>Please note that if your installation fails, it may be because you are installing with a version of Git lower than CocoaPods is expecting. Please ensure that you are running Git >= <strong>1.8.0</strong> by executing <code>git --version</code>. You can get a full picture of the installation details by executing <code>pod install --verbose</code>.</p>
+
+<h3>Manual Install</h3>
+
+<p>All you need to do is drop <a href="Classes/REFormattedNumberField.html"><code>REFormattedNumberField</code></a> files into your project, and add <code>#include "</code>REFormattedNumberField<code>.h"</code> to the top of classes that will use it.</p>
+
+<h2>Example Usage</h2>
+
+<p>Pretty much all you need is just to specify <code>format</code> NSString, where <code>X</code> are digits and all other characters are separators.</p>
+
+<p>``` objective-c
+<a href="Classes/REFormattedNumberField.html">REFormattedNumberField</a> *phoneField1 = [[REFormattedNumberField alloc] initWithFrame:CGRectMake(20, 20, 280, 30)];
+phoneField1.format = @&ldquo;(XXX) XXX-XXXX&rdquo;;
+[self.view addSubview:phoneField1];</p>
+
+<p><a href="Classes/REFormattedNumberField.html">REFormattedNumberField</a> *phoneField2 = [[REFormattedNumberField alloc] initWithFrame:CGRectMake(20, 80, 280, 30)];
+phoneField2.format = @&ldquo;+X (XXX) XXX-XXXX&rdquo;;
+[self.view addSubview:phoneField2];</p>
+
+<p><a href="Classes/REFormattedNumberField.html">REFormattedNumberField</a> *ccField = [[REFormattedNumberField alloc] initWithFrame:CGRectMake(20, 140, 280, 30)];
+ccField.format = @&ldquo;XXXX XXXX XXXX XXXX&rdquo;;
+[self.view addSubview:ccField];</p>
+
+<p><a href="Classes/REFormattedNumberField.html">REFormattedNumberField</a> *ccExpirationField = [[REFormattedNumberField alloc] initWithFrame:CGRectMake(20, 200, 280, 30)];
+ccExpirationField.format = @&ldquo;XX/XX&rdquo;;
+[self.view addSubview:ccExpirationField];
+```</p>
+
+<h2>Contact</h2>
+
+<p>Roman Efimov</p>
+
+<ul>
+<li><a href="https://github.com/romaonthego">https://github.com/romaonthego</a></li>
+<li><a href="https://twitter.com/romaonthego">https://twitter.com/romaonthego</a></li>
+<li>romefimov@gmail.com</li>
+</ul>
+
+
+<h2>License</h2>
+
+<p><a href="Classes/REFormattedNumberField.html">REFormattedNumberField</a> is available under the MIT license.</p>
+
+<p>Copyright © 2013 Roman Efimov.</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &ldquo;Software&rdquo;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED &ldquo;AS IS&rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+						
+						
+					</div>
+					
+                        
+                    
+					
+					
+					<div class="index-column">
+						<h2 class="index-title">Class References</h2>
+						<ul>
+							
+							<li><a href="Classes/REFormattedNumberField.html">REFormattedNumberField</a></li>
+							
+						</ul>
+					</div>
+					
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Roman Efimov. All rights reserved. (Last updated: 2013-04-04)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+	
+					</div>
+				</div>
+			</div>
+		</article>		
+	</body>
+</html>

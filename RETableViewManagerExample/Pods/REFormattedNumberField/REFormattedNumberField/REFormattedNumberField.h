@@ -30,4 +30,6 @@
 @property (copy, readwrite, nonatomic) NSString *format;
 @property (copy, readonly, nonatomic) NSString *unformattedText;
 
+- (NSString *)string:(NSString *)string withNumberFormat:(NSString *)format;
+
 @end
