@@ -158,24 +158,13 @@
 
 - (void)actionBar:(REActionBar *)actionBar navigationControlValueChanged:(UISegmentedControl *)navigationControl
 {
-    if (navigationControl.selectedSegmentIndex == 0) {
-        NSIndexPath *indexPath = [self indexPathForPreviousResponder];
-        if (indexPath) {
-            RETableViewCell *cell = (RETableViewCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
-            if (!cell)
-                [self.parentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
-            cell = (RETableViewCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
-            [cell.responder becomeFirstResponder];
-        }
-    } else {
-        NSIndexPath *indexPath = [self indexPathForNextResponder];
-        if (indexPath) {
-            RETableViewCell *cell = (RETableViewCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
-            if (!cell)
-                [self.parentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
-            cell = (RETableViewCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
-            [cell.responder becomeFirstResponder];
-        }
+    NSIndexPath *indexPath = navigationControl.selectedSegmentIndex == 0 ? [self indexPathForPreviousResponder] : [self indexPathForNextResponder];
+    if (indexPath) {
+        RETableViewCell *cell = (RETableViewCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
+        if (!cell)
+            [self.parentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+        cell = (RETableViewCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
+        [cell.responder becomeFirstResponder];
     }
 }
 
