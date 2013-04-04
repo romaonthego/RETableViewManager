@@ -103,7 +103,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
-    NSObject *item = [section.items objectAtIndex:indexPath.row];
+    RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
     
     UITableViewCellStyle cellStyle = UITableViewCellStyleDefault;
     if ([item isKindOfClass:[RETableViewItem class]])

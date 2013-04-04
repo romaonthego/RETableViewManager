@@ -31,15 +31,15 @@
 @interface RETableViewItem : NSObject
 
 @property (copy, readwrite, nonatomic) NSString *title;
-@property (copy, readwrite, nonatomic) void (^actionBlock)(id item);
-@property (copy, readwrite, nonatomic) void (^accessoryButtonActionBlock)(id item);
+@property (weak, readwrite, nonatomic) RETableViewSection *section;
 @property (assign, readwrite, nonatomic) BOOL performActionOnSelection;
 @property (assign, readonly, nonatomic) BOOL canFocus;
-@property (weak, readwrite, nonatomic) RETableViewSection *section;
 @property (copy, readwrite, nonatomic) NSString *detailLabelText;
 @property (assign, readwrite, nonatomic) UITableViewCellStyle cellStyle;
 @property (assign, readwrite, nonatomic) UITableViewCellAccessoryType accessoryType;
 @property (strong, readwrite, nonatomic) UIView *accessoryView;
+@property (copy, readwrite, nonatomic) void (^actionBlock)(id item);
+@property (copy, readwrite, nonatomic) void (^accessoryButtonActionBlock)(id item);
 
 + (id)item;
 + (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock;

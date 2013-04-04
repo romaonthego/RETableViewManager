@@ -28,6 +28,7 @@
 #import "REActionBar.h"
 
 @class RETableViewManager;
+@class RETableViewItem;
 
 @interface RETableViewCell : UITableViewCell <REActionBarDelegate>
 
@@ -37,7 +38,7 @@
 @property (weak, readwrite, nonatomic) UITableView *parentTableView;
 @property (weak, readwrite, nonatomic) RETableViewManager *tableViewManager;
 @property (weak, readwrite, nonatomic) RETableViewSection *section;
-@property (strong, readwrite, nonatomic) NSObject *item;
+@property (strong, readwrite, nonatomic) RETableViewItem *item;
 @property (strong, readwrite, nonatomic) REActionBar *actionBar;
 
 + (CGFloat)heightWithItem:(NSObject *)item tableViewManager:(RETableViewManager *)tableViewManager;

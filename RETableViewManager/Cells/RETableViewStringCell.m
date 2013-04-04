@@ -41,7 +41,7 @@
 - (void)prepare
 {
     if ([self.item isKindOfClass:[NSString class]]) {
-        self.textLabel.text = self.item;
+        self.textLabel.text = (NSString *)self.item;
     } else {
         RETableViewItem *item = (RETableViewItem *)self.item;
         self.textLabel.text = item.title;

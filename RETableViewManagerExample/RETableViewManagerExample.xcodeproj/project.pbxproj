@@ -217,10 +217,10 @@
 				30DB065616E934AD006C9530 /* RECreditCardItem.m */,
 				30DB065716E934AD006C9530 /* RENumberItem.h */,
 				30DB065816E934AD006C9530 /* RENumberItem.m */,
-				30DB065B16E934AD006C9530 /* RETextItem.h */,
-				30DB065C16E934AD006C9530 /* RETextItem.m */,
 				30F41319170E0F620004EBAE /* RERadioItem.h */,
 				30F4131A170E0F620004EBAE /* RERadioItem.m */,
+				30DB065B16E934AD006C9530 /* RETextItem.h */,
+				30DB065C16E934AD006C9530 /* RETextItem.m */,
 			);
 			path = Items;
 			sourceTree = "<group>";
