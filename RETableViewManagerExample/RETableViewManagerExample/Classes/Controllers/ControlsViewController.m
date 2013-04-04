@@ -19,6 +19,8 @@
     [super viewDidLoad];
     self.title = @"Controls";
     
+    __typeof (&*self) __weak weakSelf = self;
+    
     // Create manager
     //
     _manager = [[RETableViewManager alloc] init];
@@ -37,17 +39,22 @@
     // Add items to this section
     //
     [section addItem:@"Simple NSString"];
+    
     RETextItem *fullLengthField = [RETextItem itemWithTitle:nil value:nil placeholder:@"Full length text field"];
     [section addItem:fullLengthField];
     
-    RETextItem *passwordItem = [RETextItem itemWithTitle:@"Password" value:nil placeholder:@"Password field"];
+    RETextItem *passwordItem = [RETextItem itemWithTitle:@"Password" value:nil placeholder:@"Password item"];
     passwordItem.secureTextEntry = YES;
     [section addItem:passwordItem];
-    [section addItem:[RETextItem itemWithTitle:@"Text item 1" value:nil placeholder:@"Text"]];
-    [section addItem:[RETextItem itemWithTitle:@"Text item 2" value:nil placeholder:@"Text"]];
-    [section addItem:[RETextItem itemWithTitle:@"Text item 3" value:nil placeholder:@"Text"]];
-    [section addItem:[RETextItem itemWithTitle:@"Text item 4" value:nil placeholder:@"Text"]];
+    
     [section addItem:[REBoolItem itemWithTitle:@"Bool item" value:YES]];
+    
+    REStringItem *optionItem = [REStringItem itemWithTitle:@"Radio" accessoryType:UITableViewCellAccessoryDisclosureIndicator actionBlock:^(RETableViewItem *item) {
+        [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+    }];
+    optionItem.detailLabelText = @"Option 17";
+    optionItem.cellStyle = UITableViewCellStyleValue1;
+    [section addItem:optionItem];
     
     section = [[RETableViewSection alloc] initWithHeaderTitle:@"Basic controls"];
     [_manager addSection:section];
@@ -58,8 +65,6 @@
     [section addItem:[RECreditCardItem item]];
     
     // ------
-    
-    __typeof (&*self) __weak weakSelf = self;
     
     // Create another section
     //

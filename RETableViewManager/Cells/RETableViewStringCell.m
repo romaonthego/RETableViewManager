@@ -33,6 +33,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier tableViewManager:(RETableViewManager *)tableViewManager];
     if (self) {
         // Initialization code
+        //self.detailTextLabel
     }
     return self;
 }

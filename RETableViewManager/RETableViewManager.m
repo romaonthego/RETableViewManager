@@ -103,13 +103,18 @@
 {
     RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
     NSObject *item = [section.items objectAtIndex:indexPath.row];
-    NSString *cellIdentifier = [NSString stringWithFormat:@"RETableViewManager_%@", [item class]];
+    
+    UITableViewCellStyle cellStyle = UITableViewCellStyleDefault;
+    if ([item isKindOfClass:[RETableViewItem class]])
+        cellStyle = ((RETableViewItem *)item).cellStyle;
+    
+    NSString *cellIdentifier = [NSString stringWithFormat:@"RETableViewManager_%@_%i", [item class], cellStyle];
   
     Class cellClass = [self classForCellAtIndexPath:indexPath];
     
     RETableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        cell = [[cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier tableViewManager:self];
+        cell = [[cellClass alloc] initWithStyle:cellStyle reuseIdentifier:cellIdentifier tableViewManager:self];
     }
     
     cell.row = indexPath.row;
@@ -117,6 +122,10 @@
     cell.parentTableView = tableView;
     cell.section = section;
     cell.item = item;
+    cell.detailTextLabel.text = nil;
+    
+    if ([item isKindOfClass:[RETableViewItem class]])
+        cell.detailTextLabel.text = ((RETableViewItem *)item).detailLabelText;
     [cell prepare];
     
     if ([_delegate respondsToSelector:@selector(tableView:styleCell:atIndexPath:)])
