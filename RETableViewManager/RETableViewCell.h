@@ -33,6 +33,7 @@
 @interface RETableViewCell : UITableViewCell <REActionBarDelegate>
 
 @property (strong, readonly, nonatomic) UIImageView *backgroundImageView;
+@property (strong, readonly, nonatomic) UIImageView *selectedBackgroundImageView;
 @property (assign, readwrite, nonatomic) NSInteger row;
 @property (assign, readwrite, nonatomic) NSInteger sectionIndex;
 @property (weak, readwrite, nonatomic) UITableView *parentTableView;

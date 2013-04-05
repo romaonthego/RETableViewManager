@@ -34,8 +34,10 @@
         return nil;
     
     _backgroundImages = [[NSMutableDictionary alloc] init];
+    _selectedBackgroundImages = [[NSMutableDictionary alloc] init];
     _textFieldFont = [UIFont systemFontOfSize:16];
     _cellHeight = 44;
+    _defaultCellSelectionStyle = UITableViewCellSelectionStyleBlue;
     
     return self;
 }
@@ -54,6 +56,22 @@
 {
     if (image)
         [_backgroundImages setObject:image forKey:@(cellType)];
+}
+
+- (BOOL)hasCustomSelectedBackgroundImage
+{
+    return [self selectedBackgroundImageForCellType:RETableViewCellFirst] || [self selectedBackgroundImageForCellType:RETableViewCellMiddle] || [self selectedBackgroundImageForCellType:RETableViewCellLast] || [self selectedBackgroundImageForCellType:RETableViewCellSingle];
+}
+
+- (UIImage *)selectedBackgroundImageForCellType:(RETableViewCellType)cellType
+{
+    return [_selectedBackgroundImages objectForKey:@(cellType)];
+}
+
+- (void)setSelectedBackgroundImage:(UIImage *)image forCellType:(RETableViewCellType)cellType
+{
+    if (image)
+        [_selectedBackgroundImages setObject:image forKey:@(cellType)];
 }
 
 @end

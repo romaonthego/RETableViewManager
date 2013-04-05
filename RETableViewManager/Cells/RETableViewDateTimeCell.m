@@ -7,6 +7,7 @@
 //
 
 #import "RETableViewDateTimeCell.h"
+#import "RETableViewManager.h"
 
 @implementation RETableViewDateTimeCell
 
@@ -14,7 +15,6 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.selectionStyle = UITableViewCellSelectionStyleBlue;
         self.textLabel.backgroundColor = [UIColor clearColor];
     }
     return self;
@@ -23,7 +23,7 @@
 - (void)cellDidLoad
 {
     [super cellDidLoad];
-
+    self.selectionStyle = self.tableViewManager.style.defaultCellSelectionStyle;
 }
 
 - (void)cellWillAppear

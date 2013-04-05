@@ -55,6 +55,13 @@
         _backgroundImageView = [[UIImageView alloc] init];
         [self.backgroundView addSubview:_backgroundImageView];
     }
+    
+    if ([self.tableViewManager.style hasCustomSelectedBackgroundImage]) {
+        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
+        self.selectedBackgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        _selectedBackgroundImageView = [[UIImageView alloc] init];
+        [self.selectedBackgroundView addSubview:_selectedBackgroundImageView];
+    }
 }
 
 - (void)cellWillAppear
@@ -89,6 +96,22 @@
             _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellLast];
         
         _backgroundImageView.frame = CGRectMake(0, 0, _backgroundImageView.image.size.width, _backgroundImageView.image.size.height);
+    }
+    
+    if ([self.tableViewManager.style hasCustomSelectedBackgroundImage]) {
+        if (self.row == 0 && self.section.items.count == 1)
+            _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:RETableViewCellSingle];
+        
+        if (self.row == 0 && self.section.items.count > 1)
+            _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:RETableViewCellFirst];
+        
+        if (self.row > 0 && self.row < self.section.items.count - 1 && self.section.items.count > 2)
+            _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:RETableViewCellMiddle];
+        
+        if (self.row == self.section.items.count - 1 && self.section.items.count > 1)
+            _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:RETableViewCellLast];
+        
+        _selectedBackgroundImageView.frame = CGRectMake(0, 0, _selectedBackgroundImageView.image.size.width, _selectedBackgroundImageView.image.size.height);
     }
 }
 
