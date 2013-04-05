@@ -15,6 +15,8 @@
 @property (assign, readwrite, nonatomic) UIDatePickerMode datePickerMode;
 
 + (id)itemWithTitle:(NSString *)title value:(NSDate *)value format:(NSString *)format;
++ (id)itemWithTitle:(NSString *)title value:(NSDate *)value format:(NSString *)format datePickerMode:(UIDatePickerMode)datePickerMode;
 - (id)initWithTitle:(NSString *)title value:(NSDate *)value format:(NSString *)format;
+- (id)initWithTitle:(NSString *)title value:(NSDate *)value format:(NSString *)format datePickerMode:(UIDatePickerMode)datePickerMode;
 
 @end
