@@ -96,6 +96,29 @@ RETableViewManager includes a number of built-in items and cells that were mappe
 
 ## Examples
 
+### Simple Example
+
+``` objective-c
+// Create manager and assign it to be the delegate and datasource of your UITableView
+//
+_tableViewManager = [[RETableViewManager alloc] init];
+self.tableView.delegate = _tableViewManager;
+self.tableView.dataSource = _tableViewManager;
+
+// Add section
+//
+RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Test"];
+[_tableViewManager addSection:section];
+
+// Add string cell with disclosure indicator
+//
+[section addItem:[RETableViewItem itemWithTitle:"String cell" accessoryType:UITableViewCellAccessoryDisclosureIndicator actionBlock:^(RETableViewItem *item) {
+    NSLog(@"Test: %@", item);
+}]];
+```
+
+### More Complex Example
+
 ``` objective-c
 // Create manager and assign it to be the delegate and datasource of your UITableView
 //
