@@ -103,6 +103,16 @@
     [section2 addItem:[RETableViewItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryCheckmark actionBlock:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
     }]];
+    
+    RETableViewSection *section3 = [[RETableViewSection alloc] init];
+    [_manager addSection:section3];
+    
+    RETableViewItem *buttonItem = [RETableViewItem itemWithTitle:@"Test button" accessoryType:UITableViewCellAccessoryNone actionBlock:^(RETableViewItem *item) {
+        [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+        NSLog(@"Button pressed");
+    }];
+    buttonItem.textAlignment = NSTextAlignmentCenter;
+    [section3 addItem:buttonItem];
 }
 
 @end
