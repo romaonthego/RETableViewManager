@@ -80,17 +80,17 @@ RETableViewManager includes a number of built-in items and cells that were mappe
   <tr>
     <td>REBoolItem</td>
     <td>RETableViewBoolCell</td>
-    <td></td>
+    <td>Provides convenience for user boolean input using <tt>UISwitch</tt>.</td>
   </tr>
   <tr>
     <td>RERadioItem</td>
     <td>RETableViewCell</td>
-    <td></td>
+    <td>Provides convenience for selecting options using <tt>RETableViewOptionsController</tt>.</td>
   </tr>
   <tr>
     <td>RECreditCardItem</td>
     <td>RETableViewCreditCardCell</td>
-    <td></td>
+    <td>Provides convenience for user credit card input. Allows to enter credit card number, expiration date and security code all in one table cell.</td>
   </tr>
 </table>
 
