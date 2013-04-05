@@ -24,7 +24,7 @@
     [super cellDidLoad];
     
     _sliderView = [[UISlider alloc] init];
-    [_sliderView addTarget:self action:@selector(sliderValueDidChanged:) forControlEvents:UIControlEventValueChanged];
+    [_sliderView addTarget:self action:@selector(sliderValueDidChange:) forControlEvents:UIControlEventValueChanged];
     self.accessoryView = _sliderView;
 }
 
@@ -38,7 +38,7 @@
 #pragma mark -
 #pragma mark UISwitch events
 
-- (void)sliderValueDidChanged:(UISlider *)slider
+- (void)sliderValueDidChange:(UISlider *)slider
 {
     self.item.value = slider.value;
     if (self.item.actionBlock)

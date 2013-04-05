@@ -10,9 +10,11 @@
 
 @interface REDateTimeItem : RETableViewItem
 
-@property (assign, readwrite, nonatomic) NSDate *value;
+@property (strong, readwrite, nonatomic) NSDate *value;
+@property (strong, readwrite, nonatomic) NSString *format;
+@property (assign, readwrite, nonatomic) UIDatePickerMode datePickerMode;
 
-+ (id)itemWithTitle:(NSString *)title value:(NSDate *)value;
-- (id)initWithTitle:(NSString *)title value:(NSDate *)value;
++ (id)itemWithTitle:(NSString *)title value:(NSDate *)value format:(NSString *)format;
+- (id)initWithTitle:(NSString *)title value:(NSDate *)value format:(NSString *)format;
 
 @end

@@ -23,12 +23,27 @@
 - (void)cellDidLoad
 {
     [super cellDidLoad];
+    _datePicker = [[UIDatePicker alloc] init];
+    _dateFormatter = [[NSDateFormatter alloc] init];
+    [_datePicker addTarget:self action:@selector(datePickerValueDidChange:) forControlEvents:UIControlEventValueChanged];
     self.selectionStyle = self.tableViewManager.style.defaultCellSelectionStyle;
 }
 
 - (void)cellWillAppear
 {
+    _textField = [[UITextField alloc] initWithFrame:CGRectNull];
+    
+    _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    _textField.inputAccessoryView = self.actionBar;
+    _textField.delegate = self;
+    [self addSubview:_textField];
+    
     self.textLabel.text = self.item.title;
+    self.textField.inputView = _datePicker;
+    _datePicker.date = self.item.value;
+    
+    _dateFormatter.dateFormat = self.item.format;
+    self.detailTextLabel.text = [_dateFormatter stringFromDate:self.item.value];
 }
 
 - (void)layoutSubviews
@@ -38,9 +53,49 @@
     self.textField.alpha = 0;
 }
 
-- (void)textFieldDidChange:(UITextField *)textField
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
-    
+    [super setSelected:selected animated:animated];
+    if (selected) {
+        [_textField becomeFirstResponder];
+    }
+}
+
+- (UIResponder *)responder
+{
+    return _textField;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if (!self.selected)
+        [self setSelected:YES animated:NO];
+    NSIndexPath *indexPath = [self indexPathForNextResponder];
+    if (indexPath) {
+        textField.returnKeyType = UIReturnKeyNext;
+    } else {
+        textField.returnKeyType = UIReturnKeyDefault;
+    }
+    [self updateActionBarNavigationControl];
+    [self.parentTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.row inSection:self.sectionIndex] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    [self setSelected:NO animated:NO];
+    self.item.value = _datePicker.date;
+    self.detailTextLabel.text = [_dateFormatter stringFromDate:self.item.value];
+    return YES;
+}
+
+#pragma mark -
+#pragma mark Date picker value
+
+- (void)datePickerValueDidChange:(UIDatePicker *)datePicker
+{
+    self.item.value = _datePicker.date;
+    self.detailTextLabel.text = [_dateFormatter stringFromDate:self.item.value];
 }
 
 @end

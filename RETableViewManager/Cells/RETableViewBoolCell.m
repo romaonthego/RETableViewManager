@@ -41,7 +41,7 @@
     [super cellDidLoad];
     
     _switchView = [[UISwitch alloc] init];
-    [_switchView addTarget:self action:@selector(switchValueDidChanged:) forControlEvents:UIControlEventValueChanged];
+    [_switchView addTarget:self action:@selector(switchValueDidChange:) forControlEvents:UIControlEventValueChanged];
     self.accessoryView = _switchView;
 }
 
@@ -54,7 +54,7 @@
 #pragma mark -
 #pragma mark UISwitch events
 
-- (void)switchValueDidChanged:(UISwitch *)switchView
+- (void)switchValueDidChange:(UISwitch *)switchView
 {
     self.item.value = switchView.isOn;
     if (self.item.actionBlock)
