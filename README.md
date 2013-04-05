@@ -245,7 +245,7 @@ RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"
 // Add radio cell (options)
 //
 __typeof (&*self) __weak weakSelf = self;
-RERadioItem *optionItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" actionBlock:^(RETableViewItem *item) {
+RERadioItem *optionItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" actionBlock:^(RERadioItem *item) {
   [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
 
   // Generate sample options
@@ -257,7 +257,7 @@ RERadioItem *optionItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" 
   // Present options controller
   //
   RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options completionHandler:^(RETableViewItem *selectedItem) {
-      item.detailLabelText = selectedItem.title;
+      item.value = selectedItem.title;
       [weakSelf.tableView reloadRowsAtIndexPaths:@[item.indexPath] withRowAnimation:UITableViewRowAnimationNone];
   }];
   [weakSelf.navigationController pushViewController:optionsController animated:YES];
