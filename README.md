@@ -105,18 +105,18 @@ Subclass UITableViewController, remove all code inside of the implementation sec
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Create manager and assign it to be the delegate and datasource of your UITableView
+    // Create the manager and assign it to be the delegate and datasource of your UITableView
     //
     _tableViewManager = [[RETableViewManager alloc] init];
     self.tableView.delegate = _tableViewManager;
     self.tableView.dataSource = _tableViewManager;
 
-    // Add section
+    // Add a section
     //
     RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Test"];
     [_tableViewManager addSection:section];
 
-    // Add string cell with disclosure indicator
+    // Add a basic cell with disclosure indicator
     //
     [section addItem:[RETableViewItem itemWithTitle:"String cell" accessoryType:UITableViewCellAccessoryDisclosureIndicator actionBlock:^(RETableViewItem *item) {
         NSLog(@"Test: %@", item);
