@@ -166,6 +166,24 @@ It's super easy to create custom mappings, for example, this how all NSString ob
 [_tableViewManager mapObjectClass:@"NSString" toTableViewCellClass:@"RETableViewCell"];
 ```
 
+If you take a look at [RETableViewManager Source Code](https://github.com/romaonthego/RETableViewManager/blob/master/RETableViewManager/RETableViewManager.m) you may
+find how default mapping is performed:
+
+``` objective-c
+- (void)setDefaultMapping
+{
+    [self mapObjectClass:@"__NSCFConstantString" toTableViewCellClass:@"RETableViewCell"];
+    [self mapObjectClass:@"__NSCFString" toTableViewCellClass:@"RETableViewCell"];
+    [self mapObjectClass:@"NSString" toTableViewCellClass:@"RETableViewCell"];
+    [self mapObjectClass:@"RETableViewItem" toTableViewCellClass:@"RETableViewCell"];
+    [self mapObjectClass:@"RERadioItem" toTableViewCellClass:@"RETableViewCell"];
+    [self mapObjectClass:@"REBoolItem" toTableViewCellClass:@"RETableViewBoolCell"];
+    [self mapObjectClass:@"RETextItem" toTableViewCellClass:@"RETableViewTextCell"];
+    [self mapObjectClass:@"RENumberItem" toTableViewCellClass:@"RETableViewNumberCell"];
+    [self mapObjectClass:@"RECreditCardItem" toTableViewCellClass:@"RETableViewCreditCardCell"];
+}
+```
+
 ### More Complex Example
 
 ``` objective-c
