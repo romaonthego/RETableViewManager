@@ -160,14 +160,14 @@ RETableViewSection *section = [RETableViewSection sectionWithHeaderView:myCustom
 
 ### Item to Cell Mapping
 
-It's super easy to create custom mappings, for example, this how all NSString objects are being matched with RETableViewCell:
+It's super easy to create custom mappings, for example, this how all `NSString` objects are being matched with `RETableViewCell`:
 
 ``` objective-c
 [_tableViewManager mapObjectClass:@"NSString" toTableViewCellClass:@"RETableViewCell"];
 ```
 
 If you take a look at [RETableViewManager Source Code](https://github.com/romaonthego/RETableViewManager/blob/master/RETableViewManager/RETableViewManager.m) you may
-find how default mapping is performed:
+find out how default mapping is performed:
 
 ``` objective-c
 - (void)setDefaultMapping
@@ -183,7 +183,7 @@ find how default mapping is performed:
     [self mapObjectClass:@"RECreditCardItem" toTableViewCellClass:@"RETableViewCreditCardCell"];
 }
 ```
-
+g
 ### More Complex Example
 
 ``` objective-c
