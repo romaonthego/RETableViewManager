@@ -128,7 +128,7 @@ Subclass UITableViewController, remove all code inside of the implementation sec
 }
 ```
 
-### Creating Sections
+### Creating Sections Example
 
 Section without a title:
 
@@ -158,7 +158,7 @@ RETableViewSection *section = [RETableViewSection sectionWithHeaderView:myCustom
 [_tableViewManager addSection:section];
 ```
 
-### Item to Cell Mapping
+### Item to Cell Mapping Example
 
 It's super easy to create custom mappings, for example, this how all `NSString` objects are being matched with `RETableViewCell`:
 
@@ -183,40 +183,64 @@ find out how default mapping is performed:
     [self mapObjectClass:@"RECreditCardItem" toTableViewCellClass:@"RETableViewCreditCardCell"];
 }
 ```
-g
-### More Complex Example
+
+### Text and Number Item Example
 
 ``` objective-c
-// Create manager and assign it to be the delegate and datasource of your UITableView
+// Create the manager and assign it to be the delegate and datasource of your UITableView
 //
 _tableViewManager = [[RETableViewManager alloc] init];
 self.tableView.delegate = _tableViewManager;
 self.tableView.dataSource = _tableViewManager;
 
-// Add section
+// Add a section
 //
 RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Test"];
 [_tableViewManager addSection:section];
 
-// Add simple string item
-//
-[section addItem:@"Test"];
+_textItem = [RETextItem itemWithTitle:@"Enter text" value:@""];
+[section addItem:_textItem];
 
-// Add string cell with disclosure indicator
-//
-[section addItem:[RETableViewItem itemWithTitle:"String cell" accessoryType:UITableViewCellAccessoryDisclosureIndicator actionBlock:^(RETableViewItem *item) {
-    NSLog(@"Test: %@", item);
-}]];
+_numberItem = [RENumberItem itemWithTitle:@"Enter text" value:@"" placeholder:@"(123) 456-7890" format:@"(XXX) XXX-XXXX"];
+[section addItem:_numberItem];
+```
 
-// Add editable table cell (using UITextField)
-//
-[section addItem:[RETextItem itemWithTitle:@"Enter text" value:@""]];
+You can read `_textItem.value` and `_numberItem.value` later whenever you need them.
 
-// Add bool value cell (using UISwitch)
+### Bool Item Example
+
+``` objective-c
+// Create the manager and assign it to be the delegate and datasource of your UITableView
+//
+_tableViewManager = [[RETableViewManager alloc] init];
+self.tableView.delegate = _tableViewManager;
+self.tableView.dataSource = _tableViewManager;
+
+// Add a section
+//
+RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Test"];
+[_tableViewManager addSection:section];
+
+// Add a bool value cell (using UISwitch)
 //
 [section addItem:[REBoolItem itemWithTitle:@"Switch test" value:YES actionBlock:^(REBoolItem *item) {
     NSLog(@"Value: %i", item.value);
 }]];
+```
+
+### Radio (options) Item Example
+
+``` objective-c
+// Create the manager and assign it to be the delegate and datasource of your UITableView
+//
+_tableViewManager = [[RETableViewManager alloc] init];
+self.tableView.delegate = _tableViewManager;
+self.tableView.dataSource = _tableViewManager;
+
+// Add a section
+//
+RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Test"];
+[_tableViewManager addSection:section];
 
 // Add radio cell (options)
 //
@@ -239,13 +263,6 @@ RERadioItem *optionItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" 
   [weakSelf.navigationController pushViewController:optionsController animated:YES];
 }];
 [section addItem:optionItem];
-
-
-// Add another section
-//
-RETableViewSection *section2 = [[RETableViewSection alloc] initWithHeaderTitle:@"Section 2"];
-section2.footerTitle = @"Hey, I'm a footer";
-[_tableViewManager addSection:section2];
 ```
 
 ## Contact
