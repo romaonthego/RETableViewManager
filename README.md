@@ -128,6 +128,36 @@ Subclass UITableViewController, remove all code inside of the implementation sec
 }
 ```
 
+### Creating Sections
+
+Section without a title:
+
+``` objective-c
+RETableViewSection *section = [RETableViewSection section];
+[_tableViewManager addSection:section];
+```
+
+Section with a title:
+
+``` objective-c
+RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Header"];
+[_tableViewManager addSection:section];
+```
+
+Section with a title and a footer:
+
+``` objective-c
+RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Header" footerTitle:@"Footer"];
+[_tableViewManager addSection:section];
+```
+
+Section with a custom title view:
+
+``` objective-c
+RETableViewSection *section = [RETableViewSection sectionWithHeaderView:myCustomSectionHeaderView];
+[_tableViewManager addSection:section];
+```
+
 ### More Complex Example
 
 ``` objective-c
