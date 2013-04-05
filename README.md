@@ -75,7 +75,7 @@ RETableViewManager includes a number of built-in items and cells that were mappe
   <tr>
     <td>RENumberItem</td>
     <td>RETableViewNumberCell</td>
-    <td></td>
+    <td>Provides convenience for user number input using <a href="https://github.com/romaonthego/REFormattedNumberField">REFormattedNumberField</a>.</td>
   </tr>
   <tr>
     <td>REBoolItem</td>
