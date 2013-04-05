@@ -98,23 +98,30 @@ RETableViewManager includes a number of built-in items and cells that were mappe
 
 ### Simple Example
 
+Subclass UITableViewController, remove all code inside of the implementation section and paste just this 
+(yes, now it's that easy to manage `UITableView` content):
+
 ``` objective-c
-// Create manager and assign it to be the delegate and datasource of your UITableView
-//
-_tableViewManager = [[RETableViewManager alloc] init];
-self.tableView.delegate = _tableViewManager;
-self.tableView.dataSource = _tableViewManager;
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Create manager and assign it to be the delegate and datasource of your UITableView
+    //
+    _tableViewManager = [[RETableViewManager alloc] init];
+    self.tableView.delegate = _tableViewManager;
+    self.tableView.dataSource = _tableViewManager;
 
-// Add section
-//
-RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Test"];
-[_tableViewManager addSection:section];
+    // Add section
+    //
+    RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Test"];
+    [_tableViewManager addSection:section];
 
-// Add string cell with disclosure indicator
-//
-[section addItem:[RETableViewItem itemWithTitle:"String cell" accessoryType:UITableViewCellAccessoryDisclosureIndicator actionBlock:^(RETableViewItem *item) {
-    NSLog(@"Test: %@", item);
-}]];
+    // Add string cell with disclosure indicator
+    //
+    [section addItem:[RETableViewItem itemWithTitle:"String cell" accessoryType:UITableViewCellAccessoryDisclosureIndicator actionBlock:^(RETableViewItem *item) {
+        NSLog(@"Test: %@", item);
+    }]];
+}
 ```
 
 ### More Complex Example
