@@ -8,7 +8,7 @@ In its core RETableViewManager supports reusable cells based on corresponding da
 The general idea is to allow developers use their own `UITableView` and `UITableViewController` instances, 
 providing a layer that synchronizes data and cell appereance. 
 
-_This is still in the early stages of development and it's highly not recommended to use it in production apps._
+### _This is still in the early stages of development and it's highly not recommended to use it in production apps._
 
 ![Screenshot of RETableViewManager](https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot.png "RETableViewManager Screenshot")
 
@@ -36,6 +36,12 @@ RETableViewManager is broken into several modules. Key classes in each module ar
     <td>RETableViewItem</td>
     <td>RETableViewItem is the root class of most <tt>RETableViewManager</tt> item hierarchies.<br />
     Through <tt>RETableViewItem</tt>, items inherit a basic interface that communicates with <tt>RETableViewCell</tt> and <tt>RETableViewManager</tt>.</td>
+  </tr>
+  <tr>
+    <td>RETableViewCell</td>
+    <td>The <tt>RETableViewCell</tt> class defines the attributes and behavior of the cells that appear in <tt>UITableView</tt> objects.
+     You should subclass <tt>RETableViewCell</tt> to obtain cell characteristics and behavior specific to your application's needs. 
+     By default, <tt>RETableViewCell</tt> is being mapped with <tt>RETableViewItem</tt>.</td>
   </tr>
   <tr><th colspan="2" style="text-align:center;">Styling</th></tr>
   <tr>
