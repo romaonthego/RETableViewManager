@@ -26,19 +26,28 @@ RETableViewManager is broken into several modules. Key classes in each module ar
   <tr><th colspan="2" style="text-align:center;">RETableViewManager</th></tr>
   <tr>
     <td>RETableViewManager</td>
-    <td>Main manager class.</td>
+    <td>Main manager class. Each manager has multiple <tt>RETableViewSection</tt> sections.</td>
   </tr>
-  <tr><th colspan="2" style="text-align:center;">Helper Controllers</th></tr>
   <tr>
-    <td>RETableViewOptionsController</td>
-    <td>Performs selection based on user input and provides result on completion. Should be used with RERadioItem.
-    </td>
+    <td>RETableViewSection</td>
+    <td>Represents sections in RETableViewManager, each section has multiple <tt>RETableViewItem</tt>.</td>
+  </tr>
+  <tr>
+    <td>RETableViewItem</td>
+    <td>RETableViewItem is the root class of most <tt>RETableViewManager</tt> item hierarchies.<br />
+    Through <tt>RETableViewItem</tt>, items inherit a basic interface that communicates with <tt>RETableViewCell</tt> and <tt>RETableViewManager</tt>.</td>
   </tr>
   <tr><th colspan="2" style="text-align:center;">Styling</th></tr>
   <tr>
     <td>RETableViewCellStyle</td>
     <td>Provides style for <tt>RETableViewCell</tt> subclasses. You can define such properties as
     <tt>textFieldFont</tt>, <tt>cellHeight</tt>, <tt>backgroundImage</tt> and more.</td>
+  </tr>
+  <tr><th colspan="2" style="text-align:center;">Helper Controllers</th></tr>
+  <tr>
+    <td>RETableViewOptionsController</td>
+    <td>Performs selection based on user input and provides result on completion. Should be used with RERadioItem.
+    </td>
   </tr>
 </table>
 
