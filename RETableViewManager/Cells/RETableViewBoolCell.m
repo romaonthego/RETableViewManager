@@ -27,6 +27,9 @@
 
 @implementation RETableViewBoolCell
 
+#pragma mark -
+#pragma mark Lifecycle
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -52,7 +55,7 @@
 }
 
 #pragma mark -
-#pragma mark UISwitch events
+#pragma mark Handle events
 
 - (void)switchValueDidChange:(UISwitch *)switchView
 {

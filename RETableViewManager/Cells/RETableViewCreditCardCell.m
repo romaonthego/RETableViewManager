@@ -51,6 +51,9 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     return YES;
 }
 
+#pragma mark -
+#pragma mark Lifecycle
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -118,15 +121,7 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     [_wrapperView addSubview:_cvvField];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-    if (selected) {
-        [_creditCardField becomeFirstResponder];
-    }
-}
-
-- (void)prepare
+- (void)cellWillAppear
 {
     self.textLabel.text = self.item.title;
     _textFieldPositionOffset = self.tableViewManager.style.textFieldPositionOffset;
@@ -167,6 +162,14 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     _cvvField.frame = frame;
 }
 
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    [super setSelected:selected animated:animated];
+    if (selected) {
+        [_creditCardField becomeFirstResponder];
+    }
+}
+
 - (UIResponder *)responder
 {
     return _creditCardField;
@@ -180,7 +183,7 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
 }
 
 #pragma mark -
-#pragma mark UISwitch events
+#pragma mark Handle events
 
 - (void)textFieldDidChange:(UITextField *)textField
 {
@@ -231,6 +234,9 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
         [_cvvField becomeFirstResponder];
     }
 }
+
+#pragma mark - 
+#pragma mark UITextFieldDelegate
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {

@@ -10,6 +10,9 @@
 
 @implementation RETableViewFloatCell
 
+#pragma mark -
+#pragma mark Lifecycle
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
