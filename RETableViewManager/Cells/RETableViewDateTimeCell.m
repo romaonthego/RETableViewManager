@@ -41,6 +41,7 @@
     self.textLabel.text = self.item.title;
     self.textField.inputView = _datePicker;
     _datePicker.date = self.item.value;
+    _datePicker.datePickerMode = self.item.datePickerMode;
     
     _dateFormatter.dateFormat = self.item.format;
     self.detailTextLabel.text = [_dateFormatter stringFromDate:self.item.value];
@@ -65,6 +66,9 @@
 {
     return _textField;
 }
+
+#pragma mark -
+#pragma mark UITextFieldDelegate
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
