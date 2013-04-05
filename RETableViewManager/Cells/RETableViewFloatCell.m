@@ -36,7 +36,7 @@
 }
 
 #pragma mark -
-#pragma mark UISwitch events
+#pragma mark Handle events
 
 - (void)sliderValueDidChange:(UISlider *)slider
 {

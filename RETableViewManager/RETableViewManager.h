@@ -131,6 +131,11 @@
 - (void)sortSectionsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context;
 - (void)sortSectionsUsingSelector:(SEL)comparator;
 
+///-----------------------------
+/// @name Other
+///-----------------------------
+- (Class)classForCellAtIndexPath:(NSIndexPath *)indexPath;
+
 @end
 
 @protocol RETableViewManagerDelegate <NSObject>

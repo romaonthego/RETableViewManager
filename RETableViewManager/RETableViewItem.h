@@ -33,7 +33,6 @@
 @property (copy, readwrite, nonatomic) NSString *title;
 @property (weak, readwrite, nonatomic) RETableViewSection *section;
 @property (assign, readwrite, nonatomic) BOOL performActionOnSelection;
-@property (assign, readonly, nonatomic) BOOL canFocus;
 @property (copy, readwrite, nonatomic) NSString *detailLabelText;
 @property (assign, readwrite, nonatomic) UITableViewCellStyle cellStyle;
 @property (assign, readwrite, nonatomic) UITableViewCellAccessoryType accessoryType;

@@ -11,6 +11,14 @@
 
 @implementation RETableViewNumberCell
 
++ (BOOL)canFocus
+{
+    return YES;
+}
+
+#pragma mark -
+#pragma mark Lifecycle
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -46,6 +54,9 @@
     self.textField.keyboardAppearance = self.item.keyboardAppearance;
     self.textField.keyboardType = UIKeyboardTypeNumberPad;
 }
+
+#pragma mark -
+#pragma mark Handle events
 
 - (void)textFieldDidChange:(REFormattedNumberField *)textField
 {
