@@ -23,7 +23,7 @@ _This is still in the early stages of development and it's highly not recommende
 RETableViewManager is broken into several modules. Key classes in each module are highlighted below.
 
 <table>
-  <tr><th colspan="2" style="text-align:center;">RETableViewManager</th></tr>
+  <tr><th colspan="2" style="text-align:center;">Key Classes</th></tr>
   <tr>
     <td>RETableViewManager</td>
     <td>Main manager class. Each manager has multiple <tt>RETableViewSection</tt> sections.</td>
