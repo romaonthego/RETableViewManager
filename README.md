@@ -18,7 +18,31 @@ _This is still in the early stages of development and it's highly not recommende
 * iOS 5.0 or higher
 * ARC
 
-## Example Usage
+### API Quickstart
+
+RETableViewManager is broken into several modules. Key classes in each module are highlighted below.
+
+<table>
+  <tr><th colspan="2" style="text-align:center;">RETableViewManager</th></tr>
+  <tr>
+    <td>RETableViewManager</td>
+    <td>Main manager class.</td>
+  </tr>
+  <tr><th colspan="2" style="text-align:center;">Helper Controllers</th></tr>
+  <tr>
+    <td>RETableViewOptionsController</td>
+    <td>Performs selection based on user input and provides result on completion. Should be used with RERadioItem.
+    </td>
+  </tr>
+  <tr><th colspan="2" style="text-align:center;">Styling</th></tr>
+  <tr>
+    <td>RETableViewCellStyle</td>
+    <td>Provides style for <tt>RETableViewCell</tt> subclasses. You can define such properties as
+    <tt>textFieldFont</tt>, <tt>cellHeight</tt>, <tt>backgroundImage</tt> and more.</td>
+  </tr>
+</table>
+
+## Examples
 
 ``` objective-c
 // Create manager and assign it to be the delegate and datasource of your UITableView
