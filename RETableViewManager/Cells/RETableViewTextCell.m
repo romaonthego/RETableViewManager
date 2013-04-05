@@ -93,7 +93,7 @@
     CGRect frame = CGRectMake(0, self.tableViewManager.style.textFieldPositionOffset.height, 0, self.frame.size.height - self.tableViewManager.style.textFieldPositionOffset.height);
     if (self.item.title && ![self.item.title isEqualToString:@""]) {
         for (RETableViewItem *item in self.section.items) {
-            if ([item isKindOfClass:[RETextItem class]] || [item isKindOfClass:[RENumberItem class]]) {
+            if ([item isMemberOfClass:[RETextItem class]]) {
                 CGSize size = [item.title sizeWithFont:self.textLabel.font];
                 width = MAX(width, size.width);
             }

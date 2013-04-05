@@ -39,6 +39,7 @@
 #import "RENumberItem.h"
 #import "RECreditCardItem.h"
 #import "REFloatItem.h"
+#import "REDateTimeItem.h"
 
 @protocol RETableViewManagerDelegate;
 

@@ -56,6 +56,8 @@
         NSLog(@"Value: %f", item.value);
     }]];
     
+    [section addItem:[REDateTimeItem itemWithTitle:@"Date / Time" value:[NSDate date]]];
+    
     RERadioItem *optionItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" actionBlock:^(RERadioItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
         

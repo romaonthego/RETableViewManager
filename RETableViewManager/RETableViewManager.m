@@ -64,6 +64,7 @@
     [self mapObjectClass:@"RETextItem" toTableViewCellClass:@"RETableViewTextCell"];
     [self mapObjectClass:@"RENumberItem" toTableViewCellClass:@"RETableViewNumberCell"];
     [self mapObjectClass:@"REFloatItem" toTableViewCellClass:@"RETableViewFloatCell"];
+    [self mapObjectClass:@"REDateTimeItem" toTableViewCellClass:@"RETableViewDateTimeCell"];
     [self mapObjectClass:@"RECreditCardItem" toTableViewCellClass:@"RETableViewCreditCardCell"];
 }
 

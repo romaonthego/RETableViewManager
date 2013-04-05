@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		300E5A26170F486800910013 /* REFloatItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 300E5A25170F486800910013 /* REFloatItem.m */; };
 		300E5A29170F48EC00910013 /* RETableViewFloatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 300E5A28170F48EC00910013 /* RETableViewFloatCell.m */; };
+		300E5A2C170F621400910013 /* REDateTimeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 300E5A2B170F621400910013 /* REDateTimeItem.m */; };
+		300E5A2F170F63B600910013 /* RETableViewDateTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 300E5A2E170F63B600910013 /* RETableViewDateTimeCell.m */; };
 		302D2150170B25B10085654F /* ControlsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D214A170B25B10085654F /* ControlsViewController.m */; };
 		302D2151170B25B10085654F /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D214C170B25B10085654F /* ListViewController.m */; };
 		302D2152170B25B10085654F /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D214E170B25B10085654F /* RootViewController.m */; };
@@ -49,6 +51,10 @@
 		300E5A25170F486800910013 /* REFloatItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFloatItem.m; sourceTree = "<group>"; };
 		300E5A27170F48EC00910013 /* RETableViewFloatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewFloatCell.h; sourceTree = "<group>"; };
 		300E5A28170F48EC00910013 /* RETableViewFloatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewFloatCell.m; sourceTree = "<group>"; };
+		300E5A2A170F621400910013 /* REDateTimeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDateTimeItem.h; sourceTree = "<group>"; };
+		300E5A2B170F621400910013 /* REDateTimeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDateTimeItem.m; sourceTree = "<group>"; };
+		300E5A2D170F63B600910013 /* RETableViewDateTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewDateTimeCell.h; sourceTree = "<group>"; };
+		300E5A2E170F63B600910013 /* RETableViewDateTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewDateTimeCell.m; sourceTree = "<group>"; };
 		302D2149170B25B10085654F /* ControlsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlsViewController.h; sourceTree = "<group>"; };
 		302D214A170B25B10085654F /* ControlsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlsViewController.m; sourceTree = "<group>"; };
 		302D214B170B25B10085654F /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
@@ -207,6 +213,8 @@
 				30F4138D170E2E820004EBAE /* RETableViewNumberCell.m */,
 				300E5A27170F48EC00910013 /* RETableViewFloatCell.h */,
 				300E5A28170F48EC00910013 /* RETableViewFloatCell.m */,
+				300E5A2D170F63B600910013 /* RETableViewDateTimeCell.h */,
+				300E5A2E170F63B600910013 /* RETableViewDateTimeCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -226,6 +234,8 @@
 				30DB065C16E934AD006C9530 /* RETextItem.m */,
 				300E5A24170F486800910013 /* REFloatItem.h */,
 				300E5A25170F486800910013 /* REFloatItem.m */,
+				300E5A2A170F621400910013 /* REDateTimeItem.h */,
+				300E5A2B170F621400910013 /* REDateTimeItem.m */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -395,6 +405,8 @@
 				30F4138E170E2E820004EBAE /* RETableViewNumberCell.m in Sources */,
 				300E5A26170F486800910013 /* REFloatItem.m in Sources */,
 				300E5A29170F48EC00910013 /* RETableViewFloatCell.m in Sources */,
+				300E5A2C170F621400910013 /* REDateTimeItem.m in Sources */,
+				300E5A2F170F63B600910013 /* RETableViewDateTimeCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
