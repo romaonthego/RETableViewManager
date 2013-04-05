@@ -232,7 +232,7 @@ RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"
 }]];
 ```
 
-### Radio (options) Item Example
+### Radio (RETableViewOptionsController) Item Example
 
 ``` objective-c
 // Create the manager and assign it to be the delegate and datasource of your UITableView
