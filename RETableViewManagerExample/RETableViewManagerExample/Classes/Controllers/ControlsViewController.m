@@ -43,6 +43,9 @@
     RETextItem *fullLengthField = [RETextItem itemWithTitle:nil value:nil placeholder:@"Full length text field"];
     [section addItem:fullLengthField];
     
+    [section addItem:[RETextItem itemWithTitle:@"Text item" value:nil placeholder:@"Text"]];
+    [section addItem:[RENumberItem itemWithTitle:@"Phone" value:@"" placeholder:@"(123) 456-7890" format:@"(XXX) XXX-XXXX"]];
+    
     RETextItem *passwordItem = [RETextItem itemWithTitle:@"Password" value:nil placeholder:@"Password item"];
     passwordItem.secureTextEntry = YES;
     [section addItem:passwordItem];
@@ -67,11 +70,6 @@
         [weakSelf.navigationController pushViewController:optionsController animated:YES];
     }];
     [section addItem:optionItem];
-    
-    section = [[RETableViewSection alloc] initWithHeaderTitle:@"Basic controls"];
-    [_manager addSection:section];
-    [section addItem:[RETextItem itemWithTitle:@"Text item 1" value:nil placeholder:@"Text"]];
-    [section addItem:[RENumberItem itemWithTitle:@"Phone" value:@"" placeholder:@"(123) 456-7890" format:@"(XXX) XXX-XXXX"]];
     
     section = [[RETableViewSection alloc] initWithHeaderTitle:@"Credit card"];
     [_manager addSection:section];

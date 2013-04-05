@@ -176,13 +176,13 @@
 				30DB066216E934AD006C9530 /* RETableViewCellStyle.m */,
 				30DB066316E934AD006C9530 /* RETableViewItem.h */,
 				30DB066416E934AD006C9530 /* RETableViewItem.m */,
-				30DB066516E934AD006C9530 /* RETableViewManager.bundle */,
 				30DB066616E934AD006C9530 /* RETableViewManager.h */,
 				30DB066716E934AD006C9530 /* RETableViewManager.m */,
 				30F41316170E07BB0004EBAE /* RETableViewOptionsController.h */,
 				30F41317170E07BB0004EBAE /* RETableViewOptionsController.m */,
 				30DB066816E934AD006C9530 /* RETableViewSection.h */,
 				30DB066916E934AD006C9530 /* RETableViewSection.m */,
+				30DB066516E934AD006C9530 /* RETableViewManager.bundle */,
 			);
 			name = RETableViewManager;
 			path = ../RETableViewManager;
