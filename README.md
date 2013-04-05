@@ -1,6 +1,6 @@
 # RETableViewManager
 
-Data driven content manager for UITableView. It allows to manage content of UITableView with ease, both forms and lists.
+Data driven content manager for `UITableView`. It allows to manage content of `UITableView` with ease, both forms and lists.
 In its core `RETableViewManager` supports reusable cells based on corresponding data object class.
 
 The general idea is to allow developers use their own `UITableView` and `UITableViewController` instances, 
