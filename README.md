@@ -188,7 +188,7 @@ find out how default mapping is performed:
 }
 ```
 
-### Text and Number Item Example
+### Text (UITextField) and Number (REFormattedNumberField) Item Example
 
 ``` objective-c
 // Create the manager and assign it to be the delegate and datasource of your UITableView
@@ -211,7 +211,7 @@ _numberItem = [RENumberItem itemWithTitle:@"Enter text" value:@"" placeholder:@"
 
 You can read `_textItem.value` and `_numberItem.value` later whenever you need them.
 
-### Bool Item Example
+### Bool Item (UISwitch) Example
 
 ``` objective-c
 // Create the manager and assign it to be the delegate and datasource of your UITableView
@@ -267,6 +267,27 @@ RERadioItem *optionItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" 
   [weakSelf.navigationController pushViewController:optionsController animated:YES];
 }];
 [section addItem:optionItem];
+```
+
+### Float Item (UISlider) Example
+
+``` objective-c
+// Create the manager and assign it to be the delegate and datasource of your UITableView
+//
+_tableViewManager = [[RETableViewManager alloc] init];
+self.tableView.delegate = _tableViewManager;
+self.tableView.dataSource = _tableViewManager;
+
+// Add a section
+//
+RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Test"];
+[_tableViewManager addSection:section];
+
+// Add a float item
+//
+[section addItem:[REFloatItem itemWithTitle:@"Float item" value:0.3 actionBlock:^(REFloatItem *item) {
+    NSLog(@"Value: %f", item.value);
+}]];
 ```
 
 ## Contact
