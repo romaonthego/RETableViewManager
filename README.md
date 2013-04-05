@@ -158,6 +158,14 @@ RETableViewSection *section = [RETableViewSection sectionWithHeaderView:myCustom
 [_tableViewManager addSection:section];
 ```
 
+### Item to Cell Mapping
+
+It's super easy to create custom mappings, for example, this how all NSString objects are being matched with RETableViewCell:
+
+``` objective-c
+[_tableViewManager mapObjectClass:@"NSString" toTableViewCellClass:@"RETableViewCell"];
+```
+
 ### More Complex Example
 
 ``` objective-c
@@ -220,11 +228,6 @@ RERadioItem *optionItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" 
 RETableViewSection *section2 = [[RETableViewSection alloc] initWithHeaderTitle:@"Section 2"];
 section2.footerTitle = @"Hey, I'm a footer";
 [_tableViewManager addSection:section2];
-
-// It's super easy to create custom mappings, for example
-// this how all NSString objects are being matched with RETableViewStringCell
-//
-[_tableViewManager mapObjectClass:@"NSString" toTableViewCellClass:@"RETableViewStringCell"];
 ```
 
 ## Contact
