@@ -18,7 +18,7 @@ providing a layer that synchronizes data and cell appereance.
 * iOS 5.0 or higher
 * ARC
 
-### API Quickstart
+## API Quickstart
 
 RETableViewManager is broken into several modules. Key classes in each module are highlighted below.
 
@@ -54,6 +54,23 @@ RETableViewManager is broken into several modules. Key classes in each module ar
     <td>RETableViewOptionsController</td>
     <td>Performs selection based on user input and provides result on completion. Should be used with RERadioItem.
     </td>
+  </tr>
+</table>
+
+RETableViewManager includes a number of built-in items and cells that were mapped with each other so you don't have to.
+
+<table>
+  <tr><th colspan="3" style="text-align:center;">Built-in Items and Cells</th></tr>
+  <tr>
+    <th>Item Class</th>
+    <th>Cell Class</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>RETextItem</td>
+    <td>RETableViewTextCell</td>
+    <td>Provides convenience for user text input. You can set a bunch of properties through <tt>RETextItem</tt> that you would
+    normally find in <tt>UITextField</tt>.</td>
   </tr>
 </table>
 
