@@ -72,6 +72,26 @@ RETableViewManager includes a number of built-in items and cells that were mappe
     <td>Provides convenience for user text input. You can set a bunch of properties through <tt>RETextItem</tt> that you would
     normally find in <tt>UITextField</tt>.</td>
   </tr>
+  <tr>
+    <td>RENumberItem</td>
+    <td>RETableViewNumberCell</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>REBoolItem</td>
+    <td>RETableViewBoolCell</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>RERadioItem</td>
+    <td>RETableViewCell</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>RECreditCardItem</td>
+    <td>RETableViewCreditCardCell</td>
+    <td></td>
+  </tr>
 </table>
 
 ## Examples
