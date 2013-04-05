@@ -30,7 +30,7 @@
     //
     self.tableView.dataSource = _manager;
     self.tableView.delegate = _manager;
-    
+
     // Create section
     //
     RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Basic controls"];

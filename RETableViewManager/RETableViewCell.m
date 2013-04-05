@@ -162,9 +162,11 @@
     NSUInteger indexInSection =  [section isEqual:self.section] ? [section.items indexOfObject:self.item] : -1;
     for (NSInteger i = indexInSection + 1; i < section.items.count; i++) {
         RETableViewItem *item = [section.items objectAtIndex:i];
-        Class class = [self.tableViewManager classForCellAtIndexPath:item.indexPath];
-        if ([class canFocus])
-            return [NSIndexPath indexPathForRow:i inSection:sectionIndex];
+        if ([item isKindOfClass:[RETableViewItem class]]) {
+            Class class = [self.tableViewManager classForCellAtIndexPath:item.indexPath];
+            if ([class canFocus])
+                return [NSIndexPath indexPathForRow:i inSection:sectionIndex];
+        }
     }
     return nil;
 }
