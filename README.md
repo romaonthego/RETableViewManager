@@ -120,6 +120,10 @@ Subclass UITableViewController, remove all code inside of the implementation sec
     RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Test"];
     [_tableViewManager addSection:section];
 
+    // Add a string
+    //
+    [section addItem:@"Just a simple NSString"];
+
     // Add a basic cell with disclosure indicator
     //
     [section addItem:[RETableViewItem itemWithTitle:"String cell" accessoryType:UITableViewCellAccessoryDisclosureIndicator actionBlock:^(RETableViewItem *item) {
