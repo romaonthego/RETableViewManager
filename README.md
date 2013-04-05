@@ -5,8 +5,8 @@ __Data driven content manager for UITableView.__
 RETableViewManager allows to manage content of `UITableView` with ease, both forms and lists.
 In its core RETableViewManager supports reusable cells based on corresponding data object class.
 
-The general idea is to allow developers use their own `UITableView` and `UITableViewController` instances, 
-providing a layer that synchronizes data and cell appereance. 
+The general idea is to allow developers use their own `UITableView` and `UITableViewController` instances,
+providing a layer that synchronizes data and cell appereance.
 
 ### _This is still in the early stages of development and it's highly not recommended to use it in production apps._
 
@@ -17,6 +17,10 @@ providing a layer that synchronizes data and cell appereance.
 * Apple LLVM compiler
 * iOS 5.0 or higher
 * ARC
+
+## Demo
+
+Build and run the `RETableViewManagerExample` project in Xcode to see `RETableViewManager` in action.
 
 ## API Quickstart
 
@@ -40,7 +44,7 @@ RETableViewManager is broken into several modules. Key classes in each module ar
   <tr>
     <td>RETableViewCell</td>
     <td>The <tt>RETableViewCell</tt> class defines the attributes and behavior of the cells that appear in <tt>UITableView</tt> objects.
-     You should subclass <tt>RETableViewCell</tt> to obtain cell characteristics and behavior specific to your application's needs. 
+     You should subclass <tt>RETableViewCell</tt> to obtain cell characteristics and behavior specific to your application's needs.
      By default, <tt>RETableViewCell</tt> is being mapped with <tt>RETableViewItem</tt>.</td>
   </tr>
   <tr><th colspan="2" style="text-align:center;">Styling</th></tr>
@@ -98,7 +102,7 @@ RETableViewManager includes a number of built-in items and cells that were mappe
 
 ### Simple Example
 
-Subclass UITableViewController, remove all code inside of the implementation section and paste just this 
+Subclass UITableViewController, remove all code inside of the implementation section and paste just this
 (yes, now it's that easy to manage `UITableView` content):
 
 ``` objective-c
