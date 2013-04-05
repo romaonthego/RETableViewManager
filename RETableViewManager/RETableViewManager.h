@@ -38,6 +38,7 @@
 #import "RETextItem.h"
 #import "RENumberItem.h"
 #import "RECreditCardItem.h"
+#import "REFloatItem.h"
 
 @protocol RETableViewManagerDelegate;
 

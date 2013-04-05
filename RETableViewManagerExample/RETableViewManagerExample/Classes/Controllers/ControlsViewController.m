@@ -52,6 +52,10 @@
     
     [section addItem:[REBoolItem itemWithTitle:@"Bool item" value:YES]];
     
+    [section addItem:[REFloatItem itemWithTitle:@"Float item" value:0.3 actionBlock:^(REFloatItem *item) {
+        NSLog(@"Value: %f", item.value);
+    }]];
+    
     RERadioItem *optionItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" actionBlock:^(RERadioItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
         
