@@ -24,8 +24,6 @@ Build and run the `RETableViewManagerExample` project in Xcode to see `RETableVi
 
 ## API Quickstart
 
-RETableViewManager is broken into several modules. Key classes in each module are highlighted below.
-
 <table>
   <tr><th colspan="2" style="text-align:center;">Key Classes</th></tr>
   <tr>
@@ -90,6 +88,16 @@ RETableViewManager includes a number of built-in items and cells that were mappe
     <td>RERadioItem</td>
     <td>RETableViewCell</td>
     <td>Provides convenience for selecting options using <tt>RETableViewOptionsController</tt>.</td>
+  </tr>
+  <tr>
+    <td>REFloatItem</td>
+    <td>RETableViewFloatCell</td>
+    <td>Provides convenience for adjusting float values from 0.0 to 1.0.</td>
+  </tr>
+  <tr>
+    <td>REDateTimeItem</td>
+    <td>RETableViewDateTimeCell</td>
+    <td>Provides convenience for adjusting NSDate object.</td>
   </tr>
   <tr>
     <td>RECreditCardItem</td>
