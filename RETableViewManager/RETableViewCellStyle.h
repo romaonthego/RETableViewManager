@@ -26,10 +26,11 @@
 #import <Foundation/Foundation.h>
 
 typedef enum _RETableViewCellType {
-    RETableViewCellFirst,
-    RETableViewCellMiddle,
-    RETableViewCellLast,
-    RETableViewCellSingle
+    RETableViewCellTypeFirst,
+    RETableViewCellTypeMiddle,
+    RETableViewCellTypeLast,
+    RETableViewCellTypeSingle,
+    RETableViewCellTypeAny
 } RETableViewCellType;
 
 @interface RETableViewCellStyle : NSObject {

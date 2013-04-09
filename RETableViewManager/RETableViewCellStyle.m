@@ -44,12 +44,15 @@
 
 - (BOOL)hasCustomBackgroundImage
 {
-    return [self backgroundImageForCellType:RETableViewCellFirst] || [self backgroundImageForCellType:RETableViewCellMiddle] || [self backgroundImageForCellType:RETableViewCellLast] || [self backgroundImageForCellType:RETableViewCellSingle];
+    return [self backgroundImageForCellType:RETableViewCellTypeAny] || [self backgroundImageForCellType:RETableViewCellTypeFirst] || [self backgroundImageForCellType:RETableViewCellTypeMiddle] || [self backgroundImageForCellType:RETableViewCellTypeLast] || [self backgroundImageForCellType:RETableViewCellTypeSingle];
 }
 
 - (UIImage *)backgroundImageForCellType:(RETableViewCellType)cellType
 {
-    return [_backgroundImages objectForKey:@(cellType)];
+    UIImage *image = [_backgroundImages objectForKey:@(cellType)];
+    if (!image && cellType != RETableViewCellTypeAny)
+        image = [_backgroundImages objectForKey:@(RETableViewCellTypeAny)];
+    return image;
 }
 
 - (void)setBackgroundImage:(UIImage *)image forCellType:(RETableViewCellType)cellType
@@ -60,12 +63,15 @@
 
 - (BOOL)hasCustomSelectedBackgroundImage
 {
-    return [self selectedBackgroundImageForCellType:RETableViewCellFirst] || [self selectedBackgroundImageForCellType:RETableViewCellMiddle] || [self selectedBackgroundImageForCellType:RETableViewCellLast] || [self selectedBackgroundImageForCellType:RETableViewCellSingle];
+    return [self selectedBackgroundImageForCellType:RETableViewCellTypeAny] ||[self selectedBackgroundImageForCellType:RETableViewCellTypeFirst] || [self selectedBackgroundImageForCellType:RETableViewCellTypeMiddle] || [self selectedBackgroundImageForCellType:RETableViewCellTypeLast] || [self selectedBackgroundImageForCellType:RETableViewCellTypeSingle];
 }
 
 - (UIImage *)selectedBackgroundImageForCellType:(RETableViewCellType)cellType
 {
-    return [_selectedBackgroundImages objectForKey:@(cellType)];
+    UIImage *image = [_selectedBackgroundImages objectForKey:@(cellType)];
+    if (!image && cellType != RETableViewCellTypeAny)
+        image = [_selectedBackgroundImages objectForKey:@(RETableViewCellTypeAny)];
+    return image;
 }
 
 - (void)setSelectedBackgroundImage:(UIImage *)image forCellType:(RETableViewCellType)cellType

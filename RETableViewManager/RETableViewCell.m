@@ -90,32 +90,32 @@
     
     if ([self.tableViewManager.style hasCustomBackgroundImage]) {
         if (self.row == 0 && self.section.items.count == 1)
-            _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellSingle];
+            _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellTypeSingle];
         
         if (self.row == 0 && self.section.items.count > 1)
-            _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellFirst];
+            _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellTypeFirst];
         
         if (self.row > 0 && self.row < self.section.items.count - 1 && self.section.items.count > 2)
-            _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellMiddle];
+            _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellTypeMiddle];
         
         if (self.row == self.section.items.count - 1 && self.section.items.count > 1)
-            _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellLast];
+            _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellTypeLast];
         
         _backgroundImageView.frame = CGRectMake(0, 0, _backgroundImageView.image.size.width, _backgroundImageView.image.size.height);
     }
     
     if ([self.tableViewManager.style hasCustomSelectedBackgroundImage]) {
         if (self.row == 0 && self.section.items.count == 1)
-            _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:RETableViewCellSingle];
+            _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:RETableViewCellTypeSingle];
         
         if (self.row == 0 && self.section.items.count > 1)
-            _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:RETableViewCellFirst];
+            _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:RETableViewCellTypeFirst];
         
         if (self.row > 0 && self.row < self.section.items.count - 1 && self.section.items.count > 2)
-            _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:RETableViewCellMiddle];
+            _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:RETableViewCellTypeMiddle];
         
         if (self.row == self.section.items.count - 1 && self.section.items.count > 1)
-            _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:RETableViewCellLast];
+            _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:RETableViewCellTypeLast];
         
         _selectedBackgroundImageView.frame = CGRectMake(0, 0, _selectedBackgroundImageView.image.size.width, _selectedBackgroundImageView.image.size.height);
     }
