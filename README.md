@@ -134,7 +134,7 @@ Subclass UITableViewController, remove all code inside of the implementation sec
 
     // Add a basic cell with disclosure indicator
     //
-    [section addItem:[RETableViewItem itemWithTitle:"String cell" accessoryType:UITableViewCellAccessoryDisclosureIndicator actionBlock:^(RETableViewItem *item) {
+    [section addItem:[RETableViewItem itemWithTitle:"String cell" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
         NSLog(@"Test: %@", item);
     }]];
 }
@@ -235,7 +235,7 @@ RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"
 
 // Add a bool value cell (using UISwitch)
 //
-[section addItem:[REBoolItem itemWithTitle:@"Switch test" value:YES actionBlock:^(REBoolItem *item) {
+[section addItem:[REBoolItem itemWithTitle:@"Switch test" value:YES switchValueChangeHandler:^(REBoolItem *item) {
     NSLog(@"Value: %i", item.value);
 }]];
 ```
@@ -257,7 +257,7 @@ RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"
 // Add radio cell (options)
 //
 __typeof (&*self) __weak weakSelf = self;
-RERadioItem *optionItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" actionBlock:^(RERadioItem *item) {
+RERadioItem *optionItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" selectionHandler:^(RERadioItem *item) {
   [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
 
   // Generate sample options
@@ -293,7 +293,7 @@ RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"
 
 // Add a float item
 //
-[section addItem:[REFloatItem itemWithTitle:@"Float item" value:0.3 actionBlock:^(REFloatItem *item) {
+[section addItem:[REFloatItem itemWithTitle:@"Float item" value:0.3 sliderValueChangeHandler:^(REFloatItem *item) {
     NSLog(@"Value: %f", item.value);
 }]];
 ```
