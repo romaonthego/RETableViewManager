@@ -50,15 +50,17 @@
     passwordItem.secureTextEntry = YES;
     [section addItem:passwordItem];
     
-    [section addItem:[REBoolItem itemWithTitle:@"Bool item" value:YES]];
+    [section addItem:[REBoolItem itemWithTitle:@"Bool item" value:YES switchValueChangeHandler:^(REBoolItem *item) {
+        NSLog(@"Value: %@", item.value ? @"YES" : @"NO");
+    }]];
     
-    [section addItem:[REFloatItem itemWithTitle:@"Float item" value:0.3 actionBlock:^(REFloatItem *item) {
+    [section addItem:[REFloatItem itemWithTitle:@"Float item" value:0.3 sliderValueChangeHandler:^(REFloatItem *item) {
         NSLog(@"Value: %f", item.value);
     }]];
     
     [section addItem:[REDateTimeItem itemWithTitle:@"Date / Time" value:[NSDate date] format:@"MM/dd/yyyy hh:mm a" datePickerMode:UIDatePickerModeDateAndTime]];
     
-    RERadioItem *optionItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" actionBlock:^(RERadioItem *item) {
+    RERadioItem *optionItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" selectionHandler:^(RERadioItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
         
         // Generate sample options
@@ -90,24 +92,24 @@
     
     // Add items to this section
     //
-    [section2 addItem:[RETableViewItem itemWithTitle:@"Accessory 1" accessoryType:UITableViewCellAccessoryDisclosureIndicator actionBlock:^(RETableViewItem *item) {
+    [section2 addItem:[RETableViewItem itemWithTitle:@"Accessory 1" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
     }]];
     
-    [section2 addItem:[RETableViewItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryDetailDisclosureButton actionBlock:^(RETableViewItem *item) {
+    [section2 addItem:[RETableViewItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryDetailDisclosureButton selectionHandler:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
-    } accessoryButtonActionBlock:^(RETableViewItem *item) {
+    } accessoryButtonTapHandler:^(RETableViewItem *item) {
         NSLog(@"Accessory button in accessoryItem2 was tapped");
     }]];
     
-    [section2 addItem:[RETableViewItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryCheckmark actionBlock:^(RETableViewItem *item) {
+    [section2 addItem:[RETableViewItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryCheckmark selectionHandler:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
     }]];
     
     RETableViewSection *section3 = [[RETableViewSection alloc] init];
     [_manager addSection:section3];
     
-    RETableViewItem *buttonItem = [RETableViewItem itemWithTitle:@"Test button" accessoryType:UITableViewCellAccessoryNone actionBlock:^(RETableViewItem *item) {
+    RETableViewItem *buttonItem = [RETableViewItem itemWithTitle:@"Test button" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
         NSLog(@"Button pressed");
     }];

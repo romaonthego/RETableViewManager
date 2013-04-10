@@ -193,10 +193,10 @@
 {
     RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
     id item = [section.items objectAtIndex:indexPath.row];
-    if ([item respondsToSelector:@selector(setActionBlock:)]) {
+    if ([item respondsToSelector:@selector(setSelectionHandler:)]) {
         RETableViewItem *actionItem = (RETableViewItem *)item;
-        if (actionItem.actionBlock && actionItem.performActionOnSelection)
-            actionItem.actionBlock(item);
+        if (actionItem.selectionHandler)
+            actionItem.selectionHandler(item);
     }
     
     if ([_delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)])
@@ -210,10 +210,10 @@
 {
     RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
     id item = [section.items objectAtIndex:indexPath.row];
-    if ([item respondsToSelector:@selector(setActionBlock:)]) {
+    if ([item respondsToSelector:@selector(setAccessoryButtonTapHandler:)]) {
         RETableViewItem *actionItem = (RETableViewItem *)item;
-        if (actionItem.accessoryButtonActionBlock)
-            actionItem.accessoryButtonActionBlock(item);
+        if (actionItem.accessoryButtonTapHandler)
+            actionItem.accessoryButtonTapHandler(item);
     }
     
     if ([_delegate respondsToSelector:@selector(tableView:accessoryButtonTappedForRowWithIndexPath:)])

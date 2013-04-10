@@ -32,17 +32,17 @@
     return [[REFloatItem alloc] initWithTitle:title value:value];
 }
 
-+ (id)itemWithTitle:(NSString *)title value:(float)value actionBlock:(void(^)(REFloatItem *item))actionBlock
++ (id)itemWithTitle:(NSString *)title value:(float)value sliderValueChangeHandler:(void(^)(REFloatItem *item))sliderValueChangeHandler
 {
-    return [[REFloatItem alloc] initWithTitle:title value:value actionBlock:actionBlock];
+    return [[REFloatItem alloc] initWithTitle:title value:value sliderValueChangeHandler:sliderValueChangeHandler];
 }
 
 - (id)initWithTitle:(NSString *)title value:(float)value
 {
-    return [self initWithTitle:title value:value actionBlock:nil];
+    return [self initWithTitle:title value:value sliderValueChangeHandler:nil];
 }
 
-- (id)initWithTitle:(NSString *)title value:(float)value actionBlock:(void(^)(REFloatItem *item))actionBlock
+- (id)initWithTitle:(NSString *)title value:(float)value sliderValueChangeHandler:(void(^)(REFloatItem *item))sliderValueChangeHandler
 {
     self = [super init];
     if (!self)
@@ -50,7 +50,7 @@
     
     self.title = title;
     self.value = value;
-    self.actionBlock = actionBlock;
+    self.sliderValueChangeHandler = sliderValueChangeHandler;
     self.sliderWidth = 140.0;
     
     return self;

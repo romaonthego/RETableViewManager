@@ -33,22 +33,22 @@
     return [[self alloc] init];
 }
 
-+ (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock
++ (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(RETableViewItem *item))selectionHandler
 {
-    return [[self alloc] initWithTitle:title accessoryType:accessoryType actionBlock:actionBlock accessoryButtonActionBlock:nil];
+    return [[self alloc] initWithTitle:title accessoryType:accessoryType selectionHandler:selectionHandler accessoryButtonTapHandler:nil];
 }
 
-+ (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryButtonActionBlock:(void(^)(RETableViewItem *item))accessoryButtonActionBlock
++ (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(RETableViewItem *item))selectionHandler accessoryButtonTapHandler:(void(^)(RETableViewItem *item))accessoryButtonTapHandler
 {
-    return [[self alloc] initWithTitle:title accessoryType:accessoryType actionBlock:actionBlock accessoryButtonActionBlock:accessoryButtonActionBlock];
+    return [[self alloc] initWithTitle:title accessoryType:accessoryType selectionHandler:selectionHandler accessoryButtonTapHandler:accessoryButtonTapHandler];
 }
 
-- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock
+- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(RETableViewItem *item))selectionHandler
 {
-    return [self initWithTitle:title accessoryType:accessoryType actionBlock:actionBlock accessoryButtonActionBlock:nil];
+    return [self initWithTitle:title accessoryType:accessoryType selectionHandler:selectionHandler accessoryButtonTapHandler:nil];
 }
 
-- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryButtonActionBlock:(void(^)(RETableViewItem *item))accessoryButtonActionBlock
+- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(RETableViewItem *item))selectionHandler accessoryButtonTapHandler:(void(^)(RETableViewItem *item))accessoryButtonTapHandler
 {
     self = [super init];
     if (!self)
@@ -56,9 +56,8 @@
     
     self.title = title;
     self.accessoryType = accessoryType;
-    self.actionBlock = actionBlock;
-    self.performActionOnSelection = YES;
-    self.accessoryButtonActionBlock = accessoryButtonActionBlock;
+    self.selectionHandler = selectionHandler;
+    self.accessoryButtonTapHandler = accessoryButtonTapHandler;
     
     return self;
 }

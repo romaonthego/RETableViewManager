@@ -33,20 +33,19 @@
 @property (copy, readwrite, nonatomic) NSString *title;
 @property (assign, readwrite, nonatomic) NSTextAlignment textAlignment;
 @property (weak, readwrite, nonatomic) RETableViewSection *section;
-@property (assign, readwrite, nonatomic) BOOL performActionOnSelection;
 @property (copy, readwrite, nonatomic) NSString *detailLabelText;
 @property (assign, readwrite, nonatomic) UITableViewCellStyle cellStyle;
 @property (assign, readwrite, nonatomic) UITableViewCellAccessoryType accessoryType;
 @property (strong, readwrite, nonatomic) UIView *accessoryView;
-@property (copy, readwrite, nonatomic) void (^actionBlock)(id item);
-@property (copy, readwrite, nonatomic) void (^accessoryButtonActionBlock)(id item);
+@property (copy, readwrite, nonatomic) void (^selectionHandler)(id item);
+@property (copy, readwrite, nonatomic) void (^accessoryButtonTapHandler)(id item);
 
 + (id)item;
-+ (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock;
-+ (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryButtonActionBlock:(void(^)(RETableViewItem *item))accessoryButtonActionBlock;
++ (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(RETableViewItem *item))selectionHandler;
++ (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(RETableViewItem *item))selectionHandler accessoryButtonTapHandler:(void(^)(RETableViewItem *item))accessoryButtonTapHandler;
 
-- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock;
-- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType actionBlock:(void(^)(RETableViewItem *item))actionBlock accessoryButtonActionBlock:(void(^)(RETableViewItem *item))accessoryButtonActionBlock;
+- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(RETableViewItem *item))selectionHandler;
+- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(RETableViewItem *item))selectionHandler accessoryButtonTapHandler:(void(^)(RETableViewItem *item))accessoryButtonTapHandler;
 
 - (NSIndexPath *)indexPath;
 

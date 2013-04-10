@@ -58,7 +58,7 @@
         UITableViewCellAccessoryType accessoryType = UITableViewCellAccessoryNone;
         if ([title isEqualToString:self.item.detailLabelText])
             accessoryType = UITableViewCellAccessoryCheckmark;
-        [_mainSection addItem:[RETableViewItem itemWithTitle:title accessoryType:accessoryType actionBlock:^(RETableViewItem *item) {
+        [_mainSection addItem:[RETableViewItem itemWithTitle:title accessoryType:accessoryType selectionHandler:^(RETableViewItem *item) {
             UITableViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:item.indexPath];
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
             [weakSelf.navigationController popViewControllerAnimated:YES];

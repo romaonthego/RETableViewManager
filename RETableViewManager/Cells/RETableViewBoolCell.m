@@ -60,8 +60,8 @@
 - (void)switchValueDidChange:(UISwitch *)switchView
 {
     self.item.value = switchView.isOn;
-    if (self.item.actionBlock)
-        self.item.actionBlock(self.item);
+    if (self.item.switchValueChangeHandler)
+        self.item.switchValueChangeHandler(self.item);
 }
 
 @end

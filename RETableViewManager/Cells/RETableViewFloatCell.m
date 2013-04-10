@@ -61,8 +61,8 @@
 - (void)sliderValueDidChange:(UISlider *)slider
 {
     self.item.value = slider.value;
-    if (self.item.actionBlock)
-        self.item.actionBlock(self.item);
+    if (self.item.sliderValueChangeHandler)
+        self.item.sliderValueChangeHandler(self.item);
 }
 
 @end

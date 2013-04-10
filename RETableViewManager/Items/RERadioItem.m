@@ -27,12 +27,12 @@
 
 @implementation RERadioItem
 
-+ (id)itemWithTitle:(NSString *)title value:(NSString *)value actionBlock:(void(^)(RERadioItem *item))actionBlock
++ (id)itemWithTitle:(NSString *)title value:(NSString *)value selectionHandler:(void(^)(RERadioItem *item))selectionHandler
 {
-    return [[RERadioItem alloc] initWithTitle:title value:value actionBlock:actionBlock];
+    return [[RERadioItem alloc] initWithTitle:title value:value selectionHandler:selectionHandler];
 }
 
-- (id)initWithTitle:(NSString *)title value:(NSString *)value actionBlock:(void(^)(RERadioItem *item))actionBlock
+- (id)initWithTitle:(NSString *)title value:(NSString *)value selectionHandler:(void(^)(RERadioItem *item))selectionHandler
 {
     self = [super init];
     if (!self)
@@ -40,8 +40,7 @@
     
     self.title = title;
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    self.actionBlock = actionBlock;
-    self.performActionOnSelection = YES;
+    self.selectionHandler = selectionHandler;
     self.value = value;
     self.cellStyle = UITableViewCellStyleValue1;
     

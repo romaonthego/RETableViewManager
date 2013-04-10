@@ -32,17 +32,17 @@
     return [[REBoolItem alloc] initWithTitle:title value:value];
 }
 
-+ (id)itemWithTitle:(NSString *)title value:(BOOL)value actionBlock:(void(^)(REBoolItem *item))actionBlock
++ (id)itemWithTitle:(NSString *)title value:(BOOL)value switchValueChangeHandler:(void(^)(REBoolItem *item))switchValueChangeHandler
 {
-    return [[REBoolItem alloc] initWithTitle:title value:value actionBlock:actionBlock];
+    return [[REBoolItem alloc] initWithTitle:title value:value switchValueChangeHandler:switchValueChangeHandler];
 }
 
 - (id)initWithTitle:(NSString *)title value:(BOOL)value
 {
-    return [self initWithTitle:title value:value actionBlock:nil];
+    return [self initWithTitle:title value:value switchValueChangeHandler:nil];
 }
 
-- (id)initWithTitle:(NSString *)title value:(BOOL)value actionBlock:(void(^)(REBoolItem *item))actionBlock
+- (id)initWithTitle:(NSString *)title value:(BOOL)value switchValueChangeHandler:(void(^)(REBoolItem *item))switchValueChangeHandler
 {
     self = [super init];
     if (!self)
@@ -50,7 +50,7 @@
     
     self.title = title;
     self.value = value;
-    self.actionBlock = actionBlock;
+    self.switchValueChangeHandler = switchValueChangeHandler;
     
     return self;
 }
