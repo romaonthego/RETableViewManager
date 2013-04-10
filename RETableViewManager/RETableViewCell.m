@@ -33,7 +33,7 @@
     return NO;
 }
 
-+ (CGFloat)heightWithItem:(NSObject *)item tableViewManager:(RETableViewManager *)tableViewManager
++ (CGFloat)heightWithItem:(RETableViewItem *)item tableViewManager:(RETableViewManager *)tableViewManager
 {
     return tableViewManager.style.cellHeight;
 }
