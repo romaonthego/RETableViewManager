@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30082D1A17170EDD008B0DB5 /* REPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30082D1917170EDD008B0DB5 /* REPlaceholderTextView.m */; };
 		300E5A26170F486800910013 /* REFloatItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 300E5A25170F486800910013 /* REFloatItem.m */; };
 		300E5A29170F48EC00910013 /* RETableViewFloatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 300E5A28170F48EC00910013 /* RETableViewFloatCell.m */; };
 		300E5A2C170F621400910013 /* REDateTimeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 300E5A2B170F621400910013 /* REDateTimeItem.m */; };
@@ -49,6 +50,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30082D1817170EDD008B0DB5 /* REPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REPlaceholderTextView.h; sourceTree = "<group>"; };
+		30082D1917170EDD008B0DB5 /* REPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REPlaceholderTextView.m; sourceTree = "<group>"; };
 		300E5A24170F486800910013 /* REFloatItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFloatItem.h; sourceTree = "<group>"; };
 		300E5A25170F486800910013 /* REFloatItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFloatItem.m; sourceTree = "<group>"; };
 		300E5A27170F48EC00910013 /* RETableViewFloatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewFloatCell.h; sourceTree = "<group>"; };
@@ -188,19 +191,21 @@
 				30DB065216E934AD006C9530 /* Items */,
 				30DB065D16E934AD006C9530 /* REActionBar.h */,
 				30DB065E16E934AD006C9530 /* REActionBar.m */,
+				30082D1817170EDD008B0DB5 /* REPlaceholderTextView.h */,
+				30082D1917170EDD008B0DB5 /* REPlaceholderTextView.m */,
 				30DB065F16E934AD006C9530 /* RETableViewCell.h */,
 				30DB066016E934AD006C9530 /* RETableViewCell.m */,
 				30DB066116E934AD006C9530 /* RETableViewCellStyle.h */,
 				30DB066216E934AD006C9530 /* RETableViewCellStyle.m */,
 				30DB066316E934AD006C9530 /* RETableViewItem.h */,
 				30DB066416E934AD006C9530 /* RETableViewItem.m */,
+				30DB066516E934AD006C9530 /* RETableViewManager.bundle */,
 				30DB066616E934AD006C9530 /* RETableViewManager.h */,
 				30DB066716E934AD006C9530 /* RETableViewManager.m */,
 				30F41316170E07BB0004EBAE /* RETableViewOptionsController.h */,
 				30F41317170E07BB0004EBAE /* RETableViewOptionsController.m */,
 				30DB066816E934AD006C9530 /* RETableViewSection.h */,
 				30DB066916E934AD006C9530 /* RETableViewSection.m */,
-				30DB066516E934AD006C9530 /* RETableViewManager.bundle */,
 			);
 			name = RETableViewManager;
 			path = ../RETableViewManager;
@@ -419,6 +424,7 @@
 				300E5A2F170F63B600910013 /* RETableViewDateTimeCell.m in Sources */,
 				300E5B3F17170AE100910013 /* RELongTextItem.m in Sources */,
 				300E5B4217170B0200910013 /* RETableViewLongTextCell.m in Sources */,
+				30082D1A17170EDD008B0DB5 /* REPlaceholderTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

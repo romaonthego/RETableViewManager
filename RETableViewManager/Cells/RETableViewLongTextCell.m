@@ -33,12 +33,11 @@
 {
     [super cellDidLoad];
     
-    _textView = [[UITextView alloc] initWithFrame:CGRectNull];
+    _textView = [[REPlaceholderTextView alloc] initWithFrame:CGRectNull];
     
     _textView.inputAccessoryView = self.actionBar;
     _textView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    _textView.frame = self.contentView.frame;
-    _textView.backgroundColor = [UIColor lightGrayColor];
+    _textView.backgroundColor = [UIColor clearColor];
     _textView.delegate = self;
     [self.contentView addSubview:_textView];
 }
@@ -55,8 +54,9 @@
 {
     [super cellWillAppear];
 
+    _textView.frame = CGRectMake(self.contentView.frame.origin.x + 2, self.contentView.frame.origin.y + 2, self.contentView.frame.size.width - 4, self.contentView.frame.size.height - 4);
     _textView.text = self.item.value;
-  //  _textView.placeholder = self.item.placeholder;
+    _textView.placeholder = self.item.placeholder;
     _textView.font = self.tableViewManager.style.textFieldFont;
     _textView.autocapitalizationType = self.item.autocapitalizationType;
     _textView.autocorrectionType = self.item.autocorrectionType;
@@ -76,6 +76,14 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    
+    /*CGFloat cellOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 60;
+    //CGFloat fieldOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 40;
+    //CGFloat width = 0;
+    CGRect frame = CGRectMake(0, self.tableViewManager.style.textFieldPositionOffset.height, 10, self.frame.size.height - self.tableViewManager.style.textFieldPositionOffset.height);
+    frame.origin.x = cellOffset + self.tableViewManager.style.textFieldPositionOffset.width;
+    frame.size.width = self.frame.size.width - frame.origin.x - cellOffset;
+    _textView.frame = frame;*/
 }
 
 #pragma mark -

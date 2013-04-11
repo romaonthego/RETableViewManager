@@ -47,7 +47,10 @@
         [weakSelf.navigationController pushViewController:[[ListViewController alloc] initWithStyle:UITableViewStylePlain] animated:YES];
     }]];
     
-    [section addItem:[RELongTextItem itemWithTitle:@"" value:@""]];
+    RETextItem *fullLengthField = [RETextItem itemWithTitle:nil value:nil placeholder:@"Full length text field"];
+    [section addItem:fullLengthField];
+    
+    [section addItem:[RELongTextItem itemWithValue:@"Full length text field" placeholder:@"Enter text"]];
 }
 
 @end
