@@ -57,6 +57,7 @@
     _textView.frame = CGRectMake(self.contentView.frame.origin.x + 2, self.contentView.frame.origin.y + 2, self.contentView.frame.size.width - 4, self.contentView.frame.size.height - 4);
     _textView.text = self.item.value;
     _textView.placeholder = self.item.placeholder;
+    _textView.placeholderColor = self.item.placeholderColor;
     _textView.font = self.tableViewManager.style.textFieldFont;
     _textView.autocapitalizationType = self.item.autocapitalizationType;
     _textView.autocorrectionType = self.item.autocorrectionType;
@@ -76,14 +77,6 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
-    /*CGFloat cellOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 60;
-    //CGFloat fieldOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 40;
-    //CGFloat width = 0;
-    CGRect frame = CGRectMake(0, self.tableViewManager.style.textFieldPositionOffset.height, 10, self.frame.size.height - self.tableViewManager.style.textFieldPositionOffset.height);
-    frame.origin.x = cellOffset + self.tableViewManager.style.textFieldPositionOffset.width;
-    frame.size.width = self.frame.size.width - frame.origin.x - cellOffset;
-    _textView.frame = frame;*/
 }
 
 #pragma mark -
@@ -94,6 +87,11 @@
     [self updateActionBarNavigationControl];
     [self.parentTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.row inSection:self.sectionIndex] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     return YES;
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    self.item.value = textView.text;
 }
 
 @end

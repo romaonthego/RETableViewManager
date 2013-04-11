@@ -39,6 +39,7 @@
 @property (strong, readwrite, nonatomic) UIView *accessoryView;
 @property (copy, readwrite, nonatomic) void (^selectionHandler)(id item);
 @property (copy, readwrite, nonatomic) void (^accessoryButtonTapHandler)(id item);
+@property (assign, readwrite, nonatomic) CGFloat cellHeight;
 
 + (id)item;
 + (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(RETableViewItem *item))selectionHandler;

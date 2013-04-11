@@ -50,7 +50,9 @@
     RETextItem *fullLengthField = [RETextItem itemWithTitle:nil value:nil placeholder:@"Full length text field"];
     [section addItem:fullLengthField];
     
-    [section addItem:[RELongTextItem itemWithValue:@"Full length text field" placeholder:@"Enter text"]];
+    RELongTextItem *longTextItem = [RELongTextItem itemWithValue:nil placeholder:@"Multiline text field"];
+    longTextItem.cellHeight = 88;
+    [section addItem:longTextItem];
 }
 
 @end

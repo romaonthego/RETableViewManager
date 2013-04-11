@@ -10,6 +10,8 @@
 
 @interface RELongTextItem : RETextItem
 
+@property (strong, readwrite, nonatomic) UIColor *placeholderColor;
+
 + (id)itemWithValue:(NSString *)value placeholder:(NSString *)placeholder;
 
 @end

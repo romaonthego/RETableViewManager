@@ -50,7 +50,7 @@
 
 - (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(RETableViewItem *item))selectionHandler accessoryButtonTapHandler:(void(^)(RETableViewItem *item))accessoryButtonTapHandler
 {
-    self = [super init];
+    self = [self init];
     if (!self)
         return nil;
     
@@ -58,6 +58,17 @@
     self.accessoryType = accessoryType;
     self.selectionHandler = selectionHandler;
     self.accessoryButtonTapHandler = accessoryButtonTapHandler;
+    
+    return self;
+}
+
+- (id)init
+{
+    self = [super init];
+    if (!self)
+        return nil;
+    
+    self.cellHeight = 0;
     
     return self;
 }

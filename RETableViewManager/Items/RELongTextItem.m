@@ -15,4 +15,15 @@
     return [[self alloc] initWithTitle:@"" value:value placeholder:placeholder];
 }
 
+- (id)init
+{
+    self = [super init];
+    if (!self)
+        return nil;
+    
+    self.placeholderColor = [UIColor lightGrayColor];
+    
+    return self;
+}
+
 @end
