@@ -79,6 +79,10 @@
     }];
     [section addItem:optionItem];
     
+    RELongTextItem *longTextItem = [RELongTextItem itemWithValue:nil placeholder:@"Multiline text field"];
+    longTextItem.cellHeight = 88;
+    [section addItem:longTextItem];
+    
     section = [[RETableViewSection alloc] initWithHeaderTitle:@"Credit card"];
     [_manager addSection:section];
     [section addItem:[RECreditCardItem item]];

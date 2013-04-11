@@ -12,12 +12,28 @@
 
 + (id)itemWithValue:(NSString *)value placeholder:(NSString *)placeholder
 {
-    return [[self alloc] initWithTitle:@"" value:value placeholder:placeholder];
+    return [[self alloc] initWithValue:value placeholder:placeholder];
 }
 
 - (id)init
 {
     self = [super init];
+    if (!self)
+        return nil;
+    
+    self.placeholderColor = [UIColor lightGrayColor];
+    
+    return self;
+}
+
+- (id)initWithValue:(NSString *)value placeholder:(NSString *)placeholder
+{
+    return [self initWithTitle:nil value:value placeholder:placeholder];
+}
+
+- (id)initWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder
+{
+    self = [super initWithTitle:title value:value placeholder:placeholder];
     if (!self)
         return nil;
     

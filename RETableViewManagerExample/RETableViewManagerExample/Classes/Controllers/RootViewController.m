@@ -46,13 +46,6 @@
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
         [weakSelf.navigationController pushViewController:[[ListViewController alloc] initWithStyle:UITableViewStylePlain] animated:YES];
     }]];
-    
-    RETextItem *fullLengthField = [RETextItem itemWithTitle:nil value:nil placeholder:@"Full length text field"];
-    [section addItem:fullLengthField];
-    
-    RELongTextItem *longTextItem = [RELongTextItem itemWithValue:nil placeholder:@"Multiline text field"];
-    longTextItem.cellHeight = 88;
-    [section addItem:longTextItem];
 }
 
 @end

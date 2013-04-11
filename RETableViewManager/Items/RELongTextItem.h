@@ -13,5 +13,6 @@
 @property (strong, readwrite, nonatomic) UIColor *placeholderColor;
 
 + (id)itemWithValue:(NSString *)value placeholder:(NSString *)placeholder;
+- (id)initWithValue:(NSString *)value placeholder:(NSString *)placeholder;
 
 @end
