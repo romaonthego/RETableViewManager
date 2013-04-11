@@ -29,12 +29,12 @@
 
 + (id)itemWithTitle:(NSString *)title value:(BOOL)value
 {
-    return [[REBoolItem alloc] initWithTitle:title value:value];
+    return [[self alloc] initWithTitle:title value:value];
 }
 
 + (id)itemWithTitle:(NSString *)title value:(BOOL)value switchValueChangeHandler:(void(^)(REBoolItem *item))switchValueChangeHandler
 {
-    return [[REBoolItem alloc] initWithTitle:title value:value switchValueChangeHandler:switchValueChangeHandler];
+    return [[self alloc] initWithTitle:title value:value switchValueChangeHandler:switchValueChangeHandler];
 }
 
 - (id)initWithTitle:(NSString *)title value:(BOOL)value

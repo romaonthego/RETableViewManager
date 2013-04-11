@@ -29,12 +29,12 @@
 
 + (id)itemWithTitle:(NSString *)title value:(float)value
 {
-    return [[REFloatItem alloc] initWithTitle:title value:value];
+    return [[self alloc] initWithTitle:title value:value];
 }
 
 + (id)itemWithTitle:(NSString *)title value:(float)value sliderValueChangeHandler:(void(^)(REFloatItem *item))sliderValueChangeHandler
 {
-    return [[REFloatItem alloc] initWithTitle:title value:value sliderValueChangeHandler:sliderValueChangeHandler];
+    return [[self alloc] initWithTitle:title value:value sliderValueChangeHandler:sliderValueChangeHandler];
 }
 
 - (id)initWithTitle:(NSString *)title value:(float)value

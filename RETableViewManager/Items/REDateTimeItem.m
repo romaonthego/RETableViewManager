@@ -29,12 +29,12 @@
 
 + (id)itemWithTitle:(NSString *)title value:(NSDate *)value format:(NSString *)format
 {
-    return [[REDateTimeItem alloc] initWithTitle:title value:value format:format];
+    return [[self alloc] initWithTitle:title value:value format:format];
 }
 
 + (id)itemWithTitle:(NSString *)title value:(NSDate *)value format:(NSString *)format datePickerMode:(UIDatePickerMode)datePickerMode
 {
-    return [[REDateTimeItem alloc] initWithTitle:title value:value format:format datePickerMode:datePickerMode];
+    return [[self alloc] initWithTitle:title value:value format:format datePickerMode:datePickerMode];
 }
 
 - (id)initWithTitle:(NSString *)title value:(NSDate *)value format:(NSString *)format

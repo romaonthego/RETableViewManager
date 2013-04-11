@@ -36,6 +36,7 @@
 #import "REBoolItem.h"
 #import "RERadioItem.h"
 #import "RETextItem.h"
+#import "RELongTextItem.h"
 #import "RENumberItem.h"
 #import "RECreditCardItem.h"
 #import "REFloatItem.h"

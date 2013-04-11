@@ -29,12 +29,12 @@
 
 + (id)itemWithTitle:(NSString *)title value:(NSString *)value
 {
-    return [[RETextItem alloc] initWithTitle:title value:value];
+    return [[self alloc] initWithTitle:title value:value];
 }
 
 + (id)itemWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder
 {
-    return [[RETextItem alloc] initWithTitle:title value:value placeholder:placeholder];
+    return [[self alloc] initWithTitle:title value:value placeholder:placeholder];
 }
 
 - (id)initWithTitle:(NSString *)title value:(NSString *)value

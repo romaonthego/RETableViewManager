@@ -29,7 +29,7 @@
 
 + (id)itemWithTitle:(NSString *)title value:(NSString *)value selectionHandler:(void(^)(RERadioItem *item))selectionHandler
 {
-    return [[RERadioItem alloc] initWithTitle:title value:value selectionHandler:selectionHandler];
+    return [[self alloc] initWithTitle:title value:value selectionHandler:selectionHandler];
 }
 
 - (id)initWithTitle:(NSString *)title value:(NSString *)value selectionHandler:(void(^)(RERadioItem *item))selectionHandler

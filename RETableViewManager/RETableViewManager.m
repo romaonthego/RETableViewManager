@@ -62,6 +62,7 @@
     [self mapObjectClass:@"RERadioItem" toTableViewCellClass:@"RETableViewCell"];
     [self mapObjectClass:@"REBoolItem" toTableViewCellClass:@"RETableViewBoolCell"];
     [self mapObjectClass:@"RETextItem" toTableViewCellClass:@"RETableViewTextCell"];
+    [self mapObjectClass:@"RELongTextItem" toTableViewCellClass:@"RETableViewLongTextCell"];
     [self mapObjectClass:@"RENumberItem" toTableViewCellClass:@"RETableViewNumberCell"];
     [self mapObjectClass:@"REFloatItem" toTableViewCellClass:@"RETableViewFloatCell"];
     [self mapObjectClass:@"REDateTimeItem" toTableViewCellClass:@"RETableViewDateTimeCell"];
