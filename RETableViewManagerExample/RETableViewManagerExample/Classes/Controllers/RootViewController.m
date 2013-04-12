@@ -46,7 +46,6 @@
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
         [weakSelf.navigationController pushViewController:[[ListViewController alloc] initWithStyle:UITableViewStylePlain] animated:YES];
     }]];
-
 }
 
 @end

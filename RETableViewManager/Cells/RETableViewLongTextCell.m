@@ -78,7 +78,7 @@
     [super layoutSubviews];
     
     CGFloat cellOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 20 : 60;
-    CGRect frame = CGRectMake(0, self.tableViewManager.style.textFieldPositionOffset.height, 0, self.frame.size.height - self.tableViewManager.style.textFieldPositionOffset.height);
+    CGRect frame = CGRectMake(0, self.tableViewManager.style.textFieldPositionOffset.height + 4, 0, self.frame.size.height - self.tableViewManager.style.textFieldPositionOffset.height - 8);
     frame.origin.x = cellOffset + self.tableViewManager.style.textFieldPositionOffset.width - 8;
     frame.size.width = self.frame.size.width - frame.origin.x - cellOffset + 8;
     _textView.frame = frame;
