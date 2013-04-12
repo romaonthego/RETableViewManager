@@ -11,9 +11,9 @@
 
 @implementation RETableViewLongTextCell
 
-+ (BOOL)canFocus
++ (BOOL)canFocusWithItem:(RELongTextItem *)item
 {
-    return YES;
+    return item.editable;
 }
 
 #pragma mark -
@@ -54,6 +54,9 @@
 {
     [super cellWillAppear];
 
+    _textView.editable = self.item.editable;
+    _textView.inputAccessoryView = _textView.editable ?  self.actionBar : nil;
+    
     _textView.text = self.item.value;
     _textView.placeholder = self.item.placeholder;
     _textView.placeholderColor = self.item.placeholderColor;
@@ -70,6 +73,9 @@
 
 - (UIResponder *)responder
 {
+    if (!self.item.editable)
+        return nil;
+    
     return _textView;
 }
 

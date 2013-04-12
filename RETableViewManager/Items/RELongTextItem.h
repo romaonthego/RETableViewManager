@@ -11,6 +11,7 @@
 @interface RELongTextItem : RETextItem
 
 @property (strong, readwrite, nonatomic) UIColor *placeholderColor;
+@property (assign, readwrite, nonatomic) BOOL editable;
 
 + (id)itemWithValue:(NSString *)value placeholder:(NSString *)placeholder;
 - (id)initWithValue:(NSString *)value placeholder:(NSString *)placeholder;

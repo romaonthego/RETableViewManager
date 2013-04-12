@@ -22,6 +22,7 @@
         return nil;
     
     self.placeholderColor = [UIColor lightGrayColor];
+    self.editable = YES;
     
     return self;
 }
@@ -38,6 +39,7 @@
         return nil;
     
     self.placeholderColor = [UIColor lightGrayColor];
+    self.editable = YES;
     
     return self;
 }

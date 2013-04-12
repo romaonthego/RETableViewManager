@@ -27,7 +27,7 @@
 
 @implementation RETableViewDateTimeCell
 
-+ (BOOL)canFocus
++ (BOOL)canFocusWithItem:(RETableViewItem *)item
 {
     return YES;
 }

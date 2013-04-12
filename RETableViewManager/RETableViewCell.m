@@ -28,7 +28,7 @@
 
 @implementation RETableViewCell
 
-+ (BOOL)canFocus
++ (BOOL)canFocusWithItem:(RETableViewItem *)item
 {
     return NO;
 }
@@ -143,7 +143,7 @@
         RETableViewItem *item = [section.items objectAtIndex:i];
         if ([item isKindOfClass:[RETableViewItem class]]) {
             Class class = [self.tableViewManager classForCellAtIndexPath:item.indexPath];
-            if ([class canFocus])
+            if ([class canFocusWithItem:item])
                 return [NSIndexPath indexPathForRow:i inSection:sectionIndex];
         }
     }
@@ -168,7 +168,7 @@
         RETableViewItem *item = [section.items objectAtIndex:i];
         if ([item isKindOfClass:[RETableViewItem class]]) {
             Class class = [self.tableViewManager classForCellAtIndexPath:item.indexPath];
-            if ([class canFocus])
+            if ([class canFocusWithItem:item])
                 return [NSIndexPath indexPathForRow:i inSection:sectionIndex];
         }
     }

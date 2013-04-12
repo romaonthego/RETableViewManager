@@ -42,7 +42,7 @@
 @property (strong, readwrite, nonatomic) RETableViewItem *item;
 @property (strong, readwrite, nonatomic) REActionBar *actionBar;
 
-+ (BOOL)canFocus;
++ (BOOL)canFocusWithItem:(RETableViewItem *)item;
 + (CGFloat)heightWithItem:(RETableViewItem *)item tableViewManager:(RETableViewManager *)tableViewManager;
 
 - (void)cellDidLoad;
