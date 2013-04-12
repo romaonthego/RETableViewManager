@@ -39,7 +39,7 @@
     _textView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _textView.backgroundColor = [UIColor clearColor];
     _textView.delegate = self;
-    [self.contentView addSubview:_textView];
+    [self addSubview:_textView];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -54,7 +54,6 @@
 {
     [super cellWillAppear];
 
-    _textView.frame = CGRectMake(self.contentView.frame.origin.x + 2, self.contentView.frame.origin.y + 2, self.contentView.frame.size.width - 4, self.contentView.frame.size.height - 4);
     _textView.text = self.item.value;
     _textView.placeholder = self.item.placeholder;
     _textView.placeholderColor = self.item.placeholderColor;
@@ -77,7 +76,14 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    
+    CGFloat cellOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 20 : 60;
+    CGRect frame = CGRectMake(0, self.tableViewManager.style.textFieldPositionOffset.height, 0, self.frame.size.height - self.tableViewManager.style.textFieldPositionOffset.height);
+    frame.origin.x = cellOffset + self.tableViewManager.style.textFieldPositionOffset.width - 8;
+    frame.size.width = self.frame.size.width - frame.origin.x - cellOffset + 8;
+    _textView.frame = frame;
 }
+
 
 #pragma mark -
 #pragma mark UITextView delegate
