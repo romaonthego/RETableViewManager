@@ -78,12 +78,15 @@
     
     if ([self.item isKindOfClass:[NSString class]]) {
         self.textLabel.text = (NSString *)self.item;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     } else {
         RETableViewItem *item = (RETableViewItem *)self.item;
         self.textLabel.text = item.title;
         self.accessoryType = item.accessoryType;
         self.accessoryView = item.accessoryView;
         self.textLabel.textAlignment = item.textAlignment;
+        if (self.selectionStyle != UITableViewCellSelectionStyleNone)
+            self.selectionStyle = item.cellSelectionStyle;
     }
 }
 
