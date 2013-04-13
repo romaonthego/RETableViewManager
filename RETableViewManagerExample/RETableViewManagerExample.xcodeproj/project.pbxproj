@@ -21,7 +21,6 @@
 		302D2160170B27BD0085654F /* ListImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D215F170B27BD0085654F /* ListImageItem.m */; };
 		302D2163170B27ED0085654F /* ListImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D2162170B27ED0085654F /* ListImageCell.m */; };
 		30D208641718FFDE00144E46 /* REMultipleChoiceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D208631718FFDE00144E46 /* REMultipleChoiceItem.m */; };
-		30D20867171900A700144E46 /* REMultipleChoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D20866171900A700144E46 /* REMultipleChoiceCell.m */; };
 		30DB066A16E934AD006C9530 /* RETableViewBoolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB064916E934AD006C9530 /* RETableViewBoolCell.m */; };
 		30DB066B16E934AD006C9530 /* RETableViewCreditCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB064B16E934AD006C9530 /* RETableViewCreditCardCell.m */; };
 		30DB066E16E934AD006C9530 /* RETableViewTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB065116E934AD006C9530 /* RETableViewTextCell.m */; };
@@ -80,8 +79,6 @@
 		302D2162170B27ED0085654F /* ListImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListImageCell.m; sourceTree = "<group>"; };
 		30D208621718FFDE00144E46 /* REMultipleChoiceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMultipleChoiceItem.h; sourceTree = "<group>"; };
 		30D208631718FFDE00144E46 /* REMultipleChoiceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMultipleChoiceItem.m; sourceTree = "<group>"; };
-		30D20865171900A600144E46 /* REMultipleChoiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMultipleChoiceCell.h; sourceTree = "<group>"; };
-		30D20866171900A700144E46 /* REMultipleChoiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMultipleChoiceCell.m; sourceTree = "<group>"; };
 		30DB064816E934AD006C9530 /* RETableViewBoolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewBoolCell.h; sourceTree = "<group>"; };
 		30DB064916E934AD006C9530 /* RETableViewBoolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewBoolCell.m; sourceTree = "<group>"; };
 		30DB064A16E934AD006C9530 /* RETableViewCreditCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewCreditCardCell.h; sourceTree = "<group>"; };
@@ -234,8 +231,6 @@
 				300E5A2E170F63B600910013 /* RETableViewDateTimeCell.m */,
 				300E5B4017170B0100910013 /* RETableViewLongTextCell.h */,
 				300E5B4117170B0100910013 /* RETableViewLongTextCell.m */,
-				30D20865171900A600144E46 /* REMultipleChoiceCell.h */,
-				30D20866171900A700144E46 /* REMultipleChoiceCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -436,7 +431,6 @@
 				300E5B4217170B0200910013 /* RETableViewLongTextCell.m in Sources */,
 				30082D1A17170EDD008B0DB5 /* REPlaceholderTextView.m in Sources */,
 				30D208641718FFDE00144E46 /* REMultipleChoiceItem.m in Sources */,
-				30D20867171900A700144E46 /* REMultipleChoiceCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
