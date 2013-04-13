@@ -40,6 +40,8 @@
 @property (strong, readwrite, nonatomic) UIView *accessoryView;
 @property (copy, readwrite, nonatomic) void (^selectionHandler)(id item);
 @property (copy, readwrite, nonatomic) void (^accessoryButtonTapHandler)(id item);
+@property (assign, readwrite, nonatomic) BOOL deletable;
+@property (copy, readwrite, nonatomic) void (^deletionHandler)(id item);
 @property (assign, readwrite, nonatomic) CGFloat cellHeight;
 
 + (id)item;

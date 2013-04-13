@@ -9,6 +9,7 @@
 #import "RootViewController.h"
 #import "ControlsViewController.h"
 #import "ListViewController.h"
+#import "EditingViewController.h"
 
 @interface RootViewController ()
 
@@ -45,6 +46,11 @@
     [section addItem:[RETableViewItem itemWithTitle:@"List" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
         [weakSelf.navigationController pushViewController:[[ListViewController alloc] initWithStyle:UITableViewStylePlain] animated:YES];
+    }]];
+    
+    [section addItem:[RETableViewItem itemWithTitle:@"Editing" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
+        [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+        [weakSelf.navigationController pushViewController:[[EditingViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
     }]];
 }
 

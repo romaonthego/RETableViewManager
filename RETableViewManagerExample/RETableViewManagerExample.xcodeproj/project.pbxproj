@@ -35,6 +35,7 @@
 		30DB067816E934AD006C9530 /* RETableViewManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 30DB066516E934AD006C9530 /* RETableViewManager.bundle */; };
 		30DB067916E934AD006C9530 /* RETableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB066716E934AD006C9530 /* RETableViewManager.m */; };
 		30DB067A16E934AD006C9530 /* RETableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB066916E934AD006C9530 /* RETableViewSection.m */; };
+		30E16A48171A103400F7C258 /* EditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E16A47171A103300F7C258 /* EditingViewController.m */; };
 		30EF93B316E039B800B84981 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EF93B216E039B800B84981 /* UIKit.framework */; };
 		30EF93B516E039B800B84981 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EF93B416E039B800B84981 /* Foundation.framework */; };
 		30EF93B716E039B800B84981 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EF93B616E039B800B84981 /* CoreGraphics.framework */; };
@@ -106,6 +107,8 @@
 		30DB066716E934AD006C9530 /* RETableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewManager.m; sourceTree = "<group>"; };
 		30DB066816E934AD006C9530 /* RETableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewSection.h; sourceTree = "<group>"; };
 		30DB066916E934AD006C9530 /* RETableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewSection.m; sourceTree = "<group>"; };
+		30E16A46171A103300F7C258 /* EditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditingViewController.h; sourceTree = "<group>"; };
+		30E16A47171A103300F7C258 /* EditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditingViewController.m; sourceTree = "<group>"; };
 		30EF93AF16E039B800B84981 /* RETableViewManagerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RETableViewManagerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30EF93B216E039B800B84981 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		30EF93B416E039B800B84981 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -163,6 +166,8 @@
 				302D214C170B25B10085654F /* ListViewController.m */,
 				302D214D170B25B10085654F /* RootViewController.h */,
 				302D214E170B25B10085654F /* RootViewController.m */,
+				30E16A46171A103300F7C258 /* EditingViewController.h */,
+				30E16A47171A103300F7C258 /* EditingViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -431,6 +436,7 @@
 				300E5B4217170B0200910013 /* RETableViewLongTextCell.m in Sources */,
 				30082D1A17170EDD008B0DB5 /* REPlaceholderTextView.m in Sources */,
 				30D208641718FFDE00144E46 /* REMultipleChoiceItem.m in Sources */,
+				30E16A48171A103400F7C258 /* EditingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
