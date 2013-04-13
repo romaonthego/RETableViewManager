@@ -27,7 +27,7 @@
 
 @interface RERadioItem : RETableViewItem
 
-@property (copy, readwrite, nonatomic, getter = detailLabelText, setter = setDetailLabelText:) NSString *value;
+@property (strong, readwrite, nonatomic, getter = detailLabelText, setter = setDetailLabelText:) NSString *value;
 
 + (id)itemWithTitle:(NSString *)title value:(NSString *)value selectionHandler:(void(^)(RERadioItem *item))selectionHandler;
 - (id)initWithTitle:(NSString *)title value:(NSString *)value selectionHandler:(void(^)(RERadioItem *item))selectionHandler;
