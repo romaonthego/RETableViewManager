@@ -92,6 +92,7 @@
         //
         RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options multipleChoice:YES completionHandler:^{
             [weakSelf.tableView reloadRowsAtIndexPaths:@[item.indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            NSLog(@"%@", item.value);
         }];
         [weakSelf.navigationController pushViewController:optionsController animated:YES];
     }];

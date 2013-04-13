@@ -55,6 +55,18 @@
     [_tableViewManager addSection:_mainSection];
     
     __typeof (&*self) __weak weakSelf = self;
+    void (^refreshItems)(void) = ^{
+        REMultipleChoiceItem * __weak item = (REMultipleChoiceItem *)weakSelf.item;
+        NSMutableArray *results = [[NSMutableArray alloc] init];
+        for (RETableViewItem *sectionItem in weakSelf.mainSection.items) {
+            for (NSString *strValue in item.value) {
+                if ([strValue isEqualToString:sectionItem.title])
+                    [results addObject:sectionItem.title];
+            }
+        }
+        item.value = results;
+    };
+    
     void (^addItem)(NSString *title) = ^(NSString *title) {
         UITableViewCellAccessoryType accessoryType = UITableViewCellAccessoryNone;
         if (!weakSelf.multipleChoice) {
@@ -76,9 +88,9 @@
                 item.value = selectedItem.title;
                 if (weakSelf.completionHandler)
                     weakSelf.completionHandler();
-            } else {
-                [weakSelf.tableView deselectRowAtIndexPath:selectedItem.indexPath animated:YES];
+            } else { // Multiple choice item
                 REMultipleChoiceItem * __weak item = (REMultipleChoiceItem *)weakSelf.item;
+                [weakSelf.tableView deselectRowAtIndexPath:selectedItem.indexPath animated:YES];
                 if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
                     cell.accessoryType = UITableViewCellAccessoryNone;
                     NSMutableArray *items = [[NSMutableArray alloc] init];
@@ -93,6 +105,7 @@
                     NSMutableArray *items = [[NSMutableArray alloc] initWithArray:item.value];
                     [items addObject:selectedItem.title];
                     item.value = items;
+                    refreshItems();
                 }
                 if (weakSelf.completionHandler)
                     weakSelf.completionHandler();
