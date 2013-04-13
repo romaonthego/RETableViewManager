@@ -35,6 +35,7 @@
 @property (weak, readwrite, nonatomic) RETableViewSection *section;
 @property (copy, readwrite, nonatomic) NSString *detailLabelText;
 @property (assign, readwrite, nonatomic) UITableViewCellStyle cellStyle;
+@property (assign, readwrite, nonatomic) UITableViewCellSelectionStyle cellSelectionStyle;
 @property (assign, readwrite, nonatomic) UITableViewCellAccessoryType accessoryType;
 @property (strong, readwrite, nonatomic) UIView *accessoryView;
 @property (copy, readwrite, nonatomic) void (^selectionHandler)(id item);
