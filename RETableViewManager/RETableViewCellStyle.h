@@ -24,14 +24,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-typedef enum _RETableViewCellType {
-    RETableViewCellTypeFirst,
-    RETableViewCellTypeMiddle,
-    RETableViewCellTypeLast,
-    RETableViewCellTypeSingle,
-    RETableViewCellTypeAny
-} RETableViewCellType;
+#import "RETableViewCell.h"
 
 @interface RETableViewCellStyle : NSObject {
     NSMutableDictionary *_backgroundImages;

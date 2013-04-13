@@ -30,6 +30,14 @@
 @class RETableViewManager;
 @class RETableViewItem;
 
+typedef enum _RETableViewCellType {
+    RETableViewCellTypeFirst,
+    RETableViewCellTypeMiddle,
+    RETableViewCellTypeLast,
+    RETableViewCellTypeSingle,
+    RETableViewCellTypeAny
+} RETableViewCellType;
+
 @interface RETableViewCell : UITableViewCell <REActionBarDelegate>
 
 @property (strong, readonly, nonatomic) UIImageView *backgroundImageView;
@@ -41,6 +49,7 @@
 @property (weak, readwrite, nonatomic) RETableViewSection *section;
 @property (strong, readwrite, nonatomic) RETableViewItem *item;
 @property (strong, readwrite, nonatomic) REActionBar *actionBar;
+@property (assign, readonly, nonatomic) RETableViewCellType cellType;
 
 + (BOOL)canFocusWithItem:(RETableViewItem *)item;
 + (CGFloat)heightWithItem:(RETableViewItem *)item tableViewManager:(RETableViewManager *)tableViewManager;

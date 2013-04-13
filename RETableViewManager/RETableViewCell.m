@@ -95,36 +95,31 @@
     [super layoutSubviews];
     
     if ([self.tableViewManager.style hasCustomBackgroundImage]) {
-        if (self.row == 0 && self.section.items.count == 1)
-            _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellTypeSingle];
-        
-        if (self.row == 0 && self.section.items.count > 1)
-            _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellTypeFirst];
-        
-        if (self.row > 0 && self.row < self.section.items.count - 1 && self.section.items.count > 2)
-            _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellTypeMiddle];
-        
-        if (self.row == self.section.items.count - 1 && self.section.items.count > 1)
-            _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:RETableViewCellTypeLast];
-        
+        _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:self.cellType];
         _backgroundImageView.frame = CGRectMake(0, 0, _backgroundImageView.image.size.width, _backgroundImageView.image.size.height);
     }
     
     if ([self.tableViewManager.style hasCustomSelectedBackgroundImage]) {
-        if (self.row == 0 && self.section.items.count == 1)
-            _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:RETableViewCellTypeSingle];
-        
-        if (self.row == 0 && self.section.items.count > 1)
-            _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:RETableViewCellTypeFirst];
-        
-        if (self.row > 0 && self.row < self.section.items.count - 1 && self.section.items.count > 2)
-            _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:RETableViewCellTypeMiddle];
-        
-        if (self.row == self.section.items.count - 1 && self.section.items.count > 1)
-            _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:RETableViewCellTypeLast];
-        
+        _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:self.cellType];
         _selectedBackgroundImageView.frame = CGRectMake(0, 0, _selectedBackgroundImageView.image.size.width, _selectedBackgroundImageView.image.size.height);
     }
+}
+
+- (RETableViewCellType)cellType
+{
+    if (self.row == 0 && self.section.items.count == 1)
+        return RETableViewCellTypeSingle;
+    
+    if (self.row == 0 && self.section.items.count > 1)
+        return RETableViewCellTypeFirst;
+    
+    if (self.row > 0 && self.row < self.section.items.count - 1 && self.section.items.count > 2)
+        return RETableViewCellTypeMiddle;
+    
+    if (self.row == self.section.items.count - 1 && self.section.items.count > 1)
+        return RETableViewCellTypeLast;
+    
+    return RETableViewCellTypeAny;
 }
 
 - (void)updateActionBarNavigationControl
