@@ -71,13 +71,31 @@
         
         // Present options controller
         //
-        RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options completionHandler:^(RETableViewItem *selectedItem) {
-            item.value = selectedItem.title;
+        RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options multipleChoice:NO completionHandler:^{
+            [weakSelf.navigationController popViewControllerAnimated:YES];
             [weakSelf.tableView reloadRowsAtIndexPaths:@[item.indexPath] withRowAnimation:UITableViewRowAnimationNone];
         }];
         [weakSelf.navigationController pushViewController:optionsController animated:YES];
     }];
     [section addItem:optionItem];
+    
+    REMultipleChoiceItem *multipleItem = [REMultipleChoiceItem itemWithTitle:@"Multiple" value:@[@"Option 2", @"Option 4"] selectionHandler:^(REMultipleChoiceItem *item) {
+       [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+        
+        // Generate sample options
+        //
+        NSMutableArray *options = [[NSMutableArray alloc] init];
+        for (NSInteger i = 1; i < 40; i++)
+            [options addObject:[NSString stringWithFormat:@"Option %i", i]];
+        
+        // Present options controller
+        //
+        RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options multipleChoice:YES completionHandler:^{
+            [weakSelf.tableView reloadRowsAtIndexPaths:@[item.indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }];
+        [weakSelf.navigationController pushViewController:optionsController animated:YES];
+    }];
+    [section addItem:multipleItem];
     
     RELongTextItem *longTextItem = [RELongTextItem itemWithValue:nil placeholder:@"Multiline text field"];
     longTextItem.cellHeight = 88;

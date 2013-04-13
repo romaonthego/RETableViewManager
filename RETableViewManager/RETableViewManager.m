@@ -67,6 +67,7 @@
     [self mapObjectClass:@"REFloatItem" toTableViewCellClass:@"RETableViewFloatCell"];
     [self mapObjectClass:@"REDateTimeItem" toTableViewCellClass:@"RETableViewDateTimeCell"];
     [self mapObjectClass:@"RECreditCardItem" toTableViewCellClass:@"RETableViewCreditCardCell"];
+    [self mapObjectClass:@"REMultipleChoiceItem" toTableViewCellClass:@"REMultipleChoiceCell"];
 }
 
 - (void)mapObjectClass:(NSString *)objectClass toTableViewCellClass:(NSString *)cellViewClass

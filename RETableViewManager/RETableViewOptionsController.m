@@ -32,7 +32,7 @@
 
 @implementation RETableViewOptionsController
 
-- (id)initWithItem:(RETableViewItem *)item options:(NSArray *)options completionHandler:(void(^)(RETableViewItem *selectedItem))completionHandler
+- (id)initWithItem:(RETableViewItem *)item options:(NSArray *)options multipleChoice:(BOOL)multipleChoice completionHandler:(void(^)(void))completionHandler
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (!self)
@@ -41,6 +41,7 @@
     self.item = item;
     self.options = options;
     self.title = item.title;
+    self.multipleChoice = multipleChoice;
     self.completionHandler = completionHandler;
     
     return self;
@@ -56,19 +57,52 @@
     __typeof (&*self) __weak weakSelf = self;
     void (^addItem)(NSString *title) = ^(NSString *title) {
         UITableViewCellAccessoryType accessoryType = UITableViewCellAccessoryNone;
-        if ([title isEqualToString:self.item.detailLabelText])
-            accessoryType = UITableViewCellAccessoryCheckmark;
-        [_mainSection addItem:[RETableViewItem itemWithTitle:title accessoryType:accessoryType selectionHandler:^(RETableViewItem *item) {
-            UITableViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:item.indexPath];
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            [weakSelf.navigationController popViewControllerAnimated:YES];
-            if (weakSelf.completionHandler)
-                weakSelf.completionHandler(item);
+        if (!weakSelf.multipleChoice) {
+            if ([title isEqualToString:self.item.detailLabelText])
+                accessoryType = UITableViewCellAccessoryCheckmark;
+        } else {
+            REMultipleChoiceItem * __weak item = (REMultipleChoiceItem *)weakSelf.item;
+            for (NSString *strValue in item.value) {
+                if ([strValue isEqualToString:title]) {
+                    accessoryType = UITableViewCellAccessoryCheckmark;
+                }
+            }
+        }
+        [_mainSection addItem:[RETableViewItem itemWithTitle:title accessoryType:accessoryType selectionHandler:^(RETableViewItem *selectedItem) {
+            UITableViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:selectedItem.indexPath];
+            if (!weakSelf.multipleChoice) {
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                RERadioItem * __weak item = (RERadioItem *)weakSelf.item;
+                item.value = selectedItem.title;
+                if (weakSelf.completionHandler)
+                    weakSelf.completionHandler();
+            } else {
+                [weakSelf.tableView deselectRowAtIndexPath:selectedItem.indexPath animated:YES];
+                REMultipleChoiceItem * __weak item = (REMultipleChoiceItem *)weakSelf.item;
+                if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+                    cell.accessoryType = UITableViewCellAccessoryNone;
+                    NSMutableArray *items = [[NSMutableArray alloc] init];
+                    for (NSString *val in item.value) {
+                        if (![val isEqualToString:selectedItem.title])
+                            [items addObject:val];
+                    }
+                    
+                    item.value = items;
+                } else {
+                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                    NSMutableArray *items = [[NSMutableArray alloc] initWithArray:item.value];
+                    [items addObject:selectedItem.title];
+                    item.value = items;
+                }
+                if (weakSelf.completionHandler)
+                    weakSelf.completionHandler();
+            }
         }]];
     };
     
-    for (RETableViewItem *item in self.options)
-        addItem([item isKindOfClass:[RETableViewItem item]] ? item.title : (NSString *)item);
+    for (RETableViewItem *item in self.options) {
+        addItem([item isKindOfClass:[RERadioItem item]] ? item.title : (NSString *)item);
+    }
     
     // Set datasource and delegate
     //

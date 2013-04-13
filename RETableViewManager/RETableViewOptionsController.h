@@ -38,8 +38,9 @@
 @property (strong, readwrite, nonatomic) NSArray *options;
 @property (strong, readonly, nonatomic) RETableViewManager *tableViewManager;
 @property (strong, readonly, nonatomic) RETableViewSection *mainSection;
-@property (copy, readwrite, nonatomic) void (^completionHandler)(RETableViewItem *item);
+@property (assign, readwrite, nonatomic) BOOL multipleChoice;
+@property (copy, readwrite, nonatomic) void (^completionHandler)(void);
 
-- (id)initWithItem:(RETableViewItem *)item options:(NSArray *)options completionHandler:(void(^)(RETableViewItem *selectedItem))completionHandler;
+- (id)initWithItem:(RETableViewItem *)item options:(NSArray *)options multipleChoice:(BOOL)multipleChoice completionHandler:(void(^)(void))completionHandler;
 
 @end
