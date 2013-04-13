@@ -34,10 +34,10 @@
     
     // Add sections and items
     //
-    RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Section 1"];
+    RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Deletable"];
     [_manager addSection:section];
     
-    for (NSInteger i = 1; i <= 10; i++) {
+    for (NSInteger i = 1; i <= 5; i++) {
         RETableViewItem *item = [RETableViewItem itemWithTitle:[NSString stringWithFormat:@"Item %i", i] accessoryType:UITableViewCellAccessoryNone selectionHandler:nil];
         item.deletable = YES;
         item.deletionHandler = ^(RETableViewItem *item) {
@@ -46,11 +46,22 @@
         [section addItem:item];
     }
     
-    section = [[RETableViewSection alloc] initWithHeaderTitle:@"Section 2"];
+    section = [[RETableViewSection alloc] initWithHeaderTitle:@"Movable"];
     [_manager addSection:section];
     
-    for (NSInteger i = 1; i <= 10; i++) {
+    for (NSInteger i = 1; i <= 5; i++) {
         RETableViewItem *item = [RETableViewItem itemWithTitle:[NSString stringWithFormat:@"Item %i", i] accessoryType:UITableViewCellAccessoryNone selectionHandler:nil];
+        item.movable = YES;
+        [section addItem:item];
+    }
+    
+    section = [[RETableViewSection alloc] initWithHeaderTitle:@"Deletable & Movable"];
+    [_manager addSection:section];
+    
+    for (NSInteger i = 1; i <= 5; i++) {
+        RETableViewItem *item = [RETableViewItem itemWithTitle:[NSString stringWithFormat:@"Item %i", i] accessoryType:UITableViewCellAccessoryNone selectionHandler:nil];
+        item.movable = YES;
+        item.deletable = YES;
         [section addItem:item];
     }
 }

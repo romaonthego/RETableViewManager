@@ -195,7 +195,9 @@
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return NO;
+    RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
+    RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
+    return item.movable;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
@@ -208,7 +210,7 @@
     RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
     RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
     if ([item isKindOfClass:[RETableViewItem class]]) {
-        return item.deletable;
+        return item.deletable || item.movable;
     }
     return NO;
 }
@@ -218,12 +220,10 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
         RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
-        if (item.deletable) {
-            if (item.deletionHandler)
-                item.deletionHandler(item);
-            [section.items removeObjectAtIndex:indexPath.row];
-            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        }
+        if (item.deletionHandler)
+            item.deletionHandler(item);
+        [section.items removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
 
@@ -232,7 +232,13 @@
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return UITableViewCellEditingStyleDelete;
+    RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
+    RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
+    
+    if (item.deletable)
+        return UITableViewCellEditingStyleDelete;
+    
+    return UITableViewCellEditingStyleNone;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
