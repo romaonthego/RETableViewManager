@@ -190,7 +190,15 @@
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-
+    RETableViewSection *sourceSection = [_sections objectAtIndex:sourceIndexPath.section];
+    RETableViewItem *item = [sourceSection.items objectAtIndex:sourceIndexPath.row];
+    [sourceSection removeItemAtIndex:sourceIndexPath.row];
+    
+    RETableViewSection *destinationSection = [_sections objectAtIndex:destinationIndexPath.section];
+    [destinationSection insertItem:item atIndex:destinationIndexPath.row];
+    
+    if (item.moveHandler)
+        item.moveHandler(item, sourceIndexPath, destinationIndexPath);
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
@@ -202,6 +210,13 @@
 
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
 {
+    RETableViewSection *sourceSection = [_sections objectAtIndex:sourceIndexPath.section];
+    RETableViewItem *item = [sourceSection.items objectAtIndex:sourceIndexPath.row];
+    if (item.allowNewIndexPath) {
+        BOOL allowed = item.allowNewIndexPath(proposedDestinationIndexPath);
+        if (!allowed)
+            return sourceIndexPath;
+    }
     return proposedDestinationIndexPath;
 }
 

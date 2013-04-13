@@ -38,7 +38,7 @@
     [_manager addSection:section];
     
     for (NSInteger i = 1; i <= 5; i++) {
-        RETableViewItem *item = [RETableViewItem itemWithTitle:[NSString stringWithFormat:@"Item %i", i] accessoryType:UITableViewCellAccessoryNone selectionHandler:nil];
+        RETableViewItem *item = [RETableViewItem itemWithTitle:[NSString stringWithFormat:@"Section 1, Item %i", i] accessoryType:UITableViewCellAccessoryNone selectionHandler:nil];
         item.deletable = YES;
         item.deletionHandler = ^(RETableViewItem *item) {
             NSLog(@"Item removed: %@", item.title);
@@ -50,8 +50,11 @@
     [_manager addSection:section];
     
     for (NSInteger i = 1; i <= 5; i++) {
-        RETableViewItem *item = [RETableViewItem itemWithTitle:[NSString stringWithFormat:@"Item %i", i] accessoryType:UITableViewCellAccessoryNone selectionHandler:nil];
+        RETableViewItem *item = [RETableViewItem itemWithTitle:[NSString stringWithFormat:@"Section 2, Item %i", i] accessoryType:UITableViewCellAccessoryNone selectionHandler:nil];
         item.movable = YES;
+        item.moveHandler = ^(RETableViewItem *item, NSIndexPath *sourceIndexPath, NSIndexPath *destinationIndexPath) {
+            NSLog(@"Moved item: %@ from [%i,%i] to [%i,%i]", item.title, sourceIndexPath.section, sourceIndexPath.row, destinationIndexPath.section, destinationIndexPath.row);
+        };
         [section addItem:item];
     }
     
@@ -59,9 +62,21 @@
     [_manager addSection:section];
     
     for (NSInteger i = 1; i <= 5; i++) {
-        RETableViewItem *item = [RETableViewItem itemWithTitle:[NSString stringWithFormat:@"Item %i", i] accessoryType:UITableViewCellAccessoryNone selectionHandler:nil];
+        RETableViewItem *item = [RETableViewItem itemWithTitle:[NSString stringWithFormat:@"Section 3, Item %i", i] accessoryType:UITableViewCellAccessoryNone selectionHandler:nil];
         item.movable = YES;
         item.deletable = YES;
+        [section addItem:item];
+    }
+    
+    section = [[RETableViewSection alloc] initWithHeaderTitle:@"Can move only within section"];
+    [_manager addSection:section];
+    
+    for (NSInteger i = 1; i <= 5; i++) {
+        RETableViewItem *item = [RETableViewItem itemWithTitle:[NSString stringWithFormat:@"Section 4, Item %i", i] accessoryType:UITableViewCellAccessoryNone selectionHandler:nil];
+        item.movable = YES;
+        item.allowNewIndexPath = ^BOOL(NSIndexPath *newIndexPath) {
+            return (newIndexPath.section == section.index);
+        };
         [section addItem:item];
     }
 }
