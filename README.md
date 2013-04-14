@@ -75,6 +75,12 @@ RETableViewManager includes a number of built-in items and cells that were mappe
     normally find in <tt>UITextField</tt>.</td>
   </tr>
   <tr>
+    <td>RELongTextItem</td>
+    <td>RETableViewLongTextCell</td>
+    <td>Provides convenience for multiline user text input. You can set a bunch of properties through <tt>RELongTextItem</tt> that you would
+    normally find in <tt>UITextView</tt>.</td>
+  </tr>
+  <tr>
     <td>RENumberItem</td>
     <td>RETableViewNumberCell</td>
     <td>Provides convenience for user number input using <a href="https://github.com/romaonthego/REFormattedNumberField">REFormattedNumberField</a>.</td>
@@ -87,7 +93,12 @@ RETableViewManager includes a number of built-in items and cells that were mappe
   <tr>
     <td>RERadioItem</td>
     <td>RETableViewCell</td>
-    <td>Provides convenience for selecting options using <tt>RETableViewOptionsController</tt>.</td>
+    <td>Provides convenience for selecting a single option using <tt>RETableViewOptionsController</tt>.</td>
+  </tr>
+  <tr>
+    <td>REMultipleChoiceItem</td>
+    <td>RETableViewCell</td>
+    <td>Provides convenience for selecting multiple options using <tt>RETableViewOptionsController</tt>.</td>
   </tr>
   <tr>
     <td>REFloatItem</td>
