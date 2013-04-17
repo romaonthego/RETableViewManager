@@ -225,7 +225,7 @@
     RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
     RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
     if ([item isKindOfClass:[RETableViewItem class]]) {
-        return item.deletable || item.movable;
+        return item.editingStyle != UITableViewCellEditingStyleNone || item.movable;
     }
     return NO;
 }
@@ -240,6 +240,13 @@
         [section.items removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
+    
+    if (editingStyle == UITableViewCellEditingStyleInsert) {
+        RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
+        RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
+        if (item.insertionHandler)
+            item.insertionHandler(item);
+    }
 }
 
 #pragma mark -
@@ -250,10 +257,7 @@
     RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
     RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
     
-    if (item.deletable)
-        return UITableViewCellEditingStyleDelete;
-    
-    return UITableViewCellEditingStyleNone;
+    return item.editingStyle;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
