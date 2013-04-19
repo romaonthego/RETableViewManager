@@ -34,8 +34,8 @@
 @property (assign, readwrite, nonatomic) NSTextAlignment textAlignment;
 @property (weak, readwrite, nonatomic) RETableViewSection *section;
 @property (copy, readwrite, nonatomic) NSString *detailLabelText;
-@property (assign, readwrite, nonatomic) UITableViewCellStyle cellStyle;
-@property (assign, readwrite, nonatomic) UITableViewCellSelectionStyle cellSelectionStyle;
+@property (assign, readwrite, nonatomic) UITableViewCellStyle style;
+@property (assign, readwrite, nonatomic) UITableViewCellSelectionStyle selectionStyle;
 @property (assign, readwrite, nonatomic) UITableViewCellAccessoryType accessoryType;
 @property (assign, readwrite, nonatomic) UITableViewCellEditingStyle editingStyle;
 @property (strong, readwrite, nonatomic) UIView *accessoryView;

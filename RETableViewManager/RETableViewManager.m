@@ -111,7 +111,7 @@
     
     UITableViewCellStyle cellStyle = UITableViewCellStyleDefault;
     if ([item isKindOfClass:[RETableViewItem class]])
-        cellStyle = ((RETableViewItem *)item).cellStyle;
+        cellStyle = ((RETableViewItem *)item).style;
     
     NSString *cellIdentifier = [NSString stringWithFormat:@"RETableViewManager_%@_%i", [item class], cellStyle];
   

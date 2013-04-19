@@ -42,7 +42,7 @@
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     self.selectionHandler = selectionHandler;
     self.value = value;
-    self.cellStyle = UITableViewCellStyleValue1;
+    self.style = UITableViewCellStyleValue1;
     
     return self;
 }

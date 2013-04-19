@@ -86,7 +86,7 @@
         self.accessoryView = item.accessoryView;
         self.textLabel.textAlignment = item.textAlignment;
         if (self.selectionStyle != UITableViewCellSelectionStyleNone)
-            self.selectionStyle = item.cellSelectionStyle;
+            self.selectionStyle = item.selectionStyle;
     }
 }
 

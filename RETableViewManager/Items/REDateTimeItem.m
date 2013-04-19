@@ -52,7 +52,7 @@
     self.value = value;
     self.format = format;
     self.datePickerMode = datePickerMode;
-    self.cellStyle = UITableViewCellStyleValue1;
+    self.style = UITableViewCellStyleValue1;
     
     return self;
 }

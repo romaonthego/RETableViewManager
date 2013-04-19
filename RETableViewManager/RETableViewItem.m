@@ -69,7 +69,7 @@
         return nil;
     
     self.cellHeight = 0;
-    self.cellSelectionStyle = UITableViewCellSelectionStyleBlue;
+    self.selectionStyle = UITableViewCellSelectionStyleBlue;
     
     return self;
 }
