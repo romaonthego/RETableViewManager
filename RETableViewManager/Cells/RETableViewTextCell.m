@@ -128,16 +128,20 @@
     if (indexPath) {
         textField.returnKeyType = UIReturnKeyNext;
     } else {
-        textField.returnKeyType = UIReturnKeyDefault;
+        textField.returnKeyType = self.item.returnKeyType;
     }
     [self updateActionBarNavigationControl];
     [self.parentTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.row inSection:self.sectionIndex] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    if (self.item.onFocus)
+        self.item.onFocus(self.item);
     return YES;
 }
 
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    if (self.item.onReturn)
+        self.item.onReturn(self.item);
     NSIndexPath *indexPath = [self indexPathForNextResponder];
     if (!indexPath) {
         [self endEditing:YES];
