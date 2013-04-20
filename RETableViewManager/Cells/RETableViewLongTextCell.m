@@ -115,6 +115,21 @@
 {
     [self updateActionBarNavigationControl];
     [self.parentTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.row inSection:self.sectionIndex] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    if (self.item.onFocus)
+        self.item.onFocus(self.item);
+    return YES;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if (self.item.onReturn && [text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        if (self.item.onReturn)
+            self.item.onReturn(self.item);
+        
+        return NO;
+    }
+    
     return YES;
 }
 
