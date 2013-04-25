@@ -45,6 +45,8 @@
 @property (assign, readwrite, nonatomic) BOOL secureTextEntry;                                // default is NO
 
 @property (copy, readwrite, nonatomic) void (^onFocus)(RETextItem *item);
+@property (copy, readwrite, nonatomic) void (^onUpdate)(RETextItem *item);
+@property (copy, readwrite, nonatomic) void (^onFocusLost)(RETextItem *item);
 @property (copy, readwrite, nonatomic) void (^onReturn)(RETextItem *item);
 
 + (id)itemWithTitle:(NSString *)title value:(NSString *)value;
