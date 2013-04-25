@@ -120,6 +120,8 @@
 - (void)textFieldDidChange:(UITextField *)textField
 {
     self.item.value = textField.text;
+    if (self.item.onChange)
+        self.item.onChange(self.item);
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
@@ -132,8 +134,15 @@
     }
     [self updateActionBarNavigationControl];
     [self.parentTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.row inSection:self.sectionIndex] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    if (self.item.onFocus)
-        self.item.onFocus(self.item);
+    if (self.item.onBeginEditing)
+        self.item.onBeginEditing(self.item);
+    return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    if (self.item.onEndEditing)
+        self.item.onEndEditing(self.item);
     return YES;
 }
 
