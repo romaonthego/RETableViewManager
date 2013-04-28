@@ -29,7 +29,9 @@
 
 @property (strong, readwrite, nonatomic) UIColor *placeholderColor;
 @property (assign, readwrite, nonatomic) BOOL editable;
-@property (copy, readwrite, nonatomic) void (^onFocus)(RELongTextItem *item);
+@property (copy, readwrite, nonatomic) void (^onBeginEditing)(RELongTextItem *item);
+@property (copy, readwrite, nonatomic) void (^onEndEditing)(RELongTextItem *item);
+@property (copy, readwrite, nonatomic) void (^onChange)(RETextItem *item);
 @property (copy, readwrite, nonatomic) void (^onReturn)(RELongTextItem *item);
 
 + (id)itemWithValue:(NSString *)value placeholder:(NSString *)placeholder;

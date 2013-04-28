@@ -115,8 +115,15 @@
 {
     [self updateActionBarNavigationControl];
     [self.parentTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.row inSection:self.sectionIndex] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    if (self.item.onFocus)
-        self.item.onFocus(self.item);
+    if (self.item.onBeginEditing)
+        self.item.onBeginEditing(self.item);
+    return YES;
+}
+
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView
+{
+    if (self.item.onEndEditing)
+        self.item.onEndEditing(self.item);
     return YES;
 }
 
@@ -136,6 +143,8 @@
 - (void)textViewDidChange:(UITextView *)textView
 {
     self.item.value = textView.text;
+    if (self.item.onChange)
+        self.item.onChange(self.item);
 }
 
 @end
