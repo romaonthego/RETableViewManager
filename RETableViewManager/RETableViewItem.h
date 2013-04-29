@@ -43,7 +43,7 @@
 @property (copy, readwrite, nonatomic) void (^accessoryButtonTapHandler)(id item);
 @property (assign, readwrite, nonatomic) BOOL movable;
 @property (copy, readwrite, nonatomic) void (^insertionHandler)(id item);
-@property (copy, readwrite, nonatomic) void (^deletionHandler)(id item);
+@property (copy, readwrite, nonatomic) void (^deletionHandlerWithCompletion)(id item, void (^)(void));
 @property (copy, readwrite, nonatomic) void (^moveHandler)(id item, NSIndexPath *sourceIndexPath, NSIndexPath *destinationIndexPath);
 @property (copy, readwrite, nonatomic) BOOL (^allowNewIndexPath)(NSIndexPath *newIndexPath);
 @property (assign, readwrite, nonatomic) CGFloat cellHeight;

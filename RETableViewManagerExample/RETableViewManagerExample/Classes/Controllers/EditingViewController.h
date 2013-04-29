@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "RETableViewManager.h"
 
-@interface EditingViewController : UITableViewController
+@interface EditingViewController : UITableViewController <UIAlertViewDelegate>
 
 @property (strong, readonly, nonatomic) RETableViewManager *manager;
+
+// Deletable items with confirmation
+
+@property (strong, readwrite, nonatomic) RETableViewItem *currentItem;
+@property (copy, readwrite, nonatomic) void (^deleteConfirmationHandler)(void);
 
 @end

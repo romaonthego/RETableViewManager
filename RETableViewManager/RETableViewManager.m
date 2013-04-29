@@ -235,10 +235,15 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
         RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
-        if (item.deletionHandler)
-            item.deletionHandler(item);
-        [section.items removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        if (item.deletionHandlerWithCompletion) {
+            item.deletionHandlerWithCompletion(item, ^{
+                [section.items removeObjectAtIndex:indexPath.row];
+                [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            });
+        } else {
+            [section.items removeObjectAtIndex:indexPath.row];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
     }
     
     if (editingStyle == UITableViewCellEditingStyleInsert) {
