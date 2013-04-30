@@ -40,9 +40,8 @@
     for (NSInteger i = 1; i <= 5; i++) {
         RETableViewItem *item = [RETableViewItem itemWithTitle:[NSString stringWithFormat:@"Section 1, Item %i", i] accessoryType:UITableViewCellAccessoryNone selectionHandler:nil];
         item.editingStyle = UITableViewCellEditingStyleDelete;
-        item.deletionHandlerWithCompletion = ^(RETableViewItem *item, void (^completion)(void)) {
+        item.deletionHandler = ^(RETableViewItem *item) {
             NSLog(@"Item removed: %@", item.title);
-            completion();
         };
         [section addItem:item];
     }
