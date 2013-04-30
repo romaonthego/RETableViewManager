@@ -92,8 +92,8 @@
     for (NSInteger i = 1; i <= 5; i++) {
         RETableViewItem *item = [RETableViewItem itemWithTitle:[NSString stringWithFormat:@"Section 5, Item %i", i] accessoryType:UITableViewCellAccessoryNone selectionHandler:nil];
         item.movable = YES;
-        item.allowNewIndexPath = ^BOOL(NSIndexPath *newIndexPath) {
-            return (newIndexPath.section == section.index);
+        item.allowNewIndexPath = ^BOOL(id item, NSIndexPath *sourceIndexPath, NSIndexPath *destinationIndexPath) {
+            return (destinationIndexPath.section == section.index);
         };
         [section addItem:item];
     }

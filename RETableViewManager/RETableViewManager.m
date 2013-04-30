@@ -213,7 +213,7 @@
     RETableViewSection *sourceSection = [_sections objectAtIndex:sourceIndexPath.section];
     RETableViewItem *item = [sourceSection.items objectAtIndex:sourceIndexPath.row];
     if (item.allowNewIndexPath) {
-        BOOL allowed = item.allowNewIndexPath(proposedDestinationIndexPath);
+        BOOL allowed = item.allowNewIndexPath(item, sourceIndexPath, proposedDestinationIndexPath);
         if (!allowed)
             return sourceIndexPath;
     }
