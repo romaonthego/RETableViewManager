@@ -205,15 +205,15 @@
 {
     RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
     RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
-    return item.movable;
+    return item.moveHandler != nil;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
 {
     RETableViewSection *sourceSection = [_sections objectAtIndex:sourceIndexPath.section];
     RETableViewItem *item = [sourceSection.items objectAtIndex:sourceIndexPath.row];
-    if (item.allowNewIndexPath) {
-        BOOL allowed = item.allowNewIndexPath(item, sourceIndexPath, proposedDestinationIndexPath);
+    if (item.moveHandler) {
+        BOOL allowed = item.moveHandler(item, sourceIndexPath, proposedDestinationIndexPath);
         if (!allowed)
             return sourceIndexPath;
     }
@@ -225,7 +225,7 @@
     RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
     RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
     if ([item isKindOfClass:[RETableViewItem class]]) {
-        return item.editingStyle != UITableViewCellEditingStyleNone || item.movable;
+        return item.editingStyle != UITableViewCellEditingStyleNone || item.moveHandler;
     }
     return NO;
 }
