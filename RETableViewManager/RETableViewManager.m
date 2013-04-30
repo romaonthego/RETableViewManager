@@ -197,8 +197,8 @@
     RETableViewSection *destinationSection = [_sections objectAtIndex:destinationIndexPath.section];
     [destinationSection insertItem:item atIndex:destinationIndexPath.row];
     
-    if (item.moveHandler)
-        item.moveHandler(item, sourceIndexPath, destinationIndexPath);
+    if (item.moveCompletionHandler)
+        item.moveCompletionHandler(item, sourceIndexPath, destinationIndexPath);
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
