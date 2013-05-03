@@ -202,8 +202,12 @@ find out how default mapping is performed:
     [self mapObjectClass:@"RERadioItem" toTableViewCellClass:@"RETableViewCell"];
     [self mapObjectClass:@"REBoolItem" toTableViewCellClass:@"RETableViewBoolCell"];
     [self mapObjectClass:@"RETextItem" toTableViewCellClass:@"RETableViewTextCell"];
+    [self mapObjectClass:@"RELongTextItem" toTableViewCellClass:@"RETableViewLongTextCell"];
     [self mapObjectClass:@"RENumberItem" toTableViewCellClass:@"RETableViewNumberCell"];
+    [self mapObjectClass:@"REFloatItem" toTableViewCellClass:@"RETableViewFloatCell"];
+    [self mapObjectClass:@"REDateTimeItem" toTableViewCellClass:@"RETableViewDateTimeCell"];
     [self mapObjectClass:@"RECreditCardItem" toTableViewCellClass:@"RETableViewCreditCardCell"];
+    [self mapObjectClass:@"REMultipleChoiceItem" toTableViewCellClass:@"RETableViewCell"];
 }
 ```
 
