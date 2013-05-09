@@ -55,24 +55,24 @@
 
 - (void)setDefaultMapping
 {
-    [self mapObjectClass:@"__NSCFConstantString" toTableViewCellClass:@"RETableViewCell"];
-    [self mapObjectClass:@"__NSCFString" toTableViewCellClass:@"RETableViewCell"];
-    [self mapObjectClass:@"NSString" toTableViewCellClass:@"RETableViewCell"];
-    [self mapObjectClass:@"RETableViewItem" toTableViewCellClass:@"RETableViewCell"];
-    [self mapObjectClass:@"RERadioItem" toTableViewCellClass:@"RETableViewCell"];
-    [self mapObjectClass:@"REBoolItem" toTableViewCellClass:@"RETableViewBoolCell"];
-    [self mapObjectClass:@"RETextItem" toTableViewCellClass:@"RETableViewTextCell"];
-    [self mapObjectClass:@"RELongTextItem" toTableViewCellClass:@"RETableViewLongTextCell"];
-    [self mapObjectClass:@"RENumberItem" toTableViewCellClass:@"RETableViewNumberCell"];
-    [self mapObjectClass:@"REFloatItem" toTableViewCellClass:@"RETableViewFloatCell"];
-    [self mapObjectClass:@"REDateTimeItem" toTableViewCellClass:@"RETableViewDateTimeCell"];
-    [self mapObjectClass:@"RECreditCardItem" toTableViewCellClass:@"RETableViewCreditCardCell"];
-    [self mapObjectClass:@"REMultipleChoiceItem" toTableViewCellClass:@"RETableViewCell"];
+    [self registerClass:@"__NSCFConstantString" forCellWithReuseIdentifier:@"RETableViewCell"];
+    [self registerClass:@"__NSCFString" forCellWithReuseIdentifier:@"RETableViewCell"];
+    [self registerClass:@"NSString" forCellWithReuseIdentifier:@"RETableViewCell"];
+    [self registerClass:@"RETableViewItem" forCellWithReuseIdentifier:@"RETableViewCell"];
+    [self registerClass:@"RERadioItem" forCellWithReuseIdentifier:@"RETableViewCell"];
+    [self registerClass:@"REBoolItem" forCellWithReuseIdentifier:@"RETableViewBoolCell"];
+    [self registerClass:@"RETextItem" forCellWithReuseIdentifier:@"RETableViewTextCell"];
+    [self registerClass:@"RELongTextItem" forCellWithReuseIdentifier:@"RETableViewLongTextCell"];
+    [self registerClass:@"RENumberItem" forCellWithReuseIdentifier:@"RETableViewNumberCell"];
+    [self registerClass:@"REFloatItem" forCellWithReuseIdentifier:@"RETableViewFloatCell"];
+    [self registerClass:@"REDateTimeItem" forCellWithReuseIdentifier:@"RETableViewDateTimeCell"];
+    [self registerClass:@"RECreditCardItem" forCellWithReuseIdentifier:@"RETableViewCreditCardCell"];
+    [self registerClass:@"REMultipleChoiceItem" forCellWithReuseIdentifier:@"RETableViewCell"];
 }
 
-- (void)mapObjectClass:(NSString *)objectClass toTableViewCellClass:(NSString *)cellViewClass
+- (void)registerClass:(NSString *)objectClass forCellWithReuseIdentifier:(NSString *)identifier
 {
-    [_mapping setObject:cellViewClass forKey:objectClass];
+    [_mapping setObject:identifier forKey:objectClass];
 }
 
 - (Class)classForCellAtIndexPath:(NSIndexPath *)indexPath
