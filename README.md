@@ -15,7 +15,7 @@ providing a layer that synchronizes data and cell appereance.
 ## Requirements
 * Xcode 4.5 or higher
 * Apple LLVM compiler
-* iOS 5.0 or higher
+* iOS 6.0 or higher
 * ARC
 
 ## Demo
