@@ -27,7 +27,7 @@
     
     // Map item to a cell
     //
-    [_manager mapObjectClass:@"ListImageItem" toTableViewCellClass:@"ListImageCell"];
+    [_manager registerClass:@"ListImageItem" forCellWithReuseIdentifier:@"ListImageCell"];
     
     // Set delegate and datasource
     //

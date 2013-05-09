@@ -84,7 +84,7 @@
  */
 @property (strong, readwrite, nonatomic) NSMutableDictionary *mapping;
 
-- (void)mapObjectClass:(NSString *)objectClass toTableViewCellClass:(NSString *)cellViewClass;
+- (void)registerClass:(NSString *)objectClass forCellWithReuseIdentifier:(NSString *)identifier;
 
 ///-----------------------------
 /// @name Setting default style
