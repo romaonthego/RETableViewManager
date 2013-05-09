@@ -14,7 +14,7 @@
 + (CGFloat)heightWithItem:(NSObject *)item tableViewManager:(RETableViewManager *)tableViewManager
 {
     return 306;
-}g
+}
 
 - (void)cellDidLoad
 {
