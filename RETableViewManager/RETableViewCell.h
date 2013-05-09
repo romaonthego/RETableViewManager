@@ -56,6 +56,7 @@ typedef enum _RETableViewCellType {
 
 - (void)cellDidLoad;
 - (void)cellWillAppear;
+- (void)cellDidDisappear;
 - (void)updateActionBarNavigationControl;
 
 - (UIResponder *)responder;

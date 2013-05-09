@@ -90,6 +90,11 @@
     }
 }
 
+- (void)cellDidDisappear
+{
+
+}
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];

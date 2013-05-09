@@ -301,6 +301,13 @@
         [_delegate tableView:tableView accessoryButtonTappedForRowWithIndexPath:indexPath item:item];
 }
 
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    if ([cell isKindOfClass:[RETableViewCell class]]) {
+        [(RETableViewCell *)cell cellDidDisappear];
+    }
+}
+
 #pragma mark -
 #pragma mark Managing sections
 
