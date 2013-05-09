@@ -14,16 +14,12 @@
 + (CGFloat)heightWithItem:(NSObject *)item tableViewManager:(RETableViewManager *)tableViewManager
 {
     return 306;
-}
+}g
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (void)cellDidLoad
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        _pictureView = [[UIImageView alloc] initWithFrame:CGRectMake(7, 0, 306, 306)];
-        [self addSubview:_pictureView];
-    }
-    return self;
+    _pictureView = [[UIImageView alloc] initWithFrame:CGRectMake(7, 0, 306, 306)];
+    [self addSubview:_pictureView];
 }
 
 - (void)cellWillAppear
