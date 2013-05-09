@@ -32,4 +32,9 @@
     [_pictureView setImageWithURL:self.item.imageURL];
 }
 
+- (void)cellDidDisappear
+{
+    
+}
+
 @end
