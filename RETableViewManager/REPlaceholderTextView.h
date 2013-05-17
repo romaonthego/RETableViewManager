@@ -27,7 +27,7 @@
 
 @interface REPlaceholderTextView : UITextView
 
-@property (strong, readonly, nonatomic) UILabel *placeHolderLabel;
+@property (strong, readonly, nonatomic) UILabel *placeholderLabel;
 @property (copy, readwrite, nonatomic) NSString *placeholder;
 @property (strong, readwrite, nonatomic) UIColor *placeholderColor;
 

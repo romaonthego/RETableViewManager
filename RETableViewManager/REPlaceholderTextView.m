@@ -67,21 +67,21 @@
 - (void)drawRect:(CGRect)rect
 {
     if (self.placeholder.length > 0) {
-        if (!_placeHolderLabel) {
-            _placeHolderLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, self.bounds.size.width - 16, 0)];
-            _placeHolderLabel.lineBreakMode = NSLineBreakByWordWrapping;
-            _placeHolderLabel.numberOfLines = 0;
-            _placeHolderLabel.font = self.font;
-            _placeHolderLabel.backgroundColor = [UIColor clearColor];
-            _placeHolderLabel.textColor = self.placeholderColor;
-            _placeHolderLabel.alpha = 0;
-            _placeHolderLabel.tag = 999;
-            [self addSubview:_placeHolderLabel];
+        if (!_placeholderLabel) {
+            _placeholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, self.bounds.size.width - 16, 0)];
+            _placeholderLabel.lineBreakMode = NSLineBreakByWordWrapping;
+            _placeholderLabel.numberOfLines = 0;
+            _placeholderLabel.font = self.font;
+            _placeholderLabel.backgroundColor = [UIColor clearColor];
+            _placeholderLabel.textColor = self.placeholderColor;
+            _placeholderLabel.alpha = 0;
+            _placeholderLabel.tag = 999;
+            [self addSubview:_placeholderLabel];
         }
         
-        _placeHolderLabel.text = self.placeholder;
-        [_placeHolderLabel sizeToFit];
-        [self sendSubviewToBack:_placeHolderLabel];
+        _placeholderLabel.text = self.placeholder;
+        [_placeholderLabel sizeToFit];
+        [self sendSubviewToBack:_placeholderLabel];
     }
     
     if (self.text.length == 0 && self.placeholder.length > 0) {
