@@ -183,7 +183,8 @@ RETableViewSection *section = [RETableViewSection sectionWithHeaderView:myCustom
 
 ### Item to Cell Mapping Example
 
-It's super easy to create custom mappings, for example, this how all `NSString` objects are being matched with `RETableViewCell`:
+It's super easy to create custom mappings, the concept is similiar to `UICollectionView`. 
+For example, this how all `NSString` objects are being mapped with `RETableViewCell`:
 
 ``` objective-c
 [_tableViewManager registerClass:@"NSString" forCellWithReuseIdentifier:@"RETableViewCell"];
