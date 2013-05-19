@@ -8,7 +8,7 @@ In its core RETableViewManager supports reusable cells based on corresponding da
 The general idea is to allow developers use their own `UITableView` and `UITableViewController` instances,
 providing a layer that synchronizes data and cell appereance.
 
-### _This is still in the early stages of development and it's highly not recommended to use it in production apps._
+### _It is still in the early stages of development and it's highly not recommended to use it in production apps._
 
 ![Screenshot of RETableViewManager](https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot.png "RETableViewManager Screenshot")
 
