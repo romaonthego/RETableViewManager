@@ -23,16 +23,11 @@
     
     // Create manager
     //
-    _manager = [[RETableViewManager alloc] init];
+    _manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
     
     // Map item to a cell
     //
     [_manager registerClass:@"ListImageItem" forCellWithReuseIdentifier:@"ListImageCell"];
-    
-    // Set delegate and datasource
-    //
-    self.tableView.dataSource = _manager;
-    self.tableView.delegate = _manager;
     
     // Set some UITableView properties
     //

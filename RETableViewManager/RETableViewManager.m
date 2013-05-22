@@ -42,15 +42,24 @@
     return self;
 }
 
-- (id)initWithDelegate:(id<RETableViewManagerDelegate>)delegate
+- (id)initWithTableView:(UITableView *)tableView delegate:(id<RETableViewManagerDelegate>)delegate
 {
     self = [self init];
     if (!self)
         return nil;
     
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    
+    self.tableView = tableView;
     self.delegate = delegate;
     
     return self;
+}
+
+- (id)initWithTableView:(UITableView *)tableView
+{
+    return [self initWithTableView:tableView delegate:nil];
 }
 
 - (void)setDefaultMapping

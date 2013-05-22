@@ -24,6 +24,7 @@
 //
 
 #import "RETableViewBoolCell.h"
+#import "RETableViewManager.h"
 
 @implementation RETableViewBoolCell
 
@@ -52,6 +53,13 @@
 {
     self.textLabel.text = self.item.title;
     _switchView.on = self.item.value;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    //if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:cellWillLayoutSubviews:)])
+    //    [self.tableViewManager.delegate tableView:<#(UITableView *)#> cellWillLayoutSubviews:<#(UITableViewCell *)#>];
 }
 
 #pragma mark -

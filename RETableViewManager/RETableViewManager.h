@@ -58,6 +58,7 @@
 @interface RETableViewManager : NSObject <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, readwrite, nonatomic) NSMutableArray *sections;
+@property (weak, readwrite, nonatomic) UITableView *tableView;
 
 ///-----------------------------
 /// @name Creating and Initializing a RETableViewManager
@@ -69,7 +70,8 @@
  @param delegate The delegate (RETableViewManagerDelegate) object for the table view manager.
  @return The pointer to the instance, or nil if initialization failed.
  */
-- (id)initWithDelegate:(id<RETableViewManagerDelegate>)delegate;
+- (id)initWithTableView:(UITableView *)tableView delegate:(id<RETableViewManagerDelegate>)delegate;
+- (id)initWithTableView:(UITableView *)tableView;
 
 ///-------------------------------------------
 /// @name Managing the Delegate
@@ -150,6 +152,7 @@
 @optional
 
 - (void)tableView:(UITableView *)tableView styleCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(UITableView *)tableView cellWillLayoutSubviews:(UITableViewCell *)cell;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath item:(id)items;
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath;

@@ -23,13 +23,8 @@
     
     // Create manager
     //
-    _manager = [[RETableViewManager alloc] init];
+    _manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
     _manager.style.textFieldPositionOffset = CGSizeMake(0, 0);
-    
-    // Set delegate and datasource
-    //
-    self.tableView.dataSource = _manager;
-    self.tableView.delegate = _manager;
 
     // Create section
     //
