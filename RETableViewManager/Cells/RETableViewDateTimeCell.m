@@ -65,7 +65,6 @@
 {
     self.textLabel.text = self.item.title;
     self.textField.inputView = _datePicker;
-    
     _datePicker.date = self.item.value ? self.item.value : [NSDate date];
     _datePicker.datePickerMode = self.item.datePickerMode;
     _datePicker.locale = self.item.locale;
@@ -74,7 +73,6 @@
     _datePicker.minimumDate = self.item.minimumDate;
     _datePicker.maximumDate = self.item.maximumDate;
     _datePicker.minuteInterval = self.item.minuteInterval;
-    
     _dateFormatter.dateFormat = self.item.format;
     self.detailTextLabel.text = self.item.value ? [_dateFormatter stringFromDate:self.item.value] : @"";
 }
