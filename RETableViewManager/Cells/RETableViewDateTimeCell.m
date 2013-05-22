@@ -76,7 +76,7 @@
     _datePicker.minuteInterval = self.item.minuteInterval;
     
     _dateFormatter.dateFormat = self.item.format;
-    self.detailTextLabel.text = [_dateFormatter stringFromDate:self.item.value];
+    self.detailTextLabel.text = self.item.value ? [_dateFormatter stringFromDate:self.item.value] : @"";
 }
 
 - (void)layoutSubviews
