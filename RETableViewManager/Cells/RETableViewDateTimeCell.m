@@ -55,6 +55,14 @@
     _textField.delegate = self;
     [self addSubview:_textField];
     
+    _dateLabel = [[UILabel alloc] initWithFrame:CGRectNull];
+    _dateLabel.font = [UIFont systemFontOfSize:17];
+    _dateLabel.backgroundColor = [UIColor clearColor];
+    _dateLabel.textColor = self.detailTextLabel.textColor;
+    _dateLabel.highlightedTextColor = [UIColor whiteColor];
+    _dateLabel.textAlignment = NSTextAlignmentRight;
+    [self addSubview:_dateLabel];
+    
     _dateFormatter = [[NSDateFormatter alloc] init];
     
     _datePicker = [[UIDatePicker alloc] init];
@@ -74,7 +82,7 @@
     _datePicker.maximumDate = self.item.maximumDate;
     _datePicker.minuteInterval = self.item.minuteInterval;
     _dateFormatter.dateFormat = self.item.format;
-    self.detailTextLabel.text = self.item.value ? [_dateFormatter stringFromDate:self.item.value] : @"";
+    self.dateLabel.text = self.item.value ? [_dateFormatter stringFromDate:self.item.value] : @"";
 }
 
 - (void)layoutSubviews
@@ -82,6 +90,24 @@
     [super layoutSubviews];
     self.textField.frame = CGRectNull;
     self.textField.alpha = 0;
+    
+    CGFloat cellOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 20 : 60;
+    CGFloat fieldOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 40;
+    CGFloat width = 0;
+    CGRect frame = CGRectMake(0, self.tableViewManager.style.textFieldPositionOffset.height - 1, 0, self.frame.size.height - self.tableViewManager.style.textFieldPositionOffset.height);
+    if (self.item.title && ![self.item.title isEqualToString:@""]) {
+        for (RETableViewItem *item in self.section.items) {
+            if ([item isMemberOfClass:[RETextItem class]] || [item isMemberOfClass:[REDateTimeItem class]]) {
+                CGSize size = [item.title sizeWithFont:self.textLabel.font];
+                width = MAX(width, size.width);
+            }
+        }
+        frame.origin.x = width + cellOffset + fieldOffset + self.tableViewManager.style.textFieldPositionOffset.width;
+    } else {
+        frame.origin.x = cellOffset + self.tableViewManager.style.textFieldPositionOffset.width;
+    }
+    frame.size.width = self.frame.size.width - frame.origin.x - cellOffset;
+    _dateLabel.frame = frame;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -119,7 +145,7 @@
 {
     [self setSelected:NO animated:NO];
     self.item.value = _datePicker.date;
-    self.detailTextLabel.text = [_dateFormatter stringFromDate:self.item.value];
+    self.dateLabel.text = [_dateFormatter stringFromDate:self.item.value];
     return YES;
 }
 
@@ -129,7 +155,7 @@
 - (void)datePickerValueDidChange:(UIDatePicker *)datePicker
 {
     self.item.value = _datePicker.date;
-    self.detailTextLabel.text = [_dateFormatter stringFromDate:self.item.value];
+    self.dateLabel.text = [_dateFormatter stringFromDate:self.item.value];
 }
 
 @end
