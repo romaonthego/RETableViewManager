@@ -160,6 +160,9 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     frame.size.width += UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 40 : 60;
     frame.size.height = self.frame.size.height;
     _cvvField.frame = frame;
+    
+    if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:cellWillLayoutSubviews:)])
+        [self.tableViewManager.delegate tableView:self.tableViewManager.tableView cellWillLayoutSubviews:self];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

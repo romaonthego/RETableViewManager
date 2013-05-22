@@ -108,6 +108,9 @@
     }
     frame.size.width = self.frame.size.width - frame.origin.x - cellOffset;
     _dateLabel.frame = frame;
+    
+    if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:cellWillLayoutSubviews:)])
+        [self.tableViewManager.delegate tableView:self.tableViewManager.tableView cellWillLayoutSubviews:self];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

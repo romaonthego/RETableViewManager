@@ -24,6 +24,7 @@
 //
 
 #import "RETableViewFloatCell.h"
+#import "RETableViewManager.h"
 
 @implementation RETableViewFloatCell
 
@@ -53,6 +54,13 @@
     self.textLabel.text = self.item.title;
     _sliderView.value = self.item.value;
     _sliderView.frame = CGRectMake(0.0, 0.0, self.item.sliderWidth, 10.0);
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:cellWillLayoutSubviews:)])
+        [self.tableViewManager.delegate tableView:self.tableViewManager.tableView cellWillLayoutSubviews:self];
 }
 
 #pragma mark -
