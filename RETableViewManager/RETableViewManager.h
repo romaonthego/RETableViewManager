@@ -30,8 +30,13 @@
 
 #import "RETableViewCellStyle.h"
 #import "RETableViewCell.h"
-#import "RETableViewNumberCell.h"
+#import "RETableViewBoolCell.h"
 #import "RETableViewCreditCardCell.h"
+#import "RETableViewTextCell.h"
+#import "RETableViewNumberCell.h"
+#import "RETableViewFloatCell.h"
+#import "RETableViewDateTimeCell.h"
+#import "RETableViewLongTextCell.h"
 
 #import "REBoolItem.h"
 #import "RERadioItem.h"
