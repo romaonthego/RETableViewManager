@@ -36,6 +36,7 @@
 #import "RETableViewFloatCell.h"
 #import "RETableViewDateTimeCell.h"
 #import "RETableViewLongTextCell.h"
+#import "RETableViewOptionCell.h"
 
 #import "REBoolItem.h"
 #import "RERadioItem.h"
