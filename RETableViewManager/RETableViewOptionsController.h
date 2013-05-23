@@ -26,13 +26,7 @@
 #import <UIKit/UIKit.h>
 #import "RETableViewManager.h"
 
-@class RETableViewItem;
-@class RETableViewManager;
-@class RETableViewSection;
-@class REStringItem;
-@protocol RETableViewManagerDelegate;
-
-@interface RETableViewOptionsController : UITableViewController
+@interface RETableViewOptionsController : UITableViewController <RETableViewManagerDelegate>
 
 @property (weak, readwrite, nonatomic) RETableViewItem *item;
 @property (strong, readwrite, nonatomic) NSArray *options;

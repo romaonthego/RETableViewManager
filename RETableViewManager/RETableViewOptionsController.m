@@ -50,7 +50,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _tableViewManager = [[RETableViewManager alloc] init];
+    _tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView delegate:self];
     _mainSection = [[RETableViewSection alloc] init];
     [_tableViewManager addSection:_mainSection];
     
@@ -116,11 +116,6 @@
     for (RETableViewItem *item in self.options) {
         addItem([item isKindOfClass:[RERadioItem item]] ? item.title : (NSString *)item);
     }
-    
-    // Set datasource and delegate
-    //
-    self.tableView.delegate = _tableViewManager;
-    self.tableView.dataSource = _tableViewManager;
 }
 
 @end

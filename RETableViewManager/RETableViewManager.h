@@ -24,7 +24,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RETableViewOptionsController.h"
 
 #import "RETableViewSection.h"
 
