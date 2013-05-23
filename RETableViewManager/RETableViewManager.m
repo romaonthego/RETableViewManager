@@ -68,7 +68,7 @@
     [self registerClass:@"__NSCFString" forCellWithReuseIdentifier:@"RETableViewCell"];
     [self registerClass:@"NSString" forCellWithReuseIdentifier:@"RETableViewCell"];
     [self registerClass:@"RETableViewItem" forCellWithReuseIdentifier:@"RETableViewCell"];
-    [self registerClass:@"RERadioItem" forCellWithReuseIdentifier:@"RETableViewCell"];
+    [self registerClass:@"RERadioItem" forCellWithReuseIdentifier:@"RETableViewOptionCell"];
     [self registerClass:@"REBoolItem" forCellWithReuseIdentifier:@"RETableViewBoolCell"];
     [self registerClass:@"RETextItem" forCellWithReuseIdentifier:@"RETableViewTextCell"];
     [self registerClass:@"RELongTextItem" forCellWithReuseIdentifier:@"RETableViewLongTextCell"];
@@ -76,7 +76,7 @@
     [self registerClass:@"REFloatItem" forCellWithReuseIdentifier:@"RETableViewFloatCell"];
     [self registerClass:@"REDateTimeItem" forCellWithReuseIdentifier:@"RETableViewDateTimeCell"];
     [self registerClass:@"RECreditCardItem" forCellWithReuseIdentifier:@"RETableViewCreditCardCell"];
-    [self registerClass:@"REMultipleChoiceItem" forCellWithReuseIdentifier:@"RETableViewCell"];
+    [self registerClass:@"REMultipleChoiceItem" forCellWithReuseIdentifier:@"RETableViewOptionCell"];
 }
 
 - (void)registerClass:(NSString *)objectClass forCellWithReuseIdentifier:(NSString *)identifier
