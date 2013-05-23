@@ -54,6 +54,7 @@
 
 - (void)cellWillAppear
 {
+    self.textLabel.backgroundColor = [UIColor clearColor];
     self.textLabel.text = self.item.title;
     self.detailTextLabel.text = @"";
     self.valueLabel.text = self.item.detailLabelText;
