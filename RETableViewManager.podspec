@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = 'RETableViewManager'
-  s.version     = '0.0.19'
+  s.version     = '0.0.20'
   s.authors     = { 'Roman Efimov' => 'romefimov@gmail.com' }
   s.homepage    = 'https://github.com/romaonthego/REMenu'
   s.summary     = 'Data driven content manager for UITableView.'
