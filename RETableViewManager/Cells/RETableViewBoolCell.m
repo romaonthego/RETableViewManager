@@ -51,6 +51,7 @@
 
 - (void)cellWillAppear
 {
+    self.textLabel.backgroundColor = [UIColor clearColor];
     self.textLabel.text = self.item.title;
     _switchView.on = self.item.value;
 }
