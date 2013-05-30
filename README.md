@@ -6,7 +6,7 @@ RETableViewManager allows to manage content of `UITableView` with ease, both for
 In its core RETableViewManager supports reusable cells based on corresponding data object class.
 
 The general idea is to allow developers use their own `UITableView` and `UITableViewController` instances,
-providing a layer that synchronizes data and cell appereance.
+providing a layer that synchronizes data with cell appereance.
 
 ### _It is still in the early stages of development and it's highly not recommended to use it in production apps._
 
