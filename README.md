@@ -13,7 +13,7 @@ providing a layer that synchronizes data with cell appereance.
 ![Screenshot of RETableViewManager](https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot.png "RETableViewManager Screenshot")
 
 ## Requirements
-* Xcode 4.5 or higher
+* Xcode 4.6 or higher
 * Apple LLVM compiler
 * iOS 6.0 or higher
 * ARC
