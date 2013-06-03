@@ -51,7 +51,6 @@
     [super cellDidLoad];
     
     _textField = [[UITextField alloc] initWithFrame:CGRectNull];
-    
     _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     _textField.inputAccessoryView = self.actionBar;
     _textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
