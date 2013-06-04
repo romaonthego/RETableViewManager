@@ -20,6 +20,12 @@
 	_manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
     _section = [RETableViewSection section];
     [_manager addSection:_section];
+    
+    [_section addItem:@"Test item 1"];
+    [_section addItem:@"Test item 2"];
+    [_section addItem:@"Test item 3"];
+    
+    
 }
 
 @end
