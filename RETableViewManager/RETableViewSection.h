@@ -168,6 +168,7 @@
 ///-----------------------------
 
 - (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item;
+- (void)replaceItemsWithItemsFromArray:(NSArray *)otherArray;
 - (void)replaceItemsAtIndexes:(NSIndexSet *)indexes withItems:(NSArray *)items;
 - (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray range:(NSRange)otherRange;
 - (void)replaceItemsInRange:(NSRange)range withObjectsFromArray:(NSArray *)otherArray;

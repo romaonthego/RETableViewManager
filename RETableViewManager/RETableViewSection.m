@@ -210,6 +210,12 @@
     [_items replaceObjectAtIndex:index withObject:item];
 }
 
+- (void)replaceItemsWithItemsFromArray:(NSArray *)otherArray
+{
+    [self removeAllItems];
+    [self addItemsFromArray:otherArray];
+}
+
 - (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray range:(NSRange)otherRange
 {
     for (RETableViewItem *item in otherArray)
