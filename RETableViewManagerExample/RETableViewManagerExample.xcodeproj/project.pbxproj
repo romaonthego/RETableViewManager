@@ -22,6 +22,7 @@
 		302D2163170B27ED0085654F /* ListImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D2162170B27ED0085654F /* ListImageCell.m */; };
 		30D208641718FFDE00144E46 /* REMultipleChoiceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D208631718FFDE00144E46 /* REMultipleChoiceItem.m */; };
 		30D74554174EB4CA00D4C7C1 /* RETableViewOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D74553174EB4C900D4C7C1 /* RETableViewOptionCell.m */; };
+		30D9566C175E3C0200AB977E /* RetractableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D9566B175E3C0200AB977E /* RetractableViewController.m */; };
 		30DB066A16E934AD006C9530 /* RETableViewBoolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB064916E934AD006C9530 /* RETableViewBoolCell.m */; };
 		30DB066B16E934AD006C9530 /* RETableViewCreditCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB064B16E934AD006C9530 /* RETableViewCreditCardCell.m */; };
 		30DB066E16E934AD006C9530 /* RETableViewTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB065116E934AD006C9530 /* RETableViewTextCell.m */; };
@@ -83,6 +84,8 @@
 		30D208631718FFDE00144E46 /* REMultipleChoiceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMultipleChoiceItem.m; sourceTree = "<group>"; };
 		30D74552174EB4C900D4C7C1 /* RETableViewOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewOptionCell.h; sourceTree = "<group>"; };
 		30D74553174EB4C900D4C7C1 /* RETableViewOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewOptionCell.m; sourceTree = "<group>"; };
+		30D9566A175E3C0200AB977E /* RetractableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RetractableViewController.h; sourceTree = "<group>"; };
+		30D9566B175E3C0200AB977E /* RetractableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RetractableViewController.m; sourceTree = "<group>"; };
 		30DB064816E934AD006C9530 /* RETableViewBoolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewBoolCell.h; sourceTree = "<group>"; };
 		30DB064916E934AD006C9530 /* RETableViewBoolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewBoolCell.m; sourceTree = "<group>"; };
 		30DB064A16E934AD006C9530 /* RETableViewCreditCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewCreditCardCell.h; sourceTree = "<group>"; };
@@ -171,6 +174,8 @@
 				302D214E170B25B10085654F /* RootViewController.m */,
 				30E16A46171A103300F7C258 /* EditingViewController.h */,
 				30E16A47171A103300F7C258 /* EditingViewController.m */,
+				30D9566A175E3C0200AB977E /* RetractableViewController.h */,
+				30D9566B175E3C0200AB977E /* RetractableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -443,6 +448,7 @@
 				30D208641718FFDE00144E46 /* REMultipleChoiceItem.m in Sources */,
 				30E16A48171A103400F7C258 /* EditingViewController.m in Sources */,
 				30D74554174EB4CA00D4C7C1 /* RETableViewOptionCell.m in Sources */,
+				30D9566C175E3C0200AB977E /* RetractableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
