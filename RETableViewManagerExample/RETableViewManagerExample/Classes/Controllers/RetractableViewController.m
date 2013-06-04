@@ -27,14 +27,12 @@
     NSMutableArray *expandedItems = [NSMutableArray array];
 
     RETableViewItem *showMoreItem = [RETableViewItem itemWithTitle:@"Show More" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
-        [weakSelf.section removeAllItems];
-        [weakSelf.section addItemsFromArray:expandedItems];
+        [weakSelf.section replaceItemsWithItemsFromArray:expandedItems];
         [weakSelf.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     }];
     
     RETableViewItem *showLessItem = [RETableViewItem itemWithTitle:@"Show Less" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
-        [weakSelf.section removeAllItems];
-        [weakSelf.section addItemsFromArray:collapsedItems];
+        [weakSelf.section replaceItemsWithItemsFromArray:collapsedItems];
         [weakSelf.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     }];
     
