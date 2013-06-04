@@ -26,6 +26,12 @@
     NSMutableArray *collapsedItems = [NSMutableArray array];
     NSMutableArray *expandedItems = [NSMutableArray array];
 
+    RETableViewItem *showMoreItem = [RETableViewItem itemWithTitle:@"Show More" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
+        [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+        [weakSelf.section removeAllItems];
+        [weakSelf.section addItemsFromArray:expandedItems];
+        [weakSelf.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }];
 }
 
 @end
