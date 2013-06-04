@@ -18,6 +18,8 @@
 {
     [super viewDidLoad];
 	_manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
+    _section = [RETableViewSection section];
+    [_manager addSection:_section];
 }
 
 @end
