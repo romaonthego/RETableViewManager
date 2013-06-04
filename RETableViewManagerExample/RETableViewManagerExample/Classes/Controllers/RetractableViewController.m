@@ -21,11 +21,11 @@
     _section = [RETableViewSection section];
     [_manager addSection:_section];
     
-    [_section addItem:@"Test item 1"];
-    [_section addItem:@"Test item 2"];
-    [_section addItem:@"Test item 3"];
+    __typeof (&*self) __weak weakSelf = self;
     
-    
+    NSMutableArray *collapsedItems = [NSMutableArray array];
+    NSMutableArray *expandedItems = [NSMutableArray array];
+
 }
 
 @end
