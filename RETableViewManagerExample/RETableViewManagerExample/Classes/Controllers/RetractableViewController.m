@@ -42,6 +42,8 @@
     
     [collapsedItems addObjectsFromArray:@[@"Test item 1", @"Test item 2", @"Test item 3", showMoreItem]];
     [expandedItems addObjectsFromArray:@[@"Test item 1", @"Test item 2", @"Test item 3", @"Test item 4", @"Test item 5", @"Test item 6", showLessItem]];
+    
+    [_section addItemsFromArray:collapsedItems];
 }
 
 @end
