@@ -17,7 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	_manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
 }
 
 @end
