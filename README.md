@@ -121,7 +121,7 @@ RETableViewManager includes a number of built-in items and cells that were mappe
 
 ### Simple Example
 
-Subclass UITableViewController, remove all code inside of the implementation section and paste just this
+Subclass UITableViewController, remove all code from the implementation section and paste just this
 (yes, now it's that easy to manage `UITableView` content):
 
 ``` objective-c
