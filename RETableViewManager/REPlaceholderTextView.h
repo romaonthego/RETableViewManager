@@ -31,6 +31,6 @@
 @property (copy, readwrite, nonatomic) NSString *placeholder;
 @property (strong, readwrite, nonatomic) UIColor *placeholderColor;
 
-- (void)textChanged:(NSNotification*)notification;
+- (void)textChanged:(NSNotification *)notification;
 
 @end
