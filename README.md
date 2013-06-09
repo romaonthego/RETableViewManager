@@ -128,6 +128,7 @@ Subclass UITableViewController, remove all code from the implementation section 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     // Create the manager and assign it to be the delegate and datasource of your UITableView
     //
     _tableViewManager = [[RETableViewManager alloc] init];
