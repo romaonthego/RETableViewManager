@@ -37,7 +37,7 @@
     _mapping = [[NSMutableDictionary alloc] init];
     _style = [[RETableViewCellStyle alloc] init];
     
-    [self setDefaultMapping];
+    [self registerDefaultClasses];
     
     return self;
 }
@@ -62,7 +62,7 @@
     return [self initWithTableView:tableView delegate:nil];
 }
 
-- (void)setDefaultMapping
+- (void)registerDefaultClasses
 {
     [self registerClass:@"__NSCFConstantString" forCellWithReuseIdentifier:@"RETableViewCell"];
     [self registerClass:@"__NSCFString" forCellWithReuseIdentifier:@"RETableViewCell"];
