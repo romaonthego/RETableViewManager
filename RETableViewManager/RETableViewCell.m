@@ -104,12 +104,12 @@
     
     if ([self.tableViewManager.style hasCustomBackgroundImage]) {
         _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:self.cellType];
-        _backgroundImageView.frame = CGRectMake(0, 0, _backgroundImageView.image.size.width, _backgroundImageView.image.size.height);
+        _backgroundImageView.frame = CGRectMake((self.contentView.frame.size.width - self.backgroundImageView.image.size.width) / 2.0, 0, _backgroundImageView.image.size.width, _backgroundImageView.image.size.height);
     }
     
     if ([self.tableViewManager.style hasCustomSelectedBackgroundImage]) {
         _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:self.cellType];
-        _selectedBackgroundImageView.frame = CGRectMake(0, 0, _selectedBackgroundImageView.image.size.width, _selectedBackgroundImageView.image.size.height);
+        _selectedBackgroundImageView.frame = CGRectMake((self.contentView.frame.size.width - self.backgroundImageView.image.size.width) / 2.0, 0, _selectedBackgroundImageView.image.size.width, _selectedBackgroundImageView.image.size.height);
     }
 }
 
