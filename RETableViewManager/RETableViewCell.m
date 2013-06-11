@@ -58,7 +58,6 @@
     self.actionBar = [[REActionBar alloc] initWithDelegate:self];
     
     if ([self.tableViewManager.style hasCustomBackgroundImage]) {
-        self.backgroundColor = [UIColor clearColor];
         self.backgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
         self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _backgroundImageView = [[UIImageView alloc] init];
@@ -66,7 +65,6 @@
     }
     
     if ([self.tableViewManager.style hasCustomSelectedBackgroundImage]) {
-        self.backgroundColor = [UIColor clearColor];
         self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
         self.selectedBackgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _selectedBackgroundImageView = [[UIImageView alloc] init];
@@ -109,7 +107,7 @@
     
     if ([self.tableViewManager.style hasCustomSelectedBackgroundImage]) {
         _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:self.cellType];
-        _selectedBackgroundImageView.frame = CGRectMake((self.contentView.frame.size.width - self.backgroundImageView.image.size.width) / 2.0, 0, _selectedBackgroundImageView.image.size.width, _selectedBackgroundImageView.image.size.height);
+        _selectedBackgroundImageView.frame = CGRectMake((self.contentView.frame.size.width - self.selectedBackgroundImageView.image.size.width) / 2.0, 0, _selectedBackgroundImageView.image.size.width, _selectedBackgroundImageView.image.size.height);
     }
 }
 
