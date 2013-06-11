@@ -58,6 +58,7 @@
     self.actionBar = [[REActionBar alloc] initWithDelegate:self];
     
     if ([self.tableViewManager.style hasCustomBackgroundImage]) {
+        self.backgroundColor = [UIColor clearColor];
         self.backgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
         self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _backgroundImageView = [[UIImageView alloc] init];
@@ -65,6 +66,7 @@
     }
     
     if ([self.tableViewManager.style hasCustomSelectedBackgroundImage]) {
+        self.backgroundColor = [UIColor clearColor];
         self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
         self.selectedBackgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _selectedBackgroundImageView = [[UIImageView alloc] init];
