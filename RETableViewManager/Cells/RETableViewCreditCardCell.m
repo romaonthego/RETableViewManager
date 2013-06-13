@@ -68,8 +68,8 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
 {
     [super cellDidLoad];
     
-    _creditCardImageViewContainer = [[UIView alloc] initWithFrame:CGRectMake(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 20 : 56, 5, 32, 32)];
-    [self addSubview:_creditCardImageViewContainer];
+    _creditCardImageViewContainer = [[UIView alloc] initWithFrame:CGRectMake(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 46, 5, 32, 32)];
+    [self.contentView addSubview:_creditCardImageViewContainer];
     
     _creditCardStackImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
     _creditCardStackImageView.image = [UIImage imageNamed:@"RETableViewManager.bundle/Card_Stack"];
@@ -87,7 +87,7 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     
     _wrapperView = [[UIView alloc] initWithFrame:CGRectMake(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 60 : 96 + _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 70, self.frame.size.height)];
     _wrapperView.clipsToBounds = YES;
-    [self addSubview:_wrapperView];
+    [self.contentView addSubview:_wrapperView];
     
     _creditCardField = [[REFormattedNumberField alloc] initWithFrame:CGRectMake(0, 0, 216, self.frame.size.height - _textFieldPositionOffset.height)];
     _creditCardField.tag = 0;
@@ -147,18 +147,18 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     [_cvvField sizeToFit];
     
     CGRect frame = _creditCardField.frame;
-    frame.size.width += UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 40 : 60;
-    frame.size.height = self.frame.size.height;
+    frame.size.width += UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 30 : 40;
+    frame.size.height = self.contentView.frame.size.height;
     _creditCardField.frame = frame;
     
     frame = _expirationDateField.frame;
-    frame.size.width += UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 40 : 60;
-    frame.size.height = self.frame.size.height;
+    frame.size.width += UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 30 : 40;
+    frame.size.height = self.contentView.frame.size.height;
     _expirationDateField.frame = frame;
     
     frame = _cvvField.frame;
-    frame.size.width += UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 40 : 60;
-    frame.size.height = self.frame.size.height;
+    frame.size.width += UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 30 : 40;
+    frame.size.height = self.contentView.frame.size.height;
     _cvvField.frame = frame;
     
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:cellWillLayoutSubviews:)])
