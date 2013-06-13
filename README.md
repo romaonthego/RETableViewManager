@@ -56,6 +56,8 @@ Get your `UITableView`s up and running in couple minutes:
 * Multiple option selector
 * Credit card and expiration date
 
+Also, `RETableViewManager` provides API's for super easy cell styling.
+
 ## Requirements
 * Xcode 4.6 or higher
 * Apple LLVM compiler
