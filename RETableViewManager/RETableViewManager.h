@@ -65,12 +65,20 @@
 ///-----------------------------
 
 /**
- Initialize a table view manager object and specify the delegate object.
+ Initialize a table view manager object for a specific UITableView and specify the delegate object.
  
+ @param tableView The UITableView that needs to be managed.
  @param delegate The delegate (RETableViewManagerDelegate) object for the table view manager.
  @return The pointer to the instance, or nil if initialization failed.
  */
 - (id)initWithTableView:(UITableView *)tableView delegate:(id<RETableViewManagerDelegate>)delegate;
+
+/**
+ Initialize a table view manager object for a specific UITableView.
+ 
+ @param tableView The UITableView that needs to be managed.
+ @return The pointer to the instance, or nil if initialization failed.
+ */
 - (id)initWithTableView:(UITableView *)tableView;
 
 ///-------------------------------------------

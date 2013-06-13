@@ -51,7 +51,9 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/initWithDelegate:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithDelegate:</option>
+	<option value="//api/name/initWithTableView:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithTableView:</option>
+	
+	<option value="//api/name/initWithTableView:delegate:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithTableView:delegate:</option>
 	
 	
 	
@@ -95,7 +97,9 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithDelegate:">initWithDelegate:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithTableView:">initWithTableView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithTableView:delegate:">initWithTableView:delegate:</a></span></li>
 	
 </ul></li>
 
@@ -156,8 +160,15 @@ In its core RETableViewManager supports reusable cells based on corresponding da
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/initWithDelegate:">&ndash;&nbsp;initWithDelegate:</a></code>
-		<span class="tooltip"><p>Initialize a table view manager object and specify the delegate object.</p></span>
+		<code><a href="#//api/name/initWithTableView:delegate:">&ndash;&nbsp;initWithTableView:delegate:</a></code>
+		<span class="tooltip"><p>Initialize a table view manager object for a specific UITableView and specify the delegate object.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithTableView:">&ndash;&nbsp;initWithTableView:</a></code>
+		<span class="tooltip"><p>Initialize a table view manager object for a specific UITableView.</p></span>
 	</span>
 	
 	
@@ -297,23 +308,84 @@ In its core RETableViewManager supports reusable cells based on corresponding da
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithDelegate:" title="initWithDelegate:"></a>
-	<h3 class="subsubtitle method-title">initWithDelegate:</h3>
+	<a name="//api/name/initWithTableView:" title="initWithTableView:"></a>
+	<h3 class="subsubtitle method-title">initWithTableView:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Initialize a table view manager object and specify the delegate object.</p>
+		<p>Initialize a table view manager object for a specific UITableView.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (id)initWithDelegate:(id&lt;RETableViewManagerDelegate&gt;)<em>delegate</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (id)initWithTableView:(UITableView *)<em>tableView</em></code></div>
 
     
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>tableView</em></dt>
+			<dd><p>The UITableView that needs to be managed.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The pointer to the instance, or nil if initialization failed.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Initialize a table view manager object for a specific UITableView.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">RETableViewManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithTableView:delegate:" title="initWithTableView:delegate:"></a>
+	<h3 class="subsubtitle method-title">initWithTableView:delegate:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initialize a table view manager object for a specific UITableView and specify the delegate object.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithTableView:(UITableView *)<em>tableView</em> delegate:(id&lt;RETableViewManagerDelegate&gt;)<em>delegate</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>tableView</em></dt>
+			<dd><p>The UITableView that needs to be managed.</p></dd>
+		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>delegate</em></dt>
@@ -335,7 +407,7 @@ In its core RETableViewManager supports reusable cells based on corresponding da
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Initialize a table view manager object and specify the delegate object.</p>
+		<p>Initialize a table view manager object for a specific UITableView and specify the delegate object.</p>
 	</div>
 	
 	
@@ -365,7 +437,7 @@ In its core RETableViewManager supports reusable cells based on corresponding da
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Roman Efimov. All rights reserved. (Last updated: 2013-03-13)</span><br />
+						<p><span class="copyright">&copy; 2013 Roman Efimov. All rights reserved. (Last updated: 2013-06-13)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
