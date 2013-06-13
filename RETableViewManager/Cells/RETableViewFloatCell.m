@@ -52,6 +52,7 @@
 - (void)cellWillAppear
 {
     self.textLabel.text = self.item.title;
+    self.textLabel.backgroundColor = [UIColor clearColor];
     _sliderView.value = self.item.value;
     _sliderView.frame = CGRectMake(0.0, 0.0, self.item.sliderWidth, 10.0);
 }

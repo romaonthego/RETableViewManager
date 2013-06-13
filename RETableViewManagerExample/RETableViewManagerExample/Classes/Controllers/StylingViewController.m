@@ -29,7 +29,7 @@
     [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"Middle_Selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)] forCellType:RETableViewCellTypeMiddle];
     [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"Last_Selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)] forCellType:RETableViewCellTypeLast];
     [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"Single_Selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)] forCellType:RETableViewCellTypeSingle];
-    self.manager.style.cellHeight = 41;
+    self.manager.style.cellHeight = 42.0;
 }
 
 @end
