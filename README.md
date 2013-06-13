@@ -10,7 +10,9 @@ providing a layer that synchronizes data with cell appereance.
 
 ### _It is still in the early stages of development and it's highly not recommended to use it in production apps._
 
-![Screenshot of RETableViewManager](https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot.png "RETableViewManager Screenshot")
+<img src="https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot1.png" alt="RETableViewManager Screenshot" width="684" height="480" />
+
+<img src="https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot2.png" alt="RETableViewManager Screenshot" width="684" height="480" />
 
 ## Requirements
 * Xcode 4.6 or higher
@@ -184,7 +186,7 @@ RETableViewSection *section = [RETableViewSection sectionWithHeaderView:myCustom
 
 ### Item to Cell Mapping Example
 
-It's super easy to create custom mappings, the concept is similiar to `UICollectionView`. 
+It's super easy to create custom mappings, the concept is similiar to `UICollectionView`.
 For example, this how all `NSString` objects are being mapped with `RETableViewCell`:
 
 ``` objective-c
