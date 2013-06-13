@@ -44,6 +44,18 @@ Get your `UITableView`s up and running in couple minutes:
 
 <img src="https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot2.png" alt="RETableViewManager Screenshot" width="684" height="568" />
 
+> RETableViewManager comes pre-packaged with extensible and ready-to-use components:
+
+> * Text
+* Bool
+* Number
+* Float
+* Date/Time
+* Long Text
+* Radio option selector
+* Multiple option selector
+* Credit card and expiration date
+
 ## Requirements
 * Xcode 4.6 or higher
 * Apple LLVM compiler
