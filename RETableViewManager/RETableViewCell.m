@@ -105,37 +105,36 @@
 {
     [super layoutSubviews];
 
-    /*CGRect contentFrame = self.contentView.frame;
-    contentFrame.origin.x = [self groupedCellMarginWithTableWidth:self.tableViewManager.tableView.frame.size.width];
-   // contentFrame.size.width = self.tableViewManager.tableView.frame.size.width - contentFrame.origin.x;
-    contentFrame.size.width = 200;
-    self.contentView.frame = contentFrame;*/
- 
+    self.textLabel.backgroundColor = [UIColor blueColor];
+    
+    // Set content frame
+    //
     CGRect contentFrame = self.contentView.frame;
     contentFrame.origin.x = contentFrame.origin.x + self.tableViewManager.style.contentViewMargin;
     contentFrame.size.width = contentFrame.size.width - self.tableViewManager.style.contentViewMargin * 2;
     self.contentView.frame = contentFrame;
     
-    CGRect accessoryFrame = self.contentView.frame;
-    //accessoryFrame.origin.x = 0;
-    self.accessoryView.frame = accessoryFrame;
-    
-  
+    // Set background frame
+    //
     CGRect backgroundFrame = self.backgroundImageView.frame;
     backgroundFrame.origin.x = self.tableViewManager.style.backgroundImageMargin;
     backgroundFrame.size.width = self.backgroundView.frame.size.width - self.tableViewManager.style.backgroundImageMargin * 2;
     self.backgroundImageView.frame = backgroundFrame;
     self.selectedBackgroundImageView.frame = backgroundFrame;
     
+    // iOS [redacted] textLabel margin fix
+    //
+    if (self.tableViewManager.style.contentViewMargin > 0) {
+        self.textLabel.frame = CGRectMake(self.tableViewManager.style.contentViewMargin, self.textLabel.frame.origin.y, self.textLabel.frame.size.width, self.textLabel.frame.size.height);
+    }
+    
     if ([self.tableViewManager.style hasCustomBackgroundImage]) {
         self.backgroundColor = [UIColor clearColor];
         _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:self.cellType];
-        //_backgroundImageView.frame = CGRectMake(0, 0, _backgroundImageView.image.size.width, _backgroundImageView.image.size.height);
     }
     
     if ([self.tableViewManager.style hasCustomSelectedBackgroundImage]) {
         _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:self.cellType];
-        //_selectedBackgroundImageView.frame = CGRectMake(0, 0, _selectedBackgroundImageView.image.size.width, _selectedBackgroundImageView.image.size.height);
     }
 }
 

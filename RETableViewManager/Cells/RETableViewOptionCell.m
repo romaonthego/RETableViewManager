@@ -80,7 +80,7 @@
     } else {
         frame.origin.x = cellOffset + self.tableViewManager.style.textFieldPositionOffset.width;
     }
-    frame.size.width = self.contentView.frame.size.width - frame.origin.x - cellOffset - (self.contentView.frame.size.width - self.contentView.frame.size.width - cellOffset) - 10.0;
+    frame.size.width = self.contentView.frame.size.width - frame.origin.x - cellOffset + 10.0;
     _valueLabel.frame = frame;
     
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:cellWillLayoutSubviews:)])
