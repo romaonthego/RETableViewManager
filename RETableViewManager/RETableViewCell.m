@@ -78,6 +78,7 @@
     
     if ([self.item isKindOfClass:[NSString class]]) {
         self.textLabel.text = (NSString *)self.item;
+        self.textLabel.backgroundColor = [UIColor clearColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
     } else {
         RETableViewItem *item = (RETableViewItem *)self.item;
@@ -99,6 +100,7 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+
     
     if ([self.tableViewManager.style hasCustomBackgroundImage]) {
         _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:self.cellType];
