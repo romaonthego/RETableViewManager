@@ -61,7 +61,7 @@
     _dateLabel.textColor = self.detailTextLabel.textColor;
     _dateLabel.highlightedTextColor = [UIColor whiteColor];
     _dateLabel.textAlignment = NSTextAlignmentRight;
-    [self addSubview:_dateLabel];
+    [self.contentView addSubview:_dateLabel];
     
     _dateFormatter = [[NSDateFormatter alloc] init];
     
@@ -83,6 +83,8 @@
     _datePicker.minuteInterval = self.item.minuteInterval;
     _dateFormatter.dateFormat = self.item.format;
     self.dateLabel.text = self.item.value ? [_dateFormatter stringFromDate:self.item.value] : @"";
+    
+    self.dateLabel.backgroundColor = [UIColor redColor];
 }
 
 - (void)layoutSubviews
@@ -94,7 +96,7 @@
     CGFloat cellOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 20 : 60;
     CGFloat fieldOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 40;
     CGFloat width = 0;
-    CGRect frame = CGRectMake(0, self.tableViewManager.style.textFieldPositionOffset.height - 1, 0, self.frame.size.height - self.tableViewManager.style.textFieldPositionOffset.height);
+    CGRect frame = CGRectMake(0, self.tableViewManager.style.textFieldPositionOffset.height - 1, 0, self.contentView.frame.size.height - self.tableViewManager.style.textFieldPositionOffset.height);
     if (self.item.title && ![self.item.title isEqualToString:@""]) {
         for (RETableViewItem *item in self.section.items) {
             if ([item isMemberOfClass:[RETextItem class]] || [item isMemberOfClass:[REDateTimeItem class]]) {
@@ -106,7 +108,7 @@
     } else {
         frame.origin.x = cellOffset + self.tableViewManager.style.textFieldPositionOffset.width;
     }
-    frame.size.width = self.frame.size.width - frame.origin.x - cellOffset;
+    frame.size.width = self.contentView.frame.size.width - frame.origin.x - cellOffset + 10.0;
     _dateLabel.frame = frame;
     
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:cellWillLayoutSubviews:)])

@@ -49,7 +49,7 @@
     _valueLabel.textColor = self.detailTextLabel.textColor;
     _valueLabel.highlightedTextColor = [UIColor whiteColor];
     _valueLabel.textAlignment = NSTextAlignmentRight;
-    [self addSubview:_valueLabel];
+    [self.contentView addSubview:_valueLabel];
 }
 
 - (void)cellWillAppear
@@ -58,6 +58,7 @@
     self.textLabel.text = self.item.title;
     self.detailTextLabel.text = @"";
     self.valueLabel.text = self.item.detailLabelText;
+    self.valueLabel.backgroundColor = [UIColor redColor];
 }
 
 - (void)layoutSubviews
@@ -67,7 +68,7 @@
     CGFloat cellOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 20 : 60;
     CGFloat fieldOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 40;
     CGFloat width = 0;
-    CGRect frame = CGRectMake(0, self.tableViewManager.style.textFieldPositionOffset.height - 1, 0, self.frame.size.height - self.tableViewManager.style.textFieldPositionOffset.height);
+    CGRect frame = CGRectMake(0, self.tableViewManager.style.textFieldPositionOffset.height - 1, 0, self.contentView.frame.size.height - self.tableViewManager.style.textFieldPositionOffset.height);
     if (self.item.title && ![self.item.title isEqualToString:@""]) {
         for (RETableViewItem *item in self.section.items) {
             if ([item isMemberOfClass:[RETextItem class]] || [item isMemberOfClass:[REDateTimeItem class]]) {
@@ -79,7 +80,7 @@
     } else {
         frame.origin.x = cellOffset + self.tableViewManager.style.textFieldPositionOffset.width;
     }
-    frame.size.width = self.frame.size.width - frame.origin.x - cellOffset - (self.frame.size.width - self.contentView.frame.size.width - cellOffset);
+    frame.size.width = self.contentView.frame.size.width - frame.origin.x - cellOffset - (self.contentView.frame.size.width - self.contentView.frame.size.width - cellOffset) - 10.0;
     _valueLabel.frame = frame;
     
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:cellWillLayoutSubviews:)])
