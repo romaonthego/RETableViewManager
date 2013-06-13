@@ -113,7 +113,7 @@
 ///-----------------------------
 
 /**
- The object that provides styling for `UITableView`. 
+ The object that provides styling for `UITableView`. See RETableViewCellStyle reference for details.
  */
 @property (strong, readwrite, nonatomic) RETableViewCellStyle *style;
 
