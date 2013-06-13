@@ -36,6 +36,7 @@
 @property (assign, readwrite, nonatomic) CGFloat cellHeight;
 @property (assign, readwrite, nonatomic) UITableViewCellSelectionStyle defaultCellSelectionStyle;
 @property (assign, readwrite, nonatomic) CGFloat backgroundImageMargin;
+@property (assign, readwrite, nonatomic) CGFloat contentViewMargin;
 
 - (BOOL)hasCustomBackgroundImage;
 - (UIImage *)backgroundImageForCellType:(RETableViewCellType)cellType;

@@ -110,13 +110,16 @@
    // contentFrame.size.width = self.tableViewManager.tableView.frame.size.width - contentFrame.origin.x;
     contentFrame.size.width = 200;
     self.contentView.frame = contentFrame;*/
- /*
+ 
     CGRect contentFrame = self.contentView.frame;
-    contentFrame.origin.x = 20;
-    contentFrame.origin.x = 20;
+    contentFrame.origin.x = contentFrame.origin.x + self.tableViewManager.style.contentViewMargin;
+    contentFrame.size.width = contentFrame.size.width - self.tableViewManager.style.contentViewMargin * 2;
     self.contentView.frame = contentFrame;
     
-  */
+    CGRect accessoryFrame = self.contentView.frame;
+    //accessoryFrame.origin.x = 0;
+    self.accessoryView.frame = accessoryFrame;
+    
   
     CGRect backgroundFrame = self.backgroundImageView.frame;
     backgroundFrame.origin.x = self.tableViewManager.style.backgroundImageMargin;

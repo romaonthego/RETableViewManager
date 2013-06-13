@@ -46,7 +46,7 @@
     
     _switchView = [[UISwitch alloc] init];
     [_switchView addTarget:self action:@selector(switchValueDidChange:) forControlEvents:UIControlEventValueChanged];
-    self.accessoryView = _switchView;
+    [self.contentView addSubview:_switchView];
 }
 
 - (void)cellWillAppear
@@ -59,6 +59,8 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    _switchView.frame = CGRectMake(self.contentView.frame.size.width - _switchView.frame.size.width - 10.0, (self.contentView.frame.size.height - _switchView.frame.size.height) / 2.0, _switchView.frame.size.width, _switchView.frame.size.height);
+    
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:cellWillLayoutSubviews:)])
         [self.tableViewManager.delegate tableView:self.tableViewManager.tableView cellWillLayoutSubviews:self];
 }

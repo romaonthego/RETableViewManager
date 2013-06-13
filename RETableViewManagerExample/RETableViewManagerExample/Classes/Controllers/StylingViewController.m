@@ -35,6 +35,7 @@
     self.manager.style.cellHeight = 42.0;
     self.manager.style.textFieldFont = [UIFont fontWithName:@"Avenir-Book" size:16];
    
+   // self.manager.style.contentViewMargin = 20;
     //self.manager.style.backgroundImageMargin = 20;
 }
 

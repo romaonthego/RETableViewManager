@@ -46,7 +46,8 @@
     
     _sliderView = [[UISlider alloc] init];
     [_sliderView addTarget:self action:@selector(sliderValueDidChange:) forControlEvents:UIControlEventValueChanged];
-    self.accessoryView = _sliderView;
+    
+    [self.contentView addSubview:_sliderView];
 }
 
 - (void)cellWillAppear
@@ -54,12 +55,13 @@
     self.textLabel.text = self.item.title;
     self.textLabel.backgroundColor = [UIColor clearColor];
     _sliderView.value = self.item.value;
-    _sliderView.frame = CGRectMake(0.0, 0.0, self.item.sliderWidth, 10.0);
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    _sliderView.frame = CGRectMake(self.contentView.frame.size.width - self.item.sliderWidth - 10.0, (self.contentView.frame.size.height - _sliderView.frame.size.height) / 2.0, self.item.sliderWidth, 10.0);
+    
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:cellWillLayoutSubviews:)])
         [self.tableViewManager.delegate tableView:self.tableViewManager.tableView cellWillLayoutSubviews:self];
 }
