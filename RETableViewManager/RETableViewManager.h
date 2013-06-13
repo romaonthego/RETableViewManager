@@ -122,9 +122,9 @@
 ///-----------------------------
 
 /**
- Add a section.
+ Inserts a given section at the end of the sections array.
  
- @param section The RETableViewSection that needs to be added.
+ @param section The section to add to the end of the sections array's content. This value must not be `nil`.
  */
 - (void)addSection:(RETableViewSection *)section;
 - (void)addSectionsFromArray:(NSArray *)array;
