@@ -60,7 +60,7 @@
     if ([self.tableViewManager.style hasCustomBackgroundImage]) {
         self.backgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
         self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        _backgroundImageView = [[UIImageView alloc] initWithFrame:self.backgroundView.bounds];
+        _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.backgroundView.bounds.size.width, self.backgroundView.bounds.size.height + 1)];
         _backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self.backgroundView addSubview:_backgroundImageView];
     }
@@ -69,7 +69,7 @@
         self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
         self.selectedBackgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _selectedBackgroundImageView = [[UIImageView alloc] init];
-        _selectedBackgroundImageView = [[UIImageView alloc] initWithFrame:self.backgroundView.bounds];
+        _selectedBackgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.selectedBackgroundView.bounds.size.width, self.selectedBackgroundView.bounds.size.height + 1)];
         _selectedBackgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self.selectedBackgroundView addSubview:_selectedBackgroundImageView];
     }
