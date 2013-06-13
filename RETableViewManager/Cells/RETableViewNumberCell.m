@@ -56,7 +56,7 @@
     self.textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.textField.delegate = self;
     [self.textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-    [self addSubview:self.textField];
+    [self.contentView addSubview:self.textField];
 }
 
 - (void)cellWillAppear

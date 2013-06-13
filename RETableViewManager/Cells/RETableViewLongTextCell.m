@@ -56,7 +56,7 @@
     _textView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _textView.backgroundColor = [UIColor clearColor];
     _textView.delegate = self;
-    [self addSubview:_textView];
+    [self.contentView addSubview:_textView];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -86,6 +86,7 @@
     _textView.returnKeyType = self.item.returnKeyType;
     _textView.enablesReturnKeyAutomatically = self.item.enablesReturnKeyAutomatically;
     _textView.secureTextEntry = self.item.secureTextEntry;
+    _textView.backgroundColor = [UIColor blueColor];
 }
 
 - (UIResponder *)responder
@@ -100,10 +101,10 @@
 {
     [super layoutSubviews];
     
-    CGFloat cellOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 20 : 60;
-    CGRect frame = CGRectMake(0, self.tableViewManager.style.textFieldPositionOffset.height + 4, 0, self.frame.size.height - self.tableViewManager.style.textFieldPositionOffset.height - 8);
+    CGFloat cellOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 40;
+    CGRect frame = CGRectMake(0, self.tableViewManager.style.textFieldPositionOffset.height + 4, 0, self.contentView.frame.size.height - self.tableViewManager.style.textFieldPositionOffset.height - 8);
     frame.origin.x = cellOffset + self.tableViewManager.style.textFieldPositionOffset.width - 8;
-    frame.size.width = self.frame.size.width - frame.origin.x - cellOffset + 8;
+    frame.size.width = self.contentView.frame.size.width - frame.origin.x - cellOffset + 8;
     _textView.frame = frame;
     
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:cellWillLayoutSubviews:)])

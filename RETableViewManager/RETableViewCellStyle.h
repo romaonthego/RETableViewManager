@@ -35,6 +35,7 @@
 @property (assign, readwrite, nonatomic) CGSize textFieldPositionOffset;
 @property (assign, readwrite, nonatomic) CGFloat cellHeight;
 @property (assign, readwrite, nonatomic) UITableViewCellSelectionStyle defaultCellSelectionStyle;
+@property (assign, readwrite, nonatomic) CGFloat backgroundImageMargin;
 
 - (BOOL)hasCustomBackgroundImage;
 - (UIImage *)backgroundImageForCellType:(RETableViewCellType)cellType;

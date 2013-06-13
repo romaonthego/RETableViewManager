@@ -34,6 +34,8 @@
     [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"Single_Selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)] forCellType:RETableViewCellTypeSingle];
     self.manager.style.cellHeight = 42.0;
     self.manager.style.textFieldFont = [UIFont fontWithName:@"Avenir-Book" size:16];
+   
+    //self.manager.style.backgroundImageMargin = 20;
 }
 
 #pragma mark -

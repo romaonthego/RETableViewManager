@@ -56,7 +56,7 @@
     _textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _textField.delegate = self;
     [_textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-    [self addSubview:_textField];
+    [self.contentView addSubview:_textField];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -83,6 +83,7 @@
     _textField.returnKeyType = self.item.returnKeyType;
     _textField.enablesReturnKeyAutomatically = self.item.enablesReturnKeyAutomatically;
     _textField.secureTextEntry = self.item.secureTextEntry;
+    _textField.backgroundColor = [UIColor redColor];
 }
 
 - (UIResponder *)responder
@@ -94,10 +95,10 @@
 {
     [super layoutSubviews];
     
-    CGFloat cellOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 20 : 60;
+    CGFloat cellOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 40;
     CGFloat fieldOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 40;
     CGFloat width = 0;
-    CGRect frame = CGRectMake(0, self.tableViewManager.style.textFieldPositionOffset.height, 0, self.frame.size.height - self.tableViewManager.style.textFieldPositionOffset.height);
+    CGRect frame = CGRectMake(0, self.tableViewManager.style.textFieldPositionOffset.height, 0, self.contentView.frame.size.height - self.tableViewManager.style.textFieldPositionOffset.height);
     if (self.item.title && ![self.item.title isEqualToString:@""]) {
         for (RETableViewItem *item in self.section.items) {
             if ([item isMemberOfClass:[RETextItem class]] || [item isMemberOfClass:[REDateTimeItem class]]) {
@@ -109,7 +110,7 @@
     } else {
         frame.origin.x = cellOffset + self.tableViewManager.style.textFieldPositionOffset.width;
     }
-    frame.size.width = self.frame.size.width - frame.origin.x - cellOffset;
+    frame.size.width = self.contentView.frame.size.width - frame.origin.x - cellOffset;
     _textField.frame = frame;
     
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:cellWillLayoutSubviews:)])

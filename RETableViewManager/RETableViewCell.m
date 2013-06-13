@@ -58,6 +58,7 @@
     self.actionBar = [[REActionBar alloc] initWithDelegate:self];
     
     if ([self.tableViewManager.style hasCustomBackgroundImage]) {
+        self.tableViewManager.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.backgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
         self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.backgroundView.bounds.size.width, self.backgroundView.bounds.size.height + 1)];
@@ -104,8 +105,27 @@
 {
     [super layoutSubviews];
 
+    /*CGRect contentFrame = self.contentView.frame;
+    contentFrame.origin.x = [self groupedCellMarginWithTableWidth:self.tableViewManager.tableView.frame.size.width];
+   // contentFrame.size.width = self.tableViewManager.tableView.frame.size.width - contentFrame.origin.x;
+    contentFrame.size.width = 200;
+    self.contentView.frame = contentFrame;*/
+ /*
+    CGRect contentFrame = self.contentView.frame;
+    contentFrame.origin.x = 20;
+    contentFrame.origin.x = 20;
+    self.contentView.frame = contentFrame;
+    
+  */
+  
+    CGRect backgroundFrame = self.backgroundImageView.frame;
+    backgroundFrame.origin.x = self.tableViewManager.style.backgroundImageMargin;
+    backgroundFrame.size.width = self.backgroundView.frame.size.width - self.tableViewManager.style.backgroundImageMargin * 2;
+    self.backgroundImageView.frame = backgroundFrame;
+    self.selectedBackgroundImageView.frame = backgroundFrame;
     
     if ([self.tableViewManager.style hasCustomBackgroundImage]) {
+        self.backgroundColor = [UIColor clearColor];
         _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:self.cellType];
         //_backgroundImageView.frame = CGRectMake(0, 0, _backgroundImageView.image.size.width, _backgroundImageView.image.size.height);
     }
@@ -114,6 +134,27 @@
         _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:self.cellType];
         //_selectedBackgroundImageView.frame = CGRectMake(0, 0, _selectedBackgroundImageView.image.size.width, _selectedBackgroundImageView.image.size.height);
     }
+}
+
+- (float)groupedCellMarginWithTableWidth:(float)tableViewWidth
+{
+    float marginWidth;
+    if(tableViewWidth > 20)
+    {
+        if(tableViewWidth < 400)
+        {
+            marginWidth = 10;
+        }
+        else
+        {
+            marginWidth = MAX(31, MIN(45, tableViewWidth*0.06));
+        }
+    }
+    else
+    {
+        marginWidth = tableViewWidth - 10;
+    }
+    return marginWidth;
 }
 
 - (RETableViewCellType)cellType
