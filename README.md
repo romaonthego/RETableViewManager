@@ -10,6 +10,36 @@ providing a layer that synchronizes data with cell appereance.
 
 ### _It is still in the early stages of development and it's highly not recommended to use it in production apps._
 
+### Quick Example
+
+Get your `UITableView`s up and running in couple minutes:
+
+``` objective-c
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    // Create the manager and assign a UITableView
+    //
+    _tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView];
+
+    // Add a section
+    //
+    RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Test"];
+    [_tableViewManager addSection:section];
+
+    // Add a string
+    //
+    [section addItem:@"Just a simple NSString"];
+
+    // Add a basic cell with disclosure indicator
+    //
+    [section addItem:[RETableViewItem itemWithTitle:"String cell" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
+        NSLog(@"Test: %@", item);
+    }]];
+}
+```
+
 <img src="https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot1.png" alt="RETableViewManager Screenshot" width="684" height="568" />
 
 <img src="https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot2.png" alt="RETableViewManager Screenshot" width="684" height="568" />
@@ -120,39 +150,6 @@ RETableViewManager includes a number of built-in items and cells that were mappe
 </table>
 
 ## Examples
-
-### Simple Example
-
-Subclass UITableViewController, remove all code from the implementation section and paste just this
-(yes, now it's that easy to manage `UITableView` content):
-
-``` objective-c
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    // Create the manager and assign it to be the delegate and datasource of your UITableView
-    //
-    _tableViewManager = [[RETableViewManager alloc] init];
-    self.tableView.delegate = _tableViewManager;
-    self.tableView.dataSource = _tableViewManager;
-
-    // Add a section
-    //
-    RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Test"];
-    [_tableViewManager addSection:section];
-
-    // Add a string
-    //
-    [section addItem:@"Just a simple NSString"];
-
-    // Add a basic cell with disclosure indicator
-    //
-    [section addItem:[RETableViewItem itemWithTitle:"String cell" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
-        NSLog(@"Test: %@", item);
-    }]];
-}
-```
 
 ### Creating Sections Example
 
