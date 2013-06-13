@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ControlsViewController.h"
 
-@interface StylingViewController : ControlsViewController
+@interface StylingViewController : ControlsViewController <RETableViewManagerDelegate>
 
 @end
