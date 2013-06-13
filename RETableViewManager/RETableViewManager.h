@@ -121,6 +121,11 @@
 /// @name Adding sections
 ///-----------------------------
 
+/**
+ Add a section.
+ 
+ @param section The RETableViewSection that needs to be added.
+ */
 - (void)addSection:(RETableViewSection *)section;
 - (void)addSectionsFromArray:(NSArray *)array;
 - (void)insertSection:(RETableViewSection *)section atIndex:(NSUInteger)index;
