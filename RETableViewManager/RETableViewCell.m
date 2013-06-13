@@ -60,7 +60,8 @@
     if ([self.tableViewManager.style hasCustomBackgroundImage]) {
         self.backgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
         self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        _backgroundImageView = [[UIImageView alloc] init];
+        _backgroundImageView = [[UIImageView alloc] initWithFrame:self.backgroundView.bounds];
+        _backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self.backgroundView addSubview:_backgroundImageView];
     }
     
@@ -68,6 +69,8 @@
         self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
         self.selectedBackgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _selectedBackgroundImageView = [[UIImageView alloc] init];
+        _selectedBackgroundImageView = [[UIImageView alloc] initWithFrame:self.backgroundView.bounds];
+        _selectedBackgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self.selectedBackgroundView addSubview:_selectedBackgroundImageView];
     }
 }
@@ -104,12 +107,12 @@
     
     if ([self.tableViewManager.style hasCustomBackgroundImage]) {
         _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:self.cellType];
-        _backgroundImageView.frame = CGRectMake((self.contentView.frame.size.width - self.backgroundImageView.image.size.width) / 2.0, 0, _backgroundImageView.image.size.width, _backgroundImageView.image.size.height);
+        //_backgroundImageView.frame = CGRectMake(0, 0, _backgroundImageView.image.size.width, _backgroundImageView.image.size.height);
     }
     
     if ([self.tableViewManager.style hasCustomSelectedBackgroundImage]) {
         _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:self.cellType];
-        _selectedBackgroundImageView.frame = CGRectMake((self.contentView.frame.size.width - self.selectedBackgroundImageView.image.size.width) / 2.0, 0, _selectedBackgroundImageView.image.size.width, _selectedBackgroundImageView.image.size.height);
+        //_selectedBackgroundImageView.frame = CGRectMake(0, 0, _selectedBackgroundImageView.image.size.width, _selectedBackgroundImageView.image.size.height);
     }
 }
 
