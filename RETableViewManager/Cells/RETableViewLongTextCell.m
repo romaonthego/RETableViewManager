@@ -86,7 +86,6 @@
     _textView.returnKeyType = self.item.returnKeyType;
     _textView.enablesReturnKeyAutomatically = self.item.enablesReturnKeyAutomatically;
     _textView.secureTextEntry = self.item.secureTextEntry;
-    _textView.backgroundColor = [UIColor blueColor];
 }
 
 - (UIResponder *)responder

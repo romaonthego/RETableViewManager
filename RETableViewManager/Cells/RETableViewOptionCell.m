@@ -58,7 +58,6 @@
     self.textLabel.text = self.item.title;
     self.detailTextLabel.text = @"";
     self.valueLabel.text = self.item.detailLabelText;
-    self.valueLabel.backgroundColor = [UIColor redColor];
 }
 
 - (void)layoutSubviews

@@ -83,8 +83,6 @@
     _datePicker.minuteInterval = self.item.minuteInterval;
     _dateFormatter.dateFormat = self.item.format;
     self.dateLabel.text = self.item.value ? [_dateFormatter stringFromDate:self.item.value] : @"";
-    
-    self.dateLabel.backgroundColor = [UIColor redColor];
 }
 
 - (void)layoutSubviews

@@ -83,7 +83,6 @@
     _textField.returnKeyType = self.item.returnKeyType;
     _textField.enablesReturnKeyAutomatically = self.item.enablesReturnKeyAutomatically;
     _textField.secureTextEntry = self.item.secureTextEntry;
-    _textField.backgroundColor = [UIColor redColor];
 }
 
 - (UIResponder *)responder

@@ -104,8 +104,6 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-
-    self.textLabel.backgroundColor = [UIColor blueColor];
     
     // Set content frame
     //
