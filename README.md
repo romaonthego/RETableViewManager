@@ -10,9 +10,9 @@ providing a layer that synchronizes data with cell appereance.
 
 ### _It is still in the early stages of development and it's highly not recommended to use it in production apps._
 
-<img src="https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot1.png" alt="RETableViewManager Screenshot" width="684" height="480" />
+<img src="https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot1.png" alt="RETableViewManager Screenshot" width="684" height="568" />
 
-<img src="https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot2.png" alt="RETableViewManager Screenshot" width="684" height="480" />
+<img src="https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot2.png" alt="RETableViewManager Screenshot" width="684" height="568" />
 
 ## Requirements
 * Xcode 4.6 or higher
