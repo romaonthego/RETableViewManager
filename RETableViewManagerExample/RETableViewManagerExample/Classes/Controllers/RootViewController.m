@@ -11,6 +11,7 @@
 #import "ListViewController.h"
 #import "EditingViewController.h"
 #import "RetractableViewController.h"
+#import "StylingViewController.h"
 
 @interface RootViewController ()
 
@@ -52,6 +53,11 @@
     [section addItem:[RETableViewItem itemWithTitle:@"Retractable" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
         [weakSelf.navigationController pushViewController:[[RetractableViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
+    }]];
+    
+    [section addItem:[RETableViewItem itemWithTitle:@"Styling" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
+        [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+        [weakSelf.navigationController pushViewController:[[StylingViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
     }]];
 }
 
