@@ -46,6 +46,8 @@
 	
 	<option value="//api/name/sections">&nbsp;&nbsp;&nbsp;&nbsp;sections</option>
 	
+	<option value="//api/name/style">&nbsp;&nbsp;&nbsp;&nbsp;style</option>
+	
 	<option value="//api/name/tableView">&nbsp;&nbsp;&nbsp;&nbsp;tableView</option>
 	
 	
@@ -54,6 +56,8 @@
 	
 	
 	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/addSection:">&nbsp;&nbsp;&nbsp;&nbsp;- addSection:</option>
 	
 	<option value="//api/name/initWithTableView:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithTableView:</option>
 	
@@ -81,6 +85,10 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Managing Object Mappings">Managing Object Mappings</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Setting default style">Setting default style</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Adding sections">Adding sections</a></span></li>
+	
 </ul></li>
 
 
@@ -95,6 +103,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sections">sections</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/style">style</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/tableView">tableView</a></span></li>
 	
 </ul></li>
@@ -104,6 +114,8 @@
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addSection:">addSection:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithTableView:">initWithTableView:</a></span></li>
 	
@@ -232,6 +244,36 @@
 		<span class="tooltip"><p>The aggregate collection of item and class mappings within this table view manager.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Setting default style" name="task_Setting default style"></a>
+						<h3 class="subsubtitle task-title">Setting default style</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/style">&nbsp;&nbsp;style</a></code>
+		<span class="tooltip"><p>The object that provides styling for <code>UITableView</code>. See <a href="../Classes/RETableViewCellStyle.html">RETableViewCellStyle</a> reference for details.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Adding sections" name="task_Adding sections"></a>
+						<h3 class="subsubtitle task-title">Adding sections</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addSection:">&ndash;&nbsp;addSection:</a></code>
+		<span class="tooltip"><p>Inserts a given section at the end of the <a href="#//api/name/sections">sections</a> array.</p></span>
+	</span>
+	
 	
 </li>
 						</ul>
@@ -370,6 +412,47 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/style" title="style"></a>
+	<h3 class="subsubtitle method-title">style</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The object that provides styling for <code>UITableView</code>. See <a href="../Classes/RETableViewCellStyle.html">RETableViewCellStyle</a> reference for details.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (strong, readwrite, nonatomic) RETableViewCellStyle *style</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The object that provides styling for <code>UITableView</code>. See <a href="../Classes/RETableViewCellStyle.html">RETableViewCellStyle</a> reference for details.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">RETableViewManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/tableView" title="tableView"></a>
 	<h3 class="subsubtitle method-title">tableView</h3>
 	
@@ -419,6 +502,57 @@
 					<div class="section section-methods">
 						<a title="Instance Methods" name="instance_methods"></a>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/addSection:" title="addSection:"></a>
+	<h3 class="subsubtitle method-title">addSection:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Inserts a given section at the end of the <a href="#//api/name/sections">sections</a> array.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addSection:(RETableViewSection *)<em>section</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>section</em></dt>
+			<dd><p>The section to add to the end of the <a href="#//api/name/sections">sections</a> array&rsquo;s content. This value must not be <code>nil</code>.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Inserts a given section at the end of the <a href="#//api/name/sections">sections</a> array.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">RETableViewManager.h</code><br />
+	</div>				
+	
+	
+</div>
 						
 						<div class="section-method">
 	<a name="//api/name/initWithTableView:" title="initWithTableView:"></a>
