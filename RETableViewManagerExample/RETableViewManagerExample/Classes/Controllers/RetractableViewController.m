@@ -17,6 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"Retractable";
 	_manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
     _section = [RETableViewSection section];
     [_manager addSection:_section];
