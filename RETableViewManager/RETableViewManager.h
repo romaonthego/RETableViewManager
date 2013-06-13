@@ -112,6 +112,9 @@
 /// @name Setting default style
 ///-----------------------------
 
+/**
+ The object that provides styling for `UITableView`. 
+ */
 @property (strong, readwrite, nonatomic) RETableViewCellStyle *style;
 
 ///-----------------------------
