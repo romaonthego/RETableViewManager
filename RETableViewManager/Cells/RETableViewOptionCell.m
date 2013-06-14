@@ -64,7 +64,7 @@
 {
     [super layoutSubviews];
     
-    CGFloat cellOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 20 : 60;
+    CGFloat cellOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 40;
     CGFloat fieldOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 40;
     CGFloat width = 0;
     CGRect frame = CGRectMake(0, self.tableViewManager.style.textFieldPositionOffset.height - 1, 0, self.contentView.frame.size.height - self.tableViewManager.style.textFieldPositionOffset.height);
@@ -79,7 +79,7 @@
     } else {
         frame.origin.x = cellOffset + self.tableViewManager.style.textFieldPositionOffset.width;
     }
-    frame.size.width = self.contentView.frame.size.width - frame.origin.x - cellOffset + 10.0;
+    frame.size.width = self.contentView.frame.size.width - frame.origin.x - cellOffset;
     _valueLabel.frame = frame;
     
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:cellWillLayoutSubviews:)])
