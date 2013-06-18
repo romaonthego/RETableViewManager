@@ -319,9 +319,7 @@ RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"
 ``` objective-c
 // Create the manager and assign it to be the delegate and datasource of your UITableView
 //
-_tableViewManager = [[RETableViewManager alloc] init];
-self.tableView.delegate = _tableViewManager;
-self.tableView.dataSource = _tableViewManager;
+_tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView];
 
 // Add a section
 //
