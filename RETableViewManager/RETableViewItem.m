@@ -25,6 +25,7 @@
 
 #import "RETableViewItem.h"
 #import "RETableViewSection.h"
+#import "RETableViewManager.h"
 
 @implementation RETableViewItem
 
@@ -77,6 +78,11 @@
 - (NSIndexPath *)indexPath
 {
     return [NSIndexPath indexPathForRow:[self.section.items indexOfObject:self] inSection:self.section.index];
+}
+
+- (void)reloadRowWithAnimation:(UITableViewRowAnimation)animation
+{
+    [self.section.tableViewManager.tableView reloadRowsAtIndexPaths:@[self.indexPath] withRowAnimation:animation];
 }
 
 @end
