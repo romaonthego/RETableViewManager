@@ -252,7 +252,7 @@ If you take a look at [RETableViewManager Source Code](https://github.com/romaon
 find out how default mapping is performed:
 
 ``` objective-c
-- (void)setDefaultMapping
+- (void)registerDefaultClasses
 {
     self[@"__NSCFConstantString"] = @"RETableViewCell";
     self[@"__NSCFString"] = @"RETableViewCell";
