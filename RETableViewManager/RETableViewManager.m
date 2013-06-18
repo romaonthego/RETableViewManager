@@ -121,8 +121,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    RETableViewSection *section = [_sections objectAtIndex:sectionIndex];
-    return section.items.count;
+    return ((RETableViewSection *)[_sections objectAtIndex:sectionIndex]).items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -154,6 +153,7 @@
     
     if ([item isKindOfClass:[RETableViewItem class]])
         cell.detailTextLabel.text = ((RETableViewItem *)item).detailLabelText;
+    
     [cell cellWillAppear];
     
     if ([_delegate respondsToSelector:@selector(tableView:styleCell:atIndexPath:)])
