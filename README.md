@@ -245,7 +245,7 @@ It's super easy to create custom mappings, the concept is similiar to `UICollect
 For example, this how all `NSString` objects are being mapped with `RETableViewCell`:
 
 ``` objective-c
-[_tableViewManager registerClass:@"NSString" forCellWithReuseIdentifier:@"RETableViewCell"];
+_tableViewManager[@"NSString"] = @"RETableViewCell";
 ```
 
 If you take a look at [RETableViewManager Source Code](https://github.com/romaonthego/RETableViewManager/blob/master/RETableViewManager/RETableViewManager.m) you may
