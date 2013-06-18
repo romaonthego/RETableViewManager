@@ -324,9 +324,8 @@
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    if ([cell isKindOfClass:[RETableViewCell class]]) {
+    if ([cell isKindOfClass:[RETableViewCell class]])
         [(RETableViewCell *)cell cellDidDisappear];
-    }
 }
 
 #pragma mark -
