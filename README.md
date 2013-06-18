@@ -242,31 +242,31 @@ RETableViewSection *section = [RETableViewSection sectionWithHeaderView:myCustom
 ### Item to Cell Mapping Example
 
 It's super easy to create custom mappings, the concept is similiar to `UICollectionView`.
-For example, this how all `NSString` objects are being mapped with `RETableViewCell`:
+For example, this how all `NSString` objects are being mapped to `RETableViewCell`:
 
 ``` objective-c
-[_tableViewManager registerClass:@"NSString" forCellWithReuseIdentifier:@"RETableViewCell"];
+_tableViewManager[@"NSString"] = @"RETableViewCell";
 ```
 
 If you take a look at [RETableViewManager Source Code](https://github.com/romaonthego/RETableViewManager/blob/master/RETableViewManager/RETableViewManager.m) you may
 find out how default mapping is performed:
 
 ``` objective-c
-- (void)setDefaultMapping
+- (void)registerDefaultClasses
 {
-    [self registerClass:@"__NSCFConstantString" forCellWithReuseIdentifier:@"RETableViewCell"];
-    [self registerClass:@"__NSCFString" forCellWithReuseIdentifier:@"RETableViewCell"];
-    [self registerClass:@"NSString" forCellWithReuseIdentifier:@"RETableViewCell"];
-    [self registerClass:@"RETableViewItem" forCellWithReuseIdentifier:@"RETableViewCell"];
-    [self registerClass:@"RERadioItem" forCellWithReuseIdentifier:@"RETableViewCell"];
-    [self registerClass:@"REBoolItem" forCellWithReuseIdentifier:@"RETableViewBoolCell"];
-    [self registerClass:@"RETextItem" forCellWithReuseIdentifier:@"RETableViewTextCell"];
-    [self registerClass:@"RELongTextItem" forCellWithReuseIdentifier:@"RETableViewLongTextCell"];
-    [self registerClass:@"RENumberItem" forCellWithReuseIdentifier:@"RETableViewNumberCell"];
-    [self registerClass:@"REFloatItem" forCellWithReuseIdentifier:@"RETableViewFloatCell"];
-    [self registerClass:@"REDateTimeItem" forCellWithReuseIdentifier:@"RETableViewDateTimeCell"];
-    [self registerClass:@"RECreditCardItem" forCellWithReuseIdentifier:@"RETableViewCreditCardCell"];
-    [self registerClass:@"REMultipleChoiceItem" forCellWithReuseIdentifier:@"RETableViewCell"];
+    self[@"__NSCFConstantString"] = @"RETableViewCell";
+    self[@"__NSCFString"] = @"RETableViewCell";
+    self[@"NSString"] = @"RETableViewCell";
+    self[@"RETableViewItem"] = @"RETableViewCell";
+    self[@"RERadioItem"] = @"RETableViewOptionCell";
+    self[@"REBoolItem"] = @"RETableViewBoolCell";
+    self[@"RETextItem"] = @"RETableViewTextCell";
+    self[@"RELongTextItem"] = @"RETableViewLongTextCell";
+    self[@"RENumberItem"] = @"RETableViewNumberCell";
+    self[@"REFloatItem"] = @"RETableViewFloatCell";
+    self[@"REDateTimeItem"] = @"RETableViewDateTimeCell";
+    self[@"RECreditCardItem"] = @"RETableViewCreditCardCell";
+    self[@"REMultipleChoiceItem"] = @"RETableViewOptionCell";
 }
 ```
 
