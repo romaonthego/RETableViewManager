@@ -254,19 +254,19 @@ find out how default mapping is performed:
 ``` objective-c
 - (void)setDefaultMapping
 {
-    [self registerClass:@"__NSCFConstantString" forCellWithReuseIdentifier:@"RETableViewCell"];
-    [self registerClass:@"__NSCFString" forCellWithReuseIdentifier:@"RETableViewCell"];
-    [self registerClass:@"NSString" forCellWithReuseIdentifier:@"RETableViewCell"];
-    [self registerClass:@"RETableViewItem" forCellWithReuseIdentifier:@"RETableViewCell"];
-    [self registerClass:@"RERadioItem" forCellWithReuseIdentifier:@"RETableViewCell"];
-    [self registerClass:@"REBoolItem" forCellWithReuseIdentifier:@"RETableViewBoolCell"];
-    [self registerClass:@"RETextItem" forCellWithReuseIdentifier:@"RETableViewTextCell"];
-    [self registerClass:@"RELongTextItem" forCellWithReuseIdentifier:@"RETableViewLongTextCell"];
-    [self registerClass:@"RENumberItem" forCellWithReuseIdentifier:@"RETableViewNumberCell"];
-    [self registerClass:@"REFloatItem" forCellWithReuseIdentifier:@"RETableViewFloatCell"];
-    [self registerClass:@"REDateTimeItem" forCellWithReuseIdentifier:@"RETableViewDateTimeCell"];
-    [self registerClass:@"RECreditCardItem" forCellWithReuseIdentifier:@"RETableViewCreditCardCell"];
-    [self registerClass:@"REMultipleChoiceItem" forCellWithReuseIdentifier:@"RETableViewCell"];
+    self[@"__NSCFConstantString"] = @"RETableViewCell";
+    self[@"__NSCFString"] = @"RETableViewCell";
+    self[@"NSString"] = @"RETableViewCell";
+    self[@"RETableViewItem"] = @"RETableViewCell";
+    self[@"RERadioItem"] = @"RETableViewOptionCell";
+    self[@"REBoolItem"] = @"RETableViewBoolCell";
+    self[@"RETextItem"] = @"RETableViewTextCell";
+    self[@"RELongTextItem"] = @"RETableViewLongTextCell";
+    self[@"RENumberItem"] = @"RETableViewNumberCell";
+    self[@"REFloatItem"] = @"RETableViewFloatCell";
+    self[@"REDateTimeItem"] = @"RETableViewDateTimeCell";
+    self[@"RECreditCardItem"] = @"RETableViewCreditCardCell";
+    self[@"REMultipleChoiceItem"] = @"RETableViewOptionCell";
 }
 ```
 
