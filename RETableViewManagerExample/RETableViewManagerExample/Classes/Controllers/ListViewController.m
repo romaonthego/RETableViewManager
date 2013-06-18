@@ -27,7 +27,7 @@
     
     // Map item to a cell
     //
-    [_manager registerClass:@"ListImageItem" forCellWithReuseIdentifier:@"ListImageCell"];
+    _manager[@"ListImageItem"] = @"ListImageCell"; // which is the same as [_manager registerClass:@"ListImageItem" forCellWithReuseIdentifier:@"ListImageCell"];
     
     // Set some UITableView properties
     //

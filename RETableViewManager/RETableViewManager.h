@@ -168,6 +168,9 @@
 ///-----------------------------
 - (Class)classForCellAtIndexPath:(NSIndexPath *)indexPath;
 
+- (id)objectAtKeyedSubscript:(id <NSCopying>)key;
+- (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key;
+
 @end
 
 

@@ -86,6 +86,16 @@
     [_mapping setObject:identifier forKey:objectClass];
 }
 
+- (id)objectAtKeyedSubscript:(id <NSCopying>)key
+{
+    return [_mapping objectForKey:key];
+}
+
+- (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key
+{
+    [self registerClass:(NSString *)key forCellWithReuseIdentifier:obj];
+}
+
 - (Class)classForCellAtIndexPath:(NSIndexPath *)indexPath
 {
     RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
