@@ -36,7 +36,8 @@
     // Add table footer view
     //
     UIButton *loadMoreButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [loadMoreButton setFrame:CGRectMake(40, 7, 240, 44)];
+    loadMoreButton.frame = CGRectMake(40, 7, 240, 44);
+    loadMoreButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     [loadMoreButton setTitle:@"Load more" forState:UIControlStateNormal];
     [loadMoreButton addTarget:self action:@selector(loadMoreButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     

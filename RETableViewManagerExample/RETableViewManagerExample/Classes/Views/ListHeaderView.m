@@ -23,9 +23,11 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         UIView *backgroundView = [[UIView alloc] initWithFrame:self.bounds];
         backgroundView.backgroundColor = [UIColor whiteColor];
         backgroundView.alpha = 0.9;
+        backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self addSubview:backgroundView];
         
         _userpicImageView = [[UIImageView alloc] initWithFrame:CGRectMake(7, 7, 30, 30)];
