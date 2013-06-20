@@ -111,7 +111,7 @@
 /**
  Returns cell class at specified index path.
  
- @params indexPath The index path of cell.
+ @param indexPath The index path of cell.
  */
 - (Class)classForCellAtIndexPath:(NSIndexPath *)indexPath;
 
@@ -221,12 +221,14 @@
 /**
  Removes the section at index.
  
- @param The index from which to remove the section in the sections array. The value must not exceed the bounds of the sections array.
+ @param index The index from which to remove the section in the sections array. The value must not exceed the bounds of the sections array.
  */
 - (void)removeSectionAtIndex:(NSUInteger)index;
 
 /**
+ Removes the objects at the specified indexes from the array.
  
+ @param indexes The indexes of the sections to remove from the sections array. The locations specified by indexes must lie within the bounds of the sections array.
  */
 - (void)removeSectionsAtIndexes:(NSIndexSet *)indexes;
 
