@@ -243,7 +243,10 @@
 - (void)replaceSectionAtIndex:(NSUInteger)index withSection:(RETableViewSection *)section;
 
 /**
+ Replaces the sections in the receiving sections array at specified locations specified with the objects from a given sections array.
  
+ @param indexes The indexes of the sections to be replaced.
+ @param sections The sections with which to replace the sections in the receiving sections array at the indexes specified by indexes. The count of locations in indexes must equal the count of sections.
  */
 - (void)replaceSectionsAtIndexes:(NSIndexSet *)indexes withSections:(NSArray *)sections;
 
