@@ -432,7 +432,7 @@
     [_sections replaceObjectsInRange:range withObjectsFromArray:otherArray];
 }
 
-- (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2
+- (void)exchangeSectionAtIndex:(NSUInteger)idx1 withSectionAtIndex:(NSUInteger)idx2
 {
     [_sections exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
 }

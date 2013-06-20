@@ -272,17 +272,25 @@
 ///-----------------------------
 
 /**
+ Exchanges the sections in the section array at given indices.
  
+ @param idx1 The index of the section with which to replace the section at index idx2.
+ @param idx2 The index of the section with which to replace the section at index idx1.
  */
-- (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2;
+- (void)exchangeSectionAtIndex:(NSUInteger)idx1 withSectionAtIndex:(NSUInteger)idx2;
 
 /**
+ Sorts the sections array’s elements in ascending order as defined by the comparison function compare.
  
+ @param compare The comparison function to use to compare two elements at a time.
+ @param context The context argument to pass to the compare function.
  */
 - (void)sortSectionsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context;
 
 /**
+ Sorts the sections array’s elements in ascending order, as determined by the comparison method specified by a given selector.
  
+ @param comparator A selector that specifies the comparison method to use to compare elements in the sections array.
  */
 - (void)sortSectionsUsingSelector:(SEL)comparator;
 
