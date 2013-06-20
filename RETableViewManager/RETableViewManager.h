@@ -108,6 +108,13 @@
 
 - (void)registerClass:(NSString *)objectClass forCellWithReuseIdentifier:(NSString *)identifier;
 
+/**
+ Returns cell class at specified index path.
+ 
+ @params indexPath The index path of cell.
+ */
+- (Class)classForCellAtIndexPath:(NSIndexPath *)indexPath;
+
 ///-----------------------------
 /// @name Setting default style
 ///-----------------------------
@@ -186,7 +193,6 @@
 ///-----------------------------
 /// @name Other
 ///-----------------------------
-- (Class)classForCellAtIndexPath:(NSIndexPath *)indexPath;
 
 - (id)objectAtKeyedSubscript:(id <NSCopying>)key;
 - (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key;
