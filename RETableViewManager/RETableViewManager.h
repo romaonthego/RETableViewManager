@@ -275,12 +275,18 @@
 ///-----------------------------
 
 /**
+ Returns object at the keyed subscript.
  
+ @param key The keyed subscript.
+ @return The object at the keyed subscript.
  */
 - (id)objectAtKeyedSubscript:(id <NSCopying>)key;
 
 /**
+ Sets an object for the keyed subscript.
  
+ @param obj The object to set for the keyed subscript.
+ @param key The keyed subscript.
  */
 - (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key;
 
