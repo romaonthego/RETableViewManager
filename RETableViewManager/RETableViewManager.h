@@ -170,42 +170,58 @@
 - (void)removeSection:(RETableViewSection *)section;
 
 /**
+ Empties the sections array of all its elements.
  
  */
 - (void)removeAllSections;
 
 /**
+ Removes all occurrences of section within the specified range in the sections array.
  
+ @param section The section to remove from the sections array within range.
+ @param range The range in the sections array from which to remove section.
  */
 - (void)removeSectionIdenticalTo:(RETableViewSection *)section inRange:(NSRange)range;
 
 /**
+ Removes all occurrences of a given section in the sections array.
  
+ @param section The section to remove from the sections array.
  */
 - (void)removeSectionIdenticalTo:(RETableViewSection *)section;
 
 /**
+ Removes from the receiving array the objects in another given array.
  
+ @param otherArray An array containing the sections to be removed from the receiving sections array.
  */
 - (void)removeSectionsInArray:(NSArray *)otherArray;
 
 /**
+ Removes from the sections array each of the sections within a given range.
  
+ @param range The range of the sections to remove from the sections array.
  */
 - (void)removeSectionsInRange:(NSRange)range;
 
 /**
+ Removes all occurrences within a specified range in the array of a given object.
  
+ @param section The section to remove from the sections array's content.
+ @param range The range from which to remove section.
  */
 - (void)removeSection:(RETableViewSection *)section inRange:(NSRange)range;
 
 /**
+ Removes the section with the highest-valued index in the sections array
  
  */
 - (void)removeLastSection;
 
 /**
+ Removes the section at index.
  
+ @param The index from which to remove the section in the sections array. The value must not exceed the bounds of the sections array.
  */
 - (void)removeSectionAtIndex:(NSUInteger)index;
 
