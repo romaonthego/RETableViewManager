@@ -129,11 +129,18 @@
 - (void)addSection:(RETableViewSection *)section;
 
 /**
- Adds the sections contained in another given array to the end of the receiving array’s content.
+ Adds the sections contained in another given sections array to the end of the receiving sections array’s content.
  
- @param array An array of sections to add to the end of the receiving array’s content.
+ @param array An array of sections to add to the end of the receiving sections array’s content.
  */
 - (void)addSectionsFromArray:(NSArray *)array;
+
+/**
+ Inserts a given section into the sections array's contents at a given index.
+ 
+ @param section The section to add to the sections array's content. This value must not be nil.
+ @param index The index in the sections array at which to insert section. This value must not be greater than the count of elements in the sections array.
+ */
 - (void)insertSection:(RETableViewSection *)section atIndex:(NSUInteger)index;
 - (void)insertSections:(NSArray *)sections atIndexes:(NSIndexSet *)indexes;
 
