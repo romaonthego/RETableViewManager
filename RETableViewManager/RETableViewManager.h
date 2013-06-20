@@ -162,24 +162,80 @@
 /// @name Removing Sections
 ///-----------------------------
 
+/**
+ Removes all occurrences in the sections array of a given section.
+ 
+ @param section The section to remove from the sections array.
+ */
 - (void)removeSection:(RETableViewSection *)section;
+
+/**
+ 
+ */
 - (void)removeAllSections;
+
+/**
+ 
+ */
 - (void)removeSectionIdenticalTo:(RETableViewSection *)section inRange:(NSRange)range;
+
+/**
+ 
+ */
 - (void)removeSectionIdenticalTo:(RETableViewSection *)section;
+
+/**
+ 
+ */
 - (void)removeSectionsInArray:(NSArray *)otherArray;
+
+/**
+ 
+ */
 - (void)removeSectionsInRange:(NSRange)range;
+
+/**
+ 
+ */
 - (void)removeSection:(RETableViewSection *)section inRange:(NSRange)range;
+
+/**
+ 
+ */
 - (void)removeLastSection;
+
+/**
+ 
+ */
 - (void)removeSectionAtIndex:(NSUInteger)index;
+
+/**
+ 
+ */
 - (void)removeSectionsAtIndexes:(NSIndexSet *)indexes;
 
 ///-----------------------------
 /// @name Replacing Sections
 ///-----------------------------
 
+/**
+ 
+ */
 - (void)replaceSectionAtIndex:(NSUInteger)index withSection:(RETableViewSection *)section;
+
+/**
+ 
+ */
 - (void)replaceSectionsAtIndexes:(NSIndexSet *)indexes withSections:(NSArray *)sections;
+
+/**
+ 
+ */
 - (void)replaceSectionsInRange:(NSRange)range withSectionsFromArray:(NSArray *)otherArray range:(NSRange)otherRange;
+
+/**
+ 
+ */
 - (void)replaceSectionsInRange:(NSRange)range withObjectsFromArray:(NSArray *)otherArray;
 
 ///-----------------------------
@@ -187,14 +243,29 @@
 ///-----------------------------
 
 - (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2;
+
+/**
+ 
+ */
 - (void)sortSectionsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context;
+
+/**
+ 
+ */
 - (void)sortSectionsUsingSelector:(SEL)comparator;
 
 ///-----------------------------
 /// @name Other
 ///-----------------------------
 
+/**
+ 
+ */
 - (id)objectAtKeyedSubscript:(id <NSCopying>)key;
+
+/**
+ 
+ */
 - (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key;
 
 @end
