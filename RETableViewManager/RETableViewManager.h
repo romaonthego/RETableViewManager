@@ -127,6 +127,12 @@
  @param section The section to add to the end of the sections array's content. This value must not be `nil`.
  */
 - (void)addSection:(RETableViewSection *)section;
+
+/**
+ Adds the sections contained in another given array to the end of the receiving array’s content.
+ 
+ @param array An array of sections to add to the end of the receiving array’s content.
+ */
 - (void)addSectionsFromArray:(NSArray *)array;
 - (void)insertSection:(RETableViewSection *)section atIndex:(NSUInteger)index;
 - (void)insertSections:(NSArray *)sections atIndexes:(NSIndexSet *)indexes;
