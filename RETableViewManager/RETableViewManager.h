@@ -63,7 +63,7 @@
 @property (strong, readwrite, nonatomic) NSMutableArray *sections;
 
 /**
- The `UITableView` that needs to be managed.
+ The `UITableView` that needs to be managed using this `RETableViewManager`.
  */
 @property (weak, readwrite, nonatomic) UITableView *tableView;
 
