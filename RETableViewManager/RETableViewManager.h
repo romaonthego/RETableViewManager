@@ -50,6 +50,8 @@
 
 @protocol RETableViewManagerDelegate;
 
+NSUInteger REDeviceSystemMajorVersion();
+
 /**
  `RETableViewManager` allows to manage content of `UITableView` with ease, both forms and lists. In its core `RETableViewManager` supports reusable cells based on corresponding data object class.
  

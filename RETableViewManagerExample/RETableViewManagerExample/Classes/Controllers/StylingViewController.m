@@ -8,16 +8,6 @@
 
 #import "StylingViewController.h"
 
-NSUInteger DeviceSystemMajorVersion();
-NSUInteger DeviceSystemMajorVersion() {
-    static NSUInteger _deviceSystemMajorVersion = -1;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _deviceSystemMajorVersion = [[[[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."] objectAtIndex:0] intValue];
-    });
-    return _deviceSystemMajorVersion;
-}
-
 @interface StylingViewController ()
 
 @end
@@ -47,7 +37,7 @@ NSUInteger DeviceSystemMajorVersion() {
    
     // Retain legacy grouped cell style in iOS [redacted]
     //
-    if (DeviceSystemMajorVersion() >= 7) {
+    if (REDeviceSystemMajorVersion() >= 7) {
         self.manager.style.contentViewMargin = 10;
         self.manager.style.backgroundImageMargin = 10;
     }

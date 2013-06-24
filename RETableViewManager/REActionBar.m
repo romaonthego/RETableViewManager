@@ -24,6 +24,7 @@
 //
 
 #import "REActionBar.h"
+#import "RETableViewManager.h"
 
 @implementation REActionBar
 
@@ -33,9 +34,12 @@
     if (!self)
         return nil;
     
-    self.translucent = YES;
     [self sizeToFit];
-    self.barStyle = UIBarStyleBlackTranslucent;
+    
+    if (REDeviceSystemMajorVersion() < 7.0) {
+        self.translucent = YES;
+        self.barStyle = UIBarStyleBlackTranslucent;
+    }
     
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", @"")
                                                                    style:UIBarButtonItemStyleDone target:self
