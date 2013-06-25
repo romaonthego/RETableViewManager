@@ -80,6 +80,19 @@
     return [NSIndexPath indexPathForRow:[self.section.items indexOfObject:self] inSection:self.section.index];
 }
 
+#pragma mark -
+#pragma mark Manipulating table view row
+
+- (void)selectRowAnimated:(BOOL)animated
+{
+    [self selectRowAnimated:animated scrollPosition:UITableViewScrollPositionNone];
+}
+
+- (void)selectRowAnimated:(BOOL)animated scrollPosition:(UITableViewScrollPosition)scrollPosition
+{
+    [self.section.tableViewManager.tableView selectRowAtIndexPath:self.indexPath animated:animated scrollPosition:scrollPosition];
+}
+
 - (void)deselectRowAnimated:(BOOL)animated
 {
     [self.section.tableViewManager.tableView deselectRowAtIndexPath:self.indexPath animated:animated];

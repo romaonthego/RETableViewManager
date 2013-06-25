@@ -61,6 +61,8 @@
 /// @name Manipulating table view row
 ///-----------------------------
 
+- (void)selectRowAnimated:(BOOL)animated;
+- (void)selectRowAnimated:(BOOL)animated scrollPosition:(UITableViewScrollPosition)scrollPosition;
 - (void)deselectRowAnimated:(BOOL)animated;
 - (void)reloadRowWithAnimation:(UITableViewRowAnimation)animation;
 
