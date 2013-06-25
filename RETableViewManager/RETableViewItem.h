@@ -56,6 +56,12 @@
 - (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(RETableViewItem *item))selectionHandler accessoryButtonTapHandler:(void(^)(RETableViewItem *item))accessoryButtonTapHandler;
 
 - (NSIndexPath *)indexPath;
+
+///-----------------------------
+/// @name Manipulating table view row
+///-----------------------------
+
+- (void)deselectRowAnimated:(BOOL)animated;
 - (void)reloadRowWithAnimation:(UITableViewRowAnimation)animation;
 
 @end

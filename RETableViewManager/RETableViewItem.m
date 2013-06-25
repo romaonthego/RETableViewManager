@@ -80,6 +80,11 @@
     return [NSIndexPath indexPathForRow:[self.section.items indexOfObject:self] inSection:self.section.index];
 }
 
+- (void)deselectRowAnimated:(BOOL)animated
+{
+    [self.section.tableViewManager.tableView deselectRowAtIndexPath:self.indexPath animated:animated];
+}
+
 - (void)reloadRowWithAnimation:(UITableViewRowAnimation)animation
 {
     [self.section.tableViewManager.tableView reloadRowsAtIndexPaths:@[self.indexPath] withRowAnimation:animation];
