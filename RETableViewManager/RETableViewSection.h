@@ -139,26 +139,33 @@
 ///-----------------------------
 
 /**
- Inserts a given item at the end of the <items> array.
- @param item The item to add to the end of the <items> array's content. This value must not be `nil`.
+ Inserts a given item at the end of the section.
+ @param item The item to add to the end of the section. This value must not be `nil`.
  @return The item.
  */
 - (void)addItem:(id)item;
 
 /**
- Adds the items contained in another given array to the end of the receiving section items array’s content.
+ Adds the items contained in another given array to the end of the section.
  
- @param array An array of items to add to the end of the receiving section items array’s content.
+ @param array An array of items to add to the end of the section.
  */
 - (void)addItemsFromArray:(NSArray *)array;
 
 /**
- Inserts a given item into the section items array's contents at a given index.
+ Inserts a given item into the section at a given index.
  
- @param item The item to add to the section items array's content. This value must not be nil.
- @param index The index in the section items array at which to insert item. This value must not be greater than the count of elements in the items array.
+ @param item The item to add to the section. This value must not be nil.
+ @param index The index in the section at which to insert item. This value must not be greater than the count of items in the section.
  */
 - (void)insertItem:(id)item atIndex:(NSUInteger)index;
+
+/**
+ Inserts the items in the provided items array into the section at the specified indexes.
+ 
+ @param items An array of items to insert into the section.
+ @param indexes The indexes at which the items should be inserted.
+ */
 - (void)insertItems:(NSArray *)items atIndexes:(NSIndexSet *)indexes;
 
 ///-----------------------------
