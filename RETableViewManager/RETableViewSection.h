@@ -178,6 +178,11 @@
  @param item The item to remove from the section.
  */
 - (void)removeItem:(id)item;
+
+/**
+ Empties the section of all its items.
+ 
+ */
 - (void)removeAllItems;
 - (void)removeItemIdenticalTo:(id)item inRange:(NSRange)range;
 - (void)removeItemIdenticalTo:(id)item;
