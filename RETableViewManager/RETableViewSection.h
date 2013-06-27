@@ -195,6 +195,12 @@
  
  */
 - (void)removeLastItem;
+
+/**
+ Removes the item at index.
+ 
+ @param index The index from which to remove the item in the section. The value must not exceed the bounds of the section.
+ */
 - (void)removeItemAtIndex:(NSUInteger)index;
 - (void)removeItemsAtIndexes:(NSIndexSet *)indexes;
 
