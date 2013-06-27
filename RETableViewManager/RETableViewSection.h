@@ -172,6 +172,11 @@
 /// @name Removing Items
 ///-----------------------------
 
+/**
+ Removes all occurrences in the section of a given item.
+ 
+ @param item The item to remove from the section.
+ */
 - (void)removeItem:(id)item;
 - (void)removeAllItems;
 - (void)removeItemIdenticalTo:(id)item inRange:(NSRange)range;
