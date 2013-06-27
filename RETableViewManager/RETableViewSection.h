@@ -144,6 +144,12 @@
  @return The item.
  */
 - (void)addItem:(id)item;
+
+/**
+ Adds the items contained in another given array to the end of the receiving section items array’s content.
+ 
+ @param array An array of items to add to the end of the receiving section items array’s content.
+ */
 - (void)addItemsFromArray:(NSArray *)array;
 - (void)insertItem:(id)item atIndex:(NSUInteger)index;
 - (void)insertItems:(NSArray *)items atIndexes:(NSIndexSet *)indexes;
