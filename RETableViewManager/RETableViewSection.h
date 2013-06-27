@@ -151,6 +151,13 @@
  @param array An array of items to add to the end of the receiving section items array’s content.
  */
 - (void)addItemsFromArray:(NSArray *)array;
+
+/**
+ Inserts a given item into the section items array's contents at a given index.
+ 
+ @param item The item to add to the section items array's content. This value must not be nil.
+ @param index The index in the section items array at which to insert item. This value must not be greater than the count of elements in the items array.
+ */
 - (void)insertItem:(id)item atIndex:(NSUInteger)index;
 - (void)insertItems:(NSArray *)items atIndexes:(NSIndexSet *)indexes;
 
