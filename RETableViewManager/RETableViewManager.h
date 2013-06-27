@@ -215,7 +215,7 @@ NSUInteger REDeviceSystemMajorVersion();
 - (void)removeSection:(RETableViewSection *)section inRange:(NSRange)range;
 
 /**
- Removes the section with the highest-valued index in the sections array
+ Removes the section with the highest-valued index in the sections array.
  
  */
 - (void)removeLastSection;
