@@ -189,6 +189,11 @@
 - (void)removeItemsInArray:(NSArray *)otherArray;
 - (void)removeItemsInRange:(NSRange)range;
 - (void)removeItem:(id)item inRange:(NSRange)range;
+
+/**
+ Removes the item with the highest-valued index in the section.
+ 
+ */
 - (void)removeLastItem;
 - (void)removeItemAtIndex:(NSUInteger)index;
 - (void)removeItemsAtIndexes:(NSIndexSet *)indexes;
