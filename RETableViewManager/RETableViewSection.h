@@ -187,6 +187,12 @@
 - (void)removeItemIdenticalTo:(id)item inRange:(NSRange)range;
 - (void)removeItemIdenticalTo:(id)item;
 - (void)removeItemsInArray:(NSArray *)otherArray;
+
+/**
+ Removes from the section each of the items within a given range.
+ 
+ @param range The range of the items to remove from the section.
+ */
 - (void)removeItemsInRange:(NSRange)range;
 - (void)removeItem:(id)item inRange:(NSRange)range;
 
