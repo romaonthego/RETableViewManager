@@ -184,7 +184,14 @@
  
  */
 - (void)removeAllItems;
+
 - (void)removeItemIdenticalTo:(id)item inRange:(NSRange)range;
+
+/**
+ Removes all occurrences of a given item in the section.
+ 
+ @param item The section to remove from the section.
+ */
 - (void)removeItemIdenticalTo:(id)item;
 - (void)removeItemsInArray:(NSArray *)otherArray;
 
