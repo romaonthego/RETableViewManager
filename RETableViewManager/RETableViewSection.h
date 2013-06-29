@@ -249,6 +249,12 @@
 /// @name Replacing Items
 ///-----------------------------
 
+/**
+ Replaces the item at index with another item.
+ 
+ @param index The index of the item to be replaced. This value must not exceed the bounds of the section.
+ @param item The item with which to replace the item at index index in the section. This value must not be `nil`.
+ */
 - (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item;
 - (void)replaceItemsWithItemsFromArray:(NSArray *)otherArray;
 - (void)replaceItemsAtIndexes:(NSIndexSet *)indexes withItems:(NSArray *)items;
