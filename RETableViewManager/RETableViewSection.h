@@ -202,6 +202,12 @@
  @param item The section to remove from the section.
  */
 - (void)removeItemIdenticalTo:(id)item;
+
+/**
+ Removes from the section the items in another given array.
+ 
+ @param otherArray An array containing the items to be removed from the section.
+ */
 - (void)removeItemsInArray:(NSArray *)otherArray;
 
 /**
