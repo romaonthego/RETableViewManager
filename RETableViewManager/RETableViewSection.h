@@ -237,6 +237,12 @@
  @param index The index from which to remove the item in the section. The value must not exceed the bounds of the section.
  */
 - (void)removeItemAtIndex:(NSUInteger)index;
+
+/**
+ Removes the items at the specified indexes from the section.
+ 
+ @param indexes The indexes of the items to remove from the section. The locations specified by indexes must lie within the bounds of the section.
+ */
 - (void)removeItemsAtIndexes:(NSIndexSet *)indexes;
 
 ///-----------------------------
