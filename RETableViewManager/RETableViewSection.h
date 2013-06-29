@@ -38,12 +38,12 @@
 @property (strong, readwrite, nonatomic) NSMutableArray *items;
 
 /**
- The title of the header of the specified section of the table view
+ The title of the header of the specified section of the table view.
  */
 @property (copy, readwrite, nonatomic) NSString *headerTitle;
 
 /**
- The title of the footer of the specified section of the table view
+ The title of the footer of the specified section of the table view.
  */
 @property (copy, readwrite, nonatomic) NSString *footerTitle;
 
@@ -57,6 +57,9 @@
  */
 @property (strong, readwrite, nonatomic) UIView *footerView;
 
+/**
+ The title of of this section.
+ */
 @property (weak, readwrite, nonatomic) RETableViewManager *tableViewManager;
 
 /**
