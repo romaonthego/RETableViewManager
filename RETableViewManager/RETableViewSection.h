@@ -216,6 +216,13 @@
  @param range The range of the items to remove from the section.
  */
 - (void)removeItemsInRange:(NSRange)range;
+
+/**
+ Removes all occurrences within a specified range in the section of a given item.
+ 
+ @param item The item to remove from the section.
+ @param range The range from which to remove item.
+ */
 - (void)removeItem:(id)item inRange:(NSRange)range;
 
 /**
