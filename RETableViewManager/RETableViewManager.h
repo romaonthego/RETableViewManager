@@ -239,10 +239,10 @@ NSUInteger REDeviceSystemMajorVersion();
 ///-----------------------------
 
 /**
- Replaces the section at index with section.
+ Replaces the section at index with `section`.
  
  @param index The index of the section to be replaced. This value must not exceed the bounds of the sections array.
- @param section The section with which to replace the section at index index in the array. This value must not be `nil`.
+ @param section The section with which to replace the section at index `index` in the sections array. This value must not be `nil`.
  */
 - (void)replaceSectionAtIndex:(NSUInteger)index withSection:(RETableViewSection *)section;
 
