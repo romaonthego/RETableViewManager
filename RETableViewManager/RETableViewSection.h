@@ -185,6 +185,12 @@
  */
 - (void)removeAllItems;
 
+/**
+ Removes all occurrences of item within the specified range in the section.
+ 
+ @param item The item to remove from the section within range.
+ @param range The range in the section from which to remove section.
+ */
 - (void)removeItemIdenticalTo:(id)item inRange:(NSRange)range;
 
 /**
