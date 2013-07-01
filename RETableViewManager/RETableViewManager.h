@@ -60,7 +60,7 @@ NSUInteger REDeviceSystemMajorVersion();
 @interface RETableViewManager : NSObject <UITableViewDelegate, UITableViewDataSource>
 
 /**
- The aggregate collection of sections. See RETableViewSection reference for details.
+ The array of sections. See RETableViewSection reference for details.
  */
 @property (strong, readwrite, nonatomic) NSMutableArray *sections;
 
