@@ -249,6 +249,12 @@ NSUInteger REDeviceSystemMajorVersion();
  */
 - (void)replaceSectionAtIndex:(NSUInteger)index withSection:(RETableViewSection *)section;
 
+/**
+ Replaces the sections in the receiving sections array specified by a given range with all of the objects from a given array.
+ 
+ @param range The range of sections to replace in (or remove from) the sections array.
+ @param otherArray The array of sections from which to select replacements for the sections in range.
+ */
 - (void)replaceSectionsWithSectionsFromArray:(NSArray *)otherArray;
 
 /**
