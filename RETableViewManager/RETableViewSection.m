@@ -225,7 +225,7 @@
     [_items replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
 }
 
-- (void)replaceItemsInRange:(NSRange)range withObjectsFromArray:(NSArray *)otherArray
+- (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray
 {
     for (RETableViewItem *item in otherArray)
         if ([item isKindOfClass:[RETableViewItem class]])

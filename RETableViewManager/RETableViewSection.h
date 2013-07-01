@@ -266,7 +266,14 @@
  */
 - (void)replaceItemsAtIndexes:(NSIndexSet *)indexes withItems:(NSArray *)items;
 - (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray range:(NSRange)otherRange;
-- (void)replaceItemsInRange:(NSRange)range withObjectsFromArray:(NSArray *)otherArray;
+
+/**
+ Replaces the sections in the receiving sections array specified by a given range with all of the objects from a given array.
+ 
+ @param range The range of sections to replace in (or remove from) the sections array.
+ @param otherArray The array of sections from which to select replacements for the sections in range.
+ */
+- (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray;
 
 ///-----------------------------
 /// @name Rearranging Content
