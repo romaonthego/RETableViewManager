@@ -279,7 +279,7 @@
 /// @name Rearranging Content
 ///-----------------------------
 
-- (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2;
+- (void)exchangeItemAtIndex:(NSUInteger)idx1 withItemAtIndex:(NSUInteger)idx2;
 - (void)sortItemsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context;
 - (void)sortItemsUsingSelector:(SEL)comparator;
 

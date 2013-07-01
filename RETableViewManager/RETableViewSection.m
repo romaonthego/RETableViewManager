@@ -243,7 +243,7 @@
     [_items replaceObjectsAtIndexes:indexes withObjects:items];
 }
 
-- (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2
+- (void)exchangeItemAtIndex:(NSUInteger)idx1 withItemAtIndex:(NSUInteger)idx2
 {
     [_items exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
 }
