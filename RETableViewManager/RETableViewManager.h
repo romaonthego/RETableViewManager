@@ -279,7 +279,7 @@ NSUInteger REDeviceSystemMajorVersion();
  @param range The range of sections to replace in (or remove from) the sections array.
  @param otherArray The array of sections from which to select replacements for the sections in range.
  */
-- (void)replaceSectionsInRange:(NSRange)range withObjectsFromArray:(NSArray *)otherArray;
+- (void)replaceSectionsInRange:(NSRange)range withSectionsFromArray:(NSArray *)otherArray;
 
 ///-----------------------------
 /// @name Rearranging Content

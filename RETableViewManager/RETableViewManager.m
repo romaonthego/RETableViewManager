@@ -442,7 +442,7 @@ NSUInteger REDeviceSystemMajorVersion() {
     [_sections replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
 }
 
-- (void)replaceSectionsInRange:(NSRange)range withObjectsFromArray:(NSArray *)otherArray
+- (void)replaceSectionsInRange:(NSRange)range withSectionsFromArray:(NSArray *)otherArray
 {
     [_sections replaceObjectsInRange:range withObjectsFromArray:otherArray];
 }
