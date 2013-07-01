@@ -256,6 +256,12 @@
  @param item The item with which to replace the item at index index in the section. This value must not be `nil`.
  */
 - (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item;
+
+/**
+ Replaces the items in the section with all of the items from a given array.
+ 
+ @param otherArray The array of items from which to select replacements for the items.
+ */
 - (void)replaceItemsWithItemsFromArray:(NSArray *)otherArray;
 
 /**
