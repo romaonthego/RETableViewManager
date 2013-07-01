@@ -108,6 +108,9 @@ NSUInteger REDeviceSystemMajorVersion();
  */
 @property (strong, readwrite, nonatomic) NSMutableDictionary *mapping;
 
+/**
+ For each custom item class that the manager will use, register a cell class.
+ */
 - (void)registerClass:(NSString *)objectClass forCellWithReuseIdentifier:(NSString *)identifier;
 
 /**
