@@ -249,6 +249,8 @@ NSUInteger REDeviceSystemMajorVersion();
  */
 - (void)replaceSectionAtIndex:(NSUInteger)index withSection:(RETableViewSection *)section;
 
+- (void)replaceSectionsWithSectionsFromArray:(NSArray *)otherArray;
+
 /**
  Replaces the sections in the receiving sections array at specified locations specified with the objects from a given sections array.
  

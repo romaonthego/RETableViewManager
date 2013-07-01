@@ -422,6 +422,12 @@ NSUInteger REDeviceSystemMajorVersion() {
     [_sections replaceObjectAtIndex:index withObject:section];
 }
 
+- (void)replaceSectionsWithSectionsFromArray:(NSArray *)otherArray
+{
+    [self removeAllSections];
+    [self addSectionsFromArray:otherArray];
+}
+
 - (void)replaceSectionsAtIndexes:(NSIndexSet *)indexes withSections:(NSArray *)sections
 {
     for (RETableViewSection *section in sections)
