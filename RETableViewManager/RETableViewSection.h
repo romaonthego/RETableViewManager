@@ -268,10 +268,10 @@
 - (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray range:(NSRange)otherRange;
 
 /**
- Replaces the sections in the receiving sections array specified by a given range with all of the objects from a given array.
+ Replaces the items in the section specified by a given range with all of the items from a given array.
  
- @param range The range of sections to replace in (or remove from) the sections array.
- @param otherArray The array of sections from which to select replacements for the sections in range.
+ @param range The range of items to replace in (or remove from) the section.
+ @param otherArray The array of items from which to select replacements for the items in range.
  */
 - (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray;
 
