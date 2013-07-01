@@ -97,7 +97,7 @@ NSUInteger REDeviceSystemMajorVersion();
 /**
  The object that acts as the delegate of the receiving table view.
  */
-@property (assign, readwrite, nonatomic) id<RETableViewManagerDelegate> gdelegate;
+@property (assign, readwrite, nonatomic) id<RETableViewManagerDelegate> delegate;
 
 ///-----------------------------
 /// @name Managing Object Mappings
