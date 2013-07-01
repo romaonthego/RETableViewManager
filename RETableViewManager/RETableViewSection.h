@@ -257,6 +257,13 @@
  */
 - (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item;
 - (void)replaceItemsWithItemsFromArray:(NSArray *)otherArray;
+
+/**
+ Replaces the items in the section at specified locations specified with the items from a given sections array.
+ 
+ @param indexes The indexes of the items to be replaced.
+ @param items The items with which to replace the items in the section at the indexes specified by `indexes`. The count of locations in indexes must equal the count of items.
+ */
 - (void)replaceItemsAtIndexes:(NSIndexSet *)indexes withItems:(NSArray *)items;
 - (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray range:(NSRange)otherRange;
 - (void)replaceItemsInRange:(NSRange)range withObjectsFromArray:(NSArray *)otherArray;
