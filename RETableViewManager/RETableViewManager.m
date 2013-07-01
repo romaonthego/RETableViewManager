@@ -43,7 +43,7 @@ NSUInteger REDeviceSystemMajorVersion() {
         return nil;
     
     _sections = [[NSMutableArray alloc] init];
-    _mapping = [[NSMutableDictionary alloc] init];
+    _registeredClasses = [[NSMutableDictionary alloc] init];
     _style = [[RETableViewCellStyle alloc] init];
     
     [self registerDefaultClasses];
@@ -92,12 +92,12 @@ NSUInteger REDeviceSystemMajorVersion() {
 {
     NSAssert(NSClassFromString(objectClass), ([NSString stringWithFormat:@"Item class '%@' does not exist.", identifier]));
     NSAssert(NSClassFromString(identifier), ([NSString stringWithFormat:@"Cell class '%@' does not exist.", identifier]));
-    [_mapping setObject:identifier forKey:objectClass];
+    [_registeredClasses setObject:identifier forKey:objectClass];
 }
 
 - (id)objectAtKeyedSubscript:(id <NSCopying>)key
 {
-    return [_mapping objectForKey:key];
+    return [_registeredClasses objectForKey:key];
 }
 
 - (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key
@@ -110,10 +110,10 @@ NSUInteger REDeviceSystemMajorVersion() {
     RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
     NSObject *item = [section.items objectAtIndex:indexPath.row];
     Class cellClass;
-    for (NSString *className in _mapping) {
+    for (NSString *className in _registeredClasses) {
         NSString *itemClass = NSStringFromClass([item class]);
         if ([itemClass isEqualToString:className]) {
-            cellClass = NSClassFromString([_mapping objectForKey:className]);
+            cellClass = NSClassFromString([_registeredClasses objectForKey:className]);
             break;
         }
     }

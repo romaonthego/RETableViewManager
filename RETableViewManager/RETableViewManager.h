@@ -106,7 +106,7 @@ NSUInteger REDeviceSystemMajorVersion();
 /**
  The aggregate collection of item and class mappings within this table view manager.
  */
-@property (strong, readwrite, nonatomic) NSMutableDictionary *mapping;
+@property (strong, readwrite, nonatomic) NSMutableDictionary *registeredClasses;
 
 /**
  For each custom item class that the manager will use, register a cell class.
