@@ -45,6 +45,11 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)textChanged:(NSNotification *)notification
 {
     if (self.placeholder.length == 0) {
