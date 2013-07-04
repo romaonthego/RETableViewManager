@@ -196,7 +196,7 @@ NSUInteger REDeviceSystemMajorVersion();
 - (void)removeSectionIdenticalTo:(RETableViewSection *)section;
 
 /**
- Removes from the receiving array the objects in another given array.
+ Removes from the receiving array the sections in another given array.
  
  @param otherArray An array containing the sections to be removed from the receiving sections array.
  */
