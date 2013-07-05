@@ -100,7 +100,7 @@ NSUInteger REDeviceSystemMajorVersion();
 @property (assign, readwrite, nonatomic) id<RETableViewManagerDelegate> delegate;
 
 ///-----------------------------
-/// @name Managing Object Mappings
+/// @name Managing Custom Cells
 ///-----------------------------
 
 /**
