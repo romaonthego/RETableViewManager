@@ -257,7 +257,7 @@ NSUInteger REDeviceSystemMajorVersion();
 - (void)replaceSectionsWithSectionsFromArray:(NSArray *)otherArray;
 
 /**
- Replaces the sections in the receiving sections array at specified locations specified with the objects from a given sections array.
+ Replaces the sections in the receiving sections array at specified locations specified with the sections from a given sections array.
  
  @param indexes The indexes of the sections to be replaced.
  @param sections The sections with which to replace the sections in the receiving sections array at the indexes specified by indexes. The count of locations in indexes must equal the count of sections.
@@ -265,7 +265,7 @@ NSUInteger REDeviceSystemMajorVersion();
 - (void)replaceSectionsAtIndexes:(NSIndexSet *)indexes withSections:(NSArray *)sections;
 
 /**
- Replaces the objects in the receiving array specified by one given range with the objects in another array specified by another range.
+ Replaces the sections in the receiving array specified by one given range with the objects in another array specified by another range.
  
  @param range The range of sections to replace in (or remove from) the receiving sections array.
  @param otherArray The array of sections from which to select replacements for the sections in range.
