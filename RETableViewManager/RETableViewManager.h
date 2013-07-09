@@ -294,9 +294,9 @@ NSUInteger REDeviceSystemMajorVersion();
 - (void)exchangeSectionAtIndex:(NSUInteger)idx1 withSectionAtIndex:(NSUInteger)idx2;
 
 /**
- Sorts the sections array’s elements in ascending order as defined by the comparison function compare.
+ Sorts the sections in ascending order as defined by the comparison function compare.
  
- @param compare The comparison function to use to compare two elements at a time.
+ @param compare The comparison function to use to compare two sections at a time.
  @param context The context argument to pass to the compare function.
  */
 - (void)sortSectionsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context;
