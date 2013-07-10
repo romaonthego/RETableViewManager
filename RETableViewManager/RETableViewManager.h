@@ -186,7 +186,7 @@ NSUInteger REDeviceSystemMajorVersion();
 /**
  Removes all occurrences in the sections array of a given section.
  
- @param section The section to remove from the sections array.
+ @param section The section to remove from the table view.
  */
 - (void)removeSection:(RETableViewSection *)section;
 
