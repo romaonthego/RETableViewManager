@@ -157,9 +157,9 @@ NSUInteger REDeviceSystemMajorVersion();
 - (void)addSection:(RETableViewSection *)section;
 
 /**
- Adds the sections contained in another given sections array to the end of the receiving sections array’s content.
+ Adds the sections contained in another given sections array to the end of the table view.
  
- @param array An array of sections to add to the end of the receiving sections array’s content.
+ @param array An array of sections to add to the end of the table view.
  */
 - (void)addSectionsFromArray:(NSArray *)array;
 
