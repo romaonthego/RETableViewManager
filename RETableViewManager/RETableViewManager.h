@@ -120,6 +120,22 @@ NSUInteger REDeviceSystemMajorVersion();
  */
 - (Class)classForCellAtIndexPath:(NSIndexPath *)indexPath;
 
+/**
+ Returns cell class at the keyed subscript.
+ 
+ @param key The keyed subscript.
+ @return The cell class the keyed subscript.
+ */
+- (id)objectAtKeyedSubscript:(id <NSCopying>)key;
+
+/**
+ Sets an object for the keyed subscript.
+ 
+ @param obj The object to set for the keyed subscript.
+ @param key The keyed subscript.
+ */
+- (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key;
+
 ///-----------------------------
 /// @name Setting default style
 ///-----------------------------
@@ -307,26 +323,6 @@ NSUInteger REDeviceSystemMajorVersion();
  @param comparator A selector that specifies the comparison method to use to compare elements in the sections array.
  */
 - (void)sortSectionsUsingSelector:(SEL)comparator;
-
-///-----------------------------
-/// @name Other
-///-----------------------------
-
-/**
- Returns object at the keyed subscript.
- 
- @param key The keyed subscript.
- @return The object at the keyed subscript.
- */
-- (id)objectAtKeyedSubscript:(id <NSCopying>)key;
-
-/**
- Sets an object for the keyed subscript.
- 
- @param obj The object to set for the keyed subscript.
- @param key The keyed subscript.
- */
-- (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key;
 
 @end
 
