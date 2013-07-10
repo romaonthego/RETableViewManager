@@ -129,7 +129,7 @@ NSUInteger REDeviceSystemMajorVersion();
 - (id)objectAtKeyedSubscript:(id <NSCopying>)key;
 
 /**
- Sets an object for the keyed subscript.
+ Sets a cell class for the keyed subscript.
  
  @param obj The object to set for the keyed subscript.
  @param key The keyed subscript.
