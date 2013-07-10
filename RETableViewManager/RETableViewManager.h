@@ -197,7 +197,7 @@ NSUInteger REDeviceSystemMajorVersion();
 - (void)removeAllSections;
 
 /**
- Removes all occurrences of section within the specified range in the sections array.
+ Removes all occurrences of section within the specified range in the table view.
  
  @param section The section to remove from the sections array within range.
  @param range The range in the sections array from which to remove section.
