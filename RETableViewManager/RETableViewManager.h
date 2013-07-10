@@ -212,9 +212,9 @@ NSUInteger REDeviceSystemMajorVersion();
 - (void)removeSectionIdenticalTo:(RETableViewSection *)section;
 
 /**
- Removes from the receiving array the sections in another given array.
+ Removes from the table view the sections in another given array.
  
- @param otherArray An array containing the sections to be removed from the receiving sections array.
+ @param otherArray An array containing the sections to be removed from the table view.
  */
 - (void)removeSectionsInArray:(NSArray *)otherArray;
 
@@ -273,10 +273,10 @@ NSUInteger REDeviceSystemMajorVersion();
 - (void)replaceSectionsWithSectionsFromArray:(NSArray *)otherArray;
 
 /**
- Replaces the sections in the receiving sections array at specified locations specified with the sections from a given sections array.
+ Replaces the sections in the table view at specified locations specified with the sections from a given sections array.
  
  @param indexes The indexes of the sections to be replaced.
- @param sections The sections with which to replace the sections in the receiving sections array at the indexes specified by indexes. The count of locations in indexes must equal the count of sections.
+ @param sections The sections with which to replace the sections in the table view at the indexes specified by indexes. The count of locations in indexes must equal the count of sections.
  */
 - (void)replaceSectionsAtIndexes:(NSIndexSet *)indexes withSections:(NSArray *)sections;
 
