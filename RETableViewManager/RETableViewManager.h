@@ -24,9 +24,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #import "RETableViewSection.h"
-
 #import "RETableViewCellStyle.h"
 #import "RETableViewCell.h"
 #import "RETableViewBoolCell.h"
@@ -37,7 +35,6 @@
 #import "RETableViewDateTimeCell.h"
 #import "RETableViewLongTextCell.h"
 #import "RETableViewOptionCell.h"
-
 #import "REBoolItem.h"
 #import "RERadioItem.h"
 #import "RETextItem.h"
@@ -53,9 +50,10 @@
 NSUInteger REDeviceSystemMajorVersion();
 
 /**
- `RETableViewManager` allows to manage content of `UITableView` with ease, both forms and lists. In its core `RETableViewManager` supports reusable cells based on corresponding data object class.
+ `RETableViewManager` allows to manage the content of any `UITableView` with ease, both forms and lists. `RETableViewManager` is built on top of reusable cells technique and provides
+ APIs for mapping any object class to any custom cell subclass.
  
- The general idea is to allow developers use their own `UITableView` and UITableViewController instances, providing a layer that synchronizes data with cell appereance.
+ The general idea is to allow developers use their own `UITableView` and `UITableViewController` instances, providing a layer that synchronizes data with cell appereance.
  */
 @interface RETableViewManager : NSObject <UITableViewDelegate, UITableViewDataSource>
 
