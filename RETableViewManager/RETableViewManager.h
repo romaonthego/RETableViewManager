@@ -265,9 +265,9 @@ NSUInteger REDeviceSystemMajorVersion();
 - (void)replaceSectionsAtIndexes:(NSIndexSet *)indexes withSections:(NSArray *)sections;
 
 /**
- Replaces the sections in the receiving array specified by one given range with the objects in another array specified by another range.
+ Replaces the sections in the table view by one given range with the sections in another array specified by another range.
  
- @param range The range of sections to replace in (or remove from) the receiving sections array.
+ @param range The range of sections to replace in (or remove from) the table view.
  @param otherArray The array of sections from which to select replacements for the sections in range.
  @param otherRange The range of sections to select from otherArray as replacements for the sections in range.
  */
