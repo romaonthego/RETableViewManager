@@ -337,6 +337,51 @@ NSUInteger REDeviceSystemMajorVersion() {
         [(RETableViewCell *)cell cellDidDisappear];
 }
 
+- (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
+    id anItem = [section.items objectAtIndex:indexPath.row];
+    if ([anItem respondsToSelector:@selector(setCopyHandler:)]) {
+        RETableViewItem *item = anItem;
+        if (item.copyHandler || item.pasteHandler)
+            return YES;
+    }
+    
+	return NO;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
+{
+    RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
+    id anItem = [section.items objectAtIndex:indexPath.row];
+    if ([anItem respondsToSelector:@selector(setCopyHandler:)]) {
+        RETableViewItem *item = anItem;
+        if (item.copyHandler && action == @selector(copy:))
+            return YES;
+        
+        if (item.pasteHandler && action == @selector(paste:))
+            return YES;
+    }
+	
+	return NO;
+}
+
+- (void)tableView:(UITableView *)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
+{
+    RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
+    RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
+    
+	if (action == @selector(copy:)) {
+		if (item.copyHandler)
+            item.copyHandler(item);
+	}
+    
+    if (action == @selector(paste:)) {
+		if (item.pasteHandler)
+            item.pasteHandler(item);
+	}
+}
+
 #pragma mark -
 #pragma mark Managing sections
 
