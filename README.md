@@ -2,11 +2,10 @@
 
 __Data driven content manager for UITableView.__
 
-RETableViewManager allows to manage content of `UITableView` with ease, both forms and lists.
-In its core RETableViewManager supports reusable cells based on corresponding data object class.
-
-The general idea is to allow developers use their own `UITableView` and `UITableViewController` instances,
-providing a layer that synchronizes data with cell appereance.
+`RETableViewManager` allows to manage the content of any `UITableView` with ease, both forms and lists. `RETableViewManager` is built on top of reusable cells technique and provides APIs for mapping any object class to any custom cell subclass.
+ 
+The general idea is to allow developers use their own `UITableView` and `UITableViewController` instances, providing a layer that synchronizes data with cell appereance.
+It almost fully implements `UITableViewDelegate` and `UITableViewDataSource` protocols so you don't have to.
 
 ### _It is still in the early stages of development and it's highly not recommended to use it in production apps._
 
@@ -21,12 +20,12 @@ Get your `UITableView`s up and running in couple minutes:
 
     // Create the manager and assign a UITableView
     //
-    _tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView];
+    _manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
 
     // Add a section
     //
-    RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Test"];
-    [_tableViewManager addSection:section];
+    RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"];
+    [manager addSection:section];
 
     // Add a string
     //
@@ -37,6 +36,12 @@ Get your `UITableView`s up and running in couple minutes:
     [section addItem:[RETableViewItem itemWithTitle:"String cell" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
         NSLog(@"Test: %@", item);
     }]];
+    
+    // Custom items / cells
+    //
+    _manager[@"CustomItem"] = @"CustomCell";
+    
+    [section addItem:[[CustomItem alloc] init]];
 }
 ```
 
