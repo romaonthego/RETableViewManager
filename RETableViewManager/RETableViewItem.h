@@ -65,5 +65,6 @@
 - (void)selectRowAnimated:(BOOL)animated scrollPosition:(UITableViewScrollPosition)scrollPosition;
 - (void)deselectRowAnimated:(BOOL)animated;
 - (void)reloadRowWithAnimation:(UITableViewRowAnimation)animation;
+- (void)deleteRowWithAnimation:(UITableViewRowAnimation)animation;
 
 @end

@@ -103,4 +103,12 @@
     [self.section.tableViewManager.tableView reloadRowsAtIndexPaths:@[self.indexPath] withRowAnimation:animation];
 }
 
+- (void)deleteRowWithAnimation:(UITableViewRowAnimation)animation
+{
+    RETableViewSection *section = self.section;
+    NSInteger row = self.indexPath.row;
+    [section removeItemAtIndex:self.indexPath.row];
+    [section.tableViewManager.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:row inSection:section.index]] withRowAnimation:animation];
+}
+
 @end
