@@ -137,6 +137,20 @@
     }];
     [section3 addItem:copyItem];
     
+    RETableViewItem *pasteItem = [RETableViewItem itemWithTitle:@"Long tap to paste into this item" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
+        [item deselectRowAnimated:YES];
+    }];
+    [section3 addItem:pasteItem];
+    
+    RETableViewItem *copyPasteItem = [RETableViewItem itemWithTitle:@"Long tap to copy / paste this item" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
+        [item deselectRowAnimated:YES];
+    }];
+    [section3 addItem:copyPasteItem];
+    
+    // ------
+    
+    // Create another section
+    //
     RETableViewSection *section4 = [[RETableViewSection alloc] init];
     [_manager addSection:section4];
     
