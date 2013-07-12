@@ -167,17 +167,22 @@
     };
     [section3 addItem:pasteItem];
     
-    RETableViewItem *copyPasteItem = [RETableViewItem itemWithTitle:@"Long tap to copy / paste this item" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
+    RETableViewItem *cutCopyPasteItem = [RETableViewItem itemWithTitle:@"Long tap to cut / copy / paste" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
         [item deselectRowAnimated:YES];
     }];
-    copyPasteItem.copyHandler = ^(RETableViewItem *item) {
+    cutCopyPasteItem.copyHandler = ^(RETableViewItem *item) {
         [UIPasteboard generalPasteboard].string = @"Copied item #3";
     };
-    copyPasteItem.pasteHandler = ^(RETableViewItem *item) {
+    cutCopyPasteItem.pasteHandler = ^(RETableViewItem *item) {
         item.title = [UIPasteboard generalPasteboard].string;
         [item reloadRowWithAnimation:UITableViewRowAnimationAutomatic];
     };
-    [section3 addItem:copyPasteItem];
+    cutCopyPasteItem.cutHandler = ^(RETableViewItem *item) {
+        item.title = @"(Empty)";
+        [UIPasteboard generalPasteboard].string = @"Copied item #3";
+        [item reloadRowWithAnimation:UITableViewRowAnimationAutomatic];
+    };
+    [section3 addItem:cutCopyPasteItem];
     
     /*
      ###########################################
