@@ -26,8 +26,13 @@
     _manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
     _manager.style.textFieldPositionOffset = CGSizeMake(0, 0);
 
-    // Create section
-    //
+    /*
+     ###########################################
+     #                                         #
+     #           FORM ELEMENTS EXAMPLE         #
+     #                                         #
+     ###########################################
+     */
     RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Basic controls"];
     [_manager addSection:section];
     
@@ -98,14 +103,24 @@
     longTextItem.cellHeight = 88;
     [section addItem:longTextItem];
     
+    /*
+     ###########################################
+     #                                         #
+     #           CREDIT CARD EXAMPLE           #
+     #                                         #
+     ###########################################
+     */
     section = [[RETableViewSection alloc] initWithHeaderTitle:@"Credit card"];
     [_manager addSection:section];
     [section addItem:[RECreditCardItem item]];
     
-    // ------
-    
-    // Create another section
-    //
+    /*
+     ###########################################
+     #                                         #
+     #           ACCESSORIES EXAMPLE           #
+     #                                         #
+     ###########################################
+     */
     RETableViewSection *section2 = [[RETableViewSection alloc] initWithHeaderTitle:@"Accessories"];
     [_manager addSection:section2];
     
@@ -125,11 +140,14 @@
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
     }]];
     
-    // ------
-    
-    // Create another section
-    //
-    RETableViewSection *section3 = [[RETableViewSection alloc] initWithHeaderTitle:@"Accessories"];
+    /* 
+     ###########################################
+     #                                         #
+     #         COPY AND PASTING EXAMPLE        #
+     #                                         #
+     ###########################################
+    */
+    RETableViewSection *section3 = [[RETableViewSection alloc] initWithHeaderTitle:@"Copy / pasting"];
     [_manager addSection:section3];
     
     RETableViewItem *copyItem = [RETableViewItem itemWithTitle:@"Long tap to copy this item" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
@@ -161,10 +179,13 @@
     };
     [section3 addItem:copyPasteItem];
     
-    // ------
-    
-    // Create another section
-    //
+    /*
+     ###########################################
+     #                                         #
+     #           BUTTON EXAMPLE                #
+     #                                         #
+     ###########################################
+     */
     RETableViewSection *section4 = [[RETableViewSection alloc] init];
     [_manager addSection:section4];
     
