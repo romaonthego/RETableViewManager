@@ -125,15 +125,27 @@
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
     }]];
     
-    RETableViewSection *section3 = [[RETableViewSection alloc] init];
+    // ------
+    
+    // Create another section
+    //
+    RETableViewSection *section3 = [[RETableViewSection alloc] initWithHeaderTitle:@"Accessories"];
     [_manager addSection:section3];
+    
+    RETableViewItem *copyItem = [RETableViewItem itemWithTitle:@"Long tap to copy this item" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
+        [item deselectRowAnimated:YES];
+    }];
+    [section3 addItem:copyItem];
+    
+    RETableViewSection *section4 = [[RETableViewSection alloc] init];
+    [_manager addSection:section4];
     
     RETableViewItem *buttonItem = [RETableViewItem itemWithTitle:@"Test button" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
         NSLog(@"Button pressed");
     }];
     buttonItem.textAlignment = NSTextAlignmentCenter;
-    [section3 addItem:buttonItem];
+    [section4 addItem:buttonItem];
 }
 
 @end
