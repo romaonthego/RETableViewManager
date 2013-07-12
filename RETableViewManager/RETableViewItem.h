@@ -47,7 +47,7 @@
 @property (copy, readwrite, nonatomic) BOOL (^moveHandler)(id item, NSIndexPath *sourceIndexPath, NSIndexPath *destinationIndexPath);
 @property (copy, readwrite, nonatomic) void (^moveCompletionHandler)(id item, NSIndexPath *sourceIndexPath, NSIndexPath *destinationIndexPath);
 @property (copy, readwrite, nonatomic) void (^copyHandler)(id item);
-@property (copy, readwrite, nonatomic) void (^pastegHandler)(id item);
+@property (copy, readwrite, nonatomic) void (^pasteHandler)(id item);
 @property (assign, readwrite, nonatomic) CGFloat cellHeight;
 
 + (id)item;

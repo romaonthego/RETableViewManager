@@ -135,16 +135,30 @@
     RETableViewItem *copyItem = [RETableViewItem itemWithTitle:@"Long tap to copy this item" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
         [item deselectRowAnimated:YES];
     }];
+    copyItem.copyHandler = ^(RETableViewItem *item) {
+        [UIPasteboard generalPasteboard].string = @"Copied item #1";
+    };
     [section3 addItem:copyItem];
     
     RETableViewItem *pasteItem = [RETableViewItem itemWithTitle:@"Long tap to paste into this item" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
         [item deselectRowAnimated:YES];
     }];
+    pasteItem.pasteHandler = ^(RETableViewItem *item) {
+        item.title = [UIPasteboard generalPasteboard].string;
+        [item reloadRowWithAnimation:UITableViewRowAnimationAutomatic];
+    };
     [section3 addItem:pasteItem];
     
     RETableViewItem *copyPasteItem = [RETableViewItem itemWithTitle:@"Long tap to copy / paste this item" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
         [item deselectRowAnimated:YES];
     }];
+    copyPasteItem.copyHandler = ^(RETableViewItem *item) {
+        [UIPasteboard generalPasteboard].string = @"Copied item #3";
+    };
+    copyPasteItem.pasteHandler = ^(RETableViewItem *item) {
+        item.title = [UIPasteboard generalPasteboard].string;
+        [item reloadRowWithAnimation:UITableViewRowAnimationAutomatic];
+    };
     [section3 addItem:copyPasteItem];
     
     // ------
