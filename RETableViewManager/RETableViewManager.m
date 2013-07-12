@@ -361,6 +361,9 @@ NSUInteger REDeviceSystemMajorVersion() {
         
         if (item.pasteHandler && action == @selector(paste:))
             return YES;
+        
+        if (item.cutHandler && action == @selector(cut:))
+            return YES;
     }
 	
 	return NO;
@@ -379,6 +382,11 @@ NSUInteger REDeviceSystemMajorVersion() {
     if (action == @selector(paste:)) {
 		if (item.pasteHandler)
             item.pasteHandler(item);
+	}
+    
+    if (action == @selector(cut:)) {
+		if (item.cutHandler)
+            item.cutHandler(item);
 	}
 }
 

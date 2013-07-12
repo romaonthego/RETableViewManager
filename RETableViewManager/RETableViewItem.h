@@ -46,6 +46,7 @@
 @property (copy, readwrite, nonatomic) void (^deletionHandlerWithCompletion)(id item, void (^)(void));
 @property (copy, readwrite, nonatomic) BOOL (^moveHandler)(id item, NSIndexPath *sourceIndexPath, NSIndexPath *destinationIndexPath);
 @property (copy, readwrite, nonatomic) void (^moveCompletionHandler)(id item, NSIndexPath *sourceIndexPath, NSIndexPath *destinationIndexPath);
+@property (copy, readwrite, nonatomic) void (^cutHandler)(id item);
 @property (copy, readwrite, nonatomic) void (^copyHandler)(id item);
 @property (copy, readwrite, nonatomic) void (^pasteHandler)(id item);
 @property (assign, readwrite, nonatomic) CGFloat cellHeight;
