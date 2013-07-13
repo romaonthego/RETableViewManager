@@ -246,9 +246,9 @@ NSUInteger REDeviceSystemMajorVersion();
 - (void)removeSectionAtIndex:(NSUInteger)index;
 
 /**
- Removes the sections at the specified indexes from the sections array.
+ Removes the sections at the specified indexes from the table view.
  
- @param indexes The indexes of the sections to remove from the sections array. The locations specified by indexes must lie within the bounds of the sections array.
+ @param indexes The indexes of the sections to remove from the table view. The locations specified by indexes must lie within the bounds of the table view sections.
  */
 - (void)removeSectionsAtIndexes:(NSIndexSet *)indexes;
 
