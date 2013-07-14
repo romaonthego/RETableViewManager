@@ -301,7 +301,7 @@ NSUInteger REDeviceSystemMajorVersion();
 ///-----------------------------
 
 /**
- Exchanges the sections in the section array at given indices.
+ Exchanges the sections in the table view at given indices.
  
  @param idx1 The index of the section with which to replace the section at index idx2.
  @param idx2 The index of the section with which to replace the section at index idx1.
