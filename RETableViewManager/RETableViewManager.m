@@ -312,7 +312,9 @@ NSUInteger REDeviceSystemMajorVersion() {
             actionItem.selectionHandler(item);
     }
     
-    if ([_delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)])
+    // UITableView delegate
+    //
+    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)])
         [_delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
