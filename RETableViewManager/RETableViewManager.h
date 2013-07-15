@@ -190,7 +190,7 @@ NSUInteger REDeviceSystemMajorVersion();
 - (void)removeSection:(RETableViewSection *)section;
 
 /**
- Empties the sections array of all its elements.
+ Empties the table view of all its sections.
  
  */
 - (void)removeAllSections;
