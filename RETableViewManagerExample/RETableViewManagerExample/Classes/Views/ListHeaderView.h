@@ -13,6 +13,6 @@
 @property (strong, readonly, nonatomic) UIImageView *userpicImageView;
 @property (strong, readonly, nonatomic) UILabel *usernameLabel;
 
-+ (ListHeaderView *)headerViewWithImageURL:(NSURL *)url username:(NSString *)username;
++ (ListHeaderView *)headerViewWithImageNamed:(NSString *)imageName username:(NSString *)username;
 
 @end

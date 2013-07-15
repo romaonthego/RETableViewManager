@@ -10,8 +10,8 @@
 
 @interface ListImageItem : RETableViewItem
 
-@property (strong, readwrite, nonatomic) NSURL *imageURL;
+@property (copy, readwrite, nonatomic) NSString *imageName;
 
-+ (ListImageItem *)itemWithImageURL:(NSURL *)imageURL;
++ (ListImageItem *)itemWithImageNamed:(NSString *)imageName;
 
 @end

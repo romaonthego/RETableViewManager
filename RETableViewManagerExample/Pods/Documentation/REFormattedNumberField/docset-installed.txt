@@ -1,4 +1,0 @@
-Documentation set was installed to Xcode!
-
-Path: /Users/roman/Library/Developer/Shared/Documentation/DocSets/org.cocoapods.REFormattedNumberField-1.0.3.docset
-Time: 2013-04-04 22:44:34 +0000

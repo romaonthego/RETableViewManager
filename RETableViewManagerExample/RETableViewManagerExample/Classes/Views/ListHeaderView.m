@@ -7,14 +7,13 @@
 //
 
 #import "ListHeaderView.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation ListHeaderView
 
-+ (ListHeaderView *)headerViewWithImageURL:(NSURL *)url username:(NSString *)username
++ (ListHeaderView *)headerViewWithImageNamed:(NSString *)imageNamed username:(NSString *)username
 {
     ListHeaderView *view = [[ListHeaderView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    [view.userpicImageView setImageWithURL:url];
+    [view.userpicImageView setImage:[UIImage imageNamed:imageNamed]];
     [view.usernameLabel setText:username];
     return view;
 }

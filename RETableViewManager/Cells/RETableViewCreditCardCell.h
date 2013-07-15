@@ -23,8 +23,8 @@
 // THE SOFTWARE.
 //
 
-#import "RETableViewCell.h"
 #import "REFormattedNumberField.h"
+#import "RETableViewCell.h"
 #import "RECreditCardItem.h"
 
 @interface RETableViewCreditCardCell : RETableViewCell <UITextFieldDelegate>

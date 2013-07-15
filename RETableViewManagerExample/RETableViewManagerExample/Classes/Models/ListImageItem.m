@@ -10,10 +10,10 @@
 
 @implementation ListImageItem
 
-+ (ListImageItem *)itemWithImageURL:(NSURL *)imageURL
++ (ListImageItem *)itemWithImageNamed:(NSString *)imageName
 {
     ListImageItem *item = [[ListImageItem alloc] init];
-    item.imageURL = imageURL;
+    item.imageName = imageName;
     return item;
 }
 

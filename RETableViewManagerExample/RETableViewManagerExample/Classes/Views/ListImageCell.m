@@ -7,7 +7,6 @@
 //
 
 #import "ListImageCell.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation ListImageCell
 
@@ -26,7 +25,7 @@
 - (void)cellWillAppear
 {
     [super cellWillAppear];
-    [_pictureView setImageWithURL:self.item.imageURL];
+    [_pictureView setImage:[UIImage imageNamed:self.item.imageName]];
 }
 
 - (void)cellDidDisappear

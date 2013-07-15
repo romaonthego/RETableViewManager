@@ -20,6 +20,19 @@
 		302D2155170B25D90085654F /* ListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D2154170B25D90085654F /* ListHeaderView.m */; };
 		302D2160170B27BD0085654F /* ListImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D215F170B27BD0085654F /* ListImageItem.m */; };
 		302D2163170B27ED0085654F /* ListImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D2162170B27ED0085654F /* ListImageCell.m */; };
+		30939CE917949A10004D95A9 /* photo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30939CDD17949A10004D95A9 /* photo1.jpg */; };
+		30939CEA17949A10004D95A9 /* photo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30939CDE17949A10004D95A9 /* photo2.jpg */; };
+		30939CEB17949A10004D95A9 /* photo3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30939CDF17949A10004D95A9 /* photo3.jpg */; };
+		30939CEC17949A10004D95A9 /* photo4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30939CE017949A10004D95A9 /* photo4.jpg */; };
+		30939CED17949A10004D95A9 /* photo5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30939CE117949A10004D95A9 /* photo5.jpg */; };
+		30939CEE17949A10004D95A9 /* photo6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30939CE217949A10004D95A9 /* photo6.jpg */; };
+		30939CEF17949A10004D95A9 /* userpic1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30939CE317949A10004D95A9 /* userpic1.jpg */; };
+		30939CF017949A10004D95A9 /* userpic2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30939CE417949A10004D95A9 /* userpic2.jpg */; };
+		30939CF117949A10004D95A9 /* userpic3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30939CE517949A10004D95A9 /* userpic3.jpg */; };
+		30939CF217949A10004D95A9 /* userpic4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30939CE617949A10004D95A9 /* userpic4.jpg */; };
+		30939CF317949A10004D95A9 /* userpic5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30939CE717949A10004D95A9 /* userpic5.jpg */; };
+		30939CF417949A10004D95A9 /* userpic6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30939CE817949A10004D95A9 /* userpic6.jpg */; };
+		30939CF917949B2D004D95A9 /* REFormattedNumberField.m in Sources */ = {isa = PBXBuildFile; fileRef = 30939CF817949B2D004D95A9 /* REFormattedNumberField.m */; };
 		30D208641718FFDE00144E46 /* REMultipleChoiceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D208631718FFDE00144E46 /* REMultipleChoiceItem.m */; };
 		30D74554174EB4CA00D4C7C1 /* RETableViewOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D74553174EB4C900D4C7C1 /* RETableViewOptionCell.m */; };
 		30D9566C175E3C0200AB977E /* RetractableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D9566B175E3C0200AB977E /* RetractableViewController.m */; };
@@ -60,7 +73,6 @@
 		30FE4161176A32C300F317B8 /* Middle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FE4158176A32C300F317B8 /* Middle@2x.png */; };
 		30FE4162176A32C300F317B8 /* Single_Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FE4159176A32C300F317B8 /* Single_Selected@2x.png */; };
 		30FE4163176A32C300F317B8 /* Single@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FE415A176A32C300F317B8 /* Single@2x.png */; };
-		E336F792A48A4E779EEA5AC0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABAE09A51FA5498F94EE3798 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +102,20 @@
 		302D215F170B27BD0085654F /* ListImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListImageItem.m; sourceTree = "<group>"; };
 		302D2161170B27ED0085654F /* ListImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListImageCell.h; sourceTree = "<group>"; };
 		302D2162170B27ED0085654F /* ListImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListImageCell.m; sourceTree = "<group>"; };
+		30939CDD17949A10004D95A9 /* photo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo1.jpg; sourceTree = "<group>"; };
+		30939CDE17949A10004D95A9 /* photo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo2.jpg; sourceTree = "<group>"; };
+		30939CDF17949A10004D95A9 /* photo3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo3.jpg; sourceTree = "<group>"; };
+		30939CE017949A10004D95A9 /* photo4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo4.jpg; sourceTree = "<group>"; };
+		30939CE117949A10004D95A9 /* photo5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo5.jpg; sourceTree = "<group>"; };
+		30939CE217949A10004D95A9 /* photo6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo6.jpg; sourceTree = "<group>"; };
+		30939CE317949A10004D95A9 /* userpic1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = userpic1.jpg; sourceTree = "<group>"; };
+		30939CE417949A10004D95A9 /* userpic2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = userpic2.jpg; sourceTree = "<group>"; };
+		30939CE517949A10004D95A9 /* userpic3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = userpic3.jpg; sourceTree = "<group>"; };
+		30939CE617949A10004D95A9 /* userpic4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = userpic4.jpg; sourceTree = "<group>"; };
+		30939CE717949A10004D95A9 /* userpic5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = userpic5.jpg; sourceTree = "<group>"; };
+		30939CE817949A10004D95A9 /* userpic6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = userpic6.jpg; sourceTree = "<group>"; };
+		30939CF717949B2D004D95A9 /* REFormattedNumberField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFormattedNumberField.h; sourceTree = "<group>"; };
+		30939CF817949B2D004D95A9 /* REFormattedNumberField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFormattedNumberField.m; sourceTree = "<group>"; };
 		30D208621718FFDE00144E46 /* REMultipleChoiceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMultipleChoiceItem.h; sourceTree = "<group>"; };
 		30D208631718FFDE00144E46 /* REMultipleChoiceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMultipleChoiceItem.m; sourceTree = "<group>"; };
 		30D74552174EB4C900D4C7C1 /* RETableViewOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewOptionCell.h; sourceTree = "<group>"; };
@@ -155,8 +181,6 @@
 		30FE4158176A32C300F317B8 /* Middle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Middle@2x.png"; path = "Resources/Middle@2x.png"; sourceTree = "<group>"; };
 		30FE4159176A32C300F317B8 /* Single_Selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Single_Selected@2x.png"; path = "Resources/Single_Selected@2x.png"; sourceTree = "<group>"; };
 		30FE415A176A32C300F317B8 /* Single@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Single@2x.png"; path = "Resources/Single@2x.png"; sourceTree = "<group>"; };
-		A20B0252928045F5B81B21AF /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		ABAE09A51FA5498F94EE3798 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,7 +191,6 @@
 				30EF93B316E039B800B84981 /* UIKit.framework in Frameworks */,
 				30EF93B516E039B800B84981 /* Foundation.framework in Frameworks */,
 				30EF93B716E039B800B84981 /* CoreGraphics.framework in Frameworks */,
-				E336F792A48A4E779EEA5AC0 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +244,42 @@
 				302D215F170B27BD0085654F /* ListImageItem.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		30939CDC17949A10004D95A9 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				30939CDD17949A10004D95A9 /* photo1.jpg */,
+				30939CDE17949A10004D95A9 /* photo2.jpg */,
+				30939CDF17949A10004D95A9 /* photo3.jpg */,
+				30939CE017949A10004D95A9 /* photo4.jpg */,
+				30939CE117949A10004D95A9 /* photo5.jpg */,
+				30939CE217949A10004D95A9 /* photo6.jpg */,
+				30939CE317949A10004D95A9 /* userpic1.jpg */,
+				30939CE417949A10004D95A9 /* userpic2.jpg */,
+				30939CE517949A10004D95A9 /* userpic3.jpg */,
+				30939CE617949A10004D95A9 /* userpic4.jpg */,
+				30939CE717949A10004D95A9 /* userpic5.jpg */,
+				30939CE817949A10004D95A9 /* userpic6.jpg */,
+			);
+			path = Photos;
+			sourceTree = "<group>";
+		};
+		30939CF517949B2D004D95A9 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				30939CF617949B2D004D95A9 /* REFormattedNumberField */,
+			);
+			path = Vendor;
+			sourceTree = SOURCE_ROOT;
+		};
+		30939CF617949B2D004D95A9 /* REFormattedNumberField */ = {
+			isa = PBXGroup;
+			children = (
+				30939CF717949B2D004D95A9 /* REFormattedNumberField.h */,
+				30939CF817949B2D004D95A9 /* REFormattedNumberField.m */,
+			);
+			path = REFormattedNumberField;
 			sourceTree = "<group>";
 		};
 		30DB064616E934AD006C9530 /* RETableViewManager */ = {
@@ -305,7 +364,6 @@
 				30EF93B816E039B800B84981 /* RETableViewManagerExample */,
 				30EF93B116E039B800B84981 /* Frameworks */,
 				30EF93B016E039B800B84981 /* Products */,
-				A20B0252928045F5B81B21AF /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -323,7 +381,6 @@
 				30EF93B216E039B800B84981 /* UIKit.framework */,
 				30EF93B416E039B800B84981 /* Foundation.framework */,
 				30EF93B616E039B800B84981 /* CoreGraphics.framework */,
-				ABAE09A51FA5498F94EE3798 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -335,6 +392,7 @@
 				30EF93C216E039B800B84981 /* AppDelegate.m */,
 				302D2147170B25B10085654F /* Classes */,
 				30EF93B916E039B800B84981 /* Supporting Files */,
+				30939CF517949B2D004D95A9 /* Vendor */,
 			);
 			path = RETableViewManagerExample;
 			sourceTree = "<group>";
@@ -342,6 +400,7 @@
 		30EF93B916E039B800B84981 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				30939CDC17949A10004D95A9 /* Photos */,
 				30FE4152176A32C300F317B8 /* First_Selected@2x.png */,
 				30FE4153176A32C300F317B8 /* First@2x.png */,
 				30FE4154176A32C300F317B8 /* Last_Highlighted@2x.png */,
@@ -372,7 +431,6 @@
 				30EF93AB16E039B800B84981 /* Sources */,
 				30EF93AC16E039B800B84981 /* Frameworks */,
 				30EF93AD16E039B800B84981 /* Resources */,
-				A3C73B158834401688EF8E25 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -428,27 +486,22 @@
 				30FE4161176A32C300F317B8 /* Middle@2x.png in Resources */,
 				30FE4162176A32C300F317B8 /* Single_Selected@2x.png in Resources */,
 				30FE4163176A32C300F317B8 /* Single@2x.png in Resources */,
+				30939CE917949A10004D95A9 /* photo1.jpg in Resources */,
+				30939CEA17949A10004D95A9 /* photo2.jpg in Resources */,
+				30939CEB17949A10004D95A9 /* photo3.jpg in Resources */,
+				30939CEC17949A10004D95A9 /* photo4.jpg in Resources */,
+				30939CED17949A10004D95A9 /* photo5.jpg in Resources */,
+				30939CEE17949A10004D95A9 /* photo6.jpg in Resources */,
+				30939CEF17949A10004D95A9 /* userpic1.jpg in Resources */,
+				30939CF017949A10004D95A9 /* userpic2.jpg in Resources */,
+				30939CF117949A10004D95A9 /* userpic3.jpg in Resources */,
+				30939CF217949A10004D95A9 /* userpic4.jpg in Resources */,
+				30939CF317949A10004D95A9 /* userpic5.jpg in Resources */,
+				30939CF417949A10004D95A9 /* userpic6.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		A3C73B158834401688EF8E25 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		30EF93AB16E039B800B84981 /* Sources */ = {
@@ -491,6 +544,7 @@
 				30D74554174EB4CA00D4C7C1 /* RETableViewOptionCell.m in Sources */,
 				30D9566C175E3C0200AB977E /* RetractableViewController.m in Sources */,
 				30FE4147176A306600F317B8 /* StylingViewController.m in Sources */,
+				30939CF917949B2D004D95A9 /* REFormattedNumberField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,7 +620,6 @@
 		};
 		30EF93CD16E039B800B84981 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A20B0252928045F5B81B21AF /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RETableViewManagerExample/RETableViewManagerExample-Prefix.pch";
@@ -580,7 +633,6 @@
 		};
 		30EF93CE16E039B800B84981 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A20B0252928045F5B81B21AF /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RETableViewManagerExample/RETableViewManagerExample-Prefix.pch";
