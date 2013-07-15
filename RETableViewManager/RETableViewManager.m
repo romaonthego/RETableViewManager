@@ -294,6 +294,11 @@ NSUInteger REDeviceSystemMajorVersion() {
     RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
     RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
     
+    // UITableView delegate
+    //
+    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:editingStyleForRowAtIndexPath:)])
+        return [_delegate tableView:tableView editingStyleForRowAtIndexPath:indexPath];
+    
     return item.editingStyle;
 }
 
