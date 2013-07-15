@@ -225,15 +225,15 @@ NSUInteger REDeviceSystemMajorVersion();
 - (void)removeSectionsInRange:(NSRange)range;
 
 /**
- Removes all occurrences within a specified range in the array of a given object.
+ Removes all occurrences within a specified range in the table view of a given section.
  
- @param section The section to remove from the sections array's content.
+ @param section The section to remove from the table view.
  @param range The range from which to remove section.
  */
 - (void)removeSection:(RETableViewSection *)section inRange:(NSRange)range;
 
 /**
- Removes the section with the highest-valued index in the sections array.
+ Removes the section with the highest-valued index in the table view.
  
  */
 - (void)removeLastSection;
