@@ -36,7 +36,7 @@
 
 + (id)itemWithTitle:(NSString *)title
 {
-    return [[self alloc] initWithTitle:titleg];
+    return [[self alloc] initWithTitle:title];
 }
 
 + (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(RETableViewItem *item))selectionHandler
