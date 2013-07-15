@@ -163,15 +163,15 @@ NSUInteger REDeviceSystemMajorVersion();
 - (void)addSectionsFromArray:(NSArray *)array;
 
 /**
- Inserts a given section into the sections array's contents at a given index.
+ Inserts a given section into the table view at a given index.
  
- @param section The section to add to the sections array's content. This value must not be nil.
- @param index The index in the sections array at which to insert section. This value must not be greater than the count of elements in the sections array.
+ @param section The section to add to the table view. This value must not be nil.
+ @param index The index in the sections array at which to insert section. This value must not be greater than the count of sections in the table view.
  */
 - (void)insertSection:(RETableViewSection *)section atIndex:(NSUInteger)index;
 
 /**
- Inserts the sections in the provided sections array into the table view at the specified indexes.
+ Inserts the sections in the provided array into the table view at the specified indexes.
  
  @param sections An array of sections to insert into the table view.
  @param indexes The indexes at which the sections in sections should be inserted. The count of locations in indexes must equal the count of sections.
