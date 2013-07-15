@@ -294,7 +294,7 @@ NSUInteger REDeviceSystemMajorVersion() {
     RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
     RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
     
-    // UITableView delegate
+    // Forward to UITableView delegate
     //
     if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:editingStyleForRowAtIndexPath:)])
         return [_delegate tableView:tableView editingStyleForRowAtIndexPath:indexPath];
@@ -312,7 +312,7 @@ NSUInteger REDeviceSystemMajorVersion() {
             actionItem.selectionHandler(item);
     }
     
-    // UITableView delegate
+    // Forward to UITableView delegate
     //
     if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)])
         [_delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
@@ -328,7 +328,7 @@ NSUInteger REDeviceSystemMajorVersion() {
             actionItem.accessoryButtonTapHandler(item);
     }
     
-    // UITableView delegate
+    // Forward to UITableView delegate
     //
     if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:accessoryButtonTappedForRowWithIndexPath:)])
         [_delegate tableView:tableView accessoryButtonTappedForRowWithIndexPath:indexPath];
@@ -350,7 +350,7 @@ NSUInteger REDeviceSystemMajorVersion() {
             return YES;
     }
     
-    // UITableView delegate
+    // Forward to UITableView delegate
     //
     if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:shouldShowMenuForRowAtIndexPath:)])
         return [_delegate tableView:tableView shouldShowMenuForRowAtIndexPath:indexPath];
@@ -374,7 +374,7 @@ NSUInteger REDeviceSystemMajorVersion() {
             return YES;
     }
     
-    // UITableViewDelegate
+    // Forward to UITableViewDelegate
     //
     if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:canPerformAction:forRowAtIndexPath:withSender:)])
         return [_delegate tableView:tableView canPerformAction:action forRowAtIndexPath:indexPath withSender:sender];
@@ -402,7 +402,7 @@ NSUInteger REDeviceSystemMajorVersion() {
             item.cutHandler(item);
 	}
     
-    // UITableView delegate
+    // Forward to UITableView delegate
     //
     if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:performAction:forRowAtIndexPath:withSender:)])
         [_delegate tableView:tableView performAction:action forRowAtIndexPath:indexPath withSender:sender];
