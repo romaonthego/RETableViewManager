@@ -149,9 +149,9 @@ NSUInteger REDeviceSystemMajorVersion();
 ///-----------------------------
 
 /**
- Inserts a given section at the end of the sections array.
+ Inserts a given section at the end of the table view.
  
- @param section The section to add to the end of the sections array's content. This value must not be `nil`.
+ @param section The section to add to the end of the table view. This value must not be `nil`.
  */
 - (void)addSection:(RETableViewSection *)section;
 
