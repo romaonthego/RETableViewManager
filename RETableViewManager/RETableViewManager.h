@@ -265,7 +265,7 @@ NSUInteger REDeviceSystemMajorVersion();
 - (void)replaceSectionAtIndex:(NSUInteger)index withSection:(RETableViewSection *)section;
 
 /**
- Replaces the sections in the manager with all of the sections from a given array.
+ Replaces the sections in the table view with all of the sections from a given array.
  
  @param otherArray The array of sections from which to select replacements for the sections.
  */
