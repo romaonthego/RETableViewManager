@@ -328,7 +328,9 @@ NSUInteger REDeviceSystemMajorVersion() {
             actionItem.accessoryButtonTapHandler(item);
     }
     
-    if ([_delegate respondsToSelector:@selector(tableView:accessoryButtonTappedForRowWithIndexPath:)])
+    // UITableView delegate
+    //
+    if ([_delegate conformsToProtocol:@protocol(RETableViewManagerDelegate)] && [_delegate respondsToSelector:@selector(tableView:accessoryButtonTappedForRowWithIndexPath:)])
         [_delegate tableView:tableView accessoryButtonTappedForRowWithIndexPath:indexPath];
 }
 
