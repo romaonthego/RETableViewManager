@@ -359,6 +359,11 @@ NSUInteger REDeviceSystemMajorVersion() {
         if (item.cutHandler && action == @selector(cut:))
             return YES;
     }
+    
+    // UITableViewDelegate
+    //
+    if ([_delegate respondsToSelector:@selector(tableView:canPerformAction:forRowAtIndexPath:withSender:)])
+        return [_delegate tableView:tableView canPerformAction:action forRowAtIndexPath:indexPath withSender:sender];
 	
 	return NO;
 }
