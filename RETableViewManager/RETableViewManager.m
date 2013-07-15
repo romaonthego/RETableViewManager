@@ -401,6 +401,11 @@ NSUInteger REDeviceSystemMajorVersion() {
 		if (item.cutHandler)
             item.cutHandler(item);
 	}
+    
+    // UITableView delegate
+    //
+    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:performAction:forRowAtIndexPath:withSender:)])
+        [_delegate tableView:tableView performAction:action forRowAtIndexPath:indexPath withSender:sender];
 }
 
 #pragma mark -
