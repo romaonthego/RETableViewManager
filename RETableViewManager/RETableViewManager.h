@@ -218,9 +218,9 @@ NSUInteger REDeviceSystemMajorVersion();
 - (void)removeSectionsInArray:(NSArray *)otherArray;
 
 /**
- Removes from the sections array each of the sections within a given range.
+ Removes from the table view each of the sections within a given range.
  
- @param range The range of the sections to remove from the sections array.
+ @param range The range of the sections to remove from the table view.
  */
 - (void)removeSectionsInRange:(NSRange)range;
 
