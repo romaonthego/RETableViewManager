@@ -82,7 +82,7 @@ NSUInteger REDeviceSystemMajorVersion();
 - (id)initWithTableView:(UITableView *)tableView delegate:(id<RETableViewManagerDelegate>)delegate;
 
 /**
- Initialize a table view manager object for a specific `ITableView`.
+ Initialize a table view manager object for a specific `UITableView`.
  
  @param tableView The UITableView that needs to be managed.
  @return The pointer to the instance, or `nil` if initialization failed.
