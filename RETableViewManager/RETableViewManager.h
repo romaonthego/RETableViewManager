@@ -272,7 +272,7 @@ NSUInteger REDeviceSystemMajorVersion();
 - (void)replaceSectionsWithSectionsFromArray:(NSArray *)otherArray;
 
 /**
- Replaces the sections in the table view at specified locations specified with the sections from a given sections array.
+ Replaces the sections in the table view at specified locations specified with the sections from a given array.
  
  @param indexes The indexes of the sections to be replaced.
  @param sections The sections with which to replace the sections in the table view at the indexes specified by indexes. The count of locations in indexes must equal the count of sections.
@@ -317,9 +317,9 @@ NSUInteger REDeviceSystemMajorVersion();
 - (void)sortSectionsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context;
 
 /**
- Sorts the sections array’s elements in ascending order, as determined by the comparison method specified by a given selector.
+ Sorts the sections in ascending order, as determined by the comparison method specified by a given selector.
  
- @param comparator A selector that specifies the comparison method to use to compare elements in the sections array.
+ @param comparator A selector that specifies the comparison method to use to compare sections in the table view.
  */
 - (void)sortSectionsUsingSelector:(SEL)comparator;
 
