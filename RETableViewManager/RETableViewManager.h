@@ -79,7 +79,7 @@ NSUInteger REDeviceSystemMajorVersion();
  @param delegate The delegate (RETableViewManagerDelegate) object for the table view manager.
  @return The pointer to the instance, or nil if initialization failed.
  */
-- (id)initWithTableView:(UITableView *)tableView delegate:(id<RETableViewManagerDelegate>)delegate;
+- (id)initWithTableView:(UITableView *)tableView delegate:(id<RETableViewManagerDelegate, UITableViewDelegate>)delegate;
 
 /**
  Initialize a table view manager object for a specific `UITableView`.
@@ -96,7 +96,7 @@ NSUInteger REDeviceSystemMajorVersion();
 /**
  The object that acts as the delegate of the receiving table view.
  */
-@property (assign, readwrite, nonatomic) id<RETableViewManagerDelegate> delegate;
+@property (assign, readwrite, nonatomic) id<RETableViewManagerDelegate, UITableViewDelegate> delegate;
 
 ///-----------------------------
 /// @name Managing Custom Cells
@@ -335,9 +335,6 @@ NSUInteger REDeviceSystemMajorVersion();
 
 - (void)tableView:(UITableView *)tableView styleCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)tableView:(UITableView *)tableView cellWillLayoutSubviews:(UITableViewCell *)cell;
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath item:(id)items;
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath;
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath item:(id)items;
 
 @end

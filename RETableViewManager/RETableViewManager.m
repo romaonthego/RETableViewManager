@@ -51,7 +51,7 @@ NSUInteger REDeviceSystemMajorVersion() {
     return self;
 }
 
-- (id)initWithTableView:(UITableView *)tableView delegate:(id<RETableViewManagerDelegate>)delegate
+- (id)initWithTableView:(UITableView *)tableView delegate:(id<RETableViewManagerDelegate, UITableViewDelegate>)delegate
 {
     self = [self init];
     if (!self)
@@ -309,9 +309,6 @@ NSUInteger REDeviceSystemMajorVersion() {
     
     if ([_delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)])
         [_delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
-    
-    if ([_delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:item:)])
-        [_delegate tableView:tableView didSelectRowAtIndexPath:indexPath item:item];
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
@@ -326,9 +323,6 @@ NSUInteger REDeviceSystemMajorVersion() {
     
     if ([_delegate respondsToSelector:@selector(tableView:accessoryButtonTappedForRowWithIndexPath:)])
         [_delegate tableView:tableView accessoryButtonTappedForRowWithIndexPath:indexPath];
-    
-    if ([_delegate respondsToSelector:@selector(tableView:accessoryButtonTappedForRowWithIndexPath:item:)])
-        [_delegate tableView:tableView accessoryButtonTappedForRowWithIndexPath:indexPath item:item];
 }
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath
