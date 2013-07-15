@@ -34,6 +34,11 @@
     return [[self alloc] init];
 }
 
++ (id)itemWithTitle:(NSString *)title
+{
+    return [[self alloc] initWithTitle:titleg];
+}
+
 + (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(RETableViewItem *item))selectionHandler
 {
     return [[self alloc] initWithTitle:title accessoryType:accessoryType selectionHandler:selectionHandler accessoryButtonTapHandler:nil];
@@ -42,6 +47,17 @@
 + (id)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(RETableViewItem *item))selectionHandler accessoryButtonTapHandler:(void(^)(RETableViewItem *item))accessoryButtonTapHandler
 {
     return [[self alloc] initWithTitle:title accessoryType:accessoryType selectionHandler:selectionHandler accessoryButtonTapHandler:accessoryButtonTapHandler];
+}
+
+- (id)initWithTitle:(NSString *)title
+{
+    self = [self init];
+    if (!self)
+        return nil;
+    
+    self.title = title;
+    
+    return self;
 }
 
 - (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(RETableViewItem *item))selectionHandler
