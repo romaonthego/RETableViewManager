@@ -330,7 +330,7 @@ NSUInteger REDeviceSystemMajorVersion() {
     
     // UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(RETableViewManagerDelegate)] && [_delegate respondsToSelector:@selector(tableView:accessoryButtonTappedForRowWithIndexPath:)])
+    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:accessoryButtonTappedForRowWithIndexPath:)])
         [_delegate tableView:tableView accessoryButtonTappedForRowWithIndexPath:indexPath];
 }
 
@@ -349,6 +349,11 @@ NSUInteger REDeviceSystemMajorVersion() {
         if (item.copyHandler || item.pasteHandler)
             return YES;
     }
+    
+    // UITableView delegate
+    //
+    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:shouldShowMenuForRowAtIndexPath:)])
+        return [_delegate tableView:tableView shouldShowMenuForRowAtIndexPath:indexPath];
     
 	return NO;
 }
@@ -371,7 +376,7 @@ NSUInteger REDeviceSystemMajorVersion() {
     
     // UITableViewDelegate
     //
-    if ([_delegate respondsToSelector:@selector(tableView:canPerformAction:forRowAtIndexPath:withSender:)])
+    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:canPerformAction:forRowAtIndexPath:withSender:)])
         return [_delegate tableView:tableView canPerformAction:action forRowAtIndexPath:indexPath withSender:sender];
 	
 	return NO;
