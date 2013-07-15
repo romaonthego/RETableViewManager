@@ -238,18 +238,6 @@ NSUInteger REDeviceSystemMajorVersion() {
     return item.moveHandler != nil;
 }
 
-- (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
-{
-    RETableViewSection *sourceSection = [_sections objectAtIndex:sourceIndexPath.section];
-    RETableViewItem *item = [sourceSection.items objectAtIndex:sourceIndexPath.row];
-    if (item.moveHandler) {
-        BOOL allowed = item.moveHandler(item, sourceIndexPath, proposedDestinationIndexPath);
-        if (!allowed)
-            return sourceIndexPath;
-    }
-    return proposedDestinationIndexPath;
-}
-
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
@@ -257,6 +245,7 @@ NSUInteger REDeviceSystemMajorVersion() {
     if ([item isKindOfClass:[RETableViewItem class]]) {
         return item.editingStyle != UITableViewCellEditingStyleNone || item.moveHandler;
     }
+    
     return NO;
 }
 
@@ -406,6 +395,24 @@ NSUInteger REDeviceSystemMajorVersion() {
     //
     if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:performAction:forRowAtIndexPath:withSender:)])
         [_delegate tableView:tableView performAction:action forRowAtIndexPath:indexPath withSender:sender];
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
+{
+    RETableViewSection *sourceSection = [_sections objectAtIndex:sourceIndexPath.section];
+    RETableViewItem *item = [sourceSection.items objectAtIndex:sourceIndexPath.row];
+    if (item.moveHandler) {
+        BOOL allowed = item.moveHandler(item, sourceIndexPath, proposedDestinationIndexPath);
+        if (!allowed)
+            return sourceIndexPath;
+    }
+    
+    // Forward to UITableView delegate
+    //
+    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:targetIndexPathForMoveFromRowAtIndexPath:toProposedIndexPath:)])
+        return [_delegate tableView:tableView targetIndexPathForMoveFromRowAtIndexPath:sourceIndexPath toProposedIndexPath:proposedDestinationIndexPath];
+    
+    return proposedDestinationIndexPath;
 }
 
 #pragma mark -
