@@ -241,7 +241,7 @@ NSUInteger REDeviceSystemMajorVersion();
 /**
  Removes the section at index.
  
- @param index The index from which to remove the section in the sections array. The value must not exceed the bounds of the sections array.
+ @param index The index from which to remove the section in the table view. The value must not exceed the bounds of the table view sections.
  */
 - (void)removeSectionAtIndex:(NSUInteger)index;
 
