@@ -32,7 +32,7 @@
     
     // Add sections and items
     //
-    RETableViewSection *section = [[RETableViewSection alloc] init];
+    RETableViewSection *section = [RETableViewSection section];
     [_manager addSection:section];
     
     [section addItem:[RETableViewItem itemWithTitle:@"Forms" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
@@ -41,22 +41,22 @@
     }]];
     
     [section addItem:[RETableViewItem itemWithTitle:@"List" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
-        [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+        [item deselectRowAnimated:YES];
         [weakSelf.navigationController pushViewController:[[ListViewController alloc] initWithStyle:UITableViewStylePlain] animated:YES];
     }]];
     
     [section addItem:[RETableViewItem itemWithTitle:@"Editing" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
-        [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+        [item deselectRowAnimated:YES];
         [weakSelf.navigationController pushViewController:[[EditingViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
     }]];
     
     [section addItem:[RETableViewItem itemWithTitle:@"Retractable" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
-        [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+        [item deselectRowAnimated:YES];
         [weakSelf.navigationController pushViewController:[[RetractableViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
     }]];
     
     [section addItem:[RETableViewItem itemWithTitle:@"Styling" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
-        [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+        [item deselectRowAnimated:YES];
         [weakSelf.navigationController pushViewController:[[StylingViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
     }]];
 }

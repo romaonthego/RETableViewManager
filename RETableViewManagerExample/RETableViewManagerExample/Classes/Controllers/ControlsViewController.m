@@ -33,7 +33,7 @@
      #                                         #
      ###########################################
      */
-    RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Basic controls"];
+    RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Basic controls"];
     [_manager addSection:section];
     
     // Add items to this section
@@ -61,7 +61,7 @@
     [section addItem:[REDateTimeItem itemWithTitle:@"Date / Time" value:[NSDate date] format:@"MM/dd/yyyy hh:mm a" datePickerMode:UIDatePickerModeDateAndTime]];
     
     RERadioItem *optionItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" selectionHandler:^(RERadioItem *item) {
-        [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+        [item deselectRowAnimated:YES]; // same as [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
         
         // Generate sample options
         //
@@ -81,7 +81,7 @@
     [section addItem:optionItem];
     
     REMultipleChoiceItem *multipleItem = [REMultipleChoiceItem itemWithTitle:@"Multiple" value:@[@"Option 2", @"Option 4"] selectionHandler:^(REMultipleChoiceItem *item) {
-       [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+       [item deselectRowAnimated:YES];
         
         // Generate sample options
         //
@@ -92,7 +92,7 @@
         // Present options controller
         //
         RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options multipleChoice:YES completionHandler:^{
-            [item reloadRowWithAnimation:UITableViewRowAnimationNone]; // same as [weakSelf.tableView reloadRowsAtIndexPaths:@[item.indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            [item reloadRowWithAnimation:UITableViewRowAnimationNone];
             NSLog(@"%@", item.value);
         }];
         [weakSelf.navigationController pushViewController:optionsController animated:YES];
@@ -121,17 +121,17 @@
      #                                         #
      ###########################################
      */
-    RETableViewSection *section2 = [[RETableViewSection alloc] initWithHeaderTitle:@"Accessories"];
+    RETableViewSection *section2 = [RETableViewSection sectionWithHeaderTitle:@"Accessories"];
     [_manager addSection:section2];
     
     // Add items to this section
     //
     [section2 addItem:[RETableViewItem itemWithTitle:@"Accessory 1" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
-        [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+        [item deselectRowAnimated:YES];
     }]];
     
     [section2 addItem:[RETableViewItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryDetailDisclosureButton selectionHandler:^(RETableViewItem *item) {
-        [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+        [item deselectRowAnimated:YES];
     } accessoryButtonTapHandler:^(RETableViewItem *item) {
         NSLog(@"Accessory button in accessoryItem2 was tapped");
     }]];
@@ -147,7 +147,7 @@
      #                                         #
      ###########################################
     */
-    RETableViewSection *section3 = [[RETableViewSection alloc] initWithHeaderTitle:@"Copy / pasting"];
+    RETableViewSection *section3 = [RETableViewSection sectionWithHeaderTitle:@"Copy / pasting"];
     [_manager addSection:section3];
     
     RETableViewItem *copyItem = [RETableViewItem itemWithTitle:@"Long tap to copy this item" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
@@ -191,7 +191,7 @@
      #                                         #
      ###########################################
      */
-    RETableViewSection *section4 = [[RETableViewSection alloc] init];
+    RETableViewSection *section4 = [RETableViewSection section];
     [_manager addSection:section4];
     
     RETableViewItem *buttonItem = [RETableViewItem itemWithTitle:@"Test button" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {

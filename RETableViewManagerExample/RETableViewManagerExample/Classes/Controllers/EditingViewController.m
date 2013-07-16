@@ -25,16 +25,13 @@
     // Create manager
     //
     _manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
-    _manager.style.textFieldPositionOffset = CGSizeMake(0, 0);
-    
-    // Set delegate and datasource
-    //
-    self.tableView.dataSource = _manager;
-    self.tableView.delegate = _manager;
     
     // Add sections and items
     //
-    RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Deletable"];
+    
+    // ================= Deletable =================
+    //
+    RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Deletable"];
     [_manager addSection:section];
     
     for (NSInteger i = 1; i <= 5; i++) {
@@ -46,7 +43,9 @@
         [section addItem:item];
     }
     
-    section = [[RETableViewSection alloc] initWithHeaderTitle:@"Deletable with confirmation"];
+    // ================= Deletable with confirmation =================
+    //
+    section = [RETableViewSection sectionWithHeaderTitle:@"Deletable with confirmation"];
     [_manager addSection:section];
     
     for (NSInteger i = 1; i <= 5; i++) {
@@ -56,12 +55,17 @@
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:[NSString stringWithFormat:@"Are you sure you want to delete %@", item.title] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
             [alert show];
             weakSelf.currentItem = item;
+            
+            // Assign completion block to deleteConfirmationHandler for future use
+            //
             weakSelf.deleteConfirmationHandler = completion;
         };
         [section addItem:item];
     }
     
-    section = [[RETableViewSection alloc] initWithHeaderTitle:@"Movable"];
+    // ================= Movable =================
+    //
+    section = [RETableViewSection sectionWithHeaderTitle:@"Movable"];
     [_manager addSection:section];
     
     for (NSInteger i = 1; i <= 5; i++) {
@@ -75,7 +79,9 @@
         [section addItem:item];
     }
     
-    section = [[RETableViewSection alloc] initWithHeaderTitle:@"Deletable & Movable"];
+    // ================= Deletable & Movable =================
+    //
+    section = [RETableViewSection sectionWithHeaderTitle:@"Deletable & Movable"];
     [_manager addSection:section];
     
     for (NSInteger i = 1; i <= 5; i++) {
@@ -90,7 +96,9 @@
         [section addItem:item];
     }
     
-    section = [[RETableViewSection alloc] initWithHeaderTitle:@"Can move only within this section"];
+    // ================= Can move only within this section =================
+    //
+    section = [RETableViewSection sectionWithHeaderTitle:@"Can move only within this section"];
     [_manager addSection:section];
     
     for (NSInteger i = 1; i <= 5; i++) {
@@ -101,6 +109,8 @@
         [section addItem:item];
     }
     
+    // ================= Insert style =================
+    //
     section = [[RETableViewSection alloc] initWithHeaderTitle:@"Insert style"];
     [_manager addSection:section];
     RETableViewItem *item = [RETableViewItem itemWithTitle:[NSString stringWithFormat:@"Section 6, Item %i", 1] accessoryType:UITableViewCellAccessoryNone selectionHandler:nil];
@@ -117,8 +127,10 @@
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
-        self.deleteConfirmationHandler();
-        NSLog(@"Item removed: %@", self.currentItem.title);
+        if (self.deleteConfirmationHandler) {
+            self.deleteConfirmationHandler();
+            NSLog(@"Item removed: %@", self.currentItem.title);
+        }
     }
 }
 

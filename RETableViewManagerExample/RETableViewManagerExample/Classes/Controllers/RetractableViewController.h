@@ -12,6 +12,5 @@
 @interface RetractableViewController : UITableViewController
 
 @property (strong, readonly, nonatomic) RETableViewManager *manager;
-@property (strong, readonly, nonatomic) RETableViewSection *section;
 
 @end
