@@ -136,27 +136,6 @@
     }
 }
 
-- (float)groupedCellMarginWithTableWidth:(float)tableViewWidth
-{
-    float marginWidth;
-    if(tableViewWidth > 20)
-    {
-        if(tableViewWidth < 400)
-        {
-            marginWidth = 10;
-        }
-        else
-        {
-            marginWidth = MAX(31, MIN(45, tableViewWidth*0.06));
-        }
-    }
-    else
-    {
-        marginWidth = tableViewWidth - 10;
-    }
-    return marginWidth;
-}
-
 - (RETableViewCellType)cellType
 {
     if (self.row == 0 && self.section.items.count == 1)

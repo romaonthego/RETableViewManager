@@ -41,9 +41,7 @@
         self.barStyle = UIBarStyleBlackTranslucent;
     }
     
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", @"")
-                                                                   style:UIBarButtonItemStyleDone target:self
-                                                                  action:@selector(handleActionBarDone:)];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", @"") style:UIBarButtonItemStyleDone target:self action:@selector(handleActionBarDone:)];
     
     _navigationControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:NSLocalizedString(@"Previous", @""), NSLocalizedString(@"Next", @""), nil]];
     _navigationControl.momentary = YES;
@@ -60,16 +58,14 @@
 
 - (void)handleActionBarPreviousNext:(UISegmentedControl *)segmentedControl
 {
-    if ([_actionBarDelegate respondsToSelector:@selector(actionBar:navigationControlValueChanged:)]) {
+    if ([_actionBarDelegate respondsToSelector:@selector(actionBar:navigationControlValueChanged:)])
         [_actionBarDelegate actionBar:self navigationControlValueChanged:segmentedControl];
-    }
 }
 
 - (void)handleActionBarDone:(UIBarButtonItem *)doneButtonItem
 {
-    if ([_actionBarDelegate respondsToSelector:@selector(actionBar:doneButtonPressed:)]) {
+    if ([_actionBarDelegate respondsToSelector:@selector(actionBar:doneButtonPressed:)])
         [_actionBarDelegate actionBar:self doneButtonPressed:doneButtonItem];
-    }
 }
 
 @end

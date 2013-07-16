@@ -80,16 +80,17 @@
     for (NSDictionary *dictionary in items) {
         NSString *username = [dictionary objectForKey:@"username"];
         NSString *userpic = [dictionary objectForKey:@"userpic"];
-        NSString *image = [dictionary objectForKey:@"image"];
+        NSString *imageName = [dictionary objectForKey:@"image"];
         
         // Create section with a header view
         //
-        RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderView:[ListHeaderView headerViewWithImageNamed:userpic username:username]];
+        ListHeaderView *headerView = [ListHeaderView headerViewWithImageNamed:userpic username:username];
+        RETableViewSection *section = [RETableViewSection sectionWithHeaderView:headerView];
         [_manager addSection:section];
         
         // Add item (image)
         //
-        [section addItem:[ListImageItem itemWithImageNamed:image]];
+        [section addItem:[ListImageItem itemWithImageNamed:imageName]];
     }
 }
 
