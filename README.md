@@ -9,6 +9,10 @@ It almost fully implements `UITableViewDelegate` and `UITableViewDataSource` pro
 
 ### _It is still in the early stages of development and it's highly not recommended to use it in production apps._
 
+<img src="https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot1.png" alt="RETableViewManager Screenshot" width="684" height="568" />
+
+<img src="https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot2.png" alt="RETableViewManager Screenshot" width="684" height="568" />
+
 ### Quick Example
 
 Get your `UITableView` up and running in couple minutes:
@@ -44,10 +48,6 @@ Get your `UITableView` up and running in couple minutes:
     [section addItem:[[CustomItem alloc] init]];
 }
 ```
-
-<img src="https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot1.png" alt="RETableViewManager Screenshot" width="684" height="568" />
-
-<img src="https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot2.png" alt="RETableViewManager Screenshot" width="684" height="568" />
 
 > RETableViewManager comes pre-packaged with extensible and ready-to-use components:
 
