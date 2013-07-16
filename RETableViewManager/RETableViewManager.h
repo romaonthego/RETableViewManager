@@ -58,6 +58,10 @@ NSUInteger REDeviceSystemMajorVersion();
  */
 @interface RETableViewManager : NSObject <UITableViewDelegate, UITableViewDataSource>
 
+///-----------------------------
+/// @name Managing Table View and Sections
+///-----------------------------
+
 /**
  The array of sections. See RETableViewSection reference for details.
  */
@@ -139,7 +143,7 @@ NSUInteger REDeviceSystemMajorVersion();
 - (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key;
 
 ///-----------------------------
-/// @name Setting default style
+/// @name Setting Style
 ///-----------------------------
 
 /**
@@ -300,7 +304,7 @@ NSUInteger REDeviceSystemMajorVersion();
 - (void)replaceSectionsInRange:(NSRange)range withSectionsFromArray:(NSArray *)otherArray;
 
 ///-----------------------------
-/// @name Rearranging Content
+/// @name Rearranging Sections
 ///-----------------------------
 
 /**
