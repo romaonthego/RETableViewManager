@@ -54,7 +54,7 @@ NSUInteger REDeviceSystemMajorVersion();
  APIs for mapping any object class to any custom cell subclass.
  
  The general idea is to allow developers to use their own `UITableView` and `UITableViewController` instances, providing a layer that synchronizes data with cell appereance.
- It almost fully implements `UITableViewDelegate` and `UITableViewDataSource` protocols so you don't have to.
+ It fully implements `UITableViewDelegate` and `UITableViewDataSource` protocols so you don't have to.
  */
 @interface RETableViewManager : NSObject <UITableViewDelegate, UITableViewDataSource>
 
