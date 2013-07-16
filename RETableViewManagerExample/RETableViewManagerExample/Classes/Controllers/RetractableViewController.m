@@ -28,19 +28,17 @@
     RETableViewSection *section = [RETableViewSection section];
     [_manager addSection:section];
     
-    __typeof (&*self) __weak weakSelf = self;
-    
     NSMutableArray *collapsedItems = [NSMutableArray array];
     NSMutableArray *expandedItems = [NSMutableArray array];
-
+    
     RETableViewItem *showMoreItem = [RETableViewItem itemWithTitle:@"Show More" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
         [section replaceItemsWithItemsFromArray:expandedItems];
-        [weakSelf.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [section reloadSectionWithAnimation:UITableViewRowAnimationAutomatic];
     }];
     
     RETableViewItem *showLessItem = [RETableViewItem itemWithTitle:@"Show Less" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
         [section replaceItemsWithItemsFromArray:collapsedItems];
-        [weakSelf.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [section reloadSectionWithAnimation:UITableViewRowAnimationAutomatic];
     }];
     
     [collapsedItems addObjectsFromArray:@[@"Test item 1", @"Test item 2", @"Test item 3", showMoreItem]];
