@@ -42,7 +42,7 @@
 	
 	<option value="//api/name/delegate">&nbsp;&nbsp;&nbsp;&nbsp;delegate</option>
 	
-	<option value="//api/name/mapping">&nbsp;&nbsp;&nbsp;&nbsp;mapping</option>
+	<option value="//api/name/registeredClasses">&nbsp;&nbsp;&nbsp;&nbsp;registeredClasses</option>
 	
 	<option value="//api/name/sections">&nbsp;&nbsp;&nbsp;&nbsp;sections</option>
 	
@@ -75,6 +75,8 @@
 	
 	<option value="//api/name/objectAtKeyedSubscript:">&nbsp;&nbsp;&nbsp;&nbsp;- objectAtKeyedSubscript:</option>
 	
+	<option value="//api/name/registerClass:forCellWithReuseIdentifier:">&nbsp;&nbsp;&nbsp;&nbsp;- registerClass:forCellWithReuseIdentifier:</option>
+	
 	<option value="//api/name/removeAllSections">&nbsp;&nbsp;&nbsp;&nbsp;- removeAllSections</option>
 	
 	<option value="//api/name/removeLastSection">&nbsp;&nbsp;&nbsp;&nbsp;- removeLastSection</option>
@@ -99,9 +101,11 @@
 	
 	<option value="//api/name/replaceSectionsAtIndexes:withSections:">&nbsp;&nbsp;&nbsp;&nbsp;- replaceSectionsAtIndexes:withSections:</option>
 	
-	<option value="//api/name/replaceSectionsInRange:withObjectsFromArray:">&nbsp;&nbsp;&nbsp;&nbsp;- replaceSectionsInRange:withObjectsFromArray:</option>
+	<option value="//api/name/replaceSectionsInRange:withSectionsFromArray:">&nbsp;&nbsp;&nbsp;&nbsp;- replaceSectionsInRange:withSectionsFromArray:</option>
 	
 	<option value="//api/name/replaceSectionsInRange:withSectionsFromArray:range:">&nbsp;&nbsp;&nbsp;&nbsp;- replaceSectionsInRange:withSectionsFromArray:range:</option>
+	
+	<option value="//api/name/replaceSectionsWithSectionsFromArray:">&nbsp;&nbsp;&nbsp;&nbsp;- replaceSectionsWithSectionsFromArray:</option>
 	
 	<option value="//api/name/setObject:forKeyedSubscript:">&nbsp;&nbsp;&nbsp;&nbsp;- setObject:forKeyedSubscript:</option>
 	
@@ -129,7 +133,7 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Managing the Delegate">Managing the Delegate</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Managing Object Mappings">Managing Object Mappings</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Managing Custom Cells">Managing Custom Cells</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Setting default style">Setting default style</a></span></li>
 	
@@ -141,8 +145,6 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Rearranging Content">Rearranging Content</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Other">Other</a></span></li>
-	
 </ul></li>
 
 
@@ -153,7 +155,7 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/delegate">delegate</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapping">mapping</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/registeredClasses">registeredClasses</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sections">sections</a></span></li>
 	
@@ -187,6 +189,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/objectAtKeyedSubscript:">objectAtKeyedSubscript:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/registerClass:forCellWithReuseIdentifier:">registerClass:forCellWithReuseIdentifier:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeAllSections">removeAllSections</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeLastSection">removeLastSection</a></span></li>
@@ -211,9 +215,11 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/replaceSectionsAtIndexes:withSections:">replaceSectionsAtIndexes:withSections:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/replaceSectionsInRange:withObjectsFromArray:">replaceSectionsInRange:withObjectsFromArray:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/replaceSectionsInRange:withSectionsFromArray:">replaceSectionsInRange:withSectionsFromArray:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/replaceSectionsInRange:withSectionsFromArray:range:">replaceSectionsInRange:withSectionsFromArray:range:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/replaceSectionsWithSectionsFromArray:">replaceSectionsWithSectionsFromArray:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setObject:forKeyedSubscript:">setObject:forKeyedSubscript:</a></span></li>
 	
@@ -261,9 +267,11 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p><code>RETableViewManager</code> allows to manage content of <code>UITableView</code> with ease, both forms and lists. In its core <code>RETableViewManager</code> supports reusable cells based on corresponding data object class.</p>
+						<p><code>RETableViewManager</code> allows to manage the content of any <code>UITableView</code> with ease, both forms and lists. <code>RETableViewManager</code> is built on top of reusable cells technique and provides
+APIs for mapping any object class to any custom cell subclass.</p>
 
-<p>The general idea is to allow developers use their own <code>UITableView</code> and UITableViewController instances, providing a layer that synchronizes data with cell appereance.</p>
+<p>The general idea is to allow developers use their own <code>UITableView</code> and <code>UITableViewController</code> instances, providing a layer that synchronizes data with cell appereance.
+It almost fully implements <code>UITableViewDelegate</code> and <code>UITableViewDataSource</code> protocols so you don&rsquo;t have to.</p>
 					</div>
 					
 					
@@ -282,14 +290,14 @@
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/sections">&nbsp;&nbsp;sections</a></code>
-		<span class="tooltip"><p>The aggregate collection of sections. See <a href="../Classes/RETableViewSection.html">RETableViewSection</a> reference for details.</p></span>
+		<span class="tooltip"><p>The array of sections. See <a href="../Classes/RETableViewSection.html">RETableViewSection</a> reference for details.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/tableView">&nbsp;&nbsp;tableView</a></code>
-		<span class="tooltip"><p>The <code>UITableView</code> that needs to be managed.</p></span>
+		<span class="tooltip"><p>The <code>UITableView</code> that needs to be managed using this <code>RETableViewManager</code>.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -304,14 +312,14 @@
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/initWithTableView:delegate:">&ndash;&nbsp;initWithTableView:delegate:</a></code>
-		<span class="tooltip"><p>Initialize a table view manager object for a specific UITableView and specify the <a href="#//api/name/delegate">delegate</a> object.</p></span>
+		<span class="tooltip"><p>Initialize a table view manager object for a specific <code>UITableView</code> and specify the <a href="#//api/name/delegate">delegate</a> object.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/initWithTableView:">&ndash;&nbsp;initWithTableView:</a></code>
-		<span class="tooltip"><p>Initialize a table view manager object for a specific UITableView.</p></span>
+		<span class="tooltip"><p>Initialize a table view manager object for a specific <code>UITableView</code>.</p></span>
 	</span>
 	
 	
@@ -334,21 +342,42 @@
 						</ul>
 						
 						
-						<a title="Managing Object Mappings" name="task_Managing Object Mappings"></a>
-						<h3 class="subsubtitle task-title">Managing Object Mappings</h3>
+						<a title="Managing Custom Cells" name="task_Managing Custom Cells"></a>
+						<h3 class="subsubtitle task-title">Managing Custom Cells</h3>
 
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/mapping">&nbsp;&nbsp;mapping</a></code>
-		<span class="tooltip"><p>The aggregate collection of item and class mappings within this table view manager.</p></span>
+		<code><a href="#//api/name/registeredClasses">&nbsp;&nbsp;registeredClasses</a></code>
+		<span class="tooltip"><p>The array of pairs of items / cell classes.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/registerClass:forCellWithReuseIdentifier:">&ndash;&nbsp;registerClass:forCellWithReuseIdentifier:</a></code>
+		<span class="tooltip"><p>For each custom item class that the manager will use, register a cell class.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/classForCellAtIndexPath:">&ndash;&nbsp;classForCellAtIndexPath:</a></code>
 		<span class="tooltip"><p>Returns cell class at specified index path.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/objectAtKeyedSubscript:">&ndash;&nbsp;objectAtKeyedSubscript:</a></code>
+		<span class="tooltip"><p>Returns cell class at the keyed subscript.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setObject:forKeyedSubscript:">&ndash;&nbsp;setObject:forKeyedSubscript:</a></code>
+		<span class="tooltip"><p>Sets a cell class for the keyed subscript.</p></span>
 	</span>
 	
 	
@@ -363,7 +392,7 @@
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/style">&nbsp;&nbsp;style</a></code>
-		<span class="tooltip"><p>The object that provides styling for <code>UITableView</code>. See RETableViewCellStyle reference for details.</p></span>
+		<span class="tooltip"><p>The object that provides styling for <code>UITableView</code>. See <a href="../Classes/RETableViewCellStyle.html">RETableViewCellStyle</a> reference for details.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -378,28 +407,28 @@
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/addSection:">&ndash;&nbsp;addSection:</a></code>
-		<span class="tooltip"><p>Inserts a given section at the end of the <a href="#//api/name/sections">sections</a> array.</p></span>
+		<span class="tooltip"><p>Inserts a given section at the end of the table view.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/addSectionsFromArray:">&ndash;&nbsp;addSectionsFromArray:</a></code>
-		<span class="tooltip"><p>Adds the <a href="#//api/name/sections">sections</a> contained in another given <a href="#//api/name/sections">sections</a> array to the end of the receiving <a href="#//api/name/sections">sections</a> array’s content.</p></span>
+		<span class="tooltip"><p>Adds the <a href="#//api/name/sections">sections</a> contained in another given <a href="#//api/name/sections">sections</a> array to the end of the table view.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/insertSection:atIndex:">&ndash;&nbsp;insertSection:atIndex:</a></code>
-		<span class="tooltip"><p>Inserts a given section into the <a href="#//api/name/sections">sections</a> array&rsquo;s contents at a given index.</p></span>
+		<span class="tooltip"><p>Inserts a given section into the table view at a given index.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/insertSections:atIndexes:">&ndash;&nbsp;insertSections:atIndexes:</a></code>
-		<span class="tooltip"><p>Inserts the <a href="#//api/name/sections">sections</a> in the provided <a href="#//api/name/sections">sections</a> array into the receiving <a href="#//api/name/sections">sections</a> array at the specified indexes.</p></span>
+		<span class="tooltip"><p>Inserts the <a href="#//api/name/sections">sections</a> in the provided array into the table view at the specified indexes.</p></span>
 	</span>
 	
 	
@@ -414,21 +443,21 @@
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/removeSection:">&ndash;&nbsp;removeSection:</a></code>
-		<span class="tooltip"><p>Removes all occurrences in the <a href="#//api/name/sections">sections</a> array of a given section.</p></span>
+		<span class="tooltip"><p>Removes all occurrences in the table view of a given section.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/removeAllSections">&ndash;&nbsp;removeAllSections</a></code>
-		<span class="tooltip"><p>Empties the <a href="#//api/name/sections">sections</a> array of all its elements.</p></span>
+		<span class="tooltip"><p>Empties the table view of all its <a href="#//api/name/sections">sections</a>.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/removeSectionIdenticalTo:inRange:">&ndash;&nbsp;removeSectionIdenticalTo:inRange:</a></code>
-		<span class="tooltip"><p>Removes all occurrences of section within the specified range in the <a href="#//api/name/sections">sections</a> array.</p></span>
+		<span class="tooltip"><p>Removes all occurrences of section within the specified range in the table view.</p></span>
 	</span>
 	
 	
@@ -442,28 +471,28 @@
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/removeSectionsInArray:">&ndash;&nbsp;removeSectionsInArray:</a></code>
-		<span class="tooltip"><p>Removes from the receiving array the objects in another given array.</p></span>
+		<span class="tooltip"><p>Removes from the table view the <a href="#//api/name/sections">sections</a> in another given array.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/removeSectionsInRange:">&ndash;&nbsp;removeSectionsInRange:</a></code>
-		<span class="tooltip"><p>Removes from the <a href="#//api/name/sections">sections</a> array each of the <a href="#//api/name/sections">sections</a> within a given range.</p></span>
+		<span class="tooltip"><p>Removes from the table view each of the <a href="#//api/name/sections">sections</a> within a given range.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/removeSection:inRange:">&ndash;&nbsp;removeSection:inRange:</a></code>
-		<span class="tooltip"><p>Removes all occurrences within a specified range in the array of a given object.</p></span>
+		<span class="tooltip"><p>Removes all occurrences within a specified range in the table view of a given section.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/removeLastSection">&ndash;&nbsp;removeLastSection</a></code>
-		<span class="tooltip"><p>Removes the section with the highest-valued index in the <a href="#//api/name/sections">sections</a> array</p></span>
+		<span class="tooltip"><p>Removes the section with the highest-valued index in the table view.</p></span>
 	</span>
 	
 	
@@ -477,7 +506,7 @@
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/removeSectionsAtIndexes:">&ndash;&nbsp;removeSectionsAtIndexes:</a></code>
-		<span class="tooltip"><p>Removes the objects at the specified indexes from the array.</p></span>
+		<span class="tooltip"><p>Removes the <a href="#//api/name/sections">sections</a> at the specified indexes from the table view.</p></span>
 	</span>
 	
 	
@@ -492,28 +521,35 @@
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/replaceSectionAtIndex:withSection:">&ndash;&nbsp;replaceSectionAtIndex:withSection:</a></code>
-		<span class="tooltip"><p>Replaces the section at index with section.</p></span>
+		<span class="tooltip"><p>Replaces the section at index with <code>section</code>.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/replaceSectionsWithSectionsFromArray:">&ndash;&nbsp;replaceSectionsWithSectionsFromArray:</a></code>
+		<span class="tooltip"><p>Replaces the <a href="#//api/name/sections">sections</a> in the table view with all of the <a href="#//api/name/sections">sections</a> from a given array.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/replaceSectionsAtIndexes:withSections:">&ndash;&nbsp;replaceSectionsAtIndexes:withSections:</a></code>
-		<span class="tooltip"><p>Replaces the <a href="#//api/name/sections">sections</a> in the receiving <a href="#//api/name/sections">sections</a> array at specified locations specified with the objects from a given <a href="#//api/name/sections">sections</a> array.</p></span>
+		<span class="tooltip"><p>Replaces the <a href="#//api/name/sections">sections</a> in the table view at specified locations specified with the <a href="#//api/name/sections">sections</a> from a given array.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/replaceSectionsInRange:withSectionsFromArray:range:">&ndash;&nbsp;replaceSectionsInRange:withSectionsFromArray:range:</a></code>
-		<span class="tooltip"><p>Replaces the objects in the receiving array specified by one given range with the objects in another array specified by another range.</p></span>
+		<span class="tooltip"><p>Replaces the <a href="#//api/name/sections">sections</a> in the table view by one given range with the <a href="#//api/name/sections">sections</a> in another array specified by another range.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/replaceSectionsInRange:withObjectsFromArray:">&ndash;&nbsp;replaceSectionsInRange:withObjectsFromArray:</a></code>
-		<span class="tooltip"><p>Replaces the <a href="#//api/name/sections">sections</a> in the receiving <a href="#//api/name/sections">sections</a> array specified by a given range with all of the objects from a given array.</p></span>
+		<code><a href="#//api/name/replaceSectionsInRange:withSectionsFromArray:">&ndash;&nbsp;replaceSectionsInRange:withSectionsFromArray:</a></code>
+		<span class="tooltip"><p>Replaces the <a href="#//api/name/sections">sections</a> in the table view specified by a given range with all of the <a href="#//api/name/sections">sections</a> from a given array.</p></span>
 	</span>
 	
 	
@@ -528,43 +564,21 @@
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/exchangeSectionAtIndex:withSectionAtIndex:">&ndash;&nbsp;exchangeSectionAtIndex:withSectionAtIndex:</a></code>
-		<span class="tooltip"><p>Exchanges the <a href="#//api/name/sections">sections</a> in the section array at given indices.</p></span>
+		<span class="tooltip"><p>Exchanges the <a href="#//api/name/sections">sections</a> in the table view at given indices.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/sortSectionsUsingFunction:context:">&ndash;&nbsp;sortSectionsUsingFunction:context:</a></code>
-		<span class="tooltip"><p>Sorts the <a href="#//api/name/sections">sections</a> array’s elements in ascending order as defined by the comparison function compare.</p></span>
+		<span class="tooltip"><p>Sorts the <a href="#//api/name/sections">sections</a> in ascending order as defined by the comparison function compare.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/sortSectionsUsingSelector:">&ndash;&nbsp;sortSectionsUsingSelector:</a></code>
-		<span class="tooltip"><p>Sorts the <a href="#//api/name/sections">sections</a> array’s elements in ascending order, as determined by the comparison method specified by a given selector.</p></span>
-	</span>
-	
-	
-</li>
-						</ul>
-						
-						
-						<a title="Other" name="task_Other"></a>
-						<h3 class="subsubtitle task-title">Other</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/objectAtKeyedSubscript:">&ndash;&nbsp;objectAtKeyedSubscript:</a></code>
-		<span class="tooltip"><p>Returns object at the keyed subscript.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/setObject:forKeyedSubscript:">&ndash;&nbsp;setObject:forKeyedSubscript:</a></code>
-		<span class="tooltip"><p>Sets an object for the keyed subscript.</p></span>
+		<span class="tooltip"><p>Sorts the <a href="#//api/name/sections">sections</a> in ascending order, as determined by the comparison method specified by a given selector.</p></span>
 	</span>
 	
 	
@@ -593,7 +607,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (assign, readwrite, nonatomic) id&lt;RETableViewManagerDelegate&gt; delegate</code></div>
+	<div class="method-subsection method-declaration"><code>@property (assign, readwrite, nonatomic) id&lt;RETableViewManagerDelegate,UITableViewDelegate&gt; delegate</code></div>
 
     
 	
@@ -623,18 +637,18 @@
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/mapping" title="mapping"></a>
-	<h3 class="subsubtitle method-title">mapping</h3>
+	<a name="//api/name/registeredClasses" title="registeredClasses"></a>
+	<h3 class="subsubtitle method-title">registeredClasses</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The aggregate collection of item and class mappings within this table view manager.</p>
+		<p>The array of pairs of items / cell classes.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (strong, readwrite, nonatomic) NSMutableDictionary *mapping</code></div>
+	<div class="method-subsection method-declaration"><code>@property (strong, readwrite, nonatomic) NSMutableDictionary *registeredClasses</code></div>
 
     
 	
@@ -646,7 +660,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The aggregate collection of item and class mappings within this table view manager.</p>
+		<p>The array of pairs of items / cell classes.</p>
 	</div>
 	
 	
@@ -670,7 +684,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The aggregate collection of sections. See <a href="../Classes/RETableViewSection.html">RETableViewSection</a> reference for details.</p>
+		<p>The array of sections. See <a href="../Classes/RETableViewSection.html">RETableViewSection</a> reference for details.</p>
 	</div>		
 	
     
@@ -687,7 +701,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The aggregate collection of sections. See <a href="../Classes/RETableViewSection.html">RETableViewSection</a> reference for details.</p>
+		<p>The array of sections. See <a href="../Classes/RETableViewSection.html">RETableViewSection</a> reference for details.</p>
 	</div>
 	
 	
@@ -711,7 +725,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The object that provides styling for <code>UITableView</code>. See RETableViewCellStyle reference for details.</p>
+		<p>The object that provides styling for <code>UITableView</code>. See <a href="../Classes/RETableViewCellStyle.html">RETableViewCellStyle</a> reference for details.</p>
 	</div>		
 	
     
@@ -728,7 +742,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The object that provides styling for <code>UITableView</code>. See RETableViewCellStyle reference for details.</p>
+		<p>The object that provides styling for <code>UITableView</code>. See <a href="../Classes/RETableViewCellStyle.html">RETableViewCellStyle</a> reference for details.</p>
 	</div>
 	
 	
@@ -752,7 +766,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The <code>UITableView</code> that needs to be managed.</p>
+		<p>The <code>UITableView</code> that needs to be managed using this <code>RETableViewManager</code>.</p>
 	</div>		
 	
     
@@ -769,7 +783,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The <code>UITableView</code> that needs to be managed.</p>
+		<p>The <code>UITableView</code> that needs to be managed using this <code>RETableViewManager</code>.</p>
 	</div>
 	
 	
@@ -803,7 +817,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Inserts a given section at the end of the <a href="#//api/name/sections">sections</a> array.</p>
+		<p>Inserts a given section at the end of the table view.</p>
 	</div>		
 	
     
@@ -817,7 +831,7 @@
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>section</em></dt>
-			<dd><p>The section to add to the end of the <a href="#//api/name/sections">sections</a> array&rsquo;s content. This value must not be <code>nil</code>.</p></dd>
+			<dd><p>The section to add to the end of the table view. This value must not be <code>nil</code>.</p></dd>
 		</dl>
 		
 	</div>
@@ -830,7 +844,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Inserts a given section at the end of the <a href="#//api/name/sections">sections</a> array.</p>
+		<p>Inserts a given section at the end of the table view.</p>
 	</div>
 	
 	
@@ -854,7 +868,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Adds the <a href="#//api/name/sections">sections</a> contained in another given <a href="#//api/name/sections">sections</a> array to the end of the receiving <a href="#//api/name/sections">sections</a> array’s content.</p>
+		<p>Adds the <a href="#//api/name/sections">sections</a> contained in another given <a href="#//api/name/sections">sections</a> array to the end of the table view.</p>
 	</div>		
 	
     
@@ -868,7 +882,7 @@
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>array</em></dt>
-			<dd><p>An array of <a href="#//api/name/sections">sections</a> to add to the end of the receiving <a href="#//api/name/sections">sections</a> array’s content.</p></dd>
+			<dd><p>An array of <a href="#//api/name/sections">sections</a> to add to the end of the table view.</p></dd>
 		</dl>
 		
 	</div>
@@ -881,7 +895,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Adds the <a href="#//api/name/sections">sections</a> contained in another given <a href="#//api/name/sections">sections</a> array to the end of the receiving <a href="#//api/name/sections">sections</a> array’s content.</p>
+		<p>Adds the <a href="#//api/name/sections">sections</a> contained in another given <a href="#//api/name/sections">sections</a> array to the end of the table view.</p>
 	</div>
 	
 	
@@ -956,7 +970,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Exchanges the <a href="#//api/name/sections">sections</a> in the section array at given indices.</p>
+		<p>Exchanges the <a href="#//api/name/sections">sections</a> in the table view at given indices.</p>
 	</div>		
 	
     
@@ -988,7 +1002,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Exchanges the <a href="#//api/name/sections">sections</a> in the section array at given indices.</p>
+		<p>Exchanges the <a href="#//api/name/sections">sections</a> in the table view at given indices.</p>
 	</div>
 	
 	
@@ -1012,7 +1026,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Initialize a table view manager object for a specific UITableView.</p>
+		<p>Initialize a table view manager object for a specific <code>UITableView</code>.</p>
 	</div>		
 	
     
@@ -1035,7 +1049,7 @@
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>The pointer to the instance, or nil if initialization failed.</p>
+		<p>The pointer to the instance, or <code>nil</code> if initialization failed.</p>
 	</div>
 	
 	
@@ -1044,7 +1058,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Initialize a table view manager object for a specific UITableView.</p>
+		<p>Initialize a table view manager object for a specific <code>UITableView</code>.</p>
 	</div>
 	
 	
@@ -1068,12 +1082,12 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Initialize a table view manager object for a specific UITableView and specify the <a href="#//api/name/delegate">delegate</a> object.</p>
+		<p>Initialize a table view manager object for a specific <code>UITableView</code> and specify the <a href="#//api/name/delegate">delegate</a> object.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (id)initWithTableView:(UITableView *)<em>tableView</em> delegate:(id&lt;RETableViewManagerDelegate&gt;)<em>delegate</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (id)initWithTableView:(UITableView *)<em>tableView</em> delegate:(id&lt;RETableViewManagerDelegate,UITableViewDelegate&gt;)<em>delegate</em></code></div>
 
     
 	
@@ -1082,7 +1096,7 @@
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>tableView</em></dt>
-			<dd><p>The UITableView that needs to be managed.</p></dd>
+			<dd><p>The <code>UITableView</code> that needs to be managed.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -1105,7 +1119,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Initialize a table view manager object for a specific UITableView and specify the <a href="#//api/name/delegate">delegate</a> object.</p>
+		<p>Initialize a table view manager object for a specific <code>UITableView</code> and specify the <a href="#//api/name/delegate">delegate</a> object.</p>
 	</div>
 	
 	
@@ -1129,7 +1143,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Inserts a given section into the <a href="#//api/name/sections">sections</a> array&rsquo;s contents at a given index.</p>
+		<p>Inserts a given section into the table view at a given index.</p>
 	</div>		
 	
     
@@ -1143,12 +1157,12 @@
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>section</em></dt>
-			<dd><p>The section to add to the <a href="#//api/name/sections">sections</a> array&rsquo;s content. This value must not be nil.</p></dd>
+			<dd><p>The section to add to the table view. This value must not be nil.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>index</em></dt>
-			<dd><p>The index in the <a href="#//api/name/sections">sections</a> array at which to insert section. This value must not be greater than the count of elements in the <a href="#//api/name/sections">sections</a> array.</p></dd>
+			<dd><p>The index in the <a href="#//api/name/sections">sections</a> array at which to insert section. This value must not be greater than the count of <a href="#//api/name/sections">sections</a> in the table view.</p></dd>
 		</dl>
 		
 	</div>
@@ -1161,7 +1175,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Inserts a given section into the <a href="#//api/name/sections">sections</a> array&rsquo;s contents at a given index.</p>
+		<p>Inserts a given section into the table view at a given index.</p>
 	</div>
 	
 	
@@ -1185,7 +1199,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Inserts the <a href="#//api/name/sections">sections</a> in the provided <a href="#//api/name/sections">sections</a> array into the receiving <a href="#//api/name/sections">sections</a> array at the specified indexes.</p>
+		<p>Inserts the <a href="#//api/name/sections">sections</a> in the provided array into the table view at the specified indexes.</p>
 	</div>		
 	
     
@@ -1199,7 +1213,7 @@
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>sections</em></dt>
-			<dd><p>An array of <a href="#//api/name/sections">sections</a> to insert into the receiving <a href="#//api/name/sections">sections</a> array.</p></dd>
+			<dd><p>An array of <a href="#//api/name/sections">sections</a> to insert into the table view.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -1217,7 +1231,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Inserts the <a href="#//api/name/sections">sections</a> in the provided <a href="#//api/name/sections">sections</a> array into the receiving <a href="#//api/name/sections">sections</a> array at the specified indexes.</p>
+		<p>Inserts the <a href="#//api/name/sections">sections</a> in the provided array into the table view at the specified indexes.</p>
 	</div>
 	
 	
@@ -1241,7 +1255,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns object at the keyed subscript.</p>
+		<p>Returns cell class at the keyed subscript.</p>
 	</div>		
 	
     
@@ -1264,7 +1278,7 @@
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>The object at the keyed subscript.</p>
+		<p>The cell class the keyed subscript.</p>
 	</div>
 	
 	
@@ -1273,7 +1287,63 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Returns object at the keyed subscript.</p>
+		<p>Returns cell class at the keyed subscript.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">RETableViewManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/registerClass:forCellWithReuseIdentifier:" title="registerClass:forCellWithReuseIdentifier:"></a>
+	<h3 class="subsubtitle method-title">registerClass:forCellWithReuseIdentifier:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>For each custom item class that the manager will use, register a cell class.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)registerClass:(NSString *)<em>objectClass</em> forCellWithReuseIdentifier:(NSString *)<em>identifier</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>objectClass</em></dt>
+			<dd><p>The object class to be associated with a cell class.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>identifier</em></dt>
+			<dd><p>The cell class identifier.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>For each custom item class that the manager will use, register a cell class.</p>
 	</div>
 	
 	
@@ -1297,7 +1367,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Empties the <a href="#//api/name/sections">sections</a> array of all its elements.</p>
+		<p>Empties the table view of all its <a href="#//api/name/sections">sections</a>.</p>
 	</div>		
 	
     
@@ -1314,7 +1384,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Empties the <a href="#//api/name/sections">sections</a> array of all its elements.</p>
+		<p>Empties the table view of all its <a href="#//api/name/sections">sections</a>.</p>
 	</div>
 	
 	
@@ -1338,7 +1408,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Removes the section with the highest-valued index in the <a href="#//api/name/sections">sections</a> array</p>
+		<p>Removes the section with the highest-valued index in the table view.</p>
 	</div>		
 	
     
@@ -1355,7 +1425,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Removes the section with the highest-valued index in the <a href="#//api/name/sections">sections</a> array</p>
+		<p>Removes the section with the highest-valued index in the table view.</p>
 	</div>
 	
 	
@@ -1379,7 +1449,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Removes all occurrences in the <a href="#//api/name/sections">sections</a> array of a given section.</p>
+		<p>Removes all occurrences in the table view of a given section.</p>
 	</div>		
 	
     
@@ -1393,7 +1463,7 @@
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>section</em></dt>
-			<dd><p>The section to remove from the <a href="#//api/name/sections">sections</a> array.</p></dd>
+			<dd><p>The section to remove from the table view.</p></dd>
 		</dl>
 		
 	</div>
@@ -1406,7 +1476,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Removes all occurrences in the <a href="#//api/name/sections">sections</a> array of a given section.</p>
+		<p>Removes all occurrences in the table view of a given section.</p>
 	</div>
 	
 	
@@ -1430,7 +1500,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Removes all occurrences within a specified range in the array of a given object.</p>
+		<p>Removes all occurrences within a specified range in the table view of a given section.</p>
 	</div>		
 	
     
@@ -1444,7 +1514,7 @@
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>section</em></dt>
-			<dd><p>The section to remove from the <a href="#//api/name/sections">sections</a> array&rsquo;s content.</p></dd>
+			<dd><p>The section to remove from the table view.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -1462,7 +1532,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Removes all occurrences within a specified range in the array of a given object.</p>
+		<p>Removes all occurrences within a specified range in the table view of a given section.</p>
 	</div>
 	
 	
@@ -1500,7 +1570,7 @@
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>index</em></dt>
-			<dd><p>The index from which to remove the section in the <a href="#//api/name/sections">sections</a> array. The value must not exceed the bounds of the <a href="#//api/name/sections">sections</a> array.</p></dd>
+			<dd><p>The index from which to remove the section in the table view. The value must not exceed the bounds of the table view <a href="#//api/name/sections">sections</a>.</p></dd>
 		</dl>
 		
 	</div>
@@ -1588,7 +1658,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Removes all occurrences of section within the specified range in the <a href="#//api/name/sections">sections</a> array.</p>
+		<p>Removes all occurrences of section within the specified range in the table view.</p>
 	</div>		
 	
     
@@ -1602,12 +1672,12 @@
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>section</em></dt>
-			<dd><p>The section to remove from the <a href="#//api/name/sections">sections</a> array within range.</p></dd>
+			<dd><p>The section to remove from the table view within range.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>range</em></dt>
-			<dd><p>The range in the <a href="#//api/name/sections">sections</a> array from which to remove section.</p></dd>
+			<dd><p>The range in the table view from which to remove section.</p></dd>
 		</dl>
 		
 	</div>
@@ -1620,7 +1690,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Removes all occurrences of section within the specified range in the <a href="#//api/name/sections">sections</a> array.</p>
+		<p>Removes all occurrences of section within the specified range in the table view.</p>
 	</div>
 	
 	
@@ -1644,7 +1714,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Removes the objects at the specified indexes from the array.</p>
+		<p>Removes the <a href="#//api/name/sections">sections</a> at the specified indexes from the table view.</p>
 	</div>		
 	
     
@@ -1658,7 +1728,7 @@
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>indexes</em></dt>
-			<dd><p>The indexes of the <a href="#//api/name/sections">sections</a> to remove from the <a href="#//api/name/sections">sections</a> array. The locations specified by indexes must lie within the bounds of the <a href="#//api/name/sections">sections</a> array.</p></dd>
+			<dd><p>The indexes of the <a href="#//api/name/sections">sections</a> to remove from the table view. The locations specified by indexes must lie within the bounds of the table view <a href="#//api/name/sections">sections</a>.</p></dd>
 		</dl>
 		
 	</div>
@@ -1671,7 +1741,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Removes the objects at the specified indexes from the array.</p>
+		<p>Removes the <a href="#//api/name/sections">sections</a> at the specified indexes from the table view.</p>
 	</div>
 	
 	
@@ -1695,7 +1765,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Removes from the receiving array the objects in another given array.</p>
+		<p>Removes from the table view the <a href="#//api/name/sections">sections</a> in another given array.</p>
 	</div>		
 	
     
@@ -1709,7 +1779,7 @@
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>otherArray</em></dt>
-			<dd><p>An array containing the <a href="#//api/name/sections">sections</a> to be removed from the receiving <a href="#//api/name/sections">sections</a> array.</p></dd>
+			<dd><p>An array containing the <a href="#//api/name/sections">sections</a> to be removed from the table view.</p></dd>
 		</dl>
 		
 	</div>
@@ -1722,7 +1792,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Removes from the receiving array the objects in another given array.</p>
+		<p>Removes from the table view the <a href="#//api/name/sections">sections</a> in another given array.</p>
 	</div>
 	
 	
@@ -1746,7 +1816,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Removes from the <a href="#//api/name/sections">sections</a> array each of the <a href="#//api/name/sections">sections</a> within a given range.</p>
+		<p>Removes from the table view each of the <a href="#//api/name/sections">sections</a> within a given range.</p>
 	</div>		
 	
     
@@ -1760,7 +1830,7 @@
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>range</em></dt>
-			<dd><p>The range of the <a href="#//api/name/sections">sections</a> to remove from the <a href="#//api/name/sections">sections</a> array.</p></dd>
+			<dd><p>The range of the <a href="#//api/name/sections">sections</a> to remove from the table view.</p></dd>
 		</dl>
 		
 	</div>
@@ -1773,7 +1843,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Removes from the <a href="#//api/name/sections">sections</a> array each of the <a href="#//api/name/sections">sections</a> within a given range.</p>
+		<p>Removes from the table view each of the <a href="#//api/name/sections">sections</a> within a given range.</p>
 	</div>
 	
 	
@@ -1797,7 +1867,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Replaces the section at index with section.</p>
+		<p>Replaces the section at index with <code>section</code>.</p>
 	</div>		
 	
     
@@ -1811,12 +1881,12 @@
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>index</em></dt>
-			<dd><p>The index of the section to be replaced. This value must not exceed the bounds of the <a href="#//api/name/sections">sections</a> array.</p></dd>
+			<dd><p>The index of the section to be replaced. This value must not exceed the bounds of the table view <a href="#//api/name/sections">sections</a>.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>section</em></dt>
-			<dd><p>The section with which to replace the section at index index in the array. This value must not be <code>nil</code>.</p></dd>
+			<dd><p>The section with which to replace the section at index <code>index</code> in the <a href="#//api/name/sections">sections</a> array. This value must not be <code>nil</code>.</p></dd>
 		</dl>
 		
 	</div>
@@ -1829,7 +1899,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Replaces the section at index with section.</p>
+		<p>Replaces the section at index with <code>section</code>.</p>
 	</div>
 	
 	
@@ -1853,7 +1923,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Replaces the <a href="#//api/name/sections">sections</a> in the receiving <a href="#//api/name/sections">sections</a> array at specified locations specified with the objects from a given <a href="#//api/name/sections">sections</a> array.</p>
+		<p>Replaces the <a href="#//api/name/sections">sections</a> in the table view at specified locations specified with the <a href="#//api/name/sections">sections</a> from a given array.</p>
 	</div>		
 	
     
@@ -1872,7 +1942,7 @@
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>sections</em></dt>
-			<dd><p>The <a href="#//api/name/sections">sections</a> with which to replace the <a href="#//api/name/sections">sections</a> in the receiving <a href="#//api/name/sections">sections</a> array at the indexes specified by indexes. The count of locations in indexes must equal the count of <a href="#//api/name/sections">sections</a>.</p></dd>
+			<dd><p>The <a href="#//api/name/sections">sections</a> with which to replace the <a href="#//api/name/sections">sections</a> in the table view at the indexes specified by indexes. The count of locations in indexes must equal the count of <a href="#//api/name/sections">sections</a>.</p></dd>
 		</dl>
 		
 	</div>
@@ -1885,7 +1955,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Replaces the <a href="#//api/name/sections">sections</a> in the receiving <a href="#//api/name/sections">sections</a> array at specified locations specified with the objects from a given <a href="#//api/name/sections">sections</a> array.</p>
+		<p>Replaces the <a href="#//api/name/sections">sections</a> in the table view at specified locations specified with the <a href="#//api/name/sections">sections</a> from a given array.</p>
 	</div>
 	
 	
@@ -1903,18 +1973,18 @@
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/replaceSectionsInRange:withObjectsFromArray:" title="replaceSectionsInRange:withObjectsFromArray:"></a>
-	<h3 class="subsubtitle method-title">replaceSectionsInRange:withObjectsFromArray:</h3>
+	<a name="//api/name/replaceSectionsInRange:withSectionsFromArray:" title="replaceSectionsInRange:withSectionsFromArray:"></a>
+	<h3 class="subsubtitle method-title">replaceSectionsInRange:withSectionsFromArray:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Replaces the <a href="#//api/name/sections">sections</a> in the receiving <a href="#//api/name/sections">sections</a> array specified by a given range with all of the objects from a given array.</p>
+		<p>Replaces the <a href="#//api/name/sections">sections</a> in the table view specified by a given range with all of the <a href="#//api/name/sections">sections</a> from a given array.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)replaceSectionsInRange:(NSRange)<em>range</em> withObjectsFromArray:(NSArray *)<em>otherArray</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)replaceSectionsInRange:(NSRange)<em>range</em> withSectionsFromArray:(NSArray *)<em>otherArray</em></code></div>
 
     
 	
@@ -1923,7 +1993,7 @@
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>range</em></dt>
-			<dd><p>The range of <a href="#//api/name/sections">sections</a> to replace in (or remove from) the <a href="#//api/name/sections">sections</a> array.</p></dd>
+			<dd><p>The range of <a href="#//api/name/sections">sections</a> to replace in (or remove from) the table view.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -1941,7 +2011,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Replaces the <a href="#//api/name/sections">sections</a> in the receiving <a href="#//api/name/sections">sections</a> array specified by a given range with all of the objects from a given array.</p>
+		<p>Replaces the <a href="#//api/name/sections">sections</a> in the table view specified by a given range with all of the <a href="#//api/name/sections">sections</a> from a given array.</p>
 	</div>
 	
 	
@@ -1965,7 +2035,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Replaces the objects in the receiving array specified by one given range with the objects in another array specified by another range.</p>
+		<p>Replaces the <a href="#//api/name/sections">sections</a> in the table view by one given range with the <a href="#//api/name/sections">sections</a> in another array specified by another range.</p>
 	</div>		
 	
     
@@ -1979,7 +2049,7 @@
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>range</em></dt>
-			<dd><p>The range of <a href="#//api/name/sections">sections</a> to replace in (or remove from) the receiving <a href="#//api/name/sections">sections</a> array.</p></dd>
+			<dd><p>The range of <a href="#//api/name/sections">sections</a> to replace in (or remove from) the table view.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -2002,7 +2072,58 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Replaces the objects in the receiving array specified by one given range with the objects in another array specified by another range.</p>
+		<p>Replaces the <a href="#//api/name/sections">sections</a> in the table view by one given range with the <a href="#//api/name/sections">sections</a> in another array specified by another range.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">RETableViewManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/replaceSectionsWithSectionsFromArray:" title="replaceSectionsWithSectionsFromArray:"></a>
+	<h3 class="subsubtitle method-title">replaceSectionsWithSectionsFromArray:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Replaces the <a href="#//api/name/sections">sections</a> in the table view with all of the <a href="#//api/name/sections">sections</a> from a given array.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)replaceSectionsWithSectionsFromArray:(NSArray *)<em>otherArray</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>otherArray</em></dt>
+			<dd><p>The array of <a href="#//api/name/sections">sections</a> from which to select replacements for the <a href="#//api/name/sections">sections</a>.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Replaces the <a href="#//api/name/sections">sections</a> in the table view with all of the <a href="#//api/name/sections">sections</a> from a given array.</p>
 	</div>
 	
 	
@@ -2026,7 +2147,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Sets an object for the keyed subscript.</p>
+		<p>Sets a cell class for the keyed subscript.</p>
 	</div>		
 	
     
@@ -2040,7 +2161,7 @@
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>obj</em></dt>
-			<dd><p>The object to set for the keyed subscript.</p></dd>
+			<dd><p>The cell class to set for the keyed subscript.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -2058,7 +2179,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Sets an object for the keyed subscript.</p>
+		<p>Sets a cell class for the keyed subscript.</p>
 	</div>
 	
 	
@@ -2082,7 +2203,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Sorts the <a href="#//api/name/sections">sections</a> array’s elements in ascending order as defined by the comparison function compare.</p>
+		<p>Sorts the <a href="#//api/name/sections">sections</a> in ascending order as defined by the comparison function compare.</p>
 	</div>		
 	
     
@@ -2096,7 +2217,7 @@
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>compare</em></dt>
-			<dd><p>The comparison function to use to compare two elements at a time.</p></dd>
+			<dd><p>The comparison function to use to compare two <a href="#//api/name/sections">sections</a> at a time.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -2114,7 +2235,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Sorts the <a href="#//api/name/sections">sections</a> array’s elements in ascending order as defined by the comparison function compare.</p>
+		<p>Sorts the <a href="#//api/name/sections">sections</a> in ascending order as defined by the comparison function compare.</p>
 	</div>
 	
 	
@@ -2138,7 +2259,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Sorts the <a href="#//api/name/sections">sections</a> array’s elements in ascending order, as determined by the comparison method specified by a given selector.</p>
+		<p>Sorts the <a href="#//api/name/sections">sections</a> in ascending order, as determined by the comparison method specified by a given selector.</p>
 	</div>		
 	
     
@@ -2152,7 +2273,7 @@
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>comparator</em></dt>
-			<dd><p>A selector that specifies the comparison method to use to compare elements in the <a href="#//api/name/sections">sections</a> array.</p></dd>
+			<dd><p>A selector that specifies the comparison method to use to compare <a href="#//api/name/sections">sections</a> in the table view.</p></dd>
 		</dl>
 		
 	</div>
@@ -2165,7 +2286,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Sorts the <a href="#//api/name/sections">sections</a> array’s elements in ascending order, as determined by the comparison method specified by a given selector.</p>
+		<p>Sorts the <a href="#//api/name/sections">sections</a> in ascending order, as determined by the comparison method specified by a given selector.</p>
 	</div>
 	
 	
@@ -2195,7 +2316,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Roman Efimov. All rights reserved. (Last updated: 2013-06-20)</span><br />
+						<p><span class="copyright">&copy; 2013 Roman Efimov. All rights reserved. (Last updated: 2013-07-16)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

@@ -109,6 +109,9 @@ NSUInteger REDeviceSystemMajorVersion();
 
 /**
  For each custom item class that the manager will use, register a cell class.
+ 
+ @param objectClass The object class to be associated with a cell class.
+ @param identifier The cell class identifier.
  */
 - (void)registerClass:(NSString *)objectClass forCellWithReuseIdentifier:(NSString *)identifier;
 
