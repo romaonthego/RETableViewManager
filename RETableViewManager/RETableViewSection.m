@@ -258,4 +258,12 @@
     [_items sortUsingSelector:comparator];
 }
 
+#pragma mark -
+#pragma mark Manipulating table view section
+
+- (void)reloadSectionWithAnimation:(UITableViewRowAnimation)animation
+{
+    [self.tableViewManager.tableView reloadSections:[NSIndexSet indexSetWithIndex:self.index] withRowAnimation:animation];
+}
+
 @end

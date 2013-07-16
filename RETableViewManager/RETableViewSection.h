@@ -289,4 +289,10 @@
 - (void)sortItemsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context;
 - (void)sortItemsUsingSelector:(SEL)comparator;
 
+///-----------------------------
+/// @name Manipulating table view section
+///-----------------------------
+
+- (void)reloadSectionWithAnimation:(UITableViewRowAnimation)animation;
+
 @end
