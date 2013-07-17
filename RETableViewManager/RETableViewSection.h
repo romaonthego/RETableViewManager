@@ -265,7 +265,7 @@
 - (void)replaceItemsWithItemsFromArray:(NSArray *)otherArray;
 
 /**
- Replaces the items in the section at specified locations specified with the items from a given sections array.
+ Replaces the items in the section at specified locations specified with the items from a given array.
  
  @param indexes The indexes of the items to be replaced.
  @param items The items with which to replace the items in the section at the indexes specified by `indexes`. The count of locations in indexes must equal the count of items.
