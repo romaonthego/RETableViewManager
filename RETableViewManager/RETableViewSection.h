@@ -300,6 +300,13 @@
  @param idx2 The index of the items with which to replace the item at index idx1.
  */
 - (void)exchangeItemAtIndex:(NSUInteger)idx1 withItemAtIndex:(NSUInteger)idx2;
+
+/**
+ Sorts the items in ascending order as defined by the comparison function compare.
+ 
+ @param compare The comparison function to use to compare two items at a time.
+ @param context The context argument to pass to the compare function.
+ */
 - (void)sortItemsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context;
 - (void)sortItemsUsingSelector:(SEL)comparator;
 
