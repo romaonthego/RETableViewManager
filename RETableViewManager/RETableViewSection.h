@@ -293,6 +293,12 @@
 /// @name Rearranging Items
 ///-----------------------------
 
+/**
+ Exchanges the items in the section at given indices.
+ 
+ @param idx1 The index of the item with which to replace the item at index idx2.
+ @param idx2 The index of the items with which to replace the item at index idx1.
+ */
 - (void)exchangeItemAtIndex:(NSUInteger)idx1 withItemAtIndex:(NSUInteger)idx2;
 - (void)sortItemsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context;
 - (void)sortItemsUsingSelector:(SEL)comparator;
