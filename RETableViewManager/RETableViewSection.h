@@ -271,6 +271,14 @@
  @param items The items with which to replace the items in the section at the indexes specified by `indexes`. The count of locations in indexes must equal the count of items.
  */
 - (void)replaceItemsAtIndexes:(NSIndexSet *)indexes withItems:(NSArray *)items;
+
+/**
+ Replaces the items in the section by one given range with the items in another array specified by another range.
+ 
+ @param range The range of items to replace in (or remove from) the section.
+ @param otherArray The array of items from which to select replacements for the items in range.
+ @param otherRange The range of items to select from otherArray as replacements for the items in range.
+ */
 - (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray range:(NSRange)otherRange;
 
 /**
