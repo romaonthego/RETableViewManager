@@ -27,22 +27,12 @@
 
 @implementation REDateTimeItem
 
-+ (id)itemWithTitle:(NSString *)title value:(NSDate *)value format:(NSString *)format
++ (id)itemWithTitle:(NSString *)title value:(NSDate *)value placeholder:(NSString *)placeholder format:(NSString *)format datePickerMode:(UIDatePickerMode)datePickerMode
 {
-    return [[self alloc] initWithTitle:title value:value format:format];
+    return [[self alloc] initWithTitle:title value:value placeholder:placeholder format:format datePickerMode:datePickerMode];
 }
 
-+ (id)itemWithTitle:(NSString *)title value:(NSDate *)value format:(NSString *)format datePickerMode:(UIDatePickerMode)datePickerMode
-{
-    return [[self alloc] initWithTitle:title value:value format:format datePickerMode:datePickerMode];
-}
-
-- (id)initWithTitle:(NSString *)title value:(NSDate *)value format:(NSString *)format
-{
-    return [self initWithTitle:title value:value format:format datePickerMode:UIDatePickerModeDateAndTime];
-}
-
-- (id)initWithTitle:(NSString *)title value:(NSDate *)value format:(NSString *)format datePickerMode:(UIDatePickerMode)datePickerMode
+- (id)initWithTitle:(NSString *)title value:(NSDate *)value placeholder:(NSString *)placeholder format:(NSString *)format datePickerMode:(UIDatePickerMode)datePickerMode
 {
     self = [super init];
     if (!self)
@@ -53,6 +43,7 @@
     self.format = format;
     self.datePickerMode = datePickerMode;
     self.style = UITableViewCellStyleValue1;
+    self.placeholder = placeholder;
     
     return self;
 }

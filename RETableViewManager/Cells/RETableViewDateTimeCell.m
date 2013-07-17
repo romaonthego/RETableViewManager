@@ -63,6 +63,14 @@
     _dateLabel.textAlignment = NSTextAlignmentRight;
     [self.contentView addSubview:_dateLabel];
     
+    _placeholderLabel = [[UILabel alloc] initWithFrame:CGRectNull];
+    _placeholderLabel.font = [UIFont systemFontOfSize:17];
+    _placeholderLabel.backgroundColor = [UIColor clearColor];
+    _placeholderLabel.textColor = [UIColor lightGrayColor];
+    _placeholderLabel.highlightedTextColor = [UIColor whiteColor];
+    _placeholderLabel.textAlignment = NSTextAlignmentRight;
+    [self.contentView addSubview:_placeholderLabel];
+    
     _dateFormatter = [[NSDateFormatter alloc] init];
     
     _datePicker = [[UIDatePicker alloc] init];
@@ -82,7 +90,9 @@
     _datePicker.maximumDate = self.item.maximumDate;
     _datePicker.minuteInterval = self.item.minuteInterval;
     _dateFormatter.dateFormat = self.item.format;
-    self.dateLabel.text = self.item.value ? [_dateFormatter stringFromDate:self.item.value] : @"";
+    _dateLabel.text = self.item.value ? [_dateFormatter stringFromDate:self.item.value] : @"";
+    _placeholderLabel.text = self.item.placeholder;
+    _placeholderLabel.hidden = self.dateLabel.text.length > 0;
 }
 
 - (void)layoutSubviews
@@ -108,6 +118,7 @@
     }
     frame.size.width = self.contentView.frame.size.width - frame.origin.x - cellOffset;
     _dateLabel.frame = frame;
+    _placeholderLabel.frame = _dateLabel.frame;
     
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:cellWillLayoutSubviews:)])
         [self.tableViewManager.delegate tableView:self.tableViewManager.tableView cellWillLayoutSubviews:self];
@@ -149,6 +160,7 @@
     [self setSelected:NO animated:NO];
     self.item.value = _datePicker.date;
     self.dateLabel.text = [_dateFormatter stringFromDate:self.item.value];
+    self.placeholderLabel.hidden = self.dateLabel.text.length > 0;
     return YES;
 }
 
@@ -159,6 +171,7 @@
 {
     self.item.value = _datePicker.date;
     self.dateLabel.text = [_dateFormatter stringFromDate:self.item.value];
+    self.placeholderLabel.hidden = self.dateLabel.text.length > 0;
 }
 
 @end
