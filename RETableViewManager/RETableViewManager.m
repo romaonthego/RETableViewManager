@@ -44,6 +44,17 @@ NSUInteger REDeviceSystemMajorVersion() {
 
 - (id)initWithTableView:(UITableView *)tableView delegate:(id<RETableViewManagerDelegate, UITableViewDelegate>)delegate
 {
+    self = [self initWithTableView:tableView];
+    if (!self)
+        return nil;
+    
+    self.delegate = delegate;
+    
+    return self;
+}
+
+- (id)initWithTableView:(UITableView *)tableView
+{
     self = [super init];
     if (!self)
         return nil;
@@ -52,8 +63,7 @@ NSUInteger REDeviceSystemMajorVersion() {
     tableView.dataSource = self;
     
     self.tableView = tableView;
-    self.delegate = delegate;
-    
+
     _sections = [[NSMutableArray alloc] init];
     _registeredClasses = [[NSMutableDictionary alloc] init];
     _style = [[RETableViewCellStyle alloc] init];
@@ -61,11 +71,6 @@ NSUInteger REDeviceSystemMajorVersion() {
     [self registerDefaultClasses];
     
     return self;
-}
-
-- (id)initWithTableView:(UITableView *)tableView
-{
-    return [self initWithTableView:tableView delegate:nil];
 }
 
 - (void)registerDefaultClasses
