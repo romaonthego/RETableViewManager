@@ -149,7 +149,7 @@ NSUInteger REDeviceSystemMajorVersion();
 /**
  The object that provides styling for `UITableView`. See RETableViewCellStyle reference for details.
  */
-@property (strong, readwrite, nonatomic) RETableViewCellStyle *style;
+@property (strong, readonly, nonatomic) RETableViewCellStyle *style;
 
 ///-----------------------------
 /// @name Adding sections
