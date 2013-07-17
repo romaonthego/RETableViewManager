@@ -38,22 +38,13 @@ NSUInteger REDeviceSystemMajorVersion() {
 
 - (id)init
 {
-    self = [super init];
-    if (!self)
-        return nil;
-    
-    _sections = [[NSMutableArray alloc] init];
-    _registeredClasses = [[NSMutableDictionary alloc] init];
-    _style = [[RETableViewCellStyle alloc] init];
-    
-    [self registerDefaultClasses];
-    
-    return self;
+    @throw [NSException exceptionWithName:NSGenericException reason:@"init not supported, use initWithTableView: instead." userInfo:nil];
+    return nil;
 }
 
 - (id)initWithTableView:(UITableView *)tableView delegate:(id<RETableViewManagerDelegate, UITableViewDelegate>)delegate
 {
-    self = [self init];
+    self = [super init];
     if (!self)
         return nil;
     
@@ -62,6 +53,12 @@ NSUInteger REDeviceSystemMajorVersion() {
     
     self.tableView = tableView;
     self.delegate = delegate;
+    
+    _sections = [[NSMutableArray alloc] init];
+    _registeredClasses = [[NSMutableDictionary alloc] init];
+    _style = [[RETableViewCellStyle alloc] init];
+    
+    [self registerDefaultClasses];
     
     return self;
 }
