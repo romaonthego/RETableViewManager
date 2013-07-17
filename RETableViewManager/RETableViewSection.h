@@ -290,7 +290,7 @@
 - (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray;
 
 ///-----------------------------
-/// @name Rearranging Content
+/// @name Rearranging Items
 ///-----------------------------
 
 - (void)exchangeItemAtIndex:(NSUInteger)idx1 withItemAtIndex:(NSUInteger)idx2;
