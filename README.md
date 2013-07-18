@@ -198,17 +198,17 @@ Please note that if your installation fails, it may be because you are installin
   <tr>
     <td>REFloatItem</td>
     <td>RETableViewFloatCell</td>
-    <td>Provides convenience for adjusting float values from 0.0 to 1.0.</td>
+    <td>Provides convenience for adjusting float values ranging from 0.0 to 1.0.</td>
   </tr>
   <tr>
     <td>REDateTimeItem</td>
     <td>RETableViewDateTimeCell</td>
-    <td>Provides convenience for adjusting NSDate object.</td>
+    <td>Provides convenience for modifying date in NSDate objects.</td>
   </tr>
   <tr>
     <td>RECreditCardItem</td>
     <td>RETableViewCreditCardCell</td>
-    <td>Provides convenience for a user credit card input. Allows to enter credit card numbers, expiration date and security code all in a single table cell.</td>
+    <td>Provides convenience for a user credit card input. Allows to enter a credit card number, expiration date and security code all in a single table cell.</td>
   </tr>
 </table>
 
