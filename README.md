@@ -384,6 +384,9 @@ simply write:
 _manager[@"CustomItem"] = @"CustomCell";
 ```
 
+Your custom items should be subclassed from `RETableViewItem`. Custom cells should be subclassed from `RETableViewCell`. 
+These are 2 base classes that provide all necessary logic to bound your subclasses together.
+
 ## Contact
 
 Roman Efimov
