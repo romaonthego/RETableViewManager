@@ -247,15 +247,13 @@ RETableViewSection *section = [RETableViewSection sectionWithHeaderView:myCustom
 ### Text (UITextField) and Number (REFormattedNumberField) Item Example
 
 ``` objective-c
-// Create the manager and assign it to be the delegate and datasource of your UITableView
+// Create the manager
 //
-_tableViewManager = [[RETableViewManager alloc] init];
-self.tableView.delegate = _tableViewManager;
-self.tableView.dataSource = _tableViewManager;
+_tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView];
 
 // Add a section
 //
-RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Test"];
+RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"];
 [_tableViewManager addSection:section];
 
 _textItem = [RETextItem itemWithTitle:@"Enter text" value:@""];
@@ -270,15 +268,13 @@ You can read `_textItem.value` and `_numberItem.value` later whenever you need t
 ### Bool Item (UISwitch) Example
 
 ``` objective-c
-// Create the manager and assign it to be the delegate and datasource of your UITableView
+// Create the manager
 //
-_tableViewManager = [[RETableViewManager alloc] init];
-self.tableView.delegate = _tableViewManager;
-self.tableView.dataSource = _tableViewManager;
+_tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView];
 
 // Add a section
 //
-RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Test"];
+RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"];
 [_tableViewManager addSection:section];
 
 // Add a bool value cell (using UISwitch)
@@ -291,13 +287,13 @@ RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"
 ### Radio (RETableViewOptionsController) Item Example
 
 ``` objective-c
-// Create the manager and assign it to be the delegate and datasource of your UITableView
+// Create the manager
 //
 _tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView];
 
 // Add a section
 //
-RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Test"];
+RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"];
 [_tableViewManager addSection:section];
 
 // Add radio cell (options)
@@ -326,15 +322,13 @@ RERadioItem *optionItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" 
 ### Float Item (UISlider) Example
 
 ``` objective-c
-// Create the manager and assign it to be the delegate and datasource of your UITableView
+// Create the manager
 //
-_tableViewManager = [[RETableViewManager alloc] init];
-self.tableView.delegate = _tableViewManager;
-self.tableView.dataSource = _tableViewManager;
+_tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView];
 
 // Add a section
 //
-RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"Test"];
+RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"];
 [_tableViewManager addSection:section];
 
 // Add a float item
