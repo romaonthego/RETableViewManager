@@ -123,15 +123,15 @@ Please note that if your installation fails, it may be because you are installin
   <tr><th colspan="2" style="text-align:center;">Key Classes</th></tr>
   <tr>
     <td>RETableViewManager</td>
-    <td>Main manager class. Each manager has multiple <tt>RETableViewSection</tt> sections.</td>
+    <td>The manager class. Each manager has multiple <tt>RETableViewSection</tt> sections.</td>
   </tr>
   <tr>
     <td>RETableViewSection</td>
-    <td>Represents sections in RETableViewManager, each section has multiple <tt>RETableViewItem</tt>.</td>
+    <td>Represents sections in RETableViewManager, each section has multiple <tt>RETableViewItem</tt> items.</td>
   </tr>
   <tr>
     <td>RETableViewItem</td>
-    <td>RETableViewItem is the root class of most <tt>RETableViewManager</tt> item hierarchies.<br />
+    <td><tt>RETableViewItem</tt> is the root class of most <tt>RETableViewManager</tt> item hierarchies.<br />
     Through <tt>RETableViewItem</tt>, items inherit a basic interface that communicates with <tt>RETableViewCell</tt> and <tt>RETableViewManager</tt>.</td>
   </tr>
   <tr>
