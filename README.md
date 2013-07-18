@@ -340,6 +340,23 @@ RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"
 }]];
 ```
 
+### Date Item (UISlider) Example
+
+``` objective-c
+// Create the manager
+//
+_tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView];
+
+// Add a section
+//
+RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"];
+[_tableViewManager addSection:section];
+
+// Add a float item
+//
+[section addItem:[REDateTimeItem itemWithTitle:@"Date / Time" value:[NSDate date] placeholder:nil format:@"MM/dd/yyyy hh:mm a" datePickerMode:UIDatePickerModeDateAndTime]];
+```
+
 ### Custom Cells
 
 `RETableViewManager` allows to map custom objects to custom cells. In order to map your custom object (an item) to a cell,
