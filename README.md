@@ -149,12 +149,12 @@ Please note that if your installation fails, it may be because you are installin
   <tr><th colspan="2" style="text-align:center;">Helper Controllers</th></tr>
   <tr>
     <td>RETableViewOptionsController</td>
-    <td>Performs selection based on user input and provides result on completion. Should be used with RERadioItem.
+    <td>Performs selection based on user input and provides result on completion. Should be used with <tt>RERadioItem</tt>.
     </td>
   </tr>
 </table>
 
-RETableViewManager includes a number of built-in items and cells that were mapped with each other so you don't have to.
+`RETableViewManager` includes a number of built-in items and cells that perform common tasks (text input, date input and so on).
 
 <table>
   <tr><th colspan="3" style="text-align:center;">Built-in Items and Cells</th></tr>
