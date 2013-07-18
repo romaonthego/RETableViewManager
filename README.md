@@ -375,6 +375,15 @@ RETableViewSection *section = [[RETableViewSection alloc] initWithHeaderTitle:@"
 }]];
 ```
 
+### Custom Cells
+
+`RETableViewManager` allows to map custom objects to custom cells. In order to map your custom object (an item) to a cell,
+simply write:
+
+```objective-c
+_manager[@"CustomItem"] = @"CustomCell";
+```
+
 ## Contact
 
 Roman Efimov
