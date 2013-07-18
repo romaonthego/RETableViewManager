@@ -101,8 +101,8 @@
     self.textField.frame = CGRectNull;
     self.textField.alpha = 0;
     
-    CGFloat cellOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 40;
-    CGFloat fieldOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 40;
+    CGFloat cellOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 10;
+    CGFloat fieldOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 10;
     CGFloat width = 0;
     CGRect frame = CGRectMake(0, self.tableViewManager.style.textFieldPositionOffset.height - 1, 0, self.contentView.frame.size.height - self.tableViewManager.style.textFieldPositionOffset.height);
     if (self.item.title && ![self.item.title isEqualToString:@""]) {
