@@ -68,7 +68,7 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
 {
     [super cellDidLoad];
     
-    _creditCardImageViewContainer = [[UIView alloc] initWithFrame:CGRectMake(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 46, 5, 32, 32)];
+    _creditCardImageViewContainer = [[UIView alloc] initWithFrame:CGRectMake(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 10, 5, 32, 32)];
     [self.contentView addSubview:_creditCardImageViewContainer];
     
     _creditCardStackImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
@@ -85,7 +85,7 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     _creditCardBackImageView.image = [UIImage imageNamed:@"RETableViewManager.bundle/Card_Back"];
     _creditCardBackImageView.tag = 2;
     
-    _wrapperView = [[UIView alloc] initWithFrame:CGRectMake(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 60 : 96 + _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 70, self.frame.size.height)];
+    _wrapperView = [[UIView alloc] initWithFrame:CGRectMake(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 60 : 60 + _textFieldPositionOffset.width, _textFieldPositionOffset.height, self.frame.size.width - 70, self.frame.size.height)];
     _wrapperView.clipsToBounds = YES;
     [self.contentView addSubview:_wrapperView];
     
@@ -147,17 +147,17 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     [_cvvField sizeToFit];
     
     CGRect frame = _creditCardField.frame;
-    frame.size.width += UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 30 : 40;
+    frame.size.width += UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 30 : 50;
     frame.size.height = self.contentView.frame.size.height;
     _creditCardField.frame = frame;
     
     frame = _expirationDateField.frame;
-    frame.size.width += UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 30 : 40;
+    frame.size.width += UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 30 : 50;
     frame.size.height = self.contentView.frame.size.height;
     _expirationDateField.frame = frame;
     
     frame = _cvvField.frame;
-    frame.size.width += UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 30 : 40;
+    frame.size.width += UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 30 : 50;
     frame.size.height = self.contentView.frame.size.height;
     _cvvField.frame = frame;
     
