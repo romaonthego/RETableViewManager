@@ -432,7 +432,7 @@ You might want to create cell subviews here. This method will be called only onc
 - (void)cellWillAppear;
 ```
 
-`cellWillAppear` is great place to assign values to labels (from your custom item), adjust colors, etc.
+`cellWillAppear` is a great place to assign values to labels (from your custom item), adjust colors, etc.
 
 Quick example:
 
