@@ -256,6 +256,8 @@ _tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView
 RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"];
 [_tableViewManager addSection:section];
 
+// Add items to the section
+//
 _textItem = [RETextItem itemWithTitle:@"Enter text" value:@""];
 [section addItem:_textItem];
 
