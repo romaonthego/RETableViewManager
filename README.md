@@ -340,7 +340,7 @@ RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"
 }]];
 ```
 
-### Date Item (UISlider) Example
+### Date Item Example
 
 ``` objective-c
 // Create the manager
@@ -352,7 +352,7 @@ _tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView
 RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"];
 [_tableViewManager addSection:section];
 
-// Add a float item
+// Add a date item
 //
 [section addItem:[REDateTimeItem itemWithTitle:@"Date / Time" value:[NSDate date] placeholder:nil format:@"MM/dd/yyyy hh:mm a" datePickerMode:UIDatePickerModeDateAndTime]];
 ```
