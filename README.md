@@ -208,7 +208,7 @@ Please note that if your installation fails, it may be because you are installin
   <tr>
     <td>RECreditCardItem</td>
     <td>RETableViewCreditCardCell</td>
-    <td>Provides convenience for a user credit card input. Allows to enter a credit card number, expiration date and security code all in a single table cell.</td>
+    <td>Provides convenience for a user credit card input. Allows to enter a credit card number, expiration date and security code, all in a single table cell.</td>
   </tr>
 </table>
 
@@ -242,37 +242,6 @@ Section with a custom title view:
 ``` objective-c
 RETableViewSection *section = [RETableViewSection sectionWithHeaderView:myCustomSectionHeaderView];
 [_tableViewManager addSection:section];
-```
-
-### Item to Cell Mapping Example
-
-It's super easy to create custom mappings, the concept is similiar to `UICollectionView`.
-For example, this how all `NSString` objects are being mapped to `RETableViewCell`:
-
-``` objective-c
-_tableViewManager[@"NSString"] = @"RETableViewCell";
-```
-
-If you take a look at [RETableViewManager Source Code](https://github.com/romaonthego/RETableViewManager/blob/master/RETableViewManager/RETableViewManager.m) you may
-find out how default mapping is performed:
-
-``` objective-c
-- (void)registerDefaultClasses
-{
-    self[@"__NSCFConstantString"] = @"RETableViewCell";
-    self[@"__NSCFString"] = @"RETableViewCell";
-    self[@"NSString"] = @"RETableViewCell";
-    self[@"RETableViewItem"] = @"RETableViewCell";
-    self[@"RERadioItem"] = @"RETableViewOptionCell";
-    self[@"REBoolItem"] = @"RETableViewBoolCell";
-    self[@"RETextItem"] = @"RETableViewTextCell";
-    self[@"RELongTextItem"] = @"RETableViewLongTextCell";
-    self[@"RENumberItem"] = @"RETableViewNumberCell";
-    self[@"REFloatItem"] = @"RETableViewFloatCell";
-    self[@"REDateTimeItem"] = @"RETableViewDateTimeCell";
-    self[@"RECreditCardItem"] = @"RETableViewCreditCardCell";
-    self[@"REMultipleChoiceItem"] = @"RETableViewOptionCell";
-}
 ```
 
 ### Text (UITextField) and Number (REFormattedNumberField) Item Example
@@ -383,6 +352,29 @@ simply write:
 ```objective-c
 _manager[@"CustomItem"] = @"CustomCell";
 ```
+
+If you take a look at [RETableViewManager Source Code](https://github.com/romaonthego/RETableViewManager/blob/master/RETableViewManager/RETableViewManager.m) you may
+find out how default mapping is performed:
+
+``` objective-c
+- (void)registerDefaultClasses
+{
+    self[@"__NSCFConstantString"] = @"RETableViewCell";
+    self[@"__NSCFString"] = @"RETableViewCell";
+    self[@"NSString"] = @"RETableViewCell";
+    self[@"RETableViewItem"] = @"RETableViewCell";
+    self[@"RERadioItem"] = @"RETableViewOptionCell";
+    self[@"REBoolItem"] = @"RETableViewBoolCell";
+    self[@"RETextItem"] = @"RETableViewTextCell";
+    self[@"RELongTextItem"] = @"RETableViewLongTextCell";
+    self[@"RENumberItem"] = @"RETableViewNumberCell";
+    self[@"REFloatItem"] = @"RETableViewFloatCell";
+    self[@"REDateTimeItem"] = @"RETableViewDateTimeCell";
+    self[@"RECreditCardItem"] = @"RETableViewCreditCardCell";
+    self[@"REMultipleChoiceItem"] = @"RETableViewOptionCell";
+}
+```
+
 
 Your custom items should be subclassed from `RETableViewItem`. Custom cells should be subclassed from `RETableViewCell`. 
 These are 2 base classes that provide all necessary logic to bound your subclasses together.
