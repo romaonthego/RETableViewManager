@@ -410,7 +410,7 @@ After that your custom object (item) is ready to use within the cell.
 
 There are 3 basic methods of `RETableViewCell` that you need to implement:
 
-1. Class method to adjust cell size:
+* Class method to adjust cell size:
 
 ```objective-c
 + (CGFloat)heightWithItem:(RETableViewItem *)item tableViewManager:(RETableViewManager *)tableViewManager;
@@ -418,7 +418,7 @@ There are 3 basic methods of `RETableViewCell` that you need to implement:
 
 Your custom item will be passed to this method in order to determine cell size. You need to return the calculated size.
 
-2. Instance method that is being fired when the cell is being created.
+* Instance method that is being fired when the cell is being created.
 
 ```objective-c
 - (void)cellDidLoad;
@@ -426,7 +426,7 @@ Your custom item will be passed to this method in order to determine cell size. 
 
 You might want to create cell subviews here. This method will be called only once, after that the cell will be reused.
 
-3. Instance method that is being fired each time the cell is being reused.
+* Instance method that is being fired each time the cell is being reused.
 
 ```objective-c
 - (void)cellWillAppear;
