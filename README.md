@@ -15,7 +15,7 @@ It fully implements `UITableViewDelegate` and `UITableViewDataSource` protocols 
 
 ### Quick Example
 
-Get your `UITableView` up and running in couple minutes:
+Get your `UITableView` up and running in couple of minutes:
 
 ``` objective-c
 - (void)viewDidLoad
