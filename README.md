@@ -13,6 +13,8 @@ It fully implements `UITableViewDelegate` and `UITableViewDataSource` protocols 
 
 <img src="https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot2.png" alt="RETableViewManager Screenshot" width="684" height="568" />
 
+<img src="https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot3.png" alt="RETableViewManager Screenshot" width="320" height="568" />
+
 ### Quick Example
 
 Get your `UITableView` up and running in couple of minutes:
@@ -389,11 +391,11 @@ find out how default mapping is performed:
 ```
 
 
-Your custom items should be subclassed from `RETableViewItem`. Custom cells should be subclassed from `RETableViewCell`. 
+Your custom items should be subclassed from `RETableViewItem`. Custom cells should be subclassed from `RETableViewCell`.
 These are 2 base classes that provide all necessary logic to bound your subclasses together.
 
 In your `RETableViewCell` subclass you need to link an `item` object with your item. This could be simply done by declaring
-it: 
+it:
 
 ```objective-c
 #import <RETableViewManager/RETableViewManager.h>
