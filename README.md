@@ -166,24 +166,24 @@ Please note that if your installation fails, it may be because you are installin
   <tr>
     <td>RETextItem</td>
     <td>RETableViewTextCell</td>
-    <td>Provides convenience for user text input. You can set a bunch of properties through <tt>RETextItem</tt> that you would
+    <td>Provides convenience for a user text input. You can set a bunch of properties through <tt>RETextItem</tt> that you would
     normally find in <tt>UITextField</tt>.</td>
   </tr>
   <tr>
     <td>RELongTextItem</td>
     <td>RETableViewLongTextCell</td>
-    <td>Provides convenience for multiline user text input. You can set a bunch of properties through <tt>RELongTextItem</tt> that you would
+    <td>Provides convenience for a multiline user text input. You can set a bunch of properties through <tt>RELongTextItem</tt> that you would
     normally find in <tt>UITextView</tt>.</td>
   </tr>
   <tr>
     <td>RENumberItem</td>
     <td>RETableViewNumberCell</td>
-    <td>Provides convenience for user number input using <a href="https://github.com/romaonthego/REFormattedNumberField">REFormattedNumberField</a>.</td>
+    <td>Provides convenience for a user number input using <a href="https://github.com/romaonthego/REFormattedNumberField">REFormattedNumberField</a>.</td>
   </tr>
   <tr>
     <td>REBoolItem</td>
     <td>RETableViewBoolCell</td>
-    <td>Provides convenience for user boolean input using <tt>UISwitch</tt>.</td>
+    <td>Provides convenience for a user boolean input using <tt>UISwitch</tt>.</td>
   </tr>
   <tr>
     <td>RERadioItem</td>
@@ -208,7 +208,7 @@ Please note that if your installation fails, it may be because you are installin
   <tr>
     <td>RECreditCardItem</td>
     <td>RETableViewCreditCardCell</td>
-    <td>Provides convenience for user credit card input. Allows to enter credit card number, expiration date and security code all in one table cell.</td>
+    <td>Provides convenience for a user credit card input. Allows to enter credit card numbers, expiration date and security code all in a single table cell.</td>
   </tr>
 </table>
 
