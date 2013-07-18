@@ -387,6 +387,22 @@ _manager[@"CustomItem"] = @"CustomCell";
 Your custom items should be subclassed from `RETableViewItem`. Custom cells should be subclassed from `RETableViewCell`. 
 These are 2 base classes that provide all necessary logic to bound your subclasses together.
 
+In your `RETableViewCell` subclass you need to link an `item` object with your item. This could be simply done by declaring
+it: 
+
+```objective-c
+#import <RETableViewManager/RETableViewManager.h>
+#import "CustomItem.h"
+
+@interface CustomCell : RETableViewCell
+
+@property (strong, readwrite, nonatomic) CustomItem *item;
+
+@end
+```
+
+After that your custom object (item) is ready to use within the cell.
+
 ## Contact
 
 Roman Efimov
