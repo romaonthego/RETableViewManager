@@ -31,11 +31,6 @@
 #pragma mark -
 #pragma mark Creating and Initializing Sections
 
-/*
- * Static initialization methods
- *
- */
-
 + (id)section
 {
     return [[self alloc] init];
