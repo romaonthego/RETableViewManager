@@ -153,6 +153,9 @@ NSUInteger REDeviceSystemMajorVersion() {
         cell = [[cellClass alloc] initWithStyle:cellStyle reuseIdentifier:cellIdentifier];
         cell.tableViewManager = self;
         [cell cellDidLoad];
+        
+        // RETableViewManagerDelegae
+        //
         if ([_delegate respondsToSelector:@selector(tableView:willLoadCell:forRowAtIndexPath:)])
             [_delegate tableView:tableView willLoadCell:cell forRowAtIndexPath:indexPath];
     }
