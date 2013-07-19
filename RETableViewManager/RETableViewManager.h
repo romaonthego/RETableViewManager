@@ -342,5 +342,6 @@ NSUInteger REDeviceSystemMajorVersion();
 
 - (void)tableView:(UITableView *)tableView styleCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)tableView:(UITableView *)tableView cellWillLayoutSubviews:(UITableViewCell *)cell;
+- (void)tableView:(UITableView *)tableView willLoadCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
