@@ -156,7 +156,7 @@ NSUInteger REDeviceSystemMajorVersion() {
         
         // RETableViewManagerDelegate
         //
-        if ([_delegate respondsToSelector:@selector(tableView:willLoadCell:forRowAtIndexPath:)])
+        if ([_delegate conformsToProtocol:@protocol(RETableViewManagerDelegate)] && [_delegate respondsToSelector:@selector(tableView:willLoadCell:forRowAtIndexPath:)])
             [_delegate tableView:tableView willLoadCell:cell forRowAtIndexPath:indexPath];
     }
     
