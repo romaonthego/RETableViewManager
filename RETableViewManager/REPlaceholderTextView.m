@@ -52,9 +52,8 @@
 
 - (void)textChanged:(NSNotification *)notification
 {
-    if (self.placeholder.length == 0) {
+    if (self.placeholder.length == 0)
         return;
-    }
     
     if (self.text.length == 0) {
         [[self viewWithTag:999] setAlpha:1];
