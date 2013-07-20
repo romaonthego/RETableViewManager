@@ -44,9 +44,9 @@
 }
 
 #pragma mark -
-#pragma mark RETableViewManagerDelegate
+#pragma mark UITableViewDelegate
 
-- (void)tableView:(UITableView *)tableView styleCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.textLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:16];
 }
