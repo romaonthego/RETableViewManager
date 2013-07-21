@@ -61,8 +61,8 @@
     [super layoutSubviews];
     _switchView.frame = CGRectMake(self.contentView.frame.size.width - _switchView.frame.size.width - 10.0, (self.contentView.frame.size.height - _switchView.frame.size.height) / 2.0, _switchView.frame.size.width, _switchView.frame.size.height);
     
-    if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:cellWillLayoutSubviews:)])
-        [self.tableViewManager.delegate tableView:self.tableViewManager.tableView cellWillLayoutSubviews:self];
+    if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:)])
+        [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self];
 }
 
 #pragma mark -

@@ -106,8 +106,8 @@
     frame.size.width = self.contentView.frame.size.width - frame.origin.x - cellOffset + 8;
     _textView.frame = frame;
     
-    if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:cellWillLayoutSubviews:)])
-        [self.tableViewManager.delegate tableView:self.tableViewManager.tableView cellWillLayoutSubviews:self];
+    if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:)])
+        [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self];
 }
 
 
