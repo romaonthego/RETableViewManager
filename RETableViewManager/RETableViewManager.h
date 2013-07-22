@@ -344,7 +344,8 @@ NSUInteger REDeviceSystemMajorVersion();
  Tells the delegate the table view is about to layout a cell for a particular row.
  
  @param tableView The table-view object informing the delegate of this impending event.
- @param A table-view cell object that tableView is going to use when drawing the row.
+ @param cell A table-view cell object that tableView is going to use when drawing the row.
+ @param indexPath An index path locating the row in tableView.
  */
 - (void)tableView:(UITableView *)tableView willLayoutCellSubviews:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)tableView:(UITableView *)tableView willLoadCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
