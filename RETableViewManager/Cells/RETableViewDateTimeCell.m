@@ -120,8 +120,8 @@
     _dateLabel.frame = frame;
     _placeholderLabel.frame = _dateLabel.frame;
     
-    if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:)])
-        [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self];
+    if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:forRowAtIndexPath:)])
+        [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self forRowAtIndexPath:[(UITableView *)self.superview indexPathForCell:self]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
