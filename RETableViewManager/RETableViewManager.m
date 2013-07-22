@@ -172,9 +172,6 @@ NSUInteger REDeviceSystemMajorVersion() {
     
     [cell cellWillAppear];
     
-    if ([_delegate respondsToSelector:@selector(tableView:styleCell:atIndexPath:)])
-        [_delegate tableView:tableView styleCell:cell atIndexPath:indexPath];
-    
     return cell;
 }
 
