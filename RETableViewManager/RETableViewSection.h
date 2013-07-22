@@ -314,6 +314,11 @@
 /// @name Manipulating table view section
 ///-----------------------------
 
+/**
+ *	Reloads the section using a given animation effect.
+ *
+ *	@param	animation	A constant that indicates how the reloading is to be animated
+ */
 - (void)reloadSectionWithAnimation:(UITableViewRowAnimation)animation;
 
 @end
