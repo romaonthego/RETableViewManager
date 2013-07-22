@@ -78,6 +78,8 @@
 	
 	<option value="//api/name/addItemsFromArray:">&nbsp;&nbsp;&nbsp;&nbsp;- addItemsFromArray:</option>
 	
+	<option value="//api/name/exchangeItemAtIndex:withItemAtIndex:">&nbsp;&nbsp;&nbsp;&nbsp;- exchangeItemAtIndex:withItemAtIndex:</option>
+	
 	<option value="//api/name/initWithHeaderTitle:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithHeaderTitle:</option>
 	
 	<option value="//api/name/initWithHeaderTitle:footerTitle:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithHeaderTitle:footerTitle:</option>
@@ -89,6 +91,8 @@
 	<option value="//api/name/insertItem:atIndex:">&nbsp;&nbsp;&nbsp;&nbsp;- insertItem:atIndex:</option>
 	
 	<option value="//api/name/insertItems:atIndexes:">&nbsp;&nbsp;&nbsp;&nbsp;- insertItems:atIndexes:</option>
+	
+	<option value="//api/name/reloadSectionWithAnimation:">&nbsp;&nbsp;&nbsp;&nbsp;- reloadSectionWithAnimation:</option>
 	
 	<option value="//api/name/removeAllItems">&nbsp;&nbsp;&nbsp;&nbsp;- removeAllItems</option>
 	
@@ -116,7 +120,11 @@
 	
 	<option value="//api/name/replaceItemsInRange:withItemsFromArray:">&nbsp;&nbsp;&nbsp;&nbsp;- replaceItemsInRange:withItemsFromArray:</option>
 	
+	<option value="//api/name/replaceItemsInRange:withItemsFromArray:range:">&nbsp;&nbsp;&nbsp;&nbsp;- replaceItemsInRange:withItemsFromArray:range:</option>
+	
 	<option value="//api/name/replaceItemsWithItemsFromArray:">&nbsp;&nbsp;&nbsp;&nbsp;- replaceItemsWithItemsFromArray:</option>
+	
+	<option value="//api/name/sortItemsUsingFunction:context:">&nbsp;&nbsp;&nbsp;&nbsp;- sortItemsUsingFunction:context:</option>
 	
 	
 	
@@ -141,6 +149,10 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Removing Items">Removing Items</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Replacing Items">Replacing Items</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Rearranging Items">Rearranging Items</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Manipulating table view section">Manipulating table view section</a></span></li>
 	
 </ul></li>
 
@@ -190,6 +202,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addItemsFromArray:">addItemsFromArray:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/exchangeItemAtIndex:withItemAtIndex:">exchangeItemAtIndex:withItemAtIndex:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithHeaderTitle:">initWithHeaderTitle:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithHeaderTitle:footerTitle:">initWithHeaderTitle:footerTitle:</a></span></li>
@@ -201,6 +215,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/insertItem:atIndex:">insertItem:atIndex:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/insertItems:atIndexes:">insertItems:atIndexes:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/reloadSectionWithAnimation:">reloadSectionWithAnimation:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeAllItems">removeAllItems</a></span></li>
 	
@@ -228,7 +244,11 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/replaceItemsInRange:withItemsFromArray:">replaceItemsInRange:withItemsFromArray:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/replaceItemsInRange:withItemsFromArray:range:">replaceItemsInRange:withItemsFromArray:range:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/replaceItemsWithItemsFromArray:">replaceItemsWithItemsFromArray:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sortItemsUsingFunction:context:">sortItemsUsingFunction:context:</a></span></li>
 	
 </ul></li>
 
@@ -542,7 +562,14 @@
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/replaceItemsAtIndexes:withItems:">&ndash;&nbsp;replaceItemsAtIndexes:withItems:</a></code>
-		<span class="tooltip"><p>Replaces the <a href="#//api/name/items">items</a> in the <a href="#//api/name/section">section</a> at specified locations specified with the <a href="#//api/name/items">items</a> from a given sections array.</p></span>
+		<span class="tooltip"><p>Replaces the <a href="#//api/name/items">items</a> in the <a href="#//api/name/section">section</a> at specified locations specified with the <a href="#//api/name/items">items</a> from a given array.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/replaceItemsInRange:withItemsFromArray:range:">&ndash;&nbsp;replaceItemsInRange:withItemsFromArray:range:</a></code>
+		<span class="tooltip"><p>Replaces the <a href="#//api/name/items">items</a> in the <a href="#//api/name/section">section</a> by one given range with the <a href="#//api/name/items">items</a> in another array specified by another range.</p></span>
 	</span>
 	
 	
@@ -550,6 +577,43 @@
 	<span class="tooltip">
 		<code><a href="#//api/name/replaceItemsInRange:withItemsFromArray:">&ndash;&nbsp;replaceItemsInRange:withItemsFromArray:</a></code>
 		<span class="tooltip"><p>Replaces the <a href="#//api/name/items">items</a> in the <a href="#//api/name/section">section</a> specified by a given range with all of the <a href="#//api/name/items">items</a> from a given array.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Rearranging Items" name="task_Rearranging Items"></a>
+						<h3 class="subsubtitle task-title">Rearranging Items</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/exchangeItemAtIndex:withItemAtIndex:">&ndash;&nbsp;exchangeItemAtIndex:withItemAtIndex:</a></code>
+		<span class="tooltip"><p>Exchanges the <a href="#//api/name/items">items</a> in the <a href="#//api/name/section">section</a> at given indices.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sortItemsUsingFunction:context:">&ndash;&nbsp;sortItemsUsingFunction:context:</a></code>
+		<span class="tooltip"><p>Sorts the <a href="#//api/name/items">items</a> in ascending order as defined by the comparison function compare.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Manipulating table view section" name="task_Manipulating table view section"></a>
+						<h3 class="subsubtitle task-title">Manipulating table view section</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/reloadSectionWithAnimation:">&ndash;&nbsp;reloadSectionWithAnimation:</a></code>
+		<span class="tooltip"><p>  Reloads the <a href="#//api/name/section"><code>section</code></a> using a given animation effect.</p></span>
 	</span>
 	
 	
@@ -1257,6 +1321,62 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/exchangeItemAtIndex:withItemAtIndex:" title="exchangeItemAtIndex:withItemAtIndex:"></a>
+	<h3 class="subsubtitle method-title">exchangeItemAtIndex:withItemAtIndex:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Exchanges the <a href="#//api/name/items">items</a> in the <a href="#//api/name/section">section</a> at given indices.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)exchangeItemAtIndex:(NSUInteger)<em>idx1</em> withItemAtIndex:(NSUInteger)<em>idx2</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>idx1</em></dt>
+			<dd><p>The <a href="#//api/name/index">index</a> of the item with which to replace the item at <a href="#//api/name/index">index</a> idx2.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>idx2</em></dt>
+			<dd><p>The <a href="#//api/name/index">index</a> of the <a href="#//api/name/items">items</a> with which to replace the item at <a href="#//api/name/index">index</a> idx1.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Exchanges the <a href="#//api/name/items">items</a> in the <a href="#//api/name/section">section</a> at given indices.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">RETableViewSection.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/initWithHeaderTitle:" title="initWithHeaderTitle:"></a>
 	<h3 class="subsubtitle method-title">initWithHeaderTitle:</h3>
 	
@@ -1586,6 +1706,57 @@
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Inserts the <a href="#//api/name/items">items</a> in the provided <a href="#//api/name/items">items</a> array into the <a href="#//api/name/section">section</a> at the specified indexes.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">RETableViewSection.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/reloadSectionWithAnimation:" title="reloadSectionWithAnimation:"></a>
+	<h3 class="subsubtitle method-title">reloadSectionWithAnimation:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>  Reloads the <a href="#//api/name/section"><code>section</code></a> using a given animation effect.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)reloadSectionWithAnimation:(UITableViewRowAnimation)<em>animation</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>animation</em></dt>
+			<dd><p>A constant that indicates how the reloading is to be animated</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>  Reloads the <a href="#//api/name/section"><code>section</code></a> using a given animation effect.</p>
 	</div>
 	
 	
@@ -2165,7 +2336,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Replaces the <a href="#//api/name/items">items</a> in the <a href="#//api/name/section">section</a> at specified locations specified with the <a href="#//api/name/items">items</a> from a given sections array.</p>
+		<p>Replaces the <a href="#//api/name/items">items</a> in the <a href="#//api/name/section">section</a> at specified locations specified with the <a href="#//api/name/items">items</a> from a given array.</p>
 	</div>		
 	
     
@@ -2197,7 +2368,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Replaces the <a href="#//api/name/items">items</a> in the <a href="#//api/name/section">section</a> at specified locations specified with the <a href="#//api/name/items">items</a> from a given sections array.</p>
+		<p>Replaces the <a href="#//api/name/items">items</a> in the <a href="#//api/name/section">section</a> at specified locations specified with the <a href="#//api/name/items">items</a> from a given array.</p>
 	</div>
 	
 	
@@ -2271,6 +2442,67 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/replaceItemsInRange:withItemsFromArray:range:" title="replaceItemsInRange:withItemsFromArray:range:"></a>
+	<h3 class="subsubtitle method-title">replaceItemsInRange:withItemsFromArray:range:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Replaces the <a href="#//api/name/items">items</a> in the <a href="#//api/name/section">section</a> by one given range with the <a href="#//api/name/items">items</a> in another array specified by another range.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)replaceItemsInRange:(NSRange)<em>range</em> withItemsFromArray:(NSArray *)<em>otherArray</em> range:(NSRange)<em>otherRange</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>range</em></dt>
+			<dd><p>The range of <a href="#//api/name/items">items</a> to replace in (or remove from) the <a href="#//api/name/section">section</a>.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>otherArray</em></dt>
+			<dd><p>The array of <a href="#//api/name/items">items</a> from which to select replacements for the <a href="#//api/name/items">items</a> in range.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>otherRange</em></dt>
+			<dd><p>The range of <a href="#//api/name/items">items</a> to select from otherArray as replacements for the <a href="#//api/name/items">items</a> in range.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Replaces the <a href="#//api/name/items">items</a> in the <a href="#//api/name/section">section</a> by one given range with the <a href="#//api/name/items">items</a> in another array specified by another range.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">RETableViewSection.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/replaceItemsWithItemsFromArray:" title="replaceItemsWithItemsFromArray:"></a>
 	<h3 class="subsubtitle method-title">replaceItemsWithItemsFromArray:</h3>
 	
@@ -2321,6 +2553,62 @@
 	
 </div>
 						
+						<div class="section-method">
+	<a name="//api/name/sortItemsUsingFunction:context:" title="sortItemsUsingFunction:context:"></a>
+	<h3 class="subsubtitle method-title">sortItemsUsingFunction:context:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sorts the <a href="#//api/name/items">items</a> in ascending order as defined by the comparison function compare.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)sortItemsUsingFunction:(NSInteger ( *) ( id , id , void *))<em>compare</em> context:(void *)<em>context</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>compare</em></dt>
+			<dd><p>The comparison function to use to compare two <a href="#//api/name/items">items</a> at a time.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>context</em></dt>
+			<dd><p>The context argument to pass to the compare function.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Sorts the <a href="#//api/name/items">items</a> in ascending order as defined by the comparison function compare.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">RETableViewSection.h</code><br />
+	</div>				
+	
+	
+</div>
+						
 					</div>
 					
 					
@@ -2334,7 +2622,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Roman Efimov. All rights reserved. (Last updated: 2013-07-16)</span><br />
+						<p><span class="copyright">&copy; 2013 Roman Efimov. All rights reserved. (Last updated: 2013-07-22)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
