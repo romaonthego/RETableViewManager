@@ -52,14 +52,19 @@ typedef enum _RETableViewCellType {
 @property (weak, readwrite, nonatomic) RETableViewManager *tableViewManager;
 
 ///-----------------------------
+/// @name Managing Cell Class
+///-----------------------------
+
++ (CGFloat)heightWithItem:(RETableViewItem *)item tableViewManager:(RETableViewManager *)tableViewManager;
++ (BOOL)canFocusWithItem:(RETableViewItem *)item;
+
+///-----------------------------
 /// @name Managing Cell Appearance
 ///-----------------------------
 
 @property (strong, readonly, nonatomic) UIImageView *backgroundImageView;
 @property (strong, readonly, nonatomic) UIImageView *selectedBackgroundImageView;
 @property (strong, readwrite, nonatomic) REActionBar *actionBar;
-
-+ (CGFloat)heightWithItem:(RETableViewItem *)item tableViewManager:(RETableViewManager *)tableViewManager;
 
 - (void)updateActionBarNavigationControl;
 
@@ -75,8 +80,6 @@ typedef enum _RETableViewCellType {
 @property (strong, readonly, nonatomic) UIResponder *responder;
 @property (strong, readonly, nonatomic) NSIndexPath *indexPathForPreviousResponder;
 @property (strong, readonly, nonatomic) NSIndexPath *indexPathForNextResponder;
-
-+ (BOOL)canFocusWithItem:(RETableViewItem *)item;
 
 ///-----------------------------
 /// @name Handling Cell Events
