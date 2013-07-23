@@ -38,14 +38,28 @@ typedef enum _RETableViewCellType {
     RETableViewCellTypeAny
 } RETableViewCellType;
 
+/**
+ The `RETableViewCell` class defines the attributes and behavior of the cells that appear in UITableView objects.
+ 
+ */
 @interface RETableViewCell : UITableViewCell <REActionBarDelegate>
+
+///-----------------------------
+/// @name Managing Background Images
+///-----------------------------
 
 @property (strong, readonly, nonatomic) UIImageView *backgroundImageView;
 @property (strong, readonly, nonatomic) UIImageView *selectedBackgroundImageView;
-@property (assign, readwrite, nonatomic) NSInteger row;
-@property (assign, readwrite, nonatomic) NSInteger sectionIndex;
+
+///-----------------------------
+/// @name Accessing Table View and Table View Manager
+///-----------------------------
+
 @property (weak, readwrite, nonatomic) UITableView *parentTableView;
 @property (weak, readwrite, nonatomic) RETableViewManager *tableViewManager;
+
+@property (assign, readwrite, nonatomic) NSInteger row;
+@property (assign, readwrite, nonatomic) NSInteger sectionIndex;
 @property (weak, readwrite, nonatomic) RETableViewSection *section;
 @property (strong, readwrite, nonatomic) RETableViewItem *item;
 @property (strong, readwrite, nonatomic) REActionBar *actionBar;
