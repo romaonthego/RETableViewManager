@@ -58,7 +58,7 @@
 @property (strong, readwrite, nonatomic) UIView *footerView;
 
 /**
- The title of of this section.
+ The table view manager of this section.
  */
 @property (weak, readwrite, nonatomic) RETableViewManager *tableViewManager;
 
