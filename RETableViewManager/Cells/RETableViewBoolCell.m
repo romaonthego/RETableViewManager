@@ -59,7 +59,11 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    _switchView.frame = CGRectMake(self.contentView.frame.size.width - _switchView.frame.size.width - 10.0, (self.contentView.frame.size.height - _switchView.frame.size.height) / 2.0, _switchView.frame.size.width, _switchView.frame.size.height);
+    CGFloat cellOffset = 10.0;
+    if (REDeviceSystemMajorVersion() >= 7.0 && self.tableViewManager.style.contentViewMargin <= 0)
+        cellOffset += 5.0;
+    
+    _switchView.frame = CGRectMake(self.contentView.frame.size.width - _switchView.frame.size.width - cellOffset, (self.contentView.frame.size.height - _switchView.frame.size.height) / 2.0, _switchView.frame.size.width, _switchView.frame.size.height);
     
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:forRowAtIndexPath:)])
         [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self forRowAtIndexPath:[(UITableView *)self.superview indexPathForCell:self]];
