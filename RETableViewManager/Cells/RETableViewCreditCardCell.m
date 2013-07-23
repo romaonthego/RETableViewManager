@@ -68,7 +68,12 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
 {
     [super cellDidLoad];
     
-    _creditCardImageViewContainer = [[UIView alloc] initWithFrame:CGRectMake(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 10, 5, 32, 32)];
+    CGFloat cellOffset = 10.0;
+    
+    if (REDeviceSystemMajorVersion() >= 7.0 && self.tableViewManager.style.contentViewMargin <= 0)
+        cellOffset += 5.0;
+    
+    _creditCardImageViewContainer = [[UIView alloc] initWithFrame:CGRectMake(cellOffset, 5, 32, 32)];
     [self.contentView addSubview:_creditCardImageViewContainer];
     
     _creditCardStackImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
