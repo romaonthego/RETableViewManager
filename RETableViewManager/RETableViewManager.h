@@ -348,6 +348,14 @@ NSUInteger REDeviceSystemMajorVersion();
  @param indexPath An index path locating the row in tableView.
  */
 - (void)tableView:(UITableView *)tableView willLayoutCellSubviews:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
+
+/*
+ Tells the delegate the table view is about to create a cell for a particular row and make it reusable.
+ 
+ @param tableView The table-view object informing the delegate of this impending event.
+ @param cell A table-view cell object that tableView is going to create.
+ @param indexPath An index path locating the row in tableView.
+ */
 - (void)tableView:(UITableView *)tableView willLoadCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
