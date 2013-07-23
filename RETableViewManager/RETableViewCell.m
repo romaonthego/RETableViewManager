@@ -128,15 +128,15 @@
     
     if ([self.tableViewManager.style hasCustomBackgroundImage]) {
         self.backgroundColor = [UIColor clearColor];
-        _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:self.cellType];
+        _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:self.type];
     }
     
     if ([self.tableViewManager.style hasCustomSelectedBackgroundImage]) {
-        _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:self.cellType];
+        _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:self.type];
     }
 }
 
-- (RETableViewCellType)cellType
+- (RETableViewCellType)type
 {
     if (self.rowIndex == 0 && self.section.items.count == 1)
         return RETableViewCellTypeSingle;

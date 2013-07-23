@@ -76,7 +76,7 @@ typedef enum _RETableViewCellType {
 @property (assign, readwrite, nonatomic) NSInteger sectionIndex;
 @property (weak, readwrite, nonatomic) RETableViewSection *section;
 @property (strong, readwrite, nonatomic) RETableViewItem *item;
-@property (assign, readonly, nonatomic) RETableViewCellType cellType;
+@property (assign, readonly, nonatomic) RETableViewCellType type;
 @property (strong, readonly, nonatomic) UIResponder *responder;
 @property (strong, readonly, nonatomic) NSIndexPath *indexPathForPreviousResponder;
 @property (strong, readonly, nonatomic) NSIndexPath *indexPathForNextResponder;
