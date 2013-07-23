@@ -39,17 +39,10 @@ typedef enum _RETableViewCellType {
 } RETableViewCellType;
 
 /**
- The `RETableViewCell` class defines the attributes and behavior of the cells that appear in UITableView objects.
+ The `RETableViewCell` class defines the attributes and behavior of the cells that appear in `UITableView` objects.
  
  */
 @interface RETableViewCell : UITableViewCell <REActionBarDelegate>
-
-///-----------------------------
-/// @name Managing Background Images
-///-----------------------------
-
-@property (strong, readonly, nonatomic) UIImageView *backgroundImageView;
-@property (strong, readonly, nonatomic) UIImageView *selectedBackgroundImageView;
 
 ///-----------------------------
 /// @name Accessing Table View and Table View Manager
@@ -58,23 +51,39 @@ typedef enum _RETableViewCellType {
 @property (weak, readwrite, nonatomic) UITableView *parentTableView;
 @property (weak, readwrite, nonatomic) RETableViewManager *tableViewManager;
 
+///-----------------------------
+/// @name Managing Cell Appearance
+///-----------------------------
+
+@property (strong, readonly, nonatomic) UIImageView *backgroundImageView;
+@property (strong, readonly, nonatomic) UIImageView *selectedBackgroundImageView;
+@property (strong, readwrite, nonatomic) REActionBar *actionBar;
+
++ (CGFloat)heightWithItem:(RETableViewItem *)item tableViewManager:(RETableViewManager *)tableViewManager;
+
+- (void)updateActionBarNavigationControl;
+
+///-----------------------------
+/// @name Accessing Row and Section
+///-----------------------------
+
 @property (assign, readwrite, nonatomic) NSInteger row;
 @property (assign, readwrite, nonatomic) NSInteger sectionIndex;
 @property (weak, readwrite, nonatomic) RETableViewSection *section;
 @property (strong, readwrite, nonatomic) RETableViewItem *item;
-@property (strong, readwrite, nonatomic) REActionBar *actionBar;
 @property (assign, readonly, nonatomic) RETableViewCellType cellType;
+@property (strong, readonly, nonatomic) UIResponder *responder;
+@property (strong, readonly, nonatomic) NSIndexPath *indexPathForPreviousResponder;
+@property (strong, readonly, nonatomic) NSIndexPath *indexPathForNextResponder;
 
 + (BOOL)canFocusWithItem:(RETableViewItem *)item;
-+ (CGFloat)heightWithItem:(RETableViewItem *)item tableViewManager:(RETableViewManager *)tableViewManager;
+
+///-----------------------------
+/// @name Handling Cell Events
+///-----------------------------
 
 - (void)cellDidLoad;
 - (void)cellWillAppear;
 - (void)cellDidDisappear;
-- (void)updateActionBarNavigationControl;
-
-- (UIResponder *)responder;
-- (NSIndexPath *)indexPathForPreviousResponder;
-- (NSIndexPath *)indexPathForNextResponder;
 
 @end
