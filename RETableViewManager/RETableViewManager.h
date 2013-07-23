@@ -47,6 +47,9 @@
 
 @protocol RETableViewManagerDelegate;
 
+/**
+ Returns device OS major version.
+ */
 NSUInteger REDeviceSystemMajorVersion();
 
 /**
