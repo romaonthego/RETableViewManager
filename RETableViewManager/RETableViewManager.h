@@ -334,7 +334,7 @@ NSUInteger REDeviceSystemMajorVersion();
 
 
 /**
- The delegate of a `RETableViewManager` object can adopt the `RETableViewManagerDelegate` protocol. Optional methods of the protocol allow the delegate to manage selections and perform other actions.
+ The delegate of a `RETableViewManager` object can adopt the `RETableViewManagerDelegate` protocol. Optional methods of the protocol allow the delegate to manage cells.
  */
 @protocol RETableViewManagerDelegate <NSObject>
 
