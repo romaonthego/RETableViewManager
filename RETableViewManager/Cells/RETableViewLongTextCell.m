@@ -117,7 +117,7 @@
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
     [self updateActionBarNavigationControl];
-    [self.parentTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.row inSection:self.sectionIndex] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    [self.parentTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.rowIndex inSection:self.sectionIndex] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     if (self.item.onBeginEditing)
         self.item.onBeginEditing(self.item);
     return YES;

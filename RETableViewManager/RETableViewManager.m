@@ -160,7 +160,7 @@ NSUInteger REDeviceSystemMajorVersion() {
             [_delegate tableView:tableView willLoadCell:cell forRowAtIndexPath:indexPath];
     }
     
-    cell.row = indexPath.row;
+    cell.rowIndex = indexPath.row;
     cell.sectionIndex = indexPath.section;
     cell.parentTableView = tableView;
     cell.section = section;

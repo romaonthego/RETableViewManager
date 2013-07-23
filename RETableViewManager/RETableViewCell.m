@@ -138,16 +138,16 @@
 
 - (RETableViewCellType)cellType
 {
-    if (self.row == 0 && self.section.items.count == 1)
+    if (self.rowIndex == 0 && self.section.items.count == 1)
         return RETableViewCellTypeSingle;
     
-    if (self.row == 0 && self.section.items.count > 1)
+    if (self.rowIndex == 0 && self.section.items.count > 1)
         return RETableViewCellTypeFirst;
     
-    if (self.row > 0 && self.row < self.section.items.count - 1 && self.section.items.count > 2)
+    if (self.rowIndex > 0 && self.rowIndex < self.section.items.count - 1 && self.section.items.count > 2)
         return RETableViewCellTypeMiddle;
     
-    if (self.row == self.section.items.count - 1 && self.section.items.count > 1)
+    if (self.rowIndex == self.section.items.count - 1 && self.section.items.count > 1)
         return RETableViewCellTypeLast;
     
     return RETableViewCellTypeAny;

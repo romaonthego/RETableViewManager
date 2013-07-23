@@ -72,7 +72,7 @@ typedef enum _RETableViewCellType {
 /// @name Accessing Row and Section
 ///-----------------------------
 
-@property (assign, readwrite, nonatomic) NSInteger row;
+@property (assign, readwrite, nonatomic) NSInteger rowIndex;
 @property (assign, readwrite, nonatomic) NSInteger sectionIndex;
 @property (weak, readwrite, nonatomic) RETableViewSection *section;
 @property (strong, readwrite, nonatomic) RETableViewItem *item;
