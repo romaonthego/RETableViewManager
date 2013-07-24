@@ -79,7 +79,7 @@
 
 - (void)cellWillAppear
 {
-    self.textLabel.text = self.item.title;
+    self.textLabel.text = self.item.title.length == 0 ? @" " : self.item.title;
     self.textField.inputView = _datePicker;
     _datePicker.date = self.item.value ? self.item.value : [NSDate date];
     _datePicker.datePickerMode = self.item.datePickerMode;
@@ -108,7 +108,7 @@
     if (REDeviceSystemMajorVersion() >= 7.0 && self.tableViewManager.style.contentViewMargin <= 0)
         cellOffset += 5.0;
     
-    CGRect frame = CGRectMake(0, self.tableViewManager.style.textFieldPositionOffset.height - 1, 0, self.contentView.frame.size.height - self.tableViewManager.style.textFieldPositionOffset.height);
+    CGRect frame = CGRectMake(0, self.textLabel.frame.origin.y, 0, self.textLabel.frame.size.height);
     if (self.item.title && ![self.item.title isEqualToString:@""]) {
         for (RETableViewItem *item in self.section.items) {
             if ([item isMemberOfClass:[RETextItem class]] || [item isMemberOfClass:[REDateTimeItem class]]) {

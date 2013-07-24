@@ -94,6 +94,8 @@
         if (self.selectionStyle != UITableViewCellSelectionStyleNone)
             self.selectionStyle = item.selectionStyle;
     }
+    if (self.textLabel.text.length == 0)
+        self.textLabel.text = @" ";
 }
 
 - (void)cellDidDisappear
