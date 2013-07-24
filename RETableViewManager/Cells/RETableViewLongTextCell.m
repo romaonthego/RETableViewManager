@@ -50,13 +50,20 @@
 {
     [super cellDidLoad];
     
-    _textView = [[REPlaceholderTextView alloc] initWithFrame:CGRectNull];
-    
+    _textView = [[REPlaceholderTextView alloc] init];
+    _textView.translatesAutoresizingMaskIntoConstraints = NO;
     _textView.inputAccessoryView = self.actionBar;
     _textView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _textView.backgroundColor = [UIColor clearColor];
     _textView.delegate = self;
     [self.contentView addSubview:_textView];
+    
+    UILabel *label = self.textLabel;
+    
+    CGFloat padding = (REDeviceSystemMajorVersion() >= 7.0 && self.tableViewManager.style.contentViewMargin <= 0) ? 7 : 2;
+    NSDictionary *metrics = @{ @"padding": @(padding) };
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_textView]-2-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(_textView, label)]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-padding-[_textView]-padding-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(_textView, label)]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -99,18 +106,6 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
-    self.textLabel.text = @" ";
-    
-    CGFloat cellOffset = 10.0;
-    if (REDeviceSystemMajorVersion() >= 7.0 && self.tableViewManager.style.contentViewMargin <= 0)
-        cellOffset += 5.0;
-    
-    CGRect frame = CGRectMake(0, self.textLabel.frame.origin.y, 0, self.textLabel.frame.size.height - 2);
-    frame.origin.x = cellOffset - 8;
-    frame.size.width = self.contentView.frame.size.width - frame.origin.x - cellOffset + 8;
-    _textView.frame = frame;
-    
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:forRowAtIndexPath:)])
         [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self forRowAtIndexPath:[(UITableView *)self.superview indexPathForCell:self]];
 }
