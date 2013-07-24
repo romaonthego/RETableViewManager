@@ -23,7 +23,7 @@
     
     // Create manager
     //
-    _manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
+    _manager = [[RETableViewManager alloc] initWithTableView:self.tableView delegate:self];
 
 
     /*

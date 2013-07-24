@@ -21,19 +21,32 @@
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor colorWithRed:0.967 green:1.000 blue:0.974 alpha:1.000];
     
-    self.manager.delegate = self;
+    // Set some styles
+    //
+    [self.manager.style setCellHeight:42.0];
+    [self.manager.style setTextFieldFont:[UIFont fontWithName:@"Avenir-Book" size:16]];
     
-	[self.manager.style setBackgroundImage:[[UIImage imageNamed:@"First"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)] forCellType:RETableViewCellTypeFirst];
-    [self.manager.style setBackgroundImage:[[UIImage imageNamed:@"Middle"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)] forCellType:RETableViewCellTypeMiddle];
-    [self.manager.style setBackgroundImage:[[UIImage imageNamed:@"Last"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)] forCellType:RETableViewCellTypeLast];
-    [self.manager.style setBackgroundImage:[[UIImage imageNamed:@"Single"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)] forCellType:RETableViewCellTypeSingle];
+    // Set cell background image
+    //
+	[self.manager.style setBackgroundImage:[[UIImage imageNamed:@"First"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                               forCellType:RETableViewCellTypeFirst];
+    [self.manager.style setBackgroundImage:[[UIImage imageNamed:@"Middle"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                               forCellType:RETableViewCellTypeMiddle];
+    [self.manager.style setBackgroundImage:[[UIImage imageNamed:@"Last"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                               forCellType:RETableViewCellTypeLast];
+    [self.manager.style setBackgroundImage:[[UIImage imageNamed:@"Single"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                               forCellType:RETableViewCellTypeSingle];
     
-    [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"First_Selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)] forCellType:RETableViewCellTypeFirst];
-    [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"Middle_Selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)] forCellType:RETableViewCellTypeMiddle];
-    [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"Last_Selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)] forCellType:RETableViewCellTypeLast];
-    [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"Single_Selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)] forCellType:RETableViewCellTypeSingle];
-    self.manager.style.cellHeight = 42.0;
-    self.manager.style.textFieldFont = [UIFont fontWithName:@"Avenir-Book" size:16];
+    // Set selected cell background image
+    //
+    [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"First_Selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                                       forCellType:RETableViewCellTypeFirst];
+    [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"Middle_Selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                                       forCellType:RETableViewCellTypeMiddle];
+    [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"Last_Selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                                       forCellType:RETableViewCellTypeLast];
+    [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"Single_Selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                                       forCellType:RETableViewCellTypeSingle];
    
     // Retain legacy grouped cell style in iOS [redacted]
     //
