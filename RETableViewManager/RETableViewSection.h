@@ -67,6 +67,8 @@
  */
 @property (assign, readonly, nonatomic) NSUInteger index;
 
+- (CGFloat)maximumTitleWidthWithFont:(UIFont *)font;
+
 ///-----------------------------
 /// @name Creating and Initializing a RETableViewSection
 ///-----------------------------
