@@ -36,7 +36,7 @@
     
     _backgroundImages = [[NSMutableDictionary alloc] init];
     _selectedBackgroundImages = [[NSMutableDictionary alloc] init];
-    _textFieldFont = [UIFont systemFontOfSize:REDeviceSystemMajorVersion() < 7.0 ? 16 : 18];
+    _textFieldFont = [UIFont systemFontOfSize:REDeviceSystemMajorVersion() < 7.0 ? 16 : 17];
     _cellHeight = 44;
     _defaultCellSelectionStyle = UITableViewCellSelectionStyleBlue;
     _textFieldPositionOffset = CGSizeMake(0, REDeviceSystemMajorVersion() < 7.0 ? 0 : -1.0);
