@@ -24,7 +24,7 @@
     // Create manager
     //
     _manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
-    _manager.style.textFieldPositionOffset = CGSizeMake(0, 0);
+
 
     /*
      ###########################################
