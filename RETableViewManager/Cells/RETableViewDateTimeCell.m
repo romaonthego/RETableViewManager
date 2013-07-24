@@ -109,8 +109,7 @@
     
     CGRect frame = CGRectMake(0, self.textLabel.frame.origin.y, 0, self.textLabel.frame.size.height);
     if (self.item.title.length > 0) {
-        CGFloat titleWidth = [self.section maximumTitleWidthWithFont:self.textLabel.font];
-        frame.origin.x = titleWidth + cellOffset + fieldOffset;
+        frame.origin.x = [self.section maximumTitleWidthWithFont:self.textLabel.font] + cellOffset + fieldOffset;
     } else {
         frame.origin.x = cellOffset;
     }

@@ -64,22 +64,15 @@
 {
     [super layoutSubviews];
     
-    CGFloat cellOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 10;
-    CGFloat fieldOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10 : 10;
-    CGFloat width = 0;
+    CGFloat cellOffset = 10.0;
+    CGFloat fieldOffset = 10.0;
     
     if (REDeviceSystemMajorVersion() >= 7.0)
         cellOffset -= 10.0;
     
     CGRect frame = CGRectMake(0, self.textLabel.frame.origin.y, 0, self.textLabel.frame.size.height);
-    if (self.item.title && ![self.item.title isEqualToString:@""]) {
-        for (RETableViewItem *item in self.section.items) {
-            if ([item isMemberOfClass:[RETextItem class]] || [item isMemberOfClass:[REDateTimeItem class]]) {
-                CGSize size = [item.title sizeWithFont:self.textLabel.font];
-                width = MAX(width, size.width);
-            }
-        }
-        frame.origin.x = width + cellOffset + fieldOffset;
+    if (self.item.title.length > 0) {
+        frame.origin.x = [self.section maximumTitleWidthWithFont:self.textLabel.font] + cellOffset + fieldOffset;
     } else {
         frame.origin.x = cellOffset;
     }
