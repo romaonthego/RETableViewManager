@@ -129,7 +129,7 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
 - (void)cellWillAppear
 {
     self.textLabel.text = self.item.title;
-    _textFieldPositionOffset = self.tableViewManager.style.textFieldPositionOffset;
+   // _textFieldPositionOffset = self.tableViewManager.style.textFieldPositionOffset;
     
     _creditCardField.text = self.item.number;
     _creditCardField.font = self.tableViewManager.style.textFieldFont;

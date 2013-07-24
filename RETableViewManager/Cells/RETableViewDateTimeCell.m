@@ -116,9 +116,9 @@
                 width = MAX(width, size.width);
             }
         }
-        frame.origin.x = width + cellOffset + fieldOffset + self.tableViewManager.style.textFieldPositionOffset.width;
+        frame.origin.x = width + cellOffset + fieldOffset;
     } else {
-        frame.origin.x = cellOffset + self.tableViewManager.style.textFieldPositionOffset.width;
+        frame.origin.x = cellOffset;
     }
     frame.size.width = self.contentView.frame.size.width - frame.origin.x - cellOffset;
     _dateLabel.frame = frame;

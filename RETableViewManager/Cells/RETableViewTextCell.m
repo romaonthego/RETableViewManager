@@ -71,7 +71,7 @@
 {
     [super cellWillAppear];
     
-    self.textLabel.text = self.item.title;
+    self.textLabel.text = self.item.title.length == 0 ? @" " : self.item.title;
     _textField.text = self.item.value;
     _textField.placeholder = self.item.placeholder;
     _textField.font = self.tableViewManager.style.textFieldFont;
@@ -101,7 +101,7 @@
     if (REDeviceSystemMajorVersion() >= 7.0 && self.tableViewManager.style.contentViewMargin <= 0)
         cellOffset += 5.0;
     
-    CGRect frame = CGRectMake(0, self.tableViewManager.style.textFieldPositionOffset.height + 1, 0, self.contentView.frame.size.height - self.tableViewManager.style.textFieldPositionOffset.height);
+    CGRect frame = CGRectMake(0, self.textLabel.frame.origin.y, 0, self.textLabel.frame.size.height);
     if (self.item.title && ![self.item.title isEqualToString:@""]) {
         for (RETableViewItem *item in self.section.items) {
             if ([item isMemberOfClass:[RETextItem class]] || [item isMemberOfClass:[REDateTimeItem class]]) {
@@ -109,9 +109,9 @@
                 width = MAX(width, size.width);
             }
         }
-        frame.origin.x = width + cellOffset + fieldOffset + self.tableViewManager.style.textFieldPositionOffset.width;
+        frame.origin.x = width + cellOffset + fieldOffset;
     } else {
-        frame.origin.x = cellOffset + self.tableViewManager.style.textFieldPositionOffset.width;
+        frame.origin.x = cellOffset;
     }
     frame.size.width = self.contentView.frame.size.width - frame.origin.x - cellOffset;
     _textField.frame = frame;

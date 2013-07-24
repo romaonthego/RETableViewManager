@@ -39,7 +39,7 @@
     _textFieldFont = [UIFont systemFontOfSize:REDeviceSystemMajorVersion() < 7.0 ? 16 : 17];
     _cellHeight = 44;
     _defaultCellSelectionStyle = UITableViewCellSelectionStyleBlue;
-    _textFieldPositionOffset = CGSizeMake(0, REDeviceSystemMajorVersion() < 7.0 ? 0 : -1.0);
+   // _textFieldPositionOffset = CGSizeMake(0, REDeviceSystemMajorVersion() < 7.0 ? 0 : -1.0);
     
     return self;
 }
