@@ -31,8 +31,6 @@
     NSMutableDictionary *_selectedBackgroundImages;
 }
 
-@property (strong, readwrite, nonatomic) UIFont *textFieldFont;
-//@property (assign, readwrite, nonatomic) CGSize textFieldPositionOffset;
 @property (assign, readwrite, nonatomic) CGFloat cellHeight;
 @property (assign, readwrite, nonatomic) UITableViewCellSelectionStyle defaultCellSelectionStyle;
 @property (assign, readwrite, nonatomic) CGFloat backgroundImageMargin;

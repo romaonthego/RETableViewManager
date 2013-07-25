@@ -74,7 +74,7 @@
     self.textLabel.text = self.item.title.length == 0 ? @" " : self.item.title;
     _textField.text = self.item.value;
     _textField.placeholder = self.item.placeholder;
-    _textField.font = self.tableViewManager.style.textFieldFont;
+    _textField.font = [UIFont systemFontOfSize:17];
     _textField.autocapitalizationType = self.item.autocapitalizationType;
     _textField.autocorrectionType = self.item.autocorrectionType;
     _textField.spellCheckingType = self.item.spellCheckingType;

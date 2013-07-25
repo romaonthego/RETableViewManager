@@ -21,10 +21,9 @@
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor colorWithRed:0.967 green:1.000 blue:0.974 alpha:1.000];
     
-    // Set some styles
+    // Set default cell height
     //
     [self.manager.style setCellHeight:42.0];
-    [self.manager.style setTextFieldFont:[UIFont fontWithName:@"Avenir-Book" size:16]];
     
     // Set cell background image
     //
@@ -51,8 +50,8 @@
     // Retain legacy grouped cell style in iOS [redacted]
     //
     if (REDeviceSystemMajorVersion() >= 7) {
-        self.manager.style.contentViewMargin = 10;
-        self.manager.style.backgroundImageMargin = 10;
+        self.manager.style.contentViewMargin = 10.0;
+        self.manager.style.backgroundImageMargin = 10.0;
     }
 }
 
@@ -61,7 +60,10 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    cell.textLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:16];
+    for (UIView *view in cell.contentView.subviews) {
+        if ([view isKindOfClass:[UILabel class]] || [view isKindOfClass:[UITextField class]] || [view isKindOfClass:[UITextView class]])
+            ((UILabel *)view).font = [UIFont fontWithName:@"Avenir-Medium" size:16];
+    }
 }
 
 @end

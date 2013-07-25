@@ -84,7 +84,7 @@
     _textView.text = self.item.value;
     _textView.placeholder = self.item.placeholder;
     _textView.placeholderColor = self.item.placeholderColor;
-    _textView.font = self.tableViewManager.style.textFieldFont;
+    _textView.font = [UIFont systemFontOfSize:17];
     _textView.autocapitalizationType = self.item.autocapitalizationType;
     _textView.autocorrectionType = self.item.autocorrectionType;
     _textView.spellCheckingType = self.item.spellCheckingType;

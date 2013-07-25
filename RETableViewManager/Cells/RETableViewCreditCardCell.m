@@ -132,15 +132,15 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
    // _textFieldPositionOffset = self.tableViewManager.style.textFieldPositionOffset;
     
     _creditCardField.text = self.item.number;
-    _creditCardField.font = self.tableViewManager.style.textFieldFont;
+    _creditCardField.font = [UIFont systemFontOfSize:17];
     _creditCardField.keyboardAppearance = self.item.keyboardAppearance;
     
     _expirationDateField.text = self.item.expirationDate;
-    _expirationDateField.font = self.tableViewManager.style.textFieldFont;
+    _expirationDateField.font = [UIFont systemFontOfSize:17];
     _expirationDateField.keyboardAppearance = self.item.keyboardAppearance;
     
     _cvvField.text = self.item.cvv;
-    _cvvField.font = self.tableViewManager.style.textFieldFont;
+    _cvvField.font = [UIFont systemFontOfSize:17];
     _cvvField.keyboardAppearance = self.item.keyboardAppearance;
 }
 
