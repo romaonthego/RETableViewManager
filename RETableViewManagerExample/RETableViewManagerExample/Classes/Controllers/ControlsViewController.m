@@ -148,8 +148,8 @@
 
 - (void)addCutCopyPaste
 {
-    RETableViewSection *section3 = [RETableViewSection sectionWithHeaderTitle:@"Copy / pasting"];
-    [_manager addSection:section3];
+    RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Copy / pasting"];
+    [_manager addSection:section];
     
     RETableViewItem *copyItem = [RETableViewItem itemWithTitle:@"Long tap to copy this item" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
         [item deselectRowAnimated:YES];
@@ -157,7 +157,7 @@
     copyItem.copyHandler = ^(RETableViewItem *item) {
         [UIPasteboard generalPasteboard].string = @"Copied item #1";
     };
-    [section3 addItem:copyItem];
+    [section addItem:copyItem];
     
     RETableViewItem *pasteItem = [RETableViewItem itemWithTitle:@"Long tap to paste into this item" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
         [item deselectRowAnimated:YES];
@@ -166,7 +166,7 @@
         item.title = [UIPasteboard generalPasteboard].string;
         [item reloadRowWithAnimation:UITableViewRowAnimationAutomatic];
     };
-    [section3 addItem:pasteItem];
+    [section addItem:pasteItem];
     
     RETableViewItem *cutCopyPasteItem = [RETableViewItem itemWithTitle:@"Long tap to cut / copy / paste" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
         [item deselectRowAnimated:YES];
@@ -183,7 +183,7 @@
         [UIPasteboard generalPasteboard].string = @"Copied item #3";
         [item reloadRowWithAnimation:UITableViewRowAnimationAutomatic];
     };
-    [section3 addItem:cutCopyPasteItem];
+    [section addItem:cutCopyPasteItem];
 }
 
 #pragma mark -
