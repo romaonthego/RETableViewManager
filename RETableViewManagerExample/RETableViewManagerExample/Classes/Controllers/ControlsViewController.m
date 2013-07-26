@@ -123,8 +123,6 @@
 
 - (void)addAccessories
 {
-    __typeof (&*self) __weak weakSelf = self;
-    
     RETableViewSection *section2 = [RETableViewSection sectionWithHeaderTitle:@"Accessories"];
     [_manager addSection:section2];
     
@@ -141,7 +139,7 @@
     }]];
     
     [section2 addItem:[RETableViewItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryCheckmark selectionHandler:^(RETableViewItem *item) {
-        [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+        [item deselectRowAnimated:YES];
     }]];
 }
 
