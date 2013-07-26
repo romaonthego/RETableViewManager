@@ -39,7 +39,7 @@
     loadMoreButton.frame = CGRectMake(40, 7, 240, 44);
     loadMoreButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     [loadMoreButton setTitle:@"Load more" forState:UIControlStateNormal];
-    [loadMoreButton addTarget:self action:@selector(loadMoreButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [loadMoreButton addTarget:self action:@selector(loadMoreButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 58)];
     [self.tableView.tableFooterView addSubview:loadMoreButton];
@@ -96,7 +96,7 @@
 #pragma mark -
 #pragma mark Button actions
 
-- (void)loadMoreButtonPressed
+- (void)loadMoreButtonPressed:(id)sender
 {
     [self addItems];
     [self.tableView reloadData];
