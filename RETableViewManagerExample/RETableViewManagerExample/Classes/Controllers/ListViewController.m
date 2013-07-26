@@ -41,9 +41,8 @@
     [loadMoreButton setTitle:@"Load more" forState:UIControlStateNormal];
     [loadMoreButton addTarget:self action:@selector(loadMoreButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 58)];
-    [footerView addSubview:loadMoreButton];
-    self.tableView.tableFooterView = footerView;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 58)];
+    [self.tableView.tableFooterView addSubview:loadMoreButton];
     
     // Add items
     //
