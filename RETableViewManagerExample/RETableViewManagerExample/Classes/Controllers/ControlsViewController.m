@@ -123,22 +123,22 @@
 
 - (void)addAccessories
 {
-    RETableViewSection *section2 = [RETableViewSection sectionWithHeaderTitle:@"Accessories"];
-    [_manager addSection:section2];
+    RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Accessories"];
+    [_manager addSection:section];
     
     // Add items to this section
     //
-    [section2 addItem:[RETableViewItem itemWithTitle:@"Accessory 1" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
+    [section addItem:[RETableViewItem itemWithTitle:@"Accessory 1" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
         [item deselectRowAnimated:YES];
     }]];
     
-    [section2 addItem:[RETableViewItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryDetailDisclosureButton selectionHandler:^(RETableViewItem *item) {
+    [section addItem:[RETableViewItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryDetailDisclosureButton selectionHandler:^(RETableViewItem *item) {
         [item deselectRowAnimated:YES];
     } accessoryButtonTapHandler:^(RETableViewItem *item) {
         NSLog(@"Accessory button in accessoryItem2 was tapped");
     }]];
     
-    [section2 addItem:[RETableViewItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryCheckmark selectionHandler:^(RETableViewItem *item) {
+    [section addItem:[RETableViewItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryCheckmark selectionHandler:^(RETableViewItem *item) {
         [item deselectRowAnimated:YES];
     }]];
 }
