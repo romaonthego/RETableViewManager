@@ -19,20 +19,24 @@
     [super viewDidLoad];
     self.title = @"Controls";
     
-    __typeof (&*self) __weak weakSelf = self;
-    
     // Create manager
     //
     _manager = [[RETableViewManager alloc] initWithTableView:self.tableView delegate:self];
 
+    [self addBasicControls];
+    [self addCreditCard];
+    [self addAccessories];
+    [self addCutCopyPaste];
+    [self addButton];
+}
 
-    /*
-     ###########################################
-     #                                         #
-     #           FORM ELEMENTS EXAMPLE         #
-     #                                         #
-     ###########################################
-     */
+#pragma mark -
+#pragma mark Basic Controls Example
+
+- (void)addBasicControls
+{
+    __typeof (&*self) __weak weakSelf = self;
+    
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Basic controls"];
     [_manager addSection:section];
     
@@ -81,7 +85,7 @@
     [section addItem:optionItem];
     
     REMultipleChoiceItem *multipleItem = [REMultipleChoiceItem itemWithTitle:@"Multiple" value:@[@"Option 2", @"Option 4"] selectionHandler:^(REMultipleChoiceItem *item) {
-       [item deselectRowAnimated:YES];
+        [item deselectRowAnimated:YES];
         
         // Generate sample options
         //
@@ -102,25 +106,25 @@
     RELongTextItem *longTextItem = [RELongTextItem itemWithValue:nil placeholder:@"Multiline text field"];
     longTextItem.cellHeight = 88;
     [section addItem:longTextItem];
-    
-    /*
-     ###########################################
-     #                                         #
-     #           CREDIT CARD EXAMPLE           #
-     #                                         #
-     ###########################################
-     */
-    section = [[RETableViewSection alloc] initWithHeaderTitle:@"Credit card"];
+}
+
+#pragma mark -
+#pragma mark Credit Card Example
+
+- (void)addCreditCard
+{
+    RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Credit card"];
     [_manager addSection:section];
     [section addItem:[RECreditCardItem item]];
+}
+
+#pragma mark -
+#pragma mark Accessories Example
+
+- (void)addAccessories
+{
+    __typeof (&*self) __weak weakSelf = self;
     
-    /*
-     ###########################################
-     #                                         #
-     #           ACCESSORIES EXAMPLE           #
-     #                                         #
-     ###########################################
-     */
     RETableViewSection *section2 = [RETableViewSection sectionWithHeaderTitle:@"Accessories"];
     [_manager addSection:section2];
     
@@ -139,14 +143,13 @@
     [section2 addItem:[RETableViewItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryCheckmark selectionHandler:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
     }]];
-    
-    /* 
-     ###########################################
-     #                                         #
-     #        CUT COPY AND PASTE EXAMPLE       #
-     #                                         #
-     ###########################################
-    */
+}
+
+#pragma mark -
+#pragma mark Cut, Copy and Paste Example
+
+- (void)addCutCopyPaste
+{
     RETableViewSection *section3 = [RETableViewSection sectionWithHeaderTitle:@"Copy / pasting"];
     [_manager addSection:section3];
     
@@ -183,14 +186,15 @@
         [item reloadRowWithAnimation:UITableViewRowAnimationAutomatic];
     };
     [section3 addItem:cutCopyPasteItem];
+}
+
+#pragma mark -
+#pragma mark Button Example
+
+- (void)addButton
+{
+    __typeof (&*self) __weak weakSelf = self;
     
-    /*
-     ###########################################
-     #                                         #
-     #           BUTTON EXAMPLE                #
-     #                                         #
-     ###########################################
-     */
     RETableViewSection *section4 = [RETableViewSection section];
     [_manager addSection:section4];
     
