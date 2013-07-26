@@ -31,18 +31,10 @@
 #pragma mark -
 #pragma mark Lifecycle
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
-    return self;
-}
-
 - (void)cellDidLoad
 {
     [super cellDidLoad];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     _sliderView = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, 100, 23.0)];
     [_sliderView addTarget:self action:@selector(sliderValueDidChange:) forControlEvents:UIControlEventValueChanged];

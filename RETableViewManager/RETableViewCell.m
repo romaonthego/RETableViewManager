@@ -41,15 +41,6 @@
     return tableViewManager.style.cellHeight;
 }
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        
-    }
-    return self;
-}
-
 #pragma mark -
 #pragma mark Cell life cycle
 

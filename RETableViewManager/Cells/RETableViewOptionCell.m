@@ -28,14 +28,8 @@
 
 @implementation RETableViewOptionCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        
-    }
-    return self;
-}
+#pragma mark -
+#pragma mark Lifecycle
 
 - (void)cellDidLoad
 {

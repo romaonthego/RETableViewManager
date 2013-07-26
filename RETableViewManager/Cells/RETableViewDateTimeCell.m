@@ -35,18 +35,10 @@
 #pragma mark -
 #pragma mark Lifecycle
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        self.textLabel.backgroundColor = [UIColor clearColor];
-    }
-    return self;
-}
-
 - (void)cellDidLoad
 {
     [super cellDidLoad];
+    self.textLabel.backgroundColor = [UIColor clearColor];
     self.selectionStyle = self.tableViewManager.style.defaultCellSelectionStyle;
     
     _textField = [[UITextField alloc] initWithFrame:CGRectNull];

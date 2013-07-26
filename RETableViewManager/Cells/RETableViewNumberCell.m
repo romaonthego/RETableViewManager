@@ -36,19 +36,11 @@
 #pragma mark -
 #pragma mark Lifecycle
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.textLabel.backgroundColor = [UIColor clearColor];
-    }
-    return self;
-}
-
 - (void)cellDidLoad
 {
     [super cellDidLoad];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.textLabel.backgroundColor = [UIColor clearColor];
     
     self.textField = [[REFormattedNumberField alloc] initWithFrame:CGRectNull];
     self.textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
