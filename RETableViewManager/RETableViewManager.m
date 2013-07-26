@@ -152,12 +152,18 @@ NSUInteger REDeviceSystemMajorVersion() {
     if (cell == nil) {
         cell = [[cellClass alloc] initWithStyle:cellStyle reuseIdentifier:cellIdentifier];
         cell.tableViewManager = self;
-        [cell cellDidLoad];
         
         // RETableViewManagerDelegate
         //
         if ([_delegate conformsToProtocol:@protocol(RETableViewManagerDelegate)] && [_delegate respondsToSelector:@selector(tableView:willLoadCell:forRowAtIndexPath:)])
             [_delegate tableView:tableView willLoadCell:cell forRowAtIndexPath:indexPath];
+        
+        [cell cellDidLoad];
+        
+        // RETableViewManagerDelegate
+        //
+        if ([_delegate conformsToProtocol:@protocol(RETableViewManagerDelegate)] && [_delegate respondsToSelector:@selector(tableView:didLoadCell:forRowAtIndexPath:)])
+            [_delegate tableView:tableView didLoadCell:cell forRowAtIndexPath:indexPath];
     }
     
     cell.rowIndex = indexPath.row;

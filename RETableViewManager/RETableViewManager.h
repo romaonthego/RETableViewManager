@@ -361,4 +361,13 @@ NSUInteger REDeviceSystemMajorVersion();
  */
 - (void)tableView:(UITableView *)tableView willLoadCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
 
+/*
+ Tells the delegate the table view has created a cell for a particular row and made it reusable.
+ 
+ @param tableView The table-view object informing the delegate of this event.
+ @param cell A table-view cell object that tableView has created.
+ @param indexPath An index path locating the row in tableView.
+ */
+- (void)tableView:(UITableView *)tableView didLoadCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
+
 @end
