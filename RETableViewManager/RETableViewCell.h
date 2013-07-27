@@ -52,11 +52,20 @@ typedef enum _RETableViewCellType {
 @property (weak, readwrite, nonatomic) RETableViewManager *tableViewManager;
 
 ///-----------------------------
-/// @name Managing Cell Class
+/// @name Managing Cell Height
 ///-----------------------------
 
 + (CGFloat)heightWithItem:(RETableViewItem *)item tableViewManager:(RETableViewManager *)tableViewManager;
+
+///-----------------------------
+/// @name Working With Keyboard
+///-----------------------------
+
 + (BOOL)canFocusWithItem:(RETableViewItem *)item;
+
+@property (strong, readonly, nonatomic) UIResponder *responder;
+@property (strong, readonly, nonatomic) NSIndexPath *indexPathForPreviousResponder;
+@property (strong, readonly, nonatomic) NSIndexPath *indexPathForNextResponder;
 
 ///-----------------------------
 /// @name Managing Cell Appearance
@@ -77,9 +86,6 @@ typedef enum _RETableViewCellType {
 @property (weak, readwrite, nonatomic) RETableViewSection *section;
 @property (strong, readwrite, nonatomic) RETableViewItem *item;
 @property (assign, readonly, nonatomic) RETableViewCellType type;
-@property (strong, readonly, nonatomic) UIResponder *responder;
-@property (strong, readonly, nonatomic) NSIndexPath *indexPathForPreviousResponder;
-@property (strong, readonly, nonatomic) NSIndexPath *indexPathForNextResponder;
 
 ///-----------------------------
 /// @name Handling Cell Events
