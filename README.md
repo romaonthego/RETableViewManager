@@ -237,10 +237,17 @@ RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Heade
 [_tableViewManager addSection:section];
 ```
 
-Section with a custom title view:
+Section with a custom header view:
 
 ``` objective-c
 RETableViewSection *section = [RETableViewSection sectionWithHeaderView:myCustomSectionHeaderView];
+[_tableViewManager addSection:section];
+```
+
+Section with a custom header and footer view:
+
+``` objective-c
+RETableViewSection *section = [RETableViewSection sectionWithHeaderView:myCustomSectionHeaderView footerView:myCustomSectionFooterView];
 [_tableViewManager addSection:section];
 ```
 
