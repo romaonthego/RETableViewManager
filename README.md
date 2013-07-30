@@ -144,7 +144,7 @@ Please note that if your installation fails, it may be because you are installin
   <tr>
     <td>RETableViewCellStyle</td>
     <td>Provides style for <tt>RETableViewCell</tt> subclasses. You can define such properties as
-    <tt>textFieldFont</tt>, <tt>cellHeight</tt>, <tt>backgroundImage</tt> and more.</td>
+    <tt>backgroundImageMargin</tt>, <tt>cellHeight</tt>, <tt>contentViewMargin</tt> and more.</td>
   </tr>
   <tr><th colspan="2" style="text-align:center;">Helper Controllers</th></tr>
   <tr>
