@@ -49,7 +49,7 @@ Get your `UITableView` up and running in several lines of code:
 }
 ```
 
-> RETableViewManager comes pre-packaged with extensible and ready-to-use components:
+> RETableViewManager comes pre-packaged with extensible and ready-to-use in production components:
 
 > * Text
 * Bool
