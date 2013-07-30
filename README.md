@@ -127,7 +127,7 @@ Please note that if your installation fails, it may be because you are installin
   </tr>
   <tr>
     <td>RETableViewSection</td>
-    <td>Represents sections in RETableViewManager, each section has multiple <tt>RETableViewItem</tt> items.</td>
+    <td>Represents sections in <tt>RETableViewManager</tt>, each section has multiple <tt>RETableViewItem</tt> items.</td>
   </tr>
   <tr>
     <td>RETableViewItem</td>
