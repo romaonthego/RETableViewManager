@@ -208,7 +208,7 @@ Please note that if your installation fails, it may be because you are installin
   <tr>
     <td>RECreditCardItem</td>
     <td>RETableViewCreditCardCell</td>
-    <td>Provides convenience for a user credit card input. Allows to enter a credit card number, expiration date and security code, all in a single table cell.</td>
+    <td>Provides convenience for a user credit card input. Allows to enter a credit card number, expiration date and security code, all in a single table view cell.</td>
   </tr>
 </table>
 
