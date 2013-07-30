@@ -7,8 +7,6 @@ __Powerful data driven content manager for UITableView.__
 The general idea is to allow developers to use their own `UITableView` and `UITableViewController` instances (and even subclasses), providing a layer that synchronizes data with the cell appereance.
 It fully implements `UITableViewDelegate` and `UITableViewDataSource` protocols so you don't have to.
 
-### _It is still in the early stages of development and it's highly not recommended to use it in production apps._
-
 <img src="https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot1.png" alt="RETableViewManager Screenshot" width="684" height="568" />
 
 <img src="https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot2.png" alt="RETableViewManager Screenshot" width="684" height="568" />
