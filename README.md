@@ -203,7 +203,7 @@ Please note that if your installation fails, it may be because you are installin
   <tr>
     <td>REDateTimeItem</td>
     <td>RETableViewDateTimeCell</td>
-    <td>Provides convenience for modifying date in NSDate objects.</td>
+    <td>Provides convenience for modifying date in <tt>NSDate</tt> objects.</td>
   </tr>
   <tr>
     <td>RECreditCardItem</td>
