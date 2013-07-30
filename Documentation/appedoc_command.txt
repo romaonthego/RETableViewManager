@@ -1,3 +1,1 @@
 appledoc --project-name RETableViewManager --project-company 'Roman Efimov' --company-id com.romanefimov --output Documentation --no-create-docset RETableViewManager
-
---explicit-crossref 
