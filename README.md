@@ -15,7 +15,7 @@ It fully implements `UITableViewDelegate` and `UITableViewDataSource` protocols 
 
 ### Quick Example
 
-Get your `UITableView` up and running in couple of minutes:
+Get your `UITableView` up and running in several lines of code:
 
 ``` objective-c
 - (void)viewDidLoad
@@ -45,7 +45,7 @@ Get your `UITableView` up and running in couple of minutes:
     //
     _manager[@"CustomItem"] = @"CustomCell";
 
-    [section addItem:[[CustomItem alloc] init]];
+    [section addItem:[CustomItem item]];
 }
 ```
 
