@@ -30,13 +30,13 @@
 @class RETableViewManager;
 @class RETableViewItem;
 
-typedef enum _RETableViewCellType {
+typedef NS_ENUM(NSInteger, RETableViewCellType) {
     RETableViewCellTypeFirst,
     RETableViewCellTypeMiddle,
     RETableViewCellTypeLast,
     RETableViewCellTypeSingle,
     RETableViewCellTypeAny
-} RETableViewCellType;
+};
 
 /**
  The `RETableViewCell` class defines the attributes and behavior of the cells that appear in `UITableView` objects.
