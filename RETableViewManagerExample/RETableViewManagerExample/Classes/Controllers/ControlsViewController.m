@@ -85,7 +85,6 @@
         //
         optionsController.delegate = weakSelf;
         optionsController.style = section.style;
-        
         if (weakSelf.tableView.backgroundView == nil) {
             optionsController.tableView.backgroundColor = weakSelf.tableView.backgroundColor;
             optionsController.tableView.backgroundView = nil;
