@@ -456,6 +456,62 @@ Quick example:
 }
 ```
 
+### Styling
+
+It's super easy to customize different offsets, cell background images, etc. of
+the entire `UITableView` (or any particular section) with `RETableViewManager`.
+
+`RETableViewManager` and `RETableViewSection` both have the `style` property (an instance of the `RETableViewCellStyle` class).
+
+Here's the quick example of how the custom styling works:
+
+```objective-c
+// Set default cell height
+//
+self.manager.style.cellHeight = 42.0;
+
+// Set cell background image
+//
+[self.manager.style setBackgroundImage:[[UIImage imageNamed:@"First"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                           forCellType:RETableViewCellTypeFirst];
+[self.manager.style setBackgroundImage:[[UIImage imageNamed:@"Middle"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                           forCellType:RETableViewCellTypeMiddle];
+[self.manager.style setBackgroundImage:[[UIImage imageNamed:@"Last"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                           forCellType:RETableViewCellTypeLast];
+[self.manager.style setBackgroundImage:[[UIImage imageNamed:@"Single"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                           forCellType:RETableViewCellTypeSingle];
+
+// Set selected cell background image
+//
+[self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"First_Selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                                   forCellType:RETableViewCellTypeFirst];
+[self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"Middle_Selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                                   forCellType:RETableViewCellTypeMiddle];
+[self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"Last_Selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                                   forCellType:RETableViewCellTypeLast];
+[self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"Single_Selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                                   forCellType:RETableViewCellTypeSingle];
+
+// Retain legacy grouped cell style in iOS [redacted]
+//
+if (REDeviceSystemMajorVersion() >= 7) {
+    self.manager.style.contentViewMargin = 10.0;
+    self.manager.style.backgroundImageMargin = 10.0;
+}
+
+// Set a custom style for a particular section
+//
+self.accessoriesSection.style = [self.manager.style copy];
+[self.accessoriesSection.style setBackgroundImage:[[UIImage imageNamed:@"First_Alt"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                           forCellType:RETableViewCellTypeFirst];
+[self.accessoriesSection.style setBackgroundImage:[[UIImage imageNamed:@"Middle_Alt"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                           forCellType:RETableViewCellTypeMiddle];
+[self.accessoriesSection.style setBackgroundImage:[[UIImage imageNamed:@"Last_Alt"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                           forCellType:RETableViewCellTypeLast];
+[self.accessoriesSection.style setBackgroundImage:[[UIImage imageNamed:@"Single_Alt"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                           forCellType:RETableViewCellTypeSingle];
+```
+
 ## Contact
 
 Roman Efimov
