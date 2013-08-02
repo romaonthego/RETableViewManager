@@ -80,6 +80,15 @@
             
             [item reloadRowWithAnimation:UITableViewRowAnimationNone]; // same as [weakSelf.tableView reloadRowsAtIndexPaths:@[item.indexPath] withRowAnimation:UITableViewRowAnimationNone];
         }];
+        
+        // Adjust styles
+        //
+        optionsController.style = weakSelf.manager.style;
+        optionsController.tableView.backgroundColor = weakSelf.tableView.backgroundColor;
+        optionsController.tableView.backgroundView = weakSelf.tableView.backgroundView;
+        
+        // Push the options controller
+        //
         [weakSelf.navigationController pushViewController:optionsController animated:YES];
     }];
     [section addItem:optionItem];
@@ -99,6 +108,15 @@
             [item reloadRowWithAnimation:UITableViewRowAnimationNone];
             NSLog(@"%@", item.value);
         }];
+        
+        // Adjust styles
+        //
+        optionsController.style = weakSelf.manager.style;
+        optionsController.tableView.backgroundColor = weakSelf.tableView.backgroundColor;
+        optionsController.tableView.backgroundView = weakSelf.tableView.backgroundView;
+        
+        // Push the options controller
+        //
         [weakSelf.navigationController pushViewController:optionsController animated:YES];
     }];
     [section addItem:multipleItem];

@@ -50,9 +50,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     _tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView delegate:self];
     _mainSection = [[RETableViewSection alloc] init];
     [_tableViewManager addSection:_mainSection];
+    
+    if (self.style)
+        _tableViewManager.style = self.style;
     
     __typeof (&*self) __weak weakSelf = self;
     void (^refreshItems)(void) = ^{

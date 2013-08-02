@@ -34,6 +34,7 @@
 @property (strong, readonly, nonatomic) RETableViewSection *mainSection;
 @property (assign, readwrite, nonatomic) BOOL multipleChoice;
 @property (copy, readwrite, nonatomic) void (^completionHandler)(void);
+@property (strong, readwrite, nonatomic) RETableViewCellStyle *style;
 
 - (id)initWithItem:(RETableViewItem *)item options:(NSArray *)options multipleChoice:(BOOL)multipleChoice completionHandler:(void(^)(void))completionHandler;
 
