@@ -39,7 +39,6 @@
 - (void)cellDidLoad
 {
     [super cellDidLoad];
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.textLabel.backgroundColor = [UIColor clearColor];
     
     _textField = [[UITextField alloc] initWithFrame:CGRectNull];
@@ -62,6 +61,7 @@
 - (void)cellWillAppear
 {
     [super cellWillAppear];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     self.textLabel.text = self.item.title.length == 0 ? @" " : self.item.title;
     _textField.text = self.item.value;
