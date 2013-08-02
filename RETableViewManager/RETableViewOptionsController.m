@@ -51,7 +51,7 @@
 {
     [super viewDidLoad];
 
-    _tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView delegate:self];
+    _tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView delegate:self.delegate];
     _mainSection = [[RETableViewSection alloc] init];
     [_tableViewManager addSection:_mainSection];
     
