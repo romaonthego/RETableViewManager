@@ -23,7 +23,7 @@
     
     // Set default cell height
     //
-    [self.manager.style setCellHeight:42.0];
+    self.manager.style.cellHeight = 42.0;
     
     // Set cell background image
     //
@@ -54,7 +54,7 @@
         self.manager.style.backgroundImageMargin = 10.0;
     }
     
-    // Set custom style for a particular section
+    // Set a custom style for a particular section
     //
     self.accessoriesSection.style = [self.manager.style copy];
     [self.accessoriesSection.style setBackgroundImage:[[UIImage imageNamed:@"First_Alt"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
