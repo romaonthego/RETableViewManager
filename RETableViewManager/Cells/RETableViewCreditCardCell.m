@@ -60,12 +60,7 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.textLabel.backgroundColor = [UIColor clearColor];
     
-    CGFloat cellOffset = 10.0;
-    
-    if (REDeviceSystemMajorVersion() >= 7.0 && self.tableViewManager.style.contentViewMargin <= 0)
-        cellOffset += 5.0;
-    
-    _creditCardImageViewContainer = [[UIView alloc] initWithFrame:CGRectMake(cellOffset, 5, 32, 32)];
+    _creditCardImageViewContainer = [[UIView alloc] init];
     [self.contentView addSubview:_creditCardImageViewContainer];
     
     _creditCardStackImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
@@ -120,8 +115,14 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
 
 - (void)cellWillAppear
 {
+    CGFloat cellOffset = 10.0;
+    
+    if (REDeviceSystemMajorVersion() >= 7.0 && self.section.style.contentViewMargin <= 0)
+        cellOffset += 5.0;
+    _creditCardImageViewContainer.frame = CGRectMake(cellOffset, 5, 32, 32);
+    
+    
     self.textLabel.text = self.item.title;
-   // _textFieldPositionOffset = self.tableViewManager.style.textFieldPositionOffset;
     
     _creditCardField.text = self.item.number;
     _creditCardField.font = [UIFont systemFontOfSize:17];

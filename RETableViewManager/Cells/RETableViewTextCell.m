@@ -89,7 +89,7 @@
     CGFloat cellOffset = 10.0;
     CGFloat fieldOffset = 10.0;
     
-    if (REDeviceSystemMajorVersion() >= 7.0 && self.tableViewManager.style.contentViewMargin <= 0)
+    if (REDeviceSystemMajorVersion() >= 7.0 && self.section.style.contentViewMargin <= 0)
         cellOffset += 5.0;
     
     CGRect frame = CGRectMake(0, self.textLabel.frame.origin.y, 0, self.textLabel.frame.size.height);

@@ -53,6 +53,18 @@
         self.manager.style.contentViewMargin = 10.0;
         self.manager.style.backgroundImageMargin = 10.0;
     }
+    
+    // Set custom style for a particular section
+    //
+    self.accessoriesSection.style = [self.manager.style copy];
+    [self.accessoriesSection.style setBackgroundImage:[[UIImage imageNamed:@"First_Alt"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                               forCellType:RETableViewCellTypeFirst];
+    [self.accessoriesSection.style setBackgroundImage:[[UIImage imageNamed:@"Middle_Alt"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                               forCellType:RETableViewCellTypeMiddle];
+    [self.accessoriesSection.style setBackgroundImage:[[UIImage imageNamed:@"Last_Alt"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                               forCellType:RETableViewCellTypeLast];
+    [self.accessoriesSection.style setBackgroundImage:[[UIImage imageNamed:@"Single_Alt"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                               forCellType:RETableViewCellTypeSingle];
 }
 
 #pragma mark -

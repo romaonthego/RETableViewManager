@@ -13,5 +13,10 @@
 @interface ControlsViewController : UITableViewController <RETableViewManagerDelegate>
 
 @property (strong, readonly, nonatomic) RETableViewManager *manager;
+@property (strong, readwrite, nonatomic) RETableViewSection *basicControlsSection;
+@property (strong, readwrite, nonatomic) RETableViewSection *creditCardSection;
+@property (strong, readwrite, nonatomic) RETableViewSection *accessoriesSection;
+@property (strong, readwrite, nonatomic) RETableViewSection *cutCopyPasteSection;
+@property (strong, readwrite, nonatomic) RETableViewSection *buttonSection;
 
 @end

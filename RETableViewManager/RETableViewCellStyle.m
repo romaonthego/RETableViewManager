@@ -42,6 +42,20 @@
     return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    RETableViewCellStyle *style = [[self class] allocWithZone:zone];
+    if (style) {
+        style.backgroundImages = [NSMutableDictionary dictionaryWithDictionary:[self.backgroundImages copyWithZone:zone]];
+        style.selectedBackgroundImages = [NSMutableDictionary dictionaryWithDictionary:[self.selectedBackgroundImages copyWithZone:zone]];
+        style.cellHeight = self.cellHeight;
+        style.defaultCellSelectionStyle = self.defaultCellSelectionStyle;
+        style.backgroundImageMargin = self.backgroundImageMargin;
+        style.contentViewMargin = self.contentViewMargin;
+    }
+    return style;
+}
+
 - (BOOL)hasCustomBackgroundImage
 {
     return [self backgroundImageForCellType:RETableViewCellTypeAny] || [self backgroundImageForCellType:RETableViewCellTypeFirst] || [self backgroundImageForCellType:RETableViewCellTypeMiddle] || [self backgroundImageForCellType:RETableViewCellTypeLast] || [self backgroundImageForCellType:RETableViewCellTypeSingle];

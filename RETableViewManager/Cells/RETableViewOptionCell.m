@@ -47,6 +47,7 @@
 
 - (void)cellWillAppear
 {
+    //[super cellWillAppear];
     self.textLabel.backgroundColor = [UIColor clearColor];
     self.textLabel.text = self.item.title.length == 0 ? @" " : self.item.title;
     self.detailTextLabel.text = @"";

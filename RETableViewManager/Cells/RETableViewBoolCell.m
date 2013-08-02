@@ -40,22 +40,22 @@
     _switchView.translatesAutoresizingMaskIntoConstraints = NO;
     [_switchView addTarget:self action:@selector(switchValueDidChange:) forControlEvents:UIControlEventValueChanged];
     [self.contentView addSubview:_switchView];
-    
-    CGFloat margin = (REDeviceSystemMajorVersion() >= 7.0 && self.tableViewManager.style.contentViewMargin <= 0) ? 15.0 : 10.0;
-    NSDictionary *metrics = @{@"margin": @(margin)};
-    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_switchView
-                                                          attribute:NSLayoutAttributeCenterY
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.contentView
-                                                          attribute:NSLayoutAttributeCenterY
-                                                         multiplier:1.0
-                                                           constant:0]];
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_switchView]-margin-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(_switchView)]];
-    
 }
 
 - (void)cellWillAppear
 {
+    [self.contentView removeConstraints:self.contentView.constraints];
+    CGFloat margin = (REDeviceSystemMajorVersion() >= 7.0 && self.section.style.contentViewMargin <= 0) ? 15.0 : 10.0;
+    NSDictionary *metrics = @{@"margin": @(margin)};
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_switchView
+                                                                 attribute:NSLayoutAttributeCenterY
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:self.contentView
+                                                                 attribute:NSLayoutAttributeCenterY
+                                                                multiplier:1.0
+                                                                  constant:0]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_switchView]-margin-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(_switchView)]];
+    
     self.textLabel.backgroundColor = [UIColor clearColor];
     self.textLabel.text = self.item.title;
     _switchView.on = self.item.value;

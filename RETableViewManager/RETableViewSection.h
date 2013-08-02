@@ -26,6 +26,7 @@
 #import <Foundation/Foundation.h>
 
 @class RETableViewManager;
+@class RETableViewCellStyle;
 
 /**
  Table view section.
@@ -138,6 +139,15 @@
  @return A new section initialized with header and footer views.
  */
 - (id)initWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView;
+
+///-----------------------------
+/// @name Styling
+///-----------------------------
+
+/**
+ The object that provides styling for the section. See RETableViewCellStyle reference for details.
+ */
+@property (strong, readwrite, nonatomic) RETableViewCellStyle *style;
 
 ///-----------------------------
 /// @name Adding Items

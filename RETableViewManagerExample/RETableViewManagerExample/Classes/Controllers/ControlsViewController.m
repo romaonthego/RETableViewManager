@@ -23,17 +23,17 @@
     //
     _manager = [[RETableViewManager alloc] initWithTableView:self.tableView delegate:self];
 
-    [self addBasicControls];
-    [self addCreditCard];
-    [self addAccessories];
-    [self addCutCopyPaste];
-    [self addButton];
+    self.basicControlsSection = [self addBasicControls];
+    self.creditCardSection = [self addCreditCard];
+    self.accessoriesSection = [self addAccessories];
+    self.cutCopyPasteSection = [self addCutCopyPaste];
+    self.buttonSection = [self addButton];
 }
 
 #pragma mark -
 #pragma mark Basic Controls Example
 
-- (void)addBasicControls
+- (RETableViewSection *)addBasicControls
 {
     __typeof (&*self) __weak weakSelf = self;
     
@@ -84,9 +84,12 @@
         // Adjust styles
         //
         optionsController.delegate = weakSelf;
-        optionsController.style = weakSelf.manager.style;
-        optionsController.tableView.backgroundColor = weakSelf.tableView.backgroundColor;
-        optionsController.tableView.backgroundView = weakSelf.tableView.backgroundView;
+        optionsController.style = section.style;
+        
+        if (weakSelf.tableView.backgroundView == nil) {
+            optionsController.tableView.backgroundColor = weakSelf.tableView.backgroundColor;
+            optionsController.tableView.backgroundView = nil;
+        }
         
         // Push the options controller
         //
@@ -113,9 +116,11 @@
         // Adjust styles
         //
         optionsController.delegate = weakSelf;
-        optionsController.style = weakSelf.manager.style;
-        optionsController.tableView.backgroundColor = weakSelf.tableView.backgroundColor;
-        optionsController.tableView.backgroundView = weakSelf.tableView.backgroundView;
+        optionsController.style = section.style;
+        if (weakSelf.tableView.backgroundView == nil) {
+            optionsController.tableView.backgroundColor = weakSelf.tableView.backgroundColor;
+            optionsController.tableView.backgroundView = nil;
+        }
         
         // Push the options controller
         //
@@ -126,22 +131,26 @@
     RELongTextItem *longTextItem = [RELongTextItem itemWithValue:nil placeholder:@"Multiline text field"];
     longTextItem.cellHeight = 88;
     [section addItem:longTextItem];
+    
+    return section;
 }
 
 #pragma mark -
 #pragma mark Credit Card Example
 
-- (void)addCreditCard
+- (RETableViewSection *)addCreditCard
 {
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Credit card"];
     [_manager addSection:section];
     [section addItem:[RECreditCardItem item]];
+    
+    return section;
 }
 
 #pragma mark -
 #pragma mark Accessories Example
 
-- (void)addAccessories
+- (RETableViewSection *)addAccessories
 {
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Accessories"];
     [_manager addSection:section];
@@ -161,12 +170,14 @@
     [section addItem:[RETableViewItem itemWithTitle:@"Accessory 2" accessoryType:UITableViewCellAccessoryCheckmark selectionHandler:^(RETableViewItem *item) {
         [item deselectRowAnimated:YES];
     }]];
+    
+    return section;
 }
 
 #pragma mark -
 #pragma mark Cut, Copy and Paste Example
 
-- (void)addCutCopyPaste
+- (RETableViewSection *)addCutCopyPaste
 {
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Copy / pasting"];
     [_manager addSection:section];
@@ -204,12 +215,14 @@
         [item reloadRowWithAnimation:UITableViewRowAnimationAutomatic];
     };
     [section addItem:cutCopyPasteItem];
+    
+    return section;
 }
 
 #pragma mark -
 #pragma mark Button Example
 
-- (void)addButton
+- (RETableViewSection *)addButton
 {
     __typeof (&*self) __weak weakSelf = self;
     
@@ -222,6 +235,8 @@
     }];
     buttonItem.textAlignment = NSTextAlignmentCenter;
     [section addItem:buttonItem];
+    
+    return section;
 }
 
 @end

@@ -102,6 +102,14 @@
 }
 
 #pragma mark -
+#pragma mark Styling
+
+- (RETableViewCellStyle *)style
+{
+    return _style ? _style : self.tableViewManager.style;
+}
+
+#pragma mark -
 #pragma mark Reading information
 
 - (NSUInteger)index

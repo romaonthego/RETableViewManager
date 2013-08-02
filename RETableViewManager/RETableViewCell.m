@@ -38,6 +38,9 @@
     if ([item isKindOfClass:[RETableViewItem class]] && item.cellHeight > 0)
         return item.cellHeight;
     
+    if ([item isKindOfClass:[RETableViewItem class]] && item.cellHeight == 0)
+        return item.section.style.cellHeight;
+    
     return tableViewManager.style.cellHeight;
 }
 
@@ -71,6 +74,7 @@
 - (void)cellWillAppear
 {
     [self updateActionBarNavigationControl];
+    self.selectionStyle = self.section.style.defaultCellSelectionStyle;
     
     if ([self.item isKindOfClass:[NSString class]]) {
         self.textLabel.text = (NSString *)self.item;
@@ -102,31 +106,31 @@
     // Set content frame
     //
     CGRect contentFrame = self.contentView.frame;
-    contentFrame.origin.x = contentFrame.origin.x + self.tableViewManager.style.contentViewMargin;
-    contentFrame.size.width = contentFrame.size.width - self.tableViewManager.style.contentViewMargin * 2;
+    contentFrame.origin.x = contentFrame.origin.x + self.section.style.contentViewMargin;
+    contentFrame.size.width = contentFrame.size.width - self.section.style.contentViewMargin * 2;
     self.contentView.frame = contentFrame;
     
     // Set background frame
     //
     CGRect backgroundFrame = self.backgroundImageView.frame;
-    backgroundFrame.origin.x = self.tableViewManager.style.backgroundImageMargin;
-    backgroundFrame.size.width = self.backgroundView.frame.size.width - self.tableViewManager.style.backgroundImageMargin * 2;
+    backgroundFrame.origin.x = self.section.style.backgroundImageMargin;
+    backgroundFrame.size.width = self.backgroundView.frame.size.width - self.section.style.backgroundImageMargin * 2;
     self.backgroundImageView.frame = backgroundFrame;
     self.selectedBackgroundImageView.frame = backgroundFrame;
     
     // iOS [redacted] textLabel margin fix
     //
-    if (self.tableViewManager.style.contentViewMargin > 0) {
-        self.textLabel.frame = CGRectMake(self.tableViewManager.style.contentViewMargin, self.textLabel.frame.origin.y, self.textLabel.frame.size.width, self.textLabel.frame.size.height);
+    if (self.section.style.contentViewMargin > 0) {
+        self.textLabel.frame = CGRectMake(self.section.style.contentViewMargin, self.textLabel.frame.origin.y, self.textLabel.frame.size.width, self.textLabel.frame.size.height);
     }
     
-    if ([self.tableViewManager.style hasCustomBackgroundImage]) {
+    if ([self.section.style hasCustomBackgroundImage]) {
         self.backgroundColor = [UIColor clearColor];
-        _backgroundImageView.image = [self.tableViewManager.style backgroundImageForCellType:self.type];
+        _backgroundImageView.image = [self.section.style backgroundImageForCellType:self.type];
     }
     
-    if ([self.tableViewManager.style hasCustomSelectedBackgroundImage]) {
-        _selectedBackgroundImageView.image = [self.tableViewManager.style selectedBackgroundImageForCellType:self.type];
+    if ([self.section.style hasCustomSelectedBackgroundImage]) {
+        _selectedBackgroundImageView.image = [self.section.style selectedBackgroundImageForCellType:self.type];
     }
 }
 
