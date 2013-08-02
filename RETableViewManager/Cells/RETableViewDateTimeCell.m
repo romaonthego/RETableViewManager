@@ -39,7 +39,6 @@
 {
     [super cellDidLoad];
     self.textLabel.backgroundColor = [UIColor clearColor];
-    self.selectionStyle = self.tableViewManager.style.defaultCellSelectionStyle;
     
     _textField = [[UITextField alloc] initWithFrame:CGRectNull];
     _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;

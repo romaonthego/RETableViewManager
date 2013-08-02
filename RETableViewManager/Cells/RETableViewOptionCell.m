@@ -35,7 +35,6 @@
 {
     [super cellDidLoad];
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    self.selectionStyle = self.tableViewManager.style.defaultCellSelectionStyle;
     
     _valueLabel = [[UILabel alloc] initWithFrame:CGRectNull];
     _valueLabel.font = [UIFont systemFontOfSize:17];
