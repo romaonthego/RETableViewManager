@@ -47,6 +47,7 @@
 - (void)cellDidLoad
 {
     self.actionBar = [[REActionBar alloc] initWithDelegate:self];
+    self.selectionStyle = self.tableViewManager.style.defaultCellSelectionStyle;
     
     if ([self.tableViewManager.style hasCustomBackgroundImage]) {
         self.tableViewManager.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
