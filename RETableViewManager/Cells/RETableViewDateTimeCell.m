@@ -52,6 +52,7 @@
     _dateLabel.textColor = self.detailTextLabel.textColor;
     _dateLabel.highlightedTextColor = [UIColor whiteColor];
     _dateLabel.textAlignment = NSTextAlignmentRight;
+    _dateLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.contentView addSubview:_dateLabel];
     
     _placeholderLabel = [[UILabel alloc] initWithFrame:CGRectNull];
@@ -59,7 +60,6 @@
     _placeholderLabel.backgroundColor = [UIColor clearColor];
     _placeholderLabel.textColor = [UIColor lightGrayColor];
     _placeholderLabel.highlightedTextColor = [UIColor whiteColor];
-    _placeholderLabel.textAlignment = NSTextAlignmentRight;
     [self.contentView addSubview:_placeholderLabel];
     
     _dateFormatter = [[NSDateFormatter alloc] init];
@@ -92,22 +92,9 @@
     self.textField.frame = CGRectNull;
     self.textField.alpha = 0;
     
-    CGFloat cellOffset = 10.0;
-    CGFloat fieldOffset = 10.0;
-    
-    if (REDeviceSystemMajorVersion() >= 7.0 && self.section.style.contentViewMargin <= 0)
-        cellOffset += 5.0;
-    
-    CGRect frame = CGRectMake(0, self.textLabel.frame.origin.y, 0, self.textLabel.frame.size.height);
-    if (self.item.title.length > 0) {
-        frame.origin.x = [self.section maximumTitleWidthWithFont:self.textLabel.font] + cellOffset + fieldOffset;
-    } else {
-        frame.origin.x = cellOffset;
-    }
-    frame.size.width = self.contentView.frame.size.width - frame.origin.x - cellOffset;
-    _dateLabel.frame = frame;
-    _placeholderLabel.frame = _dateLabel.frame;
-    
+    [self layoutDetailView:_dateLabel];
+    [self layoutDetailView:_placeholderLabel];
+
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:forRowAtIndexPath:)])
         [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self forRowAtIndexPath:[(UITableView *)self.superview indexPathForCell:self]];
 }

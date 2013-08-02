@@ -86,20 +86,7 @@
 {
     [super layoutSubviews];
     
-    CGFloat cellOffset = 10.0;
-    CGFloat fieldOffset = 10.0;
-    
-    if (REDeviceSystemMajorVersion() >= 7.0 && self.section.style.contentViewMargin <= 0)
-        cellOffset += 5.0;
-    
-    CGRect frame = CGRectMake(0, self.textLabel.frame.origin.y, 0, self.textLabel.frame.size.height);
-    if (self.item.title.length > 0) {
-        frame.origin.x = [self.section maximumTitleWidthWithFont:self.textLabel.font] + cellOffset + fieldOffset;
-    } else {
-        frame.origin.x = cellOffset;
-    }
-    frame.size.width = self.contentView.frame.size.width - frame.origin.x - cellOffset;
-    _textField.frame = frame;
+    [self layoutDetailView:_textField];
     
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:forRowAtIndexPath:)])
         [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self forRowAtIndexPath:[(UITableView *)self.superview indexPathForCell:self]];
