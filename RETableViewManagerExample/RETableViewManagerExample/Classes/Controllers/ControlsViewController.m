@@ -83,6 +83,7 @@
         
         // Adjust styles
         //
+        optionsController.delegate = self;
         optionsController.style = weakSelf.manager.style;
         optionsController.tableView.backgroundColor = weakSelf.tableView.backgroundColor;
         optionsController.tableView.backgroundView = weakSelf.tableView.backgroundView;
@@ -111,6 +112,7 @@
         
         // Adjust styles
         //
+        optionsController.delegate = self;
         optionsController.style = weakSelf.manager.style;
         optionsController.tableView.backgroundColor = weakSelf.tableView.backgroundColor;
         optionsController.tableView.backgroundView = weakSelf.tableView.backgroundView;
