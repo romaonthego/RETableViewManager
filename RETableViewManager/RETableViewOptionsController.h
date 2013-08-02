@@ -35,7 +35,7 @@
 @property (assign, readwrite, nonatomic) BOOL multipleChoice;
 @property (copy, readwrite, nonatomic) void (^completionHandler)(void);
 @property (strong, readwrite, nonatomic) RETableViewCellStyle *style;
-@property (weak, readwrite, nonatomic) id<RETableViewManagerDelegate, UITableViewDelegate> delegate;
+@property (weak, readwrite, nonatomic) id<RETableViewManagerDelegate> delegate;
 
 - (id)initWithItem:(RETableViewItem *)item options:(NSArray *)options multipleChoice:(BOOL)multipleChoice completionHandler:(void(^)(void))completionHandler;
 

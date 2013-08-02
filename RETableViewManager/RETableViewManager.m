@@ -42,7 +42,7 @@ NSUInteger REDeviceSystemMajorVersion() {
     return nil;
 }
 
-- (id)initWithTableView:(UITableView *)tableView delegate:(id<RETableViewManagerDelegate, UITableViewDelegate>)delegate
+- (id)initWithTableView:(UITableView *)tableView delegate:(id<RETableViewManagerDelegate>)delegate
 {
     self = [self initWithTableView:tableView];
     if (!self)

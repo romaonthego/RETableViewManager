@@ -86,7 +86,7 @@ NSUInteger REDeviceSystemMajorVersion();
  @param delegate The delegate (RETableViewManagerDelegate) object for the table view manager.
  @return The pointer to the instance, or nil if initialization failed.
  */
-- (id)initWithTableView:(UITableView *)tableView delegate:(id<RETableViewManagerDelegate, UITableViewDelegate>)delegate;
+- (id)initWithTableView:(UITableView *)tableView delegate:(id<RETableViewManagerDelegate>)delegate;
 
 /**
  Initialize a table view manager object for a specific `UITableView`.
@@ -103,7 +103,7 @@ NSUInteger REDeviceSystemMajorVersion();
 /**
  The object that acts as the delegate of the receiving table view.
  */
-@property (assign, readwrite, nonatomic) id<RETableViewManagerDelegate, UITableViewDelegate> delegate;
+@property (assign, readwrite, nonatomic) id<RETableViewManagerDelegate> delegate;
 
 ///-----------------------------
 /// @name Managing Custom Cells
@@ -339,7 +339,7 @@ NSUInteger REDeviceSystemMajorVersion();
 /**
  The delegate of a `RETableViewManager` object can adopt the `RETableViewManagerDelegate` protocol. Optional methods of the protocol allow the delegate to manage cells.
  */
-@protocol RETableViewManagerDelegate <NSObject>
+@protocol RETableViewManagerDelegate <UITableViewDelegate>
 
 @optional
 
