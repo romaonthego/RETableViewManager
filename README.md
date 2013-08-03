@@ -99,7 +99,7 @@ Edit your Podfile and add RETableViewManager:
 
 ``` bash
 platform :ios, '6.0'
-pod 'RETableViewManager', '~> 0.1.0'
+pod 'RETableViewManager', '~> 1.0.0'
 ```
 
 Install into your Xcode project:
@@ -394,7 +394,6 @@ find out how default mapping is performed:
     self[@"REMultipleChoiceItem"] = @"RETableViewOptionCell";
 }
 ```
-
 
 Your custom items should be subclassed from `RETableViewItem`. Custom cells should be subclassed from `RETableViewCell`.
 These are 2 base classes that provide all necessary logic to bound your subclasses together.
