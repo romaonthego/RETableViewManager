@@ -58,6 +58,11 @@
 {
     [super layoutSubviews];
     [self layoutDetailView:_valueLabel];
+    if (REDeviceSystemMajorVersion() >= 7.0) {
+        CGRect frame = self.valueLabel.frame;
+        frame.size.width += 10.0;
+        self.valueLabel.frame = frame;
+    }
     
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:forRowAtIndexPath:)])
         [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self forRowAtIndexPath:[(UITableView *)self.superview indexPathForCell:self]];
