@@ -55,6 +55,7 @@
     NSLog(@"radioItem.value = %@", self.radioItem.value);
     NSLog(@"multipleChoiceItem.value = %@", self.multipleChoiceItem.value);
     NSLog(@"longTextItem.value = %@", self.longTextItem.value);
+    NSLog(@"creditCardItem.number = %@, creditCardItem.expirationDate = %@, creditCardItem.cvv = %@", self.creditCardItem.number, self.creditCardItem.expirationDate, self.creditCardItem.cvv);
 }
 
 #pragma mark -
