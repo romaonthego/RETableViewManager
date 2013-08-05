@@ -30,6 +30,7 @@
 {
     [super viewDidLoad];
     self.title = @"Controls";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Values" style:UIBarButtonItemStyleBordered target:self action:@selector(valuesButtonPressed:)];
     
     // Create manager
     //
@@ -40,6 +41,20 @@
     self.accessoriesSection = [self addAccessories];
     self.cutCopyPasteSection = [self addCutCopyPaste];
     self.buttonSection = [self addButton];
+}
+
+- (void)valuesButtonPressed:(id)sender
+{
+    NSLog(@"fullLengthFieldItem.value = %@", self.fullLengthFieldItem.value);
+    NSLog(@"textItem.value = %@", self.textItem.value);
+    NSLog(@"numberItem.value = %@", self.numberItem.value);
+    NSLog(@"passwordItem.value = %@", self.passwordItem.value);
+    NSLog(@"boolItem.value = %@", self.boolItem.value ? @"YES" : @"NO");
+    NSLog(@"floatItem.value = %f", self.floatItem.value);
+    NSLog(@"dateTimeItem = %@", self.dateTimeItem.value);
+    NSLog(@"radioItem.value = %@", self.radioItem.value);
+    NSLog(@"multipleChoiceItem.value = %@", self.multipleChoiceItem.value);
+    NSLog(@"longTextItem.value = %@", self.longTextItem.value);
 }
 
 #pragma mark -
@@ -56,27 +71,19 @@
     //
     [section addItem:@"Simple NSString"];
     
-    RETextItem *fullLengthField = [RETextItem itemWithTitle:nil value:nil placeholder:@"Full length text field"];
-    [section addItem:fullLengthField];
-    
-    [section addItem:[RETextItem itemWithTitle:@"Text item" value:nil placeholder:@"Text"]];
-    [section addItem:[RENumberItem itemWithTitle:@"Phone" value:@"" placeholder:@"(123) 456-7890" format:@"(XXX) XXX-XXXX"]];
-    
-    RETextItem *passwordItem = [RETextItem itemWithTitle:@"Password" value:nil placeholder:@"Password item"];
-    passwordItem.secureTextEntry = YES;
-    [section addItem:passwordItem];
-    
-    [section addItem:[REBoolItem itemWithTitle:@"Bool item" value:YES switchValueChangeHandler:^(REBoolItem *item) {
+    self.fullLengthFieldItem = [RETextItem itemWithTitle:nil value:nil placeholder:@"Full length text field"];    
+    self.textItem = [RETextItem itemWithTitle:@"Text item" value:nil placeholder:@"Text"];
+    self.numberItem = [RENumberItem itemWithTitle:@"Phone" value:@"" placeholder:@"(123) 456-7890" format:@"(XXX) XXX-XXXX"];
+    self.passwordItem = [RETextItem itemWithTitle:@"Password" value:nil placeholder:@"Password item"];
+    self.passwordItem.secureTextEntry = YES;
+    self.boolItem = [REBoolItem itemWithTitle:@"Bool item" value:YES switchValueChangeHandler:^(REBoolItem *item) {
         NSLog(@"Value: %@", item.value ? @"YES" : @"NO");
-    }]];
-    
-    [section addItem:[REFloatItem itemWithTitle:@"Float item" value:0.3 sliderValueChangeHandler:^(REFloatItem *item) {
+    }];
+    self.floatItem = [REFloatItem itemWithTitle:@"Float item" value:0.3 sliderValueChangeHandler:^(REFloatItem *item) {
         NSLog(@"Value: %f", item.value);
-    }]];
-    
-    [section addItem:[REDateTimeItem itemWithTitle:@"Date / Time" value:[NSDate date] placeholder:nil format:@"MM/dd/yyyy hh:mm a" datePickerMode:UIDatePickerModeDateAndTime]];
-    
-    RERadioItem *optionItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" selectionHandler:^(RERadioItem *item) {
+    }];
+    self.dateTimeItem = [REDateTimeItem itemWithTitle:@"Date / Time" value:[NSDate date] placeholder:nil format:@"MM/dd/yyyy hh:mm a" datePickerMode:UIDatePickerModeDateAndTime];
+    self.radioItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" selectionHandler:^(RERadioItem *item) {
         [item deselectRowAnimated:YES]; // same as [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
         
         // Generate sample options
@@ -106,9 +113,8 @@
         //
         [weakSelf.navigationController pushViewController:optionsController animated:YES];
     }];
-    [section addItem:optionItem];
     
-    REMultipleChoiceItem *multipleItem = [REMultipleChoiceItem itemWithTitle:@"Multiple" value:@[@"Option 2", @"Option 4"] selectionHandler:^(REMultipleChoiceItem *item) {
+    self.multipleChoiceItem = [REMultipleChoiceItem itemWithTitle:@"Multiple" value:@[@"Option 2", @"Option 4"] selectionHandler:^(REMultipleChoiceItem *item) {
         [item deselectRowAnimated:YES];
         
         // Generate sample options
@@ -137,11 +143,19 @@
         //
         [weakSelf.navigationController pushViewController:optionsController animated:YES];
     }];
-    [section addItem:multipleItem];
+    self.longTextItem = [RELongTextItem itemWithValue:nil placeholder:@"Multiline text field"];
+    self.longTextItem.cellHeight = 88;
     
-    RELongTextItem *longTextItem = [RELongTextItem itemWithValue:nil placeholder:@"Multiline text field"];
-    longTextItem.cellHeight = 88;
-    [section addItem:longTextItem];
+    [section addItem:self.fullLengthFieldItem];
+    [section addItem:self.textItem];
+    [section addItem:self.numberItem];
+    [section addItem:self.passwordItem];
+    [section addItem:self.boolItem];
+    [section addItem:self.floatItem];
+    [section addItem:self.dateTimeItem];
+    [section addItem:self.radioItem];
+    [section addItem:self.multipleChoiceItem];
+    [section addItem:self.longTextItem];
     
     return section;
 }
@@ -153,7 +167,8 @@
 {
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Credit card"];
     [_manager addSection:section];
-    [section addItem:[RECreditCardItem item]];
+    self.creditCardItem = [RECreditCardItem item];
+    [section addItem:self.creditCardItem];
     
     return section;
 }
