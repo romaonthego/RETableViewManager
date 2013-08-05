@@ -10,6 +10,18 @@
 
 @interface ControlsViewController ()
 
+@property (strong, readwrite, nonatomic) RETextItem *fullLengthFieldItem;
+@property (strong, readwrite, nonatomic) RETextItem *textItem;
+@property (strong, readwrite, nonatomic) RENumberItem *numberItem;
+@property (strong, readwrite, nonatomic) RETextItem *passwordItem;
+@property (strong, readwrite, nonatomic) REBoolItem *boolItem;
+@property (strong, readwrite, nonatomic) REFloatItem *floatItem;
+@property (strong, readwrite, nonatomic) REDateTimeItem *dateTimeItem;
+@property (strong, readwrite, nonatomic) RERadioItem *radioItem;
+@property (strong, readwrite, nonatomic) REMultipleChoiceItem *multipleChoiceItem;
+@property (strong, readwrite, nonatomic) RELongTextItem *longTextItem;
+@property (strong, readwrite, nonatomic) RECreditCardItem *creditCardItem;
+
 @end
 
 @implementation ControlsViewController
