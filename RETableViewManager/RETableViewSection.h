@@ -68,6 +68,12 @@
  */
 @property (assign, readonly, nonatomic) NSUInteger index;
 
+/**
+ Returns the width of the longest title in the section.
+ 
+ @param font A base font to use in calculations.
+ @return width.
+ */
 - (CGFloat)maximumTitleWidthWithFont:(UIFont *)font;
 
 ///-----------------------------
