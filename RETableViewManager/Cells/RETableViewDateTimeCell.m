@@ -84,6 +84,7 @@
     _dateLabel.text = self.item.value ? [_dateFormatter stringFromDate:self.item.value] : @"";
     _placeholderLabel.text = self.item.placeholder;
     _placeholderLabel.hidden = self.dateLabel.text.length > 0;
+    _dateLabel.backgroundColor = [UIColor redColor];
 }
 
 - (void)layoutSubviews
@@ -92,8 +93,8 @@
     self.textField.frame = CGRectNull;
     self.textField.alpha = 0;
     
-    [self layoutDetailView:_dateLabel];
-    [self layoutDetailView:_placeholderLabel];
+    [self layoutDetailView:_dateLabel minimumWidth:[_dateLabel.text sizeWithFont:_dateLabel.font].width];
+    [self layoutDetailView:_placeholderLabel minimumWidth:[_placeholderLabel.text sizeWithFont:_placeholderLabel.font].width];
 
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:forRowAtIndexPath:)])
         [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self forRowAtIndexPath:[(UITableView *)self.superview indexPathForCell:self]];

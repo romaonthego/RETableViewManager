@@ -134,7 +134,7 @@
     }
 }
 
-- (void)layoutDetailView:(UIView *)view
+- (void)layoutDetailView:(UIView *)view minimumWidth:(CGFloat)minimumWidth
 {
     CGFloat cellOffset = 10.0;
     CGFloat fieldOffset = 10.0;
@@ -154,6 +154,12 @@
         frame.origin.x = cellOffset;
     }
     frame.size.width = self.contentView.frame.size.width - frame.origin.x - cellOffset;
+    if (frame.size.width < minimumWidth) {
+        CGFloat diff = minimumWidth - frame.size.width;
+        frame.origin.x = frame.origin.x - diff;
+        frame.size.width = minimumWidth;
+    }
+    
     view.frame = frame;
 }
 

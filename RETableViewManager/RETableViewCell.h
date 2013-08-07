@@ -76,7 +76,7 @@ typedef NS_ENUM(NSInteger, RETableViewCellType) {
 @property (strong, readwrite, nonatomic) REActionBar *actionBar;
 
 - (void)updateActionBarNavigationControl;
-- (void)layoutDetailView:(UIView *)view;
+- (void)layoutDetailView:(UIView *)view minimumWidth:(CGFloat)minimumWidth;
 
 ///-----------------------------
 /// @name Accessing Row and Section
