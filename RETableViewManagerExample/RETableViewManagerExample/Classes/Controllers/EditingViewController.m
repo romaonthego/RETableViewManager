@@ -54,7 +54,7 @@
         item.deletionHandlerWithCompletion = ^(RETableViewItem *item, void (^completion)(void)) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:[NSString stringWithFormat:@"Are you sure you want to delete %@", item.title] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
             [alert show];
-            weakSelf.currentItem = item;
+            weakSelf.itemToDelete = item;
             
             // Assign completion block to deleteConfirmationHandler for future use
             //
@@ -129,7 +129,7 @@
     if (buttonIndex == 1) {
         if (self.deleteConfirmationHandler) {
             self.deleteConfirmationHandler();
-            NSLog(@"Item removed: %@", self.currentItem.title);
+            NSLog(@"Item removed: %@", self.itemToDelete.title);
         }
     }
 }

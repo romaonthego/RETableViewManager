@@ -15,7 +15,7 @@
 
 // Deletable items with confirmation
 
-@property (strong, readwrite, nonatomic) RETableViewItem *currentItem;
+@property (strong, readwrite, nonatomic) RETableViewItem *itemToDelete;
 @property (copy, readwrite, nonatomic) void (^deleteConfirmationHandler)(void);
 
 @end
