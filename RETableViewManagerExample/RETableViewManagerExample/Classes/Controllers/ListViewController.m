@@ -77,19 +77,15 @@
                        ];
     
     for (NSDictionary *dictionary in items) {
-        NSString *username = [dictionary objectForKey:@"username"];
-        NSString *userpic = [dictionary objectForKey:@"userpic"];
-        NSString *imageName = [dictionary objectForKey:@"image"];
-        
         // Create section with a header view
         //
-        ListHeaderView *headerView = [ListHeaderView headerViewWithImageNamed:userpic username:username];
+        ListHeaderView *headerView = [ListHeaderView headerViewWithImageNamed:dictionary[@"userpic"] username:dictionary[@"username"]];
         RETableViewSection *section = [RETableViewSection sectionWithHeaderView:headerView];
         [_manager addSection:section];
         
         // Add item (image)
         //
-        [section addItem:[ListImageItem itemWithImageNamed:imageName]];
+        [section addItem:[ListImageItem itemWithImageNamed:dictionary[@"image"]]];
     }
 }
 
