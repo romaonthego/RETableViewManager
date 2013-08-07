@@ -84,7 +84,6 @@
     _dateLabel.text = self.item.value ? [_dateFormatter stringFromDate:self.item.value] : @"";
     _placeholderLabel.text = self.item.placeholder;
     _placeholderLabel.hidden = self.dateLabel.text.length > 0;
-    _dateLabel.backgroundColor = [UIColor redColor];
 }
 
 - (void)layoutSubviews
