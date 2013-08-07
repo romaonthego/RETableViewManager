@@ -122,12 +122,12 @@
 {
     CGFloat width = 0;
     for (RETableViewItem *item in self.items) {
-        if ([item isMemberOfClass:[RETextItem class]] || [item isMemberOfClass:[REDateTimeItem class]]) {
+        if ([item isMemberOfClass:[RETextItem class]] || [item isMemberOfClass:[REDateTimeItem class]] || [item isMemberOfClass:[RENumberItem class]]) {
             CGSize size = [item.title sizeWithFont:font];
             width = MAX(width, size.width);
         }
     }
-    return width;
+    return width + 5.0;
 }
 
 #pragma mark -
