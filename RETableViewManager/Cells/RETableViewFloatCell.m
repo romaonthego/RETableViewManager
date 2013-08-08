@@ -53,7 +53,7 @@
 {
     [super layoutSubviews];
     CGFloat cellOffset = 10.0;
-    if (REDeviceSystemMajorVersion() >= 7.0 && self.section.style.contentViewMargin <= 0)
+    if (REDeviceIsUIKit7() && self.section.style.contentViewMargin <= 0)
         cellOffset += 5.0;
     
     _sliderView.frame = CGRectMake(self.contentView.frame.size.width - self.item.sliderWidth - cellOffset, (self.contentView.frame.size.height - _sliderView.frame.size.height) / 2.0, self.item.sliderWidth, 23.0);

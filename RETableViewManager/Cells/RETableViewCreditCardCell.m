@@ -117,7 +117,7 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
 {
     CGFloat cellOffset = 10.0;
     
-    if (REDeviceSystemMajorVersion() >= 7.0 && self.section.style.contentViewMargin <= 0)
+    if (REDeviceIsUIKit7() && self.section.style.contentViewMargin <= 0)
         cellOffset += 5.0;
     _creditCardImageViewContainer.frame = CGRectMake(cellOffset, 5, 32, 32);
     

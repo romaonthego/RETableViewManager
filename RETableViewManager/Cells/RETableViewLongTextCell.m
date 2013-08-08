@@ -65,7 +65,7 @@
 
     UILabel *label = self.textLabel;
     
-    CGFloat padding = (REDeviceSystemMajorVersion() >= 7.0 && self.section.style.contentViewMargin <= 0) ? 7 : 2;
+    CGFloat padding = (REDeviceIsUIKit7() && self.section.style.contentViewMargin <= 0) ? 7 : 2;
     NSDictionary *metrics = @{ @"padding": @(padding) };
     [self.contentView removeConstraints:self.contentView.constraints];
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_textView]-2-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(_textView, label)]];

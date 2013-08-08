@@ -34,7 +34,7 @@ NSUInteger REDeviceSystemMajorVersion() {
     return _deviceSystemMajorVersion;
 }
 
-BOOL REDeviceIsUIKIT7() {
+BOOL REDeviceIsUIKit7() {
 #ifdef __IPHONE_7_0
     if (REDeviceSystemMajorVersion() >= 7.0) {
         return YES;
