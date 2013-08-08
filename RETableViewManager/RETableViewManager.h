@@ -51,6 +51,7 @@
  Returns device OS major version.
  */
 NSUInteger REDeviceSystemMajorVersion();
+BOOL REDeviceIsUIKIT7();
 
 /**
  `RETableViewManager` allows to manage the content of any `UITableView` with ease, both forms and lists. `RETableViewManager` is built on top of reusable cells technique and provides 

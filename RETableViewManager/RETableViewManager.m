@@ -34,6 +34,15 @@ NSUInteger REDeviceSystemMajorVersion() {
     return _deviceSystemMajorVersion;
 }
 
+BOOL REDeviceIsUIKIT7() {
+#ifdef __IPHONE_7_0
+    if (REDeviceSystemMajorVersion() >= 7.0) {
+        return YES;
+    }
+#endif
+    return NO;
+}
+
 @implementation RETableViewManager
 
 - (id)init

@@ -36,7 +36,7 @@
     
     [self sizeToFit];
     
-    if (REDeviceSystemMajorVersion() < 7.0) {
+    if (!REDeviceIsUIKIT7()) {
         self.translucent = YES;
         self.barStyle = UIBarStyleBlackTranslucent;
     }
