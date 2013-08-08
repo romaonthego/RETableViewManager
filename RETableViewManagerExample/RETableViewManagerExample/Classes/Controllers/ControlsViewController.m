@@ -158,6 +158,13 @@
     [section addItem:self.multipleChoiceItem];
     [section addItem:self.longTextItem];
     
+    RETableViewItem *titleAndImageItem = [RETableViewItem itemWithTitle:@"Text and image item" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
+        [item deselectRowAnimated:YES];
+    }];
+    titleAndImageItem.image = [UIImage imageNamed:@"Heart"];
+    titleAndImageItem.highlightedImage = [UIImage imageNamed:@"Heart_Highlighted"];
+    [section addItem:titleAndImageItem];
+    
     return section;
 }
 

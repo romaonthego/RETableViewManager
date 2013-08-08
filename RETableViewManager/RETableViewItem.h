@@ -31,6 +31,8 @@
 @interface RETableViewItem : NSObject
 
 @property (copy, readwrite, nonatomic) NSString *title;
+@property (strong, readwrite, nonatomic) UIImage *image;
+@property (strong, readwrite, nonatomic) UIImage *highlightedImage;
 @property (assign, readwrite, nonatomic) NSTextAlignment textAlignment;
 @property (weak, readwrite, nonatomic) RETableViewSection *section;
 @property (copy, readwrite, nonatomic) NSString *detailLabelText;
