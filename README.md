@@ -493,7 +493,7 @@ self.manager.style.cellHeight = 42.0;
 
 // Retain legacy grouped cell style in iOS [redacted]
 //
-if (REDeviceSystemMajorVersion() >= 7) {
+if (REDeviceIsUIKit7()) {
     self.manager.style.contentViewMargin = 10.0;
     self.manager.style.backgroundImageMargin = 10.0;
 }
