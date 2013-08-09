@@ -628,6 +628,116 @@ BOOL REDeviceIsUIKit7() {
 }
 
 #pragma mark -
+#pragma mark UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    // Forward to UIScrollView delegate
+    //
+    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewDidScroll:)])
+        [_delegate scrollViewDidScroll:self.tableView];
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView
+{
+    // Forward to UIScrollView delegate
+    //
+    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewDidZoom:)])
+        [_delegate scrollViewDidZoom:self.tableView];
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    // Forward to UIScrollView delegate
+    //
+    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewWillBeginDragging:)])
+        [_delegate scrollViewWillBeginDragging:self.tableView];
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    // Forward to UIScrollView delegate
+    //
+    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewWillEndDragging:withVelocity:targetContentOffset:)])
+        [_delegate scrollViewWillEndDragging:self.tableView withVelocity:velocity targetContentOffset:targetContentOffset];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    // Forward to UIScrollView delegate
+    //
+    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewDidEndDragging:willDecelerate:)])
+        [_delegate scrollViewDidEndDragging:self.tableView willDecelerate:decelerate];
+}
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
+{
+    // Forward to UIScrollView delegate
+    //
+    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewWillBeginDecelerating:)])
+        [_delegate scrollViewWillBeginDecelerating:self.tableView];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    // Forward to UIScrollView delegate
+    //
+    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewDidEndDecelerating:)])
+        [_delegate scrollViewDidEndDecelerating:self.tableView];
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    // Forward to UIScrollView delegate
+    //
+    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewDidEndScrollingAnimation:)])
+        [_delegate scrollViewDidEndScrollingAnimation:self.tableView];
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    // Forward to UIScrollView delegate
+    //
+    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(viewForZoomingInScrollView:)])
+        return [_delegate viewForZoomingInScrollView:self.tableView];
+    
+    return nil;
+}
+
+- (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view
+{
+    // Forward to UIScrollView delegate
+    //
+    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewWillBeginZooming:withView:)])
+        [_delegate scrollViewWillBeginZooming:self.tableView withView:view];
+}
+
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(float)scale
+{
+    // Forward to UIScrollView delegate
+    //
+    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewDidEndZooming:withView:atScale:)])
+        [_delegate scrollViewDidEndZooming:self.tableView withView:view atScale:scale];
+}
+
+- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView
+{
+    // Forward to UIScrollView delegate
+    //
+    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewShouldScrollToTop:)])
+        return [_delegate scrollViewShouldScrollToTop:self.tableView];
+    return YES;
+}
+
+- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView
+{
+    // Forward to UIScrollView delegate
+    //
+    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewDidScrollToTop:)])
+        [_delegate scrollViewDidScrollToTop:self.tableView];
+}
+
+#pragma mark -
 #pragma mark Managing sections
 
 - (void)addSection:(RETableViewSection *)section
