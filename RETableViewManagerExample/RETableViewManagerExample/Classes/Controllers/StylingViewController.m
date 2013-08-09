@@ -76,6 +76,13 @@
         if ([view isKindOfClass:[UILabel class]] || [view isKindOfClass:[UITextField class]] || [view isKindOfClass:[UITextView class]])
             ((UILabel *)view).font = [UIFont fontWithName:@"Avenir-Medium" size:16];
     }
+    
+    if ([cell isKindOfClass:[RETableViewCreditCardCell class]]) {
+        RETableViewCreditCardCell *ccCell = (RETableViewCreditCardCell *)cell;
+        ccCell.creditCardField.font = [UIFont fontWithName:@"Avenir-Medium" size:16];
+        ccCell.expirationDateField.font = [UIFont fontWithName:@"Avenir-Medium" size:16];
+        ccCell.cvvField.font = [UIFont fontWithName:@"Avenir-Medium" size:16];
+    }
 }
 
 @end
