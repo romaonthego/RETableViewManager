@@ -374,7 +374,7 @@ _manager[@"CustomItem"] = @"CustomCell";
 ```
 
 If you take a look at [RETableViewManager Source Code](https://github.com/romaonthego/RETableViewManager/blob/master/RETableViewManager/RETableViewManager.m) you may
-find out how default mapping is performed:
+find out how default mapping is being performed:
 
 ``` objective-c
 - (void)registerDefaultClasses
