@@ -153,7 +153,7 @@ BOOL REDeviceIsUIKit7() {
     if ([item isKindOfClass:[RETableViewItem class]])
         cellStyle = ((RETableViewItem *)item).style;
     
-    NSString *cellIdentifier = [NSString stringWithFormat:@"RETableViewManager_%@_%i", [item class], cellStyle];
+    NSString *cellIdentifier = item.cellIdentifier ? item.cellIdentifier : [NSString stringWithFormat:@"RETableViewManager_%@_%i", [item class], cellStyle];
   
     Class cellClass = [self classForCellAtIndexPath:indexPath];
     
