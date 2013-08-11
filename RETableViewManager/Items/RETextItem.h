@@ -32,6 +32,12 @@
 @property (copy, readwrite, nonatomic) NSString *value;
 @property (copy, readwrite, nonatomic) NSString *placeholder;
 
+// TextField
+//
+@property (assign, readwrite, nonatomic) NSTextAlignment textFieldTextAlignment;              // default is NSTextAlignmentLeft
+@property (retain, readwrite, nonatomic) UIColor *textFieldTextColor;                         // default is nil. use opaque black
+@property (assign, readwrite, nonatomic) UITextFieldViewMode textFieldClearButtonMode;        // default is UITextFieldViewModeNever
+@property(assign, readwrite, nonatomic) BOOL textFieldClearsOnBeginEditing;                   // default is NO which moves cursor to location clicked. if YES, all text cleared
 
 // Keyboard
 //
