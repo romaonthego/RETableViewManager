@@ -75,6 +75,10 @@
     _textField.returnKeyType = self.item.returnKeyType;
     _textField.enablesReturnKeyAutomatically = self.item.enablesReturnKeyAutomatically;
     _textField.secureTextEntry = self.item.secureTextEntry;
+    _textField.textAlignment = self.item.textFieldTextAlignment;
+    _textField.textColor = self.item.textFieldTextColor;
+    _textField.clearButtonMode = self.item.textFieldClearButtonMode;
+    _textField.clearsOnBeginEditing = self.item.textFieldClearsOnBeginEditing;
 }
 
 - (UIResponder *)responder
