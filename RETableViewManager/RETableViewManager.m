@@ -474,6 +474,14 @@ BOOL REDeviceIsUIKit7() {
         [_delegate tableView:tableView didDeselectRowAtIndexPath:indexPath];
 }
 
+// Index
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+	if ([_delegate conformsToProtocol:@protocol(UITableViewDataSource)] && [_delegate respondsToSelector:@selector(sectionIndexTitlesForTableView:)]) {
+		return [_delegate sectionIndexTitlesForTableView:tableView];
+	}
+	return nil;
+}
+
 // Editing
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath

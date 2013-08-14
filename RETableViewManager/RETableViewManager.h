@@ -340,7 +340,7 @@ BOOL REDeviceIsUIKit7();
 /**
  The delegate of a `RETableViewManager` object can adopt the `RETableViewManagerDelegate` protocol. Optional methods of the protocol allow the delegate to manage cells.
  */
-@protocol RETableViewManagerDelegate <UITableViewDelegate>
+@protocol RETableViewManagerDelegate <UITableViewDelegate, UITableViewDataSource>
 
 @optional
 
