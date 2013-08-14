@@ -61,6 +61,7 @@
 		30DB067916E934AD006C9530 /* RETableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB066716E934AD006C9530 /* RETableViewManager.m */; };
 		30DB067A16E934AD006C9530 /* RETableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB066916E934AD006C9530 /* RETableViewSection.m */; };
 		30E16A48171A103400F7C258 /* EditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E16A47171A103300F7C258 /* EditingViewController.m */; };
+		30E5F50C17BBD163005CF1FE /* IndexedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E5F50B17BBD163005CF1FE /* IndexedListViewController.m */; };
 		30EF93B316E039B800B84981 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EF93B216E039B800B84981 /* UIKit.framework */; };
 		30EF93B516E039B800B84981 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EF93B416E039B800B84981 /* Foundation.framework */; };
 		30EF93B716E039B800B84981 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EF93B616E039B800B84981 /* CoreGraphics.framework */; };
@@ -173,6 +174,8 @@
 		30DB066916E934AD006C9530 /* RETableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewSection.m; sourceTree = "<group>"; };
 		30E16A46171A103300F7C258 /* EditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditingViewController.h; sourceTree = "<group>"; };
 		30E16A47171A103300F7C258 /* EditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditingViewController.m; sourceTree = "<group>"; };
+		30E5F50A17BBD163005CF1FE /* IndexedListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexedListViewController.h; sourceTree = "<group>"; };
+		30E5F50B17BBD163005CF1FE /* IndexedListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexedListViewController.m; sourceTree = "<group>"; };
 		30EF93AF16E039B800B84981 /* RETableViewManagerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RETableViewManagerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30EF93B216E039B800B84981 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		30EF93B416E039B800B84981 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -245,6 +248,8 @@
 				30FE4146176A306600F317B8 /* StylingViewController.m */,
 				303D967017B7CDE300A418F3 /* XIBTestViewController.h */,
 				303D967117B7CDE300A418F3 /* XIBTestViewController.m */,
+				30E5F50A17BBD163005CF1FE /* IndexedListViewController.h */,
+				30E5F50B17BBD163005CF1FE /* IndexedListViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -587,6 +592,7 @@
 				303D966817B7CCE300A418F3 /* XIBTestItem.m in Sources */,
 				303D966B17B7CCF800A418F3 /* XIBTestCell.m in Sources */,
 				303D967217B7CDE300A418F3 /* XIBTestViewController.m in Sources */,
+				30E5F50C17BBD163005CF1FE /* IndexedListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

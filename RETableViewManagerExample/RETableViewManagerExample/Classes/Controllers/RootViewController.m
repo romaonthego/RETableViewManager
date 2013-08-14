@@ -13,6 +13,7 @@
 #import "RetractableViewController.h"
 #import "StylingViewController.h"
 #import "XIBTestViewController.h"
+#import "IndexedListViewController.h"
 
 @interface RootViewController ()
 
@@ -64,6 +65,11 @@
     [section addItem:[RETableViewItem itemWithTitle:@"Interface Builder Support" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
         [item deselectRowAnimated:YES];
         [weakSelf.navigationController pushViewController:[[XIBTestViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
+    }]];
+    
+    [section addItem:[RETableViewItem itemWithTitle:@"Indexed List" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
+        [item deselectRowAnimated:YES];
+        [weakSelf.navigationController pushViewController:[[IndexedListViewController alloc] initWithStyle:UITableViewStylePlain] animated:YES];
     }]];
 }
 
