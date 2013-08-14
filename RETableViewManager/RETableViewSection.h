@@ -69,6 +69,11 @@
 @property (assign, readonly, nonatomic) NSUInteger index;
 
 /**
+ Section index title.
+ */
+@property (copy, readwrite, nonatomic) NSString *indexTitle;
+
+/**
  Returns the width of the longest title in the section.
  
  @param font A base font to use in calculations.

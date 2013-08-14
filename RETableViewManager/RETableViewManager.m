@@ -190,6 +190,24 @@ BOOL REDeviceIsUIKit7() {
     return cell;
 }
 
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    NSMutableArray *titles;
+    for (RETableViewSection *section in self.sections) {
+        if (section.indexTitle) {
+            titles = [NSMutableArray array];
+            break;
+        }
+    }
+    if (titles) {
+        for (RETableViewSection *section in self.sections) {
+            [titles addObject:section.indexTitle ? section.indexTitle : @""];
+        }
+    }
+    
+    return titles;
+}
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)sectionIndex
 {
     RETableViewSection *section = [_sections objectAtIndex:sectionIndex];
