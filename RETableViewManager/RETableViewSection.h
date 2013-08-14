@@ -89,14 +89,14 @@
  Creates and returns a new section.
  @return A new section.
  */
-+ (id)section;
++ (instancetype)section;
 
 /**
  Creates and returns a new section with predefined header title.
  @param headerTitle A header title.
  @return A new section with defined header title.
  */
-+ (id)sectionWithHeaderTitle:(NSString *)headerTitle;
++ (instancetype)sectionWithHeaderTitle:(NSString *)headerTitle;
 
 /**
  Creates and returns a new section with predefined header and footer titles.
@@ -104,14 +104,14 @@
  @param footerTitle A footer title.
  @return A new section with header and footer titles.
  */
-+ (id)sectionWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle;
++ (instancetype)sectionWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle;
 
 /**
  Creates and returns a new section containing a header view.
  @param headerView A header view.
  @return A new section containing a header view.
  */
-+ (id)sectionWithHeaderView:(UIView *)headerView;
++ (instancetype)sectionWithHeaderView:(UIView *)headerView;
 
 /**
  Creates and returns a new section containing header and footer views.
@@ -119,7 +119,7 @@
  @param footerView A footer view.
  @return A new section containing header and footer views.
  */
-+ (id)sectionWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView;
++ (instancetype)sectionWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView;
 
 /**
  Initializes a newly allocated section and sets header title.
