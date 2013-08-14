@@ -27,12 +27,12 @@
 
 @implementation REBoolItem
 
-+ (id)itemWithTitle:(NSString *)title value:(BOOL)value
++ (instancetype)itemWithTitle:(NSString *)title value:(BOOL)value
 {
     return [[self alloc] initWithTitle:title value:value];
 }
 
-+ (id)itemWithTitle:(NSString *)title value:(BOOL)value switchValueChangeHandler:(void(^)(REBoolItem *item))switchValueChangeHandler
++ (instancetype)itemWithTitle:(NSString *)title value:(BOOL)value switchValueChangeHandler:(void(^)(REBoolItem *item))switchValueChangeHandler
 {
     return [[self alloc] initWithTitle:title value:value switchValueChangeHandler:switchValueChangeHandler];
 }

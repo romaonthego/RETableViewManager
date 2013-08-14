@@ -27,7 +27,7 @@
 
 @implementation RENumberItem
 
-+ (id)itemWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder format:(NSString *)format
++ (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder format:(NSString *)format
 {
     return [[self alloc] initWithTitle:title value:value placeholder:placeholder format:format];
 }

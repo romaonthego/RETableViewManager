@@ -31,8 +31,8 @@
 @property (assign, readwrite, nonatomic) CGFloat sliderWidth;
 @property (copy, readwrite, nonatomic) void (^sliderValueChangeHandler)(REFloatItem *item);
 
-+ (id)itemWithTitle:(NSString *)title value:(float)value sliderValueChangeHandler:(void(^)(REFloatItem *item))sliderValueChangeHandler;
-+ (id)itemWithTitle:(NSString *)title value:(float)value;
++ (instancetype)itemWithTitle:(NSString *)title value:(float)value sliderValueChangeHandler:(void(^)(REFloatItem *item))sliderValueChangeHandler;
++ (instancetype)itemWithTitle:(NSString *)title value:(float)value;
 
 - (id)initWithTitle:(NSString *)title value:(float)value sliderValueChangeHandler:(void(^)(REFloatItem *item))sliderValueChangeHandler;
 - (id)initWithTitle:(NSString *)title value:(float)value;

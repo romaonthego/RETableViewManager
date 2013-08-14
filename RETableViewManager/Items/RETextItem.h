@@ -53,8 +53,8 @@
 @property (copy, readwrite, nonatomic) void (^onChange)(RETextItem *item);
 @property (copy, readwrite, nonatomic) void (^onReturn)(RETextItem *item);
 
-+ (id)itemWithTitle:(NSString *)title value:(NSString *)value;
-+ (id)itemWithTitle:(NSString *)title value:(NSString *)value  placeholder:(NSString *)placeholder;
++ (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value;
++ (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value  placeholder:(NSString *)placeholder;
 - (id)initWithTitle:(NSString *)title value:(NSString *)value;
 - (id)initWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder;
 

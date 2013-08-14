@@ -27,7 +27,7 @@
 
 @implementation RERadioItem
 
-+ (id)itemWithTitle:(NSString *)title value:(NSString *)value selectionHandler:(void(^)(RERadioItem *item))selectionHandler
++ (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value selectionHandler:(void(^)(RERadioItem *item))selectionHandler
 {
     return [[self alloc] initWithTitle:title value:value selectionHandler:selectionHandler];
 }

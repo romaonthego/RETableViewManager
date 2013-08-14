@@ -27,12 +27,12 @@
 
 @implementation REFloatItem
 
-+ (id)itemWithTitle:(NSString *)title value:(float)value
++ (instancetype)itemWithTitle:(NSString *)title value:(float)value
 {
     return [[self alloc] initWithTitle:title value:value];
 }
 
-+ (id)itemWithTitle:(NSString *)title value:(float)value sliderValueChangeHandler:(void(^)(REFloatItem *item))sliderValueChangeHandler
++ (instancetype)itemWithTitle:(NSString *)title value:(float)value sliderValueChangeHandler:(void(^)(REFloatItem *item))sliderValueChangeHandler
 {
     return [[self alloc] initWithTitle:title value:value sliderValueChangeHandler:sliderValueChangeHandler];
 }

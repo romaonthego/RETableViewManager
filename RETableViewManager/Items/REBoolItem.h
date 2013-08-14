@@ -30,8 +30,8 @@
 @property (assign, readwrite, nonatomic) BOOL value;
 @property (copy, readwrite, nonatomic) void (^switchValueChangeHandler)(REBoolItem *item);
 
-+ (id)itemWithTitle:(NSString *)title value:(BOOL)value switchValueChangeHandler:(void(^)(REBoolItem *item))switchValueChangeHandler;
-+ (id)itemWithTitle:(NSString *)title value:(BOOL)value;
++ (instancetype)itemWithTitle:(NSString *)title value:(BOOL)value switchValueChangeHandler:(void(^)(REBoolItem *item))switchValueChangeHandler;
++ (instancetype)itemWithTitle:(NSString *)title value:(BOOL)value;
 
 - (id)initWithTitle:(NSString *)title value:(BOOL)value switchValueChangeHandler:(void(^)(REBoolItem *item))switchValueChangeHandler;
 - (id)initWithTitle:(NSString *)title value:(BOOL)value;

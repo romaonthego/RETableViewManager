@@ -27,12 +27,12 @@
 
 @implementation RETextItem
 
-+ (id)itemWithTitle:(NSString *)title value:(NSString *)value
++ (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value
 {
     return [[self alloc] initWithTitle:title value:value];
 }
 
-+ (id)itemWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder
++ (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder
 {
     return [[self alloc] initWithTitle:title value:value placeholder:placeholder];
 }

@@ -27,7 +27,7 @@
 
 @implementation RELongTextItem
 
-+ (id)itemWithValue:(NSString *)value placeholder:(NSString *)placeholder
++ (instancetype)itemWithValue:(NSString *)value placeholder:(NSString *)placeholder
 {
     return [[self alloc] initWithValue:value placeholder:placeholder];
 }

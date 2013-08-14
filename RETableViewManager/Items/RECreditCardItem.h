@@ -37,7 +37,7 @@
 //
 @property (assign, readwrite, nonatomic) UIKeyboardAppearance keyboardAppearance;             // default is UIKeyboardAppearanceDefault
 
-+ (id)itemWithNumber:(NSString *)number expirationDate:(NSString *)expirationDate cvv:(NSString *)cvv;
++ (instancetype)itemWithNumber:(NSString *)number expirationDate:(NSString *)expirationDate cvv:(NSString *)cvv;
 - (id)initWithNumber:(NSString *)number expirationDate:(NSString *)expirationDate cvv:(NSString *)cvv;
 
 @end

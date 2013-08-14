@@ -34,7 +34,7 @@
 @property (copy, readwrite, nonatomic) void (^onChange)(RETextItem *item);
 @property (copy, readwrite, nonatomic) void (^onReturn)(RELongTextItem *item);
 
-+ (id)itemWithValue:(NSString *)value placeholder:(NSString *)placeholder;
++ (instancetype)itemWithValue:(NSString *)value placeholder:(NSString *)placeholder;
 - (id)initWithValue:(NSString *)value placeholder:(NSString *)placeholder;
 
 @end

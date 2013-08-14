@@ -27,7 +27,7 @@
 
 @implementation REMultipleChoiceItem
 
-+ (id)itemWithTitle:(NSString *)title value:(NSArray *)value selectionHandler:(void(^)(REMultipleChoiceItem *item))selectionHandler
++ (instancetype)itemWithTitle:(NSString *)title value:(NSArray *)value selectionHandler:(void(^)(REMultipleChoiceItem *item))selectionHandler
 {
     return [[self alloc] initWithTitle:title value:value selectionHandler:selectionHandler];
 }
