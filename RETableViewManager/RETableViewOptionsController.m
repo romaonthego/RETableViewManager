@@ -118,7 +118,7 @@
     };
     
     for (RETableViewItem *item in self.options) {
-        addItem([item isKindOfClass:[RERadioItem item]] ? item.title : (NSString *)item);
+        addItem([item isKindOfClass:[[RERadioItem item] class]] ? item.title : (NSString *)item);
     }
 }
 
