@@ -170,12 +170,16 @@ BOOL REDeviceIsUIKit7() {
     if ([item isKindOfClass:[RETableViewItem class]])
         cellStyle = ((RETableViewItem *)item).style;
     
-    NSString *cellIdentifier = [item respondsToSelector:@selector(cellIdentifier)] && item.cellIdentifier ? item.cellIdentifier : [NSString stringWithFormat:@"RETableViewManager_%@_%i", [item class], cellStyle];
+    NSString *cellIdentifier = [NSString stringWithFormat:@"RETableViewManager_%@_%i", [item class], cellStyle];
     
     Class cellClass = [self classForCellAtIndexPath:indexPath];
     
     if (self.registeredXIBs[NSStringFromClass(cellClass)]) {
         cellIdentifier = self.registeredXIBs[NSStringFromClass(cellClass)];
+    }
+    
+    if ([item respondsToSelector:@selector(cellIdentifier)] && item.cellIdentifier) {
+        cellIdentifier = item.cellIdentifier;
     }
     
     RETableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];

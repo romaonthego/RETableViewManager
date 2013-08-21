@@ -42,6 +42,14 @@
         }];
         [section addItem:item];
     }
+    
+    // Cell is being assigned an automatic identifier
+    //
+    // You can manually set it if you want to:
+    // item.cellIdentifier = @"CustomIdentifier";
+    //
+    // You'll need to register a cell class for it as well:
+    // [self.tableView registerNib:[UINib nibWithNibName:@"XIBTestCell" bundle:nil] forCellReuseIdentifier:@"CustomIdentifier"];
 }
 
 @end
