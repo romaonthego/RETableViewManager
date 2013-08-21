@@ -43,6 +43,15 @@ BOOL REDeviceIsUIKit7() {
     return NO;
 }
 
+@interface RETableViewManager ()
+
+/**
+ The array of pairs of items / cell classes.
+ */
+@property (strong, readwrite, nonatomic) NSMutableDictionary *registeredXIBs;
+
+@end
+
 @implementation RETableViewManager
 
 - (id)init
@@ -75,6 +84,7 @@ BOOL REDeviceIsUIKit7() {
 
     _sections = [[NSMutableArray alloc] init];
     _registeredClasses = [[NSMutableDictionary alloc] init];
+    _registeredXIBs = [[NSMutableDictionary alloc] init];
     _style = [[RETableViewCellStyle alloc] init];
     
     [self registerDefaultClasses];
@@ -103,11 +113,12 @@ BOOL REDeviceIsUIKit7() {
 {
     NSAssert(NSClassFromString(objectClass), ([NSString stringWithFormat:@"Item class '%@' does not exist.", identifier]));
     NSAssert(NSClassFromString(identifier), ([NSString stringWithFormat:@"Cell class '%@' does not exist.", identifier]));
-    [_registeredClasses setObject:identifier forKey:objectClass];
+    self.registeredClasses[objectClass] = identifier;
     
     // Perform check if a XIB exists with the same name as the cell class
     //
     if ([[NSBundle mainBundle] pathForResource:identifier ofType:@"nib"]) {
+        self.registeredXIBs[identifier] = objectClass;
         [self.tableView registerNib:[UINib nibWithNibName:identifier bundle:nil] forCellReuseIdentifier:objectClass];
     }
 }
@@ -160,8 +171,12 @@ BOOL REDeviceIsUIKit7() {
         cellStyle = ((RETableViewItem *)item).style;
     
     NSString *cellIdentifier = [item respondsToSelector:@selector(cellIdentifier)] && item.cellIdentifier ? item.cellIdentifier : [NSString stringWithFormat:@"RETableViewManager_%@_%i", [item class], cellStyle];
-  
+    
     Class cellClass = [self classForCellAtIndexPath:indexPath];
+    
+    if (self.registeredXIBs[NSStringFromClass(cellClass)]) {
+        cellIdentifier = self.registeredXIBs[NSStringFromClass(cellClass)];
+    }
     
     RETableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {

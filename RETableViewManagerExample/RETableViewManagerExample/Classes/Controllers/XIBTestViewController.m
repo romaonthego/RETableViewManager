@@ -40,7 +40,6 @@
                                       selectionHandler:^(RETableViewItem *item) {
             [item deselectRowAnimated:YES];
         }];
-        item.cellIdentifier = @"XIBTestItem";
         [section addItem:item];
     }
 }
