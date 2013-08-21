@@ -24,7 +24,7 @@
     //
     _manager = [[RETableViewManager alloc] initWithTableView:self.tableView delegate:self];
     
-    // Map item to a cell
+    // Map item to a cell, this will also register the XIBTestCell.xib for the XIBTestItem identifier
     //
     _manager[@"XIBTestItem"] = @"XIBTestCell";
     
