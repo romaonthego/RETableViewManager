@@ -44,6 +44,28 @@
     return tableViewManager.style.cellHeight;
 }
 
+#pragma mark - UI
+
+-(void)_addBackgroundImage
+{
+    self.tableViewManager.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.backgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
+    self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.backgroundView.bounds.size.width, self.backgroundView.bounds.size.height + 1)];
+    _backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.backgroundView addSubview:_backgroundImageView];
+}
+
+-(void)_addSelectedBackgroundImage
+{
+    self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
+    self.selectedBackgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    _selectedBackgroundImageView = [[UIImageView alloc] init];
+    _selectedBackgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.selectedBackgroundView.bounds.size.width, self.selectedBackgroundView.bounds.size.height + 1)];
+    _selectedBackgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.selectedBackgroundView addSubview:_selectedBackgroundImageView];
+}
+
 #pragma mark -
 #pragma mark Cell life cycle
 
@@ -53,21 +75,11 @@
     self.selectionStyle = self.tableViewManager.style.defaultCellSelectionStyle;
     
     if ([self.tableViewManager.style hasCustomBackgroundImage]) {
-        self.tableViewManager.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        self.backgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
-        self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.backgroundView.bounds.size.width, self.backgroundView.bounds.size.height + 1)];
-        _backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [self.backgroundView addSubview:_backgroundImageView];
+        [self _addBackgroundImage];
     }
     
     if ([self.tableViewManager.style hasCustomSelectedBackgroundImage]) {
-        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
-        self.selectedBackgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        _selectedBackgroundImageView = [[UIImageView alloc] init];
-        _selectedBackgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.selectedBackgroundView.bounds.size.width, self.selectedBackgroundView.bounds.size.height + 1)];
-        _selectedBackgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [self.selectedBackgroundView addSubview:_selectedBackgroundImageView];
+        [self _addSelectedBackgroundImage];
     }
 }
 
@@ -112,14 +124,6 @@
     contentFrame.size.width = contentFrame.size.width - self.section.style.contentViewMargin * 2;
     self.contentView.frame = contentFrame;
     
-    // Set background frame
-    //
-    CGRect backgroundFrame = self.backgroundImageView.frame;
-    backgroundFrame.origin.x = self.section.style.backgroundImageMargin;
-    backgroundFrame.size.width = self.backgroundView.frame.size.width - self.section.style.backgroundImageMargin * 2;
-    self.backgroundImageView.frame = backgroundFrame;
-    self.selectedBackgroundImageView.frame = backgroundFrame;
-    
     // iOS [redacted] textLabel margin fix
     //
     if (self.section.style.contentViewMargin > 0) {
@@ -128,12 +132,27 @@
     
     if ([self.section.style hasCustomBackgroundImage]) {
         self.backgroundColor = [UIColor clearColor];
+        if (_backgroundImageView==nil) {
+            [self _addBackgroundImage];
+        }
         _backgroundImageView.image = [self.section.style backgroundImageForCellType:self.type];
     }
     
     if ([self.section.style hasCustomSelectedBackgroundImage]) {
+        if (_selectedBackgroundImageView==nil) {
+            [self _addSelectedBackgroundImage];
+        }
         _selectedBackgroundImageView.image = [self.section.style selectedBackgroundImageForCellType:self.type];
     }
+    
+    // Set background frame
+    //
+    CGRect backgroundFrame = self.backgroundImageView.frame;
+    backgroundFrame.origin.x = self.section.style.backgroundImageMargin;
+    backgroundFrame.size.width = self.backgroundView.frame.size.width - self.section.style.backgroundImageMargin * 2;
+    self.backgroundImageView.frame = backgroundFrame;
+    self.selectedBackgroundImageView.frame = backgroundFrame;
+
 }
 
 - (void)layoutDetailView:(UIView *)view minimumWidth:(CGFloat)minimumWidth
