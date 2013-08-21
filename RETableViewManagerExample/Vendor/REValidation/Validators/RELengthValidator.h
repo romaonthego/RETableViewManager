@@ -1,6 +1,6 @@
 //
-// RETextItem.m
-// RETableViewManager
+// RELengthValidator.h
+// REValidation
 //
 // Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego)
 //
@@ -23,44 +23,8 @@
 // THE SOFTWARE.
 //
 
-#import "RETextItem.h"
+#import "REValidator.h"
 
-@implementation RETextItem
-
-+ (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value
-{
-    return [[self alloc] initWithTitle:title value:value];
-}
-
-+ (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder
-{
-    return [[self alloc] initWithTitle:title value:value placeholder:placeholder];
-}
-
-- (id)initWithTitle:(NSString *)title value:(NSString *)value
-{
-    return [self initWithTitle:title value:value placeholder:nil];
-}
-
-- (id)initWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder
-{
-    self = [super init];
-    if (!self)
-        return nil;
-    
-    self.title = title;
-    self.value = value;
-    self.placeholder = placeholder;
-    
-    return self;
-}
-
-#pragma mark -
-#pragma mark Error validation
-
-- (NSArray *)errors
-{
-    return [REValidation validateObject:self.value name:self.name ? self.name : self.title validators:self.validators];
-}
+@interface RELengthValidator : REValidator
 
 @end

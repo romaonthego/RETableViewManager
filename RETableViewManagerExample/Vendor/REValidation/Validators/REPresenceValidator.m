@@ -1,6 +1,6 @@
 //
-// RETextItem.m
-// RETableViewManager
+// REPresenceValidator.m
+// REValidation
 //
 // Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego)
 //
@@ -23,44 +23,22 @@
 // THE SOFTWARE.
 //
 
-#import "RETextItem.h"
+#import "REPresenceValidator.h"
+#import "NSError+REValidation.h"
 
-@implementation RETextItem
+@implementation REPresenceValidator
 
-+ (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value
++ (NSString *)name
 {
-    return [[self alloc] initWithTitle:title value:value];
+    return @"presence";
 }
 
-+ (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder
++ (NSError *)validateObject:(NSString *)object variableName:(NSString *)name parameters:(NSDictionary *)parameters
 {
-    return [[self alloc] initWithTitle:title value:value placeholder:placeholder];
-}
-
-- (id)initWithTitle:(NSString *)title value:(NSString *)value
-{
-    return [self initWithTitle:title value:value placeholder:nil];
-}
-
-- (id)initWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder
-{
-    self = [super init];
-    if (!self)
-        return nil;
+    if (![object isKindOfClass:[NSString class]] || object.length == 0)
+        return [NSError re_validationErrorForDomain:@"com.REValidation.presence", name];
     
-    self.title = title;
-    self.value = value;
-    self.placeholder = placeholder;
-    
-    return self;
-}
-
-#pragma mark -
-#pragma mark Error validation
-
-- (NSArray *)errors
-{
-    return [REValidation validateObject:self.value name:self.name ? self.name : self.title validators:self.validators];
+    return nil;
 }
 
 @end

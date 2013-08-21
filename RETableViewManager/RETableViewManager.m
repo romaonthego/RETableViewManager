@@ -54,6 +54,12 @@ BOOL REDeviceIsUIKit7() {
 
 @implementation RETableViewManager
 
++ (void)initialize
+{
+    [REValidation registerDefaultValidators];
+    [REValidation registerDefaultErrorMessages];
+}
+
 - (id)init
 {
     @throw [NSException exceptionWithName:NSGenericException reason:@"init not supported, use initWithTableView: instead." userInfo:nil];

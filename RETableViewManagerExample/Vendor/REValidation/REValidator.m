@@ -1,6 +1,6 @@
 //
-// RETextItem.m
-// RETableViewManager
+// REValidator.m
+// REValidation
 //
 // Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego)
 //
@@ -23,44 +23,42 @@
 // THE SOFTWARE.
 //
 
-#import "RETextItem.h"
+#import "REValidator.h"
 
-@implementation RETextItem
+@interface REValidator ()
 
-+ (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value
+@property (strong, readwrite, nonatomic) NSDictionary *parameters;
+
+@end
+
+@implementation REValidator
+
++ (instancetype)validatorWithParameters:(NSDictionary *)parameters
 {
-    return [[self alloc] initWithTitle:title value:value];
+    REValidator *validator = [[self alloc] init];
+    validator.parameters = parameters;
+    return validator;
 }
 
-+ (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder
++ (instancetype)validator
 {
-    return [[self alloc] initWithTitle:title value:value placeholder:placeholder];
+    REValidator *validator = [[self alloc] init];
+    return validator;
 }
 
-- (id)initWithTitle:(NSString *)title value:(NSString *)value
++ (NSString *)name
 {
-    return [self initWithTitle:title value:value placeholder:nil];
+    return @"";
 }
 
-- (id)initWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder
++ (NSError *)validateObject:(NSObject *)object variableName:(NSString *)name parameters:(NSDictionary *)parameters
 {
-    self = [super init];
-    if (!self)
-        return nil;
-    
-    self.title = title;
-    self.value = value;
-    self.placeholder = placeholder;
-    
-    return self;
+    return nil;
 }
 
-#pragma mark -
-#pragma mark Error validation
-
-- (NSArray *)errors
++ (NSDictionary *)parseParameterString:(NSString *)string
 {
-    return [REValidation validateObject:self.value name:self.name ? self.name : self.title validators:self.validators];
+    return nil;
 }
 
 @end

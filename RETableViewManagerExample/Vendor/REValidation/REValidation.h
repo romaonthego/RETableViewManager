@@ -1,6 +1,6 @@
 //
-// RETextItem.m
-// RETableViewManager
+// REValidation.h
+// REValidation
 //
 // Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego)
 //
@@ -23,44 +23,24 @@
 // THE SOFTWARE.
 //
 
-#import "RETextItem.h"
+#import <Foundation/Foundation.h>
+#import "REValidator.h"
+#import "NSError+REValidation.h"
+#import "REPresenceValidator.h"
+#import "RELengthValidator.h"
+#import "REEmailValidator.h"
 
-@implementation RETextItem
+@interface REValidation : NSObject
 
-+ (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value
-{
-    return [[self alloc] initWithTitle:title value:value];
-}
-
-+ (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder
-{
-    return [[self alloc] initWithTitle:title value:value placeholder:placeholder];
-}
-
-- (id)initWithTitle:(NSString *)title value:(NSString *)value
-{
-    return [self initWithTitle:title value:value placeholder:nil];
-}
-
-- (id)initWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder
-{
-    self = [super init];
-    if (!self)
-        return nil;
-    
-    self.title = title;
-    self.value = value;
-    self.placeholder = placeholder;
-    
-    return self;
-}
-
-#pragma mark -
-#pragma mark Error validation
-
-- (NSArray *)errors
-{
-    return [REValidation validateObject:self.value name:self.name ? self.name : self.title validators:self.validators];
-}
++ (instancetype)sharedObject;
++ (void)registerDefaultValidators;
++ (void)registerDefaultErrorMessages;
++ (void)registerValidator:(Class)validatorClass;
++ (NSError *)validateObject:(NSObject *)object name:(NSString *)name validatorString:(NSString *)string;
++ (NSError *)validateObject:(NSObject *)object name:(NSString *)name validator:(REValidator *)validator;
++ (NSArray *)validateObject:(NSObject *)object name:(NSString *)name validators:(NSArray *)validators;
++ (NSString *)errorMessageForDomain:(NSString *)domain;
++ (void)setErrorMessage:(NSString *)message forDomain:(NSString *)domain;
++ (void)setErrorMessages:(NSDictionary *)messages;
 
 @end
