@@ -99,7 +99,7 @@ Edit your Podfile and add RETableViewManager:
 
 ``` bash
 platform :ios, '6.0'
-pod 'RETableViewManager', '~> 1.1.2'
+pod 'RETableViewManager', '~> 1.1.3'
 ```
 
 Install into your Xcode project:
@@ -458,13 +458,13 @@ Quick example:
 ### Interface Builder Support
 
 Interface builder cells are supported out of the box, no special set up needed.
-Cells and items are being automatically registered, e.g.
+Cells and items are being automatically registered like any other custom cell in `RETableViewManager`:
 
 ```objective-c
 _manager[@"XIBTestItem"] = @"XIBTestCell";
 ```
 
-Here `XIBTestItem` would be your cell identifier and you should have the `XIBTestCell.xib` file in your bundle. That's it.
+Here `XIBTestItem` would be your cell identifier and you should have the `XIBTestCell.xib` fileg in your bundle. That's it.
 
 ### Styling
 
