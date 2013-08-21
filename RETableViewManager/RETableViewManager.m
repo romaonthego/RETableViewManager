@@ -104,6 +104,12 @@ BOOL REDeviceIsUIKit7() {
     NSAssert(NSClassFromString(objectClass), ([NSString stringWithFormat:@"Item class '%@' does not exist.", identifier]));
     NSAssert(NSClassFromString(identifier), ([NSString stringWithFormat:@"Cell class '%@' does not exist.", identifier]));
     [_registeredClasses setObject:identifier forKey:objectClass];
+    
+    // Perform check if a XIB exists with the same name as the cell class
+    //
+    if ([[NSBundle mainBundle] pathForResource:identifier ofType:@"nib"]) {
+        [self.tableView registerNib:[UINib nibWithNibName:identifier bundle:nil] forCellReuseIdentifier:objectClass];
+    }
 }
 
 - (id)objectAtKeyedSubscript:(id <NSCopying>)key

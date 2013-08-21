@@ -24,10 +24,6 @@
     //
     _manager = [[RETableViewManager alloc] initWithTableView:self.tableView delegate:self];
     
-    // Register XIB file
-    //
-    [self.tableView registerNib:[UINib nibWithNibName:@"XIBTestCell" bundle:nil] forCellReuseIdentifier:@"XIBTestItem"];
-    
     // Map item to a cell
     //
     _manager[@"XIBTestItem"] = @"XIBTestCell";
