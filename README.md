@@ -464,7 +464,7 @@ Cells and items are being automatically registered like any other custom cell in
 _manager[@"XIBTestItem"] = @"XIBTestCell";
 ```
 
-Here `XIBTestItem` would be your cell identifier and you should have the `XIBTestCell.xib` fileg in your bundle. That's it.
+Here `XIBTestItem` would be your cell identifier and you should have the `XIBTestCell.xib` file in your bundle. That's it.
 
 ### Styling
 
