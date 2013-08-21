@@ -455,6 +455,17 @@ Quick example:
 }
 ```
 
+### Interface Builder Support
+
+Interface builder cells are supported out of the box, no special set up needed.
+Cells and items are being automatically registered, e.g.
+
+```objective-c
+_manager[@"XIBTestItem"] = @"XIBTestCell";
+```
+
+Here `XIBTestItem` would be your cell identifier and you should have the `XIBTestCell.xib` file in your bundle. That's it.
+
 ### Styling
 
 It's super easy to customize different offsets and cell background images of
