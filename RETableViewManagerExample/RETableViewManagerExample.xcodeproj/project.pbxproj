@@ -45,6 +45,7 @@
 		30B00D6117C56EEF0010D439 /* REEmailValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B00D5917C56EEF0010D439 /* REEmailValidator.m */; };
 		30B00D6217C56EEF0010D439 /* RELengthValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B00D5B17C56EEF0010D439 /* RELengthValidator.m */; };
 		30B00D6317C56EEF0010D439 /* REPresenceValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B00D5D17C56EEF0010D439 /* REPresenceValidator.m */; };
+		30B00D7A17C667A90010D439 /* ValidationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B00D7917C667A90010D439 /* ValidationsViewController.m */; };
 		30D1C7D617AC08F4001F731C /* First_Alt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30D1C7D217AC08F3001F731C /* First_Alt@2x.png */; };
 		30D1C7D717AC08F4001F731C /* Last_Alt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30D1C7D317AC08F3001F731C /* Last_Alt@2x.png */; };
 		30D1C7D817AC08F4001F731C /* Middle_Alt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30D1C7D417AC08F3001F731C /* Middle_Alt@2x.png */; };
@@ -153,6 +154,8 @@
 		30B00D5B17C56EEF0010D439 /* RELengthValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RELengthValidator.m; sourceTree = "<group>"; };
 		30B00D5C17C56EEF0010D439 /* REPresenceValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REPresenceValidator.h; sourceTree = "<group>"; };
 		30B00D5D17C56EEF0010D439 /* REPresenceValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REPresenceValidator.m; sourceTree = "<group>"; };
+		30B00D7817C667A90010D439 /* ValidationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValidationsViewController.h; sourceTree = "<group>"; };
+		30B00D7917C667A90010D439 /* ValidationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidationsViewController.m; sourceTree = "<group>"; };
 		30D1C7D217AC08F3001F731C /* First_Alt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "First_Alt@2x.png"; path = "Resources/First_Alt@2x.png"; sourceTree = "<group>"; };
 		30D1C7D317AC08F3001F731C /* Last_Alt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Last_Alt@2x.png"; path = "Resources/Last_Alt@2x.png"; sourceTree = "<group>"; };
 		30D1C7D417AC08F3001F731C /* Middle_Alt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Middle_Alt@2x.png"; path = "Resources/Middle_Alt@2x.png"; sourceTree = "<group>"; };
@@ -268,6 +271,8 @@
 				303D967117B7CDE300A418F3 /* XIBTestViewController.m */,
 				30E5F50A17BBD163005CF1FE /* IndexedListViewController.h */,
 				30E5F50B17BBD163005CF1FE /* IndexedListViewController.m */,
+				30B00D7817C667A90010D439 /* ValidationsViewController.h */,
+				30B00D7917C667A90010D439 /* ValidationsViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -645,6 +650,7 @@
 				30B00D6117C56EEF0010D439 /* REEmailValidator.m in Sources */,
 				30B00D6217C56EEF0010D439 /* RELengthValidator.m in Sources */,
 				30B00D6317C56EEF0010D439 /* REPresenceValidator.m in Sources */,
+				30B00D7A17C667A90010D439 /* ValidationsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

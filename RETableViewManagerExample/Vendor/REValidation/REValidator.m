@@ -61,9 +61,3 @@
 }
 
 @end
-ring *)string
-{
-    return nil;
-}
-
-@end
