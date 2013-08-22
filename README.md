@@ -379,6 +379,10 @@ self.emailItem.name = @"Your email";
 self.emailItem.validators = @[@"presence", @"email"];
 ```
 
+Each item, each section and the manager have property `errors`. This property is always up to date with errors on each level.
+For example, an `RETableViewItem` would only have its own validation errors, `RETableViewSection` would have all errors that occured in that section (one per item).
+`RETableViewManager`'s property `errors` would reflect all errors.
+
 ### Custom Cells
 
 `RETableViewManager` allows to map custom objects to custom cells. In order to map your custom object (an item) to a cell,
