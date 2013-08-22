@@ -87,6 +87,14 @@
         [_mainSection addItem:[RETableViewItem itemWithTitle:title accessoryType:accessoryType selectionHandler:^(RETableViewItem *selectedItem) {
             UITableViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:selectedItem.indexPath];
             if (!weakSelf.multipleChoice) {
+                for (NSIndexPath *indexPath in [weakSelf.tableView indexPathsForVisibleRows]) {
+                    UITableViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:indexPath];
+                    cell.accessoryType = UITableViewCellAccessoryNone;
+                }
+                for (RETableViewItem *item in weakSelf.mainSection.items) {
+                    item.accessoryType = UITableViewCellAccessoryNone;
+                }
+                selectedItem.accessoryType = UITableViewCellAccessoryCheckmark;
                 cell.accessoryType = UITableViewCellAccessoryCheckmark;
                 RERadioItem * __weak item = (RERadioItem *)weakSelf.item;
                 item.value = selectedItem.title;
