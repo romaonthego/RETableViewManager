@@ -371,7 +371,7 @@ Validations are performed using [REValidation](https://github.com/romaonthego/RE
 Example:
 
 ```objective-c
- self.textItem = [RETextItem itemWithTitle:@"Text" value:@"" placeholder:@"Text item"];
+self.textItem = [RETextItem itemWithTitle:@"Text" value:@"" placeholder:@"Text item"];
 self.textItem.validators = @[@"presence", @"length(3, 10)"];
 
 self.emailItem = [RETextItem itemWithTitle:@"Email" value:@"" placeholder:@"Email item"];
