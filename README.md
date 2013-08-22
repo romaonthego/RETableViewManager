@@ -99,7 +99,7 @@ Edit your Podfile and add RETableViewManager:
 
 ``` bash
 platform :ios, '6.0'
-pod 'RETableViewManager', '~> 1.1.3'
+pod 'RETableViewManager', '~> 1.2'
 ```
 
 Install into your Xcode project:
@@ -362,6 +362,21 @@ RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"
 // Add a date item
 //
 [section addItem:[REDateTimeItem itemWithTitle:@"Date / Time" value:[NSDate date] placeholder:nil format:@"MM/dd/yyyy hh:mm a" datePickerMode:UIDatePickerModeDateAndTime]];
+```
+
+### Validations
+
+Validations are performed using [REValidation](https://github.com/romaonthego/REValidation) library.
+
+Example:
+
+```objective-c
+ self.textItem = [RETextItem itemWithTitle:@"Text" value:@"" placeholder:@"Text item"];
+self.textItem.validators = @[@"presence", @"length(3, 10)"];
+
+self.emailItem = [RETextItem itemWithTitle:@"Email" value:@"" placeholder:@"Email item"];
+self.emailItem.name = @"Your email";
+self.emailItem.validators = @[@"presence", @"email"];
 ```
 
 ### Custom Cells
