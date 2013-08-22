@@ -35,9 +35,10 @@
 
 + (NSError *)validateObject:(NSString *)object variableName:(NSString *)name parameters:(NSDictionary *)parameters
 {
+    NSString *string = object ? object : @"";
     NSError *error = NULL;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}" options:NSRegularExpressionCaseInsensitive error:&error];
-    NSTextCheckingResult *match = [regex firstMatchInString:object options:0 range:NSMakeRange(0, object.length)];
+    NSTextCheckingResult *match = [regex firstMatchInString:string options:0 range:NSMakeRange(0, string.length)];
     
     if (!match)
         return [NSError re_validationErrorForDomain:@"com.REValidation.email", name];

@@ -281,4 +281,22 @@
     [self.tableViewManager.tableView reloadSections:[NSIndexSet indexSetWithIndex:self.index] withRowAnimation:animation];
 }
 
+#pragma mark -
+#pragma mark Checking for errors
+
+- (NSArray *)errors
+{
+    NSMutableArray *errors;
+    for (RETableViewItem *item in self.items) {
+        if ([item respondsToSelector:@selector(errors)] && item.errors) {
+            if (!errors) {
+                errors = [[NSMutableArray alloc] init];
+            }
+            if (item.errors.count > 0)
+                [errors addObject:item.errors[0]];
+        }
+    }
+    return errors;
+}
+
 @end

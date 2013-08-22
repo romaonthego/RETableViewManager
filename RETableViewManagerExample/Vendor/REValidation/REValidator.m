@@ -42,8 +42,7 @@
 
 + (instancetype)validator
 {
-    REValidator *validator = [[self alloc] init];
-    return validator;
+    return [[self alloc] init];
 }
 
 + (NSString *)name
@@ -57,6 +56,12 @@
 }
 
 + (NSDictionary *)parseParameterString:(NSString *)string
+{
+    return nil;
+}
+
+@end
+ring *)string
 {
     return nil;
 }

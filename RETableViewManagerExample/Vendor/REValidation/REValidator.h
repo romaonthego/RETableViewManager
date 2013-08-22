@@ -29,11 +29,24 @@
 
 @property (strong, readonly, nonatomic) NSDictionary *parameters;
 
+///-----------------------------
+/// @name Getting Validator Instance
+///-----------------------------
+
 + (instancetype)validator;
 + (instancetype)validatorWithParameters:(NSDictionary *)parameters;
 
+///-----------------------------
+/// @name Configuring Representation
+///-----------------------------
+
 + (NSString *)name;
 + (NSDictionary *)parseParameterString:(NSString *)string;
+
+///-----------------------------
+/// @name Validating Objects
+///-----------------------------
+
 + (NSError *)validateObject:(NSObject *)object variableName:(NSString *)name parameters:(NSDictionary *)parameters;
 
 @end

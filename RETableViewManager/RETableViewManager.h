@@ -335,6 +335,12 @@ BOOL REDeviceIsUIKit7();
  */
 - (void)sortSectionsUsingSelector:(SEL)comparator;
 
+///-----------------------------
+/// @name Checking for Validation Errors
+///-----------------------------
+
+@property (strong, readonly, nonatomic) NSArray *errors;
+
 @end
 
 

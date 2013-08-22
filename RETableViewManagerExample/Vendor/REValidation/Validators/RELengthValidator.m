@@ -59,9 +59,8 @@
         return [NSError re_validationErrorForDomain:@"com.REValidation.minimumLength", name, minimumValue];
     
     if (object.length > maximumValue && maximumValue > 0)
-        return [NSError re_validationErrorForDomain:@"com.REValidation.maximumLength", name, maximumValue]; /*[NSError errorWithDomain:@"com.REValidation.maximumLength" code:1 userInfo:@{ NSLocalizedDescriptionKey:
-                                                                                       [NSString stringWithFormat:NSLocalizedString(@"%@ is too long (maximum is %i characters).", @"%@ is too long (maximum is %i characters)."), name, maximumValue]
-                }];*/
+        return [NSError re_validationErrorForDomain:@"com.REValidation.maximumLength", name, maximumValue];
+
     return nil;
 }
 

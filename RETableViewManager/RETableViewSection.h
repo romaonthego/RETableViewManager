@@ -344,4 +344,10 @@
  */
 - (void)reloadSectionWithAnimation:(UITableViewRowAnimation)animation;
 
+///-----------------------------
+/// @name Checking for Validation Errors
+///-----------------------------
+
+@property (strong, readonly, nonatomic) NSArray *errors;
+
 @end

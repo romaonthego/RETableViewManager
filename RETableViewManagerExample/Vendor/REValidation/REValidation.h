@@ -32,13 +32,26 @@
 
 @interface REValidation : NSObject
 
-+ (instancetype)sharedObject;
+///-----------------------------
+/// @name Registering Validators
+///-----------------------------
+
 + (void)registerDefaultValidators;
 + (void)registerDefaultErrorMessages;
 + (void)registerValidator:(Class)validatorClass;
+
+///-----------------------------
+/// @name Validating Objects
+///-----------------------------
+
 + (NSError *)validateObject:(NSObject *)object name:(NSString *)name validatorString:(NSString *)string;
 + (NSError *)validateObject:(NSObject *)object name:(NSString *)name validator:(REValidator *)validator;
 + (NSArray *)validateObject:(NSObject *)object name:(NSString *)name validators:(NSArray *)validators;
+
+///-----------------------------
+/// @name Handling Error Messages
+///-----------------------------
+
 + (NSString *)errorMessageForDomain:(NSString *)domain;
 + (void)setErrorMessage:(NSString *)message forDomain:(NSString *)domain;
 + (void)setErrorMessages:(NSDictionary *)messages;

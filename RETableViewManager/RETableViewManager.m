@@ -911,4 +911,21 @@ BOOL REDeviceIsUIKit7() {
     [_sections sortUsingSelector:comparator];
 }
 
+#pragma mark -
+#pragma mark Checking for errors
+
+- (NSArray *)errors
+{
+    NSMutableArray *errors;
+    for (RETableViewSection *section in self.sections) {
+        if (section.errors) {
+            if (!errors) {
+                errors = [[NSMutableArray alloc] init];
+            }
+            [errors addObjectsFromArray:section.errors];
+        }
+    }
+    return errors;
+}
+
 @end
