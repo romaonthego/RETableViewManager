@@ -52,7 +52,7 @@
 
 - (void)validateButtonPressed:(UIButton *)sender
 {
-    if (self.manager.errors) {
+    if (self.manager.errors.count > 0) {
         NSMutableArray *errors = [NSMutableArray array];
         for (NSError *error in self.manager.errors) {
             [errors addObject:error.localizedDescription];
