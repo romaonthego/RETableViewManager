@@ -26,6 +26,12 @@
 #import "RETableViewCell.h"
 #import "RETableViewManager.h"
 
+@interface RETableViewCell ()
+
+@property (assign, readwrite, nonatomic) BOOL loaded;
+
+@end
+
 @implementation RETableViewCell
 
 + (BOOL)canFocusWithItem:(RETableViewItem *)item
@@ -71,6 +77,7 @@
 
 - (void)cellDidLoad
 {
+    self.loaded = YES;
     self.actionBar = [[REActionBar alloc] initWithDelegate:self];
     self.selectionStyle = self.tableViewManager.style.defaultCellSelectionStyle;
     

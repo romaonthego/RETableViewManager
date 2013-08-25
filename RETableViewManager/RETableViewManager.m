@@ -189,8 +189,8 @@ BOOL REDeviceIsUIKit7() {
     }
     
     RETableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        cell = [[cellClass alloc] initWithStyle:cellStyle reuseIdentifier:cellIdentifier];
+    
+    void (^loadCell)(RETableViewCell *cell) = ^(RETableViewCell *cell) {
         cell.tableViewManager = self;
         
         // RETableViewManagerDelegate
@@ -204,6 +204,15 @@ BOOL REDeviceIsUIKit7() {
         //
         if ([_delegate conformsToProtocol:@protocol(RETableViewManagerDelegate)] && [_delegate respondsToSelector:@selector(tableView:didLoadCell:forRowAtIndexPath:)])
             [_delegate tableView:tableView didLoadCell:cell forRowAtIndexPath:indexPath];
+    };
+    
+    if (cell == nil) {
+        cell = [[cellClass alloc] initWithStyle:cellStyle reuseIdentifier:cellIdentifier];
+        loadCell(cell);
+    }
+    
+    if ([cell isKindOfClass:[RETableViewCell class]] && [cell respondsToSelector:@selector(loaded)] && !cell.loaded) {
+        loadCell(cell);
     }
     
     cell.rowIndex = indexPath.row;
