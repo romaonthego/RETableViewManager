@@ -47,4 +47,10 @@
     return self;
 }
 
+- (void)setValue:(NSString *)value
+{
+    _value = value;
+    self.detailLabelText = value;
+}
+
 @end

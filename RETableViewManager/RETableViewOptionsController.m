@@ -97,9 +97,7 @@
                 selectedItem.accessoryType = UITableViewCellAccessoryCheckmark;
                 cell.accessoryType = UITableViewCellAccessoryCheckmark;
                 RERadioItem * __weak item = (RERadioItem *)weakSelf.item;
-                [item willChangeValueForKey:@"value"];
                 item.value = selectedItem.title;
-                [item didChangeValueForKey:@"value"];
                 if (weakSelf.completionHandler)
                     weakSelf.completionHandler();
             } else { // Multiple choice item
