@@ -17,7 +17,7 @@
 
 - (void)cellDidLoad
 {
-    self.loaded = YES;
+    [super cellDidLoad];
     _pictureView = [[UIImageView alloc] initWithFrame:CGRectMake(7, 0, 306, 306)];
     _pictureView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     [self addSubview:_pictureView];
