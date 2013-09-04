@@ -17,5 +17,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '6.0'
 
   s.dependency 'REFormattedNumberField', '~> 1.0.4'
-  s.dependency 'REValidation', '~> 0.1.1'
+  s.dependency 'REValidation', '~> 0.1.2'
 end
