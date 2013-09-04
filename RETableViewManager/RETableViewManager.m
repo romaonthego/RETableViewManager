@@ -88,10 +88,10 @@ BOOL REDeviceIsUIKit7() {
     
     self.tableView = tableView;
 
-    _sections = [[NSMutableArray alloc] init];
-    _registeredClasses = [[NSMutableDictionary alloc] init];
-    _registeredXIBs = [[NSMutableDictionary alloc] init];
-    _style = [[RETableViewCellStyle alloc] init];
+    self.sections = [[NSMutableArray alloc] init];
+    self.registeredClasses = [[NSMutableDictionary alloc] init];
+    self.registeredXIBs = [[NSMutableDictionary alloc] init];
+    self.style = [[RETableViewCellStyle alloc] init];
     
     [self registerDefaultClasses];
     
@@ -131,7 +131,7 @@ BOOL REDeviceIsUIKit7() {
 
 - (id)objectAtKeyedSubscript:(id <NSCopying>)key
 {
-    return [_registeredClasses objectForKey:key];
+    return [self.registeredClasses objectForKey:key];
 }
 
 - (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key
@@ -141,13 +141,13 @@ BOOL REDeviceIsUIKit7() {
 
 - (Class)classForCellAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
     NSObject *item = [section.items objectAtIndex:indexPath.row];
     Class cellClass;
-    for (NSString *className in _registeredClasses) {
+    for (NSString *className in self.registeredClasses) {
         NSString *itemClass = NSStringFromClass([item class]);
         if ([itemClass isEqualToString:className]) {
-            cellClass = NSClassFromString([_registeredClasses objectForKey:className]);
+            cellClass = NSClassFromString([self.registeredClasses objectForKey:className]);
             break;
         }
     }
@@ -159,17 +159,17 @@ BOOL REDeviceIsUIKit7() {
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return _sections.count;
+    return self.sections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return ((RETableViewSection *)[_sections objectAtIndex:sectionIndex]).items.count;
+    return ((RETableViewSection *)[self.sections objectAtIndex:sectionIndex]).items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
     RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
     
     UITableViewCellStyle cellStyle = UITableViewCellStyleDefault;
@@ -195,15 +195,15 @@ BOOL REDeviceIsUIKit7() {
         
         // RETableViewManagerDelegate
         //
-        if ([_delegate conformsToProtocol:@protocol(RETableViewManagerDelegate)] && [_delegate respondsToSelector:@selector(tableView:willLoadCell:forRowAtIndexPath:)])
-            [_delegate tableView:tableView willLoadCell:cell forRowAtIndexPath:indexPath];
+        if ([self.delegate conformsToProtocol:@protocol(RETableViewManagerDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willLoadCell:forRowAtIndexPath:)])
+            [self.delegate tableView:tableView willLoadCell:cell forRowAtIndexPath:indexPath];
         
         [cell cellDidLoad];
         
         // RETableViewManagerDelegate
         //
-        if ([_delegate conformsToProtocol:@protocol(RETableViewManagerDelegate)] && [_delegate respondsToSelector:@selector(tableView:didLoadCell:forRowAtIndexPath:)])
-            [_delegate tableView:tableView didLoadCell:cell forRowAtIndexPath:indexPath];
+        if ([self.delegate conformsToProtocol:@protocol(RETableViewManagerDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didLoadCell:forRowAtIndexPath:)])
+            [self.delegate tableView:tableView didLoadCell:cell forRowAtIndexPath:indexPath];
     };
     
     if (cell == nil) {
@@ -250,23 +250,23 @@ BOOL REDeviceIsUIKit7() {
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)sectionIndex
 {
-    RETableViewSection *section = [_sections objectAtIndex:sectionIndex];
+    RETableViewSection *section = [self.sections objectAtIndex:sectionIndex];
     return section.headerTitle;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)sectionIndex
 {
-    RETableViewSection *section = [_sections objectAtIndex:sectionIndex];
+    RETableViewSection *section = [self.sections objectAtIndex:sectionIndex];
     return section.footerTitle;
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-    RETableViewSection *sourceSection = [_sections objectAtIndex:sourceIndexPath.section];
+    RETableViewSection *sourceSection = [self.sections objectAtIndex:sourceIndexPath.section];
     RETableViewItem *item = [sourceSection.items objectAtIndex:sourceIndexPath.row];
     [sourceSection removeItemAtIndex:sourceIndexPath.row];
     
-    RETableViewSection *destinationSection = [_sections objectAtIndex:destinationIndexPath.section];
+    RETableViewSection *destinationSection = [self.sections objectAtIndex:destinationIndexPath.section];
     [destinationSection insertItem:item atIndex:destinationIndexPath.row];
     
     if (item.moveCompletionHandler)
@@ -275,14 +275,14 @@ BOOL REDeviceIsUIKit7() {
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
     RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
     return item.moveHandler != nil;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
     RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
     if ([item isKindOfClass:[RETableViewItem class]]) {
         return item.editingStyle != UITableViewCellEditingStyleNone || item.moveHandler;
@@ -294,7 +294,7 @@ BOOL REDeviceIsUIKit7() {
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
+        RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
         RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
         if (item.deletionHandlerWithCompletion) {
             item.deletionHandlerWithCompletion(item, ^{
@@ -310,7 +310,7 @@ BOOL REDeviceIsUIKit7() {
     }
     
     if (editingStyle == UITableViewCellEditingStyleInsert) {
-        RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
+        RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
         RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
         if (item.insertionHandler)
             item.insertionHandler(item);
@@ -326,24 +326,24 @@ BOOL REDeviceIsUIKit7() {
 {
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:willDisplayCell:forRowAtIndexPath:)])
-        [_delegate tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willDisplayCell:forRowAtIndexPath:)])
+        [self.delegate tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:willDisplayHeaderView:forSection:)])
-        [_delegate tableView:tableView willDisplayHeaderView:view forSection:section];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willDisplayHeaderView:forSection:)])
+        [self.delegate tableView:tableView willDisplayHeaderView:view forSection:section];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section
 {
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:willDisplayFooterView:forSection:)])
-        [_delegate tableView:tableView willDisplayFooterView:view forSection:section];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willDisplayFooterView:forSection:)])
+        [self.delegate tableView:tableView willDisplayFooterView:view forSection:section];
 }
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath
@@ -353,65 +353,65 @@ BOOL REDeviceIsUIKit7() {
     
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:didEndDisplayingCell:forRowAtIndexPath:)])
-        [_delegate tableView:tableView didEndDisplayingCell:cell forRowAtIndexPath:indexPath];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didEndDisplayingCell:forRowAtIndexPath:)])
+        [self.delegate tableView:tableView didEndDisplayingCell:cell forRowAtIndexPath:indexPath];
 }
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingHeaderView:(UIView *)view forSection:(NSInteger)section
 {
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:didEndDisplayingHeaderView:forSection:)])
-        [_delegate tableView:tableView didEndDisplayingHeaderView:view forSection:section];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didEndDisplayingHeaderView:forSection:)])
+        [self.delegate tableView:tableView didEndDisplayingHeaderView:view forSection:section];
 }
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingFooterView:(UIView *)view forSection:(NSInteger)section
 {
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:didEndDisplayingFooterView:forSection:)])
-        [_delegate tableView:tableView didEndDisplayingFooterView:view forSection:section];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didEndDisplayingFooterView:forSection:)])
+        [self.delegate tableView:tableView didEndDisplayingFooterView:view forSection:section];
 }
 
 // Variable height support
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
     id item = [section.items objectAtIndex:indexPath.row];
     
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)])
-        return [_delegate tableView:tableView heightForRowAtIndexPath:indexPath];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)])
+        return [self.delegate tableView:tableView heightForRowAtIndexPath:indexPath];
     
     return [[self classForCellAtIndexPath:indexPath] heightWithItem:item tableViewManager:self];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)sectionIndex
 {
-    RETableViewSection *section = [_sections objectAtIndex:sectionIndex];
+    RETableViewSection *section = [self.sections objectAtIndex:sectionIndex];
     if (section.headerView)
         return section.headerView.frame.size.height;
     
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:heightForHeaderInSection:)])
-        return [_delegate tableView:tableView heightForHeaderInSection:sectionIndex];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:heightForHeaderInSection:)])
+        return [self.delegate tableView:tableView heightForHeaderInSection:sectionIndex];
     
     return UITableViewAutomaticDimension;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)sectionIndex
 {
-    RETableViewSection *section = [_sections objectAtIndex:sectionIndex];
+    RETableViewSection *section = [self.sections objectAtIndex:sectionIndex];
     if (section.footerView)
         return section.footerView.frame.size.height;
     
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:heightForFooterInSection:)])
-        return [_delegate tableView:tableView heightForFooterInSection:sectionIndex];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:heightForFooterInSection:)])
+        return [self.delegate tableView:tableView heightForFooterInSection:sectionIndex];
     
     return UITableViewAutomaticDimension;
 }
@@ -420,24 +420,24 @@ BOOL REDeviceIsUIKit7() {
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectionIndex
 {
-    RETableViewSection *section = [_sections objectAtIndex:sectionIndex];
+    RETableViewSection *section = [self.sections objectAtIndex:sectionIndex];
     
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:viewForHeaderInSection:)])
-        return [_delegate tableView:tableView viewForHeaderInSection:sectionIndex];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:viewForHeaderInSection:)])
+        return [self.delegate tableView:tableView viewForHeaderInSection:sectionIndex];
     
     return section.headerView;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)sectionIndex
 {
-    RETableViewSection *section = [_sections objectAtIndex:sectionIndex];
+    RETableViewSection *section = [self.sections objectAtIndex:sectionIndex];
     
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:viewForFooterInSection:)])
-        return [_delegate tableView:tableView viewForFooterInSection:sectionIndex];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:viewForFooterInSection:)])
+        return [self.delegate tableView:tableView viewForFooterInSection:sectionIndex];
     
     return section.footerView;
 }
@@ -446,7 +446,7 @@ BOOL REDeviceIsUIKit7() {
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
     id item = [section.items objectAtIndex:indexPath.row];
     if ([item respondsToSelector:@selector(setAccessoryButtonTapHandler:)]) {
         RETableViewItem *actionItem = (RETableViewItem *)item;
@@ -456,8 +456,8 @@ BOOL REDeviceIsUIKit7() {
     
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:accessoryButtonTappedForRowWithIndexPath:)])
-        [_delegate tableView:tableView accessoryButtonTappedForRowWithIndexPath:indexPath];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:accessoryButtonTappedForRowWithIndexPath:)])
+        [self.delegate tableView:tableView accessoryButtonTappedForRowWithIndexPath:indexPath];
 }
 
 // Selection
@@ -466,8 +466,8 @@ BOOL REDeviceIsUIKit7() {
 {
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:shouldHighlightRowAtIndexPath:)])
-        return [_delegate tableView:tableView shouldHighlightRowAtIndexPath:indexPath];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:shouldHighlightRowAtIndexPath:)])
+        return [self.delegate tableView:tableView shouldHighlightRowAtIndexPath:indexPath];
     
     return YES;
 }
@@ -476,24 +476,24 @@ BOOL REDeviceIsUIKit7() {
 {
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:didHighlightRowAtIndexPath:)])
-        [_delegate tableView:tableView didHighlightRowAtIndexPath:indexPath];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didHighlightRowAtIndexPath:)])
+        [self.delegate tableView:tableView didHighlightRowAtIndexPath:indexPath];
 }
 
 - (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:didUnhighlightRowAtIndexPath:)])
-        [_delegate tableView:tableView didUnhighlightRowAtIndexPath:indexPath];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didUnhighlightRowAtIndexPath:)])
+        [self.delegate tableView:tableView didUnhighlightRowAtIndexPath:indexPath];
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:willSelectRowAtIndexPath:)])
-        return [_delegate tableView:tableView willSelectRowAtIndexPath:indexPath];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willSelectRowAtIndexPath:)])
+        return [self.delegate tableView:tableView willSelectRowAtIndexPath:indexPath];
     
     return indexPath;
 }
@@ -502,15 +502,15 @@ BOOL REDeviceIsUIKit7() {
 {
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:willDeselectRowAtIndexPath:)])
-        return [_delegate tableView:tableView willDeselectRowAtIndexPath:indexPath];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willDeselectRowAtIndexPath:)])
+        return [self.delegate tableView:tableView willDeselectRowAtIndexPath:indexPath];
     
     return indexPath;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
     id item = [section.items objectAtIndex:indexPath.row];
     if ([item respondsToSelector:@selector(setSelectionHandler:)]) {
         RETableViewItem *actionItem = (RETableViewItem *)item;
@@ -520,23 +520,23 @@ BOOL REDeviceIsUIKit7() {
     
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)])
-        [_delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)])
+        [self.delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:didDeselectRowAtIndexPath:)])
-        [_delegate tableView:tableView didDeselectRowAtIndexPath:indexPath];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didDeselectRowAtIndexPath:)])
+        [self.delegate tableView:tableView didDeselectRowAtIndexPath:indexPath];
 }
 
 // Editing
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
     RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
     
     if (![item isKindOfClass:[RETableViewItem class]])
@@ -544,8 +544,8 @@ BOOL REDeviceIsUIKit7() {
     
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:editingStyleForRowAtIndexPath:)])
-        return [_delegate tableView:tableView editingStyleForRowAtIndexPath:indexPath];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:editingStyleForRowAtIndexPath:)])
+        return [self.delegate tableView:tableView editingStyleForRowAtIndexPath:indexPath];
     
     return item.editingStyle;
 }
@@ -554,8 +554,8 @@ BOOL REDeviceIsUIKit7() {
 {
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:titleForDeleteConfirmationButtonForRowAtIndexPath:)])
-        return [_delegate tableView:tableView titleForDeleteConfirmationButtonForRowAtIndexPath:indexPath];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:titleForDeleteConfirmationButtonForRowAtIndexPath:)])
+        return [self.delegate tableView:tableView titleForDeleteConfirmationButtonForRowAtIndexPath:indexPath];
     
     return NSLocalizedString(@"Delete", @"Delete");
 }
@@ -564,8 +564,8 @@ BOOL REDeviceIsUIKit7() {
 {
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:shouldIndentWhileEditingRowAtIndexPath:)])
-        return [_delegate tableView:tableView shouldIndentWhileEditingRowAtIndexPath:indexPath];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:shouldIndentWhileEditingRowAtIndexPath:)])
+        return [self.delegate tableView:tableView shouldIndentWhileEditingRowAtIndexPath:indexPath];
     
     return YES;
 }
@@ -574,23 +574,23 @@ BOOL REDeviceIsUIKit7() {
 {
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:willBeginEditingRowAtIndexPath:)])
-        [_delegate tableView:tableView willBeginEditingRowAtIndexPath:indexPath];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willBeginEditingRowAtIndexPath:)])
+        [self.delegate tableView:tableView willBeginEditingRowAtIndexPath:indexPath];
 }
 
 - (void)tableView:(UITableView*)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:didEndEditingRowAtIndexPath:)])
-        [_delegate tableView:tableView didEndEditingRowAtIndexPath:indexPath];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didEndEditingRowAtIndexPath:)])
+        [self.delegate tableView:tableView didEndEditingRowAtIndexPath:indexPath];
 }
 
 // Moving/reordering
 
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
 {
-    RETableViewSection *sourceSection = [_sections objectAtIndex:sourceIndexPath.section];
+    RETableViewSection *sourceSection = [self.sections objectAtIndex:sourceIndexPath.section];
     RETableViewItem *item = [sourceSection.items objectAtIndex:sourceIndexPath.row];
     if (item.moveHandler) {
         BOOL allowed = item.moveHandler(item, sourceIndexPath, proposedDestinationIndexPath);
@@ -600,8 +600,8 @@ BOOL REDeviceIsUIKit7() {
     
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:targetIndexPathForMoveFromRowAtIndexPath:toProposedIndexPath:)])
-        return [_delegate tableView:tableView targetIndexPathForMoveFromRowAtIndexPath:sourceIndexPath toProposedIndexPath:proposedDestinationIndexPath];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:targetIndexPathForMoveFromRowAtIndexPath:toProposedIndexPath:)])
+        return [self.delegate tableView:tableView targetIndexPathForMoveFromRowAtIndexPath:sourceIndexPath toProposedIndexPath:proposedDestinationIndexPath];
     
     return proposedDestinationIndexPath;
 }
@@ -612,8 +612,8 @@ BOOL REDeviceIsUIKit7() {
 {
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:indentationLevelForRowAtIndexPath:)])
-        return [_delegate tableView:tableView indentationLevelForRowAtIndexPath:indexPath];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:indentationLevelForRowAtIndexPath:)])
+        return [self.delegate tableView:tableView indentationLevelForRowAtIndexPath:indexPath];
     
     return 0;
 }
@@ -622,7 +622,7 @@ BOOL REDeviceIsUIKit7() {
 
 - (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
     id anItem = [section.items objectAtIndex:indexPath.row];
     if ([anItem respondsToSelector:@selector(setCopyHandler:)]) {
         RETableViewItem *item = anItem;
@@ -632,15 +632,15 @@ BOOL REDeviceIsUIKit7() {
     
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:shouldShowMenuForRowAtIndexPath:)])
-        return [_delegate tableView:tableView shouldShowMenuForRowAtIndexPath:indexPath];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:shouldShowMenuForRowAtIndexPath:)])
+        return [self.delegate tableView:tableView shouldShowMenuForRowAtIndexPath:indexPath];
     
 	return NO;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
 {
-    RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
     id anItem = [section.items objectAtIndex:indexPath.row];
     if ([anItem respondsToSelector:@selector(setCopyHandler:)]) {
         RETableViewItem *item = anItem;
@@ -656,15 +656,15 @@ BOOL REDeviceIsUIKit7() {
     
     // Forward to UITableViewDelegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:canPerformAction:forRowAtIndexPath:withSender:)])
-        return [_delegate tableView:tableView canPerformAction:action forRowAtIndexPath:indexPath withSender:sender];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:canPerformAction:forRowAtIndexPath:withSender:)])
+        return [self.delegate tableView:tableView canPerformAction:action forRowAtIndexPath:indexPath withSender:sender];
 	
 	return NO;
 }
 
 - (void)tableView:(UITableView *)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
 {
-    RETableViewSection *section = [_sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
     RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
     
 	if (action == @selector(copy:)) {
@@ -684,8 +684,8 @@ BOOL REDeviceIsUIKit7() {
     
     // Forward to UITableView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [_delegate respondsToSelector:@selector(tableView:performAction:forRowAtIndexPath:withSender:)])
-        [_delegate tableView:tableView performAction:action forRowAtIndexPath:indexPath withSender:sender];
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:performAction:forRowAtIndexPath:withSender:)])
+        [self.delegate tableView:tableView performAction:action forRowAtIndexPath:indexPath withSender:sender];
 }
 
 #pragma mark -
@@ -695,72 +695,72 @@ BOOL REDeviceIsUIKit7() {
 {
     // Forward to UIScrollView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewDidScroll:)])
-        [_delegate scrollViewDidScroll:self.tableView];
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewDidScroll:)])
+        [self.delegate scrollViewDidScroll:self.tableView];
 }
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView
 {
     // Forward to UIScrollView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewDidZoom:)])
-        [_delegate scrollViewDidZoom:self.tableView];
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewDidZoom:)])
+        [self.delegate scrollViewDidZoom:self.tableView];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     // Forward to UIScrollView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewWillBeginDragging:)])
-        [_delegate scrollViewWillBeginDragging:self.tableView];
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewWillBeginDragging:)])
+        [self.delegate scrollViewWillBeginDragging:self.tableView];
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
     // Forward to UIScrollView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewWillEndDragging:withVelocity:targetContentOffset:)])
-        [_delegate scrollViewWillEndDragging:self.tableView withVelocity:velocity targetContentOffset:targetContentOffset];
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewWillEndDragging:withVelocity:targetContentOffset:)])
+        [self.delegate scrollViewWillEndDragging:self.tableView withVelocity:velocity targetContentOffset:targetContentOffset];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     // Forward to UIScrollView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewDidEndDragging:willDecelerate:)])
-        [_delegate scrollViewDidEndDragging:self.tableView willDecelerate:decelerate];
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewDidEndDragging:willDecelerate:)])
+        [self.delegate scrollViewDidEndDragging:self.tableView willDecelerate:decelerate];
 }
 
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
 {
     // Forward to UIScrollView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewWillBeginDecelerating:)])
-        [_delegate scrollViewWillBeginDecelerating:self.tableView];
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewWillBeginDecelerating:)])
+        [self.delegate scrollViewWillBeginDecelerating:self.tableView];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     // Forward to UIScrollView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewDidEndDecelerating:)])
-        [_delegate scrollViewDidEndDecelerating:self.tableView];
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewDidEndDecelerating:)])
+        [self.delegate scrollViewDidEndDecelerating:self.tableView];
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
     // Forward to UIScrollView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewDidEndScrollingAnimation:)])
-        [_delegate scrollViewDidEndScrollingAnimation:self.tableView];
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewDidEndScrollingAnimation:)])
+        [self.delegate scrollViewDidEndScrollingAnimation:self.tableView];
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
     // Forward to UIScrollView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(viewForZoomingInScrollView:)])
-        return [_delegate viewForZoomingInScrollView:self.tableView];
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(viewForZoomingInScrollView:)])
+        return [self.delegate viewForZoomingInScrollView:self.tableView];
     
     return nil;
 }
@@ -769,24 +769,24 @@ BOOL REDeviceIsUIKit7() {
 {
     // Forward to UIScrollView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewWillBeginZooming:withView:)])
-        [_delegate scrollViewWillBeginZooming:self.tableView withView:view];
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewWillBeginZooming:withView:)])
+        [self.delegate scrollViewWillBeginZooming:self.tableView withView:view];
 }
 
 - (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(float)scale
 {
     // Forward to UIScrollView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewDidEndZooming:withView:atScale:)])
-        [_delegate scrollViewDidEndZooming:self.tableView withView:view atScale:scale];
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewDidEndZooming:withView:atScale:)])
+        [self.delegate scrollViewDidEndZooming:self.tableView withView:view atScale:scale];
 }
 
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView
 {
     // Forward to UIScrollView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewShouldScrollToTop:)])
-        return [_delegate scrollViewShouldScrollToTop:self.tableView];
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewShouldScrollToTop:)])
+        return [self.delegate scrollViewShouldScrollToTop:self.tableView];
     return YES;
 }
 
@@ -794,8 +794,8 @@ BOOL REDeviceIsUIKit7() {
 {
     // Forward to UIScrollView delegate
     //
-    if ([_delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [_delegate respondsToSelector:@selector(scrollViewDidScrollToTop:)])
-        [_delegate scrollViewDidScrollToTop:self.tableView];
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewDidScrollToTop:)])
+        [self.delegate scrollViewDidScrollToTop:self.tableView];
 }
 
 #pragma mark -
@@ -804,83 +804,83 @@ BOOL REDeviceIsUIKit7() {
 - (void)addSection:(RETableViewSection *)section
 {
     section.tableViewManager = self;
-    [_sections addObject:section];
+    [self.sections addObject:section];
 }
 
 - (void)addSectionsFromArray:(NSArray *)array
 {
     for (RETableViewSection *section in array)
         section.tableViewManager = self;
-    [_sections addObjectsFromArray:array];
+    [self.sections addObjectsFromArray:array];
 }
 
 - (void)insertSection:(RETableViewSection *)section atIndex:(NSUInteger)index
 {
     section.tableViewManager = self;
-    [_sections insertObject:section atIndex:index];
+    [self.sections insertObject:section atIndex:index];
 }
 
 - (void)insertSections:(NSArray *)sections atIndexes:(NSIndexSet *)indexes
 {
     for (RETableViewSection *section in sections)
         section.tableViewManager = self;
-    [_sections insertObjects:sections atIndexes:indexes];
+    [self.sections insertObjects:sections atIndexes:indexes];
 }
 
 - (void)removeSection:(RETableViewSection *)section
 {
-    [_sections removeObject:section];
+    [self.sections removeObject:section];
 }
 
 - (void)removeAllSections
 {
-    [_sections removeAllObjects];
+    [self.sections removeAllObjects];
 }
 
 - (void)removeSectionIdenticalTo:(RETableViewSection *)section inRange:(NSRange)range
 {
-    [_sections removeObjectIdenticalTo:section inRange:range];
+    [self.sections removeObjectIdenticalTo:section inRange:range];
 }
 
 - (void)removeSectionIdenticalTo:(RETableViewSection *)section
 {
-    [_sections removeObjectIdenticalTo:section];
+    [self.sections removeObjectIdenticalTo:section];
 }
 
 - (void)removeSectionsInArray:(NSArray *)otherArray
 {
-    [_sections removeObjectsInArray:otherArray];
+    [self.sections removeObjectsInArray:otherArray];
 }
 
 - (void)removeSectionsInRange:(NSRange)range
 {
-    [_sections removeObjectsInRange:range];
+    [self.sections removeObjectsInRange:range];
 }
 
 - (void)removeSection:(RETableViewSection *)section inRange:(NSRange)range
 {
-    [_sections removeObject:section inRange:range];
+    [self.sections removeObject:section inRange:range];
 }
 
 - (void)removeLastSection
 {
-    [_sections removeLastObject];
+    [self.sections removeLastObject];
 }
 
 - (void)removeSectionAtIndex:(NSUInteger)index
 {
-    [_sections removeObjectAtIndex:index];
+    [self.sections removeObjectAtIndex:index];
 }
 
 - (void)removeSectionsAtIndexes:(NSIndexSet *)indexes
 {
-    [_sections removeObjectsAtIndexes:indexes];
+    [self.sections removeObjectsAtIndexes:indexes];
 }
 
 - (void)replaceSectionAtIndex:(NSUInteger)index withSection:(RETableViewSection *)section
 {
     section.tableViewManager = self;
-    [_sections replaceObjectAtIndex:index withObject:section];
+    [self.sections replaceObjectAtIndex:index withObject:section];
 }
 
 - (void)replaceSectionsWithSectionsFromArray:(NSArray *)otherArray
@@ -893,34 +893,34 @@ BOOL REDeviceIsUIKit7() {
 {
     for (RETableViewSection *section in sections)
         section.tableViewManager = self;
-    [_sections replaceObjectsAtIndexes:indexes withObjects:sections];
+    [self.sections replaceObjectsAtIndexes:indexes withObjects:sections];
 }
 
 - (void)replaceSectionsInRange:(NSRange)range withSectionsFromArray:(NSArray *)otherArray range:(NSRange)otherRange
 {
     for (RETableViewSection *section in otherArray)
         section.tableViewManager = self;
-    [_sections replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
+    [self.sections replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
 }
 
 - (void)replaceSectionsInRange:(NSRange)range withSectionsFromArray:(NSArray *)otherArray
 {
-    [_sections replaceObjectsInRange:range withObjectsFromArray:otherArray];
+    [self.sections replaceObjectsInRange:range withObjectsFromArray:otherArray];
 }
 
 - (void)exchangeSectionAtIndex:(NSUInteger)idx1 withSectionAtIndex:(NSUInteger)idx2
 {
-    [_sections exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
+    [self.sections exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
 }
 
 - (void)sortSectionsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context
 {
-    [_sections sortUsingFunction:compare context:context];
+    [self.sections sortUsingFunction:compare context:context];
 }
 
 - (void)sortSectionsUsingSelector:(SEL)comparator
 {
-    [_sections sortUsingSelector:comparator];
+    [self.sections sortUsingSelector:comparator];
 }
 
 #pragma mark -
