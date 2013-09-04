@@ -62,7 +62,7 @@
     if (!self)
         return nil;
     
-    _items = [[NSMutableArray alloc] init];
+    self.items = [[NSMutableArray alloc] init];
     
     return self;
 }
@@ -138,7 +138,7 @@
     if ([item isKindOfClass:[RETableViewItem class]])
         ((RETableViewItem *)item).section = self;
     
-    [_items addObject:item];
+    [self.items addObject:item];
 }
 
 - (void)addItemsFromArray:(NSArray *)array
@@ -147,7 +147,7 @@
         if ([item isKindOfClass:[RETableViewItem class]])
             ((RETableViewItem *)item).section = self;
     
-    [_items addObjectsFromArray:array];
+    [self.items addObjectsFromArray:array];
 }
 
 - (void)insertItem:(id)item atIndex:(NSUInteger)index
@@ -155,7 +155,7 @@
     if ([item isKindOfClass:[RETableViewItem class]])
         ((RETableViewItem *)item).section = self;
     
-    [_items insertObject:item atIndex:index];
+    [self.items insertObject:item atIndex:index];
 }
 
 - (void)insertItems:(NSArray *)items atIndexes:(NSIndexSet *)indexes
@@ -164,57 +164,57 @@
         if ([item isKindOfClass:[RETableViewItem class]])
             ((RETableViewItem *)item).section = self;
     
-    [_items insertObjects:items atIndexes:indexes];
+    [self.items insertObjects:items atIndexes:indexes];
 }
 
 - (void)removeItem:(id)item inRange:(NSRange)range
 {
-    [_items removeObject:item inRange:range];
+    [self.items removeObject:item inRange:range];
 }
 
 - (void)removeLastItem
 {
-    [_items removeLastObject];
+    [self.items removeLastObject];
 }
 
 - (void)removeItemAtIndex:(NSUInteger)index
 {
-    [_items removeObjectAtIndex:index];
+    [self.items removeObjectAtIndex:index];
 }
 
 - (void)removeItem:(id)item
 {
-    [_items removeObject:item];
+    [self.items removeObject:item];
 }
 
 - (void)removeAllItems
 {
-    [_items removeAllObjects];
+    [self.items removeAllObjects];
 }
 
 - (void)removeItemIdenticalTo:(id)item inRange:(NSRange)range
 {
-    [_items removeObjectIdenticalTo:item inRange:range];
+    [self.items removeObjectIdenticalTo:item inRange:range];
 }
 
 - (void)removeItemIdenticalTo:(id)item
 {
-    [_items removeObjectIdenticalTo:item];
+    [self.items removeObjectIdenticalTo:item];
 }
 
 - (void)removeItemsInArray:(NSArray *)otherArray
 {
-    [_items removeObjectsInArray:otherArray];
+    [self.items removeObjectsInArray:otherArray];
 }
 
 - (void)removeItemsInRange:(NSRange)range
 {
-    [_items removeObjectsInRange:range];
+    [self.items removeObjectsInRange:range];
 }
 
 - (void)removeItemsAtIndexes:(NSIndexSet *)indexes
 {
-    [_items removeObjectsAtIndexes:indexes];
+    [self.items removeObjectsAtIndexes:indexes];
 }
 
 - (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item
@@ -222,7 +222,7 @@
     if ([item isKindOfClass:[RETableViewItem class]])
         ((RETableViewItem *)item).section = self;
     
-    [_items replaceObjectAtIndex:index withObject:item];
+    [self.items replaceObjectAtIndex:index withObject:item];
 }
 
 - (void)replaceItemsWithItemsFromArray:(NSArray *)otherArray
@@ -237,7 +237,7 @@
         if ([item isKindOfClass:[RETableViewItem class]])
             ((RETableViewItem *)item).section = self;
     
-    [_items replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
+    [self.items replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
 }
 
 - (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray
@@ -246,7 +246,7 @@
         if ([item isKindOfClass:[RETableViewItem class]])
             ((RETableViewItem *)item).section = self;
     
-    [_items replaceObjectsInRange:range withObjectsFromArray:otherArray];
+    [self.items replaceObjectsInRange:range withObjectsFromArray:otherArray];
 }
 
 - (void)replaceItemsAtIndexes:(NSIndexSet *)indexes withItems:(NSArray *)items
@@ -255,22 +255,22 @@
         if ([item isKindOfClass:[RETableViewItem class]])
             ((RETableViewItem *)item).section = self;
     
-    [_items replaceObjectsAtIndexes:indexes withObjects:items];
+    [self.items replaceObjectsAtIndexes:indexes withObjects:items];
 }
 
 - (void)exchangeItemAtIndex:(NSUInteger)idx1 withItemAtIndex:(NSUInteger)idx2
 {
-    [_items exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
+    [self.items exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
 }
 
 - (void)sortItemsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context
 {
-    [_items sortUsingFunction:compare context:context];
+    [self.items sortUsingFunction:compare context:context];
 }
 
 - (void)sortItemsUsingSelector:(SEL)comparator
 {
-    [_items sortUsingSelector:comparator];
+    [self.items sortUsingSelector:comparator];
 }
 
 #pragma mark -
