@@ -304,13 +304,13 @@ BOOL REDeviceIsUIKit7() {
         RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
         if (item.deletionHandlerWithCompletion) {
             item.deletionHandlerWithCompletion(item, ^{
-                [section.items removeObjectAtIndex:indexPath.row];
+                [section removeItemAtIndex:indexPath.row];
                 [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             });
         } else {
             if (item.deletionHandler)
                 item.deletionHandler(item);
-            [section.items removeObjectAtIndex:indexPath.row];
+            [section removeItemAtIndex:indexPath.row];
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         }
     }

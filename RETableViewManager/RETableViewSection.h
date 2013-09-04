@@ -36,7 +36,7 @@
 /**
  An array of section items (rows).
  */
-@property (strong, readwrite, nonatomic) NSMutableArray *items;
+@property (strong, readonly, nonatomic) NSArray *items;
 
 /**
  The title of the header of the specified section of the table view.
