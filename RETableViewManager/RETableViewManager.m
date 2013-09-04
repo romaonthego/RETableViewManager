@@ -49,6 +49,7 @@ BOOL REDeviceIsUIKit7() {
  The array of pairs of items / cell classes.
  */
 @property (strong, readwrite, nonatomic) NSMutableDictionary *registeredXIBs;
+@property (strong, readwrite, nonatomic) NSMutableArray *mutableSections;
 
 @end
 
@@ -88,7 +89,7 @@ BOOL REDeviceIsUIKit7() {
     
     self.tableView = tableView;
 
-    self.sections = [[NSMutableArray alloc] init];
+    self.mutableSections = [[NSMutableArray alloc] init];
     self.registeredClasses = [[NSMutableDictionary alloc] init];
     self.registeredXIBs = [[NSMutableDictionary alloc] init];
     self.style = [[RETableViewCellStyle alloc] init];
@@ -141,7 +142,7 @@ BOOL REDeviceIsUIKit7() {
 
 - (Class)classForCellAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
     NSObject *item = [section.items objectAtIndex:indexPath.row];
     Class cellClass;
     for (NSString *className in self.registeredClasses) {
@@ -154,22 +155,27 @@ BOOL REDeviceIsUIKit7() {
     return cellClass;
 }
 
+- (NSArray *)sections
+{
+    return self.mutableSections;
+}
+
 #pragma mark -
 #pragma mark Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.sections.count;
+    return self.mutableSections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return ((RETableViewSection *)[self.sections objectAtIndex:sectionIndex]).items.count;
+    return ((RETableViewSection *)[self.mutableSections objectAtIndex:sectionIndex]).items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
     RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
     
     UITableViewCellStyle cellStyle = UITableViewCellStyleDefault;
@@ -233,14 +239,14 @@ BOOL REDeviceIsUIKit7() {
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
     NSMutableArray *titles;
-    for (RETableViewSection *section in self.sections) {
+    for (RETableViewSection *section in self.mutableSections) {
         if (section.indexTitle) {
             titles = [NSMutableArray array];
             break;
         }
     }
     if (titles) {
-        for (RETableViewSection *section in self.sections) {
+        for (RETableViewSection *section in self.mutableSections) {
             [titles addObject:section.indexTitle ? section.indexTitle : @""];
         }
     }
@@ -250,23 +256,23 @@ BOOL REDeviceIsUIKit7() {
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)sectionIndex
 {
-    RETableViewSection *section = [self.sections objectAtIndex:sectionIndex];
+    RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
     return section.headerTitle;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)sectionIndex
 {
-    RETableViewSection *section = [self.sections objectAtIndex:sectionIndex];
+    RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
     return section.footerTitle;
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-    RETableViewSection *sourceSection = [self.sections objectAtIndex:sourceIndexPath.section];
+    RETableViewSection *sourceSection = [self.mutableSections objectAtIndex:sourceIndexPath.section];
     RETableViewItem *item = [sourceSection.items objectAtIndex:sourceIndexPath.row];
     [sourceSection removeItemAtIndex:sourceIndexPath.row];
     
-    RETableViewSection *destinationSection = [self.sections objectAtIndex:destinationIndexPath.section];
+    RETableViewSection *destinationSection = [self.mutableSections objectAtIndex:destinationIndexPath.section];
     [destinationSection insertItem:item atIndex:destinationIndexPath.row];
     
     if (item.moveCompletionHandler)
@@ -275,14 +281,14 @@ BOOL REDeviceIsUIKit7() {
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
     RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
     return item.moveHandler != nil;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
     RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
     if ([item isKindOfClass:[RETableViewItem class]]) {
         return item.editingStyle != UITableViewCellEditingStyleNone || item.moveHandler;
@@ -294,7 +300,7 @@ BOOL REDeviceIsUIKit7() {
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
+        RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
         RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
         if (item.deletionHandlerWithCompletion) {
             item.deletionHandlerWithCompletion(item, ^{
@@ -310,7 +316,7 @@ BOOL REDeviceIsUIKit7() {
     }
     
     if (editingStyle == UITableViewCellEditingStyleInsert) {
-        RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
+        RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
         RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
         if (item.insertionHandler)
             item.insertionHandler(item);
@@ -377,7 +383,7 @@ BOOL REDeviceIsUIKit7() {
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
     id item = [section.items objectAtIndex:indexPath.row];
     
     // Forward to UITableView delegate
@@ -390,7 +396,7 @@ BOOL REDeviceIsUIKit7() {
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)sectionIndex
 {
-    RETableViewSection *section = [self.sections objectAtIndex:sectionIndex];
+    RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
     if (section.headerView)
         return section.headerView.frame.size.height;
     
@@ -404,7 +410,7 @@ BOOL REDeviceIsUIKit7() {
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)sectionIndex
 {
-    RETableViewSection *section = [self.sections objectAtIndex:sectionIndex];
+    RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
     if (section.footerView)
         return section.footerView.frame.size.height;
     
@@ -420,7 +426,7 @@ BOOL REDeviceIsUIKit7() {
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectionIndex
 {
-    RETableViewSection *section = [self.sections objectAtIndex:sectionIndex];
+    RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
     
     // Forward to UITableView delegate
     //
@@ -432,7 +438,7 @@ BOOL REDeviceIsUIKit7() {
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)sectionIndex
 {
-    RETableViewSection *section = [self.sections objectAtIndex:sectionIndex];
+    RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
     
     // Forward to UITableView delegate
     //
@@ -446,7 +452,7 @@ BOOL REDeviceIsUIKit7() {
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
     id item = [section.items objectAtIndex:indexPath.row];
     if ([item respondsToSelector:@selector(setAccessoryButtonTapHandler:)]) {
         RETableViewItem *actionItem = (RETableViewItem *)item;
@@ -510,7 +516,7 @@ BOOL REDeviceIsUIKit7() {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
     id item = [section.items objectAtIndex:indexPath.row];
     if ([item respondsToSelector:@selector(setSelectionHandler:)]) {
         RETableViewItem *actionItem = (RETableViewItem *)item;
@@ -536,7 +542,7 @@ BOOL REDeviceIsUIKit7() {
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
     RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
     
     if (![item isKindOfClass:[RETableViewItem class]])
@@ -590,7 +596,7 @@ BOOL REDeviceIsUIKit7() {
 
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
 {
-    RETableViewSection *sourceSection = [self.sections objectAtIndex:sourceIndexPath.section];
+    RETableViewSection *sourceSection = [self.mutableSections objectAtIndex:sourceIndexPath.section];
     RETableViewItem *item = [sourceSection.items objectAtIndex:sourceIndexPath.row];
     if (item.moveHandler) {
         BOOL allowed = item.moveHandler(item, sourceIndexPath, proposedDestinationIndexPath);
@@ -622,7 +628,7 @@ BOOL REDeviceIsUIKit7() {
 
 - (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
     id anItem = [section.items objectAtIndex:indexPath.row];
     if ([anItem respondsToSelector:@selector(setCopyHandler:)]) {
         RETableViewItem *item = anItem;
@@ -640,7 +646,7 @@ BOOL REDeviceIsUIKit7() {
 
 - (BOOL)tableView:(UITableView *)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
 {
-    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
     id anItem = [section.items objectAtIndex:indexPath.row];
     if ([anItem respondsToSelector:@selector(setCopyHandler:)]) {
         RETableViewItem *item = anItem;
@@ -664,7 +670,7 @@ BOOL REDeviceIsUIKit7() {
 
 - (void)tableView:(UITableView *)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
 {
-    RETableViewSection *section = [self.sections objectAtIndex:indexPath.section];
+    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
     RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
     
 	if (action == @selector(copy:)) {
@@ -804,83 +810,83 @@ BOOL REDeviceIsUIKit7() {
 - (void)addSection:(RETableViewSection *)section
 {
     section.tableViewManager = self;
-    [self.sections addObject:section];
+    [self.mutableSections addObject:section];
 }
 
 - (void)addSectionsFromArray:(NSArray *)array
 {
     for (RETableViewSection *section in array)
         section.tableViewManager = self;
-    [self.sections addObjectsFromArray:array];
+    [self.mutableSections addObjectsFromArray:array];
 }
 
 - (void)insertSection:(RETableViewSection *)section atIndex:(NSUInteger)index
 {
     section.tableViewManager = self;
-    [self.sections insertObject:section atIndex:index];
+    [self.mutableSections insertObject:section atIndex:index];
 }
 
 - (void)insertSections:(NSArray *)sections atIndexes:(NSIndexSet *)indexes
 {
     for (RETableViewSection *section in sections)
         section.tableViewManager = self;
-    [self.sections insertObjects:sections atIndexes:indexes];
+    [self.mutableSections insertObjects:sections atIndexes:indexes];
 }
 
 - (void)removeSection:(RETableViewSection *)section
 {
-    [self.sections removeObject:section];
+    [self.mutableSections removeObject:section];
 }
 
 - (void)removeAllSections
 {
-    [self.sections removeAllObjects];
+    [self.mutableSections removeAllObjects];
 }
 
 - (void)removeSectionIdenticalTo:(RETableViewSection *)section inRange:(NSRange)range
 {
-    [self.sections removeObjectIdenticalTo:section inRange:range];
+    [self.mutableSections removeObjectIdenticalTo:section inRange:range];
 }
 
 - (void)removeSectionIdenticalTo:(RETableViewSection *)section
 {
-    [self.sections removeObjectIdenticalTo:section];
+    [self.mutableSections removeObjectIdenticalTo:section];
 }
 
 - (void)removeSectionsInArray:(NSArray *)otherArray
 {
-    [self.sections removeObjectsInArray:otherArray];
+    [self.mutableSections removeObjectsInArray:otherArray];
 }
 
 - (void)removeSectionsInRange:(NSRange)range
 {
-    [self.sections removeObjectsInRange:range];
+    [self.mutableSections removeObjectsInRange:range];
 }
 
 - (void)removeSection:(RETableViewSection *)section inRange:(NSRange)range
 {
-    [self.sections removeObject:section inRange:range];
+    [self.mutableSections removeObject:section inRange:range];
 }
 
 - (void)removeLastSection
 {
-    [self.sections removeLastObject];
+    [self.mutableSections removeLastObject];
 }
 
 - (void)removeSectionAtIndex:(NSUInteger)index
 {
-    [self.sections removeObjectAtIndex:index];
+    [self.mutableSections removeObjectAtIndex:index];
 }
 
 - (void)removeSectionsAtIndexes:(NSIndexSet *)indexes
 {
-    [self.sections removeObjectsAtIndexes:indexes];
+    [self.mutableSections removeObjectsAtIndexes:indexes];
 }
 
 - (void)replaceSectionAtIndex:(NSUInteger)index withSection:(RETableViewSection *)section
 {
     section.tableViewManager = self;
-    [self.sections replaceObjectAtIndex:index withObject:section];
+    [self.mutableSections replaceObjectAtIndex:index withObject:section];
 }
 
 - (void)replaceSectionsWithSectionsFromArray:(NSArray *)otherArray
@@ -893,34 +899,34 @@ BOOL REDeviceIsUIKit7() {
 {
     for (RETableViewSection *section in sections)
         section.tableViewManager = self;
-    [self.sections replaceObjectsAtIndexes:indexes withObjects:sections];
+    [self.mutableSections replaceObjectsAtIndexes:indexes withObjects:sections];
 }
 
 - (void)replaceSectionsInRange:(NSRange)range withSectionsFromArray:(NSArray *)otherArray range:(NSRange)otherRange
 {
     for (RETableViewSection *section in otherArray)
         section.tableViewManager = self;
-    [self.sections replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
+    [self.mutableSections replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
 }
 
 - (void)replaceSectionsInRange:(NSRange)range withSectionsFromArray:(NSArray *)otherArray
 {
-    [self.sections replaceObjectsInRange:range withObjectsFromArray:otherArray];
+    [self.mutableSections replaceObjectsInRange:range withObjectsFromArray:otherArray];
 }
 
 - (void)exchangeSectionAtIndex:(NSUInteger)idx1 withSectionAtIndex:(NSUInteger)idx2
 {
-    [self.sections exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
+    [self.mutableSections exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
 }
 
 - (void)sortSectionsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context
 {
-    [self.sections sortUsingFunction:compare context:context];
+    [self.mutableSections sortUsingFunction:compare context:context];
 }
 
 - (void)sortSectionsUsingSelector:(SEL)comparator
 {
-    [self.sections sortUsingSelector:comparator];
+    [self.mutableSections sortUsingSelector:comparator];
 }
 
 #pragma mark -
@@ -929,7 +935,7 @@ BOOL REDeviceIsUIKit7() {
 - (NSArray *)errors
 {
     NSMutableArray *errors;
-    for (RETableViewSection *section in self.sections) {
+    for (RETableViewSection *section in self.mutableSections) {
         if (section.errors) {
             if (!errors) {
                 errors = [[NSMutableArray alloc] init];

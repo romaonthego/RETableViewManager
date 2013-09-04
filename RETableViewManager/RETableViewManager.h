@@ -70,7 +70,7 @@ BOOL REDeviceIsUIKit7();
 /**
  The array of sections. See RETableViewSection reference for details.
  */
-@property (strong, readwrite, nonatomic) NSMutableArray *sections;
+@property (strong, readonly, nonatomic) NSArray *sections;
 
 /**
  The `UITableView` that needs to be managed using this `RETableViewManager`.
