@@ -28,6 +28,9 @@
 
 @interface RETableViewOptionsController ()
 
+@property (strong, readwrite, nonatomic) RETableViewManager *tableViewManager;
+@property (strong, readwrite, nonatomic) RETableViewSection *mainSection;
+
 @end
 
 @implementation RETableViewOptionsController
@@ -51,12 +54,12 @@
 {
     [super viewDidLoad];
 
-    _tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView delegate:self.delegate];
-    _mainSection = [[RETableViewSection alloc] init];
-    [_tableViewManager addSection:_mainSection];
+    self.tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView delegate:self.delegate];
+    self.mainSection = [[RETableViewSection alloc] init];
+    [self.tableViewManager addSection:self.mainSection];
     
     if (self.style)
-        _tableViewManager.style = self.style;
+        self.tableViewManager.style = self.style;
     
     __typeof (&*self) __weak weakSelf = self;
     void (^refreshItems)(void) = ^{
@@ -84,7 +87,7 @@
                 }
             }
         }
-        [_mainSection addItem:[RETableViewItem itemWithTitle:title accessoryType:accessoryType selectionHandler:^(RETableViewItem *selectedItem) {
+        [self.mainSection addItem:[RETableViewItem itemWithTitle:title accessoryType:accessoryType selectionHandler:^(RETableViewItem *selectedItem) {
             UITableViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:selectedItem.indexPath];
             if (!weakSelf.multipleChoice) {
                 for (NSIndexPath *indexPath in [weakSelf.tableView indexPathsForVisibleRows]) {
