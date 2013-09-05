@@ -33,6 +33,11 @@
 
 @implementation REValidator
 
++ (instancetype)validator
+{
+    return [[self alloc] init];
+}
+
 + (instancetype)validatorWithParameters:(NSDictionary *)parameters
 {
     REValidator *validator = [[self alloc] init];
@@ -40,9 +45,11 @@
     return validator;
 }
 
-+ (instancetype)validator
++ (instancetype)validatorWithInlineValidation:(NSError *(^)(id object, NSString *name))validation
 {
-    return [[self alloc] init];
+    REValidator *validator = [[self alloc] init];
+    validator.inlineValidation = validation;
+    return validator;
 }
 
 + (NSString *)name

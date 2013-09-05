@@ -50,15 +50,15 @@
     
     // Inline Validation Example
     //
-    REValidator *nameValidator = [REValidator validator];
-    nameValidator.inlineValidation = ^NSError *(NSString *string, NSString *name) {
-        if ([string componentsSeparatedByString:@" "].count < 2) {
-            return [NSError errorWithDomain:@"" code:0 userInfo:@{NSLocalizedDescriptionKey: @"Please enter first and last name."}];
+    REValidator *nameValidator = [REValidator validatorWithInlineValidation:^NSError *(NSString *string, NSString *name) {
+        NSString *cleanString = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if ([cleanString componentsSeparatedByString:@" "].count < 2) {
+            return [NSError errorWithDomain:@"" code:0 userInfo:@{ NSLocalizedDescriptionKey: @"Please enter first and last name." }];
         }
         return nil;
-    };
+    }];
     self.inlineTestItem = [RETextItem itemWithTitle:@"Name" value:@"" placeholder:@"First & Last Name"];
-    self.inlineTestItem.validators = @[nameValidator];
+    self.inlineTestItem.validators = @[@"presence", nameValidator];
     
     [section addItem:self.textItem];
     [section addItem:self.emailItem];

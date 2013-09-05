@@ -36,6 +36,7 @@
 
 + (instancetype)validator;
 + (instancetype)validatorWithParameters:(NSDictionary *)parameters;
++ (instancetype)validatorWithInlineValidation:(NSError *(^)(id object, NSString *name))validation;
 
 ///-----------------------------
 /// @name Configuring Representation
