@@ -93,7 +93,6 @@
 
 + (NSError *)validateObject:(NSObject *)object name:(NSString *)name validatorString:(NSString *)string
 {
-    NSLog(@"validate = %@, %@", name, string);
     NSString *validatorStringName = [string componentsSeparatedByString:@"("][0];
     for (NSString *validatorName in [REValidation sharedObject].registeredValidators) {
         if ([validatorName isEqualToString:validatorStringName]) {
