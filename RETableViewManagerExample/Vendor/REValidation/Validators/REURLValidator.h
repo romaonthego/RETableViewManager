@@ -1,5 +1,5 @@
 //
-// REEmailValidator.m
+// REURLValidator.h
 // REValidation
 //
 // Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego)
@@ -23,30 +23,8 @@
 // THE SOFTWARE.
 //
 
-#import "REEmailValidator.h"
-#import "REValidation.h"
+#import "REValidator.h"
 
-@implementation REEmailValidator
-
-+ (NSString *)name
-{
-    return @"email";
-}
-
-+ (NSError *)validateObject:(NSString *)object variableName:(NSString *)name parameters:(NSDictionary *)parameters
-{
-    NSString *string = object ? object : @"";
-    if (string.length == 0)
-        return nil;
-    
-    NSError *error = NULL;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}" options:NSRegularExpressionCaseInsensitive error:&error];
-    NSTextCheckingResult *match = [regex firstMatchInString:string options:0 range:NSMakeRange(0, string.length)];
-    
-    if (!match)
-        return [NSError re_validationErrorForDomain:@"com.REValidation.email", name];
-    
-    return nil;
-}
+@interface REURLValidator : REValidator
 
 @end

@@ -299,12 +299,15 @@
 {
     NSMutableArray *errors;
     for (RETableViewItem *item in self.mutableItems) {
-        if ([item respondsToSelector:@selector(errors)] && item.errors) {
-            if (!errors) {
-                errors = [[NSMutableArray alloc] init];
+        if ([item respondsToSelector:@selector(errors)]) {
+            NSArray *itemErrors = item.errors;
+            if (itemErrors) {
+                if (!errors) {
+                    errors = [[NSMutableArray alloc] init];
+                }
+                if (itemErrors.count > 0)
+                    [errors addObject:itemErrors[0]];
             }
-            if (item.errors.count > 0)
-                [errors addObject:item.errors[0]];
         }
     }
     return errors;

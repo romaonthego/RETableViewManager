@@ -12,6 +12,7 @@
 
 @property (strong, readwrite, nonatomic) RETextItem *textItem;
 @property (strong, readwrite, nonatomic) RETextItem *emailItem;
+@property (strong, readwrite, nonatomic) RETextItem *urlItem;
 
 @end
 
@@ -43,8 +44,12 @@
     self.emailItem.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.emailItem.validators = @[@"presence", @"email"];
     
+    self.urlItem = [RETextItem itemWithTitle:@"URL" value:@"http://invalid-url.co%m" placeholder:@"URL item"];
+    self.urlItem.validators = @[@"url"];
+    
     [section addItem:self.textItem];
     [section addItem:self.emailItem];
+    [section addItem:self.urlItem];
 }
 
 #pragma mark -
@@ -52,9 +57,10 @@
 
 - (void)validateButtonPressed:(UIButton *)sender
 {
-    if (self.manager.errors.count > 0) {
+    NSArray *managerErrors = self.manager.errors;
+    if (managerErrors.count > 0) {
         NSMutableArray *errors = [NSMutableArray array];
-        for (NSError *error in self.manager.errors) {
+        for (NSError *error in managerErrors) {
             [errors addObject:error.localizedDescription];
         }
         NSString *errorString = [errors componentsJoinedByString:@"\n"];

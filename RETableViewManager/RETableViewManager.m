@@ -936,11 +936,12 @@ BOOL REDeviceIsUIKit7() {
 {
     NSMutableArray *errors;
     for (RETableViewSection *section in self.mutableSections) {
-        if (section.errors) {
+        NSArray *sectionErrors = section.errors;
+        if (sectionErrors) {
             if (!errors) {
                 errors = [[NSMutableArray alloc] init];
             }
-            [errors addObjectsFromArray:section.errors];
+            [errors addObjectsFromArray:sectionErrors];
         }
     }
     return errors;

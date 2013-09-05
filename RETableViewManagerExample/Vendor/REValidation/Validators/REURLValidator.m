@@ -1,5 +1,5 @@
 //
-// REEmailValidator.m
+// REURLValidator.m
 // REValidation
 //
 // Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego)
@@ -23,14 +23,14 @@
 // THE SOFTWARE.
 //
 
-#import "REEmailValidator.h"
+#import "REURLValidator.h"
 #import "REValidation.h"
 
-@implementation REEmailValidator
+@implementation REURLValidator
 
 + (NSString *)name
 {
-    return @"email";
+    return @"url";
 }
 
 + (NSError *)validateObject:(NSString *)object variableName:(NSString *)name parameters:(NSDictionary *)parameters
@@ -40,11 +40,10 @@
         return nil;
     
     NSError *error = NULL;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}" options:NSRegularExpressionCaseInsensitive error:&error];
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^(?i)(?:(?:https?|ftp):\\/\\/)?(?:\\S+(?::\\S*)?@)?(?:(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}(?:\\.(?:[1-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))|(?:(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)(?:\\.(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)*(?:\\.(?:[a-z\\u00a1-\\uffff]{2,})))(?::\\d{2,5})?(?:\\/[^\\s]*)?$" options:NSRegularExpressionCaseInsensitive error:&error];
     NSTextCheckingResult *match = [regex firstMatchInString:string options:0 range:NSMakeRange(0, string.length)];
-    
     if (!match)
-        return [NSError re_validationErrorForDomain:@"com.REValidation.email", name];
+        return [NSError re_validationErrorForDomain:@"com.REValidation.url", name];
     
     return nil;
 }

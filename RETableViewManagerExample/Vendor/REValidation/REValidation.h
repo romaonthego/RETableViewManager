@@ -29,6 +29,7 @@
 #import "REPresenceValidator.h"
 #import "RELengthValidator.h"
 #import "REEmailValidator.h"
+#import "REURLValidator.h"
 
 @interface REValidation : NSObject
 
