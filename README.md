@@ -464,12 +464,14 @@ Quick example:
 ```objective-c
 - (void)cellDidLoad
 {
-   self.testLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
-   [self.contentView addSubview:self.testLabel];
+    [super cellDidLoad];
+    self.testLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
+    [self.contentView addSubview:self.testLabel];
 }
 
 - (void)cellWillAppear
 {
+    [super cellWillAppear];
     self.testLabel.text = self.item.someVariable;
 }
 ```
