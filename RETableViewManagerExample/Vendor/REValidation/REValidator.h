@@ -28,6 +28,7 @@
 @interface REValidator : NSObject
 
 @property (strong, readonly, nonatomic) NSDictionary *parameters;
+@property (copy, readwrite, nonatomic) NSError *(^inlineValidation)(id object, NSString *name);
 
 ///-----------------------------
 /// @name Getting Validator Instance
@@ -48,5 +49,6 @@
 ///-----------------------------
 
 + (NSError *)validateObject:(NSObject *)object variableName:(NSString *)name parameters:(NSDictionary *)parameters;
++ (NSError *)validateObject:(NSObject *)object variableName:(NSString *)name validation:(NSError *(^)(id object, NSString *name))validation;
 
 @end

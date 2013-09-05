@@ -13,6 +13,7 @@
 @property (strong, readwrite, nonatomic) RETextItem *textItem;
 @property (strong, readwrite, nonatomic) RETextItem *emailItem;
 @property (strong, readwrite, nonatomic) RETextItem *urlItem;
+@property (strong, readwrite, nonatomic) RETextItem *inlineTestItem;
 
 @end
 
@@ -47,9 +48,22 @@
     self.urlItem = [RETextItem itemWithTitle:@"URL" value:@"http://invalid-url.co%m" placeholder:@"URL item"];
     self.urlItem.validators = @[@"url"];
     
+    // Inline Validation Example
+    //
+    REValidator *nameValidator = [REValidator validator];
+    nameValidator.inlineValidation = ^NSError *(NSString *string, NSString *name) {
+        if ([string componentsSeparatedByString:@" "].count < 2) {
+            return [NSError errorWithDomain:@"" code:0 userInfo:@{NSLocalizedDescriptionKey: @"Please enter first and last name."}];
+        }
+        return nil;
+    };
+    self.inlineTestItem = [RETextItem itemWithTitle:@"Name" value:@"" placeholder:@"First & Last Name"];
+    self.inlineTestItem.validators = @[nameValidator];
+    
     [section addItem:self.textItem];
     [section addItem:self.emailItem];
     [section addItem:self.urlItem];
+    [section addItem:self.inlineTestItem];
 }
 
 #pragma mark -

@@ -41,7 +41,7 @@
     dispatch_once(&onceToken, ^{
         _sharedClient = [[REValidation alloc] init];
     });
-    
+
     return _sharedClient;
 }
 
@@ -111,18 +111,23 @@
 + (NSArray *)validateObject:(NSObject *)object name:(NSString *)name validators:(NSArray *)validators
 {
     NSMutableArray *errors = [NSMutableArray array];
-    
+
     for (id validator in validators) {
         NSError *error;
         if ([validator isKindOfClass:[NSString class]]) {
             error = [self validateObject:object name:name validatorString:(NSString *)validator];
         } else {
-            error = [self validateObject:object name:name validator:validator];
+            REValidator *v = (REValidator *)validator;
+            if (v.inlineValidation) {
+                error = [[v class] validateObject:object variableName:name validation:v.inlineValidation];
+            } else {
+                error = [self validateObject:object name:name validator:validator];
+            }
         }
         if (error)
             [errors addObject:error];
     }
-    
+
     return errors;
 }
 
@@ -132,9 +137,9 @@
     self = [super init];
     if (!self)
         return nil;
-    
+
     self.registeredValidators = [[NSMutableDictionary alloc] init];
-    
+
     return self;
 }
 

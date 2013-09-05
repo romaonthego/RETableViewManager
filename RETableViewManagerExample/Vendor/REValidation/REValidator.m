@@ -55,6 +55,13 @@
     return nil;
 }
 
++ (NSError *)validateObject:(NSObject *)object variableName:(NSString *)name validation:(NSError *(^)(id object, NSString *name))validation
+{
+    if (validation)
+        return validation(object, name);
+    return nil;
+}
+
 + (NSDictionary *)parseParameterString:(NSString *)string
 {
     return nil;
