@@ -71,7 +71,7 @@ Also `RETableViewManager` provides APIs for super easy cell styling.
 
 ## Demo
 
-Build and run the `RETableViewManagerExample` project in Xcode to see `RETableViewManager` in action.
+Build and run the `RETableViewManagerExample.xcworkspace` in Xcode to see `RETableViewManager` in action.
 
 ## Installation
 
