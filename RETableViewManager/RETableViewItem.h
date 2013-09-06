@@ -24,8 +24,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <REValidation/REValidation.h>
 #import "RETableViewCellStyle.h"
-#import "REValidation.h"
 
 @class RETableViewSection;
 

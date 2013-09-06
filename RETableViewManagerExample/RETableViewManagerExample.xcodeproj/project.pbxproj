@@ -38,15 +38,7 @@
 		30939CF217949A10004D95A9 /* userpic4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30939CE617949A10004D95A9 /* userpic4.jpg */; };
 		30939CF317949A10004D95A9 /* userpic5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30939CE717949A10004D95A9 /* userpic5.jpg */; };
 		30939CF417949A10004D95A9 /* userpic6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30939CE817949A10004D95A9 /* userpic6.jpg */; };
-		30939CF917949B2D004D95A9 /* REFormattedNumberField.m in Sources */ = {isa = PBXBuildFile; fileRef = 30939CF817949B2D004D95A9 /* REFormattedNumberField.m */; };
-		30B00D5E17C56EEF0010D439 /* NSError+REValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B00D5217C56EEF0010D439 /* NSError+REValidation.m */; };
-		30B00D5F17C56EEF0010D439 /* REValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B00D5417C56EEF0010D439 /* REValidation.m */; };
-		30B00D6017C56EEF0010D439 /* REValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B00D5617C56EEF0010D439 /* REValidator.m */; };
-		30B00D6117C56EEF0010D439 /* REEmailValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B00D5917C56EEF0010D439 /* REEmailValidator.m */; };
-		30B00D6217C56EEF0010D439 /* RELengthValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B00D5B17C56EEF0010D439 /* RELengthValidator.m */; };
-		30B00D6317C56EEF0010D439 /* REPresenceValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B00D5D17C56EEF0010D439 /* REPresenceValidator.m */; };
 		30B00D7A17C667A90010D439 /* ValidationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B00D7917C667A90010D439 /* ValidationsViewController.m */; };
-		30B00DEE17D8E9CE0010D439 /* REURLValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B00DED17D8E90D0010D439 /* REURLValidator.m */; };
 		30D1C7D617AC08F4001F731C /* First_Alt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30D1C7D217AC08F3001F731C /* First_Alt@2x.png */; };
 		30D1C7D717AC08F4001F731C /* Last_Alt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30D1C7D317AC08F3001F731C /* Last_Alt@2x.png */; };
 		30D1C7D817AC08F4001F731C /* Middle_Alt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30D1C7D417AC08F3001F731C /* Middle_Alt@2x.png */; };
@@ -91,6 +83,7 @@
 		30FE4161176A32C300F317B8 /* Middle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FE4158176A32C300F317B8 /* Middle@2x.png */; };
 		30FE4162176A32C300F317B8 /* Single_Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FE4159176A32C300F317B8 /* Single_Selected@2x.png */; };
 		30FE4163176A32C300F317B8 /* Single@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FE415A176A32C300F317B8 /* Single@2x.png */; };
+		53378ADE88FA40FD87184931 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EA85FF11E7E458B98D5825C /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -141,24 +134,8 @@
 		30939CE617949A10004D95A9 /* userpic4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = userpic4.jpg; sourceTree = "<group>"; };
 		30939CE717949A10004D95A9 /* userpic5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = userpic5.jpg; sourceTree = "<group>"; };
 		30939CE817949A10004D95A9 /* userpic6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = userpic6.jpg; sourceTree = "<group>"; };
-		30939CF717949B2D004D95A9 /* REFormattedNumberField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFormattedNumberField.h; sourceTree = "<group>"; };
-		30939CF817949B2D004D95A9 /* REFormattedNumberField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFormattedNumberField.m; sourceTree = "<group>"; };
-		30B00D5117C56EEF0010D439 /* NSError+REValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+REValidation.h"; sourceTree = "<group>"; };
-		30B00D5217C56EEF0010D439 /* NSError+REValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+REValidation.m"; sourceTree = "<group>"; };
-		30B00D5317C56EEF0010D439 /* REValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REValidation.h; sourceTree = "<group>"; };
-		30B00D5417C56EEF0010D439 /* REValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REValidation.m; sourceTree = "<group>"; };
-		30B00D5517C56EEF0010D439 /* REValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REValidator.h; sourceTree = "<group>"; };
-		30B00D5617C56EEF0010D439 /* REValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REValidator.m; sourceTree = "<group>"; };
-		30B00D5817C56EEF0010D439 /* REEmailValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REEmailValidator.h; sourceTree = "<group>"; };
-		30B00D5917C56EEF0010D439 /* REEmailValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REEmailValidator.m; sourceTree = "<group>"; };
-		30B00D5A17C56EEF0010D439 /* RELengthValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RELengthValidator.h; sourceTree = "<group>"; };
-		30B00D5B17C56EEF0010D439 /* RELengthValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RELengthValidator.m; sourceTree = "<group>"; };
-		30B00D5C17C56EEF0010D439 /* REPresenceValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REPresenceValidator.h; sourceTree = "<group>"; };
-		30B00D5D17C56EEF0010D439 /* REPresenceValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REPresenceValidator.m; sourceTree = "<group>"; };
 		30B00D7817C667A90010D439 /* ValidationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValidationsViewController.h; sourceTree = "<group>"; };
 		30B00D7917C667A90010D439 /* ValidationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidationsViewController.m; sourceTree = "<group>"; };
-		30B00DEC17D8E90D0010D439 /* REURLValidator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = REURLValidator.h; sourceTree = "<group>"; };
-		30B00DED17D8E90D0010D439 /* REURLValidator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = REURLValidator.m; sourceTree = "<group>"; };
 		30D1C7D217AC08F3001F731C /* First_Alt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "First_Alt@2x.png"; path = "Resources/First_Alt@2x.png"; sourceTree = "<group>"; };
 		30D1C7D317AC08F3001F731C /* Last_Alt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Last_Alt@2x.png"; path = "Resources/Last_Alt@2x.png"; sourceTree = "<group>"; };
 		30D1C7D417AC08F3001F731C /* Middle_Alt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Middle_Alt@2x.png"; path = "Resources/Middle_Alt@2x.png"; sourceTree = "<group>"; };
@@ -229,6 +206,8 @@
 		30FE4158176A32C300F317B8 /* Middle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Middle@2x.png"; path = "Resources/Middle@2x.png"; sourceTree = "<group>"; };
 		30FE4159176A32C300F317B8 /* Single_Selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Single_Selected@2x.png"; path = "Resources/Single_Selected@2x.png"; sourceTree = "<group>"; };
 		30FE415A176A32C300F317B8 /* Single@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Single@2x.png"; path = "Resources/Single@2x.png"; sourceTree = "<group>"; };
+		5EA85FF11E7E458B98D5825C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4370D63D1564228A75E7BD2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +218,7 @@
 				30EF93B316E039B800B84981 /* UIKit.framework in Frameworks */,
 				30EF93B516E039B800B84981 /* Foundation.framework in Frameworks */,
 				30EF93B716E039B800B84981 /* CoreGraphics.framework in Frameworks */,
+				53378ADE88FA40FD87184931 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,53 +304,6 @@
 			path = Photos;
 			sourceTree = "<group>";
 		};
-		30939CF517949B2D004D95A9 /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-				30B00D5017C56EEF0010D439 /* REValidation */,
-				30939CF617949B2D004D95A9 /* REFormattedNumberField */,
-			);
-			path = Vendor;
-			sourceTree = SOURCE_ROOT;
-		};
-		30939CF617949B2D004D95A9 /* REFormattedNumberField */ = {
-			isa = PBXGroup;
-			children = (
-				30939CF717949B2D004D95A9 /* REFormattedNumberField.h */,
-				30939CF817949B2D004D95A9 /* REFormattedNumberField.m */,
-			);
-			path = REFormattedNumberField;
-			sourceTree = "<group>";
-		};
-		30B00D5017C56EEF0010D439 /* REValidation */ = {
-			isa = PBXGroup;
-			children = (
-				30B00D5117C56EEF0010D439 /* NSError+REValidation.h */,
-				30B00D5217C56EEF0010D439 /* NSError+REValidation.m */,
-				30B00D5317C56EEF0010D439 /* REValidation.h */,
-				30B00D5417C56EEF0010D439 /* REValidation.m */,
-				30B00D5517C56EEF0010D439 /* REValidator.h */,
-				30B00D5617C56EEF0010D439 /* REValidator.m */,
-				30B00D5717C56EEF0010D439 /* Validators */,
-			);
-			path = REValidation;
-			sourceTree = "<group>";
-		};
-		30B00D5717C56EEF0010D439 /* Validators */ = {
-			isa = PBXGroup;
-			children = (
-				30B00D5817C56EEF0010D439 /* REEmailValidator.h */,
-				30B00D5917C56EEF0010D439 /* REEmailValidator.m */,
-				30B00D5A17C56EEF0010D439 /* RELengthValidator.h */,
-				30B00D5B17C56EEF0010D439 /* RELengthValidator.m */,
-				30B00D5C17C56EEF0010D439 /* REPresenceValidator.h */,
-				30B00D5D17C56EEF0010D439 /* REPresenceValidator.m */,
-				30B00DEC17D8E90D0010D439 /* REURLValidator.h */,
-				30B00DED17D8E90D0010D439 /* REURLValidator.m */,
-			);
-			path = Validators;
-			sourceTree = "<group>";
-		};
 		30DB064616E934AD006C9530 /* RETableViewManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -453,6 +386,7 @@
 				30EF93B816E039B800B84981 /* RETableViewManagerExample */,
 				30EF93B116E039B800B84981 /* Frameworks */,
 				30EF93B016E039B800B84981 /* Products */,
+				E4370D63D1564228A75E7BD2 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -470,6 +404,7 @@
 				30EF93B216E039B800B84981 /* UIKit.framework */,
 				30EF93B416E039B800B84981 /* Foundation.framework */,
 				30EF93B616E039B800B84981 /* CoreGraphics.framework */,
+				5EA85FF11E7E458B98D5825C /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -481,7 +416,6 @@
 				30EF93C216E039B800B84981 /* AppDelegate.m */,
 				302D2147170B25B10085654F /* Classes */,
 				30EF93B916E039B800B84981 /* Supporting Files */,
-				30939CF517949B2D004D95A9 /* Vendor */,
 			);
 			path = RETableViewManagerExample;
 			sourceTree = "<group>";
@@ -522,9 +456,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30EF93CC16E039B800B84981 /* Build configuration list for PBXNativeTarget "RETableViewManagerExample" */;
 			buildPhases = (
+				C91F9E51E3614E49887C24A5 /* Check Pods Manifest.lock */,
 				30EF93AB16E039B800B84981 /* Sources */,
 				30EF93AC16E039B800B84981 /* Frameworks */,
 				30EF93AD16E039B800B84981 /* Resources */,
+				F83E7E6735F94118B5022F1E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -603,6 +539,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C91F9E51E3614E49887C24A5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F83E7E6735F94118B5022F1E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		30EF93AB16E039B800B84981 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -644,18 +613,10 @@
 				30D74554174EB4CA00D4C7C1 /* RETableViewOptionCell.m in Sources */,
 				30D9566C175E3C0200AB977E /* RetractableViewController.m in Sources */,
 				30FE4147176A306600F317B8 /* StylingViewController.m in Sources */,
-				30939CF917949B2D004D95A9 /* REFormattedNumberField.m in Sources */,
 				303D966817B7CCE300A418F3 /* XIBTestItem.m in Sources */,
 				303D966B17B7CCF800A418F3 /* XIBTestCell.m in Sources */,
 				303D967217B7CDE300A418F3 /* XIBTestViewController.m in Sources */,
 				30E5F50C17BBD163005CF1FE /* IndexedListViewController.m in Sources */,
-				30B00D5E17C56EEF0010D439 /* NSError+REValidation.m in Sources */,
-				30B00D5F17C56EEF0010D439 /* REValidation.m in Sources */,
-				30B00D6017C56EEF0010D439 /* REValidator.m in Sources */,
-				30B00D6117C56EEF0010D439 /* REEmailValidator.m in Sources */,
-				30B00DEE17D8E9CE0010D439 /* REURLValidator.m in Sources */,
-				30B00D6217C56EEF0010D439 /* RELengthValidator.m in Sources */,
-				30B00D6317C56EEF0010D439 /* REPresenceValidator.m in Sources */,
 				30B00D7A17C667A90010D439 /* ValidationsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -732,6 +693,7 @@
 		};
 		30EF93CD16E039B800B84981 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4370D63D1564228A75E7BD2 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RETableViewManagerExample/RETableViewManagerExample-Prefix.pch";
@@ -745,6 +707,7 @@
 		};
 		30EF93CE16E039B800B84981 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4370D63D1564228A75E7BD2 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RETableViewManagerExample/RETableViewManagerExample-Prefix.pch";

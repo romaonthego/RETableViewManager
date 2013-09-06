@@ -24,6 +24,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <REValidation/REValidation.h>
 #import "RETableViewSection.h"
 #import "RETableViewCellStyle.h"
 #import "RETableViewCell.h"
@@ -44,7 +45,6 @@
 #import "REFloatItem.h"
 #import "REDateTimeItem.h"
 #import "REMultipleChoiceItem.h"
-#import "REValidation.h"
 
 @protocol RETableViewManagerDelegate;
 
