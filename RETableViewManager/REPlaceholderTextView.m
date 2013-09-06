@@ -83,8 +83,12 @@
             [self addSubview:_placeholderLabel];
         }
         
+        _placeholderLabel.textAlignment = self.textAlignment;
         _placeholderLabel.text = self.placeholder;
         [_placeholderLabel sizeToFit];
+        CGRect frame = _placeholderLabel.frame;
+        frame.size.width = self.bounds.size.width - self.frame.origin.x * 2;
+        _placeholderLabel.frame = frame;
         [self sendSubviewToBack:_placeholderLabel];
     }
     

@@ -44,6 +44,7 @@
 #import "REFloatItem.h"
 #import "REDateTimeItem.h"
 #import "REMultipleChoiceItem.h"
+#import "REValidation.h"
 
 @protocol RETableViewManagerDelegate;
 
@@ -69,7 +70,7 @@ BOOL REDeviceIsUIKit7();
 /**
  The array of sections. See RETableViewSection reference for details.
  */
-@property (strong, readwrite, nonatomic) NSMutableArray *sections;
+@property (strong, readonly, nonatomic) NSArray *sections;
 
 /**
  The `UITableView` that needs to be managed using this `RETableViewManager`.
@@ -333,6 +334,12 @@ BOOL REDeviceIsUIKit7();
  @param comparator A selector that specifies the comparison method to use to compare sections in the table view.
  */
 - (void)sortSectionsUsingSelector:(SEL)comparator;
+
+///-----------------------------
+/// @name Checking for Validation Errors
+///-----------------------------
+
+@property (strong, readonly, nonatomic) NSArray *errors;
 
 @end
 

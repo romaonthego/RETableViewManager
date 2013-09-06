@@ -1,6 +1,6 @@
 //
-// RERadioItem.m
-// RETableViewManager
+// NSError+REValidation.m
+// REValidation
 //
 // Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego)
 //
@@ -23,34 +23,18 @@
 // THE SOFTWARE.
 //
 
-#import "RERadioItem.h"
+#import "NSError+REValidation.h"
+#import "REValidation.h"
 
-@implementation RERadioItem
+@implementation NSError (REValidation)
 
-+ (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value selectionHandler:(void(^)(RERadioItem *item))selectionHandler
++ (NSError *)re_validationErrorForDomain:(NSString *)domain, ...
 {
-    return [[self alloc] initWithTitle:title value:value selectionHandler:selectionHandler];
-}
-
-- (id)initWithTitle:(NSString *)title value:(NSString *)value selectionHandler:(void(^)(RERadioItem *item))selectionHandler
-{
-    self = [super init];
-    if (!self)
-        return nil;
-    
-    self.title = title;
-    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    self.selectionHandler = selectionHandler;
-    self.value = value;
-    self.style = UITableViewCellStyleValue1;
-    
-    return self;
-}
-
-- (void)setValue:(NSString *)value
-{
-    _value = value;
-    self.detailLabelText = value;
+    va_list args;
+    va_start(args, domain);
+    NSError *error = [NSError errorWithDomain:domain code:0 userInfo:@{ NSLocalizedDescriptionKey:[[NSString alloc] initWithFormat:[REValidation errorMessageForDomain:domain] arguments:args] }];
+    va_end(args);
+    return error;
 }
 
 @end

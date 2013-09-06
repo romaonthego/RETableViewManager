@@ -1,6 +1,6 @@
 //
-// RERadioItem.m
-// RETableViewManager
+// REPresenceValidator.m
+// REValidation
 //
 // Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego)
 //
@@ -23,34 +23,22 @@
 // THE SOFTWARE.
 //
 
-#import "RERadioItem.h"
+#import "REPresenceValidator.h"
+#import "NSError+REValidation.h"
 
-@implementation RERadioItem
+@implementation REPresenceValidator
 
-+ (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value selectionHandler:(void(^)(RERadioItem *item))selectionHandler
++ (NSString *)name
 {
-    return [[self alloc] initWithTitle:title value:value selectionHandler:selectionHandler];
+    return @"presence";
 }
 
-- (id)initWithTitle:(NSString *)title value:(NSString *)value selectionHandler:(void(^)(RERadioItem *item))selectionHandler
++ (NSError *)validateObject:(NSString *)object variableName:(NSString *)name parameters:(NSDictionary *)parameters
 {
-    self = [super init];
-    if (!self)
-        return nil;
+    if (![object isKindOfClass:[NSString class]] || object.length == 0)
+        return [NSError re_validationErrorForDomain:@"com.REValidation.presence", name];
     
-    self.title = title;
-    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    self.selectionHandler = selectionHandler;
-    self.value = value;
-    self.style = UITableViewCellStyleValue1;
-    
-    return self;
-}
-
-- (void)setValue:(NSString *)value
-{
-    _value = value;
-    self.detailLabelText = value;
+    return nil;
 }
 
 @end

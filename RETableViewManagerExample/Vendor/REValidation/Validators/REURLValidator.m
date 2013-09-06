@@ -1,6 +1,6 @@
 //
-// RERadioItem.m
-// RETableViewManager
+// REURLValidator.m
+// REValidation
 //
 // Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego)
 //
@@ -23,34 +23,29 @@
 // THE SOFTWARE.
 //
 
-#import "RERadioItem.h"
+#import "REURLValidator.h"
+#import "REValidation.h"
 
-@implementation RERadioItem
+@implementation REURLValidator
 
-+ (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value selectionHandler:(void(^)(RERadioItem *item))selectionHandler
++ (NSString *)name
 {
-    return [[self alloc] initWithTitle:title value:value selectionHandler:selectionHandler];
+    return @"url";
 }
 
-- (id)initWithTitle:(NSString *)title value:(NSString *)value selectionHandler:(void(^)(RERadioItem *item))selectionHandler
++ (NSError *)validateObject:(NSString *)object variableName:(NSString *)name parameters:(NSDictionary *)parameters
 {
-    self = [super init];
-    if (!self)
+    NSString *string = object ? object : @"";
+    if (string.length == 0)
         return nil;
     
-    self.title = title;
-    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    self.selectionHandler = selectionHandler;
-    self.value = value;
-    self.style = UITableViewCellStyleValue1;
+    NSError *error = NULL;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^(?i)(?:(?:https?|ftp):\\/\\/)?(?:\\S+(?::\\S*)?@)?(?:(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}(?:\\.(?:[1-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))|(?:(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)(?:\\.(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)*(?:\\.(?:[a-z\\u00a1-\\uffff]{2,})))(?::\\d{2,5})?(?:\\/[^\\s]*)?$" options:NSRegularExpressionCaseInsensitive error:&error];
+    NSTextCheckingResult *match = [regex firstMatchInString:string options:0 range:NSMakeRange(0, string.length)];
+    if (!match)
+        return [NSError re_validationErrorForDomain:@"com.REValidation.url", name];
     
-    return self;
-}
-
-- (void)setValue:(NSString *)value
-{
-    _value = value;
-    self.detailLabelText = value;
+    return nil;
 }
 
 @end

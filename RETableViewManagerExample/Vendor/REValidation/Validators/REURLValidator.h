@@ -1,6 +1,6 @@
 //
-// RERadioItem.m
-// RETableViewManager
+// REURLValidator.h
+// REValidation
 //
 // Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego)
 //
@@ -23,34 +23,8 @@
 // THE SOFTWARE.
 //
 
-#import "RERadioItem.h"
+#import "REValidator.h"
 
-@implementation RERadioItem
-
-+ (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value selectionHandler:(void(^)(RERadioItem *item))selectionHandler
-{
-    return [[self alloc] initWithTitle:title value:value selectionHandler:selectionHandler];
-}
-
-- (id)initWithTitle:(NSString *)title value:(NSString *)value selectionHandler:(void(^)(RERadioItem *item))selectionHandler
-{
-    self = [super init];
-    if (!self)
-        return nil;
-    
-    self.title = title;
-    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    self.selectionHandler = selectionHandler;
-    self.value = value;
-    self.style = UITableViewCellStyleValue1;
-    
-    return self;
-}
-
-- (void)setValue:(NSString *)value
-{
-    _value = value;
-    self.detailLabelText = value;
-}
+@interface REURLValidator : REValidator
 
 @end

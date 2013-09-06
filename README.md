@@ -24,7 +24,7 @@ Get your `UITableView` up and running in several lines of code:
 
     // Create the manager and assign a UITableView
     //
-    _manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
+    self.manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
 
     // Add a section
     //
@@ -43,7 +43,7 @@ Get your `UITableView` up and running in several lines of code:
 
     // Custom items / cells
     //
-    _manager[@"CustomItem"] = @"CustomCell";
+    self.manager[@"CustomItem"] = @"CustomCell";
 
     [section addItem:[CustomItem item]];
 }
@@ -99,7 +99,7 @@ Edit your Podfile and add RETableViewManager:
 
 ``` bash
 platform :ios, '6.0'
-pod 'RETableViewManager', '~> 1.1.2'
+pod 'RETableViewManager', '~> 1.2.5'
 ```
 
 Install into your Xcode project:
@@ -220,35 +220,35 @@ Section without a title:
 
 ``` objective-c
 RETableViewSection *section = [RETableViewSection section];
-[_tableViewManager addSection:section];
+[self.manager addSection:section];
 ```
 
 Section with a title:
 
 ``` objective-c
 RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Header"];
-[_tableViewManager addSection:section];
+[self.manager addSection:section];
 ```
 
 Section with a title and a footer:
 
 ``` objective-c
 RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Header" footerTitle:@"Footer"];
-[_tableViewManager addSection:section];
+[self.manager addSection:section];
 ```
 
 Section with a custom header view:
 
 ``` objective-c
 RETableViewSection *section = [RETableViewSection sectionWithHeaderView:myCustomSectionHeaderView];
-[_tableViewManager addSection:section];
+[self.manager addSection:section];
 ```
 
 Section with a custom header and footer view:
 
 ``` objective-c
 RETableViewSection *section = [RETableViewSection sectionWithHeaderView:myCustomSectionHeaderView footerView:myCustomSectionFooterView];
-[_tableViewManager addSection:section];
+[self.manager addSection:section];
 ```
 
 ### Text (UITextField) and Number (REFormattedNumberField) Item Example
@@ -256,35 +256,35 @@ RETableViewSection *section = [RETableViewSection sectionWithHeaderView:myCustom
 ``` objective-c
 // Create the manager
 //
-_tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView];
+self.manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
 
 // Add a section
 //
 RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"];
-[_tableViewManager addSection:section];
+[self.manager addSection:section];
 
 // Add items to the section
 //
-_textItem = [RETextItem itemWithTitle:@"Enter text" value:@""];
-[section addItem:_textItem];
+self.textItem = [RETextItem itemWithTitle:@"Enter text" value:@""];
+[section addItem:self.textItem];
 
-_numberItem = [RENumberItem itemWithTitle:@"Enter text" value:@"" placeholder:@"(123) 456-7890" format:@"(XXX) XXX-XXXX"];
-[section addItem:_numberItem];
+self.numberItem = [RENumberItem itemWithTitle:@"Enter text" value:@"" placeholder:@"(123) 456-7890" format:@"(XXX) XXX-XXXX"];
+[section addItem:self.numberItem];
 ```
 
-You can read `_textItem.value` and `_numberItem.value` later whenever you need them.
+You can read `self.textItem.value` and `self.numberItem.value` later whenever you need them.
 
 ### Bool Item (UISwitch) Example
 
 ``` objective-c
 // Create the manager
 //
-_tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView];
+self.manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
 
 // Add a section
 //
 RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"];
-[_tableViewManager addSection:section];
+[self.manager addSection:section];
 
 // Add a bool value cell (using UISwitch)
 //
@@ -298,12 +298,12 @@ RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"
 ``` objective-c
 // Create the manager
 //
-_tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView];
+self.manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
 
 // Add a section
 //
 RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"];
-[_tableViewManager addSection:section];
+[self.manager addSection:section];
 
 // Add radio cell (options)
 //
@@ -333,12 +333,12 @@ RERadioItem *optionItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" 
 ``` objective-c
 // Create the manager
 //
-_tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView];
+self.manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
 
 // Add a section
 //
 RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"];
-[_tableViewManager addSection:section];
+[self.manager addSection:section];
 
 // Add a float item
 //
@@ -352,17 +352,36 @@ RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"
 ``` objective-c
 // Create the manager
 //
-_tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView];
+self.manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
 
 // Add a section
 //
 RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"];
-[_tableViewManager addSection:section];
+[self.manager addSection:section];
 
 // Add a date item
 //
 [section addItem:[REDateTimeItem itemWithTitle:@"Date / Time" value:[NSDate date] placeholder:nil format:@"MM/dd/yyyy hh:mm a" datePickerMode:UIDatePickerModeDateAndTime]];
 ```
+
+### Validations
+
+Validations are performed using [REValidation](https://github.com/romaonthego/REValidation) library.
+
+Example:
+
+```objective-c
+self.textItem = [RETextItem itemWithTitle:@"Text" value:@"" placeholder:@"Text item"];
+self.textItem.validators = @[@"presence", @"length(3, 10)"];
+
+self.emailItem = [RETextItem itemWithTitle:@"Email" value:@"" placeholder:@"Email item"];
+self.emailItem.name = @"Your email";
+self.emailItem.validators = @[@"presence", @"email"];
+```
+
+Each item, each section and the manager have property `errors`. This property is always up to date with errors on each level.
+For example, an `RETableViewItem` would only have its own validation errors, `RETableViewSection` would have all errors that occured in that section (one per item).
+`RETableViewManager`'s property `errors` would reflect all errors.
 
 ### Custom Cells
 
@@ -370,7 +389,7 @@ RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"
 simply write:
 
 ```objective-c
-_manager[@"CustomItem"] = @"CustomCell";
+self.manager[@"CustomItem"] = @"CustomCell";
 ```
 
 If you take a look at [RETableViewManager Source Code](https://github.com/romaonthego/RETableViewManager/blob/master/RETableViewManager/RETableViewManager.m) you may
@@ -445,15 +464,28 @@ Quick example:
 ```objective-c
 - (void)cellDidLoad
 {
-    _testLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
-   [self.contentView addSubview:_testLabel];
+    [super cellDidLoad];
+    self.testLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
+    [self.contentView addSubview:self.testLabel];
 }
 
 - (void)cellWillAppear
 {
-    _testLabel.text = self.item.someVariable;
+    [super cellWillAppear];
+    self.testLabel.text = self.item.someVariable;
 }
 ```
+
+### Interface Builder Support
+
+Interface builder cells are supported out of the box, no special set up needed.
+Cells and items are being automatically registered like any other custom cell in `RETableViewManager`:
+
+```objective-c
+self.manager[@"XIBTestItem"] = @"XIBTestCell";
+```
+
+Here `XIBTestItem` would be your cell identifier and you should have the `XIBTestCell.xib` file in your bundle. That's it.
 
 ### Styling
 

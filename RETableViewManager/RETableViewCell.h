@@ -96,4 +96,6 @@ typedef NS_ENUM(NSInteger, RETableViewCellType) {
 - (void)cellWillAppear;
 - (void)cellDidDisappear;
 
+@property (assign, readonly, nonatomic) BOOL loaded;
+
 @end

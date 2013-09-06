@@ -1,6 +1,6 @@
 //
-// RERadioItem.m
-// RETableViewManager
+// REValidator.m
+// REValidation
 //
 // Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego)
 //
@@ -23,34 +23,55 @@
 // THE SOFTWARE.
 //
 
-#import "RERadioItem.h"
+#import "REValidator.h"
 
-@implementation RERadioItem
+@interface REValidator ()
 
-+ (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value selectionHandler:(void(^)(RERadioItem *item))selectionHandler
+@property (strong, readwrite, nonatomic) NSDictionary *parameters;
+
+@end
+
+@implementation REValidator
+
++ (instancetype)validator
 {
-    return [[self alloc] initWithTitle:title value:value selectionHandler:selectionHandler];
+    return [[self alloc] init];
 }
 
-- (id)initWithTitle:(NSString *)title value:(NSString *)value selectionHandler:(void(^)(RERadioItem *item))selectionHandler
++ (instancetype)validatorWithParameters:(NSDictionary *)parameters
 {
-    self = [super init];
-    if (!self)
-        return nil;
-    
-    self.title = title;
-    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    self.selectionHandler = selectionHandler;
-    self.value = value;
-    self.style = UITableViewCellStyleValue1;
-    
-    return self;
+    REValidator *validator = [[self alloc] init];
+    validator.parameters = parameters;
+    return validator;
 }
 
-- (void)setValue:(NSString *)value
++ (instancetype)validatorWithInlineValidation:(NSError *(^)(id object, NSString *name))validation
 {
-    _value = value;
-    self.detailLabelText = value;
+    REValidator *validator = [[self alloc] init];
+    validator.inlineValidation = validation;
+    return validator;
+}
+
++ (NSString *)name
+{
+    return @"";
+}
+
++ (NSError *)validateObject:(NSObject *)object variableName:(NSString *)name parameters:(NSDictionary *)parameters
+{
+    return nil;
+}
+
++ (NSError *)validateObject:(NSObject *)object variableName:(NSString *)name validation:(NSError *(^)(id object, NSString *name))validation
+{
+    if (validation)
+        return validation(object, name);
+    return nil;
+}
+
++ (NSDictionary *)parseParameterString:(NSString *)string
+{
+    return nil;
 }
 
 @end

@@ -25,6 +25,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RETableViewCellStyle.h"
+#import "REValidation.h"
 
 @class RETableViewSection;
 
@@ -53,6 +54,12 @@
 @property (copy, readwrite, nonatomic) void (^pasteHandler)(id item);
 @property (assign, readwrite, nonatomic) CGFloat cellHeight;
 @property (copy, readwrite, nonatomic) NSString *cellIdentifier;
+
+// Error validation
+//
+@property (copy, readwrite, nonatomic) NSString *name;
+@property (strong, readwrite, nonatomic) NSArray *validators;
+@property (strong, readonly, nonatomic) NSArray *errors;
 
 + (instancetype)item;
 + (instancetype)itemWithTitle:(NSString *)title;

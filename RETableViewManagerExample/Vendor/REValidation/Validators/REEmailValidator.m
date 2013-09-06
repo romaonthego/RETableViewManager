@@ -1,6 +1,6 @@
 //
-// RERadioItem.m
-// RETableViewManager
+// REEmailValidator.m
+// REValidation
 //
 // Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego)
 //
@@ -23,34 +23,30 @@
 // THE SOFTWARE.
 //
 
-#import "RERadioItem.h"
+#import "REEmailValidator.h"
+#import "REValidation.h"
 
-@implementation RERadioItem
+@implementation REEmailValidator
 
-+ (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value selectionHandler:(void(^)(RERadioItem *item))selectionHandler
++ (NSString *)name
 {
-    return [[self alloc] initWithTitle:title value:value selectionHandler:selectionHandler];
+    return @"email";
 }
 
-- (id)initWithTitle:(NSString *)title value:(NSString *)value selectionHandler:(void(^)(RERadioItem *item))selectionHandler
++ (NSError *)validateObject:(NSString *)object variableName:(NSString *)name parameters:(NSDictionary *)parameters
 {
-    self = [super init];
-    if (!self)
+    NSString *string = object ? object : @"";
+    if (string.length == 0)
         return nil;
     
-    self.title = title;
-    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    self.selectionHandler = selectionHandler;
-    self.value = value;
-    self.style = UITableViewCellStyleValue1;
+    NSError *error = NULL;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}" options:NSRegularExpressionCaseInsensitive error:&error];
+    NSTextCheckingResult *match = [regex firstMatchInString:string options:0 range:NSMakeRange(0, string.length)];
     
-    return self;
-}
-
-- (void)setValue:(NSString *)value
-{
-    _value = value;
-    self.detailLabelText = value;
+    if (!match)
+        return [NSError re_validationErrorForDomain:@"com.REValidation.email", name];
+    
+    return nil;
 }
 
 @end

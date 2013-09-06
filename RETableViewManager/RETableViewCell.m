@@ -26,6 +26,12 @@
 #import "RETableViewCell.h"
 #import "RETableViewManager.h"
 
+@interface RETableViewCell ()
+
+@property (assign, readwrite, nonatomic) BOOL loaded;
+
+@end
+
 @implementation RETableViewCell
 
 + (BOOL)canFocusWithItem:(RETableViewItem *)item
@@ -46,7 +52,7 @@
 
 #pragma mark - UI
 
--(void)_addBackgroundImage
+- (void)addBackgroundImage
 {
     self.tableViewManager.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.backgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
@@ -56,7 +62,7 @@
     [self.backgroundView addSubview:_backgroundImageView];
 }
 
--(void)_addSelectedBackgroundImage
+- (void)addSelectedBackgroundImage
 {
     self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
     self.selectedBackgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -71,15 +77,16 @@
 
 - (void)cellDidLoad
 {
+    self.loaded = YES;
     self.actionBar = [[REActionBar alloc] initWithDelegate:self];
     self.selectionStyle = self.tableViewManager.style.defaultCellSelectionStyle;
     
     if ([self.tableViewManager.style hasCustomBackgroundImage]) {
-        [self _addBackgroundImage];
+        [self addBackgroundImage];
     }
     
     if ([self.tableViewManager.style hasCustomSelectedBackgroundImage]) {
-        [self _addSelectedBackgroundImage];
+        [self addSelectedBackgroundImage];
     }
 }
 
@@ -132,15 +139,15 @@
     
     if ([self.section.style hasCustomBackgroundImage]) {
         self.backgroundColor = [UIColor clearColor];
-        if (_backgroundImageView==nil) {
-            [self _addBackgroundImage];
+        if (!_backgroundImageView) {
+            [self addBackgroundImage];
         }
         _backgroundImageView.image = [self.section.style backgroundImageForCellType:self.type];
     }
     
     if ([self.section.style hasCustomSelectedBackgroundImage]) {
-        if (_selectedBackgroundImageView==nil) {
-            [self _addSelectedBackgroundImage];
+        if (!_selectedBackgroundImageView) {
+            [self addSelectedBackgroundImage];
         }
         _selectedBackgroundImageView.image = [self.section.style selectedBackgroundImageForCellType:self.type];
     }

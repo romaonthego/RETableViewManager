@@ -26,6 +26,12 @@
 #import "RETableViewSection.h"
 #import "RETableViewManager.h"
 
+@interface RETableViewSection ()
+
+@property (strong, readwrite, nonatomic) NSMutableArray *mutableItems;
+
+@end
+
 @implementation RETableViewSection
 
 #pragma mark -
@@ -62,7 +68,7 @@
     if (!self)
         return nil;
     
-    _items = [[NSMutableArray alloc] init];
+    self.mutableItems = [[NSMutableArray alloc] init];
     
     return self;
 }
@@ -121,7 +127,7 @@
 - (CGFloat)maximumTitleWidthWithFont:(UIFont *)font
 {
     CGFloat width = 0;
-    for (RETableViewItem *item in self.items) {
+    for (RETableViewItem *item in self.mutableItems) {
         if ([item isMemberOfClass:[RETextItem class]] || [item isMemberOfClass:[REDateTimeItem class]] || [item isMemberOfClass:[RENumberItem class]]) {
             CGSize size = [item.title sizeWithFont:font];
             width = MAX(width, size.width);
@@ -133,12 +139,17 @@
 #pragma mark -
 #pragma mark Managing items
 
+- (NSArray *)items
+{
+    return self.mutableItems;
+}
+
 - (void)addItem:(id)item
 {
     if ([item isKindOfClass:[RETableViewItem class]])
         ((RETableViewItem *)item).section = self;
     
-    [_items addObject:item];
+    [self.mutableItems addObject:item];
 }
 
 - (void)addItemsFromArray:(NSArray *)array
@@ -147,7 +158,7 @@
         if ([item isKindOfClass:[RETableViewItem class]])
             ((RETableViewItem *)item).section = self;
     
-    [_items addObjectsFromArray:array];
+    [self.mutableItems addObjectsFromArray:array];
 }
 
 - (void)insertItem:(id)item atIndex:(NSUInteger)index
@@ -155,7 +166,7 @@
     if ([item isKindOfClass:[RETableViewItem class]])
         ((RETableViewItem *)item).section = self;
     
-    [_items insertObject:item atIndex:index];
+    [self.mutableItems insertObject:item atIndex:index];
 }
 
 - (void)insertItems:(NSArray *)items atIndexes:(NSIndexSet *)indexes
@@ -164,57 +175,57 @@
         if ([item isKindOfClass:[RETableViewItem class]])
             ((RETableViewItem *)item).section = self;
     
-    [_items insertObjects:items atIndexes:indexes];
+    [self.mutableItems insertObjects:items atIndexes:indexes];
 }
 
 - (void)removeItem:(id)item inRange:(NSRange)range
 {
-    [_items removeObject:item inRange:range];
+    [self.mutableItems removeObject:item inRange:range];
 }
 
 - (void)removeLastItem
 {
-    [_items removeLastObject];
+    [self.mutableItems removeLastObject];
 }
 
 - (void)removeItemAtIndex:(NSUInteger)index
 {
-    [_items removeObjectAtIndex:index];
+    [self.mutableItems removeObjectAtIndex:index];
 }
 
 - (void)removeItem:(id)item
 {
-    [_items removeObject:item];
+    [self.mutableItems removeObject:item];
 }
 
 - (void)removeAllItems
 {
-    [_items removeAllObjects];
+    [self.mutableItems removeAllObjects];
 }
 
 - (void)removeItemIdenticalTo:(id)item inRange:(NSRange)range
 {
-    [_items removeObjectIdenticalTo:item inRange:range];
+    [self.mutableItems removeObjectIdenticalTo:item inRange:range];
 }
 
 - (void)removeItemIdenticalTo:(id)item
 {
-    [_items removeObjectIdenticalTo:item];
+    [self.mutableItems removeObjectIdenticalTo:item];
 }
 
 - (void)removeItemsInArray:(NSArray *)otherArray
 {
-    [_items removeObjectsInArray:otherArray];
+    [self.mutableItems removeObjectsInArray:otherArray];
 }
 
 - (void)removeItemsInRange:(NSRange)range
 {
-    [_items removeObjectsInRange:range];
+    [self.mutableItems removeObjectsInRange:range];
 }
 
 - (void)removeItemsAtIndexes:(NSIndexSet *)indexes
 {
-    [_items removeObjectsAtIndexes:indexes];
+    [self.mutableItems removeObjectsAtIndexes:indexes];
 }
 
 - (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item
@@ -222,7 +233,7 @@
     if ([item isKindOfClass:[RETableViewItem class]])
         ((RETableViewItem *)item).section = self;
     
-    [_items replaceObjectAtIndex:index withObject:item];
+    [self.mutableItems replaceObjectAtIndex:index withObject:item];
 }
 
 - (void)replaceItemsWithItemsFromArray:(NSArray *)otherArray
@@ -237,7 +248,7 @@
         if ([item isKindOfClass:[RETableViewItem class]])
             ((RETableViewItem *)item).section = self;
     
-    [_items replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
+    [self.mutableItems replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
 }
 
 - (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray
@@ -246,7 +257,7 @@
         if ([item isKindOfClass:[RETableViewItem class]])
             ((RETableViewItem *)item).section = self;
     
-    [_items replaceObjectsInRange:range withObjectsFromArray:otherArray];
+    [self.mutableItems replaceObjectsInRange:range withObjectsFromArray:otherArray];
 }
 
 - (void)replaceItemsAtIndexes:(NSIndexSet *)indexes withItems:(NSArray *)items
@@ -255,22 +266,22 @@
         if ([item isKindOfClass:[RETableViewItem class]])
             ((RETableViewItem *)item).section = self;
     
-    [_items replaceObjectsAtIndexes:indexes withObjects:items];
+    [self.mutableItems replaceObjectsAtIndexes:indexes withObjects:items];
 }
 
 - (void)exchangeItemAtIndex:(NSUInteger)idx1 withItemAtIndex:(NSUInteger)idx2
 {
-    [_items exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
+    [self.mutableItems exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
 }
 
 - (void)sortItemsUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context
 {
-    [_items sortUsingFunction:compare context:context];
+    [self.mutableItems sortUsingFunction:compare context:context];
 }
 
 - (void)sortItemsUsingSelector:(SEL)comparator
 {
-    [_items sortUsingSelector:comparator];
+    [self.mutableItems sortUsingSelector:comparator];
 }
 
 #pragma mark -
@@ -279,6 +290,27 @@
 - (void)reloadSectionWithAnimation:(UITableViewRowAnimation)animation
 {
     [self.tableViewManager.tableView reloadSections:[NSIndexSet indexSetWithIndex:self.index] withRowAnimation:animation];
+}
+
+#pragma mark -
+#pragma mark Checking for errors
+
+- (NSArray *)errors
+{
+    NSMutableArray *errors;
+    for (RETableViewItem *item in self.mutableItems) {
+        if ([item respondsToSelector:@selector(errors)]) {
+            NSArray *itemErrors = item.errors;
+            if (itemErrors) {
+                if (!errors) {
+                    errors = [[NSMutableArray alloc] init];
+                }
+                if (itemErrors.count > 0)
+                    [errors addObject:itemErrors[0]];
+            }
+        }
+    }
+    return errors;
 }
 
 @end

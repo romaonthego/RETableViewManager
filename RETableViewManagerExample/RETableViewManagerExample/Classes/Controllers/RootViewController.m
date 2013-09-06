@@ -14,6 +14,7 @@
 #import "StylingViewController.h"
 #import "XIBTestViewController.h"
 #import "IndexedListViewController.h"
+#import "ValidationsViewController.h"
 
 @interface RootViewController ()
 
@@ -70,6 +71,11 @@
     [section addItem:[RETableViewItem itemWithTitle:@"Indexed List" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
         [item deselectRowAnimated:YES];
         [weakSelf.navigationController pushViewController:[[IndexedListViewController alloc] initWithStyle:UITableViewStylePlain] animated:YES];
+    }]];
+    
+    [section addItem:[RETableViewItem itemWithTitle:@"Validations" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
+        [item deselectRowAnimated:YES];
+        [weakSelf.navigationController pushViewController:[[ValidationsViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
     }]];
 }
 

@@ -24,11 +24,7 @@
     //
     _manager = [[RETableViewManager alloc] initWithTableView:self.tableView delegate:self];
     
-    // Register XIB file
-    //
-    [self.tableView registerNib:[UINib nibWithNibName:@"XIBTestCell" bundle:nil] forCellReuseIdentifier:@"XIBTestItem"];
-    
-    // Map item to a cell
+    // Map item to a cell, this will also register the XIBTestCell.xib for the XIBTestItem identifier
     //
     _manager[@"XIBTestItem"] = @"XIBTestCell";
     
@@ -44,9 +40,16 @@
                                       selectionHandler:^(RETableViewItem *item) {
             [item deselectRowAnimated:YES];
         }];
-        item.cellIdentifier = @"XIBTestItem";
         [section addItem:item];
     }
+    
+    // Cell is being assigned an automatic identifier
+    //
+    // You can manually set it if you want to:
+    // item.cellIdentifier = @"CustomIdentifier";
+    //
+    // You'll need to register a cell class for it as well:
+    // [self.tableView registerNib:[UINib nibWithNibName:@"XIBTestCell" bundle:nil] forCellReuseIdentifier:@"CustomIdentifier"];
 }
 
 @end

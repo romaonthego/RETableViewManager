@@ -32,6 +32,8 @@
         RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:sectionTitle];
         section.indexTitle = sectionTitle; // assign index title
         
+        // Add 5 items with name `section title + item index`
+        //
         for (NSInteger i = 1; i <= 5; i++)
             [section addItem:[NSString stringWithFormat:@"%@%i", sectionTitle, i]];
         
