@@ -18,6 +18,8 @@
 
 @interface RootViewController ()
 
+@property (strong, readwrite, nonatomic) RETableViewManager *manager;
+
 @end
 
 @implementation RootViewController
@@ -30,13 +32,13 @@
 	
     // Create manager
     //
-    _manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
-    _manager.delegate = self;
+    self.manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
+    self.manager.delegate = self;
     
     // Add sections and items
     //
     RETableViewSection *section = [RETableViewSection section];
-    [_manager addSection:section];
+    [self.manager addSection:section];
     
     [section addItem:[RETableViewItem itemWithTitle:@"Forms" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
         [item deselectRowAnimated:YES]; // same as [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];

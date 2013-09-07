@@ -10,6 +10,8 @@
 
 @interface RetractableViewController ()
 
+@property (strong, readwrite, nonatomic) RETableViewManager *manager;
+
 @end
 
 @implementation RetractableViewController
@@ -21,12 +23,12 @@
     
     // Create manager
     //
-	_manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
+	self.manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
     
     // Add main section
     //
     RETableViewSection *section = [RETableViewSection section];
-    [_manager addSection:section];
+    [self.manager addSection:section];
     
     NSMutableArray *collapsedItems = [NSMutableArray array];
     NSMutableArray *expandedItems = [NSMutableArray array];

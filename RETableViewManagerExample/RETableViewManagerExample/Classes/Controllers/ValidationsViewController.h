@@ -11,6 +11,4 @@
 
 @interface ValidationsViewController : UITableViewController
 
-@property (strong, readonly, nonatomic) RETableViewManager *manager;
-
 @end

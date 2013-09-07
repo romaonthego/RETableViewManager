@@ -10,6 +10,7 @@
 
 @interface ValidationsViewController ()
 
+@property (strong, readwrite, nonatomic) RETableViewManager *manager;
 @property (strong, readwrite, nonatomic) RETextItem *textItem;
 @property (strong, readwrite, nonatomic) RETextItem *emailItem;
 @property (strong, readwrite, nonatomic) RETextItem *urlItem;
@@ -27,12 +28,12 @@
     
     // Create manager
     //
-    _manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
+    self.manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
     
     // Add a section
     //
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Basic controls"];
-    [_manager addSection:section];
+    [self.manager addSection:section];
     
     // Add items
     //

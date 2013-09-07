@@ -11,6 +11,4 @@
 
 @interface IndexedListViewController : UITableViewController
 
-@property (strong, readwrite, nonatomic) RETableViewManager *manager;
-
 @end

@@ -12,6 +12,8 @@
 
 @interface ListViewController ()
 
+@property (strong, readwrite, nonatomic) RETableViewManager *manager;
+
 @end
 
 @implementation ListViewController
@@ -23,11 +25,11 @@
     
     // Create manager
     //
-    _manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
+    self.manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
     
     // Map item to a cell
     //
-    _manager[@"ListImageItem"] = @"ListImageCell"; // which is the same as [_manager registerClass:@"ListImageItem" forCellWithReuseIdentifier:@"ListImageCell"];
+    self.manager[@"ListImageItem"] = @"ListImageCell"; // which is the same as [self.manager registerClass:@"ListImageItem" forCellWithReuseIdentifier:@"ListImageCell"];
     
     // Set some UITableView properties
     //
@@ -81,7 +83,7 @@
         //
         ListHeaderView *headerView = [ListHeaderView headerViewWithImageNamed:dictionary[@"userpic"] username:dictionary[@"username"]];
         RETableViewSection *section = [RETableViewSection sectionWithHeaderView:headerView];
-        [_manager addSection:section];
+        [self.manager addSection:section];
         
         // Add item (image)
         //

@@ -11,11 +11,4 @@
 
 @interface EditingViewController : UITableViewController <UIAlertViewDelegate>
 
-@property (strong, readonly, nonatomic) RETableViewManager *manager;
-
-// Deletable items with confirmation
-
-@property (strong, readwrite, nonatomic) RETableViewItem *itemToDelete;
-@property (copy, readwrite, nonatomic) void (^deleteConfirmationHandler)(void);
-
 @end

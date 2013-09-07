@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "RETableViewManager.h"
 
-@interface RootViewController : UITableViewController <RETableViewManagerDelegate> {
-    RETableViewManager *_manager;
-}
+@interface RootViewController : UITableViewController <RETableViewManagerDelegate>
 
 @end

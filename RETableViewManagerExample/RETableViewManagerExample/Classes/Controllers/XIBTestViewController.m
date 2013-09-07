@@ -11,6 +11,8 @@
 
 @interface XIBTestViewController ()
 
+@property (strong, readwrite, nonatomic) RETableViewManager *manager;
+
 @end
 
 @implementation XIBTestViewController
@@ -22,16 +24,16 @@
     
     // Create manager
     //
-    _manager = [[RETableViewManager alloc] initWithTableView:self.tableView delegate:self];
+    self.manager = [[RETableViewManager alloc] initWithTableView:self.tableView delegate:self];
     
     // Map item to a cell, this will also register the XIBTestCell.xib for the XIBTestItem identifier
     //
-    _manager[@"XIBTestItem"] = @"XIBTestCell";
+    self.manager[@"XIBTestItem"] = @"XIBTestCell";
     
     // Add a section
     //
     RETableViewSection *section = [RETableViewSection section];
-    [_manager addSection:section];
+    [self.manager addSection:section];
     
     for (NSInteger i = 1; i < 100; i++) {
         NSString *title = [NSString stringWithFormat:@"Item %i", i];

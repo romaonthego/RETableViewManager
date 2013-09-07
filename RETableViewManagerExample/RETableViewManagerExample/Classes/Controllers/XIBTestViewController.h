@@ -11,6 +11,4 @@
 
 @interface XIBTestViewController : UITableViewController <RETableViewManagerDelegate>
 
-@property (strong, readonly, nonatomic) RETableViewManager *manager;
-
 @end

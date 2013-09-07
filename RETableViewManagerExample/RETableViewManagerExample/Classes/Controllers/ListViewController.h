@@ -11,6 +11,4 @@
 
 @interface ListViewController : UITableViewController
 
-@property (strong, readonly, nonatomic) RETableViewManager *manager;
-
 @end

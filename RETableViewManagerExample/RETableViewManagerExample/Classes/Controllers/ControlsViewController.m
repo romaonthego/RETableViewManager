@@ -10,6 +10,13 @@
 
 @interface ControlsViewController ()
 
+@property (strong, readwrite, nonatomic) RETableViewManager *manager;
+@property (strong, readwrite, nonatomic) RETableViewSection *basicControlsSection;
+@property (strong, readwrite, nonatomic) RETableViewSection *creditCardSection;
+@property (strong, readwrite, nonatomic) RETableViewSection *accessoriesSection;
+@property (strong, readwrite, nonatomic) RETableViewSection *cutCopyPasteSection;
+@property (strong, readwrite, nonatomic) RETableViewSection *buttonSection;
+
 @property (strong, readwrite, nonatomic) RETextItem *fullLengthFieldItem;
 @property (strong, readwrite, nonatomic) RETextItem *textItem;
 @property (strong, readwrite, nonatomic) RENumberItem *numberItem;
@@ -34,7 +41,7 @@
     
     // Create manager
     //
-    _manager = [[RETableViewManager alloc] initWithTableView:self.tableView delegate:self];
+    self.manager = [[RETableViewManager alloc] initWithTableView:self.tableView delegate:self];
 
     self.basicControlsSection = [self addBasicControls];
     self.creditCardSection = [self addCreditCard];
@@ -66,7 +73,7 @@
     __typeof (&*self) __weak weakSelf = self;
     
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Basic controls"];
-    [_manager addSection:section];
+    [self.manager addSection:section];
     
     // Add items to this section
     //
@@ -174,7 +181,7 @@
 - (RETableViewSection *)addCreditCard
 {
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Credit card"];
-    [_manager addSection:section];
+    [self.manager addSection:section];
     self.creditCardItem = [RECreditCardItem item];
     [section addItem:self.creditCardItem];
     
@@ -187,7 +194,7 @@
 - (RETableViewSection *)addAccessories
 {
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Accessories"];
-    [_manager addSection:section];
+    [self.manager addSection:section];
     
     // Add items to this section
     //
@@ -214,7 +221,7 @@
 - (RETableViewSection *)addCutCopyPaste
 {
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Copy / pasting"];
-    [_manager addSection:section];
+    [self.manager addSection:section];
     
     RETableViewItem *copyItem = [RETableViewItem itemWithTitle:@"Long tap to copy this item" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
         [item deselectRowAnimated:YES];
@@ -261,7 +268,7 @@
     __typeof (&*self) __weak weakSelf = self;
     
     RETableViewSection *section = [RETableViewSection section];
-    [_manager addSection:section];
+    [self.manager addSection:section];
     
     RETableViewItem *buttonItem = [RETableViewItem itemWithTitle:@"Test button" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
         [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
