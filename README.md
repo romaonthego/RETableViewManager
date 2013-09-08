@@ -523,7 +523,7 @@ self.manager.style.cellHeight = 42.0;
 [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"Single_Selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
                                    forCellType:RETableViewCellTypeSingle];
 
-// Retain legacy grouped cell style in iOS [redacted]
+// Retain legacy grouped cell style in iOS 7
 //
 if (REDeviceIsUIKit7()) {
     self.manager.style.contentViewMargin = 10.0;
