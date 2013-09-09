@@ -91,6 +91,9 @@
         NSLog(@"Value: %f", item.value);
     }];
     self.dateTimeItem = [REDateTimeItem itemWithTitle:@"Date / Time" value:[NSDate date] placeholder:nil format:@"MM/dd/yyyy hh:mm a" datePickerMode:UIDatePickerModeDateAndTime];
+    self.dateTimeItem.onChange = ^(REDateTimeItem *item){
+        NSLog(@"Value: %@", item.value.description);
+    };
     self.radioItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" selectionHandler:^(RERadioItem *item) {
         [item deselectRowAnimated:YES]; // same as [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
         

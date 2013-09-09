@@ -39,6 +39,7 @@
 @property (strong, readwrite, nonatomic) NSDate *minimumDate;           // specify min/max date range. default is nil. When min > max, the values are ignored. Ignored in countdown timer mode
 @property (strong, readwrite, nonatomic) NSDate *maximumDate;           // default is nil
 @property (assign, readwrite, nonatomic) NSInteger minuteInterval;        // display minutes wheel with interval. interval must be evenly divided into 60. default is 1. min is 1, max is 30
+@property (copy, readwrite, nonatomic) void (^onChange)(REDateTimeItem *item);
 
 + (instancetype)itemWithTitle:(NSString *)title value:(NSDate *)value placeholder:(NSString *)placeholder format:(NSString *)format datePickerMode:(UIDatePickerMode)datePickerMode;
 - (id)initWithTitle:(NSString *)title value:(NSDate *)value placeholder:(NSString *)placeholder format:(NSString *)format datePickerMode:(UIDatePickerMode)datePickerMode;

@@ -147,6 +147,8 @@
     self.item.value = _datePicker.date;
     self.dateLabel.text = [_dateFormatter stringFromDate:self.item.value];
     self.placeholderLabel.hidden = self.dateLabel.text.length > 0;
+    if (self.item.onChange)
+        self.item.onChange(self.item);
 }
 
 @end
