@@ -171,9 +171,6 @@
         cellOffset += 5.0;
     
     UIFont *font = self.textLabel.font;
-    if ([view respondsToSelector:@selector(font)]) {
-        font = (UIFont *)[view performSelector:@selector(font)];
-    }
     
     CGRect frame = CGRectMake(0, self.textLabel.frame.origin.y, 0, self.textLabel.frame.size.height);
     if (self.item.title.length > 0) {
