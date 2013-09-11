@@ -64,7 +64,7 @@ Get your `UITableView` up and running in several lines of code:
 Also `RETableViewManager` provides APIs for super easy cell styling.
 
 ## Requirements
-* Xcode 4.6 or higher
+* Xcode 5 or higher
 * Apple LLVM compiler
 * iOS 6.0 or higher
 * ARC
