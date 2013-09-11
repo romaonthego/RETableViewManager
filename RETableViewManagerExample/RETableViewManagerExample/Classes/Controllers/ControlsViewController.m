@@ -7,6 +7,7 @@
 //
 
 #import "ControlsViewController.h"
+#import "MultilineTextItem.h"
 
 @interface ControlsViewController ()
 
@@ -74,6 +75,9 @@
     
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Basic controls"];
     [self.manager addSection:section];
+    
+    // Custom item / cell
+    self.manager[@"MultilineTextItem"] = @"MultilineTextCell";
     
     // Add items to this section
     //
@@ -167,6 +171,8 @@
     [section addItem:self.radioItem];
     [section addItem:self.multipleChoiceItem];
     [section addItem:self.longTextItem];
+    
+    [section addItem:[MultilineTextItem itemWithTitle:@"Custom item / cell example. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sem leo, malesuada tempor metus et, elementum pulvinar nibh."]];
     
     RETableViewItem *titleAndImageItem = [RETableViewItem itemWithTitle:@"Text and image item" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
         [item deselectRowAnimated:YES];

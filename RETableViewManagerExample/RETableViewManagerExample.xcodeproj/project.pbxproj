@@ -20,7 +20,6 @@
 		302D2155170B25D90085654F /* ListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D2154170B25D90085654F /* ListHeaderView.m */; };
 		302D2160170B27BD0085654F /* ListImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D215F170B27BD0085654F /* ListImageItem.m */; };
 		302D2163170B27ED0085654F /* ListImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D2162170B27ED0085654F /* ListImageCell.m */; };
-		303D966817B7CCE300A418F3 /* XIBTestItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 303D966717B7CCE300A418F3 /* XIBTestItem.m */; };
 		303D966B17B7CCF800A418F3 /* XIBTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 303D966A17B7CCF800A418F3 /* XIBTestCell.m */; };
 		303D966F17B7CD2F00A418F3 /* XIBTestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303D966E17B7CD2F00A418F3 /* XIBTestCell.xib */; };
 		303D967217B7CDE300A418F3 /* XIBTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303D967117B7CDE300A418F3 /* XIBTestViewController.m */; };
@@ -39,6 +38,9 @@
 		30939CF317949A10004D95A9 /* userpic5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30939CE717949A10004D95A9 /* userpic5.jpg */; };
 		30939CF417949A10004D95A9 /* userpic6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30939CE817949A10004D95A9 /* userpic6.jpg */; };
 		30B00D7A17C667A90010D439 /* ValidationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B00D7917C667A90010D439 /* ValidationsViewController.m */; };
+		30BB805817E0D8A400AD0861 /* MultilineTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BB805717E0D8A400AD0861 /* MultilineTextCell.m */; };
+		30BB805B17E0D8C300AD0861 /* XIBTestItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BB805A17E0D8C300AD0861 /* XIBTestItem.m */; };
+		30BB805E17E0D8E700AD0861 /* MultilineTextItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BB805D17E0D8E700AD0861 /* MultilineTextItem.m */; };
 		30D1C7D617AC08F4001F731C /* First_Alt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30D1C7D217AC08F3001F731C /* First_Alt@2x.png */; };
 		30D1C7D717AC08F4001F731C /* Last_Alt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30D1C7D317AC08F3001F731C /* Last_Alt@2x.png */; };
 		30D1C7D817AC08F4001F731C /* Middle_Alt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30D1C7D417AC08F3001F731C /* Middle_Alt@2x.png */; };
@@ -113,8 +115,6 @@
 		302D215F170B27BD0085654F /* ListImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListImageItem.m; sourceTree = "<group>"; };
 		302D2161170B27ED0085654F /* ListImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListImageCell.h; sourceTree = "<group>"; };
 		302D2162170B27ED0085654F /* ListImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListImageCell.m; sourceTree = "<group>"; };
-		303D966617B7CCE300A418F3 /* XIBTestItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XIBTestItem.h; sourceTree = "<group>"; };
-		303D966717B7CCE300A418F3 /* XIBTestItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XIBTestItem.m; sourceTree = "<group>"; };
 		303D966917B7CCF800A418F3 /* XIBTestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XIBTestCell.h; sourceTree = "<group>"; };
 		303D966A17B7CCF800A418F3 /* XIBTestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XIBTestCell.m; sourceTree = "<group>"; };
 		303D966E17B7CD2F00A418F3 /* XIBTestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XIBTestCell.xib; sourceTree = "<group>"; };
@@ -136,6 +136,12 @@
 		30939CE817949A10004D95A9 /* userpic6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = userpic6.jpg; sourceTree = "<group>"; };
 		30B00D7817C667A90010D439 /* ValidationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValidationsViewController.h; sourceTree = "<group>"; };
 		30B00D7917C667A90010D439 /* ValidationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidationsViewController.m; sourceTree = "<group>"; };
+		30BB805617E0D8A400AD0861 /* MultilineTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultilineTextCell.h; sourceTree = "<group>"; };
+		30BB805717E0D8A400AD0861 /* MultilineTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultilineTextCell.m; sourceTree = "<group>"; };
+		30BB805917E0D8C300AD0861 /* XIBTestItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XIBTestItem.h; sourceTree = "<group>"; };
+		30BB805A17E0D8C300AD0861 /* XIBTestItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XIBTestItem.m; sourceTree = "<group>"; };
+		30BB805C17E0D8E700AD0861 /* MultilineTextItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultilineTextItem.h; sourceTree = "<group>"; };
+		30BB805D17E0D8E700AD0861 /* MultilineTextItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultilineTextItem.m; sourceTree = "<group>"; };
 		30D1C7D217AC08F3001F731C /* First_Alt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "First_Alt@2x.png"; path = "Resources/First_Alt@2x.png"; sourceTree = "<group>"; };
 		30D1C7D317AC08F3001F731C /* Last_Alt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Last_Alt@2x.png"; path = "Resources/Last_Alt@2x.png"; sourceTree = "<group>"; };
 		30D1C7D417AC08F3001F731C /* Middle_Alt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Middle_Alt@2x.png"; path = "Resources/Middle_Alt@2x.png"; sourceTree = "<group>"; };
@@ -267,11 +273,11 @@
 				302D2154170B25D90085654F /* ListHeaderView.m */,
 				302D2161170B27ED0085654F /* ListImageCell.h */,
 				302D2162170B27ED0085654F /* ListImageCell.m */,
-				303D966617B7CCE300A418F3 /* XIBTestItem.h */,
-				303D966717B7CCE300A418F3 /* XIBTestItem.m */,
 				303D966917B7CCF800A418F3 /* XIBTestCell.h */,
 				303D966A17B7CCF800A418F3 /* XIBTestCell.m */,
 				303D966E17B7CD2F00A418F3 /* XIBTestCell.xib */,
+				30BB805617E0D8A400AD0861 /* MultilineTextCell.h */,
+				30BB805717E0D8A400AD0861 /* MultilineTextCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -279,8 +285,12 @@
 		302D215D170B27BD0085654F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				30BB805917E0D8C300AD0861 /* XIBTestItem.h */,
+				30BB805A17E0D8C300AD0861 /* XIBTestItem.m */,
 				302D215E170B27BD0085654F /* ListImageItem.h */,
 				302D215F170B27BD0085654F /* ListImageItem.m */,
+				30BB805C17E0D8E700AD0861 /* MultilineTextItem.h */,
+				30BB805D17E0D8E700AD0861 /* MultilineTextItem.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -583,6 +593,7 @@
 				30DB066B16E934AD006C9530 /* RETableViewCreditCardCell.m in Sources */,
 				30DB066E16E934AD006C9530 /* RETableViewTextCell.m in Sources */,
 				30DB066F16E934AD006C9530 /* REBoolItem.m in Sources */,
+				30BB805817E0D8A400AD0861 /* MultilineTextCell.m in Sources */,
 				30DB067016E934AD006C9530 /* RECreditCardItem.m in Sources */,
 				30DB067116E934AD006C9530 /* RENumberItem.m in Sources */,
 				30DB067316E934AD006C9530 /* RETextItem.m in Sources */,
@@ -607,16 +618,17 @@
 				300E5A2F170F63B600910013 /* RETableViewDateTimeCell.m in Sources */,
 				300E5B3F17170AE100910013 /* RELongTextItem.m in Sources */,
 				300E5B4217170B0200910013 /* RETableViewLongTextCell.m in Sources */,
+				30BB805E17E0D8E700AD0861 /* MultilineTextItem.m in Sources */,
 				30082D1A17170EDD008B0DB5 /* REPlaceholderTextView.m in Sources */,
 				30D208641718FFDE00144E46 /* REMultipleChoiceItem.m in Sources */,
 				30E16A48171A103400F7C258 /* EditingViewController.m in Sources */,
 				30D74554174EB4CA00D4C7C1 /* RETableViewOptionCell.m in Sources */,
 				30D9566C175E3C0200AB977E /* RetractableViewController.m in Sources */,
 				30FE4147176A306600F317B8 /* StylingViewController.m in Sources */,
-				303D966817B7CCE300A418F3 /* XIBTestItem.m in Sources */,
 				303D966B17B7CCF800A418F3 /* XIBTestCell.m in Sources */,
 				303D967217B7CDE300A418F3 /* XIBTestViewController.m in Sources */,
 				30E5F50C17BBD163005CF1FE /* IndexedListViewController.m in Sources */,
+				30BB805B17E0D8C300AD0861 /* XIBTestItem.m in Sources */,
 				30B00D7A17C667A90010D439 /* ValidationsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
