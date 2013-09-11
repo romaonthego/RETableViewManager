@@ -36,7 +36,7 @@
     [self.manager addSection:section];
     
     for (NSInteger i = 1; i < 100; i++) {
-        NSString *title = [NSString stringWithFormat:@"Item %li", i];
+        NSString *title = [NSString stringWithFormat:@"Item %li", (long) i];
         XIBTestItem *item = [XIBTestItem itemWithTitle:title
                                          accessoryType:UITableViewCellAccessoryNone
                                       selectionHandler:^(RETableViewItem *item) {
