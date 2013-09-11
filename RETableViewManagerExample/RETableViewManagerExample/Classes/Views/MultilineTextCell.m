@@ -7,6 +7,10 @@
 //
 
 #import "MultilineTextCell.h"
+#import "RETableViewManager.h"
+
+static const CGFloat kHorizontalMargin = 10.0;
+static const CGFloat kVerticalMargin = 10.0;
 
 @interface MultilineTextCell ()
 
@@ -18,7 +22,8 @@
 
 + (CGFloat)heightWithItem:(MultilineTextItem *)item tableViewManager:(RETableViewManager *)tableViewManager
 {
-    return [item.title sizeWithFont:[UIFont systemFontOfSize:17] constrainedToSize:CGSizeMake(280.0, INFINITY)].height + 20.0;
+    CGFloat width = CGRectGetWidth(tableViewManager.tableView.bounds) - 2.0 * kHorizontalMargin;
+    return [item.title sizeWithFont:[UIFont systemFontOfSize:17] constrainedToSize:CGSizeMake(width, INFINITY)].height + 2.0 * kVerticalMargin;
 }
 
 - (void)cellDidLoad
@@ -41,7 +46,11 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.multilineLabel.frame = CGRectMake((self.contentView.frame.size.width - 280.0) / 2.0, 10.0, 280.0, [MultilineTextCell heightWithItem:self.item tableViewManager:self.tableViewManager] - 20.0);
+    
+    CGRect frame = CGRectMake(0, 0, CGRectGetWidth(self.contentView.bounds), [MultilineTextCell heightWithItem:self.item tableViewManager:self.tableViewManager]);
+    frame = CGRectInset(frame, kHorizontalMargin, kVerticalMargin);
+    
+    self.multilineLabel.frame = frame;
 }
 
 @end
