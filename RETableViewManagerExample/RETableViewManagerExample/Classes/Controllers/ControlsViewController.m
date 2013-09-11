@@ -268,14 +268,12 @@
 
 - (RETableViewSection *)addButton
 {
-    __typeof (&*self) __weak weakSelf = self;
-    
     RETableViewSection *section = [RETableViewSection section];
     [self.manager addSection:section];
     
     RETableViewItem *buttonItem = [RETableViewItem itemWithTitle:@"Test button" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
-        [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
-        NSLog(@"Button pressed");
+        item.title = @"Pressed!";
+        [item reloadRowWithAnimation:UITableViewRowAnimationAutomatic];
     }];
     buttonItem.textAlignment = NSTextAlignmentCenter;
     [section addItem:buttonItem];
