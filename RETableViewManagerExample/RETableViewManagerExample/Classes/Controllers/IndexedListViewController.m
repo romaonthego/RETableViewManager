@@ -37,7 +37,7 @@
         // Add 5 items with name `section title + item index`
         //
         for (NSInteger i = 1; i <= 5; i++)
-            [section addItem:[NSString stringWithFormat:@"%@%i", sectionTitle, i]];
+            [section addItem:[NSString stringWithFormat:@"%@%li", sectionTitle, i]];
         
         [self.manager addSection:section];
     }

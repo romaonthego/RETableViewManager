@@ -101,7 +101,7 @@
         //
         NSMutableArray *options = [[NSMutableArray alloc] init];
         for (NSInteger i = 1; i < 40; i++)
-            [options addObject:[NSString stringWithFormat:@"Option %i", i]];
+            [options addObject:[NSString stringWithFormat:@"Option %li", i]];
         
         // Present options controller
         //
@@ -132,7 +132,7 @@
         //
         NSMutableArray *options = [[NSMutableArray alloc] init];
         for (NSInteger i = 1; i < 40; i++)
-            [options addObject:[NSString stringWithFormat:@"Option %i", i]];
+            [options addObject:[NSString stringWithFormat:@"Option %li", i]];
         
         // Present options controller
         //
