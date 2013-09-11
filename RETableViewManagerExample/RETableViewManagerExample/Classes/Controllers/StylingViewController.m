@@ -72,6 +72,8 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    cell.textLabel.highlightedTextColor = [UIColor whiteColor];
+    
     for (UIView *view in cell.contentView.subviews) {
         if ([view isKindOfClass:[UILabel class]] || [view isKindOfClass:[UITextField class]] || [view isKindOfClass:[UITextView class]])
             ((UILabel *)view).font = [UIFont fontWithName:@"Avenir-Medium" size:16];
