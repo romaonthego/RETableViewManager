@@ -21,6 +21,10 @@
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor colorWithRed:0.967 green:1.000 blue:0.974 alpha:1.000];
     
+    // Style action bar
+    //
+    [[REActionBar appearance] setTintColor:[UIColor colorWithRed:61/255.0 green:119/255.0 blue:58/255.0 alpha:1.000]];
+    
     // Set default cell height
     //
     self.manager.style.cellHeight = 42.0;
