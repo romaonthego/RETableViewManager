@@ -25,22 +25,21 @@
 
 #import "RETableViewManager.h"
 
-NSUInteger REDeviceSystemMajorVersion() {
-    static NSUInteger _deviceSystemMajorVersion = -1;
+BOOL REDeviceIsUIKit7() {
+    static BOOL isUIKitFlatMode = NO;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _deviceSystemMajorVersion = [[[[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."] objectAtIndex:0] intValue];
+        if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
+            // If your app is running in legacy mode, tintColor will be nil - else it must be set to some color.
+            if (UIApplication.sharedApplication.keyWindow) {
+                isUIKitFlatMode = [UIApplication.sharedApplication.delegate.window performSelector:@selector(tintColor)] != nil;
+            } else {
+                // Possible that we're called early on (e.g. when used in a Storyboard). Adapt and use a temporary window.
+                isUIKitFlatMode = [[UIWindow new] performSelector:@selector(tintColor)] != nil;
+            }
+        }
     });
-    return _deviceSystemMajorVersion;
-}
-
-BOOL REDeviceIsUIKit7() {
-#ifdef __IPHONE_7_0
-    if (REDeviceSystemMajorVersion() >= 7.0) {
-        return YES;
-    }
-#endif
-    return NO;
+    return isUIKitFlatMode;
 }
 
 @interface RETableViewManager ()
