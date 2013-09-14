@@ -78,5 +78,9 @@
 {
     self.item.value = textField.unformattedText;
 }
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    if (self.item.onEndEditing)
+        self.item.onEndEditing(self.item);
+}
 
 @end
