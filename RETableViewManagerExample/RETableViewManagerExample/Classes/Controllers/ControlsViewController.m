@@ -86,6 +86,9 @@
     self.fullLengthFieldItem = [RETextItem itemWithTitle:nil value:nil placeholder:@"Full length text field"];    
     self.textItem = [RETextItem itemWithTitle:@"Text item" value:nil placeholder:@"Text"];
     self.numberItem = [RENumberItem itemWithTitle:@"Phone" value:@"" placeholder:@"(123) 456-7890" format:@"(XXX) XXX-XXXX"];
+    self.numberItem.onEndEditing = ^(RENumberItem *item){
+        NSLog(@"Value: %@", item.value);
+    };
     self.passwordItem = [RETextItem itemWithTitle:@"Password" value:nil placeholder:@"Password item"];
     self.passwordItem.secureTextEntry = YES;
     self.boolItem = [REBoolItem itemWithTitle:@"Bool item" value:YES switchValueChangeHandler:^(REBoolItem *item) {
