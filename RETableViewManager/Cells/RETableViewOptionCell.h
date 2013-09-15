@@ -29,6 +29,6 @@
 @interface RETableViewOptionCell : RETableViewCell
 
 @property (strong, readwrite, nonatomic) RERadioItem *item;
-@property (strong, readwrite, nonatomic) UILabel *valueLabel;
+@property (strong, readonly, nonatomic) UILabel *valueLabel;
 
 @end

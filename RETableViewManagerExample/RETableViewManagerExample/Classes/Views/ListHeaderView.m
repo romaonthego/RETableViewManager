@@ -8,6 +8,13 @@
 
 #import "ListHeaderView.h"
 
+@interface ListHeaderView ()
+
+@property (strong, readwrite, nonatomic) UIImageView *userpicImageView;
+@property (strong, readwrite, nonatomic) UILabel *usernameLabel;
+
+@end
+
 @implementation ListHeaderView
 
 + (ListHeaderView *)headerViewWithImageNamed:(NSString *)imageNamed username:(NSString *)username
@@ -29,14 +36,14 @@
         backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self addSubview:backgroundView];
         
-        _userpicImageView = [[UIImageView alloc] initWithFrame:CGRectMake(7, 7, 30, 30)];
-        [self addSubview:_userpicImageView];
+        self.userpicImageView = [[UIImageView alloc] initWithFrame:CGRectMake(7, 7, 30, 30)];
+        [self addSubview:self.userpicImageView];
         
-        _usernameLabel = [[UILabel alloc] initWithFrame:CGRectMake(45, 3, 276, 35)];
-        _usernameLabel.font = [UIFont boldSystemFontOfSize:14];
-        _usernameLabel.textColor = [UIColor blackColor];
-        _usernameLabel.backgroundColor = [UIColor clearColor];
-        [self addSubview:_usernameLabel];
+        self.usernameLabel = [[UILabel alloc] initWithFrame:CGRectMake(45, 3, 276, 35)];
+        self.usernameLabel.font = [UIFont boldSystemFontOfSize:14];
+        self.usernameLabel.textColor = [UIColor blackColor];
+        self.usernameLabel.backgroundColor = [UIColor clearColor];
+        [self addSubview:self.usernameLabel];
     }
     return self;
 }

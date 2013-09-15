@@ -26,6 +26,12 @@
 #import "RETableViewTextCell.h"
 #import "RETableViewManager.h"
 
+@interface RETableViewTextCell ()
+
+@property (strong, readwrite, nonatomic) UITextField *textField;
+
+@end
+
 @implementation RETableViewTextCell
 
 + (BOOL)canFocusWithItem:(RETableViewItem *)item
@@ -41,20 +47,20 @@
     [super cellDidLoad];
     self.textLabel.backgroundColor = [UIColor clearColor];
     
-    _textField = [[UITextField alloc] initWithFrame:CGRectNull];
-    _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    _textField.inputAccessoryView = self.actionBar;
-    _textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    _textField.delegate = self;
-    [_textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-    [self.contentView addSubview:_textField];
+    self.textField = [[UITextField alloc] initWithFrame:CGRectNull];
+    self.textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    self.textField.inputAccessoryView = self.actionBar;
+    self.textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.textField.delegate = self;
+    [self.textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.contentView addSubview:self.textField];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
     if (selected) {
-        [_textField becomeFirstResponder];
+        [self.textField becomeFirstResponder];
     }
 }
 
@@ -64,31 +70,31 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     self.textLabel.text = self.item.title.length == 0 ? @" " : self.item.title;
-    _textField.text = self.item.value;
-    _textField.placeholder = self.item.placeholder;
-    _textField.font = [UIFont systemFontOfSize:17];
-    _textField.autocapitalizationType = self.item.autocapitalizationType;
-    _textField.autocorrectionType = self.item.autocorrectionType;
-    _textField.spellCheckingType = self.item.spellCheckingType;
-    _textField.keyboardType = self.item.keyboardType;
-    _textField.keyboardAppearance = self.item.keyboardAppearance;
-    _textField.returnKeyType = self.item.returnKeyType;
-    _textField.enablesReturnKeyAutomatically = self.item.enablesReturnKeyAutomatically;
-    _textField.secureTextEntry = self.item.secureTextEntry;
-    _textField.clearButtonMode = self.item.clearButtonMode;
-    _textField.clearsOnBeginEditing = self.item.clearsOnBeginEditing;
+    self.textField.text = self.item.value;
+    self.textField.placeholder = self.item.placeholder;
+    self.textField.font = [UIFont systemFontOfSize:17];
+    self.textField.autocapitalizationType = self.item.autocapitalizationType;
+    self.textField.autocorrectionType = self.item.autocorrectionType;
+    self.textField.spellCheckingType = self.item.spellCheckingType;
+    self.textField.keyboardType = self.item.keyboardType;
+    self.textField.keyboardAppearance = self.item.keyboardAppearance;
+    self.textField.returnKeyType = self.item.returnKeyType;
+    self.textField.enablesReturnKeyAutomatically = self.item.enablesReturnKeyAutomatically;
+    self.textField.secureTextEntry = self.item.secureTextEntry;
+    self.textField.clearButtonMode = self.item.clearButtonMode;
+    self.textField.clearsOnBeginEditing = self.item.clearsOnBeginEditing;
 }
 
 - (UIResponder *)responder
 {
-    return _textField;
+    return self.textField;
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
     
-    [self layoutDetailView:_textField minimumWidth:0];
+    [self layoutDetailView:self.textField minimumWidth:0];
     
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:forRowAtIndexPath:)])
         [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self forRowAtIndexPath:[(UITableView *)self.superview indexPathForCell:self]];

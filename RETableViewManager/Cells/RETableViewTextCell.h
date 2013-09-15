@@ -29,6 +29,6 @@
 @interface RETableViewTextCell : RETableViewCell <UITextFieldDelegate>
 
 @property (strong, readwrite, nonatomic) RETextItem *item;
-@property (strong, readwrite, nonatomic) UITextField *textField;
+@property (strong, readonly, nonatomic) UITextField *textField;
 
 @end

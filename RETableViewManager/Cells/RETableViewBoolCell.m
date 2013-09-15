@@ -26,6 +26,12 @@
 #import "RETableViewBoolCell.h"
 #import "RETableViewManager.h"
 
+@interface RETableViewBoolCell ()
+
+@property (strong, readwrite, nonatomic) UISwitch *switchView;
+
+@end
+
 @implementation RETableViewBoolCell
 
 #pragma mark -
@@ -36,10 +42,10 @@
     [super cellDidLoad];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    _switchView = [[UISwitch alloc] init];
-    _switchView.translatesAutoresizingMaskIntoConstraints = NO;
-    [_switchView addTarget:self action:@selector(switchValueDidChange:) forControlEvents:UIControlEventValueChanged];
-    [self.contentView addSubview:_switchView];
+    self.switchView = [[UISwitch alloc] init];
+    self.switchView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.switchView addTarget:self action:@selector(switchValueDidChange:) forControlEvents:UIControlEventValueChanged];
+    [self.contentView addSubview:self.switchView];
 }
 
 - (void)cellWillAppear
@@ -47,18 +53,19 @@
     [self.contentView removeConstraints:self.contentView.constraints];
     CGFloat margin = (REUIKitIsFlatMode() && self.section.style.contentViewMargin <= 0) ? 15.0 : 10.0;
     NSDictionary *metrics = @{@"margin": @(margin)};
-    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_switchView
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.switchView
                                                                  attribute:NSLayoutAttributeCenterY
                                                                  relatedBy:NSLayoutRelationEqual
                                                                     toItem:self.contentView
                                                                  attribute:NSLayoutAttributeCenterY
                                                                 multiplier:1.0
                                                                   constant:0]];
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_switchView]-margin-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(_switchView)]];
+    UISwitch *switchView = self.switchView;
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[switchView]-margin-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(switchView)]];
     
     self.textLabel.backgroundColor = [UIColor clearColor];
     self.textLabel.text = self.item.title;
-    _switchView.on = self.item.value;
+    self.switchView.on = self.item.value;
 }
 
 - (void)layoutSubviews

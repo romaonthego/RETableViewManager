@@ -28,11 +28,10 @@
 
 @interface RETableViewDateTimeCell : RETableViewCell <UITextFieldDelegate>
 
-@property (strong, readwrite, nonatomic) UITextField *textField;
-@property (strong, readwrite, nonatomic) UILabel *dateLabel;
-@property (strong, readwrite, nonatomic) UILabel *placeholderLabel;
+@property (strong, readonly, nonatomic) UITextField *textField;
+@property (strong, readonly, nonatomic) UILabel *dateLabel;
+@property (strong, readonly, nonatomic) UILabel *placeholderLabel;
 @property (strong, readonly, nonatomic) UIDatePicker *datePicker;
-@property (strong, readonly, nonatomic) NSDateFormatter *dateFormatter;
 @property (strong, readwrite, nonatomic) REDateTimeItem *item;
 
 @end

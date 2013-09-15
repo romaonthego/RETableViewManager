@@ -8,6 +8,12 @@
 
 #import "ListImageCell.h"
 
+@interface ListImageCell ()
+
+@property (strong, readwrite, nonatomic) UIImageView *pictureView;
+
+@end
+
 @implementation ListImageCell
 
 + (CGFloat)heightWithItem:(NSObject *)item tableViewManager:(RETableViewManager *)tableViewManager
@@ -18,15 +24,15 @@
 - (void)cellDidLoad
 {
     [super cellDidLoad];
-    _pictureView = [[UIImageView alloc] initWithFrame:CGRectMake(7, 0, 306, 306)];
-    _pictureView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-    [self addSubview:_pictureView];
+    self.pictureView = [[UIImageView alloc] initWithFrame:CGRectMake(7, 0, 306, 306)];
+    self.pictureView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    [self addSubview:self.pictureView];
 }
 
 - (void)cellWillAppear
 {
     [super cellWillAppear];
-    [_pictureView setImage:[UIImage imageNamed:self.item.imageName]];
+    [self.pictureView setImage:[UIImage imageNamed:self.item.imageName]];
 }
 
 - (void)cellDidDisappear

@@ -29,6 +29,8 @@
 @interface RETableViewCell ()
 
 @property (assign, readwrite, nonatomic) BOOL loaded;
+@property (strong, readwrite, nonatomic) UIImageView *backgroundImageView;
+@property (strong, readwrite, nonatomic) UIImageView *selectedBackgroundImageView;
 
 @end
 
@@ -57,19 +59,19 @@
     self.tableViewManager.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.backgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
     self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.backgroundView.bounds.size.width, self.backgroundView.bounds.size.height + 1)];
-    _backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [self.backgroundView addSubview:_backgroundImageView];
+    self.backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.backgroundView.bounds.size.width, self.backgroundView.bounds.size.height + 1)];
+    self.backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.backgroundView addSubview:self.backgroundImageView];
 }
 
 - (void)addSelectedBackgroundImage
 {
     self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
     self.selectedBackgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    _selectedBackgroundImageView = [[UIImageView alloc] init];
-    _selectedBackgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.selectedBackgroundView.bounds.size.width, self.selectedBackgroundView.bounds.size.height + 1)];
-    _selectedBackgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [self.selectedBackgroundView addSubview:_selectedBackgroundImageView];
+    self.selectedBackgroundImageView = [[UIImageView alloc] init];
+    self.selectedBackgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.selectedBackgroundView.bounds.size.width, self.selectedBackgroundView.bounds.size.height + 1)];
+    self.selectedBackgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.selectedBackgroundView addSubview:self.selectedBackgroundImageView];
 }
 
 #pragma mark -
@@ -144,17 +146,17 @@
     
     if ([self.section.style hasCustomBackgroundImage]) {
         self.backgroundColor = [UIColor clearColor];
-        if (!_backgroundImageView) {
+        if (!self.backgroundImageView) {
             [self addBackgroundImage];
         }
-        _backgroundImageView.image = [self.section.style backgroundImageForCellType:self.type];
+        self.backgroundImageView.image = [self.section.style backgroundImageForCellType:self.type];
     }
     
     if ([self.section.style hasCustomSelectedBackgroundImage]) {
-        if (!_selectedBackgroundImageView) {
+        if (!self.selectedBackgroundImageView) {
             [self addSelectedBackgroundImage];
         }
-        _selectedBackgroundImageView.image = [self.section.style selectedBackgroundImageForCellType:self.type];
+        self.selectedBackgroundImageView.image = [self.section.style selectedBackgroundImageForCellType:self.type];
     }
     
     // Set background frame

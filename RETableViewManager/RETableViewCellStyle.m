@@ -34,10 +34,10 @@
     if (!self)
         return nil;
     
-    _backgroundImages = [[NSMutableDictionary alloc] init];
-    _selectedBackgroundImages = [[NSMutableDictionary alloc] init];
-    _cellHeight = 44.0;
-    _defaultCellSelectionStyle = UITableViewCellSelectionStyleBlue;
+    self.backgroundImages = [[NSMutableDictionary alloc] init];
+    self.selectedBackgroundImages = [[NSMutableDictionary alloc] init];
+    self.cellHeight = 44.0;
+    self.defaultCellSelectionStyle = UITableViewCellSelectionStyleBlue;
     
     return self;
 }
@@ -63,16 +63,16 @@
 
 - (UIImage *)backgroundImageForCellType:(RETableViewCellType)cellType
 {
-    UIImage *image = [_backgroundImages objectForKey:@(cellType)];
+    UIImage *image = [self.backgroundImages objectForKey:@(cellType)];
     if (!image && cellType != RETableViewCellTypeAny)
-        image = [_backgroundImages objectForKey:@(RETableViewCellTypeAny)];
+        image = [self.backgroundImages objectForKey:@(RETableViewCellTypeAny)];
     return image;
 }
 
 - (void)setBackgroundImage:(UIImage *)image forCellType:(RETableViewCellType)cellType
 {
     if (image)
-        [_backgroundImages setObject:image forKey:@(cellType)];
+        [self.backgroundImages setObject:image forKey:@(cellType)];
 }
 
 - (BOOL)hasCustomSelectedBackgroundImage
@@ -82,16 +82,16 @@
 
 - (UIImage *)selectedBackgroundImageForCellType:(RETableViewCellType)cellType
 {
-    UIImage *image = [_selectedBackgroundImages objectForKey:@(cellType)];
+    UIImage *image = [self.selectedBackgroundImages objectForKey:@(cellType)];
     if (!image && cellType != RETableViewCellTypeAny)
-        image = [_selectedBackgroundImages objectForKey:@(RETableViewCellTypeAny)];
+        image = [self.selectedBackgroundImages objectForKey:@(RETableViewCellTypeAny)];
     return image;
 }
 
 - (void)setSelectedBackgroundImage:(UIImage *)image forCellType:(RETableViewCellType)cellType
 {
     if (image)
-        [_selectedBackgroundImages setObject:image forKey:@(cellType)];
+        [self.selectedBackgroundImages setObject:image forKey:@(cellType)];
 }
 
 @end

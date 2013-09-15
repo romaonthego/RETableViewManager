@@ -26,6 +26,12 @@
 #import "RETableViewNumberCell.h"
 #import "RETableViewManager.h"
 
+@interface RETableViewNumberCell ()
+
+@property (strong, readwrite, nonatomic) REFormattedNumberField *textField;
+
+@end
+
 @implementation RETableViewNumberCell
 
 + (BOOL)canFocusWithItem:(RETableViewItem *)item

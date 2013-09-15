@@ -26,6 +26,12 @@
 #import "RETableViewFloatCell.h"
 #import "RETableViewManager.h"
 
+@interface RETableViewFloatCell ()
+
+@property (strong, readwrite, nonatomic) UISlider *sliderView;
+
+@end
+
 @implementation RETableViewFloatCell
 
 #pragma mark -
@@ -36,17 +42,17 @@
     [super cellDidLoad];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    _sliderView = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, 100, 23.0)];
-    [_sliderView addTarget:self action:@selector(sliderValueDidChange:) forControlEvents:UIControlEventValueChanged];
+    self.sliderView = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, 100, 23.0)];
+    [self.sliderView addTarget:self action:@selector(sliderValueDidChange:) forControlEvents:UIControlEventValueChanged];
     
-    [self.contentView addSubview:_sliderView];
+    [self.contentView addSubview:self.sliderView];
 }
 
 - (void)cellWillAppear
 {
     self.textLabel.text = self.item.title;
     self.textLabel.backgroundColor = [UIColor clearColor];
-    _sliderView.value = self.item.value;
+    self.sliderView.value = self.item.value;
 }
 
 - (void)layoutSubviews
@@ -56,7 +62,7 @@
     if (REUIKitIsFlatMode() && self.section.style.contentViewMargin <= 0)
         cellOffset += 5.0;
     
-    _sliderView.frame = CGRectMake(self.contentView.frame.size.width - self.item.sliderWidth - cellOffset, (self.contentView.frame.size.height - _sliderView.frame.size.height) / 2.0, self.item.sliderWidth, 23.0);
+    self.sliderView.frame = CGRectMake(self.contentView.frame.size.width - self.item.sliderWidth - cellOffset, (self.contentView.frame.size.height - self.sliderView.frame.size.height) / 2.0, self.item.sliderWidth, 23.0);
     
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:forRowAtIndexPath:)])
         [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self forRowAtIndexPath:[(UITableView *)self.superview indexPathForCell:self]];

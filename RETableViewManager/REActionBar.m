@@ -26,6 +26,12 @@
 #import "REActionBar.h"
 #import "RETableViewManager.h"
 
+@interface REActionBar ()
+
+@property (strong, readwrite, nonatomic) UISegmentedControl *navigationControl;
+
+@end
+
 @implementation REActionBar
 
 - (id)initWithDelegate:(id)delegate
@@ -43,12 +49,12 @@
     
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", @"") style:UIBarButtonItemStyleDone target:self action:@selector(handleActionBarDone:)];
     
-    _navigationControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:NSLocalizedString(@"Previous", @""), NSLocalizedString(@"Next", @""), nil]];
-    _navigationControl.momentary = YES;
-    _navigationControl.segmentedControlStyle = UISegmentedControlStyleBar;
-    _navigationControl.tintColor = self.tintColor;
-    [_navigationControl addTarget:self action:@selector(handleActionBarPreviousNext:) forControlEvents:UIControlEventValueChanged];
-    UIBarButtonItem *prevNextWrapper = [[UIBarButtonItem alloc] initWithCustomView:_navigationControl];
+    self.navigationControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:NSLocalizedString(@"Previous", @""), NSLocalizedString(@"Next", @""), nil]];
+    self.navigationControl.momentary = YES;
+    self.navigationControl.segmentedControlStyle = UISegmentedControlStyleBar;
+    self.navigationControl.tintColor = self.tintColor;
+    [self.navigationControl addTarget:self action:@selector(handleActionBarPreviousNext:) forControlEvents:UIControlEventValueChanged];
+    UIBarButtonItem *prevNextWrapper = [[UIBarButtonItem alloc] initWithCustomView:self.navigationControl];
     UIBarButtonItem *flexible = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     [self setItems:[NSArray arrayWithObjects:prevNextWrapper, flexible, doneButton, nil]];
     self.actionBarDelegate = delegate;
@@ -58,14 +64,14 @@
 
 - (void)handleActionBarPreviousNext:(UISegmentedControl *)segmentedControl
 {
-    if ([_actionBarDelegate respondsToSelector:@selector(actionBar:navigationControlValueChanged:)])
-        [_actionBarDelegate actionBar:self navigationControlValueChanged:segmentedControl];
+    if ([self.actionBarDelegate respondsToSelector:@selector(actionBar:navigationControlValueChanged:)])
+        [self.actionBarDelegate actionBar:self navigationControlValueChanged:segmentedControl];
 }
 
 - (void)handleActionBarDone:(UIBarButtonItem *)doneButtonItem
 {
-    if ([_actionBarDelegate respondsToSelector:@selector(actionBar:doneButtonPressed:)])
-        [_actionBarDelegate actionBar:self doneButtonPressed:doneButtonItem];
+    if ([self.actionBarDelegate respondsToSelector:@selector(actionBar:doneButtonPressed:)])
+        [self.actionBarDelegate actionBar:self doneButtonPressed:doneButtonItem];
 }
 
 @end

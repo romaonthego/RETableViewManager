@@ -25,6 +25,12 @@
 
 #import "REPlaceholderTextView.h"
 
+@interface REPlaceholderTextView ()
+
+@property (strong, readwrite, nonatomic) UILabel *placeholderLabel;
+
+@end
+
 @implementation REPlaceholderTextView
 
 - (void)awakeFromNib
@@ -71,25 +77,25 @@
 - (void)drawRect:(CGRect)rect
 {
     if (self.placeholder.length > 0) {
-        if (!_placeholderLabel) {
-            _placeholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, self.bounds.size.width - 16, 0)];
-            _placeholderLabel.lineBreakMode = NSLineBreakByWordWrapping;
-            _placeholderLabel.numberOfLines = 0;
-            _placeholderLabel.font = self.font;
-            _placeholderLabel.backgroundColor = [UIColor clearColor];
-            _placeholderLabel.textColor = self.placeholderColor;
-            _placeholderLabel.alpha = 0;
-            _placeholderLabel.tag = 999;
-            [self addSubview:_placeholderLabel];
+        if (!self.placeholderLabel) {
+            self.placeholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, self.bounds.size.width - 16, 0)];
+            self.placeholderLabel.lineBreakMode = NSLineBreakByWordWrapping;
+            self.placeholderLabel.numberOfLines = 0;
+            self.placeholderLabel.font = self.font;
+            self.placeholderLabel.backgroundColor = [UIColor clearColor];
+            self.placeholderLabel.textColor = self.placeholderColor;
+            self.placeholderLabel.alpha = 0;
+            self.placeholderLabel.tag = 999;
+            [self addSubview:self.placeholderLabel];
         }
         
-        _placeholderLabel.textAlignment = self.textAlignment;
-        _placeholderLabel.text = self.placeholder;
-        [_placeholderLabel sizeToFit];
-        CGRect frame = _placeholderLabel.frame;
+        self.placeholderLabel.textAlignment = self.textAlignment;
+        self.placeholderLabel.text = self.placeholder;
+        [self.placeholderLabel sizeToFit];
+        CGRect frame = self.placeholderLabel.frame;
         frame.size.width = self.bounds.size.width - self.frame.origin.x * 2;
-        _placeholderLabel.frame = frame;
-        [self sendSubviewToBack:_placeholderLabel];
+        self.placeholderLabel.frame = frame;
+        [self sendSubviewToBack:self.placeholderLabel];
     }
     
     if (self.text.length == 0 && self.placeholder.length > 0) {
