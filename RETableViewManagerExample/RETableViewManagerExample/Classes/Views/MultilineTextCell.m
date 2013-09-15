@@ -23,7 +23,7 @@ static const CGFloat kVerticalMargin = 10.0;
 + (CGFloat)heightWithItem:(MultilineTextItem *)item tableViewManager:(RETableViewManager *)tableViewManager
 {
     CGFloat horizontalMargin = kHorizontalMargin;
-    if (REDeviceIsUIKit7() && item.section.style.contentViewMargin <= 0)
+    if (REUIKitIsFlatMode() && item.section.style.contentViewMargin <= 0)
         horizontalMargin += 5.0;
     
     CGFloat width = CGRectGetWidth(tableViewManager.tableView.bounds) - 2.0 * horizontalMargin;
@@ -54,7 +54,7 @@ static const CGFloat kVerticalMargin = 10.0;
     [super layoutSubviews];
     
     CGFloat horizontalMargin = kHorizontalMargin;
-    if (REDeviceIsUIKit7() && self.section.style.contentViewMargin <= 0)
+    if (REUIKitIsFlatMode() && self.section.style.contentViewMargin <= 0)
         horizontalMargin += 5.0;
     
     CGRect frame = CGRectMake(0, 0, CGRectGetWidth(self.contentView.bounds), [MultilineTextCell heightWithItem:self.item tableViewManager:self.tableViewManager]);

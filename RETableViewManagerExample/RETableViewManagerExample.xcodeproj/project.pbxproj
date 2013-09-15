@@ -38,6 +38,7 @@
 		30939CF317949A10004D95A9 /* userpic5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30939CE717949A10004D95A9 /* userpic5.jpg */; };
 		30939CF417949A10004D95A9 /* userpic6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30939CE817949A10004D95A9 /* userpic6.jpg */; };
 		30B00D7A17C667A90010D439 /* ValidationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B00D7917C667A90010D439 /* ValidationsViewController.m */; };
+		30B35CEF17E54B670082CE0E /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B35CEE17E54B670082CE0E /* RECommonFunctions.m */; };
 		30BB805817E0D8A400AD0861 /* MultilineTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BB805717E0D8A400AD0861 /* MultilineTextCell.m */; };
 		30BB805B17E0D8C300AD0861 /* XIBTestItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BB805A17E0D8C300AD0861 /* XIBTestItem.m */; };
 		30BB805E17E0D8E700AD0861 /* MultilineTextItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BB805D17E0D8E700AD0861 /* MultilineTextItem.m */; };
@@ -136,6 +137,8 @@
 		30939CE817949A10004D95A9 /* userpic6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = userpic6.jpg; sourceTree = "<group>"; };
 		30B00D7817C667A90010D439 /* ValidationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValidationsViewController.h; sourceTree = "<group>"; };
 		30B00D7917C667A90010D439 /* ValidationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidationsViewController.m; sourceTree = "<group>"; };
+		30B35CED17E54AE30082CE0E /* RECommonFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		30B35CEE17E54B670082CE0E /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
 		30BB805617E0D8A400AD0861 /* MultilineTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultilineTextCell.h; sourceTree = "<group>"; };
 		30BB805717E0D8A400AD0861 /* MultilineTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultilineTextCell.m; sourceTree = "<group>"; };
 		30BB805917E0D8C300AD0861 /* XIBTestItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XIBTestItem.h; sourceTree = "<group>"; };
@@ -321,6 +324,8 @@
 				30DB065216E934AD006C9530 /* Items */,
 				30DB065D16E934AD006C9530 /* REActionBar.h */,
 				30DB065E16E934AD006C9530 /* REActionBar.m */,
+				30B35CED17E54AE30082CE0E /* RECommonFunctions.h */,
+				30B35CEE17E54B670082CE0E /* RECommonFunctions.m */,
 				30082D1817170EDD008B0DB5 /* REPlaceholderTextView.h */,
 				30082D1917170EDD008B0DB5 /* REPlaceholderTextView.m */,
 				30DB065F16E934AD006C9530 /* RETableViewCell.h */,
@@ -618,6 +623,7 @@
 				300E5A2F170F63B600910013 /* RETableViewDateTimeCell.m in Sources */,
 				300E5B3F17170AE100910013 /* RELongTextItem.m in Sources */,
 				300E5B4217170B0200910013 /* RETableViewLongTextCell.m in Sources */,
+				30B35CEF17E54B670082CE0E /* RECommonFunctions.m in Sources */,
 				30BB805E17E0D8E700AD0861 /* MultilineTextItem.m in Sources */,
 				30082D1A17170EDD008B0DB5 /* REPlaceholderTextView.m in Sources */,
 				30D208641718FFDE00144E46 /* REMultipleChoiceItem.m in Sources */,

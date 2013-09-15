@@ -53,7 +53,7 @@
    
     // Retain legacy grouped cell style in iOS [redacted]
     //
-    if (REDeviceIsUIKit7()) {
+    if (REUIKitIsFlatMode()) {
         self.manager.style.contentViewMargin = 10.0;
         self.manager.style.backgroundImageMargin = 10.0;
     }

@@ -45,7 +45,7 @@
 - (void)cellWillAppear
 {
     [self.contentView removeConstraints:self.contentView.constraints];
-    CGFloat margin = (REDeviceIsUIKit7() && self.section.style.contentViewMargin <= 0) ? 15.0 : 10.0;
+    CGFloat margin = (REUIKitIsFlatMode() && self.section.style.contentViewMargin <= 0) ? 15.0 : 10.0;
     NSDictionary *metrics = @{@"margin": @(margin)};
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_switchView
                                                                  attribute:NSLayoutAttributeCenterY

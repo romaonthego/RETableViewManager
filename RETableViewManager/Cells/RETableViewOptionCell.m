@@ -58,7 +58,7 @@
 {
     [super layoutSubviews];
     [self layoutDetailView:_valueLabel minimumWidth:[_valueLabel.text sizeWithFont:_valueLabel.font].width];
-    if (REDeviceIsUIKit7()) {
+    if (REUIKitIsFlatMode()) {
         CGRect frame = self.valueLabel.frame;
         frame.size.width += 10.0;
         self.valueLabel.frame = frame;
