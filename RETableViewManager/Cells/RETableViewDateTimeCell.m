@@ -142,7 +142,7 @@
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
-    [self setSelected:NO animated:NO];
+    [self.item deselectRowAnimated:NO];
     self.item.value = self.datePicker.date;
     self.dateLabel.text = [self.dateFormatter stringFromDate:self.item.value];
     self.placeholderLabel.hidden = self.dateLabel.text.length > 0;
