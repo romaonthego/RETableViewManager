@@ -24,6 +24,7 @@
 //
 
 #import "RERadioItem.h"
+#import "RETableViewManager.h"
 
 @implementation RERadioItem
 
@@ -40,7 +41,11 @@
     
     self.title = title;
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    self.selectionHandler = selectionHandler;
+    self.selectionHandler = ^(RERadioItem *item) {
+        [item.section.tableViewManager.tableView endEditing:YES];
+        if (selectionHandler)
+            selectionHandler(item);
+    };
     self.value = value;
     self.style = UITableViewCellStyleValue1;
     

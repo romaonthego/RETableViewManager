@@ -24,6 +24,7 @@
 //
 
 #import "REMultipleChoiceItem.h"
+#import "RETableViewManager.h"
 
 @implementation REMultipleChoiceItem
 
@@ -40,7 +41,11 @@
     
     self.title = title;
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    self.selectionHandler = selectionHandler;
+    self.selectionHandler = ^(REMultipleChoiceItem *item) {
+        [item.section.tableViewManager.tableView endEditing:YES];
+        if (selectionHandler)
+            selectionHandler(item);
+    };
     self.value = value;
     self.style = UITableViewCellStyleValue1;
     
