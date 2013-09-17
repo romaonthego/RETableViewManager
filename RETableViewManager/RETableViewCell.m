@@ -133,7 +133,7 @@
     contentFrame.size.width = contentFrame.size.width - self.section.style.contentViewMargin * 2;
     self.contentView.frame = contentFrame;
     
-    // iOS [redacted] textLabel margin fix
+    // iOS 7 textLabel margin fix
     //
     if (self.section.style.contentViewMargin > 0) {
         if (self.imageView.image) {
