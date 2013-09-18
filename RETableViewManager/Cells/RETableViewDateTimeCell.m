@@ -94,6 +94,10 @@
     self.dateLabel.text = self.item.value ? [self.dateFormatter stringFromDate:self.item.value] : @"";
     self.placeholderLabel.text = self.item.placeholder;
     self.placeholderLabel.hidden = self.dateLabel.text.length > 0;
+    
+    if (!self.item.title) {
+        self.dateLabel.textAlignment = NSTextAlignmentLeft;
+    }
 }
 
 - (void)layoutSubviews
@@ -104,7 +108,7 @@
     
     [self layoutDetailView:self.dateLabel minimumWidth:[self.dateLabel.text sizeWithFont:self.dateLabel.font].width];
     [self layoutDetailView:self.placeholderLabel minimumWidth:[self.placeholderLabel.text sizeWithFont:self.placeholderLabel.font].width];
-
+    
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:forRowAtIndexPath:)])
         [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self forRowAtIndexPath:[(UITableView *)self.superview indexPathForCell:self]];
 }
