@@ -100,15 +100,23 @@
 
 - (void)registerClass:(NSString *)objectClass forCellWithReuseIdentifier:(NSString *)identifier
 {
+    [self registerClass:objectClass forCellWithReuseIdentifier:identifier bundle:nil];
+}
+
+- (void)registerClass:(NSString *)objectClass forCellWithReuseIdentifier:(NSString *)identifier bundle:(NSBundle *)bundle
+{
     NSAssert(NSClassFromString(objectClass), ([NSString stringWithFormat:@"Item class '%@' does not exist.", objectClass]));
     NSAssert(NSClassFromString(identifier), ([NSString stringWithFormat:@"Cell class '%@' does not exist.", identifier]));
     self.registeredClasses[objectClass] = identifier;
     
     // Perform check if a XIB exists with the same name as the cell class
     //
-    if ([[NSBundle mainBundle] pathForResource:identifier ofType:@"nib"]) {
+    if (!bundle)
+        bundle = [NSBundle mainBundle];
+    
+    if ([bundle pathForResource:identifier ofType:@"nib"]) {
         self.registeredXIBs[identifier] = objectClass;
-        [self.tableView registerNib:[UINib nibWithNibName:identifier bundle:nil] forCellReuseIdentifier:objectClass];
+        [self.tableView registerNib:[UINib nibWithNibName:identifier bundle:bundle] forCellReuseIdentifier:objectClass];
     }
 }
 
