@@ -39,7 +39,7 @@ $ edit Podfile
 Edit your Podfile and add REValidation:
 
 ``` bash
-pod 'REValidation', '~> 0.1.1'
+pod 'REValidation', '~> 0.1.4'
 ```
 
 Install into your Xcode project:

@@ -58,4 +58,12 @@
     self.detailLabelText = value;
 }
 
+#pragma mark -
+#pragma mark Error validation
+
+- (NSArray *)errors
+{
+    return [REValidation validateObject:self.value name:self.name ? self.name : self.title validators:self.validators];
+}
+
 @end

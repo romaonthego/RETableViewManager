@@ -35,7 +35,10 @@
 
 + (NSError *)validateObject:(NSString *)object variableName:(NSString *)name parameters:(NSDictionary *)parameters
 {
-    if (![object isKindOfClass:[NSString class]] || object.length == 0)
+    if (!object)
+        return [NSError re_validationErrorForDomain:@"com.REValidation.presence", name];
+    
+    if ([object isKindOfClass:[NSString class]] && object.length == 0)
         return [NSError re_validationErrorForDomain:@"com.REValidation.presence", name];
     
     return nil;

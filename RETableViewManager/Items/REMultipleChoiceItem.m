@@ -66,4 +66,12 @@
         self.detailLabelText = [NSString stringWithFormat:NSLocalizedString(@"%i selected", @"%i selected"), value.count];
 }
 
+#pragma mark -
+#pragma mark Error validation
+
+- (NSArray *)errors
+{
+    return [REValidation validateObject:self.value name:self.name ? self.name : self.title validators:self.validators];
+}
+
 @end

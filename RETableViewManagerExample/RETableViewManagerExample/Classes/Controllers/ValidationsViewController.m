@@ -14,6 +14,7 @@
 @property (strong, readwrite, nonatomic) RETextItem *textItem;
 @property (strong, readwrite, nonatomic) RETextItem *emailItem;
 @property (strong, readwrite, nonatomic) RETextItem *urlItem;
+@property (strong, readwrite, nonatomic) REDateTimeItem *dateTimeItem;
 @property (strong, readwrite, nonatomic) RETextItem *inlineTestItem;
 
 @end
@@ -49,6 +50,9 @@
     self.urlItem = [RETextItem itemWithTitle:@"URL" value:@"http://invalid-url.co%m" placeholder:@"URL item"];
     self.urlItem.validators = @[@"url"];
     
+    self.dateTimeItem = [REDateTimeItem itemWithTitle:@"Date / Time" value:nil placeholder:nil format:@"MM/dd/yyyy hh:mm a" datePickerMode:UIDatePickerModeDateAndTime];
+    self.dateTimeItem.validators = @[@"presence"];
+    
     // Inline Validation Example
     //
     REValidator *nameValidator = [REValidator validatorWithInlineValidation:^NSError *(NSString *string, NSString *name) {
@@ -65,6 +69,7 @@
     [section addItem:self.emailItem];
     [section addItem:self.urlItem];
     [section addItem:self.inlineTestItem];
+    [section addItem:self.dateTimeItem];
 }
 
 #pragma mark -
