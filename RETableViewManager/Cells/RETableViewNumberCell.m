@@ -62,7 +62,7 @@
     [super cellWillAppear];
     
     self.textLabel.text = self.item.title.length == 0 ? @" " : self.item.title;
-    self.textField.text = [self.textField string:self.item.value withNumberFormat:self.item.format];
+    self.textField.text = [self.item.value re_stringWithNumberFormat:self.item.format];
     self.textField.placeholder = self.item.placeholder;
     self.textField.format = self.item.format;
     self.textField.font = [UIFont systemFontOfSize:17];

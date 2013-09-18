@@ -48,71 +48,41 @@
 
 - (NSString *)string:(NSString *)string withNumberFormat:(NSString *)format
 {
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\D" options:NSRegularExpressionCaseInsensitive error:NULL];
-    NSString *stripped = [regex stringByReplacingMatchesInString:string options:0 range:NSMakeRange(0, string.length) withTemplate:@""];
+    if (!string)
+        return @"";
     
-    NSMutableArray *patterns = [[NSMutableArray alloc] init];
-    NSMutableArray *separators = [[NSMutableArray alloc] init];
-    [patterns addObject:@0];
-    
-    NSInteger maxLength = 0;
-    for (NSInteger i = 0; i < [format length]; i++) {
-        NSString *character = [format substringWithRange:NSMakeRange(i, 1)];
-        if ([character isEqualToString:@"X"]) {
-            maxLength++;
-            NSNumber *number = [patterns objectAtIndex:patterns.count - 1];
-            number = @(number.integerValue + 1);
-            [patterns replaceObjectAtIndex:patterns.count - 1 withObject:number];
-        } else {
-            [patterns addObject:@0];
-            [separators addObject:character];
-        }
-    }
-    
-    if (stripped.length > maxLength)
-        stripped = [stripped substringToIndex:maxLength];
-    
-    NSString *match = @"";
-    NSString *replace = @"";
-    
-    NSMutableArray *expressions = [[NSMutableArray alloc] init];
-    
-    for (NSInteger i = 0; i < patterns.count; i++) {
-        NSString *currentMatch = [match stringByAppendingString:@"(\\d+)"];
-        match = [match stringByAppendingString:[NSString stringWithFormat:@"(\\d{%d})", ((NSNumber *)[patterns objectAtIndex:i]).integerValue]];
-        
-        NSString *template;
-        if (i == 0) {
-            template = [NSString stringWithFormat:@"$%i", i+1];
-        } else {
-            template = [NSString stringWithFormat:@"%@$%i", [separators objectAtIndex:i-1], i+1];
-        }
-        replace = [replace stringByAppendingString:template];
-        [expressions addObject:@{@"match": currentMatch, @"replace": replace}];
-    }
-    
-    NSString *result = [stripped copy];
-    
-    for (NSDictionary *exp in expressions) {
-        NSString *match = [exp objectForKey:@"match"];
-        NSString *replace = [exp objectForKey:@"replace"];
-        NSString *modifiedString = [stripped stringByReplacingOccurrencesOfString:match
-                                                                       withString:replace
-                                                                          options:NSRegularExpressionSearch
-                                                                            range:NSMakeRange(0, stripped.length)];
-        
-        if (![modifiedString isEqualToString:stripped])
-            result = modifiedString;
-    }
-    return result;
+    return [string re_stringWithNumberFormat:format];
 }
 
 - (void)formatInput:(UITextField *)textField
 {
-    __typeof (&*self) __weak weakSelf = self;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        textField.text = [weakSelf string:textField.text withNumberFormat:_format];
-    });
+    if (textField.text) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            textField.text = [self.unformattedText re_stringWithNumberFormat:self.format];
+        });
+    }
+}
+
+- (void)deleteBackward
+{
+    NSInteger decimalPosition = -1;
+    for (NSInteger i = self.text.length - 1; i > 0; i--) {
+        NSString *c = [self.text substringWithRange:NSMakeRange(i - 1, 1)];
+        
+        BOOL valid;
+        NSCharacterSet *alphaNums = [NSCharacterSet decimalDigitCharacterSet];
+        NSCharacterSet *inStringSet = [NSCharacterSet characterSetWithCharactersInString:c];
+        valid = [alphaNums isSupersetOfSet:inStringSet];
+        if (valid) {
+            decimalPosition = i;
+            break;
+        }
+    }
+    if (decimalPosition == -1) {
+        self.text = @"";
+    } else {
+        self.text = [self.text substringWithRange:NSMakeRange(0, decimalPosition)];
+    }
 }
 
 - (NSString *)unformattedText

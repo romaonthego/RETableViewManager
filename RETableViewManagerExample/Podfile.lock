@@ -1,5 +1,5 @@
 PODS:
-  - REFormattedNumberField (1.0.4)
+  - REFormattedNumberField (1.1)
   - REValidation (0.1.4)
 
 DEPENDENCIES:
@@ -7,7 +7,7 @@ DEPENDENCIES:
   - REValidation
 
 SPEC CHECKSUMS:
-  REFormattedNumberField: 74ac0f5ce7001102a461dd025d34c93be7794a00
+  REFormattedNumberField: c9f054b837f3c7707fd9b410069b8b0a3a5199da
   REValidation: 02160035110a63af1bf6ad1b8791837b3fa13584
 
 COCOAPODS: 0.24.0

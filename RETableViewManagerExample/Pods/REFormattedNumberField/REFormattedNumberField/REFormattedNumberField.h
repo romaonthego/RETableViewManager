@@ -24,12 +24,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSString+RENumberFormat.h"
 
 @interface REFormattedNumberField : UITextField
 
 @property (copy, readwrite, nonatomic) NSString *format;
 @property (copy, readonly, nonatomic) NSString *unformattedText;
 
-- (NSString *)string:(NSString *)string withNumberFormat:(NSString *)format;
+// Use NSString category NSString+RENumberFormat
+// - (NSString *)re_stringWithNumberFormat:(NSString *)format;
+//
+- (NSString *)string:(NSString *)string withNumberFormat:(NSString *)format __attribute__ ((deprecated));
 
 @end
