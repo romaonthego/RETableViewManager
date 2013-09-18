@@ -120,6 +120,15 @@
 - (void)registerClass:(NSString *)objectClass forCellWithReuseIdentifier:(NSString *)identifier;
 
 /**
+ For each custom item class that the manager will use, register a cell class.
+ 
+ @param objectClass The object class to be associated with a cell class.
+ @param identifier The cell class identifier.
+ @param bundle The resource gbundle.
+ */
+- (void)registerClass:(NSString *)objectClass forCellWithReuseIdentifier:(NSString *)identifier bundle:(NSBundle *)bundle;
+
+/**
  Returns cell class at specified index path.
  
  @param indexPath The index path of cell.
