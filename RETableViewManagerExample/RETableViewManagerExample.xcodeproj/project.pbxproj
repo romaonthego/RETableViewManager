@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		30082D1A17170EDD008B0DB5 /* REPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30082D1917170EDD008B0DB5 /* REPlaceholderTextView.m */; };
+		3008EB1C17ECEB8B005D36D9 /* NSString+RETableViewManagerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3008EB1B17ECEB8B005D36D9 /* NSString+RETableViewManagerAdditions.m */; };
 		300E5A26170F486800910013 /* REFloatItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 300E5A25170F486800910013 /* REFloatItem.m */; };
 		300E5A29170F48EC00910013 /* RETableViewFloatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 300E5A28170F48EC00910013 /* RETableViewFloatCell.m */; };
 		300E5A2C170F621400910013 /* REDateTimeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 300E5A2B170F621400910013 /* REDateTimeItem.m */; };
@@ -92,6 +93,8 @@
 /* Begin PBXFileReference section */
 		30082D1817170EDD008B0DB5 /* REPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REPlaceholderTextView.h; sourceTree = "<group>"; };
 		30082D1917170EDD008B0DB5 /* REPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REPlaceholderTextView.m; sourceTree = "<group>"; };
+		3008EB1A17ECEB8B005D36D9 /* NSString+RETableViewManagerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+RETableViewManagerAdditions.h"; sourceTree = "<group>"; };
+		3008EB1B17ECEB8B005D36D9 /* NSString+RETableViewManagerAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+RETableViewManagerAdditions.m"; sourceTree = "<group>"; };
 		300E5A24170F486800910013 /* REFloatItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFloatItem.h; sourceTree = "<group>"; };
 		300E5A25170F486800910013 /* REFloatItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFloatItem.m; sourceTree = "<group>"; };
 		300E5A27170F48EC00910013 /* RETableViewFloatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewFloatCell.h; sourceTree = "<group>"; };
@@ -341,6 +344,8 @@
 				30F41317170E07BB0004EBAE /* RETableViewOptionsController.m */,
 				30DB066816E934AD006C9530 /* RETableViewSection.h */,
 				30DB066916E934AD006C9530 /* RETableViewSection.m */,
+				3008EB1A17ECEB8B005D36D9 /* NSString+RETableViewManagerAdditions.h */,
+				3008EB1B17ECEB8B005D36D9 /* NSString+RETableViewManagerAdditions.m */,
 			);
 			name = RETableViewManager;
 			path = ../RETableViewManager;
@@ -629,6 +634,7 @@
 				30D208641718FFDE00144E46 /* REMultipleChoiceItem.m in Sources */,
 				30E16A48171A103400F7C258 /* EditingViewController.m in Sources */,
 				30D74554174EB4CA00D4C7C1 /* RETableViewOptionCell.m in Sources */,
+				3008EB1C17ECEB8B005D36D9 /* NSString+RETableViewManagerAdditions.m in Sources */,
 				30D9566C175E3C0200AB977E /* RetractableViewController.m in Sources */,
 				30FE4147176A306600F317B8 /* StylingViewController.m in Sources */,
 				303D966B17B7CCF800A418F3 /* XIBTestCell.m in Sources */,

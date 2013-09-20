@@ -51,7 +51,9 @@
     
     self.navigationControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:NSLocalizedString(@"Previous", @""), NSLocalizedString(@"Next", @""), nil]];
     self.navigationControl.momentary = YES;
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
     self.navigationControl.segmentedControlStyle = UISegmentedControlStyleBar;
+#endif
     self.navigationControl.tintColor = self.tintColor;
     [self.navigationControl addTarget:self action:@selector(handleActionBarPreviousNext:) forControlEvents:UIControlEventValueChanged];
     UIBarButtonItem *prevNextWrapper = [[UIBarButtonItem alloc] initWithCustomView:self.navigationControl];

@@ -24,6 +24,7 @@
 //
 #import "RETableViewDateTimeCell.h"
 #import "RETableViewManager.h"
+#import "NSString+RETableViewManagerAdditions.h"
 
 @interface RETableViewDateTimeCell ()
 
@@ -106,8 +107,8 @@
     self.textField.frame = CGRectNull;
     self.textField.alpha = 0;
     
-    [self layoutDetailView:self.dateLabel minimumWidth:[self.dateLabel.text sizeWithFont:self.dateLabel.font].width];
-    [self layoutDetailView:self.placeholderLabel minimumWidth:[self.placeholderLabel.text sizeWithFont:self.placeholderLabel.font].width];
+    [self layoutDetailView:self.dateLabel minimumWidth:[self.dateLabel.text re_sizeWithFont:self.dateLabel.font].width];
+    [self layoutDetailView:self.placeholderLabel minimumWidth:[self.placeholderLabel.text re_sizeWithFont:self.placeholderLabel.font].width];
     
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:forRowAtIndexPath:)])
         [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self forRowAtIndexPath:[self.tableViewManager.tableView indexPathForCell:self]];

@@ -8,6 +8,7 @@
 
 #import "MultilineTextCell.h"
 #import "RETableViewManager.h"
+#import "NSString+RETableViewManagerAdditions.h"
 
 static const CGFloat kHorizontalMargin = 10.0;
 static const CGFloat kVerticalMargin = 10.0;
@@ -27,7 +28,7 @@ static const CGFloat kVerticalMargin = 10.0;
         horizontalMargin += 5.0;
     
     CGFloat width = CGRectGetWidth(tableViewManager.tableView.bounds) - 2.0 * horizontalMargin;
-    return [item.title sizeWithFont:[UIFont systemFontOfSize:17] constrainedToSize:CGSizeMake(width, INFINITY)].height + 2.0 * kVerticalMargin;
+    return [item.title re_sizeWithFont:[UIFont systemFontOfSize:17] constrainedToSize:CGSizeMake(width, INFINITY)].height + 2.0 * kVerticalMargin;
 }
 
 - (void)cellDidLoad

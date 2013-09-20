@@ -25,6 +25,7 @@
 
 #import "RETableViewOptionCell.h"
 #import "RETableViewManager.h"
+#import "NSString+RETableViewManagerAdditions.h"
 
 @interface RETableViewOptionCell ()
 
@@ -67,7 +68,7 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    [self layoutDetailView:self.valueLabel minimumWidth:[self.valueLabel.text sizeWithFont:self.valueLabel.font].width];
+    [self layoutDetailView:self.valueLabel minimumWidth:[self.valueLabel.text re_sizeWithFont:self.valueLabel.font].width];
     if (REUIKitIsFlatMode()) {
         CGRect frame = self.valueLabel.frame;
         frame.size.width += 10.0;

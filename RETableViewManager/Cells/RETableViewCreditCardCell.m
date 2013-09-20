@@ -25,6 +25,7 @@
 
 #import "RETableViewCreditCardCell.h"
 #import "RETableViewManager.h"
+#import "NSString+RETableViewManagerAdditions.h"
 
 @interface RETableViewCreditCardCell ()
 
@@ -225,7 +226,7 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
         [self.expirationDateField becomeFirstResponder];
         [UIView animateWithDuration:0.1 animations:^{
             NSString *substring = [textField.text substringToIndex:textField.text.length - (isAmex ? 3 : 4)];
-            CGSize size = [substring sizeWithFont:textField.font];
+            CGSize size = [substring re_sizeWithFont:textField.font];
             self.creditCardField.frame = CGRectMake(-size.width, self.creditCardField.frame.origin.y, self.creditCardField.frame.size.width, self.creditCardField.frame.size.height);
             self.expirationDateField.frame = CGRectMake(CGRectGetMaxX(self.creditCardField.frame), self.expirationDateField.frame.origin.y, self.expirationDateField.frame.size.width, self.expirationDateField.frame.size.height);
             self.cvvField.frame = CGRectMake(CGRectGetMaxX(self.expirationDateField.frame), self.cvvField.frame.origin.y, self.cvvField.frame.size.width, self.cvvField.frame.size.height);
