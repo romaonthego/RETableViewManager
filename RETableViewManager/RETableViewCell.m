@@ -68,7 +68,6 @@
 {
     self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
     self.selectedBackgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.selectedBackgroundImageView = [[UIImageView alloc] init];
     self.selectedBackgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.selectedBackgroundView.bounds.size.width, self.selectedBackgroundView.bounds.size.height + 1)];
     self.selectedBackgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.selectedBackgroundView addSubview:self.selectedBackgroundImageView];
