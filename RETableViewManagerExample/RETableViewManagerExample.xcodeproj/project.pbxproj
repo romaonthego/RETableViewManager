@@ -722,10 +722,11 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RETableViewManagerExample/RETableViewManagerExample-Prefix.pch";
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "RETableViewManagerExample/RETableViewManagerExample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos7.0;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -738,10 +739,11 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RETableViewManagerExample/RETableViewManagerExample-Prefix.pch";
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "RETableViewManagerExample/RETableViewManagerExample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos7.0;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
