@@ -99,7 +99,7 @@ Edit your Podfile and add RETableViewManager:
 
 ``` bash
 platform :ios, '6.0'
-pod 'RETableViewManager', '~> 1.3'
+pod 'RETableViewManager', '~> 1.3.1'
 ```
 
 Install into your Xcode project:
