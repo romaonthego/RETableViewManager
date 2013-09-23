@@ -479,7 +479,7 @@ Quick example:
 ### Interface Builder Support
 
 Interface builder cells are supported out of the box, no special set up needed.
-Cells and items are being automatically registered like any other custom cell in `RETableViewManager`:
+Cells and items are being automatically registered like any other custom cells in `RETableViewManager`:
 
 ```objective-c
 self.manager[@"XIBTestItem"] = @"XIBTestCell";
