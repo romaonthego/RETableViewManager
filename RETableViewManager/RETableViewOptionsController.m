@@ -106,7 +106,8 @@
             } else { // Multiple choice item
                 REMultipleChoiceItem * __weak item = (REMultipleChoiceItem *)weakSelf.item;
                 [weakSelf.tableView deselectRowAtIndexPath:selectedItem.indexPath animated:YES];
-                if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+                if (selectedItem.accessoryType == UITableViewCellAccessoryCheckmark) {
+                    selectedItem.accessoryType = UITableViewCellAccessoryNone;
                     cell.accessoryType = UITableViewCellAccessoryNone;
                     NSMutableArray *items = [[NSMutableArray alloc] init];
                     for (NSString *val in item.value) {
@@ -116,6 +117,7 @@
                     
                     item.value = items;
                 } else {
+                    selectedItem.accessoryType = UITableViewCellAccessoryCheckmark;
                     cell.accessoryType = UITableViewCellAccessoryCheckmark;
                     NSMutableArray *items = [[NSMutableArray alloc] initWithArray:item.value];
                     [items addObject:selectedItem.title];
