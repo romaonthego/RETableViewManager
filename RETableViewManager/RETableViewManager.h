@@ -45,6 +45,7 @@
 #import "REFloatItem.h"
 #import "REDateTimeItem.h"
 #import "REMultipleChoiceItem.h"
+#import "RESegmentItem.h"
 
 @protocol RETableViewManagerDelegate;
 

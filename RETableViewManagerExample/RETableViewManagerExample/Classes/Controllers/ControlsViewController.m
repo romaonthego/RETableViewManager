@@ -22,6 +22,7 @@
 @property (strong, readwrite, nonatomic) RENumberItem *numberItem;
 @property (strong, readwrite, nonatomic) RETextItem *passwordItem;
 @property (strong, readwrite, nonatomic) REBoolItem *boolItem;
+@property (strong, readwrite, nonatomic) RESegmentItem *segmentItem;
 @property (strong, readwrite, nonatomic) REFloatItem *floatItem;
 @property (strong, readwrite, nonatomic) REDateTimeItem *dateTimeItem;
 @property (strong, readwrite, nonatomic) RERadioItem *radioItem;
@@ -57,6 +58,7 @@
     NSLog(@"numberItem.value = %@", self.numberItem.value);
     NSLog(@"passwordItem.value = %@", self.passwordItem.value);
     NSLog(@"boolItem.value = %@", self.boolItem.value ? @"YES" : @"NO");
+    NSLog(@"segmentItem.value = %i", self.segmentItem.value);
     NSLog(@"floatItem.value = %f", self.floatItem.value);
     NSLog(@"dateTimeItem = %@", self.dateTimeItem.value);
     NSLog(@"radioItem.value = %@", self.radioItem.value);
@@ -90,6 +92,13 @@
     self.boolItem = [REBoolItem itemWithTitle:@"Bool item" value:YES switchValueChangeHandler:^(REBoolItem *item) {
         NSLog(@"Value: %@", item.value ? @"YES" : @"NO");
     }];
+    self.segmentItem = [RESegmentItem itemWithTitles:@[@"One", @"Two"] value:1 switchValueChangeHandler:^(RESegmentItem *item) {
+        NSLog(@"Value: %i", item.value);
+    }];
+//    self.segmentItem = [RESegmentItem itemWithImages:@[[UIImage imageNamed:@"Heart"], [UIImage imageNamed:@"Heart_Highlighted"]] value:1 switchValueChangeHandler:^(RESegmentItem *item) {
+//        NSLog(@"Value: %i", item.value);
+//    }];
+
     self.floatItem = [REFloatItem itemWithTitle:@"Float item" value:0.3 sliderValueChangeHandler:^(REFloatItem *item) {
         NSLog(@"Value: %f", item.value);
     }];
@@ -165,6 +174,7 @@
     [section addItem:self.numberItem];
     [section addItem:self.passwordItem];
     [section addItem:self.boolItem];
+    [section addItem:self.segmentItem];
     [section addItem:self.floatItem];
     [section addItem:self.dateTimeItem];
     [section addItem:self.radioItem];

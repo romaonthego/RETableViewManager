@@ -84,6 +84,8 @@
 		30FE4162176A32C300F317B8 /* Single_Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FE4159176A32C300F317B8 /* Single_Selected@2x.png */; };
 		30FE4163176A32C300F317B8 /* Single@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FE415A176A32C300F317B8 /* Single@2x.png */; };
 		53378ADE88FA40FD87184931 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EA85FF11E7E458B98D5825C /* libPods.a */; };
+		D09D594A17F6FF3300F653D0 /* RESegmentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D09D594917F6FF3300F653D0 /* RESegmentItem.m */; };
+		D09D594D17F710A800F653D0 /* RETableViewSegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D09D594C17F710A800F653D0 /* RETableViewSegmentCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -207,6 +209,10 @@
 		30FE4159176A32C300F317B8 /* Single_Selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Single_Selected@2x.png"; path = "Resources/Single_Selected@2x.png"; sourceTree = "<group>"; };
 		30FE415A176A32C300F317B8 /* Single@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Single@2x.png"; path = "Resources/Single@2x.png"; sourceTree = "<group>"; };
 		5EA85FF11E7E458B98D5825C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D09D594817F6FF3300F653D0 /* RESegmentItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESegmentItem.h; sourceTree = "<group>"; };
+		D09D594917F6FF3300F653D0 /* RESegmentItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESegmentItem.m; sourceTree = "<group>"; };
+		D09D594B17F710A800F653D0 /* RETableViewSegmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewSegmentCell.h; sourceTree = "<group>"; };
+		D09D594C17F710A800F653D0 /* RETableViewSegmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewSegmentCell.m; sourceTree = "<group>"; };
 		E4370D63D1564228A75E7BD2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -334,6 +340,8 @@
 		30DB064716E934AD006C9530 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				D09D594B17F710A800F653D0 /* RETableViewSegmentCell.h */,
+				D09D594C17F710A800F653D0 /* RETableViewSegmentCell.m */,
 				30DB064816E934AD006C9530 /* RETableViewBoolCell.h */,
 				30DB064916E934AD006C9530 /* RETableViewBoolCell.m */,
 				30DB064A16E934AD006C9530 /* RETableViewCreditCardCell.h */,
@@ -359,6 +367,8 @@
 			children = (
 				30DB065316E934AD006C9530 /* REBoolItem.h */,
 				30DB065416E934AD006C9530 /* REBoolItem.m */,
+				D09D594817F6FF3300F653D0 /* RESegmentItem.h */,
+				D09D594917F6FF3300F653D0 /* RESegmentItem.m */,
 				30DB065516E934AD006C9530 /* RECreditCardItem.h */,
 				30DB065616E934AD006C9530 /* RECreditCardItem.m */,
 				30DB065716E934AD006C9530 /* RENumberItem.h */,
@@ -608,8 +618,10 @@
 				300E5B3F17170AE100910013 /* RELongTextItem.m in Sources */,
 				300E5B4217170B0200910013 /* RETableViewLongTextCell.m in Sources */,
 				30082D1A17170EDD008B0DB5 /* REPlaceholderTextView.m in Sources */,
+				D09D594D17F710A800F653D0 /* RETableViewSegmentCell.m in Sources */,
 				30D208641718FFDE00144E46 /* REMultipleChoiceItem.m in Sources */,
 				30E16A48171A103400F7C258 /* EditingViewController.m in Sources */,
+				D09D594A17F6FF3300F653D0 /* RESegmentItem.m in Sources */,
 				30D74554174EB4CA00D4C7C1 /* RETableViewOptionCell.m in Sources */,
 				30D9566C175E3C0200AB977E /* RetractableViewController.m in Sources */,
 				30FE4147176A306600F317B8 /* StylingViewController.m in Sources */,
