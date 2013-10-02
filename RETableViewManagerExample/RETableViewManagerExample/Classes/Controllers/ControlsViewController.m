@@ -29,6 +29,7 @@
 @property (strong, readwrite, nonatomic) REMultipleChoiceItem *multipleChoiceItem;
 @property (strong, readwrite, nonatomic) RELongTextItem *longTextItem;
 @property (strong, readwrite, nonatomic) RECreditCardItem *creditCardItem;
+@property (strong, readwrite, nonatomic) RETextItem *limitTextItem;
 
 @end
 
@@ -164,6 +165,10 @@
     self.longTextItem = [RELongTextItem itemWithValue:nil placeholder:@"Multiline text field"];
     self.longTextItem.cellHeight = 88;
     
+    //Item with limit text
+    self.limitTextItem = [RETextItem itemWithTitle:@"Limit (5)" value:nil placeholder:@"Texts"];
+    self.limitTextItem.charactersLimit = 5;
+    
     [section addItem:self.fullLengthFieldItem];
     [section addItem:self.textItem];
     [section addItem:self.numberItem];
@@ -174,6 +179,7 @@
     [section addItem:self.radioItem];
     [section addItem:self.multipleChoiceItem];
     [section addItem:self.longTextItem];
+    [section addItem:self.limitTextItem];
     
     [section addItem:[MultilineTextItem itemWithTitle:@"Custom item / cell example. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sem leo, malesuada tempor metus et, elementum pulvinar nibh."]];
     
