@@ -129,7 +129,7 @@
 {
     CGFloat width = 0;
     for (RETableViewItem *item in self.mutableItems) {
-        if ([item isMemberOfClass:[RETextItem class]] || [item isMemberOfClass:[REDateTimeItem class]] || [item isMemberOfClass:[RERadioItem class]] || [item isMemberOfClass:[REMultipleChoiceItem class]] || [item isMemberOfClass:[RENumberItem class]]) {
+        if ([item isKindOfClass:[RETextItem class]] || [item isKindOfClass:[REDateTimeItem class]] || [item isKindOfClass:[RERadioItem class]] || [item isKindOfClass:[REMultipleChoiceItem class]] || [item isKindOfClass:[RENumberItem class]]) {
             CGSize size = [item.title re_sizeWithFont:font];
             width = MAX(width, size.width);
         }
