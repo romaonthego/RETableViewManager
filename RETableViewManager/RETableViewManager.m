@@ -96,6 +96,7 @@
     self[@"REDateTimeItem"] = @"RETableViewDateTimeCell";
     self[@"RECreditCardItem"] = @"RETableViewCreditCardCell";
     self[@"REMultipleChoiceItem"] = @"RETableViewOptionCell";
+    self[@"REPickerItem"] = @"RETableViewPickerCell";
 }
 
 - (void)registerClass:(NSString *)objectClass forCellWithReuseIdentifier:(NSString *)identifier

@@ -64,6 +64,8 @@
 		30DB067816E934AD006C9530 /* RETableViewManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 30DB066516E934AD006C9530 /* RETableViewManager.bundle */; };
 		30DB067916E934AD006C9530 /* RETableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB066716E934AD006C9530 /* RETableViewManager.m */; };
 		30DB067A16E934AD006C9530 /* RETableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB066916E934AD006C9530 /* RETableViewSection.m */; };
+		30DBFA9117FC827D0099ACA5 /* REPickerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DBFA9017FC827D0099ACA5 /* REPickerItem.m */; };
+		30DBFA9417FC84380099ACA5 /* RETableViewPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DBFA9317FC84380099ACA5 /* RETableViewPickerCell.m */; };
 		30E16A48171A103400F7C258 /* EditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E16A47171A103300F7C258 /* EditingViewController.m */; };
 		30E5F50C17BBD163005CF1FE /* IndexedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E5F50B17BBD163005CF1FE /* IndexedListViewController.m */; };
 		30EF93B316E039B800B84981 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EF93B216E039B800B84981 /* UIKit.framework */; };
@@ -185,6 +187,10 @@
 		30DB066716E934AD006C9530 /* RETableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewManager.m; sourceTree = "<group>"; };
 		30DB066816E934AD006C9530 /* RETableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewSection.h; sourceTree = "<group>"; };
 		30DB066916E934AD006C9530 /* RETableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewSection.m; sourceTree = "<group>"; };
+		30DBFA8F17FC827D0099ACA5 /* REPickerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REPickerItem.h; sourceTree = "<group>"; };
+		30DBFA9017FC827D0099ACA5 /* REPickerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REPickerItem.m; sourceTree = "<group>"; };
+		30DBFA9217FC84380099ACA5 /* RETableViewPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewPickerCell.h; sourceTree = "<group>"; };
+		30DBFA9317FC84380099ACA5 /* RETableViewPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewPickerCell.m; sourceTree = "<group>"; };
 		30E16A46171A103300F7C258 /* EditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditingViewController.h; sourceTree = "<group>"; };
 		30E16A47171A103300F7C258 /* EditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditingViewController.m; sourceTree = "<group>"; };
 		30E5F50A17BBD163005CF1FE /* IndexedListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexedListViewController.h; sourceTree = "<group>"; };
@@ -370,6 +376,8 @@
 				300E5B4117170B0100910013 /* RETableViewLongTextCell.m */,
 				30D74552174EB4C900D4C7C1 /* RETableViewOptionCell.h */,
 				30D74553174EB4C900D4C7C1 /* RETableViewOptionCell.m */,
+				30DBFA9217FC84380099ACA5 /* RETableViewPickerCell.h */,
+				30DBFA9317FC84380099ACA5 /* RETableViewPickerCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -395,6 +403,8 @@
 				300E5B3E17170AE100910013 /* RELongTextItem.m */,
 				30D208621718FFDE00144E46 /* REMultipleChoiceItem.h */,
 				30D208631718FFDE00144E46 /* REMultipleChoiceItem.m */,
+				30DBFA8F17FC827D0099ACA5 /* REPickerItem.h */,
+				30DBFA9017FC827D0099ACA5 /* REPickerItem.m */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -629,6 +639,7 @@
 				300E5B3F17170AE100910013 /* RELongTextItem.m in Sources */,
 				300E5B4217170B0200910013 /* RETableViewLongTextCell.m in Sources */,
 				30B35CEF17E54B670082CE0E /* RECommonFunctions.m in Sources */,
+				30DBFA9417FC84380099ACA5 /* RETableViewPickerCell.m in Sources */,
 				30BB805E17E0D8E700AD0861 /* MultilineTextItem.m in Sources */,
 				30082D1A17170EDD008B0DB5 /* REPlaceholderTextView.m in Sources */,
 				30D208641718FFDE00144E46 /* REMultipleChoiceItem.m in Sources */,
@@ -642,6 +653,7 @@
 				30E5F50C17BBD163005CF1FE /* IndexedListViewController.m in Sources */,
 				30BB805B17E0D8C300AD0861 /* XIBTestItem.m in Sources */,
 				30B00D7A17C667A90010D439 /* ValidationsViewController.m in Sources */,
+				30DBFA9117FC827D0099ACA5 /* REPickerItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

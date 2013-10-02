@@ -37,6 +37,7 @@
 #import "RETableViewDateTimeCell.h"
 #import "RETableViewLongTextCell.h"
 #import "RETableViewOptionCell.h"
+#import "RETableViewPickerCell.h"
 #import "REBoolItem.h"
 #import "RERadioItem.h"
 #import "RETextItem.h"
@@ -46,6 +47,7 @@
 #import "REFloatItem.h"
 #import "REDateTimeItem.h"
 #import "REMultipleChoiceItem.h"
+#import "REPickerItem.h"
 
 @protocol RETableViewManagerDelegate;
 

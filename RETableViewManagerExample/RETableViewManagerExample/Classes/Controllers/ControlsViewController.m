@@ -29,6 +29,7 @@
 @property (strong, readwrite, nonatomic) REMultipleChoiceItem *multipleChoiceItem;
 @property (strong, readwrite, nonatomic) RELongTextItem *longTextItem;
 @property (strong, readwrite, nonatomic) RECreditCardItem *creditCardItem;
+@property (strong, readwrite, nonatomic) REPickerItem *pickerItem;
 
 @end
 
@@ -101,6 +102,7 @@
     self.dateTimeItem.onChange = ^(REDateTimeItem *item){
         NSLog(@"Value: %@", item.value.description);
     };
+    self.pickerItem = [REPickerItem itemWithTitle:@"Picker" value:@[@"Item 12", @"Item 23"] placeholder:nil options:@[@[@"Item 11", @"Item 12", @"Item 13"], @[@"Item 21", @"Item 22", @"Item 23", @"Item 24"]]];
     self.radioItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" selectionHandler:^(RERadioItem *item) {
         [item deselectRowAnimated:YES]; // same as [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
         
@@ -172,6 +174,7 @@
     [section addItem:self.boolItem];
     [section addItem:self.floatItem];
     [section addItem:self.dateTimeItem];
+    [section addItem:self.pickerItem];
     [section addItem:self.radioItem];
     [section addItem:self.multipleChoiceItem];
     [section addItem:self.longTextItem];
