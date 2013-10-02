@@ -55,6 +55,10 @@
 @property (assign, readwrite, nonatomic) CGFloat cellHeight;
 @property (copy, readwrite, nonatomic) NSString *cellIdentifier;
 
+// Action bar
+@property (copy, readwrite, nonatomic) void (^actionBarDoneButtonTapHandler)(id item); //handler for done button on ActionBar
+
+
 // Error validation
 //
 @property (copy, readwrite, nonatomic) NSString *name;
