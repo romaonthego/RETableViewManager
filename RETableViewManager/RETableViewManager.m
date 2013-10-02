@@ -98,7 +98,6 @@
     self[@"REMultipleChoiceItem"] = @"RETableViewOptionCell";
     self[@"REPickerItem"] = @"RETableViewPickerCell";
     self[@"RESegmentItem"] = @"RETableViewSegmentCell";
-
 }
 
 - (void)registerClass:(NSString *)objectClass forCellWithReuseIdentifier:(NSString *)identifier

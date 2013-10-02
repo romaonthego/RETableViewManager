@@ -55,7 +55,6 @@
     return self;
 }
 
-
 + (instancetype)itemWithImages:(NSArray *)images value:(int)value
 {
     return [[self alloc] initWithImages:images value:value];
@@ -83,5 +82,6 @@
     
     return self;
 }
+
 @end
 

@@ -28,7 +28,7 @@
 
 @interface RETableViewSegmentCell : RETableViewCell
 
-@property (strong, readonly, nonatomic) UISegmentedControl *segmentView;
+@property (strong, readonly, nonatomic) UISegmentedControl *segmentedControl;
 @property (strong, readwrite, nonatomic) RESegmentItem *item;
 
 @end

@@ -31,6 +31,7 @@
 @property (strong, readwrite, nonatomic) RECreditCardItem *creditCardItem;
 @property (strong, readwrite, nonatomic) REPickerItem *pickerItem;
 @property (strong, readwrite, nonatomic) RESegmentItem *segmentItem;
+@property (strong, readwrite, nonatomic) RESegmentItem *segmentItem2;
 
 @end
 
@@ -99,9 +100,9 @@
     self.segmentItem = [RESegmentItem itemWithTitles:@[@"One", @"Two"] value:1 switchValueChangeHandler:^(RESegmentItem *item) {
         NSLog(@"Value: %i", item.value);
     }];
-    //    self.segmentItem = [RESegmentItem itemWithImages:@[[UIImage imageNamed:@"Heart"], [UIImage imageNamed:@"Heart_Highlighted"]] value:1 switchValueChangeHandler:^(RESegmentItem *item) {
-    //        NSLog(@"Value: %i", item.value);
-    //    }];
+    self.segmentItem2 = [RESegmentItem itemWithImages:@[[UIImage imageNamed:@"Heart"], [UIImage imageNamed:@"Heart_Highlighted"]] value:0 switchValueChangeHandler:^(RESegmentItem *item) {
+        NSLog(@"Value: %i", item.value);
+    }];
     self.floatItem = [REFloatItem itemWithTitle:@"Float item" value:0.3 sliderValueChangeHandler:^(REFloatItem *item) {
         NSLog(@"Value: %f", item.value);
     }];
@@ -184,6 +185,8 @@
     [section addItem:self.pickerItem];
     [section addItem:self.radioItem];
     [section addItem:self.multipleChoiceItem];
+    [section addItem:self.segmentItem];
+    [section addItem:self.segmentItem2];
     [section addItem:self.longTextItem];
     
     [section addItem:[MultilineTextItem itemWithTitle:@"Custom item / cell example. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sem leo, malesuada tempor metus et, elementum pulvinar nibh."]];
