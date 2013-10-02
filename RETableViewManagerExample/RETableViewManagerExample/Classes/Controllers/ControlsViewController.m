@@ -30,6 +30,7 @@
 @property (strong, readwrite, nonatomic) RELongTextItem *longTextItem;
 @property (strong, readwrite, nonatomic) RECreditCardItem *creditCardItem;
 @property (strong, readwrite, nonatomic) REPickerItem *pickerItem;
+@property (strong, readwrite, nonatomic) RESegmentItem *segmentItem;
 
 @end
 
@@ -95,6 +96,12 @@
     self.boolItem = [REBoolItem itemWithTitle:@"Bool item" value:YES switchValueChangeHandler:^(REBoolItem *item) {
         NSLog(@"Value: %@", item.value ? @"YES" : @"NO");
     }];
+    self.segmentItem = [RESegmentItem itemWithTitles:@[@"One", @"Two"] value:1 switchValueChangeHandler:^(RESegmentItem *item) {
+        NSLog(@"Value: %i", item.value);
+    }];
+    //    self.segmentItem = [RESegmentItem itemWithImages:@[[UIImage imageNamed:@"Heart"], [UIImage imageNamed:@"Heart_Highlighted"]] value:1 switchValueChangeHandler:^(RESegmentItem *item) {
+    //        NSLog(@"Value: %i", item.value);
+    //    }];
     self.floatItem = [REFloatItem itemWithTitle:@"Float item" value:0.3 sliderValueChangeHandler:^(REFloatItem *item) {
         NSLog(@"Value: %f", item.value);
     }];
