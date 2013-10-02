@@ -146,7 +146,8 @@
     return YES;
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
     if (self.item.onChangeCharacterInRange)
         self.item.onChangeCharacterInRange(self.item, range, string);
     
