@@ -111,7 +111,8 @@
     if (selected) {
         [self.textField becomeFirstResponder];
         [self.item.options enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            [self.pickerView selectRow:[[self.item.options objectAtIndex:idx] indexOfObject:[self.item.value objectAtIndex:idx]] inComponent:idx animated:NO];
+            if ([self.item.options objectAtIndex:idx] && [self.item.value objectAtIndex:idx] > 0)
+                [self.pickerView selectRow:[[self.item.options objectAtIndex:idx] indexOfObject:[self.item.value objectAtIndex:idx]] inComponent:idx animated:NO];
         }];
     }
 }
@@ -131,6 +132,7 @@
     }];
     self.item.value = [value copy];
     self.valueLabel.text = self.item.value ? [self.item.value componentsJoinedByString:@", "] : @"";
+    self.placeholderLabel.hidden = self.valueLabel.text.length > 0;
 }
 
 #pragma mark -
@@ -157,7 +159,6 @@
     [self setSelected:NO animated:NO];
     [self.item deselectRowAnimated:NO];
     [self shouldUpdateItemValue];
-    self.placeholderLabel.hidden = self.valueLabel.text.length > 0;
     return YES;
 }
 

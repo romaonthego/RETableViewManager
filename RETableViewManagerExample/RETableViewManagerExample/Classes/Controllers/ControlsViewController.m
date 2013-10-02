@@ -102,7 +102,7 @@
     self.dateTimeItem.onChange = ^(REDateTimeItem *item){
         NSLog(@"Value: %@", item.value.description);
     };
-    self.pickerItem = [REPickerItem itemWithTitle:@"Picker" value:@[@"Item 12", @"Item 23"] placeholder:nil options:@[@[@"Item 11", @"Item 12", @"Item 13"], @[@"Item 21", @"Item 22", @"Item 23", @"Item 24"]]];
+    self.pickerItem = [REPickerItem itemWithTitle:@"Picker" value:nil placeholder:@"Test" options:@[@[@"Item 11", @"Item 12", @"Item 13"], @[@"Item 21", @"Item 22", @"Item 23", @"Item 24"]]];
     self.radioItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" selectionHandler:^(RERadioItem *item) {
         [item deselectRowAnimated:YES]; // same as [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
         
