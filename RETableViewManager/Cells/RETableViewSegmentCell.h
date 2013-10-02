@@ -1,5 +1,5 @@
 //
-// RETableViewBoolCell.h
+// RETableViewSegmentCell.h
 // RETableViewManager
 //
 // Copyright (c) 2013 Dmitry Shmidt (https://github.com/shmidt)
