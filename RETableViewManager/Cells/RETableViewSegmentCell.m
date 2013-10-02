@@ -45,6 +45,7 @@
 - (void)cellWillAppear
 {
     [self.contentView removeConstraints:self.contentView.constraints];
+    [self.segmentView removeAllSegments];
     CGFloat margin = (REUIKitIsFlatMode() && self.section.style.contentViewMargin <= 0) ? 15.0 : 10.0;
     NSDictionary *metrics = @{@"margin": @(margin)};
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_segmentView
