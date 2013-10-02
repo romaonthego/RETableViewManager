@@ -153,7 +153,7 @@
     
     if (self.item.charactersLimit) {
         NSUInteger newLength = textField.text.length + string.length - range.length;
-        return newLength <= 5;
+        return newLength <= self.item.charactersLimit;
     }
     
     return YES;
