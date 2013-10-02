@@ -37,6 +37,9 @@
 @property (assign, readwrite, nonatomic) UITextFieldViewMode clearButtonMode;        // default is UITextFieldViewModeNever
 @property (assign, readwrite, nonatomic) BOOL clearsOnBeginEditing;                   // default is NO which moves cursor to location clicked. if YES, all text cleared
 
+@property (assign, readwrite, nonatomic) NSUInteger charactersLimit;                   // characters limit
+
+
 // Keyboard
 //
 @property (assign, readwrite, nonatomic) UITextAutocapitalizationType autocapitalizationType; // default is UITextAutocapitalizationTypeSentences
@@ -52,6 +55,8 @@
 @property (copy, readwrite, nonatomic) void (^onEndEditing)(RETextItem *item);
 @property (copy, readwrite, nonatomic) void (^onChange)(RETextItem *item);
 @property (copy, readwrite, nonatomic) void (^onReturn)(RETextItem *item);
+@property (copy, readwrite, nonatomic) void (^onChangeCharacterInRange)(RETextItem *item, NSRange range, NSString *replacementString);
+
 
 + (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value;
 + (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value  placeholder:(NSString *)placeholder;
