@@ -145,7 +145,7 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     
     [self.wrapperView addSubview:self.cvvField];
     
-    self.ribbonExpired = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ribbon_expired"]];
+    self.ribbonExpired = [[UIImageView alloc] init];
     self.ribbonExpired.hidden = YES;
     [self.contentView addSubview:self.ribbonExpired];
 }
@@ -172,6 +172,8 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     self.cvvField.text = self.item.cvv;
     self.cvvField.font = [UIFont systemFontOfSize:17];
     self.cvvField.keyboardAppearance = self.item.keyboardAppearance;
+    
+    self.ribbonExpired.image = self.item.expiredRibbonImage;
 }
 
 - (void)layoutSubviews

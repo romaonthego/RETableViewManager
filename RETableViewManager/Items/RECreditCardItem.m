@@ -45,6 +45,14 @@
     return self;
 }
 
+-(UIImage *)expiredRibbonImage {
+    if (!_expiredRibbonImage) {
+        _expiredRibbonImage = [UIImage imageNamed:@"ribbon_expired"];
+    }
+    
+    return _expiredRibbonImage;
+}
+
 #pragma mark -
 #pragma mark Error validation
 
