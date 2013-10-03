@@ -198,7 +198,7 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     frame.size.height = self.contentView.frame.size.height;
     self.cvvField.frame = frame;
     
-    self.ribbonExpired.frame = CGRectMake(CGRectGetWidth(self.contentView.frame) - self.ribbonExpired.image.size.width + 1, -2, self.ribbonExpired.image.size.width, self.ribbonExpired.image.size.height);
+    self.ribbonExpired.frame = CGRectMake(CGRectGetWidth(self.contentView.frame) - self.ribbonExpired.image.size.width + 1 + (REUIKitIsFlatMode() ? 1 : 0), -2, self.ribbonExpired.image.size.width, self.ribbonExpired.image.size.height);
     
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:forRowAtIndexPath:)])
         [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self forRowAtIndexPath:[self.tableViewManager.tableView indexPathForCell:self]];
