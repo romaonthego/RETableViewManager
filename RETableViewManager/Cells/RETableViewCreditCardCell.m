@@ -39,9 +39,26 @@
 @property (strong, readwrite, nonatomic) REFormattedNumberField *expirationDateField;
 @property (strong, readwrite, nonatomic) REFormattedNumberField *cvvField;
 
+@property (strong, readwrite, nonatomic) UIImageView *ribbonExpired;
+
 @end
 
 @implementation RETableViewCreditCardCell
+
+static inline BOOL isExpired(NSString *creditCardExpirationDate) {
+    if([creditCardExpirationDate isEqualToString:@""])
+        return NO;
+    
+    NSDateFormatter *f = [[NSDateFormatter alloc] init];
+    [f setDateFormat:@"MM/yy"];
+    NSDate *cardDate = [f dateFromString:creditCardExpirationDate];
+    
+    NSDateComponents *comp = [[NSCalendar currentCalendar] components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:[NSDate date]];
+    [comp setDay:1];
+    NSDate *firstDayOfMonthDate = [[NSCalendar currentCalendar] dateFromComponents:comp];
+
+    return [cardDate laterDate:firstDayOfMonthDate] == firstDayOfMonthDate;
+}
 
 static inline NSString * RECreditCardType(NSString *creditCardNumber)
 {
@@ -125,7 +142,12 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     self.cvvField.placeholder = @"CVV";
     self.cvvField.delegate = self;
     [self.cvvField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    
     [self.wrapperView addSubview:self.cvvField];
+    
+    self.ribbonExpired = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ribbon_expired"]];
+    self.ribbonExpired.hidden = YES;
+    [self.contentView addSubview:self.ribbonExpired];
 }
 
 - (void)cellWillAppear
@@ -173,6 +195,8 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     frame.size.width += UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 30 : 50;
     frame.size.height = self.contentView.frame.size.height;
     self.cvvField.frame = frame;
+    
+    self.ribbonExpired.frame = CGRectMake(CGRectGetWidth(self.contentView.frame) - self.ribbonExpired.image.size.width + 1, -2, self.ribbonExpired.image.size.width, self.ribbonExpired.image.size.height);
     
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:forRowAtIndexPath:)])
         [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self forRowAtIndexPath:[self.tableViewManager.tableView indexPathForCell:self]];
@@ -266,6 +290,15 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
     [self performSelector:@selector(flipCreditCardImageViewBack:) withObject:textField afterDelay:0.1];
+    
+    if(textField == self.expirationDateField) {
+        if(isExpired(self.expirationDateField.text)) {
+            self.ribbonExpired.hidden = NO;
+        } else {
+            self.ribbonExpired.hidden = YES;
+        }
+    }
+    
     return YES;
 }
 
