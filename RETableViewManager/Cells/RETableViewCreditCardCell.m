@@ -38,24 +38,24 @@
 @property (strong, readwrite, nonatomic) REFormattedNumberField *creditCardField;
 @property (strong, readwrite, nonatomic) REFormattedNumberField *expirationDateField;
 @property (strong, readwrite, nonatomic) REFormattedNumberField *cvvField;
-
 @property (strong, readwrite, nonatomic) UIImageView *ribbonExpired;
 
 @end
 
 @implementation RETableViewCreditCardCell
 
-static inline BOOL isExpired(NSString *creditCardExpirationDate) {
-    if([creditCardExpirationDate isEqualToString:@""])
+static inline BOOL RECreditCardExpired(NSString *creditCardExpirationDate)
+{
+    if ([creditCardExpirationDate isEqualToString:@""])
         return NO;
     
-    NSDateFormatter *f = [[NSDateFormatter alloc] init];
-    [f setDateFormat:@"MM/yy"];
-    NSDate *cardDate = [f dateFromString:creditCardExpirationDate];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"MM/yy";
+    NSDate *cardDate = [dateFormatter dateFromString:creditCardExpirationDate];
     
-    NSDateComponents *comp = [[NSCalendar currentCalendar] components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:[NSDate date]];
-    [comp setDay:1];
-    NSDate *firstDayOfMonthDate = [[NSCalendar currentCalendar] dateFromComponents:comp];
+    NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:[NSDate date]];
+    dateComponents.day = 1;
+    NSDate *firstDayOfMonthDate = [[NSCalendar currentCalendar] dateFromComponents:dateComponents];
 
     return [cardDate laterDate:firstDayOfMonthDate] == firstDayOfMonthDate;
 }
@@ -233,7 +233,6 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     if (textField.tag == 1) self.item.expirationDate = textField.text;
     if (textField.tag == 2) self.item.cvv = textField.text;
     
-    
     NSString *issuer = RECreditCardType(self.item.number);
     if (issuer) {
         self.creditCardImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"RETableViewManager.bundle/Card_%@", issuer]];
@@ -293,18 +292,18 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
 {
     [self performSelector:@selector(flipCreditCardImageViewBack:) withObject:textField afterDelay:0.1];
     
-    if(textField == self.expirationDateField) {
-        if(isExpired(self.expirationDateField.text)) {
+    if (textField == self.expirationDateField) {
+        if (RECreditCardExpired(self.expirationDateField.text)) {
             self.ribbonExpired.hidden = NO;
         } else {
             self.ribbonExpired.hidden = YES;
         }
     }
-    
     return YES;
 }
 
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
     if (textField == self.expirationDateField) {
         if (range.location == 1) {
             NSInteger month = [NSString stringWithFormat:@"%@%@", self.expirationDateField.text, string].integerValue;
@@ -313,7 +312,6 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
             }
         }
     }
-    
     return YES;
 }
 
