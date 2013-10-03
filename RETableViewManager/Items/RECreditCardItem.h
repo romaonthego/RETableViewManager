@@ -27,6 +27,10 @@
 
 @interface RECreditCardItem : RETableViewItem
 
+// Appearance customization
+//
+@property (copy, readwrite, nonatomic) UIImage *expiredRibbonImage;
+
 // Data and values
 //
 @property (copy, readwrite, nonatomic) NSString *number;
