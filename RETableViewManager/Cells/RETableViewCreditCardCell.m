@@ -302,4 +302,17 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     return YES;
 }
 
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (textField == self.expirationDateField) {
+        if (range.location == 1) {
+            NSInteger month = [NSString stringWithFormat:@"%@%@", self.expirationDateField.text, string].integerValue;
+            if (month > 12) {
+                return NO;
+            }
+        }
+    }
+    
+    return YES;
+}
+
 @end
