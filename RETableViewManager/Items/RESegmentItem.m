@@ -28,7 +28,7 @@
 
 @implementation RESegmentItem
 
-+ (instancetype)itemWithTitles:(NSArray *)titles value:(int)value
++ (instancetype)itemWithTitles:(NSArray *)titles value:(NSInteger)value
 {
     return [[self alloc] initWithTitles:titles value:value];
 }
@@ -56,7 +56,7 @@
     return self;
 }
 
-+ (instancetype)itemWithImages:(NSArray *)images value:(int)value
++ (instancetype)itemWithImages:(NSArray *)images value:(NSInteger)value
 {
     return [[self alloc] initWithImages:images value:value];
 }
