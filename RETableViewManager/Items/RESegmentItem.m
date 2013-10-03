@@ -33,17 +33,17 @@
     return [[self alloc] initWithTitles:titles value:value];
 }
 
-+ (instancetype)itemWithTitles:(NSArray *)titles value:(int)value switchValueChangeHandler:(void(^)(RESegmentItem *item))switchValueChangeHandler
++ (instancetype)itemWithTitles:(NSArray *)titles value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentItem *item))switchValueChangeHandler
 {
     return [[self alloc] initWithTitles:titles value:value switchValueChangeHandler:switchValueChangeHandler];
 }
 
-- (id)initWithTitles:(NSArray *)titles value:(int)value
+- (id)initWithTitles:(NSArray *)titles value:(NSInteger)value
 {
     return [self initWithTitles:titles value:value switchValueChangeHandler:nil];
 }
 
-- (id)initWithTitles:(NSArray *)titles value:(int)value switchValueChangeHandler:(void(^)(RESegmentItem *item))switchValueChangeHandler
+- (id)initWithTitles:(NSArray *)titles value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentItem *item))switchValueChangeHandler
 {
     self = [super init];
     if (!self)
@@ -61,17 +61,17 @@
     return [[self alloc] initWithImages:images value:value];
 }
 
-+ (instancetype)itemWithImages:(NSArray *)images value:(int)value switchValueChangeHandler:(void(^)(RESegmentItem *item))switchValueChangeHandler
++ (instancetype)itemWithImages:(NSArray *)images value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentItem *item))switchValueChangeHandler
 {
     return [[self alloc] initWithImages:images value:value switchValueChangeHandler:switchValueChangeHandler];
 }
 
-- (id)initWithImages:(NSArray *)images value:(int)value
+- (id)initWithImages:(NSArray *)images value:(NSInteger)value
 {
     return [self initWithImages:images value:value switchValueChangeHandler:nil];
 }
 
-- (id)initWithImages:(NSArray *)images value:(int)value switchValueChangeHandler:(void(^)(RESegmentItem *item))switchValueChangeHandler
+- (id)initWithImages:(NSArray *)images value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentItem *item))switchValueChangeHandler
 {
     self = [super init];
     if (!self)
