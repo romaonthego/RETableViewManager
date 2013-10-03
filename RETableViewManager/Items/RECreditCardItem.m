@@ -47,7 +47,7 @@
 
 -(UIImage *)expiredRibbonImage {
     if (!_expiredRibbonImage) {
-        _expiredRibbonImage = [UIImage imageNamed:@"ribbon_expired"];
+        _expiredRibbonImage = [UIImage imageNamed:@"RETableViewManager.bundle/Ribbon_Expired"];
     }
     
     return _expiredRibbonImage;
