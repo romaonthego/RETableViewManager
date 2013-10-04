@@ -108,7 +108,13 @@
         NSLog(@"Value: %f", item.value);
     }];
     self.dateTimeItem = [REDateTimeItem itemWithTitle:@"Date / Time" value:[NSDate date] placeholder:nil format:@"MM/dd/yyyy hh:mm a" datePickerMode:UIDatePickerModeDateAndTime];
-    self.dateTimeItem.inlineDatePicker = YES;
+    
+    // Use inline date picker in iOS 7
+    //
+    if (REUIKitIsFlatMode()) {
+        self.dateTimeItem.inlineDatePicker = YES;
+    }
+    
     self.dateTimeItem.onChange = ^(REDateTimeItem *item){
         NSLog(@"Value: %@", item.value.description);
     };
