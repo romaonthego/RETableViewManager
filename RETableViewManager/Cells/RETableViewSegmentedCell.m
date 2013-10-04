@@ -79,7 +79,7 @@
             [self.segmentedControl insertSegmentWithImage:image atIndex:idx animated:NO];
         }];
     }
-
+    self.segmentedControl.tintColor = self.item.tintColor;
     self.segmentedControl.selectedSegmentIndex = self.item.value;
     [self.segmentedControl setNeedsDisplay];
 }

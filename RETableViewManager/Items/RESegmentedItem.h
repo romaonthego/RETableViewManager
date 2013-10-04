@@ -31,6 +31,7 @@
 @property (assign, readwrite, nonatomic) NSInteger value;
 @property (copy, readwrite, nonatomic) NSArray *segmentedControlTitles;
 @property (copy, readwrite, nonatomic) NSArray *segmentedControlImages;
+@property (strong, readwrite, nonatomic) UIColor *tintColor;
 @property (copy, readwrite, nonatomic) void (^switchValueChangeHandler)(RESegmentedItem *item);
 
 + (instancetype)itemWithTitle:(NSString *)title segmentedControlTitles:(NSArray *)titles value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentedItem *item))switchValueChangeHandler;
