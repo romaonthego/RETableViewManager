@@ -208,7 +208,12 @@ Please note that if your installation fails, it may be because you are installin
   <tr>
     <td>REPickerItem</td>
     <td>RETableViewPickerCell</td>
-    <td>Provides convenience for selecting multiple options using <tt>UIPickerView</tt></td>
+    <td>Provides convenience for selecting multiple options using <tt>UIPickerView</tt>.</td>
+  </tr>
+  <tr>
+    <td>RESegmentedItem</td>
+    <td>RETableViewSegmentedCell</td>
+    <td>Provides convenience for working with <tt>UISegmentedControl</tt>.</td>
   </tr>
   <tr>
     <td>RECreditCardItem</td>
