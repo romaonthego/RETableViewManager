@@ -45,11 +45,11 @@
     return self;
 }
 
--(UIImage *)expiredRibbonImage {
+- (UIImage *)expiredRibbonImage
+{
     if (!_expiredRibbonImage) {
         _expiredRibbonImage = [UIImage imageNamed:@"RETableViewManager.bundle/Ribbon_Expired"];
     }
-    
     return _expiredRibbonImage;
 }
 

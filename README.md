@@ -206,6 +206,11 @@ Please note that if your installation fails, it may be because you are installin
     <td>Provides convenience for modifying date in <tt>NSDate</tt> objects.</td>
   </tr>
   <tr>
+    <td>REPickerItem</td>
+    <td>RETableViewPickerCell</td>
+    <td>Provides convenience for selecting multiple options using <tt>UIPickerView</tt></td>
+  </tr>
+  <tr>
     <td>RECreditCardItem</td>
     <td>RETableViewCreditCardCell</td>
     <td>Provides convenience for a user credit card input. Allows to enter a credit card number, expiration date and security code, all in a single table view cell.</td>

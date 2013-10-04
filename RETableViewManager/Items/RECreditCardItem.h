@@ -29,7 +29,7 @@
 
 // Appearance customization
 //
-@property (copy, readwrite, nonatomic) UIImage *expiredRibbonImage;
+@property (strong, readwrite, nonatomic) UIImage *expiredRibbonImage;
 
 // Data and values
 //

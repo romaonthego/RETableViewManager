@@ -28,21 +28,21 @@
 
 @interface RESegmentItem : RETableViewItem
 
-@property (assign, readwrite, nonatomic) int value;
+@property (assign, readwrite, nonatomic) NSInteger value;
 @property (copy, readwrite, nonatomic) NSArray *titles;
 @property (copy, readwrite, nonatomic) NSArray *images;
 @property (copy, readwrite, nonatomic) void (^switchValueChangeHandler)(RESegmentItem *item);
 
-+ (instancetype)itemWithTitles:(NSArray *)titles value:(int)value switchValueChangeHandler:(void(^)(RESegmentItem *item))switchValueChangeHandler;
-+ (instancetype)itemWithTitles:(NSArray *)titles value:(int)value;
++ (instancetype)itemWithTitles:(NSArray *)titles value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentItem *item))switchValueChangeHandler;
++ (instancetype)itemWithTitles:(NSArray *)titles value:(NSInteger)value;
 
-- (id)initWithTitles:(NSArray *)titles value:(int)value switchValueChangeHandler:(void(^)(RESegmentItem *item))switchValueChangeHandler;
-- (id)initWithTitles:(NSArray *)titles value:(int)value;
+- (id)initWithTitles:(NSArray *)titles value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentItem *item))switchValueChangeHandler;
+- (id)initWithTitles:(NSArray *)titles value:(NSInteger)value;
 
-+ (instancetype)itemWithImages:(NSArray *)images value:(int)value switchValueChangeHandler:(void(^)(RESegmentItem *item))switchValueChangeHandler;
-+ (instancetype)itemWithImages:(NSArray *)images value:(int)value;
++ (instancetype)itemWithImages:(NSArray *)images value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentItem *item))switchValueChangeHandler;
++ (instancetype)itemWithImages:(NSArray *)images value:(NSInteger)value;
 
-- (id)initWithImages:(NSArray *)images value:(int)value switchValueChangeHandler:(void(^)(RESegmentItem *item))switchValueChangeHandler;
-- (id)initWithImages:(NSArray *)images value:(int)value;
+- (id)initWithImages:(NSArray *)images value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentItem *item))switchValueChangeHandler;
+- (id)initWithImages:(NSArray *)images value:(NSInteger)value;
 
 @end
