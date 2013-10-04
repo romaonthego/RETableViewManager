@@ -26,6 +26,7 @@
 
 #import "RETableViewSegmentedCell.h"
 #import "RETableViewManager.h"
+#import "NSString+RETableViewManagerAdditions.h"
 
 @interface RETableViewSegmentedCell ()
 
@@ -43,7 +44,7 @@
     [super cellDidLoad];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    self.segmentedControl = [[UISegmentedControl alloc] initWithItems:self.item.titles];
+    self.segmentedControl = [[UISegmentedControl alloc] initWithItems:self.item.segmentedControlTitles];
     self.segmentedControl.translatesAutoresizingMaskIntoConstraints = NO;
     [self.segmentedControl addTarget:self action:@selector(segmentValueDidChange:) forControlEvents:UIControlEventValueChanged];
     [self.contentView addSubview:self.segmentedControl];
@@ -51,6 +52,7 @@
 
 - (void)cellWillAppear
 {
+    self.textLabel.text = self.item.title;
     [self.contentView removeConstraints:self.contentView.constraints];
     [self.segmentedControl removeAllSegments];
     CGFloat margin = (REUIKitIsFlatMode() && self.section.style.contentViewMargin <= 0) ? 15.0 : 10.0;
@@ -62,13 +64,18 @@
                                                                  attribute:NSLayoutAttributeCenterY
                                                                 multiplier:1.0
                                                                   constant:0]];
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-margin-[_segmentedControl]-margin-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(_segmentedControl)]];
-    if (self.item.titles.count > 0) {
-        [self.item.titles enumerateObjectsUsingBlock:^(NSString *title, NSUInteger idx, BOOL *stop) {
+    if (self.item.title.length > 0) {
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_segmentedControl(>=140)]-margin-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(_segmentedControl)]];
+    } else {
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-margin-[_segmentedControl]-margin-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(_segmentedControl)]];
+    }
+    
+    if (self.item.segmentedControlTitles.count > 0) {
+        [self.item.segmentedControlTitles enumerateObjectsUsingBlock:^(NSString *title, NSUInteger idx, BOOL *stop) {
             [self.segmentedControl insertSegmentWithTitle:title atIndex:idx animated:NO];
         }];
-    } else if (self.item.images.count > 0) {
-        [self.item.images enumerateObjectsUsingBlock:^(UIImage *image, NSUInteger idx, BOOL *stop) {
+    } else if (self.item.segmentedControlImages.count > 0) {
+        [self.item.segmentedControlImages enumerateObjectsUsingBlock:^(UIImage *image, NSUInteger idx, BOOL *stop) {
             [self.segmentedControl insertSegmentWithImage:image atIndex:idx animated:NO];
         }];
     }

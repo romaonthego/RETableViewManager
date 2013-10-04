@@ -29,20 +29,20 @@
 @interface RESegmentedItem : RETableViewItem
 
 @property (assign, readwrite, nonatomic) NSInteger value;
-@property (copy, readwrite, nonatomic) NSArray *titles;
-@property (copy, readwrite, nonatomic) NSArray *images;
+@property (copy, readwrite, nonatomic) NSArray *segmentedControlTitles;
+@property (copy, readwrite, nonatomic) NSArray *segmentedControlImages;
 @property (copy, readwrite, nonatomic) void (^switchValueChangeHandler)(RESegmentedItem *item);
 
-+ (instancetype)itemWithTitles:(NSArray *)titles value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentedItem *item))switchValueChangeHandler;
-+ (instancetype)itemWithTitles:(NSArray *)titles value:(NSInteger)value;
++ (instancetype)itemWithTitle:(NSString *)title segmentedControlTitles:(NSArray *)titles value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentedItem *item))switchValueChangeHandler;
++ (instancetype)itemWithTitle:(NSString *)title segmentedControlTitles:(NSArray *)titles value:(NSInteger)value;
 
-- (id)initWithTitles:(NSArray *)titles value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentedItem *item))switchValueChangeHandler;
-- (id)initWithTitles:(NSArray *)titles value:(NSInteger)value;
+- (id)initWithTitle:(NSString *)title segmentedControlTitles:(NSArray *)titles value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentedItem *item))switchValueChangeHandler;
+- (id)initWithTitle:(NSString *)title segmentedControlTitles:(NSArray *)titles value:(NSInteger)value;
 
-+ (instancetype)itemWithImages:(NSArray *)images value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentedItem *item))switchValueChangeHandler;
-+ (instancetype)itemWithImages:(NSArray *)images value:(NSInteger)value;
++ (instancetype)itemWithTitle:(NSString *)title segmentedControlImages:(NSArray *)images value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentedItem *item))switchValueChangeHandler;
++ (instancetype)itemWithTitle:(NSString *)title segmentedControlImages:(NSArray *)images value:(NSInteger)value;
 
-- (id)initWithImages:(NSArray *)images value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentedItem *item))switchValueChangeHandler;
-- (id)initWithImages:(NSArray *)images value:(NSInteger)value;
+- (id)initWithTitle:(NSString *)title segmentedControlImages:(NSArray *)images value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentedItem *item))switchValueChangeHandler;
+- (id)initWithTitle:(NSString *)title segmentedControlImages:(NSArray *)images value:(NSInteger)value;
 
 @end

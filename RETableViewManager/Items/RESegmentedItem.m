@@ -28,56 +28,58 @@
 
 @implementation RESegmentedItem
 
-+ (instancetype)itemWithTitles:(NSArray *)titles value:(NSInteger)value
++ (instancetype)itemWithTitle:(NSString *)title segmentedControlTitles:(NSArray *)titles value:(NSInteger)value
 {
-    return [[self alloc] initWithTitles:titles value:value];
+    return [[self alloc] initWithTitle:title segmentedControlTitles:titles value:value];
 }
 
-+ (instancetype)itemWithTitles:(NSArray *)titles value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentedItem *item))switchValueChangeHandler
++ (instancetype)itemWithTitle:(NSString *)title segmentedControlTitles:(NSArray *)titles value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentedItem *item))switchValueChangeHandler
 {
-    return [[self alloc] initWithTitles:titles value:value switchValueChangeHandler:switchValueChangeHandler];
+    return [[self alloc] initWithTitle:title segmentedControlTitles:titles value:value switchValueChangeHandler:switchValueChangeHandler];
 }
 
-- (id)initWithTitles:(NSArray *)titles value:(NSInteger)value
+- (id)initWithTitle:(NSString *)title segmentedControlTitles:(NSArray *)titles value:(NSInteger)value
 {
-    return [self initWithTitles:titles value:value switchValueChangeHandler:nil];
+    return [self initWithTitle:title segmentedControlTitles:titles value:value switchValueChangeHandler:nil];
 }
 
-- (id)initWithTitles:(NSArray *)titles value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentedItem *item))switchValueChangeHandler
+- (id)initWithTitle:(NSString *)title segmentedControlTitles:(NSArray *)titles value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentedItem *item))switchValueChangeHandler
 {
     self = [super init];
     if (!self)
         return nil;
     
-    self.titles = titles;
+    self.title = title;
+    self.segmentedControlTitles = titles;
     self.value = value;
     self.switchValueChangeHandler = switchValueChangeHandler;
     
     return self;
 }
 
-+ (instancetype)itemWithImages:(NSArray *)images value:(NSInteger)value
++ (instancetype)itemWithTitle:(NSString *)title segmentedControlImages:(NSArray *)images value:(NSInteger)value
 {
-    return [[self alloc] initWithImages:images value:value];
+    return [[self alloc] initWithTitle:title segmentedControlImages:images value:value];
 }
 
-+ (instancetype)itemWithImages:(NSArray *)images value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentedItem *item))switchValueChangeHandler
++ (instancetype)itemWithTitle:(NSString *)title segmentedControlImages:(NSArray *)images value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentedItem *item))switchValueChangeHandler
 {
-    return [[self alloc] initWithImages:images value:value switchValueChangeHandler:switchValueChangeHandler];
+    return [[self alloc] initWithTitle:title segmentedControlImages:images value:value switchValueChangeHandler:switchValueChangeHandler];
 }
 
-- (id)initWithImages:(NSArray *)images value:(NSInteger)value
+- (id)initWithTitle:(NSString *)title segmentedControlImages:(NSArray *)images value:(NSInteger)value
 {
-    return [self initWithImages:images value:value switchValueChangeHandler:nil];
+    return [self initWithTitle:title segmentedControlImages:images value:value switchValueChangeHandler:nil];
 }
 
-- (id)initWithImages:(NSArray *)images value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentedItem *item))switchValueChangeHandler
+- (id)initWithTitle:(NSString *)title segmentedControlImages:(NSArray *)images value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentedItem *item))switchValueChangeHandler
 {
     self = [super init];
     if (!self)
         return nil;
     
-    self.images = images;
+    self.title = title;
+    self.segmentedControlImages = images;
     self.value = value;
     self.switchValueChangeHandler = switchValueChangeHandler;
     
