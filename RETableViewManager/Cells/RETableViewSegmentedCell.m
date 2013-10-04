@@ -48,6 +48,10 @@
     self.segmentedControl.translatesAutoresizingMaskIntoConstraints = NO;
     [self.segmentedControl addTarget:self action:@selector(segmentValueDidChange:) forControlEvents:UIControlEventValueChanged];
     [self.contentView addSubview:self.segmentedControl];
+    
+    if (!REUIKitIsFlatMode()) {
+        self.segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+    }
 }
 
 - (void)cellWillAppear
