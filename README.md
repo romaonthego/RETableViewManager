@@ -374,6 +374,42 @@ RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"
 [section addItem:[REDateTimeItem itemWithTitle:@"Date / Time" value:[NSDate date] placeholder:nil format:@"MM/dd/yyyy hh:mm a" datePickerMode:UIDatePickerModeDateAndTime]];
 ```
 
+### Picker Item Example
+
+``` objective-c
+// Create the manager
+//
+self.manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
+
+// Add a section
+//
+RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"];
+[self.manager addSection:section];
+
+// Add a picker item
+//
+[section addItem:[REPickerItem itemWithTitle:@"Picker" value:@[@"Item 12", @"Item 23"] placeholder:nil options:@[@[@"Item 11", @"Item 12", @"Item 13"], @[@"Item 21", @"Item 22", @"Item 23", @"Item 24"]]]];
+```
+
+### Segmented Item Example
+
+``` objective-c
+// Create the manager
+//
+self.manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
+
+// Add a section
+//
+RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"];
+[self.manager addSection:section];
+
+// Add a segmented item
+//
+[section addItem:[RESegmentedItem itemWithTitles:@[@"One", @"Two"] value:1 switchValueChangeHandler:^(RESegmentedItem *item) {
+    NSLog(@"Value: %i", item.value);
+}]];
+```
+
 ### Validations
 
 Validations are performed using [REValidation](https://github.com/romaonthego/REValidation) library.
