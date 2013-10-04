@@ -117,8 +117,26 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-    if (selected) {
+    if (selected && !self.item.inlineDatePicker) {
         [self.textField becomeFirstResponder];
+    }
+    
+    if (selected && self.item.inlineDatePicker && !self.item.inlinePickerItem) {
+        [self setSelected:NO animated:NO];
+        [self.item deselectRowAnimated:NO];
+        self.item.inlinePickerItem = [REInlineDatePickerItem itemWithDatePickerMode:self.item.datePickerMode];
+        self.item.inlinePickerItem.dateTimeItem = self.item;
+        [self.section insertItem:self.item.inlinePickerItem atIndex:self.item.indexPath.row + 1];
+        [self.tableViewManager.tableView insertRowsAtIndexPaths:@[self.item.inlinePickerItem.indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+    } else {
+        if (selected && self.item.inlineDatePicker && self.item.inlinePickerItem) {
+            [self setSelected:NO animated:NO];
+            [self.item deselectRowAnimated:NO];
+            NSIndexPath *indexPath = [self.item.inlinePickerItem.indexPath copy];
+            [self.section removeItemAtIndex:self.item.inlinePickerItem.indexPath.row];
+            self.item.inlinePickerItem = nil;
+            [self.tableViewManager.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+        }
     }
 }
 
