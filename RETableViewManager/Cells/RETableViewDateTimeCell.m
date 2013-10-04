@@ -99,6 +99,10 @@
     if (!self.item.title) {
         self.dateLabel.textAlignment = NSTextAlignmentLeft;
     }
+    
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
+    self.dateLabel.textColor = self.item.inlinePickerItem ? self.tintColor : self.detailTextLabel.textColor;
+#endif
 }
 
 - (void)layoutSubviews
@@ -124,6 +128,9 @@
     if (selected && self.item.inlineDatePicker && !self.item.inlinePickerItem) {
         [self setSelected:NO animated:NO];
         [self.item deselectRowAnimated:NO];
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
+        self.dateLabel.textColor = self.tintColor;
+#endif
         self.item.inlinePickerItem = [REInlineDatePickerItem itemWithDatePickerMode:self.item.datePickerMode];
         self.item.inlinePickerItem.dateTimeItem = self.item;
         [self.section insertItem:self.item.inlinePickerItem atIndex:self.item.indexPath.row + 1];
@@ -132,6 +139,7 @@
         if (selected && self.item.inlineDatePicker && self.item.inlinePickerItem) {
             [self setSelected:NO animated:NO];
             [self.item deselectRowAnimated:NO];
+            self.dateLabel.textColor = self.detailTextLabel.textColor;
             NSIndexPath *indexPath = [self.item.inlinePickerItem.indexPath copy];
             [self.section removeItemAtIndex:self.item.inlinePickerItem.indexPath.row];
             self.item.inlinePickerItem = nil;
