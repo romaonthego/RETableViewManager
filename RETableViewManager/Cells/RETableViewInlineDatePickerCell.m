@@ -52,6 +52,8 @@
     self.item.value = self.datePicker.date;
     if (self.item.dateTimeItem) {
         self.item.dateTimeItem.value = self.datePicker.date;
+        if (self.item.dateTimeItem.onChange)
+            self.item.dateTimeItem.onChange(self.item.dateTimeItem);
         [self.item.dateTimeItem reloadRowWithAnimation:UITableViewRowAnimationNone];
     }
 
