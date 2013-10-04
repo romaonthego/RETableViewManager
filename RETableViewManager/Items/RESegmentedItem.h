@@ -1,5 +1,5 @@
 //
-// RESegmentItem.h
+// RESegmentedItem.h
 // RETableViewManager
 //
 // Copyright (c) 2013 Dmitry Shmidt (https://github.com/shmidt)
@@ -26,23 +26,23 @@
 
 #import "RETableViewItem.h"
 
-@interface RESegmentItem : RETableViewItem
+@interface RESegmentedItem : RETableViewItem
 
 @property (assign, readwrite, nonatomic) NSInteger value;
 @property (copy, readwrite, nonatomic) NSArray *titles;
 @property (copy, readwrite, nonatomic) NSArray *images;
-@property (copy, readwrite, nonatomic) void (^switchValueChangeHandler)(RESegmentItem *item);
+@property (copy, readwrite, nonatomic) void (^switchValueChangeHandler)(RESegmentedItem *item);
 
-+ (instancetype)itemWithTitles:(NSArray *)titles value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentItem *item))switchValueChangeHandler;
++ (instancetype)itemWithTitles:(NSArray *)titles value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentedItem *item))switchValueChangeHandler;
 + (instancetype)itemWithTitles:(NSArray *)titles value:(NSInteger)value;
 
-- (id)initWithTitles:(NSArray *)titles value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentItem *item))switchValueChangeHandler;
+- (id)initWithTitles:(NSArray *)titles value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentedItem *item))switchValueChangeHandler;
 - (id)initWithTitles:(NSArray *)titles value:(NSInteger)value;
 
-+ (instancetype)itemWithImages:(NSArray *)images value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentItem *item))switchValueChangeHandler;
++ (instancetype)itemWithImages:(NSArray *)images value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentedItem *item))switchValueChangeHandler;
 + (instancetype)itemWithImages:(NSArray *)images value:(NSInteger)value;
 
-- (id)initWithImages:(NSArray *)images value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentItem *item))switchValueChangeHandler;
+- (id)initWithImages:(NSArray *)images value:(NSInteger)value switchValueChangeHandler:(void(^)(RESegmentedItem *item))switchValueChangeHandler;
 - (id)initWithImages:(NSArray *)images value:(NSInteger)value;
 
 @end

@@ -1,5 +1,5 @@
 //
-// RETableViewSegmentCell.m
+// RETableViewSegmentedCell.m
 // RETableViewManager
 //
 // Copyright (c) 2013 Dmitry Shmidt (https://github.com/shmidt)
@@ -24,16 +24,16 @@
 // THE SOFTWARE.
 //
 
-#import "RETableViewSegmentCell.h"
+#import "RETableViewSegmentedCell.h"
 #import "RETableViewManager.h"
 
-@interface RETableViewSegmentCell ()
+@interface RETableViewSegmentedCell ()
 
 @property (strong, readwrite, nonatomic) UISegmentedControl *segmentedControl;
 
 @end
 
-@implementation RETableViewSegmentCell
+@implementation RETableViewSegmentedCell
 
 #pragma mark -
 #pragma mark Lifecycle

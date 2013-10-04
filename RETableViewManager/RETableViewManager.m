@@ -97,7 +97,7 @@
     self[@"RECreditCardItem"] = @"RETableViewCreditCardCell";
     self[@"REMultipleChoiceItem"] = @"RETableViewOptionCell";
     self[@"REPickerItem"] = @"RETableViewPickerCell";
-    self[@"RESegmentItem"] = @"RETableViewSegmentCell";
+    self[@"RESegmentedItem"] = @"RETableViewSegmentedCell";
 }
 
 - (void)registerClass:(NSString *)objectClass forCellWithReuseIdentifier:(NSString *)identifier

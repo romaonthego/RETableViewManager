@@ -66,8 +66,8 @@
 		30DB067A16E934AD006C9530 /* RETableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB066916E934AD006C9530 /* RETableViewSection.m */; };
 		30DBFA9117FC827D0099ACA5 /* REPickerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DBFA9017FC827D0099ACA5 /* REPickerItem.m */; };
 		30DBFA9417FC84380099ACA5 /* RETableViewPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DBFA9317FC84380099ACA5 /* RETableViewPickerCell.m */; };
-		30DBFA9717FCB71B0099ACA5 /* RESegmentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DBFA9617FCB71B0099ACA5 /* RESegmentItem.m */; };
-		30DBFA9A17FCB7230099ACA5 /* RETableViewSegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DBFA9917FCB7230099ACA5 /* RETableViewSegmentCell.m */; };
+		30DBFA9717FCB71B0099ACA5 /* RESegmentedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DBFA9617FCB71B0099ACA5 /* RESegmentedItem.m */; };
+		30DBFA9A17FCB7230099ACA5 /* RETableViewSegmentedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DBFA9917FCB7230099ACA5 /* RETableViewSegmentedCell.m */; };
 		30E16A48171A103400F7C258 /* EditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E16A47171A103300F7C258 /* EditingViewController.m */; };
 		30E5F50C17BBD163005CF1FE /* IndexedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E5F50B17BBD163005CF1FE /* IndexedListViewController.m */; };
 		30EF93B316E039B800B84981 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EF93B216E039B800B84981 /* UIKit.framework */; };
@@ -193,10 +193,10 @@
 		30DBFA9017FC827D0099ACA5 /* REPickerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REPickerItem.m; sourceTree = "<group>"; };
 		30DBFA9217FC84380099ACA5 /* RETableViewPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewPickerCell.h; sourceTree = "<group>"; };
 		30DBFA9317FC84380099ACA5 /* RETableViewPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewPickerCell.m; sourceTree = "<group>"; };
-		30DBFA9517FCB71B0099ACA5 /* RESegmentItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESegmentItem.h; sourceTree = "<group>"; };
-		30DBFA9617FCB71B0099ACA5 /* RESegmentItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESegmentItem.m; sourceTree = "<group>"; };
-		30DBFA9817FCB7230099ACA5 /* RETableViewSegmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewSegmentCell.h; sourceTree = "<group>"; };
-		30DBFA9917FCB7230099ACA5 /* RETableViewSegmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewSegmentCell.m; sourceTree = "<group>"; };
+		30DBFA9517FCB71B0099ACA5 /* RESegmentedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESegmentedItem.h; sourceTree = "<group>"; };
+		30DBFA9617FCB71B0099ACA5 /* RESegmentedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESegmentedItem.m; sourceTree = "<group>"; };
+		30DBFA9817FCB7230099ACA5 /* RETableViewSegmentedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewSegmentedCell.h; sourceTree = "<group>"; };
+		30DBFA9917FCB7230099ACA5 /* RETableViewSegmentedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewSegmentedCell.m; sourceTree = "<group>"; };
 		30E16A46171A103300F7C258 /* EditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditingViewController.h; sourceTree = "<group>"; };
 		30E16A47171A103300F7C258 /* EditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditingViewController.m; sourceTree = "<group>"; };
 		30E5F50A17BBD163005CF1FE /* IndexedListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexedListViewController.h; sourceTree = "<group>"; };
@@ -366,8 +366,8 @@
 		30DB064716E934AD006C9530 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				30DBFA9817FCB7230099ACA5 /* RETableViewSegmentCell.h */,
-				30DBFA9917FCB7230099ACA5 /* RETableViewSegmentCell.m */,
+				30DBFA9817FCB7230099ACA5 /* RETableViewSegmentedCell.h */,
+				30DBFA9917FCB7230099ACA5 /* RETableViewSegmentedCell.m */,
 				30DB064816E934AD006C9530 /* RETableViewBoolCell.h */,
 				30DB064916E934AD006C9530 /* RETableViewBoolCell.m */,
 				30DB064A16E934AD006C9530 /* RETableViewCreditCardCell.h */,
@@ -393,8 +393,8 @@
 		30DB065216E934AD006C9530 /* Items */ = {
 			isa = PBXGroup;
 			children = (
-				30DBFA9517FCB71B0099ACA5 /* RESegmentItem.h */,
-				30DBFA9617FCB71B0099ACA5 /* RESegmentItem.m */,
+				30DBFA9517FCB71B0099ACA5 /* RESegmentedItem.h */,
+				30DBFA9617FCB71B0099ACA5 /* RESegmentedItem.m */,
 				30DB065316E934AD006C9530 /* REBoolItem.h */,
 				30DB065416E934AD006C9530 /* REBoolItem.m */,
 				30DB065516E934AD006C9530 /* RECreditCardItem.h */,
@@ -620,12 +620,12 @@
 				30EF93BF16E039B800B84981 /* main.m in Sources */,
 				30EF93C316E039B800B84981 /* AppDelegate.m in Sources */,
 				30DB066A16E934AD006C9530 /* RETableViewBoolCell.m in Sources */,
-				30DBFA9717FCB71B0099ACA5 /* RESegmentItem.m in Sources */,
+				30DBFA9717FCB71B0099ACA5 /* RESegmentedItem.m in Sources */,
 				30DB066B16E934AD006C9530 /* RETableViewCreditCardCell.m in Sources */,
 				30DB066E16E934AD006C9530 /* RETableViewTextCell.m in Sources */,
 				30DB066F16E934AD006C9530 /* REBoolItem.m in Sources */,
 				30BB805817E0D8A400AD0861 /* MultilineTextCell.m in Sources */,
-				30DBFA9A17FCB7230099ACA5 /* RETableViewSegmentCell.m in Sources */,
+				30DBFA9A17FCB7230099ACA5 /* RETableViewSegmentedCell.m in Sources */,
 				30DB067016E934AD006C9530 /* RECreditCardItem.m in Sources */,
 				30DB067116E934AD006C9530 /* RENumberItem.m in Sources */,
 				30DB067316E934AD006C9530 /* RETextItem.m in Sources */,

@@ -30,8 +30,8 @@
 @property (strong, readwrite, nonatomic) RELongTextItem *longTextItem;
 @property (strong, readwrite, nonatomic) RECreditCardItem *creditCardItem;
 @property (strong, readwrite, nonatomic) REPickerItem *pickerItem;
-@property (strong, readwrite, nonatomic) RESegmentItem *segmentItem;
-@property (strong, readwrite, nonatomic) RESegmentItem *segmentItem2;
+@property (strong, readwrite, nonatomic) RESegmentedItem *segmentItem;
+@property (strong, readwrite, nonatomic) RESegmentedItem *segmentItem2;
 
 @end
 
@@ -97,10 +97,10 @@
     self.boolItem = [REBoolItem itemWithTitle:@"Bool item" value:YES switchValueChangeHandler:^(REBoolItem *item) {
         NSLog(@"Value: %@", item.value ? @"YES" : @"NO");
     }];
-    self.segmentItem = [RESegmentItem itemWithTitles:@[@"One", @"Two"] value:1 switchValueChangeHandler:^(RESegmentItem *item) {
+    self.segmentItem = [RESegmentedItem itemWithTitles:@[@"One", @"Two"] value:1 switchValueChangeHandler:^(RESegmentedItem *item) {
         NSLog(@"Value: %i", item.value);
     }];
-    self.segmentItem2 = [RESegmentItem itemWithImages:@[[UIImage imageNamed:@"Heart"], [UIImage imageNamed:@"Heart_Highlighted"]] value:0 switchValueChangeHandler:^(RESegmentItem *item) {
+    self.segmentItem2 = [RESegmentedItem itemWithImages:@[[UIImage imageNamed:@"Heart"], [UIImage imageNamed:@"Heart_Highlighted"]] value:0 switchValueChangeHandler:^(RESegmentedItem *item) {
         NSLog(@"Value: %i", item.value);
     }];
     self.floatItem = [REFloatItem itemWithTitle:@"Float item" value:0.3 sliderValueChangeHandler:^(REFloatItem *item) {
