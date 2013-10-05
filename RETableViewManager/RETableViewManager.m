@@ -99,6 +99,7 @@
     self[@"REPickerItem"] = @"RETableViewPickerCell";
     self[@"RESegmentedItem"] = @"RETableViewSegmentedCell";
     self[@"REInlineDatePickerItem"] = @"RETableViewInlineDatePickerCell";
+    self[@"REInlinePickerItem"] = @"RETableViewInlinePickerCell";
 }
 
 - (void)registerClass:(NSString *)objectClass forCellWithReuseIdentifier:(NSString *)identifier

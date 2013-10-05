@@ -90,6 +90,10 @@
     if (!self.item.title) {
         self.valueLabel.textAlignment = NSTextAlignmentLeft;
     }
+    
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
+    self.valueLabel.textColor = self.item.inlinePickerItem ? self.tintColor : self.detailTextLabel.textColor;
+#endif
 }
 
 - (void)layoutSubviews
@@ -108,12 +112,34 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-    if (selected) {
+    
+    if (selected && !self.item.inlineDatePicker) {
         [self.textField becomeFirstResponder];
         [self.item.options enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             if ([self.item.options objectAtIndex:idx] && [self.item.value objectAtIndex:idx] > 0)
                 [self.pickerView selectRow:[[self.item.options objectAtIndex:idx] indexOfObject:[self.item.value objectAtIndex:idx]] inComponent:idx animated:NO];
         }];
+    }
+    
+    if (selected && self.item.inlineDatePicker && !self.item.inlinePickerItem) {
+        [self setSelected:NO animated:NO];
+        [self.item deselectRowAnimated:NO];
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
+        self.valueLabel.textColor = self.tintColor;
+#endif
+        self.item.inlinePickerItem = [REInlinePickerItem itemWithPickerItem:self.item];
+        [self.section insertItem:self.item.inlinePickerItem atIndex:self.item.indexPath.row + 1];
+        [self.tableViewManager.tableView insertRowsAtIndexPaths:@[self.item.inlinePickerItem.indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+    } else {
+        if (selected && self.item.inlineDatePicker && self.item.inlinePickerItem) {
+            [self setSelected:NO animated:NO];
+            [self.item deselectRowAnimated:NO];
+            self.valueLabel.textColor = self.detailTextLabel.textColor;
+            NSIndexPath *indexPath = [self.item.inlinePickerItem.indexPath copy];
+            [self.section removeItemAtIndex:self.item.inlinePickerItem.indexPath.row];
+            self.item.inlinePickerItem = nil;
+            [self.tableViewManager.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+        }
     }
 }
 

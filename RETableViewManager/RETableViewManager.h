@@ -50,6 +50,7 @@
 #import "REPickerItem.h"
 #import "RESegmentedItem.h"
 #import "REInlineDatePickerItem.h"
+#import "REInlinePickerItem.h"
 
 @protocol RETableViewManagerDelegate;
 

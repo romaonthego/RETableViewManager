@@ -24,12 +24,15 @@
 //
 
 #import "RETableViewItem.h"
+#import "REInlinePickerItem.h"
 
 @interface REPickerItem : RETableViewItem
 
 @property (strong, readwrite, nonatomic) NSArray *options;
 @property (strong, readwrite, nonatomic) NSArray *value;
 @property (copy, readwrite, nonatomic) NSString *placeholder;
+@property (assign, readwrite, nonatomic) BOOL inlineDatePicker;
+@property (strong, readwrite, nonatomic) REInlinePickerItem *inlinePickerItem;
 
 + (instancetype)itemWithTitle:(NSString *)title value:(NSArray *)value placeholder:(NSString *)placeholder options:(NSArray *)options;
 - (id)initWithTitle:(NSString *)title value:(NSArray *)value placeholder:(NSString *)placeholder options:(NSArray *)options;

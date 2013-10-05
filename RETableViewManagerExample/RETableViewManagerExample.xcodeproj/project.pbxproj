@@ -42,6 +42,8 @@
 		30939CF417949A10004D95A9 /* userpic6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30939CE817949A10004D95A9 /* userpic6.jpg */; };
 		30B00D7A17C667A90010D439 /* ValidationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B00D7917C667A90010D439 /* ValidationsViewController.m */; };
 		30B35CEF17E54B670082CE0E /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B35CEE17E54B670082CE0E /* RECommonFunctions.m */; };
+		30B9914B18007035007C8913 /* RETableViewInlinePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B9914A18007035007C8913 /* RETableViewInlinePickerCell.m */; };
+		30B9914E18007045007C8913 /* REInlinePickerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B9914D18007045007C8913 /* REInlinePickerItem.m */; };
 		30BB805817E0D8A400AD0861 /* MultilineTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BB805717E0D8A400AD0861 /* MultilineTextCell.m */; };
 		30BB805B17E0D8C300AD0861 /* XIBTestItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BB805A17E0D8C300AD0861 /* XIBTestItem.m */; };
 		30BB805E17E0D8E700AD0861 /* MultilineTextItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BB805D17E0D8E700AD0861 /* MultilineTextItem.m */; };
@@ -152,6 +154,10 @@
 		30B00D7917C667A90010D439 /* ValidationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidationsViewController.m; sourceTree = "<group>"; };
 		30B35CED17E54AE30082CE0E /* RECommonFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
 		30B35CEE17E54B670082CE0E /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		30B9914918007035007C8913 /* RETableViewInlinePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewInlinePickerCell.h; sourceTree = "<group>"; };
+		30B9914A18007035007C8913 /* RETableViewInlinePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewInlinePickerCell.m; sourceTree = "<group>"; };
+		30B9914C18007045007C8913 /* REInlinePickerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REInlinePickerItem.h; sourceTree = "<group>"; };
+		30B9914D18007045007C8913 /* REInlinePickerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REInlinePickerItem.m; sourceTree = "<group>"; };
 		30BB805617E0D8A400AD0861 /* MultilineTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultilineTextCell.h; sourceTree = "<group>"; };
 		30BB805717E0D8A400AD0861 /* MultilineTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultilineTextCell.m; sourceTree = "<group>"; };
 		30BB805917E0D8C300AD0861 /* XIBTestItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XIBTestItem.h; sourceTree = "<group>"; };
@@ -394,6 +400,8 @@
 				30DBFA9317FC84380099ACA5 /* RETableViewPickerCell.m */,
 				3014617717FF1F6F000590A7 /* RETableViewInlineDatePickerCell.h */,
 				3014617817FF1F6F000590A7 /* RETableViewInlineDatePickerCell.m */,
+				30B9914918007035007C8913 /* RETableViewInlinePickerCell.h */,
+				30B9914A18007035007C8913 /* RETableViewInlinePickerCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -425,6 +433,8 @@
 				30DBFA9017FC827D0099ACA5 /* REPickerItem.m */,
 				3014617A17FF1F8B000590A7 /* REInlineDatePickerItem.h */,
 				3014617B17FF1F8B000590A7 /* REInlineDatePickerItem.m */,
+				30B9914C18007045007C8913 /* REInlinePickerItem.h */,
+				30B9914D18007045007C8913 /* REInlinePickerItem.m */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -669,11 +679,13 @@
 				30D208641718FFDE00144E46 /* REMultipleChoiceItem.m in Sources */,
 				30E16A48171A103400F7C258 /* EditingViewController.m in Sources */,
 				30D74554174EB4CA00D4C7C1 /* RETableViewOptionCell.m in Sources */,
+				30B9914E18007045007C8913 /* REInlinePickerItem.m in Sources */,
 				3008EB1C17ECEB8B005D36D9 /* NSString+RETableViewManagerAdditions.m in Sources */,
 				30D9566C175E3C0200AB977E /* RetractableViewController.m in Sources */,
 				30FE4147176A306600F317B8 /* StylingViewController.m in Sources */,
 				303D966B17B7CCF800A418F3 /* XIBTestCell.m in Sources */,
 				303D967217B7CDE300A418F3 /* XIBTestViewController.m in Sources */,
+				30B9914B18007035007C8913 /* RETableViewInlinePickerCell.m in Sources */,
 				30E5F50C17BBD163005CF1FE /* IndexedListViewController.m in Sources */,
 				30BB805B17E0D8C300AD0861 /* XIBTestItem.m in Sources */,
 				30B00D7A17C667A90010D439 /* ValidationsViewController.m in Sources */,
