@@ -38,9 +38,9 @@
 
 @implementation RETableViewPickerCell
 
-+ (BOOL)canFocusWithItem:(RETableViewItem *)item
++ (BOOL)canFocusWithItem:(REPickerItem *)item
 {
-    return YES;
+    return !item.inlinePicker;
 }
 
 #pragma mark -
@@ -113,7 +113,7 @@
 {
     [super setSelected:selected animated:animated];
     
-    if (selected && !self.item.inlineDatePicker) {
+    if (selected && !self.item.inlinePicker) {
         [self.textField becomeFirstResponder];
         [self.item.options enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             if ([self.item.options objectAtIndex:idx] && [self.item.value objectAtIndex:idx] > 0)
@@ -121,7 +121,7 @@
         }];
     }
     
-    if (selected && self.item.inlineDatePicker && !self.item.inlinePickerItem) {
+    if (selected && self.item.inlinePicker && !self.item.inlinePickerItem) {
         [self setSelected:NO animated:NO];
         [self.item deselectRowAnimated:NO];
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
@@ -131,7 +131,7 @@
         [self.section insertItem:self.item.inlinePickerItem atIndex:self.item.indexPath.row + 1];
         [self.tableViewManager.tableView insertRowsAtIndexPaths:@[self.item.inlinePickerItem.indexPath] withRowAnimation:UITableViewRowAnimationBottom];
     } else {
-        if (selected && self.item.inlineDatePicker && self.item.inlinePickerItem) {
+        if (selected && self.item.inlinePicker && self.item.inlinePickerItem) {
             [self setSelected:NO animated:NO];
             [self.item deselectRowAnimated:NO];
             self.valueLabel.textColor = self.detailTextLabel.textColor;

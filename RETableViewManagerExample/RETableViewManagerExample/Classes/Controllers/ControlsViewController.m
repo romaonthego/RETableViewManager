@@ -123,7 +123,7 @@
     // Use inline picker in iOS 7
     //
     if (REUIKitIsFlatMode()) {
-        self.pickerItem.inlineDatePicker = YES;
+        self.pickerItem.inlinePicker = YES;
     }
     
     self.radioItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" selectionHandler:^(RERadioItem *item) {

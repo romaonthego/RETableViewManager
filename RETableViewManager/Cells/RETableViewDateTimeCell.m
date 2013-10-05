@@ -38,9 +38,9 @@
 
 @implementation RETableViewDateTimeCell
 
-+ (BOOL)canFocusWithItem:(RETableViewItem *)item
++ (BOOL)canFocusWithItem:(REDateTimeItem *)item
 {
-    return YES;
+    return !item.inlineDatePicker;
 }
 
 #pragma mark -
