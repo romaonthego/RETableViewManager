@@ -33,6 +33,7 @@
 @property (copy, readwrite, nonatomic) NSString *placeholder;
 @property (assign, readwrite, nonatomic) BOOL inlinePicker;
 @property (strong, readwrite, nonatomic) REInlinePickerItem *inlinePickerItem;
+@property (copy, readwrite, nonatomic) void (^onChange)(REPickerItem *item);
 
 + (instancetype)itemWithTitle:(NSString *)title value:(NSArray *)value placeholder:(NSString *)placeholder options:(NSArray *)options;
 - (id)initWithTitle:(NSString *)title value:(NSArray *)value placeholder:(NSString *)placeholder options:(NSArray *)options;

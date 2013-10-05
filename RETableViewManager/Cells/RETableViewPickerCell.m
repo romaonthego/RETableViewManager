@@ -213,6 +213,8 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     [self shouldUpdateItemValue];
+    if (self.item.onChange)
+        self.item.onChange(self.item);
 }
 
 @end
