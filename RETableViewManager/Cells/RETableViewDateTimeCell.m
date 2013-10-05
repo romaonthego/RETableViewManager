@@ -131,16 +131,7 @@
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
         self.dateLabel.textColor = self.tintColor;
 #endif
-        self.item.inlinePickerItem = [REInlineDatePickerItem itemWithDatePickerMode:self.item.datePickerMode];
-        self.item.inlinePickerItem.locale = self.item.locale;
-        self.item.inlinePickerItem.calendar = self.item.calendar;
-        self.item.inlinePickerItem.timeZone = self.item.timeZone;
-        
-        self.item.inlinePickerItem.minimumDate = self.item.minimumDate;
-        self.item.inlinePickerItem.maximumDate = self.item.maximumDate;
-        self.item.inlinePickerItem.minuteInterval = self.item.minuteInterval;
-        
-        self.item.inlinePickerItem.dateTimeItem = self.item;
+        self.item.inlinePickerItem = [REInlineDatePickerItem itemWithDateTimeItem:self.item];
         [self.section insertItem:self.item.inlinePickerItem atIndex:self.item.indexPath.row + 1];
         [self.tableViewManager.tableView insertRowsAtIndexPaths:@[self.item.inlinePickerItem.indexPath] withRowAnimation:UITableViewRowAnimationBottom];
     } else {

@@ -34,14 +34,14 @@
 {
     [super cellWillAppear];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.datePicker.date = self.item.value ? self.item.value : [NSDate date];
-    self.datePicker.datePickerMode = self.item.datePickerMode;
-    self.datePicker.locale = self.item.locale;
-    self.datePicker.calendar = self.item.calendar;
-    self.datePicker.timeZone = self.item.timeZone;
-    self.datePicker.minimumDate = self.item.minimumDate;
-    self.datePicker.maximumDate = self.item.maximumDate;
-    self.datePicker.minuteInterval = self.item.minuteInterval;
+    self.datePicker.date = self.item.dateTimeItem.value ? self.item.dateTimeItem.value : [NSDate date];
+    self.datePicker.datePickerMode = self.item.dateTimeItem.datePickerMode;
+    self.datePicker.locale = self.item.dateTimeItem.locale;
+    self.datePicker.calendar = self.item.dateTimeItem.calendar;
+    self.datePicker.timeZone = self.item.dateTimeItem.timeZone;
+    self.datePicker.minimumDate = self.item.dateTimeItem.minimumDate;
+    self.datePicker.maximumDate = self.item.dateTimeItem.maximumDate;
+    self.datePicker.minuteInterval = self.item.dateTimeItem.minuteInterval;
 }
 
 #pragma mark -
@@ -49,16 +49,13 @@
 
 - (void)datePickerValueDidChange:(UIDatePicker *)datePicker
 {
-    self.item.value = self.datePicker.date;
+    self.item.dateTimeItem.value = self.datePicker.date;
     if (self.item.dateTimeItem) {
         self.item.dateTimeItem.value = self.datePicker.date;
         if (self.item.dateTimeItem.onChange)
             self.item.dateTimeItem.onChange(self.item.dateTimeItem);
         [self.item.dateTimeItem reloadRowWithAnimation:UITableViewRowAnimationNone];
     }
-
-    if (self.item.onChange)
-        self.item.onChange(self.item);
 }
 
 @end

@@ -10,18 +10,18 @@
 
 @implementation REInlineDatePickerItem
 
-+ (instancetype)itemWithDatePickerMode:(UIDatePickerMode)datePickerMode
++ (instancetype)itemWithDateTimeItem:(REDateTimeItem *)dateTimeItem
 {
-    return [[self alloc] initWithDatePickerMode:datePickerMode];
+    return [[self alloc] initWithDateTimeItem:dateTimeItem];
 }
 
-- (id)initWithDatePickerMode:(UIDatePickerMode)datePickerMode
+- (id)initWithDateTimeItem:(REDateTimeItem *)dateTimeItem
 {
     self = [super init];
     if (!self)
         return nil;
     
-    _datePickerMode = datePickerMode;
+    _dateTimeItem = dateTimeItem;
     
     return self;
 }
