@@ -30,8 +30,8 @@
 @property (strong, readwrite, nonatomic) RELongTextItem *longTextItem;
 @property (strong, readwrite, nonatomic) RECreditCardItem *creditCardItem;
 @property (strong, readwrite, nonatomic) REPickerItem *pickerItem;
-@property (strong, readwrite, nonatomic) RESegmentItem *segmentItem;
-@property (strong, readwrite, nonatomic) RESegmentItem *segmentItem2;
+@property (strong, readwrite, nonatomic) RESegmentedItem *segmentItem;
+@property (strong, readwrite, nonatomic) RESegmentedItem *segmentItem2;
 
 @end
 
@@ -87,7 +87,7 @@
     [section addItem:@"Simple NSString"];
     
     self.fullLengthFieldItem = [RETextItem itemWithTitle:nil value:nil placeholder:@"Full length text field"];    
-    self.textItem = [RETextItem itemWithTitle:@"Text item" value:nil placeholder:@"Text"];
+    self.textItem = [RETextItem itemWithTitle:@"Text item 123123" value:nil placeholder:@"Text"];
     self.numberItem = [RENumberItem itemWithTitle:@"Phone" value:@"" placeholder:@"(123) 456-7890" format:@"(XXX) XXX-XXXX"];
     self.numberItem.onEndEditing = ^(RENumberItem *item){
         NSLog(@"Value: %@", item.value);
@@ -97,12 +97,13 @@
     self.boolItem = [REBoolItem itemWithTitle:@"Bool item" value:YES switchValueChangeHandler:^(REBoolItem *item) {
         NSLog(@"Value: %@", item.value ? @"YES" : @"NO");
     }];
-    self.segmentItem = [RESegmentItem itemWithTitles:@[@"One", @"Two"] value:1 switchValueChangeHandler:^(RESegmentItem *item) {
+    self.segmentItem = [RESegmentedItem itemWithTitle:@"Segmented" segmentedControlTitles:@[@"One", @"Two"] value:1 switchValueChangeHandler:^(RESegmentedItem *item) {
         NSLog(@"Value: %i", item.value);
     }];
-    self.segmentItem2 = [RESegmentItem itemWithImages:@[[UIImage imageNamed:@"Heart"], [UIImage imageNamed:@"Heart_Highlighted"]] value:0 switchValueChangeHandler:^(RESegmentItem *item) {
+    self.segmentItem2 = [RESegmentedItem itemWithTitle:nil segmentedControlImages:@[[UIImage imageNamed:@"Heart"], [UIImage imageNamed:@"Heart_Highlighted"]] value:0 switchValueChangeHandler:^(RESegmentedItem *item) {
         NSLog(@"Value: %i", item.value);
     }];
+    self.segmentItem2.tintColor = [UIColor orangeColor];
     self.floatItem = [REFloatItem itemWithTitle:@"Float item" value:0.3 sliderValueChangeHandler:^(REFloatItem *item) {
         NSLog(@"Value: %f", item.value);
     }];
@@ -110,7 +111,24 @@
     self.dateTimeItem.onChange = ^(REDateTimeItem *item){
         NSLog(@"Value: %@", item.value.description);
     };
+    
+    // Use inline date picker in iOS 7
+    //
+    if (REUIKitIsFlatMode()) {
+        self.dateTimeItem.inlineDatePicker = YES;
+    }
+    
     self.pickerItem = [REPickerItem itemWithTitle:@"Picker" value:@[@"Item 12", @"Item 23"] placeholder:nil options:@[@[@"Item 11", @"Item 12", @"Item 13"], @[@"Item 21", @"Item 22", @"Item 23", @"Item 24"]]];
+    self.pickerItem.onChange = ^(REPickerItem *item){
+        NSLog(@"Value: %@", item.value);
+    };
+    
+    // Use inline picker in iOS 7
+    //
+    if (REUIKitIsFlatMode()) {
+        self.pickerItem.inlinePicker = YES;
+    }
+    
     self.radioItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" selectionHandler:^(RERadioItem *item) {
         [item deselectRowAnimated:YES]; // same as [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
         

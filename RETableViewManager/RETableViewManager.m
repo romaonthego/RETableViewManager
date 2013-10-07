@@ -97,7 +97,9 @@
     self[@"RECreditCardItem"] = @"RETableViewCreditCardCell";
     self[@"REMultipleChoiceItem"] = @"RETableViewOptionCell";
     self[@"REPickerItem"] = @"RETableViewPickerCell";
-    self[@"RESegmentItem"] = @"RETableViewSegmentCell";
+    self[@"RESegmentedItem"] = @"RETableViewSegmentedCell";
+    self[@"REInlineDatePickerItem"] = @"RETableViewInlineDatePickerCell";
+    self[@"REInlinePickerItem"] = @"RETableViewInlinePickerCell";
 }
 
 - (void)registerClass:(NSString *)objectClass forCellWithReuseIdentifier:(NSString *)identifier

@@ -25,6 +25,7 @@
 
 #import "RETableViewTextCell.h"
 #import "REDateTimeItem.h"
+#import "REInlineDatePickerItem.h"
 
 @interface RETableViewDateTimeCell : RETableViewCell <UITextFieldDelegate>
 

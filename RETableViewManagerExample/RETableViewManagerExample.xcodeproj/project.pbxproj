@@ -15,6 +15,8 @@
 		300E5A2F170F63B600910013 /* RETableViewDateTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 300E5A2E170F63B600910013 /* RETableViewDateTimeCell.m */; };
 		300E5B3F17170AE100910013 /* RELongTextItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 300E5B3E17170AE100910013 /* RELongTextItem.m */; };
 		300E5B4217170B0200910013 /* RETableViewLongTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 300E5B4117170B0100910013 /* RETableViewLongTextCell.m */; };
+		3014617917FF1F6F000590A7 /* RETableViewInlineDatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3014617817FF1F6F000590A7 /* RETableViewInlineDatePickerCell.m */; };
+		3014617C17FF1F8B000590A7 /* REInlineDatePickerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3014617B17FF1F8B000590A7 /* REInlineDatePickerItem.m */; };
 		302D2150170B25B10085654F /* ControlsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D214A170B25B10085654F /* ControlsViewController.m */; };
 		302D2151170B25B10085654F /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D214C170B25B10085654F /* ListViewController.m */; };
 		302D2152170B25B10085654F /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D214E170B25B10085654F /* RootViewController.m */; };
@@ -40,6 +42,8 @@
 		30939CF417949A10004D95A9 /* userpic6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30939CE817949A10004D95A9 /* userpic6.jpg */; };
 		30B00D7A17C667A90010D439 /* ValidationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B00D7917C667A90010D439 /* ValidationsViewController.m */; };
 		30B35CEF17E54B670082CE0E /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B35CEE17E54B670082CE0E /* RECommonFunctions.m */; };
+		30B9914B18007035007C8913 /* RETableViewInlinePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B9914A18007035007C8913 /* RETableViewInlinePickerCell.m */; };
+		30B9914E18007045007C8913 /* REInlinePickerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B9914D18007045007C8913 /* REInlinePickerItem.m */; };
 		30BB805817E0D8A400AD0861 /* MultilineTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BB805717E0D8A400AD0861 /* MultilineTextCell.m */; };
 		30BB805B17E0D8C300AD0861 /* XIBTestItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BB805A17E0D8C300AD0861 /* XIBTestItem.m */; };
 		30BB805E17E0D8E700AD0861 /* MultilineTextItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BB805D17E0D8E700AD0861 /* MultilineTextItem.m */; };
@@ -66,8 +70,8 @@
 		30DB067A16E934AD006C9530 /* RETableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB066916E934AD006C9530 /* RETableViewSection.m */; };
 		30DBFA9117FC827D0099ACA5 /* REPickerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DBFA9017FC827D0099ACA5 /* REPickerItem.m */; };
 		30DBFA9417FC84380099ACA5 /* RETableViewPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DBFA9317FC84380099ACA5 /* RETableViewPickerCell.m */; };
-		30DBFA9717FCB71B0099ACA5 /* RESegmentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DBFA9617FCB71B0099ACA5 /* RESegmentItem.m */; };
-		30DBFA9A17FCB7230099ACA5 /* RETableViewSegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DBFA9917FCB7230099ACA5 /* RETableViewSegmentCell.m */; };
+		30DBFA9717FCB71B0099ACA5 /* RESegmentedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DBFA9617FCB71B0099ACA5 /* RESegmentedItem.m */; };
+		30DBFA9A17FCB7230099ACA5 /* RETableViewSegmentedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DBFA9917FCB7230099ACA5 /* RETableViewSegmentedCell.m */; };
 		30E16A48171A103400F7C258 /* EditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E16A47171A103300F7C258 /* EditingViewController.m */; };
 		30E5F50C17BBD163005CF1FE /* IndexedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E5F50B17BBD163005CF1FE /* IndexedListViewController.m */; };
 		30EF93B316E039B800B84981 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EF93B216E039B800B84981 /* UIKit.framework */; };
@@ -111,6 +115,10 @@
 		300E5B3E17170AE100910013 /* RELongTextItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RELongTextItem.m; sourceTree = "<group>"; };
 		300E5B4017170B0100910013 /* RETableViewLongTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewLongTextCell.h; sourceTree = "<group>"; };
 		300E5B4117170B0100910013 /* RETableViewLongTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewLongTextCell.m; sourceTree = "<group>"; };
+		3014617717FF1F6F000590A7 /* RETableViewInlineDatePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewInlineDatePickerCell.h; sourceTree = "<group>"; };
+		3014617817FF1F6F000590A7 /* RETableViewInlineDatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewInlineDatePickerCell.m; sourceTree = "<group>"; };
+		3014617A17FF1F8B000590A7 /* REInlineDatePickerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REInlineDatePickerItem.h; sourceTree = "<group>"; };
+		3014617B17FF1F8B000590A7 /* REInlineDatePickerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REInlineDatePickerItem.m; sourceTree = "<group>"; };
 		302D2149170B25B10085654F /* ControlsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlsViewController.h; sourceTree = "<group>"; };
 		302D214A170B25B10085654F /* ControlsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlsViewController.m; sourceTree = "<group>"; };
 		302D214B170B25B10085654F /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
@@ -146,6 +154,10 @@
 		30B00D7917C667A90010D439 /* ValidationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidationsViewController.m; sourceTree = "<group>"; };
 		30B35CED17E54AE30082CE0E /* RECommonFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
 		30B35CEE17E54B670082CE0E /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		30B9914918007035007C8913 /* RETableViewInlinePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewInlinePickerCell.h; sourceTree = "<group>"; };
+		30B9914A18007035007C8913 /* RETableViewInlinePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewInlinePickerCell.m; sourceTree = "<group>"; };
+		30B9914C18007045007C8913 /* REInlinePickerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REInlinePickerItem.h; sourceTree = "<group>"; };
+		30B9914D18007045007C8913 /* REInlinePickerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REInlinePickerItem.m; sourceTree = "<group>"; };
 		30BB805617E0D8A400AD0861 /* MultilineTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultilineTextCell.h; sourceTree = "<group>"; };
 		30BB805717E0D8A400AD0861 /* MultilineTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultilineTextCell.m; sourceTree = "<group>"; };
 		30BB805917E0D8C300AD0861 /* XIBTestItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XIBTestItem.h; sourceTree = "<group>"; };
@@ -193,10 +205,10 @@
 		30DBFA9017FC827D0099ACA5 /* REPickerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REPickerItem.m; sourceTree = "<group>"; };
 		30DBFA9217FC84380099ACA5 /* RETableViewPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewPickerCell.h; sourceTree = "<group>"; };
 		30DBFA9317FC84380099ACA5 /* RETableViewPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewPickerCell.m; sourceTree = "<group>"; };
-		30DBFA9517FCB71B0099ACA5 /* RESegmentItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESegmentItem.h; sourceTree = "<group>"; };
-		30DBFA9617FCB71B0099ACA5 /* RESegmentItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESegmentItem.m; sourceTree = "<group>"; };
-		30DBFA9817FCB7230099ACA5 /* RETableViewSegmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewSegmentCell.h; sourceTree = "<group>"; };
-		30DBFA9917FCB7230099ACA5 /* RETableViewSegmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewSegmentCell.m; sourceTree = "<group>"; };
+		30DBFA9517FCB71B0099ACA5 /* RESegmentedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESegmentedItem.h; sourceTree = "<group>"; };
+		30DBFA9617FCB71B0099ACA5 /* RESegmentedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESegmentedItem.m; sourceTree = "<group>"; };
+		30DBFA9817FCB7230099ACA5 /* RETableViewSegmentedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewSegmentedCell.h; sourceTree = "<group>"; };
+		30DBFA9917FCB7230099ACA5 /* RETableViewSegmentedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewSegmentedCell.m; sourceTree = "<group>"; };
 		30E16A46171A103300F7C258 /* EditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditingViewController.h; sourceTree = "<group>"; };
 		30E16A47171A103300F7C258 /* EditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditingViewController.m; sourceTree = "<group>"; };
 		30E5F50A17BBD163005CF1FE /* IndexedListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexedListViewController.h; sourceTree = "<group>"; };
@@ -366,8 +378,8 @@
 		30DB064716E934AD006C9530 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				30DBFA9817FCB7230099ACA5 /* RETableViewSegmentCell.h */,
-				30DBFA9917FCB7230099ACA5 /* RETableViewSegmentCell.m */,
+				30DBFA9817FCB7230099ACA5 /* RETableViewSegmentedCell.h */,
+				30DBFA9917FCB7230099ACA5 /* RETableViewSegmentedCell.m */,
 				30DB064816E934AD006C9530 /* RETableViewBoolCell.h */,
 				30DB064916E934AD006C9530 /* RETableViewBoolCell.m */,
 				30DB064A16E934AD006C9530 /* RETableViewCreditCardCell.h */,
@@ -386,6 +398,10 @@
 				30D74553174EB4C900D4C7C1 /* RETableViewOptionCell.m */,
 				30DBFA9217FC84380099ACA5 /* RETableViewPickerCell.h */,
 				30DBFA9317FC84380099ACA5 /* RETableViewPickerCell.m */,
+				3014617717FF1F6F000590A7 /* RETableViewInlineDatePickerCell.h */,
+				3014617817FF1F6F000590A7 /* RETableViewInlineDatePickerCell.m */,
+				30B9914918007035007C8913 /* RETableViewInlinePickerCell.h */,
+				30B9914A18007035007C8913 /* RETableViewInlinePickerCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -393,8 +409,8 @@
 		30DB065216E934AD006C9530 /* Items */ = {
 			isa = PBXGroup;
 			children = (
-				30DBFA9517FCB71B0099ACA5 /* RESegmentItem.h */,
-				30DBFA9617FCB71B0099ACA5 /* RESegmentItem.m */,
+				30DBFA9517FCB71B0099ACA5 /* RESegmentedItem.h */,
+				30DBFA9617FCB71B0099ACA5 /* RESegmentedItem.m */,
 				30DB065316E934AD006C9530 /* REBoolItem.h */,
 				30DB065416E934AD006C9530 /* REBoolItem.m */,
 				30DB065516E934AD006C9530 /* RECreditCardItem.h */,
@@ -415,6 +431,10 @@
 				30D208631718FFDE00144E46 /* REMultipleChoiceItem.m */,
 				30DBFA8F17FC827D0099ACA5 /* REPickerItem.h */,
 				30DBFA9017FC827D0099ACA5 /* REPickerItem.m */,
+				3014617A17FF1F8B000590A7 /* REInlineDatePickerItem.h */,
+				3014617B17FF1F8B000590A7 /* REInlineDatePickerItem.m */,
+				30B9914C18007045007C8913 /* REInlinePickerItem.h */,
+				30B9914D18007045007C8913 /* REInlinePickerItem.m */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -620,18 +640,19 @@
 				30EF93BF16E039B800B84981 /* main.m in Sources */,
 				30EF93C316E039B800B84981 /* AppDelegate.m in Sources */,
 				30DB066A16E934AD006C9530 /* RETableViewBoolCell.m in Sources */,
-				30DBFA9717FCB71B0099ACA5 /* RESegmentItem.m in Sources */,
+				30DBFA9717FCB71B0099ACA5 /* RESegmentedItem.m in Sources */,
 				30DB066B16E934AD006C9530 /* RETableViewCreditCardCell.m in Sources */,
 				30DB066E16E934AD006C9530 /* RETableViewTextCell.m in Sources */,
 				30DB066F16E934AD006C9530 /* REBoolItem.m in Sources */,
 				30BB805817E0D8A400AD0861 /* MultilineTextCell.m in Sources */,
-				30DBFA9A17FCB7230099ACA5 /* RETableViewSegmentCell.m in Sources */,
+				30DBFA9A17FCB7230099ACA5 /* RETableViewSegmentedCell.m in Sources */,
 				30DB067016E934AD006C9530 /* RECreditCardItem.m in Sources */,
 				30DB067116E934AD006C9530 /* RENumberItem.m in Sources */,
 				30DB067316E934AD006C9530 /* RETextItem.m in Sources */,
 				30DB067416E934AD006C9530 /* REActionBar.m in Sources */,
 				30DB067516E934AD006C9530 /* RETableViewCell.m in Sources */,
 				30DB067616E934AD006C9530 /* RETableViewCellStyle.m in Sources */,
+				3014617917FF1F6F000590A7 /* RETableViewInlineDatePickerCell.m in Sources */,
 				30DB067716E934AD006C9530 /* RETableViewItem.m in Sources */,
 				30DB067916E934AD006C9530 /* RETableViewManager.m in Sources */,
 				30DB067A16E934AD006C9530 /* RETableViewSection.m in Sources */,
@@ -652,16 +673,19 @@
 				300E5B4217170B0200910013 /* RETableViewLongTextCell.m in Sources */,
 				30B35CEF17E54B670082CE0E /* RECommonFunctions.m in Sources */,
 				30DBFA9417FC84380099ACA5 /* RETableViewPickerCell.m in Sources */,
+				3014617C17FF1F8B000590A7 /* REInlineDatePickerItem.m in Sources */,
 				30BB805E17E0D8E700AD0861 /* MultilineTextItem.m in Sources */,
 				30082D1A17170EDD008B0DB5 /* REPlaceholderTextView.m in Sources */,
 				30D208641718FFDE00144E46 /* REMultipleChoiceItem.m in Sources */,
 				30E16A48171A103400F7C258 /* EditingViewController.m in Sources */,
 				30D74554174EB4CA00D4C7C1 /* RETableViewOptionCell.m in Sources */,
+				30B9914E18007045007C8913 /* REInlinePickerItem.m in Sources */,
 				3008EB1C17ECEB8B005D36D9 /* NSString+RETableViewManagerAdditions.m in Sources */,
 				30D9566C175E3C0200AB977E /* RetractableViewController.m in Sources */,
 				30FE4147176A306600F317B8 /* StylingViewController.m in Sources */,
 				303D966B17B7CCF800A418F3 /* XIBTestCell.m in Sources */,
 				303D967217B7CDE300A418F3 /* XIBTestViewController.m in Sources */,
+				30B9914B18007035007C8913 /* RETableViewInlinePickerCell.m in Sources */,
 				30E5F50C17BBD163005CF1FE /* IndexedListViewController.m in Sources */,
 				30BB805B17E0D8C300AD0861 /* XIBTestItem.m in Sources */,
 				30B00D7A17C667A90010D439 /* ValidationsViewController.m in Sources */,

@@ -306,7 +306,7 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
 {
     if (textField == self.expirationDateField) {
         if (range.location == 1) {
-            NSInteger month = [NSString stringWithFormat:@"%@%@", self.expirationDateField.text, string].integerValue;
+            NSInteger month = [[NSString stringWithFormat:@"%@%@", self.expirationDateField.text, string] integerValue];
             if (month > 12) {
                 return NO;
             }

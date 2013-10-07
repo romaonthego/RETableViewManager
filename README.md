@@ -78,7 +78,7 @@ Build and run the `RETableViewManagerExample.xcworkspace` in Xcode to see `RETab
 ### CocoaPods
 
 The recommended approach for installating `RETableViewManager` is via the [CocoaPods](http://cocoapods.org/) package manager, as it provides flexible dependency management and dead simple installation.
-For best results, it is recommended that you install via CocoaPods >= **0.23.0** using Git >= **1.8.0** installed via Homebrew.
+For best results, it is recommended that you install via CocoaPods >= **0.25.0** using Git >= **1.8.0** installed via Homebrew.
 
 Install CocoaPods if not already available:
 
@@ -99,7 +99,7 @@ Edit your Podfile and add RETableViewManager:
 
 ``` bash
 platform :ios, '6.0'
-pod 'RETableViewManager', '~> 1.3.3'
+pod 'RETableViewManager', '~> 1.4'
 ```
 
 Install into your Xcode project:
@@ -208,7 +208,12 @@ Please note that if your installation fails, it may be because you are installin
   <tr>
     <td>REPickerItem</td>
     <td>RETableViewPickerCell</td>
-    <td>Provides convenience for selecting multiple options using <tt>UIPickerView</tt></td>
+    <td>Provides convenience for selecting multiple options using <tt>UIPickerView</tt>.</td>
+  </tr>
+  <tr>
+    <td>RESegmentedItem</td>
+    <td>RETableViewSegmentedCell</td>
+    <td>Provides convenience for working with <tt>UISegmentedControl</tt>.</td>
   </tr>
   <tr>
     <td>RECreditCardItem</td>
@@ -367,6 +372,42 @@ RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"
 // Add a date item
 //
 [section addItem:[REDateTimeItem itemWithTitle:@"Date / Time" value:[NSDate date] placeholder:nil format:@"MM/dd/yyyy hh:mm a" datePickerMode:UIDatePickerModeDateAndTime]];
+```
+
+### Picker Item Example
+
+``` objective-c
+// Create the manager
+//
+self.manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
+
+// Add a section
+//
+RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"];
+[self.manager addSection:section];
+
+// Add a picker item
+//
+[section addItem:[REPickerItem itemWithTitle:@"Picker" value:@[@"Item 12", @"Item 23"] placeholder:nil options:@[@[@"Item 11", @"Item 12", @"Item 13"], @[@"Item 21", @"Item 22", @"Item 23", @"Item 24"]]]];
+```
+
+### Segmented Item Example
+
+``` objective-c
+// Create the manager
+//
+self.manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
+
+// Add a section
+//
+RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"];
+[self.manager addSection:section];
+
+// Add a segmented item
+//
+[section addItem:[RESegmentedItem itemWithTitles:@[@"One", @"Two"] value:1 switchValueChangeHandler:^(RESegmentedItem *item) {
+    NSLog(@"Value: %i", item.value);
+}]];
 ```
 
 ### Validations
