@@ -25,6 +25,15 @@
 
 #import "RETableViewItem.h"
 
+typedef NS_ENUM(NSUInteger, RECreditCardType) {
+    RECreditCardTypeUnknown,
+    RECreditCardTypeVisa,
+    RECreditCardTypeMasterCard,
+    RECreditCardTypeAmex,
+    RECreditCardTypeDiscover
+};
+
+
 @interface RECreditCardItem : RETableViewItem
 
 // Appearance customization
@@ -36,12 +45,16 @@
 @property (copy, readwrite, nonatomic) NSString *number;
 @property (copy, readwrite, nonatomic) NSString *expirationDate;
 @property (copy, readwrite, nonatomic) NSString *cvv;
+@property (assign, readwrite, nonatomic) RECreditCardType creditCardType;
+
 
 // Keyboard
 //
 @property (assign, readwrite, nonatomic) UIKeyboardAppearance keyboardAppearance;             // default is UIKeyboardAppearanceDefault
 
-+ (instancetype)itemWithNumber:(NSString *)number expirationDate:(NSString *)expirationDate cvv:(NSString *)cvv;
++ (instancetype)itemWithNumber:(NSString *)number expirationDate:(NSDate *)expiration cvv:(NSString *)cvv;
++ (instancetype)itemWithNumber:(NSString *)number expirationString:(NSString *)expirationDate cvv:(NSString *)cvv;
+
 - (id)initWithNumber:(NSString *)number expirationDate:(NSString *)expirationDate cvv:(NSString *)cvv;
 
 @end
