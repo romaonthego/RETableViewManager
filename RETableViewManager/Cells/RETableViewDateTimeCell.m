@@ -101,7 +101,7 @@
     }
     
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
-    self.dateLabel.textColor = self.item.inlinePickerItem ? self.tintColor : self.detailTextLabel.textColor;
+    self.dateLabel.textColor = self.item.inlinePickerItem ? [self performSelector:@selector(tintColor) withObject:nil] : self.detailTextLabel.textColor;
 #endif
 }
 
@@ -129,7 +129,7 @@
         [self setSelected:NO animated:NO];
         [self.item deselectRowAnimated:NO];
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
-        self.dateLabel.textColor = self.tintColor;
+        self.dateLabel.textColor = [self performSelector:@selector(tintColor) withObject:nil];
 #endif
         self.item.inlinePickerItem = [REInlineDatePickerItem itemWithDateTimeItem:self.item];
         [self.section insertItem:self.item.inlinePickerItem atIndex:self.item.indexPath.row + 1];
