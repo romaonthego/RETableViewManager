@@ -135,7 +135,6 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
     [self.creditCardField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self.wrapperView addSubview:self.creditCardField];
     
-    
     self.expirationDateField = [[REFormattedNumberField alloc] initWithFrame:CGRectMake(320, 0, 80, self.frame.size.height)];
     self.expirationDateField.tag = 1;
     self.expirationDateField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
@@ -296,6 +295,7 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     [self updateActionBarNavigationControl];
+
     if (textField.tag == 0) {
         [UIView transitionFromView:self.creditCardBackImageView toView:self.currentImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
     }
@@ -317,19 +317,19 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
     return YES;
 }
 
-//-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-//{
-//    
-//    if (textField.tag == self.expirationDateField.tag) {
-//        if (range.location == 1) {
-//            NSInteger month = [NSString stringWithFormat:@"%@%@", self.expirationDateField.text, string].integerValue;
-//            if (month > 12) {
-//                return NO;
-//            }
-//        }
-//    }
-//    
-//    return YES;
-//}
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+
+    if (textField.tag == self.expirationDateField.tag) {
+        if (range.location == 1) {
+            NSInteger month = [NSString stringWithFormat:@"%@%@", self.expirationDateField.text, string].integerValue;
+            if (month > 12) {
+                return NO;
+            }
+        }
+    }
+
+    return YES;
+}
 
 @end
