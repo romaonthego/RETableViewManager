@@ -27,7 +27,14 @@
 
 @implementation RECreditCardItem
 
-+ (instancetype)itemWithNumber:(NSString *)number expirationDate:(NSString *)expirationDate cvv:(NSString *)cvv
++ (instancetype)itemWithNumber:(NSString *)number expirationDate:(NSDate *)expiration cvv:(NSString *)cvv {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"MM/yy";
+
+    return [[self alloc] initWithNumber:number expirationDate:[dateFormatter stringFromDate:expiration] cvv:cvv];
+}
+
++ (instancetype)itemWithNumber:(NSString *)number expirationString:(NSString *)expirationDate cvv:(NSString *)cvv
 {
     return [[self alloc] initWithNumber:number expirationDate:expirationDate cvv:cvv];
 }
