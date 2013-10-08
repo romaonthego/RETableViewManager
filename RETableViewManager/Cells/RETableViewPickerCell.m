@@ -92,7 +92,7 @@
     }
     
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
-    self.valueLabel.textColor = self.item.inlinePickerItem ? self.tintColor : self.detailTextLabel.textColor;
+    self.valueLabel.textColor = self.item.inlinePickerItem ? [self performSelector:@selector(tintColor) withObject:nil] : self.detailTextLabel.textColor;
 #endif
 }
 
@@ -125,7 +125,7 @@
         [self setSelected:NO animated:NO];
         [self.item deselectRowAnimated:NO];
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
-        self.valueLabel.textColor = self.tintColor;
+        self.valueLabel.textColor = [self performSelector:@selector(tintColor) withObject:nil];
 #endif
         self.item.inlinePickerItem = [REInlinePickerItem itemWithPickerItem:self.item];
         [self.section insertItem:self.item.inlinePickerItem atIndex:self.item.indexPath.row + 1];
