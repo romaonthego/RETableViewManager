@@ -37,6 +37,8 @@
 @property (copy, readwrite, nonatomic) NSString *expirationDate;
 @property (copy, readwrite, nonatomic) NSString *cvv;
 
+@property (assign, readwrite, nonatomic) BOOL cvvRequired;
+
 // Keyboard
 //
 @property (assign, readwrite, nonatomic) UIKeyboardAppearance keyboardAppearance;             // default is UIKeyboardAppearanceDefault
