@@ -133,7 +133,7 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     self.expirationDateField.delegate = self;
     [self.expirationDateField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self.wrapperView addSubview:self.expirationDateField];
-    
+
     self.cvvField = [[REFormattedNumberField alloc] initWithFrame:CGRectMake(320, 0, 60, self.frame.size.height)];
     self.cvvField.tag = 2;
     self.cvvField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
@@ -142,9 +142,8 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     self.cvvField.placeholder = @"CVV";
     self.cvvField.delegate = self;
     [self.cvvField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-    
     [self.wrapperView addSubview:self.cvvField];
-    
+
     self.ribbonExpired = [[UIImageView alloc] init];
     self.ribbonExpired.hidden = YES;
     [self.contentView addSubview:self.ribbonExpired];
@@ -157,7 +156,6 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     if (REUIKitIsFlatMode() && self.section.style.contentViewMargin <= 0)
         cellOffset += 5.0;
     self.creditCardImageViewContainer.frame = CGRectMake(cellOffset, 5, 32, 32);
-    
     
     self.textLabel.text = self.item.title;
     
@@ -172,6 +170,7 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     self.cvvField.text = self.item.cvv;
     self.cvvField.font = [UIFont systemFontOfSize:17];
     self.cvvField.keyboardAppearance = self.item.keyboardAppearance;
+    self.cvvField.hidden = !self.item.cvvRequired;
     
     self.ribbonExpired.image = self.item.expiredRibbonImage;
 }
@@ -192,12 +191,12 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     frame.size.width += UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 30 : 50;
     frame.size.height = self.contentView.frame.size.height;
     self.expirationDateField.frame = frame;
-    
+
     frame = self.cvvField.frame;
     frame.size.width += UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 30 : 50;
     frame.size.height = self.contentView.frame.size.height;
     self.cvvField.frame = frame;
-    
+
     self.ribbonExpired.frame = CGRectMake(CGRectGetWidth(self.contentView.frame) - self.ribbonExpired.image.size.width + 1 + (REUIKitIsFlatMode() ? 1 : 0), -2, self.ribbonExpired.image.size.width, self.ribbonExpired.image.size.height);
     
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:forRowAtIndexPath:)])
@@ -268,7 +267,7 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
         }
     }
     
-    if (textField.tag == 1 && textField.text.length == 5) {
+    if (textField.tag == 1 && textField.text.length == 5 && self.item.cvvRequired) {
         [self.cvvField becomeFirstResponder];
     }
 }

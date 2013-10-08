@@ -32,6 +32,10 @@
     return [[self alloc] initWithNumber:number expirationDate:expirationDate cvv:cvv];
 }
 
++ (instancetype)item {
+    return [[self alloc] initWithNumber:@"" expirationDate:@"" cvv:@""];
+}
+
 - (id)initWithNumber:(NSString *)number expirationDate:(NSString *)expirationDate cvv:(NSString *)cvv
 {
     self = [super init];
@@ -41,6 +45,7 @@
     self.number = number;
     self.expirationDate = expirationDate;
     self.cvv = cvv;
+    self.cvvRequired = YES;
     
     return self;
 }
