@@ -32,7 +32,8 @@
     return [[self alloc] initWithNumber:number expirationDate:expirationDate cvv:cvv];
 }
 
-+ (instancetype)item {
++ (instancetype)item
+{
     return [[self alloc] initWithNumber:@"" expirationDate:@"" cvv:@""];
 }
 

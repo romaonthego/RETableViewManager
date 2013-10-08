@@ -301,7 +301,7 @@ static inline NSString * RECreditCardType(NSString *creditCardNumber)
     return YES;
 }
 
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if (textField == self.expirationDateField) {
         if (range.location == 1) {
