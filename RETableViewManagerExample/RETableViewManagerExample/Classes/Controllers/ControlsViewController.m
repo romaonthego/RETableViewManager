@@ -14,7 +14,6 @@
 @property (strong, readwrite, nonatomic) RETableViewManager *manager;
 @property (strong, readwrite, nonatomic) RETableViewSection *basicControlsSection;
 @property (strong, readwrite, nonatomic) RETableViewSection *creditCardSection;
-@property (strong, readwrite, nonatomic) RETableViewSection *creditCardSectionDisabledCVV;
 @property (strong, readwrite, nonatomic) RETableViewSection *accessoriesSection;
 @property (strong, readwrite, nonatomic) RETableViewSection *cutCopyPasteSection;
 @property (strong, readwrite, nonatomic) RETableViewSection *buttonSection;
@@ -51,7 +50,6 @@
 
     self.basicControlsSection = [self addBasicControls];
     self.creditCardSection = [self addCreditCard];
-    self.creditCardSectionDisabledCVV = [self addCreditCardDisabledCVV];
     self.accessoriesSection = [self addAccessories];
     self.cutCopyPasteSection = [self addCutCopyPaste];
     self.buttonSection = [self addButton];
@@ -231,17 +229,6 @@
     [self.manager addSection:section];
     self.creditCardItem = [RECreditCardItem item];
     [section addItem:self.creditCardItem];
-    
-    return section;
-}
-
-- (RETableViewSection *)addCreditCardDisabledCVV
-{
-    RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Credit card (CVV is not required)"];
-    [self.manager addSection:section];
-    self.creditCardItemCVV = [RECreditCardItem item];
-    self.creditCardItemCVV.cvvRequired = NO;
-    [section addItem:self.creditCardItemCVV];
     
     return section;
 }
