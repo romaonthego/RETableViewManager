@@ -41,6 +41,8 @@
 @property (strong, readwrite, nonatomic) REFormattedNumberField *cvvField;
 @property (strong, readwrite, nonatomic) UIImageView *ribbonExpired;
 
+@property (assign, readwrite, nonatomic) BOOL isNumberEditingMode;
+
 @end
 
 @implementation RETableViewCreditCardCell
@@ -101,6 +103,7 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
 - (void)cellDidLoad
 {
     [super cellDidLoad];
+
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.textLabel.backgroundColor = [UIColor clearColor];
     
@@ -157,7 +160,6 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
     [self.wrapperView addSubview:self.cvvField];
 
     self.ribbonExpired = [[UIImageView alloc] init];
-    self.ribbonExpired.hidden = YES;
     [self.contentView addSubview:self.ribbonExpired];
 }
 
@@ -171,7 +173,17 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
     
     self.textLabel.text = self.item.title;
     
-    self.creditCardField.text = self.item.number;
+    self.item.creditCardType = RECreditCardTypeFromNumber(self.item.number);
+    
+    if (self.item.creditCardType != RECreditCardTypeAmex && self.item.number.length < 16) {
+        self.isNumberEditingMode = YES;
+    } else if (self.item.creditCardType == RECreditCardTypeAmex && self.item.number.length < 15) {
+        self.isNumberEditingMode = YES;
+    }else{
+        self.isNumberEditingMode = NO;
+    }
+
+    self.creditCardField.text = [self.item.number re_stringWithNumberFormat:self.creditCardField.format];
     self.creditCardField.font = [UIFont systemFontOfSize:17];
     self.creditCardField.keyboardAppearance = self.item.keyboardAppearance;
     
@@ -185,15 +197,23 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
     self.cvvField.hidden = !self.item.cvvRequired;
     
     self.ribbonExpired.image = self.item.expiredRibbonImage;
+    self.ribbonExpired.hidden = !RECreditCardExpired(self.expirationDateField.text);
+
+    if (self.item.creditCardType != RECreditCardTypeUnknown ) {
+        self.creditCardImageView.image = [UIImage imageNamed:creditCardTypeImage[self.item.creditCardType]];
+        [UIView transitionFromView:self.creditCardStackImageView toView:self.creditCardImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:nil];
+        self.currentImageView = self.creditCardImageView;
+    }
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    [self.creditCardField sizeToFit];
+
     [self.expirationDateField sizeToFit];
     [self.cvvField sizeToFit];
-    
+
+    [self.creditCardField sizeToFit];
     CGRect frame = self.creditCardField.frame;
     frame.size.width += UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 30 : 50;
     frame.size.height = self.contentView.frame.size.height;
@@ -210,6 +230,20 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
     self.cvvField.frame = frame;
 
     self.ribbonExpired.frame = CGRectMake(CGRectGetWidth(self.contentView.frame) - self.ribbonExpired.image.size.width + 1 + (REUIKitIsFlatMode() ? 1 : 0), -2, self.ribbonExpired.image.size.width, self.ribbonExpired.image.size.height);
+
+    if (self.isNumberEditingMode) {
+        self.creditCardField.frame = CGRectMake(0, self.creditCardField.frame.origin.y, self.creditCardField.frame.size.width, self.creditCardField.frame.size.height);
+        self.expirationDateField.frame = CGRectMake(320, self.expirationDateField.frame.origin.y, self.expirationDateField.frame.size.width, self.expirationDateField.frame.size.height);
+        self.cvvField.frame = CGRectMake(320, self.cvvField.frame.origin.y, self.cvvField.frame.size.width, self.cvvField.frame.size.height);
+    } else {
+        BOOL isAmex = (self.item.creditCardType == RECreditCardTypeAmex);
+
+        NSString *substring = [self.creditCardField.text substringToIndex:self.creditCardField.text.length - (isAmex ? 3 : 4)];
+        CGSize size = [substring re_sizeWithFont:self.creditCardField.font];
+        self.creditCardField.frame = CGRectMake(-size.width, self.creditCardField.frame.origin.y, self.creditCardField.frame.size.width, self.creditCardField.frame.size.height);
+        self.expirationDateField.frame = CGRectMake(CGRectGetMaxX(self.creditCardField.frame), self.expirationDateField.frame.origin.y, self.expirationDateField.frame.size.width, self.expirationDateField.frame.size.height);
+        self.cvvField.frame = CGRectMake(CGRectGetMaxX(self.expirationDateField.frame), self.cvvField.frame.origin.y, self.cvvField.frame.size.width, self.cvvField.frame.size.height);
+    }
     
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:forRowAtIndexPath:)])
         [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self forRowAtIndexPath:[self.tableViewManager.tableView indexPathForCell:self]];
@@ -262,6 +296,7 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
         if (textField.text.length == (isAmex ? 18 : 19) ) {
             [self.expirationDateField becomeFirstResponder];
             [UIView animateWithDuration:0.1 animations:^{
+                self.isNumberEditingMode = NO;
                 NSString *substring = [textField.text substringToIndex:textField.text.length - (isAmex ? 3 : 4)];
                 CGSize size = [substring re_sizeWithFont:textField.font];
                 self.creditCardField.frame = CGRectMake(-size.width, self.creditCardField.frame.origin.y, self.creditCardField.frame.size.width, self.creditCardField.frame.size.height);
@@ -272,6 +307,7 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
         
         if (textField.text.length == (isAmex ? 17 : 18) ) {
             [UIView animateWithDuration:0.1 animations:^{
+                self.isNumberEditingMode = YES;
                 self.creditCardField.frame = CGRectMake(0, self.creditCardField.frame.origin.y, self.creditCardField.frame.size.width, self.creditCardField.frame.size.height);
                 self.expirationDateField.frame = CGRectMake(320, self.expirationDateField.frame.origin.y, self.expirationDateField.frame.size.width, self.expirationDateField.frame.size.height);
                 self.cvvField.frame = CGRectMake(320, self.cvvField.frame.origin.y, self.cvvField.frame.size.width, self.cvvField.frame.size.height);
