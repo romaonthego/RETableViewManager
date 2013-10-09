@@ -88,7 +88,7 @@
     [section addItem:@"Simple NSString"];
     
     self.fullLengthFieldItem = [RETextItem itemWithTitle:nil value:nil placeholder:@"Full length text field"];    
-    self.textItem = [RETextItem itemWithTitle:@"Text item 123123" value:nil placeholder:@"Text"];
+    self.textItem = [RETextItem itemWithTitle:@"Text item" value:nil placeholder:@"Text"];
     self.numberItem = [RENumberItem itemWithTitle:@"Phone" value:@"" placeholder:@"(123) 456-7890" format:@"(XXX) XXX-XXXX"];
     self.numberItem.onEndEditing = ^(RENumberItem *item){
         NSLog(@"Value: %@", item.value);
