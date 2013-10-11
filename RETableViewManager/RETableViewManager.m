@@ -433,10 +433,12 @@
     RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
     id item = [section.items objectAtIndex:indexPath.row];
     
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_6_0
     // Forward to UITableView delegate
     //
     if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:estimatedHeightForRowAtIndexPath:)])
         return [self.delegate tableView:tableView estimatedHeightForRowAtIndexPath:indexPath];
+#endif
     
     CGFloat height = [[self classForCellAtIndexPath:indexPath] heightWithItem:item tableViewManager:self];
     return height ? height : UITableViewAutomaticDimension;
@@ -449,11 +451,13 @@
         return section.headerView.frame.size.height;
     else if (section.headerTitle.length)
         return self.defaultTableViewSectionHeight;
-        
+    
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_6_0
     // Forward to UITableView delegate
     //
     if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:estimatedHeightForHeaderInSection:)])
         return [self.delegate tableView:tableView estimatedHeightForHeaderInSection:sectionIndex];
+#endif
     
     return UITableViewAutomaticDimension;
 }
@@ -466,10 +470,12 @@
     else if (section.footerTitle.length)
         return self.defaultTableViewSectionHeight;
     
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_6_0
     // Forward to UITableView delegate
     //
     if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:estimatedHeightForFooterInSection:)])
         return [self.delegate tableView:tableView estimatedHeightForFooterInSection:sectionIndex];
+#endif
     
     return UITableViewAutomaticDimension;
 }
