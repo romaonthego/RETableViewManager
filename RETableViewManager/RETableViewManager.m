@@ -154,6 +154,11 @@
     return self.mutableSections;
 }
 
+- (CGFloat)defaultTableViewHeight
+{
+    return self.tableView.style == UITableViewStyleGrouped ? 44 : 22;
+}
+
 #pragma mark -
 #pragma mark Table view data source
 
@@ -393,6 +398,8 @@
     RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
     if (section.headerView)
         return section.headerView.frame.size.height;
+    else if (section.headerTitle.length)
+        return [self defaultTableViewHeight];
     
     // Forward to UITableView delegate
     //
@@ -407,11 +414,58 @@
     RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
     if (section.footerView)
         return section.footerView.frame.size.height;
+    else if (section.footerTitle.length)
+        return [self defaultTableViewHeight];
     
     // Forward to UITableView delegate
     //
     if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:heightForFooterInSection:)])
         return [self.delegate tableView:tableView heightForFooterInSection:sectionIndex];
+    
+    return UITableViewAutomaticDimension;
+}
+
+// Estimated height support
+
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
+    id item = [section.items objectAtIndex:indexPath.row];
+    
+    // Forward to UITableView delegate
+    //
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:estimatedHeightForRowAtIndexPath:)])
+        return [self.delegate tableView:tableView estimatedHeightForRowAtIndexPath:indexPath];
+    
+    CGFloat height = [[self classForCellAtIndexPath:indexPath] heightWithItem:item tableViewManager:self];
+    return height ? height : UITableViewAutomaticDimension;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)sectionIndex {
+    RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
+    if (section.headerView)
+        return section.headerView.frame.size.height;
+    else if (section.headerTitle.length)
+        return [self defaultTableViewHeight];
+        
+    // Forward to UITableView delegate
+    //
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:estimatedHeightForHeaderInSection:)])
+        return [self.delegate tableView:tableView estimatedHeightForHeaderInSection:sectionIndex];
+    
+    return UITableViewAutomaticDimension;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)sectionIndex {
+    RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
+    if (section.footerView)
+        return section.footerView.frame.size.height;
+    else if (section.footerTitle.length)
+        return [self defaultTableViewHeight];
+    
+    // Forward to UITableView delegate
+    //
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:estimatedHeightForFooterInSection:)])
+        return [self.delegate tableView:tableView estimatedHeightForFooterInSection:sectionIndex];
     
     return UITableViewAutomaticDimension;
 }
