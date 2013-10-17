@@ -32,16 +32,14 @@
 {
     CGSize size;
     if ([self respondsToSelector:@selector(sizeWithAttributes:)]) {
-        IF_IOS7_OR_GREATER(
-            NSMethodSignature *signature = [[self class] instanceMethodSignatureForSelector:@selector(sizeWithAttributes:)];
-            NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
-            [invocation setTarget:self];
-            [invocation setSelector:@selector(sizeWithAttributes:)];
-            NSDictionary *attributes = @{ NSFontAttributeName:font };
-            [invocation setArgument:&attributes atIndex:2];
-            [invocation invoke];
-            [invocation getReturnValue:&size];
-        );
+        NSMethodSignature *signature = [[self class] instanceMethodSignatureForSelector:@selector(sizeWithAttributes:)];
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+        [invocation setTarget:self];
+        [invocation setSelector:@selector(sizeWithAttributes:)];
+        NSDictionary *attributes = @{ NSFontAttributeName:font };
+        [invocation setArgument:&attributes atIndex:2];
+        [invocation invoke];
+        [invocation getReturnValue:&size];
     } else {
         NSMethodSignature *signature = [[self class] instanceMethodSignatureForSelector:@selector(sizeWithFont:)];
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
@@ -58,23 +56,21 @@
 {
     CGSize resultSize;
     if ([self respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
-        IF_IOS7_OR_GREATER(
-            NSMethodSignature *signature = [[self class] instanceMethodSignatureForSelector:@selector(boundingRectWithSize:options:attributes:context:)];
-            NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
-            [invocation setTarget:self];
-            [invocation setSelector:@selector(boundingRectWithSize:options:attributes:context:)];
-            NSDictionary *attributes = @{ NSFontAttributeName:font };
-            NSStringDrawingOptions options = NSStringDrawingUsesLineFragmentOrigin;
-            NSStringDrawingContext *context;
-            [invocation setArgument:&size atIndex:2];
-            [invocation setArgument:&options atIndex:3];
-            [invocation setArgument:&attributes atIndex:4];
-            [invocation setArgument:&context atIndex:5];
-            [invocation invoke];
-            CGRect rect;
-            [invocation getReturnValue:&rect];
-            resultSize = rect.size;
-        );
+        NSMethodSignature *signature = [[self class] instanceMethodSignatureForSelector:@selector(boundingRectWithSize:options:attributes:context:)];
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+        [invocation setTarget:self];
+        [invocation setSelector:@selector(boundingRectWithSize:options:attributes:context:)];
+        NSDictionary *attributes = @{ NSFontAttributeName:font };
+        NSStringDrawingOptions options = NSStringDrawingUsesLineFragmentOrigin;
+        NSStringDrawingContext *context;
+        [invocation setArgument:&size atIndex:2];
+        [invocation setArgument:&options atIndex:3];
+        [invocation setArgument:&attributes atIndex:4];
+        [invocation setArgument:&context atIndex:5];
+        [invocation invoke];
+        CGRect rect;
+        [invocation getReturnValue:&rect];
+        resultSize = rect.size;
     } else {
         NSMethodSignature *signature = [[self class] instanceMethodSignatureForSelector:@selector(sizeWithFont:constrainedToSize:)];
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
