@@ -49,9 +49,11 @@
     [self.segmentedControl addTarget:self action:@selector(segmentValueDidChange:) forControlEvents:UIControlEventValueChanged];
     [self.contentView addSubview:self.segmentedControl];
     
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
     if (!REUIKitIsFlatMode()) {
         self.segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
     }
+#endif
 }
 
 - (void)cellWillAppear
