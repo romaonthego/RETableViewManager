@@ -140,6 +140,8 @@
 {
     if (self.item.onReturn)
         self.item.onReturn(self.item);
+    if (self.item.onEndEditing)
+        self.item.onEndEditing(self.item);
     NSIndexPath *indexPath = [self indexPathForNextResponder];
     if (!indexPath) {
         [self endEditing:YES];
