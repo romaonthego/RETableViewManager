@@ -140,16 +140,6 @@
     RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
     NSObject *item = [section.items objectAtIndex:indexPath.row];
     return [self.registeredClasses objectForKey:item.class];
-    
-    Class cellClass;
-    for (NSString *className in self.registeredClasses) {
-        NSString *itemClass = NSStringFromClass([item class]);
-        if ([itemClass isEqualToString:className]) {
-            cellClass = NSClassFromString([self.registeredClasses objectForKey:className]);
-            break;
-        }
-    }
-    return cellClass;
 }
 
 - (NSArray *)sections
