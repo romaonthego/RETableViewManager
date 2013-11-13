@@ -112,7 +112,7 @@
 {
     NSAssert(NSClassFromString(objectClass), ([NSString stringWithFormat:@"Item class '%@' does not exist.", objectClass]));
     NSAssert(NSClassFromString(identifier), ([NSString stringWithFormat:@"Cell class '%@' does not exist.", identifier]));
-    self.registeredClasses[objectClass] = identifier;
+    self.registeredClasses[(id <NSCopying>)NSClassFromString(objectClass)] = NSClassFromString(identifier);
     
     // Perform check if a XIB exists with the same name as the cell class
     //
@@ -139,6 +139,8 @@
 {
     RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
     NSObject *item = [section.items objectAtIndex:indexPath.row];
+    return [self.registeredClasses objectForKey:item.class];
+    
     Class cellClass;
     for (NSString *className in self.registeredClasses) {
         NSString *itemClass = NSStringFromClass([item class]);
