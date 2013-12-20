@@ -29,6 +29,7 @@
 @interface REDateTimeItem : RETableViewItem
 
 @property (strong, readwrite, nonatomic) NSDate *value;
+@property (strong, readwrite, nonatomic) NSDate *pickerStartDate;         // date to be used for the picker when the value is not set; defaults to current date when not specified
 @property (copy, readwrite, nonatomic) NSString *placeholder;
 @property (strong, readwrite, nonatomic) NSString *format;
 @property (assign, readwrite, nonatomic) UIDatePickerMode datePickerMode; // default is UIDatePickerModeDateAndTime
