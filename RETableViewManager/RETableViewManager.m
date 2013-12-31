@@ -44,6 +44,13 @@
     [REValidation registerDefaultErrorMessages];
 }
 
+- (void)dealloc
+{
+    self.delegate = nil;
+    self.tableView.delegate = nil;
+    self.tableView.dataSource = nil;
+}
+
 - (id)init
 {
     @throw [NSException exceptionWithName:NSGenericException reason:@"init not supported, use initWithTableView: instead." userInfo:nil];
