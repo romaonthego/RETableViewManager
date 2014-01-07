@@ -83,7 +83,7 @@
 {
     self.textLabel.text = self.item.title.length == 0 ? @" " : self.item.title;
     self.textField.inputView = self.datePicker;
-    self.datePicker.date = self.item.value ? self.item.value : [NSDate date];
+    self.datePicker.date = self.item.value ? self.item.value : (self.item.pickerStartDate ? self.item.pickerStartDate : [NSDate date]);
     self.datePicker.datePickerMode = self.item.datePickerMode;
     self.datePicker.locale = self.item.locale;
     self.datePicker.calendar = self.item.calendar;
