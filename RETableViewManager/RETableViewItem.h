@@ -56,6 +56,7 @@
 @property (copy, readwrite, nonatomic) NSString *cellIdentifier;
 
 // Action bar
+@property (copy, readwrite, nonatomic) void (^actionBarNavButtonTapHandler)(id item); //handler for nav button on ActionBar
 @property (copy, readwrite, nonatomic) void (^actionBarDoneButtonTapHandler)(id item); //handler for done button on ActionBar
 
 
