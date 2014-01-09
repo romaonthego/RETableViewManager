@@ -287,6 +287,8 @@
         [self.responder resignFirstResponder];
         [cell.responder becomeFirstResponder];
     }
+    if (self.item.actionBarNavButtonTapHandler)
+        self.item.actionBarNavButtonTapHandler(self.item);
 }
 
 - (void)actionBar:(REActionBar *)actionBar doneButtonPressed:(UIBarButtonItem *)doneButtonItem
