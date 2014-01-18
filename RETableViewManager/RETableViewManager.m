@@ -401,6 +401,10 @@
     else if (section.headerTitle.length)
         return self.defaultTableViewSectionHeight;
     
+    if (section.headerHeight != RETableViewSectionFooterHeightAutomatic) {
+        return section.headerHeight;
+    }
+    
     // Forward to UITableView delegate
     //
     if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:heightForHeaderInSection:)])
@@ -416,6 +420,10 @@
         return section.footerView.frame.size.height;
     else if (section.footerTitle.length)
         return self.defaultTableViewSectionHeight;
+    
+    if (section.footerHeight != RETableViewSectionFooterHeightAutomatic) {
+        return section.footerHeight;
+    }
     
     // Forward to UITableView delegate
     //

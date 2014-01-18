@@ -69,7 +69,9 @@
     if (!self)
         return nil;
     
-    self.mutableItems = [[NSMutableArray alloc] init];
+    _mutableItems = [[NSMutableArray alloc] init];
+    _headerHeight = RETableViewSectionHeaderHeightAutomatic;
+    _footerHeight = RETableViewSectionFooterHeightAutomatic;
     
     return self;
 }
