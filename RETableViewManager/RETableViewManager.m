@@ -396,14 +396,15 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)sectionIndex
 {
     RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
-    if (section.headerView)
-        return section.headerView.frame.size.height;
-    else if (section.headerTitle.length)
-        return self.defaultTableViewSectionHeight;
     
     if (section.headerHeight != RETableViewSectionFooterHeightAutomatic) {
         return section.headerHeight;
     }
+    
+    if (section.headerView)
+        return section.headerView.frame.size.height;
+    else if (section.headerTitle.length)
+        return self.defaultTableViewSectionHeight;
     
     // Forward to UITableView delegate
     //
@@ -416,14 +417,15 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)sectionIndex
 {
     RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
-    if (section.footerView)
-        return section.footerView.frame.size.height;
-    else if (section.footerTitle.length)
-        return self.defaultTableViewSectionHeight;
     
     if (section.footerHeight != RETableViewSectionFooterHeightAutomatic) {
         return section.footerHeight;
     }
+    
+    if (section.footerView)
+        return section.footerView.frame.size.height;
+    else if (section.footerTitle.length)
+        return self.defaultTableViewSectionHeight;
     
     // Forward to UITableView delegate
     //
