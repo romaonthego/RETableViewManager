@@ -20,6 +20,7 @@
 
 @property (strong, readwrite, nonatomic) RETextItem *fullLengthFieldItem;
 @property (strong, readwrite, nonatomic) RETextItem *textItem;
+@property (strong, readwrite, nonatomic) REFloatingNumberItem *floatingNumberItem;
 @property (strong, readwrite, nonatomic) RENumberItem *numberItem;
 @property (strong, readwrite, nonatomic) RETextItem *passwordItem;
 @property (strong, readwrite, nonatomic) REBoolItem *boolItem;
@@ -60,6 +61,7 @@
     NSLog(@"fullLengthFieldItem.value = %@", self.fullLengthFieldItem.value);
     NSLog(@"textItem.value = %@", self.textItem.value);
     NSLog(@"numberItem.value = %@", self.numberItem.value);
+    NSLog(@"floatingNumberItem.value = %@", self.floatingNumberItem.value);
     NSLog(@"passwordItem.value = %@", self.passwordItem.value);
     NSLog(@"boolItem.value = %@", self.boolItem.value ? @"YES" : @"NO");
     NSLog(@"floatItem.value = %f", self.floatItem.value);
@@ -91,6 +93,10 @@
     self.textItem = [RETextItem itemWithTitle:@"Text item" value:nil placeholder:@"Text"];
     self.numberItem = [RENumberItem itemWithTitle:@"Phone" value:@"" placeholder:@"(123) 456-7890" format:@"(XXX) XXX-XXXX"];
     self.numberItem.onEndEditing = ^(RENumberItem *item){
+        NSLog(@"Value: %@", item.value);
+    };
+    self.floatingNumberItem = [REFloatingNumberItem itemWithTitle:@"Cash" value:@"" placeholder:@"＄"];
+    self.floatingNumberItem.onEndEditing = ^(RETextItem *item) {
         NSLog(@"Value: %@", item.value);
     };
     self.passwordItem = [RETextItem itemWithTitle:@"Password" value:nil placeholder:@"Password item"];
@@ -197,6 +203,7 @@
     [section addItem:self.fullLengthFieldItem];
     [section addItem:self.textItem];
     [section addItem:self.numberItem];
+    [section addItem:self.floatingNumberItem];
     [section addItem:self.passwordItem];
     [section addItem:self.boolItem];
     [section addItem:self.floatItem];
