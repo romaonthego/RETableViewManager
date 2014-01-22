@@ -68,6 +68,9 @@
     self.textField.font = [UIFont systemFontOfSize:17];
     self.textField.keyboardAppearance = self.item.keyboardAppearance;
     self.textField.keyboardType = UIKeyboardTypeNumberPad;
+    
+    if (self.item.disable)
+        self.textField.enabled = NO;
 }
 
 - (void)layoutSubviews

@@ -84,6 +84,9 @@
     self.textField.clearButtonMode = self.item.clearButtonMode;
     self.textField.clearsOnBeginEditing = self.item.clearsOnBeginEditing;
     
+    if (self.item.disable)
+        self.textField.enabled = NO;
+    
     if (REUIKitIsFlatMode()) {
         self.actionBar.barStyle = self.item.keyboardAppearance == UIKeyboardAppearanceAlert ? UIBarStyleBlack : UIBarStyleDefault;
     }

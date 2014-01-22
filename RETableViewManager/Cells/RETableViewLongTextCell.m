@@ -93,6 +93,10 @@
     self.textView.returnKeyType = self.item.returnKeyType;
     self.textView.enablesReturnKeyAutomatically = self.item.enablesReturnKeyAutomatically;
     self.textView.secureTextEntry = self.item.secureTextEntry;
+    
+    if (self.item.disable)
+        self.textView.editable = NO;
+    
     [self.textView setNeedsDisplay];
 }
 
