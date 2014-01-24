@@ -28,8 +28,8 @@
 @class RETableViewManager;
 @class RETableViewCellStyle;
 
-static CGFloat const RETableViewSectionHeaderHeightAutomatic = DBL_MAX;
-static CGFloat const RETableViewSectionFooterHeightAutomatic = DBL_MAX;
+extern CGFloat const RETableViewSectionHeaderHeightAutomatic;
+extern CGFloat const RETableViewSectionFooterHeightAutomatic;
 
 /**
  Table view section.
