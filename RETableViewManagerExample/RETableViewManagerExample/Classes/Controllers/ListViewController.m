@@ -37,14 +37,15 @@
     
     // Add table footer view
     //
-    UIButton *loadMoreButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    loadMoreButton.frame = CGRectMake(40, 7, 240, 44);
-    loadMoreButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-    [loadMoreButton setTitle:@"Load more" forState:UIControlStateNormal];
-    [loadMoreButton addTarget:self action:@selector(loadMoreButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 58)];
-    [self.tableView.tableFooterView addSubview:loadMoreButton];
+    [self.tableView.tableFooterView addSubview:({
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        button.frame = CGRectMake(40, 7, 240, 44);
+        button.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        [button setTitle:@"Load more" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(loadMoreButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        button;
+    })];
     
     // Add items
     //
