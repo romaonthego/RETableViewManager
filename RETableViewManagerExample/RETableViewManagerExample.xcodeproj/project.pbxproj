@@ -96,6 +96,8 @@
 		30FE4162176A32C300F317B8 /* Single_Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FE4159176A32C300F317B8 /* Single_Selected@2x.png */; };
 		30FE4163176A32C300F317B8 /* Single@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FE415A176A32C300F317B8 /* Single@2x.png */; };
 		53378ADE88FA40FD87184931 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EA85FF11E7E458B98D5825C /* libPods.a */; };
+		A508250E188FB85500AC17FB /* REFloatingNumberItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A508250D188FB85500AC17FB /* REFloatingNumberItem.m */; };
+		A5082511188FB87D00AC17FB /* RETableViewFloatingNumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5082510188FB87D00AC17FB /* RETableViewFloatingNumberCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -243,6 +245,10 @@
 		30FE4159176A32C300F317B8 /* Single_Selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Single_Selected@2x.png"; path = "Resources/Single_Selected@2x.png"; sourceTree = "<group>"; };
 		30FE415A176A32C300F317B8 /* Single@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Single@2x.png"; path = "Resources/Single@2x.png"; sourceTree = "<group>"; };
 		5EA85FF11E7E458B98D5825C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A508250C188FB85500AC17FB /* REFloatingNumberItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFloatingNumberItem.h; sourceTree = "<group>"; };
+		A508250D188FB85500AC17FB /* REFloatingNumberItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFloatingNumberItem.m; sourceTree = "<group>"; };
+		A508250F188FB87D00AC17FB /* RETableViewFloatingNumberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewFloatingNumberCell.h; sourceTree = "<group>"; };
+		A5082510188FB87D00AC17FB /* RETableViewFloatingNumberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewFloatingNumberCell.m; sourceTree = "<group>"; };
 		E4370D63D1564228A75E7BD2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -402,6 +408,8 @@
 				3014617817FF1F6F000590A7 /* RETableViewInlineDatePickerCell.m */,
 				30B9914918007035007C8913 /* RETableViewInlinePickerCell.h */,
 				30B9914A18007035007C8913 /* RETableViewInlinePickerCell.m */,
+				A508250F188FB87D00AC17FB /* RETableViewFloatingNumberCell.h */,
+				A5082510188FB87D00AC17FB /* RETableViewFloatingNumberCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -435,6 +443,8 @@
 				3014617B17FF1F8B000590A7 /* REInlineDatePickerItem.m */,
 				30B9914C18007045007C8913 /* REInlinePickerItem.h */,
 				30B9914D18007045007C8913 /* REInlinePickerItem.m */,
+				A508250C188FB85500AC17FB /* REFloatingNumberItem.h */,
+				A508250D188FB85500AC17FB /* REFloatingNumberItem.m */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -638,6 +648,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30EF93BF16E039B800B84981 /* main.m in Sources */,
+				A5082511188FB87D00AC17FB /* RETableViewFloatingNumberCell.m in Sources */,
 				30EF93C316E039B800B84981 /* AppDelegate.m in Sources */,
 				30DB066A16E934AD006C9530 /* RETableViewBoolCell.m in Sources */,
 				30DBFA9717FCB71B0099ACA5 /* RESegmentedItem.m in Sources */,
@@ -669,6 +680,7 @@
 				300E5A29170F48EC00910013 /* RETableViewFloatCell.m in Sources */,
 				300E5A2C170F621400910013 /* REDateTimeItem.m in Sources */,
 				300E5A2F170F63B600910013 /* RETableViewDateTimeCell.m in Sources */,
+				A508250E188FB85500AC17FB /* REFloatingNumberItem.m in Sources */,
 				300E5B3F17170AE100910013 /* RELongTextItem.m in Sources */,
 				300E5B4217170B0200910013 /* RETableViewLongTextCell.m in Sources */,
 				30B35CEF17E54B670082CE0E /* RECommonFunctions.m in Sources */,

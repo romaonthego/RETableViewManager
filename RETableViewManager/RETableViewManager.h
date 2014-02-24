@@ -43,6 +43,7 @@
 #import "RETextItem.h"
 #import "RELongTextItem.h"
 #import "RENumberItem.h"
+#import "REFloatingNumberItem.h"
 #import "RECreditCardItem.h"
 #import "REFloatItem.h"
 #import "REDateTimeItem.h"

@@ -100,6 +100,7 @@
     self[@"RETextItem"] = @"RETableViewTextCell";
     self[@"RELongTextItem"] = @"RETableViewLongTextCell";
     self[@"RENumberItem"] = @"RETableViewNumberCell";
+    self[@"REFloatingNumberItem"] = @"RETableViewFloatingNumberCell";
     self[@"REFloatItem"] = @"RETableViewFloatCell";
     self[@"REDateTimeItem"] = @"RETableViewDateTimeCell";
     self[@"RECreditCardItem"] = @"RETableViewCreditCardCell";
