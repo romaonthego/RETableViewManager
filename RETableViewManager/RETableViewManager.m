@@ -305,12 +305,24 @@
             item.deletionHandlerWithCompletion(item, ^{
                 [section removeItemAtIndex:indexPath.row];
                 [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                
+                for (int i = indexPath.row; i < section.items.count; i++) {
+                    RETableViewItem *afterItem = [[section items] objectAtIndex:i];
+                    RETableViewCell *cell = (RETableViewCell *)[tableView cellForRowAtIndexPath:afterItem.indexPath];
+                    cell.rowIndex--;
+                }
             });
         } else {
             if (item.deletionHandler)
                 item.deletionHandler(item);
             [section removeItemAtIndex:indexPath.row];
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            
+            for (int i = indexPath.row; i < section.items.count; i++) {
+                RETableViewItem *afterItem = [[section items] objectAtIndex:i];
+                RETableViewCell *cell = (RETableViewCell *)[tableView cellForRowAtIndexPath:afterItem.indexPath];
+                cell.rowIndex--;
+            }
         }
     }
     
