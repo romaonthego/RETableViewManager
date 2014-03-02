@@ -5,7 +5,7 @@ forked from [romaonthego/RETableViewManager](https://github.com/romaonthego/RETa
 		pod “RETableViewManager”, :git => "https://github.com/eleven-huang/RETableViewManager.git"
 		
 #Changes
-##Add REFloatingNumberItem
+##1. Add REFloatingNumberItem
 You may need to input floating numbers sometimes, such as cash, bitcoin.
 		
 		
@@ -13,7 +13,7 @@ You may need to input floating numbers sometimes, such as cash, bitcoin.
 
 ![image](floating number.png)
 
-##Can disable editting on textfield
+##2. Can disable editting on textfield now
 
 
 		self.textItem = [RETextItem itemWithTitle:@"Text item" value:nil placeholder:@"Text"];
