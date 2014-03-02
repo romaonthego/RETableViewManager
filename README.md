@@ -2,7 +2,7 @@ forked from [romaonthego/RETableViewManager](https://github.com/romaonthego/RETa
 
 #Install
 
-		pod “RETableViewManager”, :git => "https://github.com/eleven-huang/RETableViewManager.git"
+		pod "RETableViewManager", :git => "https://github.com/eleven-huang/RETableViewManager.git"
 		
 #Changes
 ##1. Add REFloatingNumberItem
