@@ -4,7 +4,7 @@ forked from [romaonthego/RETableViewManager](https://github.com/romaonthego/RETa
 
 		pod "RETableViewManager", :git => "https://github.com/eleven-huang/RETableViewManager.git"
 		
-#Changes
+#Changelog
 ##1. Add REFloatingNumberItem
 You may need to input floating numbers sometimes, such as cash, bitcoin.
 		
