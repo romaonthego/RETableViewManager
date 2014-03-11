@@ -39,6 +39,7 @@
         if ([self.item.pickerItem.options objectAtIndex:idx] && [self.item.pickerItem.value objectAtIndex:idx] > 0)
             [self.pickerView selectRow:[[self.item.pickerItem.options objectAtIndex:idx] indexOfObject:[self.item.pickerItem.value objectAtIndex:idx]] inComponent:idx animated:NO];
     }];
+    [self.pickerView reloadAllComponents];
 }
 
 #pragma mark -
