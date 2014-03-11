@@ -306,7 +306,7 @@
                 [section removeItemAtIndex:indexPath.row];
                 [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
                 
-                for (int i = indexPath.row; i < section.items.count; i++) {
+                for (NSInteger i = indexPath.row; i < section.items.count; i++) {
                     RETableViewItem *afterItem = [[section items] objectAtIndex:i];
                     RETableViewCell *cell = (RETableViewCell *)[tableView cellForRowAtIndexPath:afterItem.indexPath];
                     cell.rowIndex--;
@@ -318,7 +318,7 @@
             [section removeItemAtIndex:indexPath.row];
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             
-            for (int i = indexPath.row; i < section.items.count; i++) {
+            for (NSInteger i = indexPath.row; i < section.items.count; i++) {
                 RETableViewItem *afterItem = [[section items] objectAtIndex:i];
                 RETableViewCell *cell = (RETableViewCell *)[tableView cellForRowAtIndexPath:afterItem.indexPath];
                 cell.rowIndex--;
@@ -858,7 +858,7 @@
         [self.delegate scrollViewWillBeginZooming:self.tableView withView:view];
 }
 
-- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(float)scale
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale
 {
     // Forward to UIScrollView delegate
     //

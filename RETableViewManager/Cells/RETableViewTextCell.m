@@ -28,8 +28,6 @@
 
 @interface RETableViewTextCell ()
 
-@property (strong, readwrite, nonatomic) UITextField *textField;
-
 @end
 
 @implementation RETableViewTextCell

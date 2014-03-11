@@ -537,7 +537,7 @@
 		30EF93A716E039B800B84981 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Roman Efimov";
 			};
 			buildConfigurationList = 30EF93AA16E039B800B84981 /* Build configuration list for PBXProject "RETableViewManagerExample" */;
@@ -767,7 +767,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4370D63D1564228A75E7BD2 /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RETableViewManagerExample/RETableViewManagerExample-Prefix.pch";
 				GCC_WARN_UNUSED_FUNCTION = YES;
@@ -784,7 +783,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4370D63D1564228A75E7BD2 /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RETableViewManagerExample/RETableViewManagerExample-Prefix.pch";
 				GCC_WARN_UNUSED_FUNCTION = YES;

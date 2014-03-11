@@ -99,10 +99,10 @@
         NSLog(@"Value: %@", item.value ? @"YES" : @"NO");
     }];
     self.segmentItem = [RESegmentedItem itemWithTitle:@"Segmented" segmentedControlTitles:@[@"One", @"Two"] value:1 switchValueChangeHandler:^(RESegmentedItem *item) {
-        NSLog(@"Value: %i", item.value);
+        NSLog(@"Value: %li", (long)item.value);
     }];
     self.segmentItem2 = [RESegmentedItem itemWithTitle:nil segmentedControlImages:@[[UIImage imageNamed:@"Heart"], [UIImage imageNamed:@"Heart_Highlighted"]] value:0 switchValueChangeHandler:^(RESegmentedItem *item) {
-        NSLog(@"Value: %i", item.value);
+        NSLog(@"Value: %li", (long)item.value);
     }];
     self.segmentItem2.tintColor = [UIColor orangeColor];
     self.floatItem = [REFloatItem itemWithTitle:@"Float item" value:0.3 sliderValueChangeHandler:^(REFloatItem *item) {
