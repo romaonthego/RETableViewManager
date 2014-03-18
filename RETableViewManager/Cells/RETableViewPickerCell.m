@@ -215,6 +215,10 @@
     [self shouldUpdateItemValue];
     if (self.item.onChange)
         self.item.onChange(self.item);
+
+    //TODO:For Double Picker which related.
+    [pickerView reloadComponent:1];
+    [self shouldUpdateItemValue];
 }
 
 @end
