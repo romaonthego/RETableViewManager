@@ -75,7 +75,7 @@ Build and run the `RETableViewManagerExample.xcworkspace` in Xcode to see `RETab
 
 ## Installation
 
-### CocoaPods
+### 1) CocoaPods
 
 The recommended approach for installating `RETableViewManager` is via the [CocoaPods](http://cocoapods.org/) package manager, as it provides flexible dependency management and dead simple installation.
 For best results, it is recommended that you install via CocoaPods >= **0.28.0** using Git >= **1.8.0** installed via Homebrew.
@@ -115,6 +115,10 @@ $ open MyProject.xcworkspace
 ```
 
 Please note that if your installation fails, it may be because you are installing with a version of Git lower than CocoaPods is expecting. Please ensure that you are running Git >= **1.8.0** by executing `git --version`. You can get a full picture of the installation details by executing `pod install --verbose`.
+
+### 2) Include Source Code
+
+Include RETableViewManager, REValidation, Resources, REFormattedNumberField folders in your source code
 
 
 ## API Quickstart
