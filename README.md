@@ -317,26 +317,43 @@ RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"
 
 // Add radio cell (options)
 //
-__typeof (self) __weak weakSelf = self;
-RERadioItem *optionItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" selectionHandler:^(RERadioItem *item) {
-  __typeof (weakSelf) __strong strongSelf = weakSelf;
-  [strongSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+ 
+    __typeof (&*self) __weak weakSelf = self;
 
-  // Generate sample options
-  //
-  NSMutableArray *options = [[NSMutableArray alloc] init];
-  for (NSInteger i = 1; i < 40; i++)
-      [options addObject:[NSString stringWithFormat:@"Option %i", i]];
+     RERadioItem *radioItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" selectionHandler:^(RERadioItem *item) {
+        [item deselectRowAnimated:YES]; // same as [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+        
+        // Generate sample options
+        //
+        NSMutableArray *options = [[NSMutableArray alloc] init];
+        for (NSInteger i = 1; i < 40; i++)
+            [options addObject:[NSString stringWithFormat:@"Option %li", (long) i]];
+        
+        // Present options controller
+        //
+        RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options multipleChoice:NO completionHandler:^{
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+            
+            [item reloadRowWithAnimation:UITableViewRowAnimationNone]; // same as [weakSelf.tableView reloadRowsAtIndexPaths:@[item.indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }];
+        
+        // Adjust styles
+        //
+        optionsController.delegate = weakSelf;
+        optionsController.style = section.style;
+        if (weakSelf.tableView.backgroundView == nil) {
+            optionsController.tableView.backgroundColor = weakSelf.tableView.backgroundColor;
+            optionsController.tableView.backgroundView = nil;
+        }
+        
+        // Push the options controller
+        //
+        [weakSelf.navigationController pushViewController:optionsController animated:YES];
+    }];
+    
+    [section addItem:radioItem];
 
-  // Present options controller
-  //
-  RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options completionHandler:^(RETableViewItem *selectedItem) {
-      item.value = selectedItem.title;
-      [strongSelf.tableView reloadRowsAtIndexPaths:@[item.indexPath] withRowAnimation:UITableViewRowAnimationNone];
-  }];
-  [strongSelf.navigationController pushViewController:optionsController animated:YES];
-}];
-[section addItem:optionItem];
+
 ```
 
 ### Float Item (UISlider) Example
