@@ -29,7 +29,7 @@ Get your `UITableView` up and running in several lines of code:
     // Add a section
     //
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"];
-    [manager addSection:section];
+    [self.manager addSection:section];
 
     // Add a string
     //
@@ -37,7 +37,7 @@ Get your `UITableView` up and running in several lines of code:
 
     // Add a basic cell with disclosure indicator
     //
-    [section addItem:[RETableViewItem itemWithTitle:"String cell" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
+    [section addItem:[RETableViewItem itemWithTitle:@"String cell" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
         NSLog(@"Test: %@", item);
     }]];
 
