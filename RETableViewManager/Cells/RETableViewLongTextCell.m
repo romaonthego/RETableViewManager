@@ -45,7 +45,6 @@
 - (void)cellDidLoad
 {
     [super cellDidLoad];
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.textLabel.backgroundColor = [UIColor clearColor];
     
     self.textView = [[REPlaceholderTextView alloc] init];
@@ -68,6 +67,7 @@
 - (void)cellWillAppear
 {
     [super cellWillAppear];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 
     UILabel *label = self.textLabel;
     
