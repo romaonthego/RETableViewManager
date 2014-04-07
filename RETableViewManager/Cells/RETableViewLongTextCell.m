@@ -94,6 +94,10 @@
     self.textView.enablesReturnKeyAutomatically = self.item.enablesReturnKeyAutomatically;
     self.textView.secureTextEntry = self.item.secureTextEntry;
     [self.textView setNeedsDisplay];
+    
+    if (REUIKitIsFlatMode()) {
+        self.actionBar.barStyle = self.item.keyboardAppearance == UIKeyboardAppearanceAlert ? UIBarStyleBlack : UIBarStyleDefault;
+    }
 }
 
 - (UIResponder *)responder
