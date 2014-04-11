@@ -92,7 +92,7 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
     return RECreditCardTypeUnknown;
 }
 
-+ (BOOL)canFocus
++ (BOOL)canFocusWithItem:(RETableViewItem *)item
 {
     return YES;
 }

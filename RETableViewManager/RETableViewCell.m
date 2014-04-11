@@ -36,6 +36,18 @@
 
 @implementation RETableViewCell
 
+#pragma mark
+#pragma mark Lazy Load
+
+-(REActionBar *)actionBar
+{
+    if (nil == _actionBar)
+    {
+        _actionBar = [[REActionBar alloc] initWithDelegate:self];
+    }
+    return _actionBar;
+}
+
 + (BOOL)canFocusWithItem:(RETableViewItem *)item
 {
     return NO;
@@ -79,7 +91,6 @@
 - (void)cellDidLoad
 {
     self.loaded = YES;
-    self.actionBar = [[REActionBar alloc] initWithDelegate:self];
     self.selectionStyle = self.tableViewManager.style.defaultCellSelectionStyle;
     
     if ([self.tableViewManager.style hasCustomBackgroundImage]) {
@@ -93,7 +104,10 @@
 
 - (void)cellWillAppear
 {
-    [self updateActionBarNavigationControl];
+    if ([[self class] canFocusWithItem:self.item])
+    {
+        [self updateActionBarNavigationControl];
+    }
     self.selectionStyle = self.section.style.defaultCellSelectionStyle;
     
     if ([self.item isKindOfClass:[NSString class]]) {
