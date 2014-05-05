@@ -83,6 +83,8 @@
 - (void)textFieldDidChange:(REFormattedNumberField *)textField
 {
     self.item.value = textField.unformattedText;
+    if (self.item.onChange)
+        self.item.onChange(self.item);
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     if (self.item.onEndEditing)

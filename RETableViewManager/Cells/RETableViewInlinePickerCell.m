@@ -69,6 +69,9 @@
     [self shouldUpdateItemValue];
     if (self.item.pickerItem.onChange)
         self.item.pickerItem.onChange(self.item.pickerItem);
+
+    [pickerView reloadAllComponents];
+    [self shouldUpdateItemValue];
 }
 
 - (void)shouldUpdateItemValue

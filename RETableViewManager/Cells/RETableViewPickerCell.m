@@ -215,6 +215,10 @@
     [self shouldUpdateItemValue];
     if (self.item.onChange)
         self.item.onChange(self.item);
+
+    [pickerView reloadAllComponents];
+    [self shouldUpdateItemValue];
+
 }
 
 @end
