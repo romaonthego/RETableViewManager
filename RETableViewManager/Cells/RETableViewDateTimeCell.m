@@ -92,6 +92,9 @@
     self.datePicker.maximumDate = self.item.maximumDate;
     self.datePicker.minuteInterval = self.item.minuteInterval;
     self.dateFormatter.dateFormat = self.item.format;
+    self.dateFormatter.calendar = self.item.calendar;
+    self.dateFormatter.timeZone = self.item.timeZone;
+    self.dateFormatter.locale = self.item.locale;
     self.dateLabel.text = self.item.value ? [self.dateFormatter stringFromDate:self.item.value] : @"";
     self.placeholderLabel.text = self.item.placeholder;
     self.placeholderLabel.hidden = self.dateLabel.text.length > 0;
