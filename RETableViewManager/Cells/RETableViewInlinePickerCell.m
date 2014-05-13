@@ -7,6 +7,7 @@
 //
 
 #import "RETableViewInlinePickerCell.h"
+#import "RETableViewManager.h"
 #import "REPickerItem.h"
 
 @interface RETableViewInlinePickerCell ()
@@ -40,6 +41,15 @@
             [self.pickerView selectRow:[[self.item.pickerItem.options objectAtIndex:idx] indexOfObject:[self.item.pickerItem.value objectAtIndex:idx]] inComponent:idx animated:NO];
     }];
     [self.pickerView reloadAllComponents];
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.pickerView.frame = self.bounds;
+    
+    if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:forRowAtIndexPath:)])
+        [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self forRowAtIndexPath:[self.tableViewManager.tableView indexPathForCell:self]];
 }
 
 #pragma mark -
