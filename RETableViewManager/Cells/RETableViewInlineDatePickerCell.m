@@ -7,6 +7,7 @@
 //
 
 #import "RETableViewInlineDatePickerCell.h"
+#import "RETableViewManager.h"
 #import "REDateTimeItem.h"
 
 @interface RETableViewInlineDatePickerCell ()
@@ -42,6 +43,15 @@
     self.datePicker.minimumDate = self.item.dateTimeItem.minimumDate;
     self.datePicker.maximumDate = self.item.dateTimeItem.maximumDate;
     self.datePicker.minuteInterval = self.item.dateTimeItem.minuteInterval;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.datePicker.frame = self.bounds;
+    
+    if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:forRowAtIndexPath:)])
+        [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self forRowAtIndexPath:[self.tableViewManager.tableView indexPathForCell:self]];
 }
 
 #pragma mark -
