@@ -409,14 +409,42 @@
 {
     RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
     
-    if (section.headerHeight != RETableViewSectionFooterHeightAutomatic) {
+    if (section.headerHeight != RETableViewSectionHeaderHeightAutomatic) {
         return section.headerHeight;
     }
     
     if (section.headerView)
         return section.headerView.frame.size.height;
-    else if (section.headerTitle.length)
-        return self.defaultTableViewSectionHeight;
+    else if (section.headerTitle.length) {
+        if (!UITableViewStyleGrouped) {
+            return self.defaultTableViewSectionHeight;
+        } else {
+            CGFloat headerHeight = 0;
+            CGFloat headerWidth = CGRectGetWidth(CGRectIntegral(tableView.bounds)) - 40.0f; // 40 = 20pt horizontal padding on each side
+        
+            CGSize headerRect = CGSizeMake(headerWidth, RETableViewSectionHeaderHeightAutomatic);
+        
+            IF_IOS7_OR_GREATER (
+                CGRect headerFrame = [section.headerTitle boundingRectWithSize:headerRect
+                                                                       options:NSStringDrawingUsesLineFragmentOrigin
+                                                                    attributes:@{ NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote] }
+                                                                       context:nil];
+                            
+                headerHeight = headerFrame.size.height;
+            ) else {
+                #pragma clang diagnostic push
+                #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+                CGSize headerFrameSize = [section.headerTitle sizeWithFont:[UIFont systemFontOfSize:13.0f]
+                                                         constrainedToSize:headerRect
+                                                             lineBreakMode:NSLineBreakByWordWrapping];
+                #pragma clang diagnostic pop
+            
+                headerHeight = headerFrameSize.height;
+            }
+        
+            return headerHeight + 20.0f;
+        }
+    }
     
     // Forward to UITableView delegate
     //
@@ -436,8 +464,36 @@
     
     if (section.footerView)
         return section.footerView.frame.size.height;
-    else if (section.footerTitle.length)
-        return self.defaultTableViewSectionHeight;
+    else if (section.footerTitle.length) {
+        if (!UITableViewStyleGrouped) {
+            return self.defaultTableViewSectionHeight;
+        } else {
+            CGFloat footerHeight = 0;
+            CGFloat footerWidth = CGRectGetWidth(CGRectIntegral(tableView.bounds)) - 40.0f; // 40 = 20pt horizontal padding on each side
+        
+            CGSize footerRect = CGSizeMake(footerWidth, RETableViewSectionFooterHeightAutomatic);
+        
+            IF_IOS7_OR_GREATER (
+                CGRect footerFrame = [section.footerTitle boundingRectWithSize:footerRect
+                                                                       options:NSStringDrawingUsesLineFragmentOrigin
+                                                                    attributes:@{ NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote] }
+                                                                       context:nil];
+            
+                footerHeight = footerFrame.size.height;
+            ) else {
+                #pragma clang diagnostic push
+                #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+                CGSize footerFrameSize = [section.footerTitle sizeWithFont:[UIFont systemFontOfSize:13.0f]
+                                                         constrainedToSize:footerRect
+                                                             lineBreakMode:NSLineBreakByWordWrapping];
+                #pragma clang diagnostic pop
+            
+                footerHeight = footerFrameSize.height;
+            }
+        
+            return footerHeight + 10.0f;
+        }
+    }
     
     // Forward to UITableView delegate
     //
