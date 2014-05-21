@@ -67,6 +67,7 @@
 - (void)cellWillAppear
 {
     [super cellWillAppear];
+    self.textLabel.text = @"";
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 
     UILabel *label = self.textLabel;
