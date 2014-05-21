@@ -42,6 +42,7 @@
 @property (assign, readwrite, nonatomic) UITableViewCellAccessoryType accessoryType;
 @property (assign, readwrite, nonatomic) UITableViewCellEditingStyle editingStyle;
 @property (strong, readwrite, nonatomic) UIView *accessoryView;
+@property (assign, readwrite, nonatomic) BOOL enabled;
 @property (copy, readwrite, nonatomic) void (^selectionHandler)(id item);
 @property (copy, readwrite, nonatomic) void (^accessoryButtonTapHandler)(id item);
 @property (copy, readwrite, nonatomic) void (^insertionHandler)(id item);
