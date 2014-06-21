@@ -287,12 +287,16 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
-    RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
-    if ([item isKindOfClass:[RETableViewItem class]]) {
-        return item.editingStyle != UITableViewCellEditingStyleNone || item.moveHandler;
+    if (indexPath.section < [self.mutableSections count]) {
+        RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
+        if (indexPath.row < [section.items count]) {
+            RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
+            if ([item isKindOfClass:[RETableViewItem class]]) {
+                return item.editingStyle != UITableViewCellEditingStyleNone || item.moveHandler;
+            }
+        }
     }
-    
+
     return NO;
 }
 
