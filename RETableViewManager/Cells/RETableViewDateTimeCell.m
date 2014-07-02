@@ -99,9 +99,7 @@
     self.placeholderLabel.text = self.item.placeholder;
     self.placeholderLabel.hidden = self.dateLabel.text.length > 0;
     
-    if (!self.item.title) {
-        self.dateLabel.textAlignment = NSTextAlignmentLeft;
-    }
+    self.dateLabel.textAlignment = [self.item.title length] ? NSTextAlignmentRight : NSTextAlignmentLeft;
     
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
     self.dateLabel.textColor = self.item.inlinePickerItem ? [self performSelector:@selector(tintColor) withObject:nil] : self.detailTextLabel.textColor;

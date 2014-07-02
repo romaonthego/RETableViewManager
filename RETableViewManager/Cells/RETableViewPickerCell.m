@@ -86,10 +86,8 @@
     self.valueLabel.text = self.item.value ? [self.item.value componentsJoinedByString:@", "] : @"";
     self.placeholderLabel.text = self.item.placeholder;
     self.placeholderLabel.hidden = self.valueLabel.text.length > 0;
-    
-    if (!self.item.title) {
-        self.valueLabel.textAlignment = NSTextAlignmentLeft;
-    }
+
+    self.valueLabel.textAlignment =  self.item.title ? NSTextAlignmentRight : NSTextAlignmentLeft;
     
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
     self.valueLabel.textColor = self.item.inlinePickerItem ? [self performSelector:@selector(tintColor) withObject:nil] : self.detailTextLabel.textColor;
