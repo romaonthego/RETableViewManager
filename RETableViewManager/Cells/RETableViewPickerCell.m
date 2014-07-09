@@ -34,9 +34,13 @@
 @property (strong, readwrite, nonatomic) UILabel *placeholderLabel;
 @property (strong, readwrite, nonatomic) UIPickerView *pickerView;
 
+@property (assign, readwrite, nonatomic) BOOL enabled;
+
 @end
 
 @implementation RETableViewPickerCell
+
+@synthesize item = _item;
 
 + (BOOL)canFocusWithItem:(REPickerItem *)item
 {
@@ -45,6 +49,12 @@
 
 #pragma mark -
 #pragma mark Lifecycle
+
+- (void)dealloc {
+    if (_item != nil) {
+        [_item removeObserver:self forKeyPath:@"enabled"];
+    }
+}
 
 - (void)cellDidLoad
 {
@@ -94,6 +104,8 @@
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
     self.valueLabel.textColor = self.item.inlinePickerItem ? [self performSelector:@selector(tintColor) withObject:nil] : self.detailTextLabel.textColor;
 #endif
+    
+    self.enabled = self.item.enabled;
 }
 
 - (void)layoutSubviews
@@ -159,6 +171,41 @@
     self.item.value = [value copy];
     self.valueLabel.text = self.item.value ? [self.item.value componentsJoinedByString:@", "] : @"";
     self.placeholderLabel.hidden = self.valueLabel.text.length > 0;
+}
+
+#pragma mark -
+#pragma mark Handle state
+
+- (void)setItem:(REPickerItem *)item
+{
+    if (_item != nil) {
+        [_item removeObserver:self forKeyPath:@"enabled"];
+    }
+    
+    _item = item;
+    
+    [_item addObserver:self forKeyPath:@"enabled" options:NSKeyValueObservingOptionNew context:NULL];
+}
+
+- (void)setEnabled:(BOOL)enabled {
+    _enabled = enabled;
+    
+    self.userInteractionEnabled = _enabled;
+    
+    self.textLabel.enabled = _enabled;
+    self.textField.enabled = _enabled;
+    self.valueLabel.enabled = _enabled;
+    self.placeholderLabel.enabled = _enabled;
+    self.pickerView.userInteractionEnabled = _enabled;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([object isKindOfClass:[REBoolItem class]] && [keyPath isEqualToString:@"enabled"]) {
+        BOOL newValue = [[change objectForKey: NSKeyValueChangeNewKey] boolValue];
+        
+        self.enabled = newValue;
+    }
 }
 
 #pragma mark -

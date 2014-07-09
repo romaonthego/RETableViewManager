@@ -34,6 +34,8 @@
 @property (strong, readwrite, nonatomic) UIDatePicker *datePicker;
 @property (strong, readwrite, nonatomic) NSDateFormatter *dateFormatter;
 
+@property (assign, readwrite, nonatomic) BOOL enabled;
+
 @end
 
 @implementation RETableViewDateTimeCell
@@ -43,8 +45,16 @@
     return !item.inlineDatePicker;
 }
 
+@synthesize item = _item;
+
 #pragma mark -
 #pragma mark Lifecycle
+
+- (void)dealloc {
+    if (_item != nil) {
+        [_item removeObserver:self forKeyPath:@"enabled"];
+    }
+}
 
 - (void)cellDidLoad
 {
@@ -106,6 +116,8 @@
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
     self.dateLabel.textColor = self.item.inlinePickerItem ? [self performSelector:@selector(tintColor) withObject:nil] : self.detailTextLabel.textColor;
 #endif
+
+    self.enabled = self.item.enabled;
 }
 
 - (void)layoutSubviews
@@ -124,6 +136,7 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
+    
     if (selected && !self.item.inlineDatePicker) {
         [self.textField becomeFirstResponder];
     }
@@ -153,6 +166,41 @@
 - (UIResponder *)responder
 {
     return self.textField;
+}
+
+#pragma mark -
+#pragma mark Handle state
+
+- (void)setItem:(REDateTimeItem *)item
+{
+    if (_item != nil) {
+        [_item removeObserver:self forKeyPath:@"enabled"];
+    }
+    
+    _item = item;
+    
+    [_item addObserver:self forKeyPath:@"enabled" options:NSKeyValueObservingOptionNew context:NULL];
+}
+
+- (void)setEnabled:(BOOL)enabled {
+    _enabled = enabled;
+    
+    self.userInteractionEnabled = _enabled;
+    
+    self.textLabel.enabled = _enabled;
+    self.textField.enabled = _enabled;
+    self.dateLabel.enabled = _enabled;
+    self.placeholderLabel.enabled = _enabled;
+    self.datePicker.enabled = _enabled;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([object isKindOfClass:[REBoolItem class]] && [keyPath isEqualToString:@"enabled"]) {
+        BOOL newValue = [[change objectForKey: NSKeyValueChangeNewKey] boolValue];
+        
+        self.enabled = newValue;
+    }
 }
 
 #pragma mark -

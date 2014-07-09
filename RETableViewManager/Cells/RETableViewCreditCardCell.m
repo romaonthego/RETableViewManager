@@ -43,9 +43,13 @@
 
 @property (assign, readwrite, nonatomic) BOOL isNumberEditingMode;
 
+@property (assign, readwrite, nonatomic) BOOL enabled;
+
 @end
 
 @implementation RETableViewCreditCardCell
+
+@synthesize item = _item;
 
 static NSString * const creditCardTypeImage[] = {
         [RECreditCardTypeUnknown] = @"RETableViewManager.bundle/Card_Stack",
@@ -99,6 +103,12 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
 
 #pragma mark -
 #pragma mark Lifecycle
+
+- (void)dealloc {
+    if (_item != nil) {
+        [_item removeObserver:self forKeyPath:@"enabled"];
+    }
+}
 
 - (void)cellDidLoad
 {
@@ -160,6 +170,9 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
     [self.wrapperView addSubview:self.cvvField];
 
     self.ribbonExpired = [[UIImageView alloc] init];
+    
+    self.enabled = self.item.enabled;
+
     [self.contentView addSubview:self.ribbonExpired];
 }
 
@@ -266,6 +279,40 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
 {
     if ((textField.tag == 1 || textField.tag == 2) && !self.cvvField.isFirstResponder) {
         [UIView transitionFromView:self.creditCardBackImageView toView:self.currentImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
+    }
+}
+
+#pragma mark -
+#pragma mark Handle state
+
+- (void)setItem:(RECreditCardItem *)item
+{
+    if (_item != nil) {
+        [_item removeObserver:self forKeyPath:@"enabled"];
+    }
+    
+    _item = item;
+    
+    [_item addObserver:self forKeyPath:@"enabled" options:NSKeyValueObservingOptionNew context:NULL];
+}
+
+- (void)setEnabled:(BOOL)enabled {
+    _enabled = enabled;
+    
+    self.userInteractionEnabled = _enabled;
+    
+    self.textLabel.enabled = _enabled;
+    self.creditCardField.enabled = _enabled;
+    self.expirationDateField.enabled = _enabled;
+    self.cvvField.enabled = _enabled;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([object isKindOfClass:[REBoolItem class]] && [keyPath isEqualToString:@"enabled"]) {
+        BOOL newValue = [[change objectForKey: NSKeyValueChangeNewKey] boolValue];
+        
+        self.enabled = newValue;
     }
 }
 
