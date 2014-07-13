@@ -61,9 +61,7 @@
     self.detailTextLabel.text = @"";
     self.valueLabel.text = self.item.detailLabelText;
     
-    if (!self.item.title) {
-        self.valueLabel.textAlignment = self.item.title ? NSTextAlignmentRight : NSTextAlignmentLeft;
-    }
+    self.valueLabel.textAlignment = self.item.title ? NSTextAlignmentRight : NSTextAlignmentLeft;
 }
 
 - (void)layoutSubviews
