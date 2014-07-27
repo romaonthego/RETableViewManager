@@ -154,9 +154,15 @@
         NSString *valueText = [options objectAtIndex:[self.pickerView selectedRowInComponent:idx]];
         [value addObject:valueText];
     }];
-    self.item.value = [value copy];
-    self.valueLabel.text = self.item.value ? [self.item.value componentsJoinedByString:@", "] : @"";
-    self.placeholderLabel.hidden = self.valueLabel.text.length > 0;
+    
+    if (![self.item.value isEqualToArray:value]) {
+        self.item.value = [value copy];
+        self.valueLabel.text = self.item.value ? [self.item.value componentsJoinedByString:@", "] : @"";
+        self.placeholderLabel.hidden = self.valueLabel.text.length > 0;
+
+        if (self.item.onChange)
+            self.item.onChange(self.item);
+    }
 }
 
 #pragma mark -
@@ -211,8 +217,6 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     [self shouldUpdateItemValue];
-    if (self.item.onChange)
-        self.item.onChange(self.item);
 
     [pickerView reloadAllComponents];
     [self shouldUpdateItemValue];

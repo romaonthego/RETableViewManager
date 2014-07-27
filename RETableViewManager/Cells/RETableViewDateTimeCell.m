@@ -175,9 +175,16 @@
 {
     [self setSelected:NO animated:NO];
     [self.item deselectRowAnimated:NO];
-    self.item.value = self.datePicker.date;
-    self.dateLabel.text = [self.dateFormatter stringFromDate:self.item.value];
-    self.placeholderLabel.hidden = self.dateLabel.text.length > 0;
+
+    if (![self.item.value isEqualToDate:self.datePicker.date]) {
+        self.item.value = self.datePicker.date;
+        self.dateLabel.text = [self.dateFormatter stringFromDate:self.item.value];
+        self.placeholderLabel.hidden = self.dateLabel.text.length > 0;
+
+        if (self.item.onChange)
+            self.item.onChange(self.item);
+    }
+    
     return YES;
 }
 
