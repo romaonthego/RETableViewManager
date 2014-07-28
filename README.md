@@ -29,7 +29,7 @@ Get your `UITableView` up and running in several lines of code:
     // Add a section
     //
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"];
-    [manager addSection:section];
+    [self.manager addSection:section];
 
     // Add a string
     //
@@ -75,7 +75,7 @@ Build and run the `RETableViewManagerExample.xcworkspace` in Xcode to see `RETab
 
 ## Installation
 
-### CocoaPods
+### 1) CocoaPods
 
 The recommended approach for installating `RETableViewManager` is via the [CocoaPods](http://cocoapods.org/) package manager, as it provides flexible dependency management and dead simple installation.
 For best results, it is recommended that you install via CocoaPods >= **0.28.0** using Git >= **1.8.0** installed via Homebrew.
@@ -115,6 +115,10 @@ $ open MyProject.xcworkspace
 ```
 
 Please note that if your installation fails, it may be because you are installing with a version of Git lower than CocoaPods is expecting. Please ensure that you are running Git >= **1.8.0** by executing `git --version`. You can get a full picture of the installation details by executing `pod install --verbose`.
+
+### 2) Include Source Code
+
+Include RETableViewManager, REValidation, Resources, REFormattedNumberField folders in your source code
 
 
 ## API Quickstart
@@ -317,26 +321,43 @@ RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"
 
 // Add radio cell (options)
 //
-__typeof (self) __weak weakSelf = self;
-RERadioItem *optionItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" selectionHandler:^(RERadioItem *item) {
-  __typeof (weakSelf) __strong strongSelf = weakSelf;
-  [strongSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+ 
+    __typeof (&*self) __weak weakSelf = self;
 
-  // Generate sample options
-  //
-  NSMutableArray *options = [[NSMutableArray alloc] init];
-  for (NSInteger i = 1; i < 40; i++)
-      [options addObject:[NSString stringWithFormat:@"Option %i", i]];
+     RERadioItem *radioItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" selectionHandler:^(RERadioItem *item) {
+        [item deselectRowAnimated:YES]; // same as [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+        
+        // Generate sample options
+        //
+        NSMutableArray *options = [[NSMutableArray alloc] init];
+        for (NSInteger i = 1; i < 40; i++)
+            [options addObject:[NSString stringWithFormat:@"Option %li", (long) i]];
+        
+        // Present options controller
+        //
+        RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options multipleChoice:NO completionHandler:^{
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+            
+            [item reloadRowWithAnimation:UITableViewRowAnimationNone]; // same as [weakSelf.tableView reloadRowsAtIndexPaths:@[item.indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }];
+        
+        // Adjust styles
+        //
+        optionsController.delegate = weakSelf;
+        optionsController.style = section.style;
+        if (weakSelf.tableView.backgroundView == nil) {
+            optionsController.tableView.backgroundColor = weakSelf.tableView.backgroundColor;
+            optionsController.tableView.backgroundView = nil;
+        }
+        
+        // Push the options controller
+        //
+        [weakSelf.navigationController pushViewController:optionsController animated:YES];
+    }];
+    
+    [section addItem:radioItem];
 
-  // Present options controller
-  //
-  RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options completionHandler:^(RETableViewItem *selectedItem) {
-      item.value = selectedItem.title;
-      [strongSelf.tableView reloadRowsAtIndexPaths:@[item.indexPath] withRowAnimation:UITableViewRowAnimationNone];
-  }];
-  [strongSelf.navigationController pushViewController:optionsController animated:YES];
-}];
-[section addItem:optionItem];
+
 ```
 
 ### Float Item (UISlider) Example
