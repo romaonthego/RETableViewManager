@@ -31,6 +31,7 @@
 @interface RETableViewSegmentedCell ()
 
 @property (strong, readwrite, nonatomic) UISegmentedControl *segmentedControl;
+@property (strong, nonatomic) NSArray *horizontalConstraints;
 
 @property (assign, readwrite, nonatomic) BOOL enabled;
 
@@ -64,15 +65,7 @@
         self.segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
     }
 #endif
-}
 
-- (void)cellWillAppear
-{
-    self.textLabel.text = self.item.title;
-    [self.contentView removeConstraints:self.contentView.constraints];
-    [self.segmentedControl removeAllSegments];
-    CGFloat margin = (REUIKitIsFlatMode() && self.section.style.contentViewMargin <= 0) ? 15.0 : 10.0;
-    NSDictionary *metrics = @{@"margin": @(margin)};
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.segmentedControl
                                                                  attribute:NSLayoutAttributeCenterY
                                                                  relatedBy:NSLayoutRelationEqual
@@ -80,11 +73,25 @@
                                                                  attribute:NSLayoutAttributeCenterY
                                                                 multiplier:1.0
                                                                   constant:0]];
-    if (self.item.title.length > 0) {
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_segmentedControl(>=140)]-margin-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(_segmentedControl)]];
-    } else {
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-margin-[_segmentedControl]-margin-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(_segmentedControl)]];
+}
+
+- (void)cellWillAppear
+{
+    self.textLabel.text = self.item.title;
+    [self.segmentedControl removeAllSegments];
+
+    if (self.horizontalConstraints) {
+        // Clears previous constraints.
+        [self.contentView removeConstraints:self.horizontalConstraints];
     }
+    CGFloat margin = (REUIKitIsFlatMode() && self.section.style.contentViewMargin <= 0) ? 15.0 : 10.0;
+    NSDictionary *metrics = @{@"margin": @(margin)};
+    if (self.item.title.length > 0) {
+        self.horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[_segmentedControl(>=140)]-margin-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(_segmentedControl)];
+    } else {
+        self.horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-margin-[_segmentedControl]-margin-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(_segmentedControl)];
+    }
+    [self.contentView addConstraints:self.horizontalConstraints];
     
     if (self.item.segmentedControlTitles.count > 0) {
         [self.item.segmentedControlTitles enumerateObjectsUsingBlock:^(NSString *title, NSUInteger idx, BOOL *stop) {

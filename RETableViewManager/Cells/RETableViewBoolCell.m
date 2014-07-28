@@ -56,11 +56,7 @@
     self.switchView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.switchView addTarget:self action:@selector(switchValueDidChange:) forControlEvents:UIControlEventValueChanged];
     [self.contentView addSubview:self.switchView];
-}
 
-- (void)cellWillAppear
-{
-    [self.contentView removeConstraints:self.contentView.constraints];
     CGFloat margin = (REUIKitIsFlatMode() && self.section.style.contentViewMargin <= 0) ? 15.0 : 10.0;
     NSDictionary *metrics = @{@"margin": @(margin)};
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.switchView
@@ -72,7 +68,10 @@
                                                                   constant:0]];
     UISwitch *switchView = self.switchView;
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[switchView]-margin-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(switchView)]];
-    
+}
+
+- (void)cellWillAppear
+{
     self.textLabel.backgroundColor = [UIColor clearColor];
     self.textLabel.text = self.item.title;
     self.switchView.on = self.item.value;
