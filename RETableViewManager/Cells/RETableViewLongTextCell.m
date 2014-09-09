@@ -64,6 +64,15 @@
     self.textView.backgroundColor = [UIColor clearColor];
     self.textView.delegate = self;
     [self.contentView addSubview:self.textView];
+
+    UILabel *label = self.textLabel;
+    
+    CGFloat padding = (REUIKitIsFlatMode() && self.section.style.contentViewMargin <= 0) ? 7 : 2;
+    NSDictionary *metrics = @{ @"padding": @(padding) };
+    UITextView *textView = self.textView;
+    [self.contentView removeConstraints:self.contentView.constraints];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[textView]-2-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(textView, label)]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-padding-[textView]-padding-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(textView, label)]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -79,15 +88,6 @@
     [super cellWillAppear];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 
-    UILabel *label = self.textLabel;
-    
-    CGFloat padding = (REUIKitIsFlatMode() && self.section.style.contentViewMargin <= 0) ? 7 : 2;
-    NSDictionary *metrics = @{ @"padding": @(padding) };
-    UITextView *textView = self.textView;
-    [self.contentView removeConstraints:self.contentView.constraints];
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[textView]-2-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(textView, label)]];
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-padding-[textView]-padding-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(textView, label)]];
-    
     self.textView.editable = self.item.editable;
     self.textView.inputAccessoryView = self.textView.editable ?  self.actionBar : nil;
     
