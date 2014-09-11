@@ -307,10 +307,9 @@
 
 - (void)actionBar:(REActionBar *)actionBar doneButtonPressed:(UIBarButtonItem *)doneButtonItem
 {
+	[self endEditing:YES];
     if (self.item.actionBarDoneButtonTapHandler)
         self.item.actionBarDoneButtonTapHandler(self.item);
-
-    [self endEditing:YES];
 }
 
 @end
