@@ -55,7 +55,9 @@
         if (i == 0) {
             template = [NSString stringWithFormat:@"$%li", (long)i+1];
         } else {
-            template = [NSString stringWithFormat:@"%@$%li", [separators objectAtIndex:i-1], (long)i+1];
+            unichar separatorCharacter = [[separators objectAtIndex:i-1] characterAtIndex:0];
+            template = [NSString stringWithFormat:@"\\%C$%li", separatorCharacter, (long)i+1];
+
         }
         replace = [replace stringByAppendingString:template];
         [expressions addObject:@{@"match": currentMatch, @"replace": replace}];

@@ -10,29 +10,29 @@
 	<string>RETableViewManagerExample</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>00213686-1ACC-46C9-9B90-2769BCA1244F</key>
+		<key>2EFCB301C5C7352B2318A948816226A06981E201</key>
 		<string>ssh://github.com/romaonthego/RETableViewManager.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>RETableViewManagerExample/RETableViewManagerExample.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>00213686-1ACC-46C9-9B90-2769BCA1244F</key>
+		<key>2EFCB301C5C7352B2318A948816226A06981E201</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/romaonthego/RETableViewManager.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>00213686-1ACC-46C9-9B90-2769BCA1244F</string>
+	<string>2EFCB301C5C7352B2318A948816226A06981E201</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>00213686-1ACC-46C9-9B90-2769BCA1244F</string>
+			<string>2EFCB301C5C7352B2318A948816226A06981E201</string>
 			<key>IDESourceControlWCCName</key>
 			<string>RETableViewManager</string>
 		</dict>
