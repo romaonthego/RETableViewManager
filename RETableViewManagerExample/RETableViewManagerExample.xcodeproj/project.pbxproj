@@ -95,6 +95,8 @@
 		30FE4161176A32C300F317B8 /* Middle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FE4158176A32C300F317B8 /* Middle@2x.png */; };
 		30FE4162176A32C300F317B8 /* Single_Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FE4159176A32C300F317B8 /* Single_Selected@2x.png */; };
 		30FE4163176A32C300F317B8 /* Single@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FE415A176A32C300F317B8 /* Single@2x.png */; };
+		50359B2119D2BF8C00559B3E /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50359B1F19D2BF8C00559B3E /* Default-667h@2x.png */; };
+		50359B2219D2BF8C00559B3E /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50359B2019D2BF8C00559B3E /* Default-736h@3x.png */; };
 		53378ADE88FA40FD87184931 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EA85FF11E7E458B98D5825C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -242,6 +244,8 @@
 		30FE4158176A32C300F317B8 /* Middle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Middle@2x.png"; path = "Resources/Middle@2x.png"; sourceTree = "<group>"; };
 		30FE4159176A32C300F317B8 /* Single_Selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Single_Selected@2x.png"; path = "Resources/Single_Selected@2x.png"; sourceTree = "<group>"; };
 		30FE415A176A32C300F317B8 /* Single@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Single@2x.png"; path = "Resources/Single@2x.png"; sourceTree = "<group>"; };
+		50359B1F19D2BF8C00559B3E /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
+		50359B2019D2BF8C00559B3E /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		5EA85FF11E7E458B98D5825C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4370D63D1564228A75E7BD2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -487,6 +491,8 @@
 				30EF93C016E039B800B84981 /* RETableViewManagerExample-Prefix.pch */,
 				30EF93BA16E039B800B84981 /* RETableViewManagerExample-Info.plist */,
 				30EF93C816E039B800B84981 /* Default-568h@2x.png */,
+				50359B1F19D2BF8C00559B3E /* Default-667h@2x.png */,
+				50359B2019D2BF8C00559B3E /* Default-736h@3x.png */,
 				30EF93C416E039B800B84981 /* Default.png */,
 				30EF93C616E039B800B84981 /* Default@2x.png */,
 				30FE4153176A32C300F317B8 /* First@2x.png */,
@@ -539,6 +545,11 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Roman Efimov";
+				TargetAttributes = {
+					30EF93AE16E039B800B84981 = {
+						DevelopmentTeam = 4CXX7T9ASM;
+					};
+				};
 			};
 			buildConfigurationList = 30EF93AA16E039B800B84981 /* Build configuration list for PBXProject "RETableViewManagerExample" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -581,6 +592,7 @@
 				30939CEC17949A10004D95A9 /* photo4.jpg in Resources */,
 				30939CED17949A10004D95A9 /* photo5.jpg in Resources */,
 				30939CEE17949A10004D95A9 /* photo6.jpg in Resources */,
+				50359B2119D2BF8C00559B3E /* Default-667h@2x.png in Resources */,
 				30939CEF17949A10004D95A9 /* userpic1.jpg in Resources */,
 				30939CF017949A10004D95A9 /* userpic2.jpg in Resources */,
 				30939CF117949A10004D95A9 /* userpic3.jpg in Resources */,
@@ -590,6 +602,7 @@
 				30D1C7D617AC08F4001F731C /* First_Alt@2x.png in Resources */,
 				30D1C7D717AC08F4001F731C /* Last_Alt@2x.png in Resources */,
 				30D1C7D817AC08F4001F731C /* Middle_Alt@2x.png in Resources */,
+				50359B2219D2BF8C00559B3E /* Default-736h@3x.png in Resources */,
 				30D1C7D917AC08F4001F731C /* Single_Alt@2x.png in Resources */,
 				3079756617B3FD4600A58A71 /* Heart@2x.png in Resources */,
 				3079756817B3FDC600A58A71 /* Heart_Highlighted@2x.png in Resources */,
