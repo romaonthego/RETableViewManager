@@ -213,6 +213,9 @@
     
     if (cell == nil) {
         cell = [[cellClass alloc] initWithStyle:cellStyle reuseIdentifier:cellIdentifier];
+
+        [self.tableView registerClass:cellClass forCellReuseIdentifier:cellIdentifier];
+
         loadCell(cell);
     }
     
@@ -417,9 +420,9 @@
         return section.headerHeight;
     }
     
-    if (section.headerView)
+    if (section.headerView) {
         return section.headerView.frame.size.height;
-    else if (section.headerTitle.length) {
+    } else if (section.headerTitle.length) {
         if (!UITableViewStyleGrouped) {
             return self.defaultTableViewSectionHeight;
         } else {
@@ -430,8 +433,8 @@
         
             IF_IOS7_OR_GREATER (
                 CGRect headerFrame = [section.headerTitle boundingRectWithSize:headerRect
-                                                                       options:NSStringDrawingUsesLineFragmentOrigin
-                                                                    attributes:@{ NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote] }
+                                                                       options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
+                                                                    attributes:@{ NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline] }
                                                                        context:nil];
                             
                 headerHeight = headerFrame.size.height;
@@ -466,9 +469,9 @@
         return section.footerHeight;
     }
     
-    if (section.footerView)
+    if (section.footerView) {
         return section.footerView.frame.size.height;
-    else if (section.footerTitle.length) {
+    } else if (section.footerTitle.length) {
         if (!UITableViewStyleGrouped) {
             return self.defaultTableViewSectionHeight;
         } else {
@@ -479,7 +482,7 @@
         
             IF_IOS7_OR_GREATER (
                 CGRect footerFrame = [section.footerTitle boundingRectWithSize:footerRect
-                                                                       options:NSStringDrawingUsesLineFragmentOrigin
+                                                                       options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
                                                                     attributes:@{ NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote] }
                                                                        context:nil];
             
@@ -494,7 +497,7 @@
             
                 footerHeight = footerFrameSize.height;
             }
-        
+
             return footerHeight + 10.0f;
         }
     }
@@ -512,6 +515,7 @@
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
+
     id item = [section.items objectAtIndex:indexPath.row];
     
     // Forward to UITableView delegate
@@ -522,43 +526,8 @@
     );
     
     CGFloat height = [[self classForCellAtIndexPath:indexPath] heightWithItem:item tableViewManager:self];
+
     return height ? height : UITableViewAutomaticDimension;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)sectionIndex
-{
-    RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
-    if (section.headerView)
-        return section.headerView.frame.size.height;
-    else if (section.headerTitle.length)
-        return self.defaultTableViewSectionHeight;
-    
-    // Forward to UITableView delegate
-    //
-    IF_IOS7_OR_GREATER (
-        if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:estimatedHeightForHeaderInSection:)])
-            return [self.delegate tableView:tableView estimatedHeightForHeaderInSection:sectionIndex];
-    );
-    
-    return UITableViewAutomaticDimension;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)sectionIndex
-{
-    RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
-    if (section.footerView)
-        return section.footerView.frame.size.height;
-    else if (section.footerTitle.length)
-        return self.defaultTableViewSectionHeight;
-    
-    // Forward to UITableView delegate
-    //
-    IF_IOS7_OR_GREATER (
-        if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:estimatedHeightForFooterInSection:)])
-            return [self.delegate tableView:tableView estimatedHeightForFooterInSection:sectionIndex];
-    );
-    
-    return UITableViewAutomaticDimension;
 }
 
 // Section header & footer information. Views are preferred over title should you decide to provide both

@@ -238,9 +238,10 @@
 
 - (RETableViewSection *)addAccessories
 {
-    RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Accessories"];
+    RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Accessories" footerTitle:@"This section holds items with accessories."];
+
     [self.manager addSection:section];
-    
+
     // Add items to this section
     //
     [section addItem:[RETableViewItem itemWithTitle:@"Accessory 1" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
@@ -266,6 +267,9 @@
 - (RETableViewSection *)addCutCopyPaste
 {
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Copy / pasting"];
+
+    section.footerTitle = @"This section holds items that support copy and pasting. You can tap on an item to copy it, while you can tap on another one to paste it.";
+
     [self.manager addSection:section];
     
     RETableViewItem *copyItem = [RETableViewItem itemWithTitle:@"Long tap to copy this item" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
