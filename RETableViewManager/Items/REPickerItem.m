@@ -48,4 +48,9 @@
     return self;
 }
 
+- (NSArray *)errors
+{
+    return [REValidation validateObject:self.value name:self.name ? self.name : self.title validators:self.validators];
+}
+
 @end
