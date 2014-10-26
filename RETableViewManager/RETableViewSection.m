@@ -76,6 +76,7 @@ CGFloat const RETableViewSectionFooterHeightAutomatic = DBL_MAX;
     _mutableItems = [[NSMutableArray alloc] init];
     _headerHeight = RETableViewSectionHeaderHeightAutomatic;
     _footerHeight = RETableViewSectionFooterHeightAutomatic;
+    _cellTitlePadding = 5;
     
     return self;
 }
@@ -140,7 +141,7 @@ CGFloat const RETableViewSectionFooterHeightAutomatic = DBL_MAX;
             width = MAX(width, size.width);
         }
     }
-    return width + 5.0;
+    return width + self.cellTitlePadding;
 }
 
 #pragma mark -
