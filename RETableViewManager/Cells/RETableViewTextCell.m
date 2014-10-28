@@ -198,13 +198,13 @@
 {
     BOOL shouldChange = YES;
     
-    if (self.item.onChangeCharacterInRange)
-        shouldChange = self.item.onChangeCharacterInRange(self.item, range, string);
-    
     if (self.item.charactersLimit) {
         NSUInteger newLength = textField.text.length + string.length - range.length;
         shouldChange = newLength <= self.item.charactersLimit;
     }
+    
+    if (self.item.onChangeCharacterInRange && shouldChange)
+        shouldChange = self.item.onChangeCharacterInRange(self.item, range, string);
     
     return shouldChange;
 }
