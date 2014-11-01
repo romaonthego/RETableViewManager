@@ -87,6 +87,11 @@ extern CGFloat const RETableViewSectionFooterHeightAutomatic;
 @property (copy, readwrite, nonatomic) NSString *indexTitle;
 
 /**
+ The width of padding between the cell title and cell detail view
+ */
+@property (assign, readwrite, nonatomic) CGFloat cellTitlePadding;
+
+/**
  Returns the width of the longest title in the section.
  
  @param font A base font to use in calculations.
