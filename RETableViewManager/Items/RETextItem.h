@@ -55,7 +55,7 @@
 @property (copy, readwrite, nonatomic) void (^onEndEditing)(RETextItem *item);
 @property (copy, readwrite, nonatomic) void (^onChange)(RETextItem *item);
 @property (copy, readwrite, nonatomic) void (^onReturn)(RETextItem *item);
-@property (copy, readwrite, nonatomic) void (^onChangeCharacterInRange)(RETextItem *item, NSRange range, NSString *replacementString);
+@property (copy, readwrite, nonatomic) BOOL (^onChangeCharacterInRange)(RETextItem *item, NSRange range, NSString *replacementString);
 
 
 + (instancetype)itemWithTitle:(NSString *)title value:(NSString *)value;

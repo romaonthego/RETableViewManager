@@ -196,15 +196,17 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if (self.item.onChangeCharacterInRange)
-        self.item.onChangeCharacterInRange(self.item, range, string);
+    BOOL shouldChange = YES;
     
     if (self.item.charactersLimit) {
         NSUInteger newLength = textField.text.length + string.length - range.length;
-        return newLength <= self.item.charactersLimit;
+        shouldChange = newLength <= self.item.charactersLimit;
     }
     
-    return YES;
+    if (self.item.onChangeCharacterInRange && shouldChange)
+        shouldChange = self.item.onChangeCharacterInRange(self.item, range, string);
+    
+    return shouldChange;
 }
 
 
