@@ -70,7 +70,7 @@
     self.dateLabel = [[UILabel alloc] initWithFrame:CGRectNull];
     self.dateLabel.font = [UIFont systemFontOfSize:17];
     self.dateLabel.backgroundColor = [UIColor clearColor];
-    self.dateLabel.textColor = self.detailTextLabel.textColor;
+    self.dateLabel.textColor = [[self class] detailTextLabelColor];
     self.dateLabel.highlightedTextColor = [UIColor whiteColor];
     self.dateLabel.textAlignment = NSTextAlignmentRight;
     self.dateLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -113,9 +113,9 @@
         self.dateLabel.textAlignment = NSTextAlignmentLeft;
     }
     
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
-    self.dateLabel.textColor = self.item.inlinePickerItem ? [self performSelector:@selector(tintColor) withObject:nil] : self.detailTextLabel.textColor;
-#endif
+    if ([self respondsToSelector:@selector(tintColor)]) {
+        self.dateLabel.textColor = self.item.inlinePickerItem ? [self tintColor] : [[self class] detailTextLabelColor];
+    }
 
     self.enabled = self.item.enabled;
 }
@@ -144,9 +144,9 @@
     if (selected && self.item.inlineDatePicker && !self.item.inlinePickerItem) {
         [self setSelected:NO animated:NO];
         [self.item deselectRowAnimated:NO];
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
-        self.dateLabel.textColor = [self performSelector:@selector(tintColor) withObject:nil];
-#endif
+        if ([self respondsToSelector:@selector(tintColor)]) {
+            self.dateLabel.textColor = [self tintColor];
+        }
         self.item.inlinePickerItem = [REInlineDatePickerItem itemWithDateTimeItem:self.item];
         [self.section insertItem:self.item.inlinePickerItem atIndex:self.item.indexPath.row + 1];
         [self.tableViewManager.tableView insertRowsAtIndexPaths:@[self.item.inlinePickerItem.indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -154,13 +154,18 @@
         if (selected && self.item.inlineDatePicker && self.item.inlinePickerItem) {
             [self setSelected:NO animated:NO];
             [self.item deselectRowAnimated:NO];
-            self.dateLabel.textColor = self.detailTextLabel.textColor;
+            self.dateLabel.textColor = [[self class] detailTextLabelColor];
             NSIndexPath *indexPath = [self.item.inlinePickerItem.indexPath copy];
             [self.section removeItemAtIndex:self.item.inlinePickerItem.indexPath.row];
             self.item.inlinePickerItem = nil;
             [self.tableViewManager.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }
     }
+}
+
+//! HACK
++ (UIColor *)detailTextLabelColor {
+    return [UIColor colorWithRed:0.556863 green:0.556863 blue:0.576471 alpha:1];
 }
 
 - (UIResponder *)responder
