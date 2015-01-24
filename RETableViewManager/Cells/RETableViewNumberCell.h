@@ -23,7 +23,7 @@
 // THE SOFTWARE.
 //
 #import "RETableViewTextCell.h"
-#import "REFormattedNumberField.h"
+#import <REFormattedNumberField/REFormattedNumberField.h>
 #import "RENumberItem.h"
 
 @interface RETableViewNumberCell : RETableViewTextCell
