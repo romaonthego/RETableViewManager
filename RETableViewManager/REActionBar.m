@@ -54,7 +54,6 @@
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
     self.navigationControl.segmentedControlStyle = UISegmentedControlStyleBar;
 #endif
-    self.navigationControl.tintColor = self.tintColor;
     [self.navigationControl addTarget:self action:@selector(handleActionBarPreviousNext:) forControlEvents:UIControlEventValueChanged];
     
     if (REUIKitIsFlatMode()) {
