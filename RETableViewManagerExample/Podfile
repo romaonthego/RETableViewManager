@@ -1,3 +1,2 @@
-platform :ios, '6.0'
-pod 'REFormattedNumberField'
-pod 'REValidation'
+platform :ios, '7.0'
+pod 'RETableViewManager', :path => '../'
