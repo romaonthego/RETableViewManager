@@ -427,11 +427,6 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)sectionIndex
 {
     if (self.mutableSections.count <= sectionIndex) {
-        // Forward to UITableView delegate
-        //
-        if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:heightForHeaderInSection:)])
-            return [self.delegate tableView:tableView heightForHeaderInSection:sectionIndex];
-        
         return UITableViewAutomaticDimension;
     }
     RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
@@ -484,11 +479,6 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)sectionIndex
 {
     if (self.mutableSections.count <= sectionIndex) {
-        // Forward to UITableView delegate
-        //
-        if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:heightForFooterInSection:)])
-            return [self.delegate tableView:tableView heightForFooterInSection:sectionIndex];
-        
         return UITableViewAutomaticDimension;
     }
     RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
@@ -543,9 +533,6 @@
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.mutableSections.count <= indexPath.section) {
-        if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:estimatedHeightForRowAtIndexPath:)])
-            return [self.delegate tableView:tableView estimatedHeightForRowAtIndexPath:indexPath];
-        
         return UITableViewAutomaticDimension;
     }
     RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
