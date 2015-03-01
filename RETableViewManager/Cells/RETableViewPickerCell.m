@@ -91,6 +91,8 @@
 - (void)cellWillAppear
 {
     self.textLabel.text = self.item.title.length == 0 ? @" " : self.item.title;
+    self.imageView.image = self.item.image;
+    self.imageView.highlightedImage = self.item.highlightedImage;
     self.textField.inputView = self.pickerView;
     
     self.valueLabel.text = self.item.value ? [self.item.value componentsJoinedByString:@", "] : @"";
