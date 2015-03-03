@@ -67,7 +67,7 @@
 
     UILabel *label = self.textLabel;
     
-    CGFloat padding = (REUIKitIsFlatMode() && self.section.style.contentViewMargin <= 0) ? 7 : 2;
+    CGFloat padding = (self.section.style.contentViewMargin <= 0) ? 7 : 2;
     NSDictionary *metrics = @{ @"padding": @(padding) };
     UITextView *textView = self.textView;
     [self.contentView removeConstraints:self.contentView.constraints];
@@ -105,9 +105,7 @@
     self.textView.secureTextEntry = self.item.secureTextEntry;
     [self.textView setNeedsDisplay];
     
-    if (REUIKitIsFlatMode()) {
-        self.actionBar.barStyle = self.item.keyboardAppearance == UIKeyboardAppearanceAlert ? UIBarStyleBlack : UIBarStyleDefault;
-    }
+    self.actionBar.barStyle = self.item.keyboardAppearance == UIKeyboardAppearanceAlert ? UIBarStyleBlack : UIBarStyleDefault;
     
     self.enabled = self.item.enabled;
 }

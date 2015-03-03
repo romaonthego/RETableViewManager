@@ -24,7 +24,6 @@
 //
 
 #import "NSString+RETableViewManagerAdditions.h"
-#import "RECommonFunctions.h"
 
 @implementation NSString (RETableViewManagerAdditions)
 

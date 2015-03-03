@@ -42,34 +42,24 @@
     
     [self sizeToFit];
     
-    if (!REUIKitIsFlatMode()) {
-        self.translucent = YES;
-        self.barStyle = UIBarStyleBlackTranslucent;
-    }
-    
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(handleActionBarDone:)];
     
     self.navigationControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:NSLocalizedString(@"Previous", @""), NSLocalizedString(@"Next", @""), nil]];
     self.navigationControl.momentary = YES;
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
-    self.navigationControl.segmentedControlStyle = UISegmentedControlStyleBar;
-#endif
     [self.navigationControl addTarget:self action:@selector(handleActionBarPreviousNext:) forControlEvents:UIControlEventValueChanged];
     
-    if (REUIKitIsFlatMode()) {
-        [self.navigationControl setImage:[UIImage imageNamed:@"RETableViewManager.bundle/UIButtonBarArrowLeft"] forSegmentAtIndex:0];
-        [self.navigationControl setImage:[UIImage imageNamed:@"RETableViewManager.bundle/UIButtonBarArrowRight"] forSegmentAtIndex:1];
-        
-        [self.navigationControl setDividerImage:[[UIImage alloc] init]
-                    forLeftSegmentState:UIControlStateNormal
-                      rightSegmentState:UIControlStateNormal
-                             barMetrics:UIBarMetricsDefault];
-        
-        [self.navigationControl setBackgroundImage:[UIImage imageNamed:@"RETableViewManager.bundle/Transparent"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-        [self.navigationControl setWidth:40.0f forSegmentAtIndex:0];
-        [self.navigationControl setWidth:40.0f forSegmentAtIndex:1];
-        [self.navigationControl setContentOffset:CGSizeMake(-4, 0) forSegmentAtIndex:0];
-    }
+    [self.navigationControl setImage:[UIImage imageNamed:@"RETableViewManager.bundle/UIButtonBarArrowLeft"] forSegmentAtIndex:0];
+    [self.navigationControl setImage:[UIImage imageNamed:@"RETableViewManager.bundle/UIButtonBarArrowRight"] forSegmentAtIndex:1];
+    
+    [self.navigationControl setDividerImage:[[UIImage alloc] init]
+                        forLeftSegmentState:UIControlStateNormal
+                          rightSegmentState:UIControlStateNormal
+                                 barMetrics:UIBarMetricsDefault];
+    
+    [self.navigationControl setBackgroundImage:[UIImage imageNamed:@"RETableViewManager.bundle/Transparent"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [self.navigationControl setWidth:40.0f forSegmentAtIndex:0];
+    [self.navigationControl setWidth:40.0f forSegmentAtIndex:1];
+    [self.navigationControl setContentOffset:CGSizeMake(-4, 0) forSegmentAtIndex:0];
     
     UIBarButtonItem *prevNextWrapper = [[UIBarButtonItem alloc] initWithCustomView:self.navigationControl];
     UIBarButtonItem *flexible = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];

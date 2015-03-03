@@ -82,11 +82,9 @@
 {
     [super layoutSubviews];
     [self layoutDetailView:self.valueLabel minimumWidth:[self.valueLabel.text re_sizeWithFont:self.valueLabel.font].width];
-    if (REUIKitIsFlatMode()) {
-        CGRect frame = self.valueLabel.frame;
-        frame.size.width += 10.0;
-        self.valueLabel.frame = frame;
-    }
+    CGRect frame = self.valueLabel.frame;
+    frame.size.width += 10.0;
+    self.valueLabel.frame = frame;
     
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:forRowAtIndexPath:)])
         [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self forRowAtIndexPath:[self.tableViewManager.tableView indexPathForCell:self]];

@@ -25,7 +25,6 @@
 
 #import <UIKit/UIKit.h>
 #import <REValidation/REValidation.h>
-#import "RECommonFunctions.h"
 #import "RETableViewSection.h"
 #import "RETableViewCellStyle.h"
 #import "RETableViewCell.h"
@@ -51,6 +50,7 @@
 #import "RESegmentedItem.h"
 #import "REInlineDatePickerItem.h"
 #import "REInlinePickerItem.h"
+#import "NSString+RETableViewManagerAdditions.h"
 
 @protocol RETableViewManagerDelegate;
 

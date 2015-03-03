@@ -113,11 +113,7 @@
         NSLog(@"Value: %@", item.value.description);
     };
     
-    // Use inline date picker in iOS 7
-    //
-    if (REUIKitIsFlatMode()) {
-        self.dateTimeItem.inlineDatePicker = YES;
-    }
+    self.dateTimeItem.inlineDatePicker = YES;
     
     self.pickerItem = [REPickerItem itemWithTitle:@"Picker" value:@[@"Item 12", @"Item 23"] placeholder:nil options:@[@[@"Item 11", @"Item 12", @"Item 13"], @[@"Item 21", @"Item 22", @"Item 23", @"Item 24"]]];
     self.pickerItem.onChange = ^(REPickerItem *item){
@@ -126,9 +122,7 @@
     
     // Use inline picker in iOS 7
     //
-    if (REUIKitIsFlatMode()) {
-        self.pickerItem.inlinePicker = YES;
-    }
+    self.pickerItem.inlinePicker = YES;
     
     self.radioItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" selectionHandler:^(RERadioItem *item) {
         [item deselectRowAnimated:YES]; // same as [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];

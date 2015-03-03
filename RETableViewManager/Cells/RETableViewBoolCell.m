@@ -57,7 +57,7 @@
     [self.switchView addTarget:self action:@selector(switchValueDidChange:) forControlEvents:UIControlEventValueChanged];
     [self.contentView addSubview:self.switchView];
 
-    CGFloat margin = (REUIKitIsFlatMode() && self.section.style.contentViewMargin <= 0) ? 15.0 : 10.0;
+    CGFloat margin = (self.section.style.contentViewMargin <= 0) ? 15.0 : 10.0;
     NSDictionary *metrics = @{@"margin": @(margin)};
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.switchView
                                                                  attribute:NSLayoutAttributeCenterY

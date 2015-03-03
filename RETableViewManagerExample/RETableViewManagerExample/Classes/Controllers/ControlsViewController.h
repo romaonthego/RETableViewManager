@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RETableViewManager.h"
+#import <RETableViewManager/RETableViewManager.h>
 #import "RETableViewOptionsController.h"
 
 @interface ControlsViewController : UITableViewController <RETableViewManagerDelegate>

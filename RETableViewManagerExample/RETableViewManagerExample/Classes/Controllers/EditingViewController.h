@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RETableViewManager.h"
+#import <RETableViewManager/RETableViewManager.h>
 
 @interface EditingViewController : UITableViewController <UIAlertViewDelegate>
 
