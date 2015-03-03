@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Roman Efimov. All rights reserved.
 //
 
-#import "RETableViewCell.h"
+#import <RETableViewManager/RETableViewManager.h>
 #import "MultilineTextItem.h"
 
 @interface MultilineTextCell : RETableViewCell

@@ -180,7 +180,7 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
 {
     CGFloat cellOffset = 10.0;
     
-    if (REUIKitIsFlatMode() && self.section.style.contentViewMargin <= 0)
+    if (self.section.style.contentViewMargin <= 0)
         cellOffset += 5.0;
     self.creditCardImageViewContainer.frame = CGRectMake(cellOffset, 5, 32, 32);
     
@@ -242,7 +242,7 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
     frame.size.height = self.contentView.frame.size.height;
     self.cvvField.frame = frame;
 
-    self.ribbonExpired.frame = CGRectMake(CGRectGetWidth(self.contentView.frame) - self.ribbonExpired.image.size.width + 1 + (REUIKitIsFlatMode() ? 1 : 0), -2, self.ribbonExpired.image.size.width, self.ribbonExpired.image.size.height);
+    self.ribbonExpired.frame = CGRectMake(CGRectGetWidth(self.contentView.frame) - self.ribbonExpired.image.size.width + 2, -2, self.ribbonExpired.image.size.width, self.ribbonExpired.image.size.height);
 
     if (self.isNumberEditingMode) {
         self.creditCardField.frame = CGRectMake(0, self.creditCardField.frame.origin.y, self.creditCardField.frame.size.width, self.creditCardField.frame.size.height);

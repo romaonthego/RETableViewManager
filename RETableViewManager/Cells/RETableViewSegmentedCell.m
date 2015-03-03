@@ -84,7 +84,7 @@
         // Clears previous constraints.
         [self.contentView removeConstraints:self.horizontalConstraints];
     }
-    CGFloat margin = (REUIKitIsFlatMode() && self.section.style.contentViewMargin <= 0) ? 15.0 : 10.0;
+    CGFloat margin = (self.section.style.contentViewMargin <= 0) ? 15.0 : 10.0;
     NSDictionary *metrics = @{@"margin": @(margin)};
     if (self.item.title.length > 0) {
         self.horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[_segmentedControl(>=140)]-margin-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(_segmentedControl)];

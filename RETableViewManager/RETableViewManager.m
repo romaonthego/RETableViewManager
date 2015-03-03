@@ -444,23 +444,12 @@
         
             CGSize headerRect = CGSizeMake(headerWidth, RETableViewSectionHeaderHeightAutomatic);
         
-            IF_IOS7_OR_GREATER (
-                CGRect headerFrame = [section.headerTitle boundingRectWithSize:headerRect
-                                                                       options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
-                                                                    attributes:@{ NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline] }
-                                                                       context:nil];
-                            
-                headerHeight = headerFrame.size.height;
-            ) else {
-                #pragma clang diagnostic push
-                #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-                CGSize headerFrameSize = [section.headerTitle sizeWithFont:[UIFont systemFontOfSize:13.0f]
-                                                         constrainedToSize:headerRect
-                                                             lineBreakMode:NSLineBreakByWordWrapping];
-                #pragma clang diagnostic pop
+            CGRect headerFrame = [section.headerTitle boundingRectWithSize:headerRect
+                                                                   options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
+                                                                attributes:@{ NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline] }
+                                                                   context:nil];
             
-                headerHeight = headerFrameSize.height;
-            }
+            headerHeight = headerFrame.size.height;
         
             return headerHeight + 20.0f;
         }
@@ -496,23 +485,12 @@
         
             CGSize footerRect = CGSizeMake(footerWidth, RETableViewSectionFooterHeightAutomatic);
         
-            IF_IOS7_OR_GREATER (
-                CGRect footerFrame = [section.footerTitle boundingRectWithSize:footerRect
-                                                                       options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
-                                                                    attributes:@{ NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote] }
-                                                                       context:nil];
+            CGRect footerFrame = [section.footerTitle boundingRectWithSize:footerRect
+                                                                   options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
+                                                                attributes:@{ NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote] }
+                                                                   context:nil];
             
-                footerHeight = footerFrame.size.height;
-            ) else {
-                #pragma clang diagnostic push
-                #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-                CGSize footerFrameSize = [section.footerTitle sizeWithFont:[UIFont systemFontOfSize:13.0f]
-                                                         constrainedToSize:footerRect
-                                                             lineBreakMode:NSLineBreakByWordWrapping];
-                #pragma clang diagnostic pop
-            
-                footerHeight = footerFrameSize.height;
-            }
+            footerHeight = footerFrame.size.height;
 
             return footerHeight + 10.0f;
         }

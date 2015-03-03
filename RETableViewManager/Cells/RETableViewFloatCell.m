@@ -71,7 +71,7 @@
 {
     [super layoutSubviews];
     CGFloat cellOffset = 10.0;
-    if (REUIKitIsFlatMode() && self.section.style.contentViewMargin <= 0)
+    if (self.section.style.contentViewMargin <= 0)
         cellOffset += 5.0;
     
     self.sliderView.frame = CGRectMake(self.contentView.frame.size.width - self.item.sliderWidth - cellOffset, (self.contentView.frame.size.height - self.sliderView.frame.size.height) / 2.0, self.item.sliderWidth, 23.0);
