@@ -217,8 +217,6 @@
     if (cell == nil) {
         cell = [[cellClass alloc] initWithStyle:cellStyle reuseIdentifier:cellIdentifier];
 
-        [self.tableView registerClass:cellClass forCellReuseIdentifier:cellIdentifier];
-
         loadCell(cell);
     }
     
