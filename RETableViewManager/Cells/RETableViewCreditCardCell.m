@@ -27,6 +27,7 @@
 #import "RETableViewCreditCardCell.h"
 #import "RETableViewManager.h"
 #import "NSString+RETableViewManagerAdditions.h"
+#import "UIImage+REBundle.h"
 
 @interface RETableViewCreditCardCell ()
 
@@ -121,17 +122,17 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
     [self.contentView addSubview:self.creditCardImageViewContainer];
     
     self.creditCardStackImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
-    self.creditCardStackImageView.image = [UIImage imageNamed:creditCardTypeImage[RECreditCardTypeUnknown]];
+    self.creditCardStackImageView.image = [UIImage re_bundledImageNamed:creditCardTypeImage[RECreditCardTypeUnknown] ofType:@"png"];
     self.creditCardStackImageView.tag = 0;
     self.currentImageView = self.creditCardStackImageView;
     [self.creditCardImageViewContainer addSubview:self.creditCardStackImageView];
     
     self.creditCardImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
-    self.creditCardImageView.image = [UIImage imageNamed:creditCardTypeImage[RECreditCardTypeVisa]];
+    self.creditCardImageView.image = [UIImage re_bundledImageNamed:creditCardTypeImage[RECreditCardTypeVisa] ofType:@"png"];
     self.creditCardImageView.tag = 1;
     
     self.creditCardBackImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
-    self.creditCardBackImageView.image = [UIImage imageNamed:@"RETableViewManager.bundle/Card_Back"];
+    self.creditCardBackImageView.image = [UIImage re_bundledImageNamed:@"Card_Back" ofType:@"png"];
     self.creditCardBackImageView.tag = 2;
     
     self.wrapperView = [[UIView alloc] initWithFrame:CGRectMake(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 60 : 60 + self.textFieldPositionOffset.width, self.textFieldPositionOffset.height, self.frame.size.width - 70, self.frame.size.height)];
@@ -213,7 +214,7 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
     self.ribbonExpired.hidden = !RECreditCardExpired(self.expirationDateField.text);
 
     if (self.item.creditCardType != RECreditCardTypeUnknown ) {
-        self.creditCardImageView.image = [UIImage imageNamed:creditCardTypeImage[self.item.creditCardType]];
+        self.creditCardImageView.image = [UIImage re_bundledImageNamed:creditCardTypeImage[self.item.creditCardType] ofType:@"png"];
         [UIView transitionFromView:self.creditCardStackImageView toView:self.creditCardImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:nil];
         self.currentImageView = self.creditCardImageView;
     }
@@ -328,7 +329,7 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
         self.item.creditCardType = cardType;
         
         if (cardType != RECreditCardTypeUnknown) {
-            self.creditCardImageView.image = [UIImage imageNamed:creditCardTypeImage[cardType]];
+            self.creditCardImageView.image = [UIImage re_bundledImageNamed:creditCardTypeImage[cardType] ofType:@"png"];
             [UIView transitionFromView:self.creditCardStackImageView toView:self.creditCardImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:nil];
             self.currentImageView = self.creditCardImageView;
         } else {

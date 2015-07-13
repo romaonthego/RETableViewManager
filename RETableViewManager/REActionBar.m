@@ -25,6 +25,7 @@
 
 #import "REActionBar.h"
 #import "RETableViewManager.h"
+#import "UIImage+REBundle.h"
 
 @interface REActionBar ()
 
@@ -48,15 +49,15 @@
     self.navigationControl.momentary = YES;
     [self.navigationControl addTarget:self action:@selector(handleActionBarPreviousNext:) forControlEvents:UIControlEventValueChanged];
     
-    [self.navigationControl setImage:[UIImage imageNamed:@"RETableViewManager.bundle/UIButtonBarArrowLeft"] forSegmentAtIndex:0];
-    [self.navigationControl setImage:[UIImage imageNamed:@"RETableViewManager.bundle/UIButtonBarArrowRight"] forSegmentAtIndex:1];
-    
+    [self.navigationControl setImage:[UIImage re_bundledImageNamed:@"UIButtonBarArrowLeft" ofType:@"png"] forSegmentAtIndex:0];
+    [self.navigationControl setImage:[UIImage re_bundledImageNamed:@"UIButtonBarArrowRight" ofType:@"png"] forSegmentAtIndex:1];
+    [self.navigationControl setBackgroundImage:[UIImage re_bundledImageNamed:@"Transparent" ofType:@"png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+
     [self.navigationControl setDividerImage:[[UIImage alloc] init]
                         forLeftSegmentState:UIControlStateNormal
                           rightSegmentState:UIControlStateNormal
                                  barMetrics:UIBarMetricsDefault];
-    
-    [self.navigationControl setBackgroundImage:[UIImage imageNamed:@"RETableViewManager.bundle/Transparent"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+
     [self.navigationControl setWidth:40.0f forSegmentAtIndex:0];
     [self.navigationControl setWidth:40.0f forSegmentAtIndex:1];
     [self.navigationControl setContentOffset:CGSizeMake(-4, 0) forSegmentAtIndex:0];
