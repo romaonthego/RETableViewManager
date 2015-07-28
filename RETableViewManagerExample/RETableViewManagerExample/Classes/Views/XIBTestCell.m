@@ -14,7 +14,7 @@
 {
     [super cellWillAppear];
     self.textLabel.text = @"";
-    self.testLabel.text = self.item.title;
+    self.testLabel.text = self.testItem.title;
 }
 
 @end

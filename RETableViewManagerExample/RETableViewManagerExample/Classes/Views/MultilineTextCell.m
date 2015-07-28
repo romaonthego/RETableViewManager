@@ -45,7 +45,7 @@ static const CGFloat kVerticalMargin = 10.0;
     [super cellWillAppear];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.textLabel.text = @"";
-    self.multilineLabel.text = self.item.title;
+    self.multilineLabel.text = self.textItem.title;
 }
 
 - (void)layoutSubviews
@@ -56,7 +56,7 @@ static const CGFloat kVerticalMargin = 10.0;
     if (self.section.style.contentViewMargin <= 0)
         horizontalMargin += 5.0;
     
-    CGRect frame = CGRectMake(0, 0, CGRectGetWidth(self.contentView.bounds), [MultilineTextCell heightWithItem:self.item tableViewManager:self.tableViewManager]);
+    CGRect frame = CGRectMake(0, 0, CGRectGetWidth(self.contentView.bounds), [MultilineTextCell heightWithItem:self.textItem tableViewManager:self.tableViewManager]);
     frame = CGRectInset(frame, horizontalMargin, kVerticalMargin);
     
     self.multilineLabel.frame = frame;

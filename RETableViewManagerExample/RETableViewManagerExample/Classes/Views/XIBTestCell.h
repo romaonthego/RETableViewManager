@@ -12,6 +12,6 @@
 @interface XIBTestCell : RETableViewCell
 
 @property (strong, readwrite, nonatomic) IBOutlet UILabel *testLabel;
-@property (strong, readwrite, nonatomic) XIBTestItem *item;
+@property (strong, readwrite, nonatomic) XIBTestItem *testItem;
 
 @end
