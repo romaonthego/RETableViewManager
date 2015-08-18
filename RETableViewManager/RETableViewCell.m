@@ -106,6 +106,8 @@
         self.textLabel.backgroundColor = [UIColor clearColor];
         self.accessoryType = item.accessoryType;
         self.accessoryView = item.accessoryView;
+        self.editingAccessoryType = item.editingAccessoryType;
+        self.editingAccessoryView = item.editingAccessoryView;
         self.textLabel.textAlignment = item.textAlignment;
         if (self.selectionStyle != UITableViewCellSelectionStyleNone)
             self.selectionStyle = item.selectionStyle;

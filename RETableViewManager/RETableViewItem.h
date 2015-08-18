@@ -40,11 +40,14 @@
 @property (assign, readwrite, nonatomic) UITableViewCellStyle style;
 @property (assign, readwrite, nonatomic) UITableViewCellSelectionStyle selectionStyle;
 @property (assign, readwrite, nonatomic) UITableViewCellAccessoryType accessoryType;
+@property (assign, readwrite, nonatomic) UITableViewCellAccessoryType editingAccessoryType;
 @property (assign, readwrite, nonatomic) UITableViewCellEditingStyle editingStyle;
 @property (strong, readwrite, nonatomic) UIView *accessoryView;
+@property (strong, readwrite, nonatomic) UIView *editingAccessoryView;
 @property (assign, readwrite, nonatomic) BOOL enabled;
 @property (copy, readwrite, nonatomic) void (^selectionHandler)(id item);
 @property (copy, readwrite, nonatomic) void (^accessoryButtonTapHandler)(id item);
+@property (copy, readwrite, nonatomic) void (^editingAccessoryButtonTapHandler)(id item);
 @property (copy, readwrite, nonatomic) void (^insertionHandler)(id item);
 @property (copy, readwrite, nonatomic) void (^deletionHandler)(id item);
 @property (copy, readwrite, nonatomic) void (^deletionHandlerWithCompletion)(id item, void (^)(void));
