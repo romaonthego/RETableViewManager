@@ -563,10 +563,21 @@
 {
     RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
     id item = [section.items objectAtIndex:indexPath.row];
-    if ([item respondsToSelector:@selector(setAccessoryButtonTapHandler:)]) {
-        RETableViewItem *actionItem = (RETableViewItem *)item;
-        if (actionItem.accessoryButtonTapHandler)
-            actionItem.accessoryButtonTapHandler(item);
+    
+    if (self.tableView.editing) {
+        
+        if ([item respondsToSelector:@selector(setEditingAccessoryButtonTapHandler:)]) {
+            RETableViewItem *actionItem = (RETableViewItem *)item;
+            if (actionItem.editingAccessoryButtonTapHandler)
+                actionItem.editingAccessoryButtonTapHandler(item);
+        }
+        
+    } else {
+        if ([item respondsToSelector:@selector(setAccessoryButtonTapHandler:)]) {
+            RETableViewItem *actionItem = (RETableViewItem *)item;
+            if (actionItem.accessoryButtonTapHandler)
+                actionItem.accessoryButtonTapHandler(item);
+        }
     }
     
     // Forward to UITableView delegate
