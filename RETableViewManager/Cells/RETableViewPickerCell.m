@@ -61,13 +61,13 @@
     [super cellDidLoad];
     self.textLabel.backgroundColor = [UIColor clearColor];
     
-    self.textField = [[UITextField alloc] initWithFrame:CGRectNull];
+    self.textField = [[UITextField alloc] initWithFrame:CGRectZero];
     self.textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     self.textField.inputAccessoryView = self.actionBar;
     self.textField.delegate = self;
     [self addSubview:self.textField];
     
-    self.valueLabel = [[UILabel alloc] initWithFrame:CGRectNull];
+    self.valueLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.valueLabel.font = [UIFont systemFontOfSize:17];
     self.valueLabel.backgroundColor = [UIColor clearColor];
     self.valueLabel.textColor = self.detailTextLabel.textColor;
@@ -76,7 +76,7 @@
     self.valueLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.contentView addSubview:self.valueLabel];
     
-    self.placeholderLabel = [[UILabel alloc] initWithFrame:CGRectNull];
+    self.placeholderLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.placeholderLabel.font = [UIFont systemFontOfSize:17];
     self.placeholderLabel.backgroundColor = [UIColor clearColor];
     self.placeholderLabel.textColor = [UIColor lightGrayColor];
@@ -111,7 +111,7 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.textField.frame = CGRectNull;
+    self.textField.frame = CGRectZero;
     self.textField.alpha = 0;
     
     [self layoutDetailView:self.valueLabel minimumWidth:[self.valueLabel.text re_sizeWithFont:self.valueLabel.font].width];

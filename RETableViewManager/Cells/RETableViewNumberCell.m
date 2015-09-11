@@ -58,7 +58,7 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.textLabel.backgroundColor = [UIColor clearColor];
     
-    self.textField = [[REFormattedNumberField alloc] initWithFrame:CGRectNull];
+    self.textField = [[REFormattedNumberField alloc] initWithFrame:CGRectZero];
     self.textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     self.textField.inputAccessoryView = self.actionBar;
     self.textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
