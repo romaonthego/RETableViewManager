@@ -127,10 +127,10 @@
     
     // Set content frame
     //
-    CGRect contentFrame = self.contentView.frame;
+    CGRect contentFrame = self.contentView.bounds;
     contentFrame.origin.x = contentFrame.origin.x + self.section.style.contentViewMargin;
     contentFrame.size.width = contentFrame.size.width - self.section.style.contentViewMargin * 2;
-    self.contentView.frame = contentFrame;
+    self.contentView.bounds = contentFrame;
     
     // iOS 7 textLabel margin fix
     //
