@@ -66,7 +66,7 @@ Also `RETableViewManager` provides APIs for super easy cell styling.
 ## Requirements
 * Xcode 5 or higher
 * Apple LLVM compiler
-* iOS 6.0 or higher
+* iOS 7.0 or higher
 * ARC
 
 ## Demo
@@ -77,7 +77,7 @@ Build and run the `RETableViewManagerExample.xcworkspace` in Xcode to see `RETab
 
 ### 1) CocoaPods
 
-The recommended approach for installating `RETableViewManager` is via the [CocoaPods](http://cocoapods.org/) package manager, as it provides flexible dependency management and dead simple installation.
+The recommended approach for installing `RETableViewManager` is via the [CocoaPods](http://cocoapods.org/) package manager, as it provides flexible dependency management and dead simple installation.
 For best results, it is recommended that you install via CocoaPods >= **0.28.0** using Git >= **1.8.0** installed via Homebrew.
 
 Install CocoaPods if not already available:
@@ -98,7 +98,7 @@ $ edit Podfile
 Edit your Podfile and add RETableViewManager:
 
 ``` bash
-platform :ios, '6.0'
+platform :ios, '7.0'
 pod 'RETableViewManager', '~> 1.6'
 ```
 
@@ -598,13 +598,13 @@ self.manager.style.contentViewMargin = 10.0;
 //
 self.accessoriesSection.style = [self.manager.style copy];
 [self.accessoriesSection.style setBackgroundImage:[[UIImage imageNamed:@"First_Alt"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
-                           forCellType:RETableViewCellTypeFirst];
+                                      forCellType:RETableViewCellTypeFirst];
 [self.accessoriesSection.style setBackgroundImage:[[UIImage imageNamed:@"Middle_Alt"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
-                           forCellType:RETableViewCellTypeMiddle];
+                                      forCellType:RETableViewCellTypeMiddle];
 [self.accessoriesSection.style setBackgroundImage:[[UIImage imageNamed:@"Last_Alt"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
-                           forCellType:RETableViewCellTypeLast];
+                                      forCellType:RETableViewCellTypeLast];
 [self.accessoriesSection.style setBackgroundImage:[[UIImage imageNamed:@"Single_Alt"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
-                           forCellType:RETableViewCellTypeSingle];
+                                      forCellType:RETableViewCellTypeSingle];
 ```
 
 ## Contact
