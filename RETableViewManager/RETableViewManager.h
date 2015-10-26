@@ -105,7 +105,7 @@
 /**
  The object that acts as the delegate of the receiving table view.
  */
-@property (assign, readwrite, nonatomic) id<RETableViewManagerDelegate> delegate;
+@property (weak, readwrite, nonatomic) id<RETableViewManagerDelegate> delegate;
 
 ///-----------------------------
 /// @name Managing Custom Cells
