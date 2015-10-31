@@ -66,8 +66,8 @@
     NSString *result = [stripped copy];
     
     for (NSDictionary *exp in expressions) {
-        NSString *match = [exp objectForKey:@"match"];
-        NSString *replace = [exp objectForKey:@"replace"];
+        NSString *match = exp[@"match"];
+        NSString *replace = exp[@"replace"];
         NSString *modifiedString = [stripped stringByReplacingOccurrencesOfString:match
                                                                        withString:replace
                                                                           options:NSRegularExpressionSearch

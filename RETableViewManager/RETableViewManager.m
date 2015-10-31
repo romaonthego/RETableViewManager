@@ -134,7 +134,7 @@
 
 - (id)objectAtKeyedSubscript:(id <NSCopying>)key
 {
-    return [self.registeredClasses objectForKey:key];
+    return self.registeredClasses[key];
 }
 
 - (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key
@@ -146,7 +146,7 @@
 {
     RETableViewSection *section = self.mutableSections[indexPath.section];
     NSObject *item = section.items[indexPath.row];
-    return [self.registeredClasses objectForKey:item.class];
+    return self.registeredClasses[item.class];
 }
 
 - (NSArray *)sections
