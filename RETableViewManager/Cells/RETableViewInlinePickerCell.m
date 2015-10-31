@@ -47,8 +47,8 @@
     [super cellWillAppear];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self.item.pickerItem.options enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if ([self.item.pickerItem.options objectAtIndex:idx] && [self.item.pickerItem.value objectAtIndex:idx] > 0)
-            [self.pickerView selectRow:[[self.item.pickerItem.options objectAtIndex:idx] indexOfObject:[self.item.pickerItem.value objectAtIndex:idx]] inComponent:idx animated:NO];
+        if (self.item.pickerItem.options[idx] && self.item.pickerItem.value[idx] > 0)
+            [self.pickerView selectRow:[self.item.pickerItem.options[idx] indexOfObject:self.item.pickerItem.value[idx]] inComponent:idx animated:NO];
     }];
     [self.pickerView reloadAllComponents];
     
@@ -106,7 +106,7 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return [[self.item.pickerItem.options objectAtIndex:component] count];
+    return [self.item.pickerItem.options[component] count];
 }
 
 #pragma mark -
@@ -114,8 +114,8 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    NSArray *items = [self.item.pickerItem.options objectAtIndex:component];
-    return [items objectAtIndex:row];
+    NSArray *items = self.item.pickerItem.options[component];
+    return items[row];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
@@ -132,7 +132,7 @@
 {
     NSMutableArray *value = [NSMutableArray array];
     [self.item.pickerItem.options enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        NSArray *options = [self.item.pickerItem.options objectAtIndex:idx];
+        NSArray *options = self.item.pickerItem.options[idx];
         NSString *valueText = [options objectAtIndex:[self.pickerView selectedRowInComponent:idx]];
         [value addObject:valueText];
     }];

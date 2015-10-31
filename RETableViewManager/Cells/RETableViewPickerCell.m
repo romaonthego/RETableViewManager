@@ -128,8 +128,8 @@
     if (selected && !self.item.inlinePicker) {
         [self.textField becomeFirstResponder];
         [self.item.options enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            if ([self.item.options objectAtIndex:idx] && [self.item.value objectAtIndex:idx] > 0)
-                [self.pickerView selectRow:[[self.item.options objectAtIndex:idx] indexOfObject:[self.item.value objectAtIndex:idx]] inComponent:idx animated:NO];
+            if (self.item.options[idx] && self.item.value[idx] > 0)
+                [self.pickerView selectRow:[self.item.options[idx] indexOfObject:self.item.value[idx]] inComponent:idx animated:NO];
         }];
     }
     
@@ -164,7 +164,7 @@
 {
     NSMutableArray *value = [NSMutableArray array];
     [self.item.options enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        NSArray *options = [self.item.options objectAtIndex:idx];
+        NSArray *options = self.item.options[idx];
         NSString *valueText = [options objectAtIndex:[self.pickerView selectedRowInComponent:idx]];
         [value addObject:valueText];
     }];
@@ -245,7 +245,7 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return [[self.item.options objectAtIndex:component] count];
+    return [self.item.options[component] count];
 }
 
 #pragma mark -
@@ -253,8 +253,8 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    NSArray *items = [self.item.options objectAtIndex:component];
-    return [items objectAtIndex:row];
+    NSArray *items = self.item.options[component];
+    return items[row];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
