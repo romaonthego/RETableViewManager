@@ -50,12 +50,12 @@
     self = [super init];
     if (!self)
         return nil;
-
+    
     self.number = number;
     self.expirationDate = expirationDate;
     self.cvv = cvv;
     self.cvvRequired = YES;
-
+    
     return self;
 }
 
