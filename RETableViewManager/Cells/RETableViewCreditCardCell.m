@@ -89,7 +89,7 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
     };
 
     for (NSNumber *type in types) {
-        NSRegularExpression *rg = [NSRegularExpression regularExpressionWithPattern:[types objectForKey:type] options:NSRegularExpressionCaseInsensitive error:NULL];
+        NSRegularExpression *rg = [NSRegularExpression regularExpressionWithPattern:types[type] options:NSRegularExpressionCaseInsensitive error:NULL];
         if ([rg numberOfMatchesInString:strippedNumber options:0 range:NSMakeRange(0, strippedNumber.length)] == 1)
             return (RECreditCardType)type.integerValue;
     }

@@ -63,9 +63,9 @@
 
 - (UIImage *)backgroundImageForCellType:(RETableViewCellType)cellType
 {
-    UIImage *image = [self.backgroundImages objectForKey:@(cellType)];
+    UIImage *image = self.backgroundImages[@(cellType)];
     if (!image && cellType != RETableViewCellTypeAny)
-        image = [self.backgroundImages objectForKey:@(RETableViewCellTypeAny)];
+        image = self.backgroundImages[@(RETableViewCellTypeAny)];
     return image;
 }
 
@@ -82,9 +82,9 @@
 
 - (UIImage *)selectedBackgroundImageForCellType:(RETableViewCellType)cellType
 {
-    UIImage *image = [self.selectedBackgroundImages objectForKey:@(cellType)];
+    UIImage *image = self.selectedBackgroundImages[@(cellType)];
     if (!image && cellType != RETableViewCellTypeAny)
-        image = [self.selectedBackgroundImages objectForKey:@(RETableViewCellTypeAny)];
+        image = self.selectedBackgroundImages[@(RETableViewCellTypeAny)];
     return image;
 }
 

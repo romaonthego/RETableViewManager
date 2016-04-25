@@ -49,13 +49,13 @@
     
     for (NSInteger i = 0; i < patterns.count; i++) {
         NSString *currentMatch = [match stringByAppendingString:@"(\\d+)"];
-        match = [match stringByAppendingString:[NSString stringWithFormat:@"(\\d{%ld})", (long)((NSNumber *)[patterns objectAtIndex:i]).integerValue]];
+        match = [match stringByAppendingString:[NSString stringWithFormat:@"(\\d{%ld})", (long)((NSNumber *)patterns[i]).integerValue]];
         
         NSString *template;
         if (i == 0) {
             template = [NSString stringWithFormat:@"$%li", (long)i+1];
         } else {
-            unichar separatorCharacter = [[separators objectAtIndex:i-1] characterAtIndex:0];
+            unichar separatorCharacter = [separators[i-1] characterAtIndex:0];
             template = [NSString stringWithFormat:@"\\%C$%li", separatorCharacter, (long)i+1];
 
         }
@@ -66,8 +66,8 @@
     NSString *result = [stripped copy];
     
     for (NSDictionary *exp in expressions) {
-        NSString *match = [exp objectForKey:@"match"];
-        NSString *replace = [exp objectForKey:@"replace"];
+        NSString *match = exp[@"match"];
+        NSString *replace = exp[@"replace"];
         NSString *modifiedString = [stripped stringByReplacingOccurrencesOfString:match
                                                                        withString:replace
                                                                           options:NSRegularExpressionSearch
