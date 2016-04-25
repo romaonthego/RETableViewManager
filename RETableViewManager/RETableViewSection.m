@@ -136,7 +136,7 @@ CGFloat const RETableViewSectionFooterHeightAutomatic = DBL_MAX;
 {
     CGFloat width = 0;
     for (RETableViewItem *item in self.mutableItems) {
-        if ([item isKindOfClass:[RETextItem class]] || [item isKindOfClass:[REDateTimeItem class]] || [item isKindOfClass:[RERadioItem class]] || [item isKindOfClass:[REMultipleChoiceItem class]] || [item isKindOfClass:[RENumberItem class]]) {
+        if ([item isKindOfClass:[RETextItem class]] || [item isKindOfClass:[REDateTimeItem class]] || [item isKindOfClass:[RERadioItem class]] || [item isKindOfClass:[REMultipleChoiceItem class]] || [item isKindOfClass:[RENumberItem class]] || [item isKindOfClass:[REPickerItem class]]) {
             CGSize size = [item.title re_sizeWithFont:font];
             width = MAX(width, size.width);
         }
