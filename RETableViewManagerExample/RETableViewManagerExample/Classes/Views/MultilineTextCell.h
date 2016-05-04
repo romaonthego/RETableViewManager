@@ -11,7 +11,7 @@
 
 @interface MultilineTextCell : RETableViewCell
 
-@property (strong, readwrite, nonatomic) MultilineTextItem *item;
+@property (strong, readwrite, nonatomic) MultilineTextItem *textItem;
 @property (strong, readonly, nonatomic) UILabel *multilineLabel;
 
 @end

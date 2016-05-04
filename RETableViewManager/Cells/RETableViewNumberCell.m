@@ -28,7 +28,7 @@
 
 @interface RETableViewNumberCell ()
 
-@property (strong, readwrite, nonatomic) REFormattedNumberField *textField;
+@property (strong, readwrite, nonatomic) REFormattedNumberField *textFieldNumber;
 
 @property (assign, readwrite, nonatomic) BOOL enabled;
 
@@ -58,13 +58,13 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.textLabel.backgroundColor = [UIColor clearColor];
     
-    self.textField = [[REFormattedNumberField alloc] initWithFrame:CGRectZero];
-    self.textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    self.textField.inputAccessoryView = self.actionBar;
-    self.textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    self.textField.delegate = self;
-    [self.textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-    [self.contentView addSubview:self.textField];
+    self.textFieldNumber = [[REFormattedNumberField alloc] initWithFrame:CGRectZero];
+    self.textFieldNumber.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    self.textFieldNumber.inputAccessoryView = self.actionBar;
+    self.textFieldNumber.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.textFieldNumber.delegate = self;
+    [self.textFieldNumber addTarget:self action:@selector(textFieldNumberDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.contentView addSubview:self.textFieldNumber];
 }
 
 - (void)cellWillAppear
@@ -72,12 +72,12 @@
     [super cellWillAppear];
     
     self.textLabel.text = self.item.title.length == 0 ? @" " : self.item.title;
-    self.textField.text = [self.item.value re_stringWithNumberFormat:self.item.format];
-    self.textField.placeholder = self.item.placeholder;
-    self.textField.format = self.item.format;
-    self.textField.font = [UIFont systemFontOfSize:17];
-    self.textField.keyboardAppearance = self.item.keyboardAppearance;
-    self.textField.keyboardType = UIKeyboardTypeNumberPad;
+    self.textFieldNumber.text = [self.item.value re_stringWithNumberFormat:self.item.format];
+    self.textFieldNumber.placeholder = self.item.placeholder;
+    self.textFieldNumber.format = self.item.format;
+    self.textFieldNumber.font = [UIFont systemFontOfSize:17];
+    self.textFieldNumber.keyboardAppearance = self.item.keyboardAppearance;
+    self.textFieldNumber.keyboardType = UIKeyboardTypeNumberPad;
     
     self.enabled = self.item.enabled;
 }
@@ -109,7 +109,7 @@
     self.userInteractionEnabled = _enabled;
     
     self.textLabel.enabled = _enabled;
-    self.textField.enabled = _enabled;
+    self.textFieldNumber.enabled = _enabled;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -124,13 +124,13 @@
 #pragma mark -
 #pragma mark Handle events
 
-- (void)textFieldDidChange:(REFormattedNumberField *)textField
+- (void)textFieldNumberDidChange:(REFormattedNumberField *)textField
 {
     self.item.value = textField.unformattedText;
     if (self.item.onChange)
         self.item.onChange(self.item);
 }
-- (void)textFieldDidEndEditing:(UITextField *)textField{
+- (void)textFieldNumberDidEndEditing:(UITextField *)textField{
     if (self.item.onEndEditing)
         self.item.onEndEditing(self.item);
 }

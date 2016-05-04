@@ -32,7 +32,7 @@
 - (void)cellWillAppear
 {
     [super cellWillAppear];
-    [self.pictureView setImage:[UIImage imageNamed:self.item.imageName]];
+    [self.pictureView setImage:[UIImage imageNamed:self.imageItem.imageName]];
 }
 
 - (void)cellDidDisappear
