@@ -60,7 +60,7 @@
         self.detailLabelText = @"";
     
     if (value.count == 1)
-        self.detailLabelText = [value objectAtIndex:0];
+        self.detailLabelText = value[0];
     
     if (value.count > 1)
         self.detailLabelText = [NSString stringWithFormat:NSLocalizedString(@"%i selected", @"%i selected"), value.count];

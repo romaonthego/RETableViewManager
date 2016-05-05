@@ -30,12 +30,22 @@
 
 @property (strong, readwrite, nonatomic) UISwitch *switchView;
 
+@property (assign, readwrite, nonatomic) BOOL enabled;
+
 @end
 
 @implementation RETableViewBoolCell
 
+@synthesize item = _item;
+
 #pragma mark -
 #pragma mark Lifecycle
+
+- (void)dealloc {
+    if (_item != nil) {
+        [_item removeObserver:self forKeyPath:@"enabled"];
+    }
+}
 
 - (void)cellDidLoad
 {
@@ -46,12 +56,8 @@
     self.switchView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.switchView addTarget:self action:@selector(switchValueDidChange:) forControlEvents:UIControlEventValueChanged];
     [self.contentView addSubview:self.switchView];
-}
 
-- (void)cellWillAppear
-{
-    [self.contentView removeConstraints:self.contentView.constraints];
-    CGFloat margin = (REUIKitIsFlatMode() && self.section.style.contentViewMargin <= 0) ? 15.0 : 10.0;
+    CGFloat margin = (self.section.style.contentViewMargin <= 0) ? 15.0 : 10.0;
     NSDictionary *metrics = @{@"margin": @(margin)};
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.switchView
                                                                  attribute:NSLayoutAttributeCenterY
@@ -62,19 +68,59 @@
                                                                   constant:0]];
     UISwitch *switchView = self.switchView;
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[switchView]-margin-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(switchView)]];
-    
+}
+
+- (void)cellWillAppear
+{
     self.textLabel.backgroundColor = [UIColor clearColor];
     self.textLabel.text = self.item.title;
+    self.imageView.image = self.item.image;
+    self.imageView.highlightedImage = self.item.highlightedImage;
     self.switchView.on = self.item.value;
+
+    self.enabled = self.item.enabled;
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.textLabel.frame = CGRectMake(self.textLabel.frame.origin.x, self.textLabel.frame.origin.y, self.textLabel.frame.size.width - self.switchView.frame.size.width - self.section.style.contentViewMargin - 10.0, self.textLabel.frame.size.height);
+    if (self.textLabel.frame.origin.x + self.textLabel.frame.size.width >= self.switchView.frame.origin.x)
+        self.textLabel.frame = CGRectMake(self.textLabel.frame.origin.x, self.textLabel.frame.origin.y, self.textLabel.frame.size.width - self.switchView.frame.size.width - self.section.style.contentViewMargin - 10.0, self.textLabel.frame.size.height);
     self.textLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:forRowAtIndexPath:)])
         [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self forRowAtIndexPath:[self.tableViewManager.tableView indexPathForCell:self]];
+}
+
+#pragma mark -
+#pragma mark Handle state
+
+- (void)setItem:(REBoolItem *)item
+{
+    if (_item != nil) {
+        [_item removeObserver:self forKeyPath:@"enabled"];
+    }
+
+    _item = item;
+
+    [_item addObserver:self forKeyPath:@"enabled" options:NSKeyValueObservingOptionNew context:NULL];
+}
+
+- (void)setEnabled:(BOOL)enabled {
+    _enabled = enabled;
+
+    self.userInteractionEnabled = _enabled;
+    
+    self.textLabel.enabled = _enabled;
+    self.switchView.enabled = _enabled;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([object isKindOfClass:[REBoolItem class]] && [keyPath isEqualToString:@"enabled"]) {
+        BOOL newValue = [[change objectForKey: NSKeyValueChangeNewKey] boolValue];
+        
+        self.enabled = newValue;
+    }
 }
 
 #pragma mark -

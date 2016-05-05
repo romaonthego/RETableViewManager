@@ -31,13 +31,24 @@
 @interface RETableViewSegmentedCell ()
 
 @property (strong, readwrite, nonatomic) UISegmentedControl *segmentedControl;
+@property (strong, nonatomic) NSArray *horizontalConstraints;
+
+@property (assign, readwrite, nonatomic) BOOL enabled;
 
 @end
 
 @implementation RETableViewSegmentedCell
 
+@synthesize item = _item;
+
 #pragma mark -
 #pragma mark Lifecycle
+
+- (void)dealloc {
+    if (_item != nil) {
+        [_item removeObserver:self forKeyPath:@"enabled"];
+    }
+}
 
 - (void)cellDidLoad
 {
@@ -54,16 +65,7 @@
         self.segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
     }
 #endif
-}
 
-- (void)cellWillAppear
-{
-	__weak __typeof(self) myself = self;
-    self.textLabel.text = self.item.title;
-    [self.contentView removeConstraints:self.contentView.constraints];
-    [self.segmentedControl removeAllSegments];
-    CGFloat margin = (REUIKitIsFlatMode() && self.section.style.contentViewMargin <= 0) ? 15.0 : 10.0;
-    NSDictionary *metrics = @{@"margin": @(margin)};
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.segmentedControl
                                                                  attribute:NSLayoutAttributeCenterY
                                                                  relatedBy:NSLayoutRelationEqual
@@ -71,11 +73,25 @@
                                                                  attribute:NSLayoutAttributeCenterY
                                                                 multiplier:1.0
                                                                   constant:0]];
-    if (self.item.title.length > 0) {
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_segmentedControl(>=140)]-margin-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(_segmentedControl)]];
-    } else {
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-margin-[_segmentedControl]-margin-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(_segmentedControl)]];
+}
+
+- (void)cellWillAppear
+{
+    self.textLabel.text = self.item.title;
+    [self.segmentedControl removeAllSegments];
+
+    if (self.horizontalConstraints) {
+        // Clears previous constraints.
+        [self.contentView removeConstraints:self.horizontalConstraints];
     }
+    CGFloat margin = (self.section.style.contentViewMargin <= 0) ? 15.0 : 10.0;
+    NSDictionary *metrics = @{@"margin": @(margin)};
+    if (self.item.title.length > 0) {
+        self.horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[_segmentedControl(>=140)]-margin-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(_segmentedControl)];
+    } else {
+        self.horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-margin-[_segmentedControl]-margin-|" options:0 metrics:metrics views:NSDictionaryOfVariableBindings(_segmentedControl)];
+    }
+    [self.contentView addConstraints:self.horizontalConstraints];
     
     if (self.item.segmentedControlTitles.count > 0) {
         [self.item.segmentedControlTitles enumerateObjectsUsingBlock:^(NSString *title, NSUInteger idx, BOOL *stop) {
@@ -88,6 +104,9 @@
     }
     self.segmentedControl.tintColor = self.item.tintColor;
     self.segmentedControl.selectedSegmentIndex = self.item.value;
+    
+    self.enabled = self.item.enabled;
+
     [self.segmentedControl setNeedsDisplay];
 }
 
@@ -98,6 +117,38 @@
     self.textLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:forRowAtIndexPath:)])
         [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self forRowAtIndexPath:self.item.indexPath];
+}
+
+#pragma mark -
+#pragma mark Handle state
+
+- (void)setItem:(RESegmentedItem *)item
+{
+    if (_item != nil) {
+        [_item removeObserver:self forKeyPath:@"enabled"];
+    }
+    
+    _item = item;
+    
+    [_item addObserver:self forKeyPath:@"enabled" options:NSKeyValueObservingOptionNew context:NULL];
+}
+
+- (void)setEnabled:(BOOL)enabled {
+    _enabled = enabled;
+    
+    self.userInteractionEnabled = _enabled;
+    
+    self.textLabel.enabled = _enabled;
+    self.segmentedControl.enabled = _enabled;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([object isKindOfClass:[RESegmentedItem class]] && [keyPath isEqualToString:@"enabled"]) {
+        BOOL newValue = [[change objectForKey: NSKeyValueChangeNewKey] boolValue];
+        
+        self.enabled = newValue;
+    }
 }
 
 #pragma mark -

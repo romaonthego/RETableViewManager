@@ -113,11 +113,7 @@
         NSLog(@"Value: %@", item.value.description);
     };
     
-    // Use inline date picker in iOS 7
-    //
-    if (REUIKitIsFlatMode()) {
-        self.dateTimeItem.inlineDatePicker = YES;
-    }
+    self.dateTimeItem.inlineDatePicker = YES;
     
     self.pickerItem = [REPickerItem itemWithTitle:@"Picker" value:@[@"Item 12", @"Item 23"] placeholder:nil options:@[@[@"Item 11", @"Item 12", @"Item 13"], @[@"Item 21", @"Item 22", @"Item 23", @"Item 24"]]];
     self.pickerItem.onChange = ^(REPickerItem *item){
@@ -126,9 +122,7 @@
     
     // Use inline picker in iOS 7
     //
-    if (REUIKitIsFlatMode()) {
-        self.pickerItem.inlinePicker = YES;
-    }
+    self.pickerItem.inlinePicker = YES;
     
     self.radioItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" selectionHandler:^(RERadioItem *item) {
         [item deselectRowAnimated:YES]; // same as [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
@@ -141,7 +135,7 @@
         
         // Present options controller
         //
-        RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options multipleChoice:NO completionHandler:^{
+        RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options multipleChoice:NO completionHandler:^(RETableViewItem *selectedItem){
             [weakSelf.navigationController popViewControllerAnimated:YES];
             
             [item reloadRowWithAnimation:UITableViewRowAnimationNone]; // same as [weakSelf.tableView reloadRowsAtIndexPaths:@[item.indexPath] withRowAnimation:UITableViewRowAnimationNone];
@@ -172,9 +166,9 @@
         
         // Present options controller
         //
-        RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options multipleChoice:YES completionHandler:^{
+        RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options multipleChoice:YES completionHandler:^(RETableViewItem *selectedItem){
             [item reloadRowWithAnimation:UITableViewRowAnimationNone];
-            NSLog(@"%@", item.value);
+            NSLog(@"parent: %@, child: %@", item.value, selectedItem.title);
         }];
         
         // Adjust styles
@@ -238,9 +232,10 @@
 
 - (RETableViewSection *)addAccessories
 {
-    RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Accessories"];
+    RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Accessories" footerTitle:@"This section holds items with accessories."];
+
     [self.manager addSection:section];
-    
+
     // Add items to this section
     //
     [section addItem:[RETableViewItem itemWithTitle:@"Accessory 1" accessoryType:UITableViewCellAccessoryDisclosureIndicator selectionHandler:^(RETableViewItem *item) {
@@ -266,6 +261,9 @@
 - (RETableViewSection *)addCutCopyPaste
 {
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Copy / pasting"];
+
+    section.footerTitle = @"This section holds items that support copy and pasting. You can tap on an item to copy it, while you can tap on another one to paste it.";
+
     [self.manager addSection:section];
     
     RETableViewItem *copyItem = [RETableViewItem itemWithTitle:@"Long tap to copy this item" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {

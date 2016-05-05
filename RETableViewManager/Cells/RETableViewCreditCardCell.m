@@ -27,6 +27,7 @@
 #import "RETableViewCreditCardCell.h"
 #import "RETableViewManager.h"
 #import "NSString+RETableViewManagerAdditions.h"
+#import "NSBundle+RETableViewManager.h"
 
 @interface RETableViewCreditCardCell ()
 
@@ -43,16 +44,20 @@
 
 @property (assign, readwrite, nonatomic) BOOL isNumberEditingMode;
 
+@property (assign, readwrite, nonatomic) BOOL enabled;
+
 @end
 
 @implementation RETableViewCreditCardCell
 
+@synthesize item = _item;
+
 static NSString * const creditCardTypeImage[] = {
-        [RECreditCardTypeUnknown] = @"RETableViewManager.bundle/Card_Stack",
-        [RECreditCardTypeVisa] = @"RETableViewManager.bundle/Card_Visa",
-        [RECreditCardTypeMasterCard] = @"RETableViewManager.bundle/Card_Mastercard",
-        [RECreditCardTypeDiscover] = @"RETableViewManager.bundle/Card_Discover",
-        [RECreditCardTypeAmex] = @"RETableViewManager.bundle/Card_Amex"
+        [RECreditCardTypeUnknown] = @"Card_Stack",
+        [RECreditCardTypeVisa] = @"Card_Visa",
+        [RECreditCardTypeMasterCard] = @"Card_Mastercard",
+        [RECreditCardTypeDiscover] = @"Card_Discover",
+        [RECreditCardTypeAmex] = @"Card_Amex"
 };
 
 static inline BOOL RECreditCardExpired(NSString *creditCardExpirationDate)
@@ -84,7 +89,7 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
     };
 
     for (NSNumber *type in types) {
-        NSRegularExpression *rg = [NSRegularExpression regularExpressionWithPattern:[types objectForKey:type] options:NSRegularExpressionCaseInsensitive error:NULL];
+        NSRegularExpression *rg = [NSRegularExpression regularExpressionWithPattern:types[type] options:NSRegularExpressionCaseInsensitive error:NULL];
         if ([rg numberOfMatchesInString:strippedNumber options:0 range:NSMakeRange(0, strippedNumber.length)] == 1)
             return (RECreditCardType)type.integerValue;
     }
@@ -100,6 +105,12 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
 #pragma mark -
 #pragma mark Lifecycle
 
+- (void)dealloc {
+    if (_item != nil) {
+        [_item removeObserver:self forKeyPath:@"enabled"];
+    }
+}
+
 - (void)cellDidLoad
 {
     [super cellDidLoad];
@@ -111,17 +122,17 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
     [self.contentView addSubview:self.creditCardImageViewContainer];
     
     self.creditCardStackImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
-    self.creditCardStackImageView.image = [UIImage imageNamed:creditCardTypeImage[RECreditCardTypeUnknown]];
+    self.creditCardStackImageView.image = [UIImage imageNamed:creditCardTypeImage[RECreditCardTypeUnknown] inBundle:[NSBundle RETableViewManagerBundle] compatibleWithTraitCollection:nil];
     self.creditCardStackImageView.tag = 0;
     self.currentImageView = self.creditCardStackImageView;
     [self.creditCardImageViewContainer addSubview:self.creditCardStackImageView];
     
     self.creditCardImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
-    self.creditCardImageView.image = [UIImage imageNamed:creditCardTypeImage[RECreditCardTypeVisa]];
+    self.creditCardImageView.image = [UIImage imageNamed:creditCardTypeImage[RECreditCardTypeVisa] inBundle:[NSBundle RETableViewManagerBundle] compatibleWithTraitCollection:nil];
     self.creditCardImageView.tag = 1;
     
     self.creditCardBackImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
-    self.creditCardBackImageView.image = [UIImage imageNamed:@"RETableViewManager.bundle/Card_Back"];
+    self.creditCardBackImageView.image = [UIImage imageNamed:@"Card_Back" inBundle:[NSBundle RETableViewManagerBundle] compatibleWithTraitCollection:nil];
     self.creditCardBackImageView.tag = 2;
     
     self.wrapperView = [[UIView alloc] initWithFrame:CGRectMake(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 60 : 60 + self.textFieldPositionOffset.width, self.textFieldPositionOffset.height, self.frame.size.width - 70, self.frame.size.height)];
@@ -160,6 +171,9 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
     [self.wrapperView addSubview:self.cvvField];
 
     self.ribbonExpired = [[UIImageView alloc] init];
+    
+    self.enabled = self.item.enabled;
+
     [self.contentView addSubview:self.ribbonExpired];
 }
 
@@ -167,7 +181,7 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
 {
     CGFloat cellOffset = 10.0;
     
-    if (REUIKitIsFlatMode() && self.section.style.contentViewMargin <= 0)
+    if (self.section.style.contentViewMargin <= 0)
         cellOffset += 5.0;
     self.creditCardImageViewContainer.frame = CGRectMake(cellOffset, 5, 32, 32);
     
@@ -200,7 +214,7 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
     self.ribbonExpired.hidden = !RECreditCardExpired(self.expirationDateField.text);
 
     if (self.item.creditCardType != RECreditCardTypeUnknown ) {
-        self.creditCardImageView.image = [UIImage imageNamed:creditCardTypeImage[self.item.creditCardType]];
+        self.creditCardImageView.image = [UIImage imageNamed:creditCardTypeImage[self.item.creditCardType] inBundle:[NSBundle RETableViewManagerBundle] compatibleWithTraitCollection:nil];
         [UIView transitionFromView:self.creditCardStackImageView toView:self.creditCardImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:nil];
         self.currentImageView = self.creditCardImageView;
     }
@@ -229,7 +243,7 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
     frame.size.height = self.contentView.frame.size.height;
     self.cvvField.frame = frame;
 
-    self.ribbonExpired.frame = CGRectMake(CGRectGetWidth(self.contentView.frame) - self.ribbonExpired.image.size.width + 1 + (REUIKitIsFlatMode() ? 1 : 0), -2, self.ribbonExpired.image.size.width, self.ribbonExpired.image.size.height);
+    self.ribbonExpired.frame = CGRectMake(CGRectGetWidth(self.contentView.frame) - self.ribbonExpired.image.size.width + 2, -2, self.ribbonExpired.image.size.width, self.ribbonExpired.image.size.height);
 
     if (self.isNumberEditingMode) {
         self.creditCardField.frame = CGRectMake(0, self.creditCardField.frame.origin.y, self.creditCardField.frame.size.width, self.creditCardField.frame.size.height);
@@ -270,6 +284,40 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
 }
 
 #pragma mark -
+#pragma mark Handle state
+
+- (void)setItem:(RECreditCardItem *)item
+{
+    if (_item != nil) {
+        [_item removeObserver:self forKeyPath:@"enabled"];
+    }
+    
+    _item = item;
+    
+    [_item addObserver:self forKeyPath:@"enabled" options:NSKeyValueObservingOptionNew context:NULL];
+}
+
+- (void)setEnabled:(BOOL)enabled {
+    _enabled = enabled;
+    
+    self.userInteractionEnabled = _enabled;
+    
+    self.textLabel.enabled = _enabled;
+    self.creditCardField.enabled = _enabled;
+    self.expirationDateField.enabled = _enabled;
+    self.cvvField.enabled = _enabled;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([object isKindOfClass:[RECreditCardItem class]] && [keyPath isEqualToString:@"enabled"]) {
+        BOOL newValue = [[change objectForKey: NSKeyValueChangeNewKey] boolValue];
+        
+        self.enabled = newValue;
+    }
+}
+
+#pragma mark -
 #pragma mark Handle events
 
 - (void)textFieldDidChange:(UITextField *)textField
@@ -281,7 +329,7 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
         self.item.creditCardType = cardType;
         
         if (cardType != RECreditCardTypeUnknown) {
-            self.creditCardImageView.image = [UIImage imageNamed:creditCardTypeImage[cardType]];
+            self.creditCardImageView.image = [UIImage imageNamed:creditCardTypeImage[cardType] inBundle:[NSBundle RETableViewManagerBundle] compatibleWithTraitCollection:nil];
             [UIView transitionFromView:self.creditCardStackImageView toView:self.creditCardImageView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:nil];
             self.currentImageView = self.creditCardImageView;
         } else {
@@ -326,7 +374,7 @@ static inline RECreditCardType RECreditCardTypeFromNumber(NSString *creditCardNu
     if (textField.tag == 2) self.item.cvv = textField.text;
 }
 
-#pragma mark - 
+#pragma mark -
 #pragma mark UITextFieldDelegate
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField

@@ -34,9 +34,13 @@
 @property (strong, readwrite, nonatomic) UILabel *placeholderLabel;
 @property (strong, readwrite, nonatomic) UIPickerView *pickerView;
 
+@property (assign, readwrite, nonatomic) BOOL enabled;
+
 @end
 
 @implementation RETableViewPickerCell
+
+@synthesize item = _item;
 
 + (BOOL)canFocusWithItem:(REPickerItem *)item
 {
@@ -46,18 +50,24 @@
 #pragma mark -
 #pragma mark Lifecycle
 
+- (void)dealloc {
+    if (_item != nil) {
+        [_item removeObserver:self forKeyPath:@"enabled"];
+    }
+}
+
 - (void)cellDidLoad
 {
     [super cellDidLoad];
     self.textLabel.backgroundColor = [UIColor clearColor];
     
-    self.textField = [[UITextField alloc] initWithFrame:CGRectNull];
+    self.textField = [[UITextField alloc] initWithFrame:CGRectZero];
     self.textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     self.textField.inputAccessoryView = self.actionBar;
     self.textField.delegate = self;
     [self addSubview:self.textField];
     
-    self.valueLabel = [[UILabel alloc] initWithFrame:CGRectNull];
+    self.valueLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.valueLabel.font = [UIFont systemFontOfSize:17];
     self.valueLabel.backgroundColor = [UIColor clearColor];
     self.valueLabel.textColor = self.detailTextLabel.textColor;
@@ -66,7 +76,7 @@
     self.valueLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.contentView addSubview:self.valueLabel];
     
-    self.placeholderLabel = [[UILabel alloc] initWithFrame:CGRectNull];
+    self.placeholderLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.placeholderLabel.font = [UIFont systemFontOfSize:17];
     self.placeholderLabel.backgroundColor = [UIColor clearColor];
     self.placeholderLabel.textColor = [UIColor lightGrayColor];
@@ -83,6 +93,8 @@
     self.pickerView.delegate = self;
     self.pickerView.dataSource = self;
     self.textLabel.text = self.item.title.length == 0 ? @" " : self.item.title;
+    self.imageView.image = self.item.image;
+    self.imageView.highlightedImage = self.item.highlightedImage;
     self.textField.inputView = self.pickerView;
     
     self.valueLabel.text = self.item.value ? [self.item.value componentsJoinedByString:@", "] : @"";
@@ -96,12 +108,14 @@
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
     self.valueLabel.textColor = self.item.inlinePickerItem ? [self performSelector:@selector(tintColor) withObject:nil] : self.detailTextLabel.textColor;
 #endif
+    
+    self.enabled = self.item.enabled;
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.textField.frame = CGRectNull;
+    self.textField.frame = CGRectZero;
     self.textField.alpha = 0;
     
     [self layoutDetailView:self.valueLabel minimumWidth:[self.valueLabel.text re_sizeWithFont:self.valueLabel.font].width];
@@ -118,8 +132,8 @@
     if (selected && !self.item.inlinePicker) {
         [self.textField becomeFirstResponder];
         [self.item.options enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            if ([self.item.options objectAtIndex:idx] && [self.item.value objectAtIndex:idx] > 0)
-                [self.pickerView selectRow:[[self.item.options objectAtIndex:idx] indexOfObject:[self.item.value objectAtIndex:idx]] inComponent:idx animated:NO];
+            if (self.item.options[idx] && self.item.value[idx] > 0)
+                [self.pickerView selectRow:[self.item.options[idx] indexOfObject:self.item.value[idx]] inComponent:idx animated:NO];
         }];
     }
     
@@ -154,13 +168,48 @@
 {
     NSMutableArray *value = [NSMutableArray array];
     [self.item.options enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        NSArray *options = [self.item.options objectAtIndex:idx];
+        NSArray *options = self.item.options[idx];
         NSString *valueText = [options objectAtIndex:[self.pickerView selectedRowInComponent:idx]];
         [value addObject:valueText];
     }];
     self.item.value = [value copy];
     self.valueLabel.text = self.item.value ? [self.item.value componentsJoinedByString:@", "] : @"";
     self.placeholderLabel.hidden = self.valueLabel.text.length > 0;
+}
+
+#pragma mark -
+#pragma mark Handle state
+
+- (void)setItem:(REPickerItem *)item
+{
+    if (_item != nil) {
+        [_item removeObserver:self forKeyPath:@"enabled"];
+    }
+    
+    _item = item;
+    
+    [_item addObserver:self forKeyPath:@"enabled" options:NSKeyValueObservingOptionNew context:NULL];
+}
+
+- (void)setEnabled:(BOOL)enabled {
+    _enabled = enabled;
+    
+    self.userInteractionEnabled = _enabled;
+    
+    self.textLabel.enabled = _enabled;
+    self.textField.enabled = _enabled;
+    self.valueLabel.enabled = _enabled;
+    self.placeholderLabel.enabled = _enabled;
+    self.pickerView.userInteractionEnabled = _enabled;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([object isKindOfClass:[REPickerItem class]] && [keyPath isEqualToString:@"enabled"]) {
+        BOOL newValue = [[change objectForKey: NSKeyValueChangeNewKey] boolValue];
+        
+        self.enabled = newValue;
+    }
 }
 
 #pragma mark -
@@ -200,7 +249,7 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return [[self.item.options objectAtIndex:component] count];
+    return [self.item.options[component] count];
 }
 
 #pragma mark -
@@ -208,8 +257,8 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    NSArray *items = [self.item.options objectAtIndex:component];
-    return [items objectAtIndex:row];
+    NSArray *items = self.item.options[component];
+    return items[row];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component

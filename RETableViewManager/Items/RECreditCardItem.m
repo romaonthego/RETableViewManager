@@ -24,6 +24,7 @@
 //
 
 #import "RECreditCardItem.h"
+#import "NSBundle+RETableViewManager.h"
 
 @implementation RECreditCardItem
 
@@ -61,7 +62,7 @@
 - (UIImage *)expiredRibbonImage
 {
     if (!_expiredRibbonImage) {
-        _expiredRibbonImage = [UIImage imageNamed:@"RETableViewManager.bundle/Ribbon_Expired"];
+        _expiredRibbonImage = [UIImage imageNamed:@"Ribbon_Expired" inBundle:[NSBundle RETableViewManagerBundle] compatibleWithTraitCollection:nil];
     }
     return _expiredRibbonImage;
 }

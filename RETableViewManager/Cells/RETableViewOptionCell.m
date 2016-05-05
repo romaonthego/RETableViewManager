@@ -31,19 +31,29 @@
 
 @property (strong, readwrite, nonatomic) UILabel *valueLabel;
 
+@property (assign, readwrite, nonatomic) BOOL enabled;
+
 @end
 
 @implementation RETableViewOptionCell
 
+@synthesize item = _item;
+
 #pragma mark -
 #pragma mark Lifecycle
+
+- (void)dealloc {
+    if (_item != nil) {
+        [_item removeObserver:self forKeyPath:@"enabled"];
+    }
+}
 
 - (void)cellDidLoad
 {
     [super cellDidLoad];
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    self.valueLabel = [[UILabel alloc] initWithFrame:CGRectNull];
+    self.valueLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.valueLabel.font = [UIFont systemFontOfSize:17];
     self.valueLabel.backgroundColor = [UIColor clearColor];
     self.valueLabel.textColor = self.detailTextLabel.textColor;
@@ -64,20 +74,52 @@
     if (!self.item.title) {
         self.valueLabel.textAlignment = NSTextAlignmentLeft;
     }
+    
+    self.enabled = self.item.enabled;
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
     [self layoutDetailView:self.valueLabel minimumWidth:[self.valueLabel.text re_sizeWithFont:self.valueLabel.font].width];
-    if (REUIKitIsFlatMode()) {
-        CGRect frame = self.valueLabel.frame;
-        frame.size.width += 10.0;
-        self.valueLabel.frame = frame;
-    }
+    CGRect frame = self.valueLabel.frame;
+    frame.size.width += 10.0;
+    self.valueLabel.frame = frame;
     
     if ([self.tableViewManager.delegate respondsToSelector:@selector(tableView:willLayoutCellSubviews:forRowAtIndexPath:)])
         [self.tableViewManager.delegate tableView:self.tableViewManager.tableView willLayoutCellSubviews:self forRowAtIndexPath:[self.tableViewManager.tableView indexPathForCell:self]];
+}
+
+#pragma mark -
+#pragma mark Handle state
+
+- (void)setItem:(RERadioItem *)item
+{
+    if (_item != nil) {
+        [_item removeObserver:self forKeyPath:@"enabled"];
+    }
+    
+    _item = item;
+    
+    [_item addObserver:self forKeyPath:@"enabled" options:NSKeyValueObservingOptionNew context:NULL];
+}
+
+- (void)setEnabled:(BOOL)enabled {
+    _enabled = enabled;
+    
+    self.userInteractionEnabled = _enabled;
+    
+    self.textLabel.enabled = _enabled;
+    self.valueLabel.enabled = _enabled;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([object isKindOfClass:[RERadioItem class]] && [keyPath isEqualToString:@"enabled"]) {
+        BOOL newValue = [[change objectForKey: NSKeyValueChangeNewKey] boolValue];
+        
+        self.enabled = newValue;
+    }
 }
 
 @end

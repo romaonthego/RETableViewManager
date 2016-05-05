@@ -34,6 +34,8 @@
 @property (strong, readwrite, nonatomic) UIDatePicker *datePicker;
 @property (strong, readwrite, nonatomic) NSDateFormatter *dateFormatter;
 
+@property (assign, readwrite, nonatomic) BOOL enabled;
+
 @end
 
 @implementation RETableViewDateTimeCell
@@ -43,30 +45,38 @@
     return !item.inlineDatePicker;
 }
 
+@synthesize item = _item;
+
 #pragma mark -
 #pragma mark Lifecycle
+
+- (void)dealloc {
+    if (_item != nil) {
+        [_item removeObserver:self forKeyPath:@"enabled"];
+    }
+}
 
 - (void)cellDidLoad
 {
     [super cellDidLoad];
     self.textLabel.backgroundColor = [UIColor clearColor];
     
-    self.textField = [[UITextField alloc] initWithFrame:CGRectNull];
+    self.textField = [[UITextField alloc] initWithFrame:CGRectZero];
     self.textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     self.textField.inputAccessoryView = self.actionBar;
     self.textField.delegate = self;
     [self addSubview:self.textField];
     
-    self.dateLabel = [[UILabel alloc] initWithFrame:CGRectNull];
+    self.dateLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.dateLabel.font = [UIFont systemFontOfSize:17];
     self.dateLabel.backgroundColor = [UIColor clearColor];
-    self.dateLabel.textColor = self.detailTextLabel.textColor;
+    self.dateLabel.textColor = [[self class] detailTextLabelColor];
     self.dateLabel.highlightedTextColor = [UIColor whiteColor];
     self.dateLabel.textAlignment = NSTextAlignmentRight;
     self.dateLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.contentView addSubview:self.dateLabel];
     
-    self.placeholderLabel = [[UILabel alloc] initWithFrame:CGRectNull];
+    self.placeholderLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.placeholderLabel.font = [UIFont systemFontOfSize:17];
     self.placeholderLabel.backgroundColor = [UIColor clearColor];
     self.placeholderLabel.textColor = [UIColor lightGrayColor];
@@ -108,6 +118,9 @@
     self.datePicker.maximumDate = self.item.maximumDate;
     self.datePicker.minuteInterval = self.item.minuteInterval;
     self.dateFormatter.dateFormat = self.item.format;
+    self.dateFormatter.calendar = self.item.calendar;
+    self.dateFormatter.timeZone = self.item.timeZone;
+    self.dateFormatter.locale = self.item.locale;
     self.dateLabel.text = self.item.value ? [self.dateFormatter stringFromDate:self.item.value] : @"";
     self.placeholderLabel.text = self.item.placeholder;
     self.placeholderLabel.hidden = self.dateLabel.text.length > 0;
@@ -116,15 +129,17 @@
         self.dateLabel.textAlignment = NSTextAlignmentLeft;
     }
     
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
-    self.dateLabel.textColor = self.item.inlinePickerItem ? [self performSelector:@selector(tintColor) withObject:nil] : self.detailTextLabel.textColor;
-#endif
+    if ([self respondsToSelector:@selector(tintColor)]) {
+        self.dateLabel.textColor = self.item.inlinePickerItem ? [self tintColor] : [[self class] detailTextLabelColor];
+    }
+
+    self.enabled = self.item.enabled;
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.textField.frame = CGRectNull;
+    self.textField.frame = CGRectZero;
     self.textField.alpha = 0;
     
     [self layoutDetailView:self.dateLabel minimumWidth:[self.dateLabel.text re_sizeWithFont:self.dateLabel.font].width];
@@ -137,6 +152,7 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
+    
     if (selected && !self.item.inlineDatePicker) {
         [self.textField becomeFirstResponder];
     }
@@ -144,9 +160,9 @@
     if (selected && self.item.inlineDatePicker && !self.item.inlinePickerItem) {
         [self setSelected:NO animated:NO];
         [self.item deselectRowAnimated:NO];
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
-        self.dateLabel.textColor = [self performSelector:@selector(tintColor) withObject:nil];
-#endif
+        if ([self respondsToSelector:@selector(tintColor)]) {
+            self.dateLabel.textColor = [self tintColor];
+        }
         self.item.inlinePickerItem = [REInlineDatePickerItem itemWithDateTimeItem:self.item];
         [self.section insertItem:self.item.inlinePickerItem atIndex:self.item.indexPath.row + 1];
 		[self.tableViewManager.tableView beginUpdates];
@@ -156,7 +172,7 @@
         if (selected && self.item.inlineDatePicker && self.item.inlinePickerItem) {
             [self setSelected:NO animated:NO];
             [self.item deselectRowAnimated:NO];
-            self.dateLabel.textColor = self.detailTextLabel.textColor;
+            self.dateLabel.textColor = [[self class] detailTextLabelColor];
             NSIndexPath *indexPath = [self.item.inlinePickerItem.indexPath copy];
             [self.section removeItemAtIndex:self.item.inlinePickerItem.indexPath.row];
             self.item.inlinePickerItem = nil;
@@ -167,9 +183,49 @@
     }
 }
 
+//! HACK
++ (UIColor *)detailTextLabelColor {
+    return [UIColor colorWithRed:0.556863 green:0.556863 blue:0.576471 alpha:1];
+}
+
 - (UIResponder *)responder
 {
     return self.textField;
+}
+
+#pragma mark -
+#pragma mark Handle state
+
+- (void)setItem:(REDateTimeItem *)item
+{
+    if (_item != nil) {
+        [_item removeObserver:self forKeyPath:@"enabled"];
+    }
+    
+    _item = item;
+    
+    [_item addObserver:self forKeyPath:@"enabled" options:NSKeyValueObservingOptionNew context:NULL];
+}
+
+- (void)setEnabled:(BOOL)enabled {
+    _enabled = enabled;
+    
+    self.userInteractionEnabled = _enabled;
+    
+    self.textLabel.enabled = _enabled;
+    self.textField.enabled = _enabled;
+    self.dateLabel.enabled = _enabled;
+    self.placeholderLabel.enabled = _enabled;
+    self.datePicker.enabled = _enabled;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([object isKindOfClass:[REDateTimeItem class]] && [keyPath isEqualToString:@"enabled"]) {
+        BOOL newValue = [[change objectForKey: NSKeyValueChangeNewKey] boolValue];
+        
+        self.enabled = newValue;
+    }
 }
 
 #pragma mark -

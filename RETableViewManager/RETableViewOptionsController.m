@@ -35,7 +35,7 @@
 
 @implementation RETableViewOptionsController
 
-- (id)initWithItem:(RETableViewItem *)item options:(NSArray *)options multipleChoice:(BOOL)multipleChoice completionHandler:(void(^)(void))completionHandler
+- (id)initWithItem:(RETableViewItem *)item options:(NSArray *)options multipleChoice:(BOOL)multipleChoice completionHandler:(void(^)(RETableViewItem *item))completionHandler
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (!self)
@@ -102,7 +102,7 @@
                 RERadioItem * __weak item = (RERadioItem *)weakSelf.item;
                 item.value = selectedItem.title;
                 if (weakSelf.completionHandler)
-                    weakSelf.completionHandler();
+                    weakSelf.completionHandler(selectedItem);
             } else { // Multiple choice item
                 REMultipleChoiceItem * __weak item = (REMultipleChoiceItem *)weakSelf.item;
                 [weakSelf.tableView deselectRowAtIndexPath:selectedItem.indexPath animated:YES];
@@ -125,7 +125,7 @@
                     refreshItems();
                 }
                 if (weakSelf.completionHandler)
-                    weakSelf.completionHandler();
+                    weakSelf.completionHandler(selectedItem);
             }
         }]];
     };

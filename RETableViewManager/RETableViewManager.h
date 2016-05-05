@@ -25,7 +25,6 @@
 
 #import <UIKit/UIKit.h>
 #import <REValidation/REValidation.h>
-#import "RECommonFunctions.h"
 #import "RETableViewSection.h"
 #import "RETableViewCellStyle.h"
 #import "RETableViewCell.h"
@@ -51,6 +50,7 @@
 #import "RESegmentedItem.h"
 #import "REInlineDatePickerItem.h"
 #import "REInlinePickerItem.h"
+#import "NSString+RETableViewManagerAdditions.h"
 
 @protocol RETableViewManagerDelegate;
 
@@ -105,7 +105,7 @@
 /**
  The object that acts as the delegate of the receiving table view.
  */
-@property (assign, readwrite, nonatomic) id<RETableViewManagerDelegate> delegate;
+@property (weak, readwrite, nonatomic) id<RETableViewManagerDelegate> delegate;
 
 ///-----------------------------
 /// @name Managing Custom Cells

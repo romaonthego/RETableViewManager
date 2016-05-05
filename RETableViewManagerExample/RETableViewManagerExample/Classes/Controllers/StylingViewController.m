@@ -51,12 +51,7 @@
     [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"Single_Selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
                                        forCellType:RETableViewCellTypeSingle];
    
-    // Retain legacy grouped cell style in iOS 7
-    //
-    if (REUIKitIsFlatMode()) {
-        self.manager.style.contentViewMargin = 10.0;
-        self.manager.style.backgroundImageMargin = 10.0;
-    }
+    self.manager.style.backgroundImageMargin = 10.0;
     
     // Set a custom style for a particular section
     //

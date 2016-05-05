@@ -4,7 +4,7 @@ __Powerful data driven content manager for UITableView.__
 
 `RETableViewManager` allows to manage the content of any `UITableView` with ease, both forms and lists. `RETableViewManager` is built on top of reusable cells technique and provides APIs for mapping any object class to any custom cell subclass.
 
-The general idea is to allow developers to use their own `UITableView` and `UITableViewController` instances (and even subclasses), providing a layer that synchronizes data with the cell appereance.
+The general idea is to allow developers to use their own `UITableView` and `UITableViewController` instances (and even subclasses), providing a layer that synchronizes data with the cell appearance.
 It fully implements `UITableViewDelegate` and `UITableViewDataSource` protocols so you don't have to.
 
 <img src="https://github.com/romaonthego/RETableViewManager/raw/master/Screenshot1.png" alt="RETableViewManager Screenshot" width="684" height="568" />
@@ -29,7 +29,7 @@ Get your `UITableView` up and running in several lines of code:
     // Add a section
     //
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"];
-    [manager addSection:section];
+    [self.manager addSection:section];
 
     // Add a string
     //
@@ -66,7 +66,7 @@ Also `RETableViewManager` provides APIs for super easy cell styling.
 ## Requirements
 * Xcode 5 or higher
 * Apple LLVM compiler
-* iOS 6.0 or higher
+* iOS 7.0 or higher
 * ARC
 
 ## Demo
@@ -75,9 +75,9 @@ Build and run the `RETableViewManagerExample.xcworkspace` in Xcode to see `RETab
 
 ## Installation
 
-### CocoaPods
+### 1) CocoaPods
 
-The recommended approach for installating `RETableViewManager` is via the [CocoaPods](http://cocoapods.org/) package manager, as it provides flexible dependency management and dead simple installation.
+The recommended approach for installing `RETableViewManager` is via the [CocoaPods](http://cocoapods.org/) package manager, as it provides flexible dependency management and dead simple installation.
 For best results, it is recommended that you install via CocoaPods >= **0.28.0** using Git >= **1.8.0** installed via Homebrew.
 
 Install CocoaPods if not already available:
@@ -98,8 +98,8 @@ $ edit Podfile
 Edit your Podfile and add RETableViewManager:
 
 ``` bash
-platform :ios, '6.0'
-pod 'RETableViewManager', '~> 1.5.10'
+platform :ios, '7.0'
+pod 'RETableViewManager', '~> 1.6'
 ```
 
 Install into your Xcode project:
@@ -115,6 +115,10 @@ $ open MyProject.xcworkspace
 ```
 
 Please note that if your installation fails, it may be because you are installing with a version of Git lower than CocoaPods is expecting. Please ensure that you are running Git >= **1.8.0** by executing `git --version`. You can get a full picture of the installation details by executing `pod install --verbose`.
+
+### 2) Include Source Code
+
+Include RETableViewManager, REValidation, Resources, REFormattedNumberField folders in your source code
 
 
 ## API Quickstart
@@ -317,26 +321,43 @@ RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Test"
 
 // Add radio cell (options)
 //
-__typeof (self) __weak weakSelf = self;
-RERadioItem *optionItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" selectionHandler:^(RERadioItem *item) {
-  __typeof (weakSelf) __strong strongSelf = weakSelf;
-  [strongSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
 
-  // Generate sample options
-  //
-  NSMutableArray *options = [[NSMutableArray alloc] init];
-  for (NSInteger i = 1; i < 40; i++)
-      [options addObject:[NSString stringWithFormat:@"Option %i", i]];
+    __typeof (&*self) __weak weakSelf = self;
 
-  // Present options controller
-  //
-  RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options completionHandler:^(RETableViewItem *selectedItem) {
-      item.value = selectedItem.title;
-      [strongSelf.tableView reloadRowsAtIndexPaths:@[item.indexPath] withRowAnimation:UITableViewRowAnimationNone];
-  }];
-  [strongSelf.navigationController pushViewController:optionsController animated:YES];
-}];
-[section addItem:optionItem];
+     RERadioItem *radioItem = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" selectionHandler:^(RERadioItem *item) {
+        [item deselectRowAnimated:YES]; // same as [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+
+        // Generate sample options
+        //
+        NSMutableArray *options = [[NSMutableArray alloc] init];
+        for (NSInteger i = 1; i < 40; i++)
+            [options addObject:[NSString stringWithFormat:@"Option %li", (long) i]];
+
+        // Present options controller
+        //
+        RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options multipleChoice:NO completionHandler:^{
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+
+            [item reloadRowWithAnimation:UITableViewRowAnimationNone]; // same as [weakSelf.tableView reloadRowsAtIndexPaths:@[item.indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }];
+
+        // Adjust styles
+        //
+        optionsController.delegate = weakSelf;
+        optionsController.style = section.style;
+        if (weakSelf.tableView.backgroundView == nil) {
+            optionsController.tableView.backgroundColor = weakSelf.tableView.backgroundColor;
+            optionsController.tableView.backgroundView = nil;
+        }
+
+        // Push the options controller
+        //
+        [weakSelf.navigationController pushViewController:optionsController animated:YES];
+    }];
+
+    [section addItem:radioItem];
+
+
 ```
 
 ### Float Item (UISlider) Example
@@ -570,24 +591,20 @@ self.manager.style.cellHeight = 42.0;
 [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"Single_Selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
                                    forCellType:RETableViewCellTypeSingle];
 
-// Retain legacy grouped cell style in iOS 7
-//
-if (REDeviceIsUIKit7()) {
-    self.manager.style.contentViewMargin = 10.0;
+self.manager.style.contentViewMargin = 10.0;
     self.manager.style.backgroundImageMargin = 10.0;
-}
 
 // Set a custom style for a particular section
 //
 self.accessoriesSection.style = [self.manager.style copy];
 [self.accessoriesSection.style setBackgroundImage:[[UIImage imageNamed:@"First_Alt"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
-                           forCellType:RETableViewCellTypeFirst];
+                                      forCellType:RETableViewCellTypeFirst];
 [self.accessoriesSection.style setBackgroundImage:[[UIImage imageNamed:@"Middle_Alt"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
-                           forCellType:RETableViewCellTypeMiddle];
+                                      forCellType:RETableViewCellTypeMiddle];
 [self.accessoriesSection.style setBackgroundImage:[[UIImage imageNamed:@"Last_Alt"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
-                           forCellType:RETableViewCellTypeLast];
+                                      forCellType:RETableViewCellTypeLast];
 [self.accessoriesSection.style setBackgroundImage:[[UIImage imageNamed:@"Single_Alt"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
-                           forCellType:RETableViewCellTypeSingle];
+                                      forCellType:RETableViewCellTypeSingle];
 ```
 
 ## Contact

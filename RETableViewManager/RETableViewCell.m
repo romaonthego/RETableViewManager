@@ -141,10 +141,10 @@
     
     // Set content frame
     //
-    CGRect contentFrame = self.contentView.frame;
+    CGRect contentFrame = self.contentView.bounds;
     contentFrame.origin.x = contentFrame.origin.x + self.section.style.contentViewMargin;
     contentFrame.size.width = contentFrame.size.width - self.section.style.contentViewMargin * 2;
-    self.contentView.frame = contentFrame;
+    self.contentView.bounds = contentFrame;
     
     // iOS 7 textLabel margin fix
     //
@@ -187,7 +187,7 @@
     CGFloat cellOffset = 10.0;
     CGFloat fieldOffset = 10.0;
     
-    if (REUIKitIsFlatMode() && self.section.style.contentViewMargin <= 0)
+    if (self.section.style.contentViewMargin <= 0)
         cellOffset += 5.0;
     
     UIFont *font = self.textLabel.font;
@@ -238,10 +238,10 @@
 
 - (NSIndexPath *)indexPathForPreviousResponderInSectionIndex:(NSUInteger)sectionIndex
 {
-    RETableViewSection *section = [self.tableViewManager.sections objectAtIndex:sectionIndex];
+    RETableViewSection *section = self.tableViewManager.sections[sectionIndex];
     NSUInteger indexInSection =  [section isEqual:self.section] ? [section.items indexOfObject:self.item] : section.items.count;
     for (NSInteger i = indexInSection - 1; i >= 0; i--) {
-        RETableViewItem *item = [section.items objectAtIndex:i];
+        RETableViewItem *item = section.items[i];
         if ([item isKindOfClass:[RETableViewItem class]]) {
             Class class = [self.tableViewManager classForCellAtIndexPath:item.indexPath];
             if ([class canFocusWithItem:item])
@@ -263,10 +263,10 @@
 
 - (NSIndexPath *)indexPathForNextResponderInSectionIndex:(NSUInteger)sectionIndex
 {
-    RETableViewSection *section = [self.tableViewManager.sections objectAtIndex:sectionIndex];
+    RETableViewSection *section = self.tableViewManager.sections[sectionIndex];
     NSUInteger indexInSection =  [section isEqual:self.section] ? [section.items indexOfObject:self.item] : -1;
     for (NSInteger i = indexInSection + 1; i < section.items.count; i++) {
-        RETableViewItem *item = [section.items objectAtIndex:i];
+        RETableViewItem *item = section.items[i];
         if ([item isKindOfClass:[RETableViewItem class]]) {
             Class class = [self.tableViewManager classForCellAtIndexPath:item.indexPath];
             if ([class canFocusWithItem:item])
@@ -298,7 +298,6 @@
         if (!cell)
             [self.parentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
         cell = (RETableViewCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
-        [self.responder resignFirstResponder];
         [cell.responder becomeFirstResponder];
     }
     if (self.item.actionBarNavButtonTapHandler)

@@ -6,12 +6,12 @@
 //  Copyright (c) 2013 Roman Efimov. All rights reserved.
 //
 
-#import "RETableViewCell.h"
+#import <RETableViewManager/RETableViewManager.h>
 #import "ListImageItem.h"
 
 @interface ListImageCell : RETableViewCell
 
 @property (strong, readonly, nonatomic) UIImageView *pictureView;
-@property (strong, readwrite, nonatomic) ListImageItem *item;
+@property (strong, readwrite, nonatomic) ListImageItem *imageItem;
 
 @end

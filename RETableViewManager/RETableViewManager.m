@@ -134,7 +134,7 @@
 
 - (id)objectAtKeyedSubscript:(id <NSCopying>)key
 {
-    return [self.registeredClasses objectForKey:key];
+    return self.registeredClasses[key];
 }
 
 - (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key
@@ -144,9 +144,9 @@
 
 - (Class)classForCellAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
-    NSObject *item = [section.items objectAtIndex:indexPath.row];
-    return [self.registeredClasses objectForKey:item.class];
+    RETableViewSection *section = self.mutableSections[indexPath.section];
+    NSObject *item = section.items[indexPath.row];
+    return self.registeredClasses[item.class];
 }
 
 - (NSArray *)sections
@@ -169,13 +169,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return ((RETableViewSection *)[self.mutableSections objectAtIndex:sectionIndex]).items.count;
+    if (self.mutableSections.count <= sectionIndex) {
+        return 0;
+    }
+    return ((RETableViewSection *)self.mutableSections[sectionIndex]).items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
-    RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
+    RETableViewSection *section = self.mutableSections[indexPath.section];
+    RETableViewItem *item = section.items[indexPath.row];
     
     UITableViewCellStyle cellStyle = UITableViewCellStyleDefault;
     if ([item isKindOfClass:[RETableViewItem class]])
@@ -213,6 +216,7 @@
     
     if (cell == nil) {
         cell = [[cellClass alloc] initWithStyle:cellStyle reuseIdentifier:cellIdentifier];
+
         loadCell(cell);
     }
     
@@ -255,23 +259,29 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)sectionIndex
 {
-    RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
+    if (self.mutableSections.count <= sectionIndex) {
+        return nil;
+    }
+    RETableViewSection *section = self.mutableSections[sectionIndex];
     return section.headerTitle;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)sectionIndex
 {
-    RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
+    if (self.mutableSections.count <= sectionIndex) {
+        return nil;
+    }
+    RETableViewSection *section = self.mutableSections[sectionIndex];
     return section.footerTitle;
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-    RETableViewSection *sourceSection = [self.mutableSections objectAtIndex:sourceIndexPath.section];
-    RETableViewItem *item = [sourceSection.items objectAtIndex:sourceIndexPath.row];
+    RETableViewSection *sourceSection = self.mutableSections[sourceIndexPath.section];
+    RETableViewItem *item = sourceSection.items[sourceIndexPath.row];
     [sourceSection removeItemAtIndex:sourceIndexPath.row];
     
-    RETableViewSection *destinationSection = [self.mutableSections objectAtIndex:destinationIndexPath.section];
+    RETableViewSection *destinationSection = self.mutableSections[destinationIndexPath.section];
     [destinationSection insertItem:item atIndex:destinationIndexPath.row];
     
     if (item.moveCompletionHandler)
@@ -280,27 +290,34 @@
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
-    RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
+    if (self.mutableSections.count <= indexPath.section) {
+        return NO;
+    }
+    RETableViewSection *section = self.mutableSections[indexPath.section];
+    RETableViewItem *item = section.items[indexPath.row];
     return item.moveHandler != nil;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
-    RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
-    if ([item isKindOfClass:[RETableViewItem class]]) {
-        return item.editingStyle != UITableViewCellEditingStyleNone || item.moveHandler;
+    if (indexPath.section < [self.mutableSections count]) {
+        RETableViewSection *section = self.mutableSections[indexPath.section];
+        if (indexPath.row < [section.items count]) {
+            RETableViewItem *item = section.items[indexPath.row];
+            if ([item isKindOfClass:[RETableViewItem class]]) {
+                return item.editingStyle != UITableViewCellEditingStyleNone || item.moveHandler;
+            }
+        }
     }
-    
+
     return NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
-        RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
+        RETableViewSection *section = self.mutableSections[indexPath.section];
+        RETableViewItem *item = section.items[indexPath.row];
         if (item.deletionHandlerWithCompletion) {
             item.deletionHandlerWithCompletion(item, ^{
                 [section removeItemAtIndex:indexPath.row];
@@ -327,8 +344,8 @@
     }
     
     if (editingStyle == UITableViewCellEditingStyleInsert) {
-        RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
-        RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
+        RETableViewSection *section = self.mutableSections[indexPath.section];
+        RETableViewItem *item = section.items[indexPath.row];
         if (item.insertionHandler)
             item.insertionHandler(item);
     }
@@ -394,8 +411,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
-    id item = [section.items objectAtIndex:indexPath.row];
+    RETableViewSection *section = self.mutableSections[indexPath.section];
+    id item = section.items[indexPath.row];
     
     // Forward to UITableView delegate
     //
@@ -407,16 +424,36 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)sectionIndex
 {
-    RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
+    if (self.mutableSections.count <= sectionIndex) {
+        return UITableViewAutomaticDimension;
+    }
+    RETableViewSection *section = self.mutableSections[sectionIndex];
     
-    if (section.headerHeight != RETableViewSectionFooterHeightAutomatic) {
+    if (section.headerHeight != RETableViewSectionHeaderHeightAutomatic) {
         return section.headerHeight;
     }
     
-    if (section.headerView)
+    if (section.headerView) {
         return section.headerView.frame.size.height;
-    else if (section.headerTitle.length)
-        return self.defaultTableViewSectionHeight;
+    } else if (section.headerTitle.length) {
+        if (!UITableViewStyleGrouped) {
+            return self.defaultTableViewSectionHeight;
+        } else {
+            CGFloat headerHeight = 0;
+            CGFloat headerWidth = CGRectGetWidth(CGRectIntegral(tableView.bounds)) - 40.0f; // 40 = 20pt horizontal padding on each side
+        
+            CGSize headerRect = CGSizeMake(headerWidth, RETableViewSectionHeaderHeightAutomatic);
+        
+            CGRect headerFrame = [section.headerTitle boundingRectWithSize:headerRect
+                                                                   options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
+                                                                attributes:@{ NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline] }
+                                                                   context:nil];
+            
+            headerHeight = headerFrame.size.height;
+        
+            return headerHeight + 20.0f;
+        }
+    }
     
     // Forward to UITableView delegate
     //
@@ -428,16 +465,36 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)sectionIndex
 {
-    RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
+    if (self.mutableSections.count <= sectionIndex) {
+        return UITableViewAutomaticDimension;
+    }
+    RETableViewSection *section = self.mutableSections[sectionIndex];
     
     if (section.footerHeight != RETableViewSectionFooterHeightAutomatic) {
         return section.footerHeight;
     }
     
-    if (section.footerView)
+    if (section.footerView) {
         return section.footerView.frame.size.height;
-    else if (section.footerTitle.length)
-        return self.defaultTableViewSectionHeight;
+    } else if (section.footerTitle.length) {
+        if (!UITableViewStyleGrouped) {
+            return self.defaultTableViewSectionHeight;
+        } else {
+            CGFloat footerHeight = 0;
+            CGFloat footerWidth = CGRectGetWidth(CGRectIntegral(tableView.bounds)) - 40.0f; // 40 = 20pt horizontal padding on each side
+        
+            CGSize footerRect = CGSizeMake(footerWidth, RETableViewSectionFooterHeightAutomatic);
+        
+            CGRect footerFrame = [section.footerTitle boundingRectWithSize:footerRect
+                                                                   options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
+                                                                attributes:@{ NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote] }
+                                                                   context:nil];
+            
+            footerHeight = footerFrame.size.height;
+
+            return footerHeight + 10.0f;
+        }
+    }
     
     // Forward to UITableView delegate
     //
@@ -451,61 +508,31 @@
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
-    id item = [section.items objectAtIndex:indexPath.row];
+    if (self.mutableSections.count <= indexPath.section) {
+        return UITableViewAutomaticDimension;
+    }
+    RETableViewSection *section = self.mutableSections[indexPath.section];
+
+    id item = section.items[indexPath.row];
     
     // Forward to UITableView delegate
     //
-    IF_IOS7_OR_GREATER (
-        if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:estimatedHeightForRowAtIndexPath:)])
-            return [self.delegate tableView:tableView estimatedHeightForRowAtIndexPath:indexPath];
-    );
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:estimatedHeightForRowAtIndexPath:)])
+        return [self.delegate tableView:tableView estimatedHeightForRowAtIndexPath:indexPath];
     
     CGFloat height = [[self classForCellAtIndexPath:indexPath] heightWithItem:item tableViewManager:self];
+
     return height ? height : UITableViewAutomaticDimension;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)sectionIndex
-{
-    RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
-    if (section.headerView)
-        return section.headerView.frame.size.height;
-    else if (section.headerTitle.length)
-        return self.defaultTableViewSectionHeight;
-    
-    // Forward to UITableView delegate
-    //
-    IF_IOS7_OR_GREATER (
-        if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:estimatedHeightForHeaderInSection:)])
-            return [self.delegate tableView:tableView estimatedHeightForHeaderInSection:sectionIndex];
-    );
-    
-    return UITableViewAutomaticDimension;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)sectionIndex
-{
-    RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
-    if (section.footerView)
-        return section.footerView.frame.size.height;
-    else if (section.footerTitle.length)
-        return self.defaultTableViewSectionHeight;
-    
-    // Forward to UITableView delegate
-    //
-    IF_IOS7_OR_GREATER (
-        if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:estimatedHeightForFooterInSection:)])
-            return [self.delegate tableView:tableView estimatedHeightForFooterInSection:sectionIndex];
-    );
-    
-    return UITableViewAutomaticDimension;
 }
 
 // Section header & footer information. Views are preferred over title should you decide to provide both
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectionIndex
 {
-    RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
+    if (self.mutableSections.count <= sectionIndex) {
+        return nil;
+    }
+    RETableViewSection *section = self.mutableSections[sectionIndex];
     
     // Forward to UITableView delegate
     //
@@ -517,7 +544,10 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)sectionIndex
 {
-    RETableViewSection *section = [self.mutableSections objectAtIndex:sectionIndex];
+    if (self.mutableSections.count <= sectionIndex) {
+        return nil;
+    }
+    RETableViewSection *section = self.mutableSections[sectionIndex];
     
     // Forward to UITableView delegate
     //
@@ -531,8 +561,8 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
-    id item = [section.items objectAtIndex:indexPath.row];
+    RETableViewSection *section = self.mutableSections[indexPath.section];
+    id item = section.items[indexPath.row];
     if ([item respondsToSelector:@selector(setAccessoryButtonTapHandler:)]) {
         RETableViewItem *actionItem = (RETableViewItem *)item;
         if (actionItem.accessoryButtonTapHandler)
@@ -595,8 +625,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
-    id item = [section.items objectAtIndex:indexPath.row];
+    RETableViewSection *section = self.mutableSections[indexPath.section];
+    id item = section.items[indexPath.row];
     if ([item respondsToSelector:@selector(setSelectionHandler:)]) {
         RETableViewItem *actionItem = (RETableViewItem *)item;
         if (actionItem.selectionHandler)
@@ -621,8 +651,8 @@
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
-    RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
+    RETableViewSection *section = self.mutableSections[indexPath.section];
+    RETableViewItem *item = section.items[indexPath.row];
     
     if (![item isKindOfClass:[RETableViewItem class]])
         return UITableViewCellEditingStyleNone;
@@ -675,8 +705,8 @@
 
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
 {
-    RETableViewSection *sourceSection = [self.mutableSections objectAtIndex:sourceIndexPath.section];
-    RETableViewItem *item = [sourceSection.items objectAtIndex:sourceIndexPath.row];
+    RETableViewSection *sourceSection = self.mutableSections[sourceIndexPath.section];
+    RETableViewItem *item = sourceSection.items[sourceIndexPath.row];
     if (item.moveHandler) {
         BOOL allowed = item.moveHandler(item, sourceIndexPath, proposedDestinationIndexPath);
         if (!allowed)
@@ -707,8 +737,8 @@
 
 - (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
-    id anItem = [section.items objectAtIndex:indexPath.row];
+    RETableViewSection *section = self.mutableSections[indexPath.section];
+    id anItem = section.items[indexPath.row];
     if ([anItem respondsToSelector:@selector(setCopyHandler:)]) {
         RETableViewItem *item = anItem;
         if (item.copyHandler || item.pasteHandler)
@@ -725,8 +755,8 @@
 
 - (BOOL)tableView:(UITableView *)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
 {
-    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
-    id anItem = [section.items objectAtIndex:indexPath.row];
+    RETableViewSection *section = self.mutableSections[indexPath.section];
+    id anItem = section.items[indexPath.row];
     if ([anItem respondsToSelector:@selector(setCopyHandler:)]) {
         RETableViewItem *item = anItem;
         if (item.copyHandler && action == @selector(copy:))
@@ -749,8 +779,8 @@
 
 - (void)tableView:(UITableView *)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
 {
-    RETableViewSection *section = [self.mutableSections objectAtIndex:indexPath.section];
-    RETableViewItem *item = [section.items objectAtIndex:indexPath.row];
+    RETableViewSection *section = self.mutableSections[indexPath.section];
+    RETableViewItem *item = section.items[indexPath.row];
     
 	if (action == @selector(copy:)) {
 		if (item.copyHandler)
