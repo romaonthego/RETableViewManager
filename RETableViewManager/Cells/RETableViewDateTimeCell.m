@@ -93,11 +93,27 @@
 {
     self.textLabel.text = self.item.title.length == 0 ? @" " : self.item.title;
     self.textField.inputView = self.datePicker;
-    self.datePicker.date = self.item.value ? self.item.value : (self.item.pickerStartDate ? self.item.pickerStartDate : [NSDate date]);
+	if (self.item.value || self.item.pickerStartDate)
+	{
+		if (self.item.value)
+		{
+			self.datePicker.date = self.item.value;
+		}
+		else if (self.item.pickerStartDate)
+		{
+			self.datePicker.date = self.item.pickerStartDate;
+		}
+	}
     self.datePicker.datePickerMode = self.item.datePickerMode;
     self.datePicker.locale = self.item.locale;
-    self.datePicker.calendar = self.item.calendar;
-    self.datePicker.timeZone = self.item.timeZone;
+	if (self.item.calendar)
+	{
+		self.datePicker.calendar = self.item.calendar;
+	}
+	if (self.item.timeZone)
+	{
+		self.datePicker.timeZone = self.item.timeZone;
+	}
     self.datePicker.minimumDate = self.item.minimumDate;
     self.datePicker.maximumDate = self.item.maximumDate;
     self.datePicker.minuteInterval = self.item.minuteInterval;
@@ -149,7 +165,9 @@
         }
         self.item.inlinePickerItem = [REInlineDatePickerItem itemWithDateTimeItem:self.item];
         [self.section insertItem:self.item.inlinePickerItem atIndex:self.item.indexPath.row + 1];
+		[self.tableViewManager.tableView beginUpdates];
         [self.tableViewManager.tableView insertRowsAtIndexPaths:@[self.item.inlinePickerItem.indexPath] withRowAnimation:UITableViewRowAnimationFade];
+		[self.tableViewManager.tableView endUpdates];
     } else {
         if (selected && self.item.inlineDatePicker && self.item.inlinePickerItem) {
             [self setSelected:NO animated:NO];
@@ -158,7 +176,9 @@
             NSIndexPath *indexPath = [self.item.inlinePickerItem.indexPath copy];
             [self.section removeItemAtIndex:self.item.inlinePickerItem.indexPath.row];
             self.item.inlinePickerItem = nil;
+			[self.tableViewManager.tableView beginUpdates];
             [self.tableViewManager.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+			[self.tableViewManager.tableView endUpdates];
         }
     }
 }

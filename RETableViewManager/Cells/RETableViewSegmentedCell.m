@@ -95,11 +95,11 @@
     
     if (self.item.segmentedControlTitles.count > 0) {
         [self.item.segmentedControlTitles enumerateObjectsUsingBlock:^(NSString *title, NSUInteger idx, BOOL *stop) {
-            [self.segmentedControl insertSegmentWithTitle:title atIndex:idx animated:NO];
+            [myself.segmentedControl insertSegmentWithTitle:title atIndex:idx animated:NO];
         }];
     } else if (self.item.segmentedControlImages.count > 0) {
         [self.item.segmentedControlImages enumerateObjectsUsingBlock:^(UIImage *image, NSUInteger idx, BOOL *stop) {
-            [self.segmentedControl insertSegmentWithImage:image atIndex:idx animated:NO];
+            [myself.segmentedControl insertSegmentWithImage:image atIndex:idx animated:NO];
         }];
     }
     self.segmentedControl.tintColor = self.item.tintColor;

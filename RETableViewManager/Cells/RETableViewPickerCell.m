@@ -84,12 +84,14 @@
     [self.contentView addSubview:self.placeholderLabel];
     
     self.pickerView = [[UIPickerView alloc] init];
-    self.pickerView.delegate = self;
-    self.pickerView.dataSource = self;
 }
 
 - (void)cellWillAppear
 {
+    //TODO: i don't know why,but it's work.
+    //FIXME: later fix
+    self.pickerView.delegate = self;
+    self.pickerView.dataSource = self;
     self.textLabel.text = self.item.title.length == 0 ? @" " : self.item.title;
     self.imageView.image = self.item.image;
     self.imageView.highlightedImage = self.item.highlightedImage;
