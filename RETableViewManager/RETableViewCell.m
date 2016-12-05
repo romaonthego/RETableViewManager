@@ -132,17 +132,6 @@
     contentFrame.size.width = contentFrame.size.width - self.section.style.contentViewMargin * 2;
     self.contentView.bounds = contentFrame;
     
-    // iOS 7 textLabel margin fix
-    //
-    if (self.section.style.contentViewMargin > 0) {
-        if (self.imageView.image) {
-            self.imageView.frame = CGRectMake(self.section.style.contentViewMargin, self.imageView.frame.origin.y, self.imageView.frame.size.width, self.imageView.frame.size.height);
-            self.textLabel.frame = CGRectMake(self.section.style.contentViewMargin + self.imageView.frame.size.width + 15.0, self.textLabel.frame.origin.y, self.textLabel.frame.size.width, self.textLabel.frame.size.height);
-        } else {
-            self.textLabel.frame = CGRectMake(self.section.style.contentViewMargin, self.textLabel.frame.origin.y, self.textLabel.frame.size.width, self.textLabel.frame.size.height);
-        }
-    }
-    
     if ([self.section.style hasCustomBackgroundImage]) {
         self.backgroundColor = [UIColor clearColor];
         if (!self.backgroundImageView) {
